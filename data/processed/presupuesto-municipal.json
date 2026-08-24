@@ -28,21 +28,75 @@
   },
   {
     "comuna_id": "la-higuera",
-    "anno": 2025,
-    "tipo": "ingreso",
-    "categoria": "C X C TRANSFERENCIAS CORRIENTES",
-    "subcategoria": "05-00-000-000-000",
-    "monto": 2701635000.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Salud+Ejec.+Presupuestaria+Diciembre+2025+%28Ingresos%29.pdf/0ffd4293-5587-4a79-b180-4eafda2451be"
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P TRANSFERENCIAS CORRIENTES",
+    "subcategoria": "24-00-000-000-000",
+    "monto": 1794989000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
   },
   {
     "comuna_id": "la-higuera",
-    "anno": 2025,
-    "tipo": "ingreso",
-    "categoria": "C X C OTROS INGRESOS CORRIENTES",
-    "subcategoria": "08-00-000-000-000",
-    "monto": 74933000.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Salud+Ejec.+Presupuestaria+Diciembre+2025+%28Ingresos%29.pdf/0ffd4293-5587-4a79-b180-4eafda2451be"
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P GASTOS EN PERSONAL",
+    "subcategoria": "21-00-000-000-000",
+    "monto": 1383022000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P BIENES Y SERVICIOS DE CONSUMO",
+    "subcategoria": "22-00-000-000-000",
+    "monto": 988907000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P INICIATIVAS DE INVERSIÓN",
+    "subcategoria": "31-00-000-000-000",
+    "monto": 235670000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P SERVICIO DE LA DEUDA",
+    "subcategoria": "34-00-000-000-000",
+    "monto": 69083000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P PRESTACIONES DE SEGURIDAD",
+    "subcategoria": "23-00-000-000-000",
+    "monto": 53041000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P ADQUISICIÓN DE ACTIVOS NO",
+    "subcategoria": "29-00-000-000-000",
+    "monto": 26977000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P OTROS GASTOS CORRIENTES",
+    "subcategoria": "26-00-000-000-000",
+    "monto": 26779000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
   },
   {
     "comuna_id": "la-serena",
@@ -223,5 +277,68 @@
     "subcategoria": "14-00-000-000-000",
     "monto": 0.0,
     "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C OTROS INGRESOS CORRIENTES",
+    "subcategoria": "08-00-000-000-000",
+    "monto": 2397930000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/BALANCE+DE+EJECUCION+PRESUPUESTARIA+MES+JULIO-+INGRESOS.pdf_1786719182201/86f19d9a-a843-460a-a2ee-752fb44596c3"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRIBUTOS SOBRE EL USO DE BIENES",
+    "subcategoria": "03-00-000-000-000",
+    "monto": 994139000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/BALANCE+DE+EJECUCION+PRESUPUESTARIA+MES+JULIO-+INGRESOS.pdf_1786719182201/86f19d9a-a843-460a-a2ee-752fb44596c3"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRANSFERENCIAS PARA GASTOS DE",
+    "subcategoria": "13-00-000-000-000",
+    "monto": 886681000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/BALANCE+DE+EJECUCION+PRESUPUESTARIA+MES+JULIO-+INGRESOS.pdf_1786719182201/86f19d9a-a843-460a-a2ee-752fb44596c3"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C RENTAS DE LA PROPIEDAD",
+    "subcategoria": "06-00-000-000-000",
+    "monto": 50118000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/BALANCE+DE+EJECUCION+PRESUPUESTARIA+MES+JULIO-+INGRESOS.pdf_1786719182201/86f19d9a-a843-460a-a2ee-752fb44596c3"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRANSFERENCIAS CORRIENTES",
+    "subcategoria": "05-00-000-000-000",
+    "monto": 44625000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/BALANCE+DE+EJECUCION+PRESUPUESTARIA+MES+JULIO-+INGRESOS.pdf_1786719182201/86f19d9a-a843-460a-a2ee-752fb44596c3"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C RECUPERACIÓN DE PRÉSTAMOS",
+    "subcategoria": "12-00-000-000-000",
+    "monto": 37089000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/BALANCE+DE+EJECUCION+PRESUPUESTARIA+MES+JULIO-+INGRESOS.pdf_1786719182201/86f19d9a-a843-460a-a2ee-752fb44596c3"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "SALDO INICIAL DE CAJA",
+    "subcategoria": "15-00-000-000-000",
+    "monto": 4610000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/BALANCE+DE+EJECUCION+PRESUPUESTARIA+MES+JULIO-+INGRESOS.pdf_1786719182201/86f19d9a-a843-460a-a2ee-752fb44596c3"
   }
 ]

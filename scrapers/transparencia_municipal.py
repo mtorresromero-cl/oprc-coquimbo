@@ -151,10 +151,10 @@ class ScraperTransparenciaMunicipal(BaseScraper):
 
     def _ir_a_categoria(self, page, comuna_id: str) -> None:
         page.locator("a", has_text=BALANCE_EJECUCION_RE).first.click()
-        page.wait_for_timeout(1800)
+        page.wait_for_timeout(2500)
         for paso in NAVEGACION_EXTRA.get(comuna_id, []):
             page.locator("a", has_text=re.compile(f"^{re.escape(paso)}$")).first.click()
-            page.wait_for_timeout(1800)
+            page.wait_for_timeout(2500)
 
         # varias comunas piden elegir área (Municipal/Educación/Salud) antes
         # de mostrar los años — si no hay años visibles todavía pero sí un
@@ -162,10 +162,10 @@ class ScraperTransparenciaMunicipal(BaseScraper):
         # municipal en sí, no sus corporaciones).
         hay_anno = page.locator("a", has_text=re.compile(r"^(Año )?\d{4}$")).count()
         if not hay_anno:
-            municipal = page.locator("a", has_text=re.compile(r"^MUNICIPAL$", re.IGNORECASE))
+            municipal = page.locator("a", has_text=re.compile(r"^MUNICIPAL(IDAD)?$", re.IGNORECASE))
             if municipal.count():
                 municipal.first.click()
-                page.wait_for_timeout(1800)
+                page.wait_for_timeout(2500)
 
     def _encontrar_pdf_mas_reciente(
         self, page, comuna_id: str, org_code: str
@@ -187,11 +187,13 @@ class ScraperTransparenciaMunicipal(BaseScraper):
             page.locator("a", has_text=texto_anno).first.click()
             page.wait_for_timeout(2000)
 
-            # algunas comunas agregan un nivel extra de sub-tipo de reporte
-            # antes de mostrar la tabla (ej. Ovalle: "Balances de Ejecución
-            # Trimestral" vs "Balance de comprobación...").
+            # algunas comunas agregan un nivel extra DESPUÉS de elegir el año
+            # (ej. Ovalle: sub-tipo "trimestral" vs "comprobación"; Paihuano:
+            # elegir área "Municipalidad"/Salud/Educación).
             if not page.locator("table.table-responsive-lg tbody tr").count():
-                sub = page.locator("a", has_text=re.compile("trimestral", re.IGNORECASE))
+                sub = page.locator(
+                    "a", has_text=re.compile("trimestral|^Municipal(idad)?$", re.IGNORECASE)
+                )
                 if sub.count():
                     sub.first.click()
                     page.wait_for_timeout(2000)
