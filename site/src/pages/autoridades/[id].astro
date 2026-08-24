@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { autoridades, CARGO_LABEL, nombreComuna, votacionesDeAutoridad, VOTO_LABEL } from '../../lib/datos';
+import { autoridades, CARGO_LABEL, nombreComuna, votacionesDeAutoridad, VOTO_LABEL, mocionesDeAutoridad } from '../../lib/datos';
 
 export function getStaticPaths() {
 	return autoridades.map((a) => ({
@@ -11,6 +11,7 @@ export function getStaticPaths() {
 
 const { autoridad } = Astro.props;
 const historialVotos = votacionesDeAutoridad(autoridad.id);
+const historialMociones = mocionesDeAutoridad(autoridad.id);
 ---
 
 <Layout title={`${autoridad.nombre_completo} — OPRC`}>
@@ -84,6 +85,32 @@ const historialVotos = votacionesDeAutoridad(autoridad.id);
 								</span>
 							</div>
 							<p class="mt-1 text-slate-800">{sesion.descripcion}</p>
+						</li>
+					))}
+				</ul>
+			</section>
+		)}
+
+		{historialMociones.length > 0 && (
+			<section class="mt-10">
+				<h2 class="text-lg font-semibold text-slate-900">
+					Mociones presentadas ({historialMociones.length})
+				</h2>
+				<p class="mt-1 text-xs text-slate-500">
+					Como autor o coautor, vía datos abiertos enlazados de la BCN.
+				</p>
+				<ul class="mt-3 space-y-3">
+					{historialMociones.map((m) => (
+						<li class="rounded-lg border border-slate-200 p-3 text-sm">
+							<div class="flex items-center justify-between text-xs text-slate-500">
+								<span>{m.fecha}</span>
+								<span>Boletín {m.boletin}</span>
+							</div>
+							<p class="mt-1 text-slate-800">
+								<a href={m.url_bcn} target="_blank" rel="noopener" class="hover:underline">
+									{m.titulo}
+								</a>
+							</p>
 						</li>
 					))}
 				</ul>

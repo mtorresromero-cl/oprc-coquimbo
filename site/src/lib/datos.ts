@@ -47,13 +47,28 @@ export interface VotacionSesion {
 	votos: Voto[];
 }
 
+export interface Mocion {
+	autoridad_id: string;
+	fecha: string;
+	rol: string;
+	boletin: string;
+	titulo: string;
+	url_bcn: string;
+}
+
 import autoridadesRaw from '../../../data/processed/autoridades.json';
 import comunasRaw from '../../../data/processed/comunas.json';
 import votacionesRaw from '../../../data/processed/votaciones.json';
+import mocionesRaw from '../../../data/processed/mociones.json';
 
 export const autoridades: Autoridad[] = autoridadesRaw as Autoridad[];
 export const comunas: Comuna[] = comunasRaw as Comuna[];
 export const votaciones: VotacionSesion[] = votacionesRaw as VotacionSesion[];
+export const mociones: Mocion[] = mocionesRaw as Mocion[];
+
+export function mocionesDeAutoridad(autoridadId: string) {
+	return mociones.filter((m) => m.autoridad_id === autoridadId);
+}
 
 export const VOTO_LABEL: Record<string, string> = {
 	favor: 'A favor',

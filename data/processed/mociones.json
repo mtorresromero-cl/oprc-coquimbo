@@ -1,0 +1,930 @@
+[
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2026-03-04",
+    "rol": "coautor",
+    "boletin": "18097-07",
+    "titulo": "Modifica el Código Procesal Penal, para mejorar el recurso de revisión en materia penal, y garantiza la indemnización por error judicial",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709850"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2026-01-27",
+    "rol": "coautor",
+    "boletin": "18078-07",
+    "titulo": "Modifica el Código Orgánico de Tribunales para incorporar el vínculo de amistad como causal de implicancia",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709812"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2026-01-26",
+    "rol": "coautor",
+    "boletin": "18077-25",
+    "titulo": "Deroga disposiciones del Código Penal que establecen una presunción especial de legítima defensa respecto de funcionarios policiales, de Gendarmería y de las Fuerzas Armadas",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709951"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2026-01-21",
+    "rol": "coautor",
+    "boletin": "18068-13",
+    "titulo": "Modifica el Código del Trabajo para imponer al empleador la obligación de proveer a los trabajadores capacitación en respiración cardiopulmonar, en los establecimientos que indica",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/710036"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2026-01-20",
+    "rol": "coautor",
+    "boletin": "18062-18",
+    "titulo": "Prohíbe el ingreso, registro y uso de redes sociales a personas menores de dieciséis años de edad",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709795"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2026-01-19",
+    "rol": "coautor",
+    "boletin": "18061-15",
+    "titulo": "Modifica la ley N° 18.290, de Tránsito, para incorporar la definición de zona de escuela",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709930"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2026-01-14",
+    "rol": "coautor",
+    "boletin": "18052-07",
+    "titulo": "Modifica la Carta Fundamental para determinar los principios de política exterior que debe observar el Presidente de la República en la conducción de las relaciones internacionales",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/710039"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2026-01-14",
+    "rol": "coautor",
+    "boletin": "18054-22",
+    "titulo": "Modifica la Ley General de Servicios Eléctricos para establecer la obligación de entregar generadores de emergencia a las cooperativas y comités de agua potable rural, en los casos que señala",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/710041"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2026-01-13",
+    "rol": "coautor",
+    "boletin": "18049-04",
+    "titulo": "Modifica diversos cuerpos legales para suprimir el límite de edad en la educación de personas con discapacidad",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709929"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2026-01-12",
+    "rol": "coautor",
+    "boletin": "18048-06",
+    "titulo": "Concede, por especial gracia, la nacionalidad chilena a la destacada deportista juvenil colombiana   María Camila Valencia Mosquera",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/710035"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2026-01-12",
+    "rol": "coautor",
+    "boletin": "18048-06",
+    "titulo": "Concede, por especial gracia, la nacionalidad chilena a la destacada deportista juvenil colombiana   María Camila Valencia Mosquera",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/710035"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2026-01-06",
+    "rol": "coautor",
+    "boletin": "18033-03",
+    "titulo": "Regula los servicios de banquetería y crea un Registro Nacional de Banqueteros",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/710031"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2026-01-05",
+    "rol": "coautor",
+    "boletin": "18027-13",
+    "titulo": "Interpreta el artículo 13 de la ley N° 19.728, que regula el Seguro de Desempleo, estableciendo su real sentido y alcance",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709694"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2026-01-05",
+    "rol": "coautor",
+    "boletin": "18026-03",
+    "titulo": "Impone a los establecimientos de comercio la obligación de contar con un servicio de atención telefónica para gestionar reclamos y consultas de sus clientes",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709693"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-12-17",
+    "rol": "coautor",
+    "boletin": "18024-07",
+    "titulo": "Modifica el Código Procesal Penal para perfeccionar la tramitación del recurso de revisión en materia penal y de la indemnización por error judicial",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709411"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-12-10",
+    "rol": "coautor",
+    "boletin": "18004-07",
+    "titulo": "Modifica la Carta Fundamental para eximir a los medicamentos de todo impuesto o gravamen",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709281"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-12-02",
+    "rol": "coautor",
+    "boletin": "17999-07",
+    "titulo": "Modifica la Carta Fundamental para limitar la facultad del Presidente de la República para conceder indultos particulares",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709327"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-12-02",
+    "rol": "coautor",
+    "boletin": "17998-07",
+    "titulo": "Modifica la Carta Fundamental para asegurar el derecho a la salud sexual y reproductiva",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709326"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-12-02",
+    "rol": "coautor",
+    "boletin": "17998-07",
+    "titulo": "Modifica la Carta Fundamental para asegurar el derecho a la salud sexual y reproductiva",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709326"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-11-25",
+    "rol": "coautor",
+    "boletin": "17977-06",
+    "titulo": "Modifica la ley N° 18.700, orgánica constitucional sobre Votaciones Populares y   Escrutinios , para regular el uso de la inteligencia artificial en campañas electorales",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709351"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-11-25",
+    "rol": "coautor",
+    "boletin": "17976-25",
+    "titulo": "Modifica la ley N° 21.659, sobre seguridad privada, con el objeto de ampliar el plazo para elaborar y presentar la propuesta de estudio de seguridad ante la Subsecretaría de Prevención del Delito",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709350"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-11-25",
+    "rol": "coautor",
+    "boletin": "17983-06",
+    "titulo": "Modifica la ley Nº 18.700, orgánica constitucional sobre Votaciones Populares y   Escrutinios , para aumentar el número de patrocinios requeridos para inscribir candidaturas presidenciales independientes",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709305"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-11-19",
+    "rol": "coautor",
+    "boletin": "17963-11",
+    "titulo": "Modifica la ley N° 19.925 para incorporar a los trabajadores de plataformas digitales entre los obligados a exigir un documento de identificación a quienes adquieran bebidas alcohólicas a través de aplicaciones de dispositivos móviles o fijos",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709240"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-11-19",
+    "rol": "coautor",
+    "boletin": "17965-29",
+    "titulo": "Modifica la ley N° 19.327, de derechos y deberes en los espectáculos de fútbol profesional, para establecer el deber de los asistentes de mantener el orden y la limpieza en los estadios",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709241"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-11-19",
+    "rol": "coautor",
+    "boletin": "17971-07",
+    "titulo": "Modifica la Carta Fundamental para restringir el acceso a cargos de elección popular de quien hubiere actuado como abogado o mandatario de imputados por delitos tipificados en la ley N° 20.000",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709246"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-11-04",
+    "rol": "coautor",
+    "boletin": "17943-25",
+    "titulo": "Modifica cuerpos legales que indica para permitir, a la Unidad de Análisis Financiero, acceder a información bancaria de ciertas autoridades sin orden judicial previa",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709300"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-11-04",
+    "rol": "coautor",
+    "boletin": "17947-07",
+    "titulo": "Modifica la Carta Fundamental para crear una tasa portuaria a beneficio municipal",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709304"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-11-03",
+    "rol": "coautor",
+    "boletin": "17938-08",
+    "titulo": "Modifica la Ley General de Servicios Eléctricos para establecer un mandato permanente de restitución de cobros en exceso en los procesos tarifarios",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708923"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-10-28",
+    "rol": "coautor",
+    "boletin": "17931-06",
+    "titulo": "Modifica la ley N° 20.880, sobre probidad en la función pública y prevención de los conflictos de intereses, para incorporar a funcionarios que cumplan labores directas en depósitos de armas del Estado",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709266"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-10-15",
+    "rol": "coautor",
+    "boletin": "17910-13",
+    "titulo": "Modifica la ley N° 19.296, sobre asociaciones de funcionarios de la Administración del Estado, para garantizar a los dirigentes gremiales el pleno goce de sus remuneraciones",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709987"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-10-15",
+    "rol": "coautor",
+    "boletin": "17910-13",
+    "titulo": "Modifica la ley N° 19.296, sobre asociaciones de funcionarios de la Administración del Estado, para garantizar a los dirigentes gremiales el pleno goce de sus remuneraciones",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709987"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-10-14",
+    "rol": "coautor",
+    "boletin": "17908-07",
+    "titulo": "Modifica diversos cuerpos legales para excluir la aplicación de la circunstancia atenuante de arrebato u obcecación en los delitos que indica",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709254"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-10-14",
+    "rol": "coautor",
+    "boletin": "17906-07",
+    "titulo": "Modifica la Carta Fundamental para elevar a rango constitucional la creación del Consejo Fiscal Autónomo",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709252"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-10-14",
+    "rol": "coautor",
+    "boletin": "17907-15",
+    "titulo": "Modifica la ley N° 18.290, de Tránsito, para exigir la realización de exámenes de control del consumo de drogas a conductores de vehículos destinados al transporte remunerado de pasajeros",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709253"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-10-13",
+    "rol": "coautor",
+    "boletin": "17904-06",
+    "titulo": "Modifica la ley N° 18.700, orgánica constitucional sobre Votaciones Populares y Escrutinios, para permitir que los efectivos de las Fuerzas Armadas y de Orden y Seguridad Pública puedan sufragar en el mismo local en que deban cumplir funciones el día de una elección o plebiscito",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708945"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-10-07",
+    "rol": "coautor",
+    "boletin": "17887-07",
+    "titulo": "Modifica la Carta Fundamental para establecer un royalty portuario",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709042"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-10-07",
+    "rol": "coautor",
+    "boletin": "17887-07",
+    "titulo": "Modifica la Carta Fundamental para establecer un royalty portuario",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709042"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-09-29",
+    "rol": "coautor",
+    "boletin": "17850-08",
+    "titulo": "Modifica la Ley General de Servicios Eléctricos para imponer, a las concesionarias de servicio público de distribución, la obligación de instalar medidores remotos, sin costo para sus clientes",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708938"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-09-29",
+    "rol": "coautor",
+    "boletin": "17848-03",
+    "titulo": "Modifica la ley N° 19.496 para obligar a empresas de telefonía móvil a implementar medidas preventivas contra fraudes telefónicos y llamadas comerciales no deseadas",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708936"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-09-29",
+    "rol": "coautor",
+    "boletin": "17855-34",
+    "titulo": "Modifica la ley N° 18.838, que crea el Consejo Nacional de Televisión, para encomendar a este organismo la dictación de normas generales sobre la incorporación de advertencias previas y difusión de canales de denuncia durante la transmisión televisiva de contenidos relacionados con situaciones de violencia de género",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708942"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-09-17",
+    "rol": "coautor",
+    "boletin": "17847-15",
+    "titulo": "Modifica la ley N° 18.290, de Tránsito, para exigir la instalación de alcoholímetros antiarranque en vehículos de transporte privado de pasajeros",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709083"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-09-16",
+    "rol": "coautor",
+    "boletin": "17842-35",
+    "titulo": "Modifica diversos cuerpos legales para proteger a personas con trastorno del espectro autista",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708853"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-09-15",
+    "rol": "coautor",
+    "boletin": "17836-12",
+    "titulo": "Regula la importación de productos textiles usados y prohíbe la introducción al país de residuos textiles",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709399"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-09-15",
+    "rol": "coautor",
+    "boletin": "17839-17",
+    "titulo": "Establece un Plan Nacional de Búsqueda de Verdad y Justicia respecto de las personas víctimas de desaparición forzada ocurridas en Chile entre el 11 de septiembre de 1973 y el 10 de marzo de 1990",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709402"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-09-15",
+    "rol": "coautor",
+    "boletin": "17838-25",
+    "titulo": "Modifica la ley N° 21.636 para impedir la construcción de recintos penitenciarios en las proximidades de los centros urbanos",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/709401"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-09-10",
+    "rol": "coautor",
+    "boletin": "17831-06",
+    "titulo": "Modifica la ley N° 8.946, sobre pavimentación comunal, para facilitar la reparación de calles por parte de las municipalidades",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708757"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-09-10",
+    "rol": "coautor",
+    "boletin": "17826-11",
+    "titulo": "Modifica la ley N° 20.585 para fortalecer la fiscalización del uso de licencias médicas",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708752"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-09-09",
+    "rol": "coautor",
+    "boletin": "17821-07",
+    "titulo": "Modifica  el  Código  Penal  a  fin  de  establecer  una  agravante específica para los delitos de robo, hurto y receptación cometidos en establecimientos educacionales, jardines infantiles y salas cuna",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708851"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-09-02",
+    "rol": "coautor",
+    "boletin": "17800-11",
+    "titulo": "Modifica el Código Sanitario en materia de rotulación y etiquetado del recurso jurel",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708932"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-09-01",
+    "rol": "coautor",
+    "boletin": "17795-19",
+    "titulo": "Regula la creación y difusión de imitaciones digitales realistas de la imagen, cuerpo o voz de las personas, generadas mediante inteligencia artificial",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708703"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-09-01",
+    "rol": "coautor",
+    "boletin": "17796-06",
+    "titulo": "Concede la nacionalidad por gracia al deportista cubano   Jonathan Rodríguez Carracedo",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708704"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-08-21",
+    "rol": "coautor",
+    "boletin": "17791-04",
+    "titulo": "Modifica la ley N° 20.370, General de Educación, para promover el uso ético de la inteligencia artificial en establecimientos educacionales",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708877"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-08-20",
+    "rol": "coautor",
+    "boletin": "17788-07",
+    "titulo": "Modifica la Carta Fundamental con el objeto de fijar un plazo máximo para prorrogar el estado de excepción constitucional de emergencia",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708526"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-08-19",
+    "rol": "coautor",
+    "boletin": "17776-16",
+    "titulo": "Modifica el Reglamento de la Cámara de Diputados para disponer el trámite obligatorio de proyectos de ley a la Comisión de Mujeres y Equidad de Género, en los casos que indica",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708929"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-08-13",
+    "rol": "coautor",
+    "boletin": "17765-35",
+    "titulo": "Establece mecanismos biométricos alternativos para la autentificación de adultos mayores y personas con discapacidad",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708749"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-08-13",
+    "rol": "coautor",
+    "boletin": "17760-04",
+    "titulo": "Establece el uso ilimitado y permanente del pase escolar",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708747"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-08-12",
+    "rol": "coautor",
+    "boletin": "17754-12",
+    "titulo": "Establece medidas para la protección de los cielos en áreas con valor científico y de investigación para la observación astronómica",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708895"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-08-05",
+    "rol": "coautor",
+    "boletin": "17732-11",
+    "titulo": "Regula la eutanasia en tres causales y garantiza el derecho a la muerte digna",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708691"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-08-05",
+    "rol": "coautor",
+    "boletin": "17732-11",
+    "titulo": "Regula la eutanasia en tres causales y garantiza el derecho a la muerte digna",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708691"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-08-05",
+    "rol": "coautor",
+    "boletin": "17731-02",
+    "titulo": "Modifica el Código de Justicia Militar para excluir del conocimiento de los juzgados militares las causas criminales que indica",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708690"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-08-04",
+    "rol": "coautor",
+    "boletin": "17719-06",
+    "titulo": "Modifica la ley Nº 18.700, orgánica constitucional sobre Votaciones Populares y   Escrutinios , para prohibir y sancionar las campañas electorales negativas",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708678"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-07-23",
+    "rol": "coautor",
+    "boletin": "17708-17",
+    "titulo": "Modifica el Código Penal para sancionar el negacionismo proferido por autoridades de elección popular o de exclusiva confianza",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708910"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-07-23",
+    "rol": "coautor",
+    "boletin": "17711-07",
+    "titulo": "Modifica la Carta Fundamental con el objeto de facultar a la Cámara de Diputados para requerir la convocatoria al Consejo de Seguridad Nacional",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708913"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-07-22",
+    "rol": "coautor",
+    "boletin": "17701-12",
+    "titulo": "Establece medidas para la protección de los cielos en áreas aptas para la observación astronómica",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708516"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-07-21",
+    "rol": "coautor",
+    "boletin": "17696-15",
+    "titulo": "Suspende, por el plazo de cinco años, la inscripción de taxis colectivos en el Registro Nacional de Servicios de Transporte de Pasajeros",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708906"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-07-21",
+    "rol": "coautor",
+    "boletin": "17697-06",
+    "titulo": "Modifica cuerpos legales que indica para otorgar reconocimiento y protección a dirigentes sociales",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708907"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-07-21",
+    "rol": "coautor",
+    "boletin": "17698-14",
+    "titulo": "Exige incorporar elementos de protección anticaídas en edificaciones",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708908"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-07-14",
+    "rol": "coautor",
+    "boletin": "17681-11",
+    "titulo": "Modifica el Código Sanitario para regular el ejercicio profesional de la instrucción de Yoga",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708664"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-07-09",
+    "rol": "coautor",
+    "boletin": "17670-15",
+    "titulo": "Modifica la Ley General de Telecomunicaciones para facilitar la identificación de los usuarios de líneas telefónicas de emergencia operadas por Carabineros de Chile",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708643"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-07-09",
+    "rol": "coautor",
+    "boletin": "17673-12",
+    "titulo": "Establece medidas destinadas a la protección del cielo nocturno",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708646"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-07-08",
+    "rol": "coautor",
+    "boletin": "17664-12",
+    "titulo": "Establece restricciones y prohibiciones para la protección de los cielos en áreas aptas para la observación astronómica",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708740"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-07-07",
+    "rol": "coautor",
+    "boletin": "17657-25",
+    "titulo": "Modifica la ley N° 20.000 en relación con la responsabilidad de las personas encargadas de la custodia y análisis químico de las sustancias incautadas",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708685"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-06-30",
+    "rol": "coautor",
+    "boletin": "17634-06",
+    "titulo": "Modifica la ley Nº 18.834, sobre Estatuto Administrativo, para habilitar el ejercicio de la acción disciplinaria con posterioridad a la renuncia del funcionario",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708990"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-06-18",
+    "rol": "coautor",
+    "boletin": "17619-08",
+    "titulo": "Modifica la Ley General de Servicios Eléctricos en lo referente a las remuneraciones del Consejo Directivo del Coordinador Eléctrico Nacional",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708432"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-06-17",
+    "rol": "coautor",
+    "boletin": "17614-07",
+    "titulo": "Modifica la Carta Fundamental con el objeto de aumentar requisitos y establecer restricciones para que personas extranjeras puedan ejercer el derecho de sufragio",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708635"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-06-11",
+    "rol": "coautor",
+    "boletin": "17600-24",
+    "titulo": "Denomina «Aeropuerto de La Serena Gabriela Mistral» al actual   Aeródromo La Florida , de la comuna de La Serena, en la región de Coquimbo",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708698"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-06-11",
+    "rol": "coautor",
+    "boletin": "17600-24",
+    "titulo": "Denomina «Aeropuerto de La Serena Gabriela Mistral» al actual   Aeródromo La Florida , de la comuna de La Serena, en la región de Coquimbo",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708698"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-06-11",
+    "rol": "coautor",
+    "boletin": "17598-24",
+    "titulo": "Denomina «Aeropuerto Gabriela Mistral » al actual   Aeródromo La Florida , de la ciudad de La Serena, en la región de Coquimbo",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708696"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-06-11",
+    "rol": "coautor",
+    "boletin": "17598-24",
+    "titulo": "Denomina «Aeropuerto Gabriela Mistral » al actual   Aeródromo La Florida , de la ciudad de La Serena, en la región de Coquimbo",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708696"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-06-11",
+    "rol": "coautor",
+    "boletin": "17599-24",
+    "titulo": "Denomina «Aeropuerto Gabriela Mistral » al aeropuerto de La Serena, en la región de Coquimbo",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708697"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-06-11",
+    "rol": "coautor",
+    "boletin": "17599-24",
+    "titulo": "Denomina «Aeropuerto Gabriela Mistral » al aeropuerto de La Serena, en la región de Coquimbo",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708697"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-06-11",
+    "rol": "coautor",
+    "boletin": "17599-24",
+    "titulo": "Denomina «Aeropuerto Gabriela Mistral » al aeropuerto de La Serena, en la región de Coquimbo",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708697"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-06-11",
+    "rol": "coautor",
+    "boletin": "17599-24",
+    "titulo": "Denomina «Aeropuerto Gabriela Mistral » al aeropuerto de La Serena, en la región de Coquimbo",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708697"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-06-10",
+    "rol": "coautor",
+    "boletin": "17588-14",
+    "titulo": "Modifica diversos cuerpos legales para establecer medidas de seguridad y protección en edificaciones, a fin de prevenir la caída de menores al vacío",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707756"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-06-10",
+    "rol": "coautor",
+    "boletin": "17587-06",
+    "titulo": "Modifica la ley N° 18.700, orgánica constitucional sobre Votaciones Populares y   Escrutinios , para suprimir el feriado legal correspondiente a las elecciones primarias",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707755"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-06-03",
+    "rol": "coautor",
+    "boletin": "17573-07",
+    "titulo": "Modifica la Carta Fundamental con el objeto de simplificar los requisitos para el desarrollo de actividades empresariales por el Estado",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707788"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-06-03",
+    "rol": "coautor",
+    "boletin": "17570-07",
+    "titulo": "Modifica la Carta Fundamental para garantizar el derecho a la negociación colectiva por rama o sector productivo",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707951"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-06-03",
+    "rol": "coautor",
+    "boletin": "17572-33",
+    "titulo": "Modifica el Código de Aguas para fortalecer la representatividad y la capacidad de fiscalización de las comunidades de aguas",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707787"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-06-03",
+    "rol": "coautor",
+    "boletin": "17575-07",
+    "titulo": "Modifica la Carta Fundamental para incorporar el concepto de corrupción y elevar los estándares de probidad y transparencia en el ejercicio de la función pública",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707789"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-06-02",
+    "rol": "coautor",
+    "boletin": "17568-11",
+    "titulo": "Regula el cultivo y uso personal adulto de cannabis",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708863"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-05-19",
+    "rol": "coautor",
+    "boletin": "17555-07",
+    "titulo": "Modifica la ley N° 19.733, sobre libertades de opinión e información y ejercicio del periodismo, para prohibir la divulgación de la identidad de personas víctimas de delitos contra la indemnidad sexual",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708515"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-05-19",
+    "rol": "coautor",
+    "boletin": "17554-13",
+    "titulo": "Modifica el Código del Trabajo para  suprimir  el  límite  de  la  indemnización  por  años  de  servicio",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708514"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-05-15",
+    "rol": "coautor",
+    "boletin": "17552-06",
+    "titulo": "Modifica la ley N° 18.695, orgánica constitucional de Municipalidades, para autorizar la implementación de crematorios de mascotas o animales de compañía",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707948"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-05-14",
+    "rol": "coautor",
+    "boletin": "17534-07",
+    "titulo": "Modifica el Código Penal para ampliar las hipótesis del delito de grooming",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708449"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-05-14",
+    "rol": "coautor",
+    "boletin": "17534-07",
+    "titulo": "Modifica el Código Penal para ampliar las hipótesis del delito de grooming",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708449"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-05-07",
+    "rol": "coautor",
+    "boletin": "17520-17",
+    "titulo": "Establece la obligación de incorporar la debida diligencia en derechos humanos a las empresas que operen en territorio nacional",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707911"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-05-05",
+    "rol": "coautor",
+    "boletin": "17513-18",
+    "titulo": "Impide omitir, en los certificados de antecedentes, anotaciones por delitos de violencia intrafamiliar",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708674"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-04-21",
+    "rol": "coautor",
+    "boletin": "17496-11",
+    "titulo": "Modifica la ley N° 20.060 para incorporar el derecho a la información sobre seguridad alimentaria y sobre la presencia de aditivos dañinos para la salud en los alimentos",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707704"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-04-21",
+    "rol": "coautor",
+    "boletin": "17495-15",
+    "titulo": "Modifica la Ley de Tránsito y el Código Penal a fin de agravar las sanciones aplicables a ciertas conductas asociadas a la conducción de vehículos motorizados",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707703"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-04-21",
+    "rol": "coautor",
+    "boletin": "17492-11",
+    "titulo": "Regula el cultivo y uso personal adulto de cannabis",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707700"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-04-16",
+    "rol": "coautor",
+    "boletin": "17489-04",
+    "titulo": "Modifica y prorroga la vigencia de la ley N° 19.648, que otorga titularidad en el cargo a profesores contratados a plazo fijo por más de tres años",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708446"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-04-15",
+    "rol": "coautor",
+    "boletin": "17487-07",
+    "titulo": "Modifica la Carta Fundamental para limitar la dieta del parlamentario que fuere candidato a la Presidencia de la República",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707907"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-04-15",
+    "rol": "coautor",
+    "boletin": "17485-02",
+    "titulo": "Modifica la ley N° 18.916, que aprueba el Código Aeronáutico, para fortalecer la seguridad de la aviación civil",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707905"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-04-14",
+    "rol": "coautor",
+    "boletin": "17472-16",
+    "titulo": "Modifica el Reglamento de la Cámara de Diputados para reemplazar la denominación de la Comisión de Medio Ambiente y Recursos Naturales por Comisión de Medio Ambiente, Recursos Naturales y Bienestar Animal",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707691"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-04-09",
+    "rol": "coautor",
+    "boletin": "17459-25",
+    "titulo": "Modifica diversos cuerpos legales para prevenir y sancionar el transporte aéreo ilícito de sustancias estupefacientes o sicotrópicas prohibidas",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708712"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-04-08",
+    "rol": "coautor",
+    "boletin": "17449-06",
+    "titulo": "Modifica la ley N°19.884, para prohibir a los funcionarios públicos el uso de fondos y bienes públicos bajo su responsabilidad con fines electorales",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708027"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-03-25",
+    "rol": "coautor",
+    "boletin": "17429-15",
+    "titulo": "Modifica la ley N° 18.290, de Tránsito, para imponer a empresas de buses interurbanos la obligación de contar con chalecos reflectantes para sus pasajeros",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707732"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-03-25",
+    "rol": "coautor",
+    "boletin": "17428-03",
+    "titulo": "Modifica la ley N° 19.496 para establecer una compensación económica automática en favor de consumidores afectados por la suspensión, cancelación o reprogramación de espectáculos masivos",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707731"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-03-25",
+    "rol": "coautor",
+    "boletin": "17430-15",
+    "titulo": "Modifica la ley N° 18.290, de Tránsito, para exigir a empresas de buses interurbanos contar con radio comunicadores y chalecos reflectantes para sus pasajeros",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707733"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-03-24",
+    "rol": "coautor",
+    "boletin": "17424-25",
+    "titulo": "Autoriza la utilización de medios tecnológicos para prevenir el ingreso de armas y elementos prohibidos en establecimientos educacionales y de salud",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707687"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2025-03-19",
+    "rol": "coautor",
+    "boletin": "17419-15",
+    "titulo": "Modifica la ley N° 18.290, de Tránsito, para eximir del examen teórico a quienes hayan poseído licencia de conducir profesional por el tiempo que indica",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708418"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-03-19",
+    "rol": "coautor",
+    "boletin": "17412-34",
+    "titulo": "Modifica el Código Procesal Penal para proteger la integridad física y psíquica de personas gestantes y puérperas en la realización de diligencias investigativas y actuaciones procesales",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708414"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-03-18",
+    "rol": "coautor",
+    "boletin": "17409-06",
+    "titulo": "Modifica la ley N° 18.695, orgánica constitucional de Municipalidades, para fortalecer las facultades fiscalizadoras del concejo municipal",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707738"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2025-03-18",
+    "rol": "coautor",
+    "boletin": "17407-07",
+    "titulo": "Modifica el Código Procesal Penal a fin de otorgar legitimación activa, para interponer querella por los delitos que indica, a personas jurídicas que realicen trabajo en temáticas de género y violencia de género",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707737"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2025-03-12",
+    "rol": "coautor",
+    "boletin": "17399-15",
+    "titulo": "Modifica la ley N° 18.290, de Tránsito, para extender la vigencia de las licencias de conducir que señala",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/708208"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2025-03-11",
+    "rol": "coautor",
+    "boletin": "17395-07",
+    "titulo": "Modifica el Código Penal para agravar las penas aplicables al delito de lesiones, cuando se cometiere contra árbitros de fútbol amateur o formativo en el ejercicio de sus funciones o con motivo de este",
+    "url_bcn": "http://datos.bcn.cl/recurso/cl/documento/707647"
+  }
+]
