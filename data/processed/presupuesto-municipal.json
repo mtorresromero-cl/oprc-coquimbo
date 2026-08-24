@@ -1,182 +1,227 @@
 [
   {
-    "comuna_id": "la-serena",
+    "comuna_id": "coquimbo",
     "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "CxP GASTOS EN PERSONAL",
+    "subcategoria": "215-21-00-000-000-000",
+    "monto": 3142366722.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "CxP BIENES Y SERVICIO DE CONSUMOS",
+    "subcategoria": "215-22-00-000-000-000",
+    "monto": 2592250072.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "CXCTRIBUTO SOBRE EL USO DE BIENES Y LA REALIZACION",
+    "subcategoria": "115-03-00-000-000-000",
+    "monto": 3628263047.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2025,
+    "tipo": "ingreso",
+    "categoria": "C X C TRANSFERENCIAS CORRIENTES",
+    "subcategoria": "05-00-000-000-000",
+    "monto": 2701635000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Salud+Ejec.+Presupuestaria+Diciembre+2025+%28Ingresos%29.pdf/0ffd4293-5587-4a79-b180-4eafda2451be"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2025,
+    "tipo": "ingreso",
+    "categoria": "C X C OTROS INGRESOS CORRIENTES",
+    "subcategoria": "08-00-000-000-000",
+    "monto": 74933000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Salud+Ejec.+Presupuestaria+Diciembre+2025+%28Ingresos%29.pdf/0ffd4293-5587-4a79-b180-4eafda2451be"
+  },
+  {
+    "comuna_id": "la-serena",
+    "anno": 2025,
     "tipo": "gasto",
     "categoria": "C X P BIENES Y SERVICIOS DE",
     "subcategoria": "22-00-000-000-000",
-    "monto": 22167651000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "monto": 21771566000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   },
   {
     "comuna_id": "la-serena",
-    "anno": 2026,
-    "tipo": "gasto",
-    "categoria": "C X P GASTOS DE PERSONAL",
-    "subcategoria": "21-00-000-000-000",
-    "monto": 12032508000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
-  },
-  {
-    "comuna_id": "la-serena",
-    "anno": 2026,
-    "tipo": "gasto",
-    "categoria": "C X P SERVICIO DE LA DEUDA",
-    "subcategoria": "34-00-000-000-000",
-    "monto": 8754690000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
-  },
-  {
-    "comuna_id": "la-serena",
-    "anno": 2026,
+    "anno": 2025,
     "tipo": "gasto",
     "categoria": "C X P TRANSFERENCIAS CORRI",
     "subcategoria": "24-00-000-000-000",
-    "monto": 6229104000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "monto": 13717342000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   },
   {
     "comuna_id": "la-serena",
-    "anno": 2026,
+    "anno": 2025,
     "tipo": "gasto",
-    "categoria": "C X P INICIATIVAS DE INVERSI",
-    "subcategoria": "31-00-000-000-000",
-    "monto": 566039000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "categoria": "C X P GASTOS DE PERSONAL",
+    "subcategoria": "21-00-000-000-000",
+    "monto": 10857568000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   },
   {
     "comuna_id": "la-serena",
-    "anno": 2026,
+    "anno": 2025,
+    "tipo": "gasto",
+    "categoria": "C X P SERVICIO DE LA DEUDA",
+    "subcategoria": "34-00-000-000-000",
+    "monto": 3434433000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
+  },
+  {
+    "comuna_id": "la-serena",
+    "anno": 2025,
     "tipo": "gasto",
     "categoria": "C X P ADQUISICION DE ACTIVO",
     "subcategoria": "29-00-000-000-000",
-    "monto": 431828000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "monto": 486272000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   },
   {
     "comuna_id": "la-serena",
-    "anno": 2026,
+    "anno": 2025,
     "tipo": "gasto",
-    "categoria": "C X P OTROS GASTOS CORRIEN",
-    "subcategoria": "26-00-000-000-000",
-    "monto": 427653000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "categoria": "C X P INICIATIVAS DE INVERSI",
+    "subcategoria": "31-00-000-000-000",
+    "monto": 473115000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   },
   {
     "comuna_id": "la-serena",
-    "anno": 2026,
+    "anno": 2025,
     "tipo": "gasto",
     "categoria": "C X P PRESTACIONES DE SEGU",
     "subcategoria": "23-00-000-000-000",
-    "monto": 190537000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "monto": 62526000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   },
   {
     "comuna_id": "la-serena",
-    "anno": 2026,
+    "anno": 2025,
     "tipo": "gasto",
-    "categoria": "C X P TRANSFERENCIA DE CAP",
-    "subcategoria": "33-00-000-000-000",
-    "monto": 0.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "categoria": "C X P OTROS GASTOS CORRIEN",
+    "subcategoria": "26-00-000-000-000",
+    "monto": 22806000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   },
   {
     "comuna_id": "la-serena",
-    "anno": 2026,
+    "anno": 2025,
     "tipo": "gasto",
     "categoria": "C X P ADQUISICION DE ACTIVO",
     "subcategoria": "30-00-000-000-000",
     "monto": 0.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   },
   {
     "comuna_id": "la-serena",
-    "anno": 2026,
+    "anno": 2025,
+    "tipo": "gasto",
+    "categoria": "C X P TRANSFERENCIA DE CAP",
+    "subcategoria": "33-00-000-000-000",
+    "monto": 0.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
+  },
+  {
+    "comuna_id": "la-serena",
+    "anno": 2025,
     "tipo": "ingreso",
     "categoria": "C X C TRIBUTOS SOBRE EL USO",
     "subcategoria": "03-00-000-000-000",
-    "monto": 15447263000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "monto": 15410177000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   },
   {
     "comuna_id": "la-serena",
-    "anno": 2026,
-    "tipo": "ingreso",
-    "categoria": "C X C OTROS INGRESOS CORRI",
-    "subcategoria": "08-00-000-000-000",
-    "monto": 3423251000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
-  },
-  {
-    "comuna_id": "la-serena",
-    "anno": 2026,
+    "anno": 2025,
     "tipo": "ingreso",
     "categoria": "C X C TRANSFERENCIAS CORRI",
     "subcategoria": "05-00-000-000-000",
-    "monto": 3072443000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "monto": 11319722000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   },
   {
     "comuna_id": "la-serena",
-    "anno": 2026,
+    "anno": 2025,
+    "tipo": "ingreso",
+    "categoria": "C X C OTROS INGRESOS CORRI",
+    "subcategoria": "08-00-000-000-000",
+    "monto": 3607592000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
+  },
+  {
+    "comuna_id": "la-serena",
+    "anno": 2025,
     "tipo": "ingreso",
     "categoria": "C X C RECUPERACION DE PRES",
     "subcategoria": "12-00-000-000-000",
-    "monto": 708617000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "monto": 522609000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   },
   {
     "comuna_id": "la-serena",
-    "anno": 2026,
+    "anno": 2025,
     "tipo": "ingreso",
     "categoria": "C X C TRANSFERENCIAS PARA",
     "subcategoria": "13-00-000-000-000",
-    "monto": 270970000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "monto": 198316000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   },
   {
     "comuna_id": "la-serena",
-    "anno": 2026,
+    "anno": 2025,
     "tipo": "ingreso",
     "categoria": "C X C RENTAS DE LA PROPIED",
     "subcategoria": "06-00-000-000-000",
-    "monto": 34977000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "monto": 28556000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   },
   {
     "comuna_id": "la-serena",
-    "anno": 2026,
+    "anno": 2025,
     "tipo": "ingreso",
     "categoria": "C X C INGRESOS DE OPERACIO",
     "subcategoria": "07-00-000-000-000",
-    "monto": 16167000.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "monto": 17931000.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   },
   {
     "comuna_id": "la-serena",
-    "anno": 2026,
-    "tipo": "ingreso",
-    "categoria": "ENDEUDAMIENTO",
-    "subcategoria": "14-00-000-000-000",
-    "monto": 0.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
-  },
-  {
-    "comuna_id": "la-serena",
-    "anno": 2026,
-    "tipo": "ingreso",
-    "categoria": "C X C VENTAS DE ACTIVOS FIN",
-    "subcategoria": "11-00-000-000-000",
-    "monto": 0.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
-  },
-  {
-    "comuna_id": "la-serena",
-    "anno": 2026,
+    "anno": 2025,
     "tipo": "ingreso",
     "categoria": "C X C VENTA DE ACTIVOS NO F",
     "subcategoria": "10-00-000-000-000",
     "monto": 0.0,
-    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__13052026084055.pdf"
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
+  },
+  {
+    "comuna_id": "la-serena",
+    "anno": 2025,
+    "tipo": "ingreso",
+    "categoria": "C X C VENTAS DE ACTIVOS FIN",
+    "subcategoria": "11-00-000-000-000",
+    "monto": 0.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
+  },
+  {
+    "comuna_id": "la-serena",
+    "anno": 2025,
+    "tipo": "ingreso",
+    "categoria": "ENDEUDAMIENTO",
+    "subcategoria": "14-00-000-000-000",
+    "monto": 0.0,
+    "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
   }
 ]
