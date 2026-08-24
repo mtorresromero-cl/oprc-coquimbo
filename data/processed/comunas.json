@@ -1,0 +1,137 @@
+[
+  {
+    "id": "andacollo",
+    "nombre": "Andacollo",
+    "provincia": "Elqui",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  },
+  {
+    "id": "canela",
+    "nombre": "Canela",
+    "provincia": "Choapa",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  },
+  {
+    "id": "combarbala",
+    "nombre": "Combarbalá",
+    "provincia": "Limarí",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  },
+  {
+    "id": "coquimbo",
+    "nombre": "Coquimbo",
+    "provincia": "Elqui",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  },
+  {
+    "id": "illapel",
+    "nombre": "Illapel",
+    "provincia": "Choapa",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  },
+  {
+    "id": "la-higuera",
+    "nombre": "La Higuera",
+    "provincia": "Elqui",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  },
+  {
+    "id": "la-serena",
+    "nombre": "La Serena",
+    "provincia": "Elqui",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  },
+  {
+    "id": "los-vilos",
+    "nombre": "Los Vilos",
+    "provincia": "Choapa",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  },
+  {
+    "id": "monte-patria",
+    "nombre": "Monte Patria",
+    "provincia": "Limarí",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  },
+  {
+    "id": "ovalle",
+    "nombre": "Ovalle",
+    "provincia": "Limarí",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  },
+  {
+    "id": "paihuano",
+    "nombre": "Paihuano",
+    "provincia": "Elqui",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  },
+  {
+    "id": "punitaqui",
+    "nombre": "Punitaqui",
+    "provincia": "Limarí",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  },
+  {
+    "id": "rio-hurtado",
+    "nombre": "Río Hurtado",
+    "provincia": "Limarí",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  },
+  {
+    "id": "salamanca",
+    "nombre": "Salamanca",
+    "provincia": "Choapa",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  },
+  {
+    "id": "vicuna",
+    "nombre": "Vicuña",
+    "provincia": "Elqui",
+    "poblacion": null,
+    "superficie_km2": null,
+    "geojson": null,
+    "actualizado_en": "2026-08-24T13:39:26.012087"
+  }
+]

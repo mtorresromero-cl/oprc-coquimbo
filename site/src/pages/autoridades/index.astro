@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { autoridades, comunas, CARGOS, CARGO_LABEL, nombreComuna } from '../../lib/datos';
+
+const partidos = [...new Set(autoridades.map((a) => a.partido).filter(Boolean))].sort() as string[];
+---
+
+<Layout title="Autoridades — OPRC">
+	<main class="mx-auto max-w-5xl px-6 py-12">
+		<a href="/" class="text-sm text-slate-500 hover:underline">&larr; Inicio</a>
+		<h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">Autoridades</h1>
+		<p class="mt-2 text-slate-600">
+			Listado de autoridades políticas de la Región de Coquimbo.
+		</p>
+
+		<div class="mt-6 flex flex-wrap gap-3">
+			<select id="filtro-cargo" class="rounded-md border border-slate-300 px-3 py-2 text-sm">
+				<option value="">Todos los cargos</option>
+				{CARGOS.map((c) => <option value={c}>{CARGO_LABEL[c]}</option>)}
+			</select>
+			<select id="filtro-comuna" class="rounded-md border border-slate-300 px-3 py-2 text-sm">
+				<option value="">Todas las comunas</option>
+				{comunas.map((c) => <option value={c.id}>{c.nombre}</option>)}
+			</select>
+			<select id="filtro-partido" class="rounded-md border border-slate-300 px-3 py-2 text-sm">
+				<option value="">Todos los partidos</option>
+				{partidos.map((p) => <option value={p}>{p}</option>)}
+			</select>
+			<span id="contador" class="self-center text-sm text-slate-500"></span>
+		</div>
+
+		<ul id="lista-autoridades" class="mt-8 grid gap-3 sm:grid-cols-2">
+			{autoridades.map((a) => (
+				<li
+					class="fila-autoridad rounded-lg border border-slate-200 p-4 hover:border-slate-400"
+					data-cargo={a.cargo}
+					data-comuna={a.comuna ?? ''}
+					data-partido={a.partido ?? ''}
+				>
+					<a href={`/autoridades/${a.id}/`} class="block">
+						<p class="font-semibold text-slate-900">{a.nombre_completo}</p>
+						<p class="mt-1 text-sm text-slate-600">
+							{CARGO_LABEL[a.cargo] ?? a.cargo}
+							{a.comuna && ` · ${nombreComuna(a.comuna)}`}
+							{a.partido && ` · ${a.partido}`}
+						</p>
+					</a>
+				</li>
+			))}
+		</ul>
+
+		<p id="sin-resultados" class="mt-8 hidden text-sm text-slate-500">
+			No hay autoridades que coincidan con los filtros seleccionados.
+		</p>
+	</main>
+
+	<script>
+		const filtroCargo = document.getElementById('filtro-cargo') as HTMLSelectElement;
+		const filtroComuna = document.getElementById('filtro-comuna') as HTMLSelectElement;
+		const filtroPartido = document.getElementById('filtro-partido') as HTMLSelectElement;
+		const filas = Array.from(document.querySelectorAll<HTMLLIElement>('.fila-autoridad'));
+		const contador = document.getElementById('contador')!;
+		const sinResultados = document.getElementById('sin-resultados')!;
+
+		function aplicarFiltros() {
+			const cargo = filtroCargo.value;
+			const comuna = filtroComuna.value;
+			const partido = filtroPartido.value;
+			let visibles = 0;
+
+			for (const fila of filas) {
+				const coincide =
+					(!cargo || fila.dataset.cargo === cargo) &&
+					(!comuna || fila.dataset.comuna === comuna) &&
+					(!partido || fila.dataset.partido === partido);
+				fila.classList.toggle('hidden', !coincide);
+				if (coincide) visibles++;
+			}
+
+			contador.textContent = `${visibles} de ${filas.length}`;
+			sinResultados.classList.toggle('hidden', visibles !== 0);
+		}
+
+		filtroCargo.addEventListener('change', aplicarFiltros);
+		filtroComuna.addEventListener('change', aplicarFiltros);
+		filtroPartido.addEventListener('change', aplicarFiltros);
+		aplicarFiltros();
+	</script>
+</Layout>

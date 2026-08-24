@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { autoridades, CARGO_LABEL, nombreComuna } from '../../lib/datos';
+
+export function getStaticPaths() {
+	return autoridades.map((a) => ({
+		params: { id: a.id },
+		props: { autoridad: a },
+	}));
+}
+
+const { autoridad } = Astro.props;
+---
+
+<Layout title={`${autoridad.nombre_completo} — OPRC`}>
+	<main class="mx-auto max-w-2xl px-6 py-12">
+		<a href="/autoridades/" class="text-sm text-slate-500 hover:underline">&larr; Autoridades</a>
+
+		<h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">
+			{autoridad.nombre_completo}
+		</h1>
+		<p class="mt-1 text-lg text-slate-600">{CARGO_LABEL[autoridad.cargo] ?? autoridad.cargo}</p>
+
+		<dl class="mt-8 grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 text-sm">
+			{autoridad.partido && (
+				<>
+					<dt class="text-slate-500">Partido</dt>
+					<dd class="text-slate-900">{autoridad.partido}</dd>
+				</>
+			)}
+			{autoridad.pacto && (
+				<>
+					<dt class="text-slate-500">Pacto electoral</dt>
+					<dd class="text-slate-900">{autoridad.pacto}</dd>
+				</>
+			)}
+			{autoridad.comuna && (
+				<>
+					<dt class="text-slate-500">Comuna</dt>
+					<dd class="text-slate-900">{nombreComuna(autoridad.comuna)}</dd>
+				</>
+			)}
+			{autoridad.distrito && (
+				<>
+					<dt class="text-slate-500">Distrito</dt>
+					<dd class="text-slate-900">{autoridad.distrito}</dd>
+				</>
+			)}
+			{autoridad.circunscripcion && (
+				<>
+					<dt class="text-slate-500">Circunscripción</dt>
+					<dd class="text-slate-900">{autoridad.circunscripcion}</dd>
+				</>
+			)}
+			{(autoridad.periodo_inicio || autoridad.periodo_fin) && (
+				<>
+					<dt class="text-slate-500">Período</dt>
+					<dd class="text-slate-900">
+						{autoridad.periodo_inicio ?? '?'} – {autoridad.periodo_fin ?? '?'}
+					</dd>
+				</>
+			)}
+			{autoridad.email && (
+				<>
+					<dt class="text-slate-500">Contacto</dt>
+					<dd class="text-slate-900">
+						<a href={`mailto:${autoridad.email}`} class="hover:underline">{autoridad.email}</a>
+					</dd>
+				</>
+			)}
+		</dl>
+
+		{autoridad.fuente && (
+			<p class="mt-8 text-xs text-slate-400">
+				Fuente: <a href={autoridad.fuente} class="hover:underline" target="_blank" rel="noopener">
+					{autoridad.fuente}
+				</a>
+			</p>
+		)}
+	</main>
+</Layout>

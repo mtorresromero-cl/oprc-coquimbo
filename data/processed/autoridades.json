@@ -1,0 +1,21 @@
+[
+  {
+    "id": "ejemplo-nombre-apellido-alcalde",
+    "nombre": "EJEMPLO",
+    "apellido": "Nombre Apellido",
+    "nombre_completo": "EJEMPLO Nombre Apellido",
+    "cargo": "alcalde",
+    "partido": "Partido Ejemplo",
+    "pacto": "Pacto Ejemplo",
+    "comuna": "la-serena",
+    "distrito": null,
+    "circunscripcion": null,
+    "periodo_inicio": "2024-12-06",
+    "periodo_fin": "2028-12-06",
+    "foto_url": null,
+    "email": null,
+    "activo": 1,
+    "fuente": "https://example.com/placeholder",
+    "actualizado_en": "2026-08-24T13:39:26.014572"
+  }
+]
