@@ -125,6 +125,32 @@ CREATE TABLE IF NOT EXISTS presupuesto_municipal (
     FOREIGN KEY (comuna_id) REFERENCES comuna(id)
 );
 
+CREATE TABLE IF NOT EXISTS personal_municipal (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    comuna_id       TEXT NOT NULL,
+    anno            INTEGER NOT NULL,
+    mes             INTEGER NOT NULL,
+    area            TEXT NOT NULL,           -- municipal | salud | educacion
+    tipo_contrato   TEXT NOT NULL,           -- planta | contrata | honorarios
+    dotacion        INTEGER NOT NULL,        -- cantidad de personas
+    remuneracion_total REAL NOT NULL,        -- suma de remuneración bruta del mes, en pesos
+    fuente_url      TEXT,
+    actualizado_en  DATETIME,
+    FOREIGN KEY (comuna_id) REFERENCES comuna(id)
+);
+
+CREATE TABLE IF NOT EXISTS remuneracion_autoridad (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    comuna_id       TEXT NOT NULL,
+    anno            INTEGER NOT NULL,
+    mes             INTEGER NOT NULL,
+    cargo           TEXT NOT NULL,           -- ej. "ALCALDE"
+    remuneracion_bruta REAL NOT NULL,
+    fuente_url      TEXT,
+    actualizado_en  DATETIME,
+    FOREIGN KEY (comuna_id) REFERENCES comuna(id)
+);
+
 CREATE TABLE IF NOT EXISTS transparencia_cumplimiento (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     comuna_id       TEXT NOT NULL,
@@ -171,4 +197,6 @@ CREATE INDEX IF NOT EXISTS idx_asistencia_autoridad ON asistencia(autoridad_id);
 CREATE INDEX IF NOT EXISTS idx_asistencia_fecha ON asistencia(fecha);
 CREATE INDEX IF NOT EXISTS idx_patrimonio_autoridad ON declaracion_patrimonio(autoridad_id);
 CREATE INDEX IF NOT EXISTS idx_presupuesto_comuna ON presupuesto_municipal(comuna_id, anno);
+CREATE INDEX IF NOT EXISTS idx_personal_comuna ON personal_municipal(comuna_id, anno, mes);
+CREATE INDEX IF NOT EXISTS idx_remuneracion_autoridad_comuna ON remuneracion_autoridad(comuna_id, anno, mes);
 CREATE INDEX IF NOT EXISTS idx_resultado_electoral ON resultado_electoral(anno, eleccion_tipo, comuna_id);

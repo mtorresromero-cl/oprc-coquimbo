@@ -66,21 +66,65 @@ export interface PresupuestoItem {
 	fuente_url: string;
 }
 
+export interface PersonalItem {
+	comuna_id: string;
+	anno: number;
+	mes: number;
+	area: string;
+	tipo_contrato: string;
+	dotacion: number;
+	remuneracion_total: number;
+	fuente_url: string;
+}
+
+export interface RemuneracionAutoridad {
+	comuna_id: string;
+	anno: number;
+	mes: number;
+	cargo: string;
+	remuneracion_bruta: number;
+	fuente_url: string;
+}
+
 import autoridadesRaw from '../../../data/processed/autoridades.json';
 import comunasRaw from '../../../data/processed/comunas.json';
 import votacionesRaw from '../../../data/processed/votaciones.json';
 import mocionesRaw from '../../../data/processed/mociones.json';
 import presupuestoRaw from '../../../data/processed/presupuesto-municipal.json';
+import personalRaw from '../../../data/processed/personal-municipal.json';
+import remuneracionAutoridadRaw from '../../../data/processed/remuneracion-autoridad.json';
 
 export const autoridades: Autoridad[] = autoridadesRaw as Autoridad[];
 export const comunas: Comuna[] = comunasRaw as Comuna[];
 export const votaciones: VotacionSesion[] = votacionesRaw as VotacionSesion[];
 export const mociones: Mocion[] = mocionesRaw as Mocion[];
 export const presupuesto: PresupuestoItem[] = presupuestoRaw as PresupuestoItem[];
+export const personal: PersonalItem[] = personalRaw as PersonalItem[];
+export const remuneracionAutoridad: RemuneracionAutoridad[] = remuneracionAutoridadRaw as RemuneracionAutoridad[];
 
 export function presupuestoDeComuna(comunaId: string) {
 	return presupuesto.filter((p) => p.comuna_id === comunaId);
 }
+
+export function personalDeComuna(comunaId: string) {
+	return personal.filter((p) => p.comuna_id === comunaId);
+}
+
+export function remuneracionAutoridadDeComuna(comunaId: string) {
+	return remuneracionAutoridad.filter((r) => r.comuna_id === comunaId);
+}
+
+export const AREA_LABEL: Record<string, string> = {
+	municipal: 'Municipal',
+	salud: 'Salud',
+	educacion: 'Educación',
+};
+
+export const TIPO_CONTRATO_LABEL: Record<string, string> = {
+	planta: 'Planta',
+	contrata: 'Contrata',
+	honorarios: 'Honorarios',
+};
 
 export function mocionesDeAutoridad(autoridadId: string) {
 	return mociones.filter((m) => m.autoridad_id === autoridadId);

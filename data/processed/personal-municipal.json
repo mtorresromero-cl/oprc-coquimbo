@@ -1,0 +1,62 @@
+[
+  {
+    "comuna_id": "la-serena",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "contrata",
+    "dotacion": 243,
+    "remuneracion_total": 531104551.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU126"
+  },
+  {
+    "comuna_id": "la-serena",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "honorarios",
+    "dotacion": 999,
+    "remuneracion_total": 1065206361.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU126"
+  },
+  {
+    "comuna_id": "la-serena",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "planta",
+    "dotacion": 407,
+    "remuneracion_total": 1090325530.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU126"
+  },
+  {
+    "comuna_id": "la-serena",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "contrata",
+    "dotacion": 437,
+    "remuneracion_total": 884548194.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU126"
+  },
+  {
+    "comuna_id": "la-serena",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "honorarios",
+    "dotacion": 926,
+    "remuneracion_total": 463235980.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU126"
+  },
+  {
+    "comuna_id": "la-serena",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "planta",
+    "dotacion": 686,
+    "remuneracion_total": 1629145861.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU126"
+  }
+]

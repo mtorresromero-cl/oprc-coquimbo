@@ -1,22 +1,35 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { comunas, presupuestoDeComuna } from '../../lib/datos';
+import {
+	comunas,
+	presupuestoDeComuna,
+	personalDeComuna,
+	remuneracionAutoridadDeComuna,
+	AREA_LABEL,
+	TIPO_CONTRATO_LABEL,
+} from '../../lib/datos';
 
 export function getStaticPaths() {
 	return comunas
-		.filter((c) => presupuestoDeComuna(c.id).length > 0)
+		.filter((c) => presupuestoDeComuna(c.id).length > 0 || personalDeComuna(c.id).length > 0)
 		.map((c) => ({ params: { id: c.id }, props: { comuna: c } }));
 }
 
 const { comuna } = Astro.props;
 const items = presupuestoDeComuna(comuna.id);
-const anno = Math.max(...items.map((i) => i.anno));
+const anno = items.length ? Math.max(...items.map((i) => i.anno)) : null;
 const delAnno = items.filter((i) => i.anno === anno);
 const ingresos = delAnno.filter((i) => i.tipo === 'ingreso').sort((a, b) => b.monto - a.monto);
 const gastos = delAnno.filter((i) => i.tipo === 'gasto').sort((a, b) => b.monto - a.monto);
 const totalIngresos = ingresos.reduce((s, i) => s + i.monto, 0);
 const totalGastos = gastos.reduce((s, i) => s + i.monto, 0);
 const fuenteUrl = delAnno[0]?.fuente_url;
+
+const personal = personalDeComuna(comuna.id);
+const remuneracionAutoridad = remuneracionAutoridadDeComuna(comuna.id);
+const dotacionTotal = personal.reduce((s, p) => s + p.dotacion, 0);
+const remuneracionTotalPersonal = personal.reduce((s, p) => s + p.remuneracion_total, 0);
+const periodoPersonal = personal[0] ? `${personal[0].mes}/${personal[0].anno}` : null;
 
 function formatoCLP(monto: number) {
 	return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(
@@ -28,53 +41,115 @@ function formatoCLP(monto: number) {
 <Layout title={`Presupuesto de ${comuna.nombre} — OPRC`}>
 	<main class="mx-auto max-w-2xl px-6 py-12">
 		<a href="/autoridades/" class="text-sm text-slate-500 hover:underline">&larr; Inicio</a>
-		<h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">Presupuesto de {comuna.nombre}</h1>
-		<p class="mt-2 text-sm text-slate-500">
-			Balance de ejecución presupuestaria acumulado {anno}, categorías principales. Cifras según lo
-			efectivamente percibido/ejecutado a la fecha del último informe trimestral publicado.
-		</p>
+		<h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">{comuna.nombre}</h1>
 
-		<div class="mt-6 grid grid-cols-2 gap-4">
-			<div class="rounded-lg border border-slate-200 p-4">
-				<p class="text-xs text-slate-500">Ingresos percibidos</p>
-				<p class="mt-1 text-xl font-semibold text-emerald-700">{formatoCLP(totalIngresos)}</p>
-			</div>
-			<div class="rounded-lg border border-slate-200 p-4">
-				<p class="text-xs text-slate-500">Gastos ejecutados</p>
-				<p class="mt-1 text-xl font-semibold text-red-700">{formatoCLP(totalGastos)}</p>
-			</div>
-		</div>
+		{items.length > 0 && (
+			<>
+				<p class="mt-2 text-sm text-slate-500">
+					Balance de ejecución presupuestaria acumulado {anno}, categorías principales. Cifras según
+					lo efectivamente percibido/ejecutado a la fecha del último informe trimestral publicado.
+				</p>
 
-		<section class="mt-8">
-			<h2 class="text-lg font-semibold text-slate-900">Ingresos por categoría</h2>
-			<ul class="mt-3 space-y-1 text-sm">
-				{ingresos.map((i) => (
-					<li class="flex justify-between border-b border-slate-100 py-1.5">
-						<span class="text-slate-700">{i.categoria}</span>
-						<span class="font-medium text-slate-900">{formatoCLP(i.monto)}</span>
-					</li>
+				<div class="mt-6 grid grid-cols-2 gap-4">
+					<div class="rounded-lg border border-slate-200 p-4">
+						<p class="text-xs text-slate-500">Ingresos percibidos</p>
+						<p class="mt-1 text-xl font-semibold text-emerald-700">{formatoCLP(totalIngresos)}</p>
+					</div>
+					<div class="rounded-lg border border-slate-200 p-4">
+						<p class="text-xs text-slate-500">Gastos ejecutados</p>
+						<p class="mt-1 text-xl font-semibold text-red-700">{formatoCLP(totalGastos)}</p>
+					</div>
+				</div>
+
+				<section class="mt-8">
+					<h2 class="text-lg font-semibold text-slate-900">Ingresos por categoría</h2>
+					<ul class="mt-3 space-y-1 text-sm">
+						{ingresos.map((i) => (
+							<li class="flex justify-between border-b border-slate-100 py-1.5">
+								<span class="text-slate-700">{i.categoria}</span>
+								<span class="font-medium text-slate-900">{formatoCLP(i.monto)}</span>
+							</li>
+						))}
+					</ul>
+				</section>
+
+				<section class="mt-8">
+					<h2 class="text-lg font-semibold text-slate-900">Gastos por categoría</h2>
+					<ul class="mt-3 space-y-1 text-sm">
+						{gastos.map((g) => (
+							<li class="flex justify-between border-b border-slate-100 py-1.5">
+								<span class="text-slate-700">{g.categoria}</span>
+								<span class="font-medium text-slate-900">{formatoCLP(g.monto)}</span>
+							</li>
+						))}
+					</ul>
+				</section>
+
+				{fuenteUrl && (
+					<p class="mt-6 text-xs text-slate-400">
+						Fuente: <a href={fuenteUrl} class="hover:underline" target="_blank" rel="noopener">
+							Balance de ejecución presupuestaria, transparencia municipal
+						</a>
+					</p>
+				)}
+			</>
+		)}
+
+		{personal.length > 0 && (
+			<section class="mt-10">
+				<h2 class="text-lg font-semibold text-slate-900">Personal municipal ({periodoPersonal})</h2>
+				<p class="mt-1 text-xs text-slate-500">
+					Totales agregados por tipo de contrato y área — no incluye nombres individuales, salvo
+					autoridades electas (ver abajo). Fuente: portaltransparencia.cl.
+				</p>
+
+				<div class="mt-4 grid grid-cols-2 gap-4">
+					<div class="rounded-lg border border-slate-200 p-4">
+						<p class="text-xs text-slate-500">Dotación total</p>
+						<p class="mt-1 text-xl font-semibold text-slate-900">
+							{dotacionTotal.toLocaleString('es-CL')} personas
+						</p>
+					</div>
+					<div class="rounded-lg border border-slate-200 p-4">
+						<p class="text-xs text-slate-500">Remuneraciones totales del mes</p>
+						<p class="mt-1 text-xl font-semibold text-slate-900">
+							{formatoCLP(remuneracionTotalPersonal)}
+						</p>
+					</div>
+				</div>
+
+				<table class="mt-4 w-full text-sm">
+					<thead>
+						<tr class="text-left text-xs text-slate-500">
+							<th class="py-1.5">Área</th>
+							<th class="py-1.5">Tipo</th>
+							<th class="py-1.5 text-right">Dotación</th>
+							<th class="py-1.5 text-right">Remuneración total</th>
+						</tr>
+					</thead>
+					<tbody>
+						{personal.map((p) => (
+							<tr class="border-b border-slate-100">
+								<td class="py-1.5 text-slate-700">{AREA_LABEL[p.area] ?? p.area}</td>
+								<td class="py-1.5 text-slate-700">
+									{TIPO_CONTRATO_LABEL[p.tipo_contrato] ?? p.tipo_contrato}
+								</td>
+								<td class="py-1.5 text-right text-slate-900">{p.dotacion.toLocaleString('es-CL')}</td>
+								<td class="py-1.5 text-right font-medium text-slate-900">
+									{formatoCLP(p.remuneracion_total)}
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+
+				{remuneracionAutoridad.map((r) => (
+					<p class="mt-4 text-sm text-slate-700">
+						Remuneración bruta de {r.cargo.toLowerCase()} ({r.mes}/{r.anno}):{' '}
+						<span class="font-semibold text-slate-900">{formatoCLP(r.remuneracion_bruta)}</span>
+					</p>
 				))}
-			</ul>
-		</section>
-
-		<section class="mt-8">
-			<h2 class="text-lg font-semibold text-slate-900">Gastos por categoría</h2>
-			<ul class="mt-3 space-y-1 text-sm">
-				{gastos.map((g) => (
-					<li class="flex justify-between border-b border-slate-100 py-1.5">
-						<span class="text-slate-700">{g.categoria}</span>
-						<span class="font-medium text-slate-900">{formatoCLP(g.monto)}</span>
-					</li>
-				))}
-			</ul>
-		</section>
-
-		{fuenteUrl && (
-			<p class="mt-8 text-xs text-slate-400">
-				Fuente: <a href={fuenteUrl} class="hover:underline" target="_blank" rel="noopener">
-					Balance de ejecución presupuestaria, transparencia municipal
-				</a>
-			</p>
+			</section>
 		)}
 	</main>
 </Layout>
