@@ -1,0 +1,19 @@
+{
+  "id": "belen-auger-julien-core",
+  "nombre": "Belén",
+  "apellido": "Auger Julien",
+  "nombre_completo": "Belén Auger Julien",
+  "cargo": "core",
+  "partido": "Partido Republicano",
+  "pacto": null,
+  "comuna": null,
+  "distrito": null,
+  "circunscripcion": "Elqui",
+  "periodo_inicio": "2025-01-06",
+  "periodo_fin": "2029-01-06",
+  "foto_url": null,
+  "email": null,
+  "activo": 1,
+  "fuente": "https://acuerdos.corecoquimbo.cl/consejeros/lista",
+  "actualizado_en": "2026-08-24T13:50:44.152987"
+}

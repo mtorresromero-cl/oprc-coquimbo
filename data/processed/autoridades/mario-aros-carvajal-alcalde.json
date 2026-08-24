@@ -1,0 +1,19 @@
+{
+  "id": "mario-aros-carvajal-alcalde",
+  "nombre": "Mario",
+  "apellido": "Aros Carvajal",
+  "nombre_completo": "Mario Aros Carvajal",
+  "cargo": "alcalde",
+  "partido": "Independiente",
+  "pacto": "Chile Vamos",
+  "comuna": "vicuna",
+  "distrito": null,
+  "circunscripcion": null,
+  "periodo_inicio": "2024-12-06",
+  "periodo_fin": "2028-12-06",
+  "foto_url": null,
+  "email": null,
+  "activo": 1,
+  "fuente": "https://laserenaonline.cl/2024/10/28/mario-aros-carvajal-es-alcalde-electo-de-vicuna/",
+  "actualizado_en": "2026-08-24T13:50:44.152987"
+}

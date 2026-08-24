@@ -1,0 +1,19 @@
+{
+  "id": "juan-perines-huenchullan-concejal",
+  "nombre": "Juan",
+  "apellido": "Perines Huenchullán",
+  "nombre_completo": "Juan Perines Huenchullán",
+  "cargo": "concejal",
+  "partido": "Partido Demócrata Cristiano",
+  "pacto": "Chile mucho mejor - subpacto PDC e Independientes",
+  "comuna": "rio-hurtado",
+  "distrito": null,
+  "circunscripcion": null,
+  "periodo_inicio": "2024-12-06",
+  "periodo_fin": "2028-12-06",
+  "foto_url": null,
+  "email": null,
+  "activo": 1,
+  "fuente": "https://www.tercoquimbo.cl/doc/elecciones/concejales/2024/Sentencia_Concejal_RioHurtado.pdf",
+  "actualizado_en": "2026-08-24T13:50:44.152987"
+}

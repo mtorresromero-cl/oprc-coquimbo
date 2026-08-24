@@ -1,0 +1,19 @@
+{
+  "id": "maria-cristina-concha-wagenknecht-core",
+  "nombre": "María",
+  "apellido": "Cristina Concha Wagenknecht",
+  "nombre_completo": "María Cristina Concha Wagenknecht",
+  "cargo": "core",
+  "partido": "Renovación Nacional",
+  "pacto": null,
+  "comuna": null,
+  "distrito": null,
+  "circunscripcion": "Elqui",
+  "periodo_inicio": "2025-01-06",
+  "periodo_fin": "2029-01-06",
+  "foto_url": null,
+  "email": null,
+  "activo": 1,
+  "fuente": "https://acuerdos.corecoquimbo.cl/consejeros/lista",
+  "actualizado_en": "2026-08-24T13:50:44.152987"
+}

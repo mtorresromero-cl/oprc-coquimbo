@@ -1,0 +1,19 @@
+{
+  "id": "angel-gonzalez-aguilera-core",
+  "nombre": "Ángel",
+  "apellido": "González Aguilera",
+  "nombre_completo": "Ángel González Aguilera",
+  "cargo": "core",
+  "partido": "Independiente",
+  "pacto": null,
+  "comuna": null,
+  "distrito": null,
+  "circunscripcion": "Choapa",
+  "periodo_inicio": "2025-01-06",
+  "periodo_fin": "2029-01-06",
+  "foto_url": null,
+  "email": null,
+  "activo": 1,
+  "fuente": "https://acuerdos.corecoquimbo.cl/consejeros/lista",
+  "actualizado_en": "2026-08-24T13:50:44.152987"
+}
