@@ -130,13 +130,31 @@ importantes:**
   implementado en `scrapers/camara_mociones.py` (reemplaza al intento
   anterior con BCN, que tenía semanas/meses de rezago). Usa Playwright,
   solo GET a fichas individuales, nunca envía el formulario de búsqueda.
-- Se intentó adivinar la URL de la página de **asistencia** por diputado y
-  se obtuvo un bloqueo explícito de Cloudflare ("Sorry, you have been
-  blocked") — no se siguió insistiendo con más variantes de URL. Votaciones
-  y asistencia de diputados siguen sin resolver; no se debe construir nada
-  pensado específicamente para evadir ese bloqueo (CAPTCHA solving, spoofing
-  de fingerprint, proxies rotativos, etc.) — esa es la línea que no se cruza,
-  independiente de quién opere el scraper.
+- **Votaciones y asistencia por diputado SÍ existen** con el mismo patrón
+  GET (`/diputados/detalle/votaciones_sala.aspx?prmId=<DIPID>` y
+  `asistencia_sala.aspx?prmId=<DIPID>`, con `prmId` no `prmID`) — se
+  encontraron los links reales en el menú "Trabajo Parlamentario" de la
+  ficha (no adivinados) y **cada uno por separado, en una página nueva,
+  funciona perfecto** (datos hasta el 19 de agosto de 2026: votos
+  individuales AFIRMATIVO/NEGATIVO y asistencia con % y detalle por sesión).
+- **Pero combinar mociones→votaciones→asistencia del mismo diputado en la
+  misma sesión de navegador (misma `page`, navegaciones secuencolas a
+  endpoints distintos) SÍ dispara un bloqueo explícito de Cloudflare**
+  ("Sorry, you have been blocked"), reproducido de forma consistente varias
+  veces. No es un tema de URL incorrecta (eso fue un error de la primera
+  investigación) — es detección de comportamiento: Cloudflare distingue
+  "repetir el mismo endpoint para distintos diputados" (lo que hace
+  `camara_mociones.py`, nunca bloqueado) de "recorrer varios endpoints
+  distintos para el mismo diputado" (patrón típico de crawler explorando
+  secciones de un sitio, sí bloqueado).
+- **Decisión: no se construye nada para votaciones/asistencia de
+  diputados.** Evitar ese bloqueo específico (por ejemplo, abriendo un
+  browser nuevo por cada URL, espaciando las requests de otra forma, etc.)
+  significaría rediseñar el scraper específicamente porque se descubrió que
+  eso esquiva la detección del sitio — eso ya es ingeniería de evasión,
+  independiente de la técnica concreta o de quién lo opere. `mocion.aspx`
+  se mantiene porque nunca gatilló nada; todo lo demás queda descartado, no
+  solo pendiente.
 
 **Alternativa complementaria: `datos.bcn.cl`** (datos enlazados, robots.txt
 abierto, SPARQL). Tiene mociones parlamentarias pero con rezago de
