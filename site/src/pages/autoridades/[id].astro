@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { autoridades, CARGO_LABEL, nombreComuna, votacionesDeAutoridad, VOTO_LABEL, mocionesDeAutoridad } from '../../lib/datos';
+import { autoridades, CARGO_LABEL, nombreComuna, votacionesDeAutoridad, VOTO_LABEL, mocionesDeAutoridad, presupuestoDeComuna } from '../../lib/datos';
 
 export function getStaticPaths() {
 	return autoridades.map((a) => ({
@@ -12,6 +12,7 @@ export function getStaticPaths() {
 const { autoridad } = Astro.props;
 const historialVotos = votacionesDeAutoridad(autoridad.id);
 const historialMociones = mocionesDeAutoridad(autoridad.id);
+const tienePresupuesto = autoridad.comuna ? presupuestoDeComuna(autoridad.comuna).length > 0 : false;
 ---
 
 <Layout title={`${autoridad.nombre_completo} — OPRC`}>
@@ -39,7 +40,15 @@ const historialMociones = mocionesDeAutoridad(autoridad.id);
 			{autoridad.comuna && (
 				<>
 					<dt class="text-slate-500">Comuna</dt>
-					<dd class="text-slate-900">{nombreComuna(autoridad.comuna)}</dd>
+					<dd class="text-slate-900">
+						{tienePresupuesto ? (
+							<a href={`/municipios/${autoridad.comuna}/`} class="hover:underline">
+								{nombreComuna(autoridad.comuna)} — ver presupuesto
+							</a>
+						) : (
+							nombreComuna(autoridad.comuna)
+						)}
+					</dd>
 				</>
 			)}
 			{autoridad.distrito && (

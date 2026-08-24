@@ -19,6 +19,7 @@ jobs:
       - run: python -m playwright install --with-deps chromium
       - run: python scrapers/senado.py
       - run: python scrapers/camara_mociones.py
+      - run: python scrapers/transparencia_municipal.py
       - name: Commit datos actualizados
         run: |
           git config user.name "OPRC Bot"

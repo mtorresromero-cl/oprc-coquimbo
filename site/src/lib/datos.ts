@@ -56,15 +56,31 @@ export interface Mocion {
 	url_bcn: string;
 }
 
+export interface PresupuestoItem {
+	comuna_id: string;
+	anno: number;
+	tipo: string;
+	categoria: string;
+	subcategoria: string;
+	monto: number;
+	fuente_url: string;
+}
+
 import autoridadesRaw from '../../../data/processed/autoridades.json';
 import comunasRaw from '../../../data/processed/comunas.json';
 import votacionesRaw from '../../../data/processed/votaciones.json';
 import mocionesRaw from '../../../data/processed/mociones.json';
+import presupuestoRaw from '../../../data/processed/presupuesto-municipal.json';
 
 export const autoridades: Autoridad[] = autoridadesRaw as Autoridad[];
 export const comunas: Comuna[] = comunasRaw as Comuna[];
 export const votaciones: VotacionSesion[] = votacionesRaw as VotacionSesion[];
 export const mociones: Mocion[] = mocionesRaw as Mocion[];
+export const presupuesto: PresupuestoItem[] = presupuestoRaw as PresupuestoItem[];
+
+export function presupuestoDeComuna(comunaId: string) {
+	return presupuesto.filter((p) => p.comuna_id === comunaId);
+}
 
 export function mocionesDeAutoridad(autoridadId: string) {
 	return mociones.filter((m) => m.autoridad_id === autoridadId);
