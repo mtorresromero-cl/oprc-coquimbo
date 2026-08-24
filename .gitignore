@@ -11,5 +11,8 @@ __pycache__/
 # Base de datos local (se regenera con scrapers/init_db.py)
 data/db/*.sqlite
 
+# Wrangler local cache
+.wrangler/
+
 # macOS
 .DS_Store
