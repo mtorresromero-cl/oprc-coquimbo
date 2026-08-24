@@ -8,9 +8,6 @@ __pycache__/
 # Env
 .env
 
-# Base de datos local (se regenera con scrapers/init_db.py)
-data/db/*.sqlite
-
 # Wrangler local cache
 .wrangler/
 

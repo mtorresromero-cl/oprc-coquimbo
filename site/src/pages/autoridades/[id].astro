@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { autoridades, CARGO_LABEL, nombreComuna } from '../../lib/datos';
+import { autoridades, CARGO_LABEL, nombreComuna, votacionesDeAutoridad, VOTO_LABEL } from '../../lib/datos';
 
 export function getStaticPaths() {
 	return autoridades.map((a) => ({
@@ -10,6 +10,7 @@ export function getStaticPaths() {
 }
 
 const { autoridad } = Astro.props;
+const historialVotos = votacionesDeAutoridad(autoridad.id);
 ---
 
 <Layout title={`${autoridad.nombre_completo} — OPRC`}>
@@ -69,6 +70,25 @@ const { autoridad } = Astro.props;
 				</>
 			)}
 		</dl>
+
+		{historialVotos.length > 0 && (
+			<section class="mt-10">
+				<h2 class="text-lg font-semibold text-slate-900">Historial de votaciones</h2>
+				<ul class="mt-3 space-y-3">
+					{historialVotos.map(({ sesion, voto }) => (
+						<li class="rounded-lg border border-slate-200 p-3 text-sm">
+							<div class="flex items-center justify-between text-xs text-slate-500">
+								<span>{sesion.fecha}</span>
+								<span class="font-medium text-slate-700">
+									{VOTO_LABEL[voto!.voto] ?? voto!.voto}
+								</span>
+							</div>
+							<p class="mt-1 text-slate-800">{sesion.descripcion}</p>
+						</li>
+					))}
+				</ul>
+			</section>
+		)}
 
 		{autoridad.fuente && (
 			<p class="mt-8 text-xs text-slate-400">

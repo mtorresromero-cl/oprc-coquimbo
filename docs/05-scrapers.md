@@ -82,123 +82,45 @@ class BaseScraper:
 
 ---
 
-## 1. Scraper: Cámara de Diputados
+## 1. Scraper: Cámara de Diputados — ESTADO: bloqueado, sin datos de votaciones/asistencia
 
-**Fuente:** `opendata.camara.cl`
-**Método:** API REST → XML
-**Dificultad:** Baja
-**Prioridad:** Alta (Fase 2)
+**Fuente:** `opendata.camara.cl` (servicio SOAP/XML legacy `wscamaradiputados.asmx`)
+**Dificultad:** N/A — no viable actualmente
+**Prioridad:** Pendiente de resolución
 
-### Endpoints clave
+**Investigado el 2026-08-24 (Fase 2).** Los nombres de método de esta sección
+(`retornarVotacionesXAnno`, etc.) eran un supuesto inicial y **no existen** en
+el servicio real. Los nombres reales son `get*` con guion bajo
+(`getDiputados`, `getDiputados_Vigentes`, `getSesiones`, `getLegislaturas`,
+`getVotacion_Detalle`, `getVotaciones_Boletin`, `getSesionBoletinXML`, etc.).
 
+**Lo que sí funciona** (datos reales y actuales verificados):
 ```
-Base URL: https://opendata.camara.cl/wscamaradiputados.asmx/
-
-Votaciones:
-  GET retornarVotacionesXAnno?prmAnno=2025
-  GET retornarVotacionDetalle?prmVotacionID=12345
-
-Asistencia:
-  GET retornarSesionesXAnno?prmAnno=2025
-  GET retornarSesionAsistencia?prmSesionID=456
-
-Mociones:
-  GET retornarMocionesXAnno?prmAnno=2025
-
-Diputados:
-  GET retornarDiputadosXPeriodo?prmPeriodoID=...
+GET https://opendata.camara.cl/wscamaradiputados.asmx/getDiputados_Vigentes
+GET https://opendata.camara.cl/wscamaradiputados.asmx/getSesiones?prmLegislaturaID=58
+GET https://opendata.camara.cl/wscamaradiputados.asmx/getLegislaturaActual
 ```
+IDs reales de los 7 diputados de la región (DIPID en este servicio):
+Manouchehri Lobos=1142, Tello Rojas=1177, Castillo Rojas=1117,
+Salinas Maya=1250, Urqueta Rojas=1255, Sulantay Olivares=1174, Grohs Marín=1212.
 
-### Diputados de la Región de Coquimbo
+**Lo que NO funciona:** `getVotaciones_Boletin`, `getVotacion_Detalle`,
+`getSesionBoletinXML` y el campo `<Asistencia>` de `getSesionDetalle`
+devuelven vacío para todas las sesiones de 2026 probadas — el catálogo básico
+se sigue sincronizando pero los datos de votaciones/asistencia dejaron de
+publicarse ahí. El portal `opendata.congreso.cl` (que en teoría reemplaza a
+este servicio) expone páginas de "Votaciones por Proyecto de Ley" que
+internamente llaman al mismo backend roto.
 
-Filtrar por distritos que corresponden a la región:
-- **Distrito 5:** comunas de la provincia de Elqui
-- **Distrito 6:** comunas de las provincias de Limarí y Choapa
+**Scraping directo de camara.cl: descartado.** Su `robots.txt` bloquea
+explícitamente `ClaudeBot` y otros crawlers de IA por nombre
+(`Disallow: /`), además de tener protección Cloudflare activa (403 a
+requests simples). No se debe construir un scraper que intente evadir esto.
 
-### Ejemplo de implementación
-
-```python
-# scrapers/camara_diputados.py
-from lxml import etree
-from base import BaseScraper
-
-class ScraperCamara(BaseScraper):
-    nombre = "camara_diputados"
-    base_url = "https://opendata.camara.cl/wscamaradiputados.asmx"
-
-    # IDs de diputados de Coquimbo (a poblar en Fase 1)
-    diputados_coquimbo: list[str] = []
-
-    def recolectar(self):
-        """Obtener votaciones del año en curso."""
-        anno = datetime.now().year
-        url = f"{self.base_url}/retornarVotacionesXAnno?prmAnno={anno}"
-        response = self.client.get(url)
-        response.raise_for_status()
-        return etree.fromstring(response.content)
-
-    def procesar(self, xml_root):
-        """Parsear XML y extraer votaciones relevantes."""
-        votaciones = []
-        for votacion in xml_root.findall(".//Votacion"):
-            votacion_id = votacion.findtext("ID")
-
-            # Obtener detalle (votos individuales)
-            detalle_url = f"{self.base_url}/retornarVotacionDetalle?prmVotacionID={votacion_id}"
-            detalle_resp = self.client.get(detalle_url)
-            detalle_xml = etree.fromstring(detalle_resp.content)
-
-            # Filtrar solo votos de diputados de Coquimbo
-            votos_region = []
-            for voto in detalle_xml.findall(".//Voto"):
-                diputado_id = voto.findtext("DiputadoID")
-                if diputado_id in self.diputados_coquimbo:
-                    votos_region.append({
-                        "diputado_id": diputado_id,
-                        "voto": voto.findtext("TipoVoto"),  # Favor/Contra/Abstencion
-                    })
-
-            if votos_region:  # solo guardar si hay votos de la región
-                votaciones.append({
-                    "id": votacion_id,
-                    "fecha": votacion.findtext("Fecha"),
-                    "descripcion": votacion.findtext("Descripcion"),
-                    "resultado": votacion.findtext("Resultado"),
-                    "votos": votos_region,
-                })
-
-            # Rate limiting: 1 request por segundo
-            import time; time.sleep(1)
-
-        return votaciones
-
-    def guardar(self, votaciones):
-        """Insertar votaciones en la BD."""
-        for v in votaciones:
-            # Upsert sesión de votación
-            self.db.execute("""
-                INSERT OR REPLACE INTO votacion_sesion
-                (id, camara, fecha, descripcion, resultado)
-                VALUES (?, 'camara', ?, ?, ?)
-            """, (v["id"], v["fecha"], v["descripcion"], v["resultado"]))
-
-            # Insertar votos individuales
-            for voto in v["votos"]:
-                self.db.execute("""
-                    INSERT OR IGNORE INTO voto
-                    (autoridad_id, sesion_id, voto, fecha)
-                    VALUES (?, ?, ?, ?)
-                """, (voto["diputado_id"], v["id"], voto["voto"], v["fecha"]))
-                self.stats["nuevos"] += 1
-
-        self.db.commit()
-```
-
-### Notas
-- La API no requiere autenticación
-- Respeta rate limiting (1 req/s)
-- Los IDs de diputados de Coquimbo se obtienen primero con `retornarDiputadosXPeriodo`
-- El XML puede variar en estructura; validar con respuestas reales antes de producción
+**Alternativas no exploradas todavía:** revisar si `datos.bcn.cl` (datos
+enlazados, robots.txt abierto) tiene registros de votaciones/asistencia vía
+SPARQL. Si en el futuro `opendata.congreso.cl` arregla el backend, este
+scraper se puede retomar con los métodos `get*` correctos de arriba.
 
 ---
 

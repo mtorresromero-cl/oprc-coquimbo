@@ -1,0 +1,50 @@
+name: Actualizar datos
+
+on:
+  schedule:
+    - cron: '0 12 * * 1' # todos los lunes a las 9am Chile (UTC-3)
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r scrapers/requirements.txt
+      - run: python scrapers/senado.py
+      - name: Commit datos actualizados
+        run: |
+          git config user.name "OPRC Bot"
+          git config user.email "bot@oprcoquimbo.cl"
+          git add data/db/oprc.sqlite data/processed/
+          git diff --staged --quiet || git commit -m "datos: actualización automática $(date +%Y-%m-%d)"
+          git push
+
+  build-deploy:
+    needs: scrape
+    if: always()
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: site/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: oprc-coquimbo
+          directory: dist
+          branch: main
