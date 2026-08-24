@@ -112,15 +112,38 @@ publicarse ahí. El portal `opendata.congreso.cl` (que en teoría reemplaza a
 este servicio) expone páginas de "Votaciones por Proyecto de Ley" que
 internamente llaman al mismo backend roto.
 
-**Scraping directo de camara.cl: descartado.** Su `robots.txt` bloquea
-explícitamente `ClaudeBot` y otros crawlers de IA por nombre
-(`Disallow: /`), además de tener protección Cloudflare activa (403 a
-requests simples). No se debe construir un scraper que intente evadir esto.
+**Scraping de camara.cl — resuelto parcialmente el 2026-08-24, con matices
+importantes:**
+- `robots.txt` bloquea explícitamente a `ClaudeBot` y otros crawlers de IA
+  por nombre (`Disallow: /`), sitio completo, sin excepción por sección. Un
+  bot propio identificado honestamente (no como uno de esos nombres) cae
+  bajo la regla general `Allow: /` y no está prohibido.
+- Cloudflare bloquea requests simples (curl/httpx) con 403, pero un
+  navegador real headless (Playwright, user-agent normal) **sí pasa** para
+  navegación simple (GET) — confirmado con contenido real y actual.
+- El **formulario de búsqueda** del sitio (POST, ej. filtrar
+  `proyectos_ley.aspx` por autor) **sí está bloqueado** (403) — la
+  protección distingue navegación pasiva de interacción automatizada.
+- La **ficha personal de cada diputado**
+  (`/diputados/detalle/mociones.aspx?prmID=<DIPID>`) es una URL con
+  parámetro GET simple, no requiere el formulario, y **sí funciona** —
+  implementado en `scrapers/camara_mociones.py` (reemplaza al intento
+  anterior con BCN, que tenía semanas/meses de rezago). Usa Playwright,
+  solo GET a fichas individuales, nunca envía el formulario de búsqueda.
+- Se intentó adivinar la URL de la página de **asistencia** por diputado y
+  se obtuvo un bloqueo explícito de Cloudflare ("Sorry, you have been
+  blocked") — no se siguió insistiendo con más variantes de URL. Votaciones
+  y asistencia de diputados siguen sin resolver; no se debe construir nada
+  pensado específicamente para evadir ese bloqueo (CAPTCHA solving, spoofing
+  de fingerprint, proxies rotativos, etc.) — esa es la línea que no se cruza,
+  independiente de quién opere el scraper.
 
-**Alternativas no exploradas todavía:** revisar si `datos.bcn.cl` (datos
-enlazados, robots.txt abierto) tiene registros de votaciones/asistencia vía
-SPARQL. Si en el futuro `opendata.congreso.cl` arregla el backend, este
-scraper se puede retomar con los métodos `get*` correctos de arriba.
+**Alternativa complementaria: `datos.bcn.cl`** (datos enlazados, robots.txt
+abierto, SPARQL). Tiene mociones parlamentarias pero con rezago de
+publicación (semanas/meses) y sin votaciones/asistencia en absoluto — por
+eso se descartó a favor de camara.cl directo para mociones. Si en el futuro
+se necesita retomar votaciones/asistencia de diputados, revisar primero si
+`opendata.congreso.cl` arregló su backend (métodos `get*` de arriba).
 
 ---
 
