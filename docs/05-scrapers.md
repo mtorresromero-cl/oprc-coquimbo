@@ -377,6 +377,49 @@ class ScraperTransparencia(BaseScraper):
 - Documentar la estructura HTML de cada sitio
 - Para PDFs: usar `pdfplumber` para extraer tablas presupuestarias
 
+### Estado real — investigado y parcialmente implementado el 2026-08-24
+
+Implementado en `scrapers/transparencia_municipal.py` (presupuesto) y
+`scrapers/personal_municipal.py` (dotación/remuneraciones), ambos vía
+**portaltransparencia.cl** (portal central), no los subdominios propios de
+cada municipio — el portal central usa la misma plataforma para las 15
+comunas, pero **cada una arma su propio árbol de sub-navegación dentro de
+"Balance de Ejecución Presupuestaria" y su propio formato de PDF**.
+Confirmado investigando La Serena, Coquimbo, Ovalle, Andacollo, La Higuera,
+Monte Patria, Combarbalá — todas distintas entre sí. No es un problema de
+"ajustar un regex", cada comuna requiere reconocimiento manual.
+
+**Generalizaciones que sí funcionaron** (`transparencia_municipal.py`):
+- Categoría con matching tolerante a typos/acentos/singular-plural.
+- Selector de año con o sin prefijo "Año ".
+- Fallback genérico: si no hay años visibles pero sí un link "Municipal"
+  exacto, se entra ahí por defecto (cubre varias comunas sin hardcodear).
+- Columnas del PDF detectadas por texto de cabecera, no por índice fijo.
+- Código de cuenta nivel-top con prefijo de fondo variable.
+
+**BUG REAL encontrado**: no todas las comunas declaran los montos "en
+miles de $" (La Serena sí, Coquimbo no) — asumirlo fijo infló las cifras de
+Coquimbo 1000x. Se detecta por página (`re.search(r"MILES\s*\$", texto)`)
+en vez de asumirlo.
+
+**Bloqueos identificados, no perseguidos:**
+- Salamanca: PDF escaneado (0 texto, solo imagen) — necesitaría OCR.
+- Los Vilos: el PDF está en el dominio propio del municipio
+  (munilosvilos.cl) cuyo servidor usa una config TLS obsoleta/insegura
+  ("dh key too small") que un cliente moderno rechaza por seguridad — no
+  se debe debilitar la seguridad de nuestro lado para acomodar esto.
+- Combarbalá: su propio portal advierte "servidor central... recibió
+  ataques de terceros... información disponible es parcial" — dato de
+  transparencia real, no un bug nuestro.
+- El resto de las 15 comunas configuradas (Paihuano, Vicuña, Ovalle,
+  Punitaqui, Río Hurtado, Illapel, Canela) no tienen documento en los
+  últimos 3 años visible en el portal central bajo la ruta investigada —
+  puede ser genuina falta de publicación, o un árbol de navegación
+  distinto que no se llegó a mapear. Queda pendiente, comuna por comuna.
+
+**Resultado actual**: 3/15 comunas con datos reales verificados (La
+Serena, Coquimbo, La Higuera).
+
 ---
 
 ## 5. Scraper: SERVEL (Datos Electorales)
