@@ -307,6 +307,49 @@ export function nombreComuna(comunaId: string | null): string | null {
 	return comunas.find((c) => c.id === comunaId)?.nombre ?? comunaId;
 }
 
+// El campo partido viene de distintas fuentes (SERVEL, BCN, sitios
+// institucionales) sin normalizar: el mismo partido aparece con su nombre
+// completo, con sigla entre paréntesis, o solo la sigla. Estas son las
+// variantes reales observadas en los datos de diputados/senadores/core/
+// gobernador (2026-08-25) — no es una función genérica porque prefiere
+// listar explícitamente lo que se está uniendo, en vez de adivinar con un
+// regex que podría fusionar partidos distintos por error.
+const PARTIDO_ALIAS: Record<string, string> = {
+	'Partido Comunista de Chile': 'Partido Comunista',
+	'Partido Comunista (PC)': 'Partido Comunista',
+	'Partido Socialista de Chile': 'Partido Socialista',
+	'Partido Socialista (PS)': 'Partido Socialista',
+	'Unión Demócrata Independiente (UDI)': 'Unión Demócrata Independiente',
+	'Frente Amplio (FA)': 'Frente Amplio',
+	'Partido de la Gente (PDG)': 'Partido de la Gente',
+	'Partido Nacional Libertario (PNL)': 'Partido Nacional Libertario',
+	'Independiente (cupo PC, lista Unidad por Chile)': 'Independiente',
+};
+
+export interface ComposicionPartido {
+	partido: string;
+	total: number;
+}
+
+/**
+ * Composición por partido de diputados, senadores, consejeros regionales
+ * y el gobernador (27 personas) — no incluye alcaldes/concejales, donde
+ * "partido" tiene muchas más variantes sin normalizar y el volumen (100+
+ * concejales) diluiría la lectura de la composición legislativa/CORE.
+ */
+export function composicionPartidoLegislativoCore(): ComposicionPartido[] {
+	const cargos = new Set(['diputado', 'senador', 'core', 'gobernador']);
+	const conteo = new Map<string, number>();
+	for (const a of autoridades) {
+		if (!cargos.has(a.cargo) || !a.partido) continue;
+		const partido = PARTIDO_ALIAS[a.partido] ?? a.partido;
+		conteo.set(partido, (conteo.get(partido) ?? 0) + 1);
+	}
+	return [...conteo.entries()]
+		.map(([partido, total]) => ({ partido, total }))
+		.sort((a, b) => b.total - a.total);
+}
+
 export interface IndiceVotacion {
 	autoridad_id: string;
 	nombre: string;
