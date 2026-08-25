@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { autoridades, votaciones, votacionesCore, indiceVotaciones, indiceMociones } from '../../lib/datos';
+
+const senadorIds = autoridades.filter((a) => a.cargo === 'senador').map((a) => a.id);
+const diputadoIds = autoridades.filter((a) => a.cargo === 'diputado').map((a) => a.id);
+const coreIds = autoridades.filter((a) => a.cargo === 'core' || a.cargo === 'gobernador').map((a) => a.id);
+
+const indiceSenado = indiceVotaciones(votaciones, senadorIds);
+const indiceCore = indiceVotaciones(votacionesCore, coreIds);
+const indiceDiputados = indiceMociones(diputadoIds);
+
+const grupos = {
+	senado: indiceSenado.map((i) => ({
+		id: i.autoridad_id,
+		nombre: i.nombre,
+		metrics: {
+			participacionPct: i.participacionPct,
+			alineamientoPct: i.alineamientoPct,
+			favor: i.favor,
+			contra: i.contra,
+			abstencion: i.abstencion,
+			pareo: i.pareo,
+		},
+	})),
+	core: indiceCore.map((i) => ({
+		id: i.autoridad_id,
+		nombre: i.nombre,
+		metrics: {
+			participacionPct: i.participacionPct,
+			alineamientoPct: i.alineamientoPct,
+			favor: i.favor,
+			abstencion: i.abstencion,
+			ausente: i.ausente,
+			inhabilitado: i.inhabilitado,
+		},
+	})),
+	diputados: indiceDiputados.map((i) => ({
+		id: i.autoridad_id,
+		nombre: i.nombre,
+		metrics: { total: i.total },
+	})),
+};
+---
+
+<Layout
+	title="Dashboard de Participación — OPRC"
+	description="Compará senadores, diputados y consejeros regionales por participación, alineamiento de voto y mociones presentadas."
+>
+	<div class="border-b border-slate-100 bg-slate-50">
+		<div class="mx-auto max-w-6xl px-6 py-12">
+			<h1 class="text-3xl font-bold tracking-tight text-slate-900">Dashboard de Participación</h1>
+			<p class="mt-2 max-w-2xl text-slate-600">
+				Elegí una cámara y una métrica para comparar a sus integrantes. Diputados y diputadas
+				todavía no tienen datos de votaciones disponibles — se muestra su total de mociones
+				presentadas.
+			</p>
+		</div>
+	</div>
+
+	<main class="mx-auto max-w-6xl px-6 py-10">
+		<div class="flex flex-wrap gap-2">
+			<button type="button" data-grupo="senado" class="grupo-btn rounded-md bg-brand-600 px-4 py-2 text-sm font-semibold text-white">
+				Senado
+			</button>
+			<button type="button" data-grupo="core" class="grupo-btn rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+				Consejo Regional
+			</button>
+			<button type="button" data-grupo="diputados" class="grupo-btn rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+				Diputados (mociones)
+			</button>
+		</div>
+
+		<div id="metricas" class="mt-3 flex flex-wrap gap-2"></div>
+
+		<div id="chart" class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm"></div>
+
+		<div class="mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+			<table class="w-full text-sm">
+				<thead id="tabla-head" class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase"></thead>
+				<tbody id="tabla-body" class="divide-y divide-slate-100"></tbody>
+			</table>
+		</div>
+	</main>
+
+	<script type="application/json" id="grupos-data" set:html={JSON.stringify(grupos)} />
+
+	<script>
+		interface Item {
+			id: string;
+			nombre: string;
+			metrics: Record<string, number | null>;
+		}
+
+		type GrupoKey = 'senado' | 'core' | 'diputados';
+
+		const grupos: Record<GrupoKey, Item[]> = JSON.parse(document.getElementById('grupos-data')!.textContent!);
+
+		const METRICAS: Record<GrupoKey, [string, string][]> = {
+			senado: [
+				['participacionPct', 'Participación'],
+				['alineamientoPct', 'Alineamiento'],
+				['favor', 'A favor'],
+				['contra', 'En contra'],
+				['abstencion', 'Abstención'],
+				['pareo', 'Pareo'],
+			],
+			core: [
+				['participacionPct', 'Participación'],
+				['alineamientoPct', 'Alineamiento'],
+				['favor', 'A favor'],
+				['abstencion', 'Abstención'],
+				['ausente', 'Ausente'],
+				['inhabilitado', 'Inhabilitado'],
+			],
+			diputados: [['total', 'Mociones presentadas']],
+		};
+
+		function esPct(metricKey: string) {
+			return metricKey.endsWith('Pct');
+		}
+
+		function formatoValor(metricKey: string, valor: number | null) {
+			if (valor === null) return 'Sin datos comparables';
+			return esPct(metricKey) ? `${valor.toFixed(1)}%` : String(valor);
+		}
+
+		let grupoActivo: GrupoKey = 'senado';
+		let metricaActiva = METRICAS.senado[0][0];
+
+		function renderMetricas() {
+			const cont = document.getElementById('metricas')!;
+			cont.innerHTML = METRICAS[grupoActivo]
+				.map(
+					([key, label]) =>
+						`<button type="button" data-metrica="${key}" class="metrica-btn rounded-full px-3 py-1 text-xs font-medium ${
+							key === metricaActiva ? 'bg-slate-800 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+						}">${label}</button>`
+				)
+				.join('');
+			cont.querySelectorAll<HTMLButtonElement>('.metrica-btn').forEach((btn) => {
+				btn.addEventListener('click', () => {
+					metricaActiva = btn.dataset.metrica!;
+					render();
+				});
+			});
+		}
+
+		function render() {
+			const items = grupos[grupoActivo];
+			const ordenados = [...items].sort((a, b) => (b.metrics[metricaActiva] ?? -1) - (a.metrics[metricaActiva] ?? -1));
+			const max = Math.max(...ordenados.map((i) => i.metrics[metricaActiva] ?? 0), 1);
+
+			const chart = document.getElementById('chart')!;
+			chart.innerHTML = ordenados
+				.map((i) => {
+					const valor = i.metrics[metricaActiva];
+					const anchoPct = valor === null ? 0 : (valor / max) * 100;
+					return `
+						<div class="flex items-center gap-3 py-1.5">
+							<a href="/autoridades/${i.id}/" class="w-48 shrink-0 truncate text-sm text-slate-700 hover:text-brand-600 hover:underline">${i.nombre}</a>
+							<div class="h-5 flex-1 rounded bg-slate-100">
+								<div class="h-5 rounded bg-brand-600" style="width:${anchoPct}%"></div>
+							</div>
+							<span class="w-32 shrink-0 text-right text-sm font-medium text-slate-900">${formatoValor(metricaActiva, valor)}</span>
+						</div>`;
+				})
+				.join('');
+
+			const head = document.getElementById('tabla-head')!;
+			const cols = METRICAS[grupoActivo];
+			head.innerHTML =
+				'<tr><th class="px-4 py-2">Nombre</th>' +
+				cols.map(([, label]) => `<th class="px-4 py-2 text-right">${label}</th>`).join('') +
+				'</tr>';
+
+			const body = document.getElementById('tabla-body')!;
+			body.innerHTML = ordenados
+				.map(
+					(i) =>
+						`<tr><td class="px-4 py-2.5"><a href="/autoridades/${i.id}/" class="font-medium text-slate-900 hover:text-brand-600 hover:underline">${i.nombre}</a></td>` +
+						cols
+							.map(([key]) => `<td class="px-4 py-2.5 text-right text-slate-700">${formatoValor(key, i.metrics[key])}</td>`)
+							.join('') +
+						'</tr>'
+				)
+				.join('');
+		}
+
+		document.querySelectorAll<HTMLButtonElement>('.grupo-btn').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				grupoActivo = btn.dataset.grupo as GrupoKey;
+				metricaActiva = METRICAS[grupoActivo][0][0];
+				document.querySelectorAll('.grupo-btn').forEach((b) => {
+					b.classList.remove('bg-brand-600', 'text-white');
+					b.classList.add('border', 'border-slate-300', 'text-slate-700');
+				});
+				btn.classList.add('bg-brand-600', 'text-white');
+				btn.classList.remove('border', 'border-slate-300', 'text-slate-700');
+				renderMetricas();
+				render();
+			});
+		});
+
+		renderMetricas();
+		render();
+	</script>
+</Layout>

@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { votacionesCore, autoridades, VOTO_LABEL, indiceVotaciones } from '../../lib/datos';
+import { votacionesCore, autoridades, VOTO_LABEL } from '../../lib/datos';
 
 function nombreAutoridad(id: string) {
 	return autoridades.find((a) => a.id === id)?.nombre_completo ?? id;
@@ -12,15 +12,7 @@ function esUnanime(v: (typeof votacionesCore)[number]) {
 	return v.votos.length > 0 && v.votos.every((voto) => voto.voto === 'favor');
 }
 
-const coreIds = autoridades.filter((a) => a.cargo === 'core' || a.cargo === 'gobernador').map((a) => a.id);
-const indiceCore = indiceVotaciones(votacionesCore, coreIds).sort(
-	(a, b) => b.participacionPct - a.participacionPct
-);
 const acuerdosRechazados = votacionesCore.filter((v) => v.resultado === 'rechazado').length;
-
-function formatoPct(valor: number | null) {
-	return valor === null ? '—' : `${valor.toFixed(1)}%`;
-}
 ---
 
 <Layout
@@ -39,53 +31,23 @@ function formatoPct(valor: number | null) {
 	</div>
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
-		<section>
-			<h2 class="text-xl font-semibold text-slate-900">Índice de participación</h2>
-			<p class="mt-1 max-w-2xl text-sm text-slate-500">
-				Sobre los {votacionesCore.length} acuerdos registrados
-				({acuerdosRechazados === 0
-					? 'ninguno fue rechazado en este período'
-					: `${acuerdosRechazados} fueron rechazados`}).{' '}
-				<strong>Participación</strong>: % de acuerdos con voto real (a favor, en contra o
-				abstención). <strong>Alineamiento</strong>: de sus votos a favor/en contra, % que
-				coincidió con el resultado final del acuerdo. No calculamos un puntaje único: mezclar
-				participación y alineamiento requeriría ponderarlos de forma arbitraria.
-			</p>
-			<div class="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
-				<table class="w-full min-w-[640px] text-sm">
-					<thead>
-						<tr class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase">
-							<th class="px-4 py-2">Consejero/a</th>
-							<th class="px-4 py-2 text-right">Participación</th>
-							<th class="px-4 py-2 text-right">Alineamiento</th>
-							<th class="px-4 py-2 text-right">A favor</th>
-							<th class="px-4 py-2 text-right">Abstención</th>
-							<th class="px-4 py-2 text-right">Ausente</th>
-							<th class="px-4 py-2 text-right">Inhabilitado</th>
-						</tr>
-					</thead>
-					<tbody class="divide-y divide-slate-100">
-						{indiceCore.map((i) => (
-							<tr>
-								<td class="px-4 py-2.5">
-									<a href={`/autoridades/${i.autoridad_id}/`} class="font-medium text-slate-900 hover:text-brand-600 hover:underline">
-										{i.nombre}
-									</a>
-								</td>
-								<td class="px-4 py-2.5 text-right font-medium text-slate-900">{formatoPct(i.participacionPct)}</td>
-								<td class="px-4 py-2.5 text-right text-slate-700">{formatoPct(i.alineamientoPct)}</td>
-								<td class="px-4 py-2.5 text-right text-slate-700">{i.favor}</td>
-								<td class="px-4 py-2.5 text-right text-slate-700">{i.abstencion}</td>
-								<td class="px-4 py-2.5 text-right text-slate-700">{i.ausente}</td>
-								<td class="px-4 py-2.5 text-right text-slate-700">{i.inhabilitado}</td>
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</section>
+		<a
+			href="/dashboard/"
+			class="flex items-center justify-between rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
+		>
+			<span>
+				<span class="font-semibold text-slate-900">Ver dashboard de participación →</span>
+				<span class="mt-1 block text-sm text-slate-600">
+					Comparar consejeros/as por participación, alineamiento de voto y otras métricas.
+				</span>
+			</span>
+		</a>
 
-		<h2 class="mt-14 text-xl font-semibold text-slate-900">Acuerdos recientes</h2>
+		<h2 class="mt-10 text-xl font-semibold text-slate-900">Acuerdos recientes</h2>
+		<p class="mt-1 max-w-2xl text-sm text-slate-500">
+			Sobre los {votacionesCore.length} acuerdos registrados
+			({acuerdosRechazados === 0 ? 'ninguno fue rechazado en este período' : `${acuerdosRechazados} fueron rechazados`}).
+		</p>
 
 		{votacionesOrdenadas.length === 0 && (
 			<p class="text-sm text-slate-500">Todavía no hay acuerdos registrados.</p>
