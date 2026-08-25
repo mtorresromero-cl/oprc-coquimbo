@@ -94,20 +94,25 @@ CREATE TABLE IF NOT EXISTS mocion (
     FOREIGN KEY (proyecto_ley_id) REFERENCES proyecto_ley(id)
 );
 
+-- Resumen agregado de la declaración de patrimonio vigente (no itemizado:
+-- infoprobidad.cl publica el detalle completo de cada bien/sociedad/deuda,
+-- pero seguimos el mismo criterio que personal_municipal — totales
+-- comparables entre autoridades, no el detalle línea por línea).
 CREATE TABLE IF NOT EXISTS declaracion_patrimonio (
-    id              INTEGER PRIMARY KEY AUTOINCREMENT,
-    autoridad_id    TEXT NOT NULL,
-    tipo            TEXT NOT NULL,           -- patrimonio | intereses
-    fecha           DATE NOT NULL,
-    bienes_inmuebles    TEXT,               -- JSON array
-    vehiculos           TEXT,               -- JSON array
-    derechos_agua       TEXT,               -- JSON array
-    participaciones     TEXT,               -- JSON array (empresas)
-    valor_total_estimado REAL,
-    actividades         TEXT,               -- JSON array
-    url_fuente      TEXT,
-    hash_contenido  TEXT,                   -- para detectar cambios
-    actualizado_en  DATETIME,
+    id                  INTEGER PRIMARY KEY AUTOINCREMENT,
+    autoridad_id        TEXT NOT NULL,
+    fecha_declaracion   DATE NOT NULL,
+    tipo_declaracion    TEXT,               -- ej. "Actualización Periódica (Marzo)"
+    cargo_declarado     TEXT,               -- cargo tal como figura en infoprobidad
+    organismo           TEXT,
+    bienes_inmuebles_n  INTEGER,
+    vehiculos_n         INTEGER,
+    sociedades_n        INTEGER,
+    valores_monto       REAL,
+    pasivos_tiene       INTEGER,            -- 0/1
+    pasivos_monto       REAL,
+    fuente_url          TEXT,
+    actualizado_en      DATETIME,
     FOREIGN KEY (autoridad_id) REFERENCES autoridad(id)
 );
 

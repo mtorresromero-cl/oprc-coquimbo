@@ -87,6 +87,21 @@ export interface RemuneracionAutoridad {
 	fuente_url: string;
 }
 
+export interface DeclaracionPatrimonio {
+	autoridad_id: string;
+	fecha_declaracion: string;
+	tipo_declaracion: string | null;
+	cargo_declarado: string | null;
+	organismo: string | null;
+	bienes_inmuebles_n: number;
+	vehiculos_n: number;
+	sociedades_n: number;
+	valores_monto: number;
+	pasivos_tiene: number;
+	pasivos_monto: number;
+	fuente_url: string;
+}
+
 import autoridadesRaw from '../../../data/processed/autoridades.json';
 import comunasRaw from '../../../data/processed/comunas.json';
 import votacionesRaw from '../../../data/processed/votaciones.json';
@@ -94,6 +109,7 @@ import mocionesRaw from '../../../data/processed/mociones.json';
 import presupuestoRaw from '../../../data/processed/presupuesto-municipal.json';
 import personalRaw from '../../../data/processed/personal-municipal.json';
 import remuneracionAutoridadRaw from '../../../data/processed/remuneracion-autoridad.json';
+import declaracionesPatrimonioRaw from '../../../data/processed/declaracion-patrimonio.json';
 
 export const autoridades: Autoridad[] = autoridadesRaw as Autoridad[];
 export const comunas: Comuna[] = comunasRaw as Comuna[];
@@ -102,6 +118,8 @@ export const mociones: Mocion[] = mocionesRaw as Mocion[];
 export const presupuesto: PresupuestoItem[] = presupuestoRaw as PresupuestoItem[];
 export const personal: PersonalItem[] = personalRaw as PersonalItem[];
 export const remuneracionAutoridad: RemuneracionAutoridad[] = remuneracionAutoridadRaw as RemuneracionAutoridad[];
+export const declaracionesPatrimonio: DeclaracionPatrimonio[] =
+	declaracionesPatrimonioRaw as DeclaracionPatrimonio[];
 
 export function presupuestoDeComuna(comunaId: string) {
 	return presupuesto.filter((p) => p.comuna_id === comunaId);
@@ -129,6 +147,10 @@ export const TIPO_CONTRATO_LABEL: Record<string, string> = {
 
 export function mocionesDeAutoridad(autoridadId: string) {
 	return mociones.filter((m) => m.autoridad_id === autoridadId);
+}
+
+export function declaracionPatrimonioDeAutoridad(autoridadId: string) {
+	return declaracionesPatrimonio.find((d) => d.autoridad_id === autoridadId) ?? null;
 }
 
 export const VOTO_LABEL: Record<string, string> = {

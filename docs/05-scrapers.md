@@ -202,103 +202,91 @@ class ScraperSenado(BaseScraper):
 
 ## 3. Scraper: InfoProbidad
 
-**Fuente:** infoprobidad.cl
-**Método:** Scraping con Playwright (sitio dinámico)
-**Dificultad:** Media
+**Fuente:** infoprobidad.cl (iniciativa del Consejo para la Transparencia y la Contraloría General de la República)
+**Método:** Scraping con Playwright del buscador propio del sitio
+**Dificultad:** Media-alta (nombres chilenos con inconsistencias reales de datos)
 **Prioridad:** Media (Fase 4)
+**Estado:** ✅ Implementado, **122/142 autoridades (86%)**, 0 errores en la corrida final.
 
-### Estrategia de extracción
+### Datos Abiertos masivos: bloqueados, no se intentó evadir
 
-```python
-# scrapers/infoprobidad.py
-from playwright.sync_api import sync_playwright
-from base import BaseScraper
-import hashlib
+El sitio publica un dataset nacional completo (CSV/XML/JSON/SPARQL) en
+`datos.cplt.cl/catalogos/infoprobidad/*` — habría sido la vía más simple
+(un solo archivo en vez de 142 búsquedas). Pero **todo el dominio
+`datos.cplt.cl` responde 403 (Azure Application Gateway) en cualquier
+ruta**, incluso navegando con Playwright con headers de browser real y
+habiendo visitado antes la página que enlaza al dataset. No hay
+`robots.txt` con una política explícita — es un bloqueo de
+infraestructura, no dirigido a un bot en particular. Siguiendo el mismo
+criterio que con camara.cl: no se intenta evadir un bloqueo activo. Se usa
+en cambio el buscador propio de `www.infoprobidad.cl`, que responde con
+normalidad.
 
-class ScraperInfoProbidad(BaseScraper):
-    nombre = "infoprobidad"
-    base_url = "https://www.infoprobidad.cl"
+### Estrategia real
 
-    def recolectar(self):
-        """Buscar declaraciones de autoridades de la región."""
-        declaraciones = []
+El buscador (`/Home/Listado`) es una grilla Kendo UI con un ícono de
+filtro por columna (no hay URL con query params — hay que interactuar con
+la UI). Filtrar solo por Apellido Materno puede dejar cientos de
+resultados paginados (ej. "Arancibia" solo: 255 registros) — el scraper
+solo lee la página visible, así que **filtra por Apellido Paterno y
+Apellido Materno a la vez**, lo que acota a una sola página en la
+práctica.
 
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            page = browser.new_page()
+Separar un nombre completo chileno en nombres/paterno/materno para armar
+esos dos filtros no es trivial — se encontraron y corrigieron tres
+inconsistencias reales de los datos:
 
-            # Para cada autoridad en nuestra BD
-            autoridades = self.db.execute(
-                "SELECT id, nombre_completo FROM autoridad WHERE activo = 1"
-            ).fetchall()
+1. **Tildes inconsistentes en el propio buscador**: buscar "Núñez" (con
+   tilde) y "Nuñez" (sin tilde en la u, con ñ) devuelven conjuntos de
+   resultados *distintos* — el mismo apellido está grabado con y sin
+   tilde según el año de la declaración. Buscar sin tilde en la vocal
+   (pero conservando la "ñ": buscar sin ella da 0 resultados siempre)
+   devolvió el superset en las pruebas.
+2. **Nombres de pila que a veces se abrevian**: un senador registrado
+   como "Daniel Ignacio Núñez Arancibia" en el catálogo aparece como
+   "DANIEL" a secas en sus declaraciones más recientes y como "DANIEL
+   IGNACIO" en las de 2021 — exigir el nombre completo dejaba fuera las
+   declaraciones vigentes. Se relajó a exigir solo que coincida el
+   *primer* nombre de pila.
+3. **Apellidos maternos compuestos con preposición**: "Cristóbal Juliá
+   De La Vega" (gobernador regional) tiene apellido paterno "Juliá" y
+   materno "De La Vega" — no "La" y "Vega" como asumiría separar por las
+   últimas dos palabras. Se detectan y agrupan las preposiciones
+   (de/del/la/las/los) previas a la última palabra.
 
-            for aut_id, nombre in autoridades:
-                # Navegar al buscador
-                page.goto(f"{self.base_url}/Home/Listado")
-                page.fill("#txtBuscar", nombre)
-                page.click("#btnBuscar")
-                page.wait_for_selector(".resultado", timeout=10000)
+Cuando una misma persona tiene varias declaraciones con la misma fecha
+por distintos motivos (ej. un senador que declara también como dirigente
+de partido), se prefiere la fila cuya columna "Cargo" coincide con el
+cargo real de la autoridad en nuestro catálogo, en vez de tomar la
+primera por orden de aparición.
 
-                # Extraer enlace a la declaración
-                resultados = page.query_selector_all(".resultado a")
-                for r in resultados:
-                    href = r.get_attribute("href")
-                    if href:
-                        declaraciones.append({
-                            "autoridad_id": aut_id,
-                            "url": f"{self.base_url}{href}",
-                        })
+Cada ficha de declaración (`/Declaracion/Declaracion?ID=<n>`) trae un
+"Resumen de declaración" ya agregado por categoría (bienes inmuebles,
+vehículos, sociedades, valores, pasivos) — se guarda ese resumen, no el
+detalle línea por línea de cada bien (mismo criterio que
+`personal_municipal.py`).
 
-                # Rate limiting
-                page.wait_for_timeout(2000)
+### Casos sin encontrar (20/142)
 
-            browser.close()
-
-        # Ahora descargar cada declaración
-        for d in declaraciones:
-            with sync_playwright() as p:
-                browser = p.chromium.launch(headless=True)
-                page = browser.new_page()
-                page.goto(d["url"])
-                page.wait_for_selector(".declaracion-contenido", timeout=15000)
-
-                d["contenido"] = page.content()
-                d["hash"] = hashlib.sha256(d["contenido"].encode()).hexdigest()
-
-                browser.close()
-                import time; time.sleep(2)
-
-        return declaraciones
-
-    def procesar(self, declaraciones):
-        """Parsear HTML de declaraciones y extraer campos."""
-        from bs4 import BeautifulSoup
-        procesadas = []
-
-        for d in declaraciones:
-            soup = BeautifulSoup(d["contenido"], "html.parser")
-
-            # Extraer campos según la estructura del sitio
-            # (adaptar según HTML real)
-            procesadas.append({
-                "autoridad_id": d["autoridad_id"],
-                "tipo": "patrimonio",
-                "fecha": None,  # extraer del HTML
-                "bienes_inmuebles": [],  # parsear tabla
-                "vehiculos": [],
-                "participaciones": [],
-                "hash": d["hash"],
-                "url": d["url"],
-            })
-
-        return procesadas
-```
+Verificados individualmente, no es un bug de matching genérico:
+- La mayoría son búsquedas que genuinamente devuelven "Sin datos" en el
+  propio sitio — no tienen declaración publicada (podría ser una
+  autoridad recién asumida, o que el sitio aún no procesó su declaración).
+- Un caso queda explicado y sin resolver a propósito: "Alí Manouchehri
+  Moghadam Kashan Lobos" (alcalde de Coquimbo) tiene su apellido paterno
+  real repartido en **tres palabras sin preposición** ("Manouchehri
+  Moghadam Kashan"), algo que no se puede inferir de forma genérica sin
+  arriesgar falsos positivos para el resto — se dejó como hueco
+  documentado en vez de un caso especial para una sola persona.
 
 ### Notas
-- InfoProbidad usa JavaScript para renderizar, requiere Playwright
-- Implementar detección de cambios con hash del contenido
-- Solo re-procesar si el hash cambió
-- Respetar rate limiting estricto (2+ segundos entre requests)
+- No hay JSON/hash de detección de cambios por ahora — `guardar()` borra
+  e inserta por autoridad individual (mismo patrón de
+  `personal_municipal.py`), así una corrida que no encuentra a alguien no
+  borra su dato bueno de una corrida anterior.
+- Rate limiting: ~1s entre autoridades, cada búsqueda + ficha implica
+  varias esperas de red (grilla Kendo + página de detalle) — una corrida
+  completa de las 142 autoridades toma cerca de 20-25 minutos.
 
 ---
 

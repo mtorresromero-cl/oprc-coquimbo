@@ -21,6 +21,7 @@ jobs:
       - run: python scrapers/camara_mociones.py
       - run: python scrapers/transparencia_municipal.py
       - run: python scrapers/personal_municipal.py
+      - run: python scrapers/infoprobidad.py
       - name: Commit datos actualizados
         run: |
           git config user.name "OPRC Bot"
