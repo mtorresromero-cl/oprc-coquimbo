@@ -35,16 +35,37 @@ USER_AGENT = (
 )
 
 # comuna_id -> código de organismo en portaltransparencia.cl
+# (verificados el 2026-08-24: fetch directo a la ficha del organismo,
+# confirmando el nombre de la municipalidad en la página)
 MUNICIPIOS_COQUIMBO = {
     "la-serena": "MU126",
+    "coquimbo": "MU067",
+    "andacollo": "MU007",
+    "la-higuera": "MU122",
+    "paihuano": "MU195",
+    "vicuna": "MU335",
+    "ovalle": "MU192",
+    "combarbala": "MU060",
+    "monte-patria": "MU175",
+    "punitaqui": "MU238",
+    "rio-hurtado": "MU272",
+    "illapel": "MU110",
+    "canela": "MU026",
+    "los-vilos": "MU157",
+    "salamanca": "MU279",
 }
 
+# las etiquetas de categoría las escribe cada municipio a mano en el portal
+# (mismo problema que en transparencia_municipal.py: typos/mayúsculas
+# distintas) — se matchea tolerando eso.
 CATEGORIAS = {
-    "planta": "Personal de Planta",
-    "contrata": "Personal a Contrata",
-    "honorarios": "Personas naturales contratadas a honorarios",
+    "planta": re.compile(r"Personal de Planta", re.IGNORECASE),
+    "contrata": re.compile(r"Personal a Contrata", re.IGNORECASE),
+    "honorarios": re.compile(r"Personas naturales contratadas a honorarios", re.IGNORECASE),
 }
-AREAS = ["Municipal", "Salud"]
+AREAS_RE = re.compile(r"^Municipal(idad)?$", re.IGNORECASE)
+SALUD_RE = re.compile(r"^Salud$", re.IGNORECASE)
+AREAS = [("municipal", AREAS_RE), ("salud", SALUD_RE)]
 
 MES_NUM = {
     "enero": 1, "febrero": 2, "marzo": 3, "abril": 4, "mayo": 5, "junio": 6,
@@ -70,19 +91,22 @@ class ScraperPersonalMunicipal(BaseScraper):
         resultado = {"agregados": [], "autoridad": []}
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
-            page = browser.new_page(user_agent=USER_AGENT)
             for comuna_id, org_code in MUNICIPIOS_COQUIMBO.items():
+                # página nueva por comuna: reusar una sola página para las 15
+                # comunas x 6 combinaciones resultó menos confiable (más
+                # timeouts/filas vacías) que abrir una fresca cada vez.
+                page = browser.new_page(user_agent=USER_AGENT)
                 url = f"https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org={org_code}"
-                page.goto(url, timeout=30000, wait_until="domcontentloaded")
-                page.wait_for_timeout(1500)
 
-                for tipo_contrato, categoria_texto in CATEGORIAS.items():
-                    for area_texto in AREAS:
+                for tipo_contrato, categoria_re in CATEGORIAS.items():
+                    for area_nombre, area_re in AREAS:
                         try:
-                            filas = self._extraer_categoria(page, url, categoria_texto, area_texto)
-                        except Exception:
+                            filas = self._extraer_categoria(page, url, categoria_re, area_re)
+                        except Exception as e:
+                            print(f"[{comuna_id}] {tipo_contrato}/{area_nombre} ERROR: {e}")
                             self.stats["errores"] += 1
                             continue
+                        print(f"[{comuna_id}] {tipo_contrato}/{area_nombre}: {len(filas)} filas")
                         if not filas:
                             continue
 
@@ -93,7 +117,7 @@ class ScraperPersonalMunicipal(BaseScraper):
                                 "comuna_id": comuna_id,
                                 "anno": anno,
                                 "mes": mes,
-                                "area": area_texto.lower(),
+                                "area": area_nombre,
                                 "tipo_contrato": tipo_contrato,
                                 "dotacion": len(filas),
                                 "remuneracion_total": sum(f["remuneracion_bruta"] for f in filas),
@@ -101,7 +125,7 @@ class ScraperPersonalMunicipal(BaseScraper):
                             }
                         )
 
-                        if tipo_contrato == "planta" and area_texto == "Municipal":
+                        if tipo_contrato == "planta" and area_nombre == "municipal":
                             for f in filas:
                                 if "ALCALDE" in f["cargo"].upper():
                                     resultado["autoridad"].append(
@@ -114,22 +138,30 @@ class ScraperPersonalMunicipal(BaseScraper):
                                             "fuente_url": url,
                                         }
                                     )
+                        time.sleep(1)  # rate limiting entre categoría/área
+                page.close()
+                time.sleep(1)  # rate limiting entre comunas
             browser.close()
         return resultado
 
-    def _extraer_categoria(self, page, url_base, categoria_texto, area_texto):
+    def _extraer_categoria(self, page, url_base, categoria_re, area_re):
         page.goto(url_base, timeout=30000, wait_until="domcontentloaded")
-        page.wait_for_timeout(1200)
-        page.locator("a", has_text=categoria_texto).first.click()
-        page.wait_for_timeout(1800)
-        page.locator("a", has_text=area_texto).first.click()
-        page.wait_for_timeout(1800)
+        page.wait_for_timeout(1500)
+        page.locator("a", has_text=categoria_re).first.click()
+        page.wait_for_timeout(2200)
 
-        annos = page.locator("a", has_text=re.compile(r"^Año \d{4}$")).all()
+        # algunas comunas no separan por área (van directo a los años, como
+        # La Serena en presupuesto) — solo se clickea el área si existe.
+        area_link = page.locator("a", has_text=area_re)
+        if area_link.count():
+            area_link.first.click()
+            page.wait_for_timeout(2200)
+
+        annos = page.locator("a", has_text=re.compile(r"^(Año )?\d{4}$")).all()
         if not annos:
             return []
         annos[0].click()
-        page.wait_for_timeout(1800)
+        page.wait_for_timeout(2200)
 
         meses_regex = re.compile(
             r"^(Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto"

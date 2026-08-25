@@ -1,10 +1,74 @@
 [
   {
+    "comuna_id": "canela",
+    "anno": 2026,
+    "mes": 7,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 6053319.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU026"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "mes": 7,
+    "cargo": "ALCALDESA",
+    "remuneracion_bruta": 6053319.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU060"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "mes": 7,
+    "cargo": "ALCALDE DE COQUIMBO",
+    "remuneracion_bruta": 8882921.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU067"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "mes": 7,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 9530790.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU110"
+  },
+  {
     "comuna_id": "la-serena",
     "anno": 2026,
     "mes": 7,
     "cargo": "ALCALDESA",
     "remuneracion_bruta": 12546542.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU126"
+  },
+  {
+    "comuna_id": "los-vilos",
+    "anno": 2026,
+    "mes": 7,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 9591477.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU157"
+  },
+  {
+    "comuna_id": "punitaqui",
+    "anno": 2026,
+    "mes": 7,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 8220467.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU238"
+  },
+  {
+    "comuna_id": "salamanca",
+    "anno": 2026,
+    "mes": 7,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 6814945.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU279"
+  },
+  {
+    "comuna_id": "vicuna",
+    "anno": 2026,
+    "mes": 7,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 11219274.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU335"
   }
 ]

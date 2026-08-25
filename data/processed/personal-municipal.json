@@ -1,5 +1,245 @@
 [
   {
+    "comuna_id": "canela",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "contrata",
+    "dotacion": 24,
+    "remuneracion_total": 30025278.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU026"
+  },
+  {
+    "comuna_id": "canela",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "honorarios",
+    "dotacion": 63,
+    "remuneracion_total": 53059085.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU026"
+  },
+  {
+    "comuna_id": "canela",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "planta",
+    "dotacion": 45,
+    "remuneracion_total": 82111429.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU026"
+  },
+  {
+    "comuna_id": "canela",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "contrata",
+    "dotacion": 25,
+    "remuneracion_total": 29814974.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU026"
+  },
+  {
+    "comuna_id": "canela",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "honorarios",
+    "dotacion": 26,
+    "remuneracion_total": 44153253.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU026"
+  },
+  {
+    "comuna_id": "canela",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "planta",
+    "dotacion": 98,
+    "remuneracion_total": 163653387.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU026"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "contrata",
+    "dotacion": 30,
+    "remuneracion_total": 40008536.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU060"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "honorarios",
+    "dotacion": 241,
+    "remuneracion_total": 156832782.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU060"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "planta",
+    "dotacion": 30,
+    "remuneracion_total": 63174745.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU060"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "contrata",
+    "dotacion": 31,
+    "remuneracion_total": 47278006.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU060"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "honorarios",
+    "dotacion": 36,
+    "remuneracion_total": 25507894.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU060"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "planta",
+    "dotacion": 49,
+    "remuneracion_total": 98474238.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU060"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "contrata",
+    "dotacion": 228,
+    "remuneracion_total": 333097778.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU067"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "honorarios",
+    "dotacion": 1847,
+    "remuneracion_total": 1467553535.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU067"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "planta",
+    "dotacion": 326,
+    "remuneracion_total": 696016682.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU067"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "contrata",
+    "dotacion": 648,
+    "remuneracion_total": 950072722.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU067"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "honorarios",
+    "dotacion": 710,
+    "remuneracion_total": 382404147.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU067"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "planta",
+    "dotacion": 914,
+    "remuneracion_total": 2010080038.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU067"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "contrata",
+    "dotacion": 72,
+    "remuneracion_total": 66012689.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU110"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "honorarios",
+    "dotacion": 418,
+    "remuneracion_total": 364903697.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU110"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "planta",
+    "dotacion": 58,
+    "remuneracion_total": 192190153.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU110"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "contrata",
+    "dotacion": 59,
+    "remuneracion_total": 96394699.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU110"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "honorarios",
+    "dotacion": 270,
+    "remuneracion_total": 173040668.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU110"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "planta",
+    "dotacion": 150,
+    "remuneracion_total": 256391219.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU110"
+  },
+  {
     "comuna_id": "la-serena",
     "anno": 2026,
     "mes": 7,
@@ -58,5 +298,255 @@
     "dotacion": 686,
     "remuneracion_total": 1629145861.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU126"
+  },
+  {
+    "comuna_id": "los-vilos",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "contrata",
+    "dotacion": 64,
+    "remuneracion_total": 149742524.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU157"
+  },
+  {
+    "comuna_id": "los-vilos",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "honorarios",
+    "dotacion": 329,
+    "remuneracion_total": 253513892.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU157"
+  },
+  {
+    "comuna_id": "los-vilos",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "planta",
+    "dotacion": 97,
+    "remuneracion_total": 268117852.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU157"
+  },
+  {
+    "comuna_id": "los-vilos",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "contrata",
+    "dotacion": 56,
+    "remuneracion_total": 61401993.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU157"
+  },
+  {
+    "comuna_id": "los-vilos",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "honorarios",
+    "dotacion": 27,
+    "remuneracion_total": 24081272.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU157"
+  },
+  {
+    "comuna_id": "los-vilos",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "planta",
+    "dotacion": 44,
+    "remuneracion_total": 79761911.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU157"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "mes": 3,
+    "area": "municipal",
+    "tipo_contrato": "contrata",
+    "dotacion": 58,
+    "remuneracion_total": 65297102.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU175"
+  },
+  {
+    "comuna_id": "punitaqui",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "contrata",
+    "dotacion": 16,
+    "remuneracion_total": 30654944.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU238"
+  },
+  {
+    "comuna_id": "punitaqui",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "honorarios",
+    "dotacion": 123,
+    "remuneracion_total": 106888135.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU238"
+  },
+  {
+    "comuna_id": "punitaqui",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "planta",
+    "dotacion": 26,
+    "remuneracion_total": 82563823.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU238"
+  },
+  {
+    "comuna_id": "punitaqui",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "contrata",
+    "dotacion": 49,
+    "remuneracion_total": 78290596.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU238"
+  },
+  {
+    "comuna_id": "punitaqui",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "honorarios",
+    "dotacion": 58,
+    "remuneracion_total": 41866456.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU238"
+  },
+  {
+    "comuna_id": "punitaqui",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "planta",
+    "dotacion": 82,
+    "remuneracion_total": 161535267.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU238"
+  },
+  {
+    "comuna_id": "salamanca",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "contrata",
+    "dotacion": 37,
+    "remuneracion_total": 30370952.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU279"
+  },
+  {
+    "comuna_id": "salamanca",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "honorarios",
+    "dotacion": 417,
+    "remuneracion_total": 334598927.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU279"
+  },
+  {
+    "comuna_id": "salamanca",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "planta",
+    "dotacion": 33,
+    "remuneracion_total": 71316631.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU279"
+  },
+  {
+    "comuna_id": "salamanca",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "contrata",
+    "dotacion": 50,
+    "remuneracion_total": 60908171.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU279"
+  },
+  {
+    "comuna_id": "salamanca",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "honorarios",
+    "dotacion": 87,
+    "remuneracion_total": 74307221.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU279"
+  },
+  {
+    "comuna_id": "salamanca",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "planta",
+    "dotacion": 73,
+    "remuneracion_total": 114015589.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU279"
+  },
+  {
+    "comuna_id": "vicuna",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "contrata",
+    "dotacion": 60,
+    "remuneracion_total": 100518864.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU335"
+  },
+  {
+    "comuna_id": "vicuna",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "honorarios",
+    "dotacion": 391,
+    "remuneracion_total": 306461113.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU335"
+  },
+  {
+    "comuna_id": "vicuna",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "planta",
+    "dotacion": 90,
+    "remuneracion_total": 274937785.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU335"
+  },
+  {
+    "comuna_id": "vicuna",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "contrata",
+    "dotacion": 45,
+    "remuneracion_total": 46926930.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU335"
+  },
+  {
+    "comuna_id": "vicuna",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "honorarios",
+    "dotacion": 40,
+    "remuneracion_total": 32345227.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU335"
+  },
+  {
+    "comuna_id": "vicuna",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "planta",
+    "dotacion": 131,
+    "remuneracion_total": 195785088.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU335"
   }
 ]
