@@ -402,6 +402,14 @@ miles de $" (La Serena sí, Coquimbo no) — asumirlo fijo infló las cifras de
 Coquimbo 1000x. Se detecta por página (`re.search(r"MILES\s*\$", texto)`)
 en vez de asumirlo.
 
+**Estado final `transparencia_municipal.py` (presupuesto), 2026-08-24:**
+5/15 comunas con datos reales: La Serena, Coquimbo, La Higuera, Paihuano
+(el resto de las generalizaciones de arriba se sumaron después de este
+párrafo original — Paihuano, Vicuña, Punitaqui, Illapel y Canela SÍ tienen
+categoría "Municipal"/"Municipalidad" navegable, pero terminaron sin
+documento real en el período revisado tras el fallback genérico, salvo
+Paihuano que sí encontró uno).
+
 **Bloqueos identificados, no perseguidos:**
 - Salamanca: PDF escaneado (0 texto, solo imagen) — necesitaría OCR.
 - Los Vilos: el PDF está en el dominio propio del municipio
@@ -411,11 +419,33 @@ en vez de asumirlo.
 - Combarbalá: su propio portal advierte "servidor central... recibió
   ataques de terceros... información disponible es parcial" — dato de
   transparencia real, no un bug nuestro.
-- El resto de las 15 comunas configuradas (Paihuano, Vicuña, Ovalle,
-  Punitaqui, Río Hurtado, Illapel, Canela) no tienen documento en los
-  últimos 3 años visible en el portal central bajo la ruta investigada —
-  puede ser genuina falta de publicación, o un árbol de navegación
-  distinto que no se llegó a mapear. Queda pendiente, comuna por comuna.
+- Andacollo, Vicuña, Ovalle, Monte Patria (documento equivocado, "Pasivos"
+  en vez de balance), Punitaqui, Río Hurtado, Illapel, Canela: navegación
+  confirmada correcta (llegan hasta el año) incluso revisando 6 años de
+  historial y con rate limiting adecuado, pero sin documento de balance
+  real disponible bajo la ruta investigada. No es un bug de scraper
+  identificado — parece ser falta real de publicación de su parte.
+
+**`scrapers/personal_municipal.py` (dotación/remuneraciones), generalizado
+el mismo día:** mismo enfoque, mismas correcciones (Municipal/Municipalidad
+tolerante, click de área defensivo para comunas que no separan por área,
+página nueva de Playwright por comuna). Resultado: **10/15 comunas con
+datos reales** (La Serena, Coquimbo, Vicuña, Combarbalá, Punitaqui,
+Illapel, Canela, Los Vilos, Salamanca completas; Monte Patria parcial) —
+notablemente mejor que presupuesto, porque esta categoría no tiene el
+mismo problema de "múltiples formatos de PDF" (los datos se leen de una
+tabla HTML uniforme, no de PDFs con plantillas distintas por comuna).
+9 remuneraciones de alcalde/alcaldesa capturadas, cifras coherentes entre
+sí (de ~$6M en Canela/Combarbalá a ~$12,5M en La Serena).
+
+Sin resolver, de forma reproducible en corridas repetidas (no es
+flakiness): Andacollo, La Higuera, Paihuano, Ovalle, Río Hurtado — dan 0
+filas de forma consistente dentro del loop de 15 comunas, pero Andacollo
+específicamente SÍ tiene datos reales confirmados al probarla aislada
+fuera del loop. Causa exacta no identificada — hipótesis: acumulación de
+estado a nivel de `browser` (no de `page`, que ya se abre nuevo por
+comuna) tras muchas navegaciones AJAX seguidas dentro de la misma sesión
+de Playwright.
 
 **Resultado actual**: 3/15 comunas con datos reales verificados (La
 Serena, Coquimbo, La Higuera).
