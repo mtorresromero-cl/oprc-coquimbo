@@ -183,7 +183,7 @@ class ScraperTransparenciaMunicipal(BaseScraper):
             for a in page.locator("a", has_text=re.compile(r"^(Año )?\d{4}$")).all()
         ]
 
-        for texto_anno in annos_texto[:3]:  # más reciente primero; hasta 3 años atrás
+        for texto_anno in annos_texto[:6]:  # más reciente primero; hasta 6 años atrás
             page.locator("a", has_text=texto_anno).first.click()
             page.wait_for_timeout(2000)
 
