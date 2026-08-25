@@ -609,9 +609,40 @@ de uso completo.
 ### Pendiente (fuera de alcance de esta pasada)
 
 - Proyectos FNDR aprobados/rechazados y presupuesto de inversión regional
-  (roadmap Fase 6) — el sitio tiene fuentes separadas para esto
-  (`fndr2.gorecoquimbo.gob.cl`, glosas presupuestarias en PDF) que no se
-  investigaron todavía.
+  (roadmap Fase 6) — investigado y descartado: `fndr2.gorecoquimbo.gob.cl`
+  ("Fondos Concursables") es un portal de login para postulantes, no una
+  base pública de proyectos FNDR; la página "Presupuesto de Inversión"
+  del sitio institucional son puros PDFs de resoluciones/acuerdos por
+  año, sin datos tabulares (mismo patrón de alto esfuerzo/bajo valor que
+  transferencias municipales en Fase 3, con el agravante de que algunos
+  links de "Informes de Ejecución FNDR" del propio sitio están rotos —
+  los 11 meses apuntan al mismo PDF por error de ellos).
+
+---
+
+## 9. Datos: límites administrativos (mapa interactivo) — Fase 3
+
+**Fuente:** OpenStreetMap, vía Nominatim (nominatim.openstreetmap.org)
+**Método:** `scrapers/poblar_geojson.py` — no es un scraper semanal, es
+un script de una sola vez (los límites administrativos no cambian, igual
+que `poblar_catalogo.py` con los CSV maestros)
+**Estado:** ✅ 15/15 comunas.
+
+Para cada comuna se busca en Nominatim ("`<nombre>`, Región de Coquimbo,
+Chile"), se toma la primera relación (`osm_type=relation`) y se descarga
+su geometría con `polygon_geojson=1`. La geometría de OSM a resolución
+completa pesa 50-370KB por comuna (2-3MB las 15 juntas) — se simplifica
+con un Douglas-Peucker propio (sin dependencias nuevas) a tolerancia
+~110m, quedando en 3-17KB por comuna (~140KB el total), suficiente para
+un mapa a escala regional.
+
+Respeta la política de uso de Nominatim (nominatim.org/release-docs/latest/api/Usage-Policy/):
+User-Agent identificable con contacto, máximo 1 request/segundo.
+
+El mapa en sí (`/mapa/`) usa Leaflet (sin API key, tiles de
+OpenStreetMap) con dos indicadores intercambiables: cobertura de datos
+de transparencia y dotación municipal total, coloreando cada polígono de
+comuna.
 
 ---
 

@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { comunas, presupuestoDeComuna, personalDeComuna } from '../../lib/datos';
+import comunasGeojson from '../../../../data/processed/comunas-geojson.json';
+
+const indicadores = comunas.map((c) => {
+	const presupuesto = presupuestoDeComuna(c.id);
+	const personal = personalDeComuna(c.id);
+	const dotacionTotal = personal.reduce((s, p) => s + p.dotacion, 0);
+	let cobertura: 'ambos' | 'personal' | 'presupuesto' | 'ninguno' = 'ninguno';
+	if (presupuesto.length > 0 && personal.length > 0) cobertura = 'ambos';
+	else if (personal.length > 0) cobertura = 'personal';
+	else if (presupuesto.length > 0) cobertura = 'presupuesto';
+
+	return {
+		id: c.id,
+		nombre: c.nombre,
+		provincia: c.provincia,
+		cobertura,
+		dotacionTotal,
+	};
+});
+---
+
+<Layout
+	title="Mapa de la Región — OPRC"
+	description="Mapa interactivo de las 15 comunas de la Región de Coquimbo, con cobertura de datos de transparencia y dotación municipal."
+>
+	<div class="border-b border-slate-100 bg-slate-50">
+		<div class="mx-auto max-w-6xl px-6 py-12">
+			<h1 class="text-3xl font-bold tracking-tight text-slate-900">Mapa de la Región</h1>
+			<p class="mt-2 max-w-2xl text-slate-600">
+				Las 15 comunas de la Región de Coquimbo. Elegí un indicador para colorear el mapa, o
+				tocá una comuna para ver su ficha completa. Límites administrativos de
+				<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" class="text-brand-600 hover:underline">
+					OpenStreetMap
+				</a>.
+			</p>
+		</div>
+	</div>
+
+	<main class="mx-auto max-w-6xl px-6 py-10">
+		<div class="mb-4 flex flex-wrap gap-2">
+			<button type="button" data-indicador="cobertura" class="indicador-btn rounded-md bg-brand-600 px-4 py-2 text-sm font-semibold text-white">
+				Cobertura de datos
+			</button>
+			<button type="button" data-indicador="dotacion" class="indicador-btn rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+				Dotación municipal
+			</button>
+		</div>
+
+		<div id="mapa" class="h-[600px] w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm"></div>
+
+		<div id="leyenda" class="mt-4 flex flex-wrap gap-4 text-sm text-slate-600"></div>
+	</main>
+
+	<script type="application/json" id="geojson-data" set:html={JSON.stringify(comunasGeojson)} />
+	<script type="application/json" id="indicadores-data" set:html={JSON.stringify(indicadores)} />
+
+	<script>
+		import 'leaflet/dist/leaflet.css';
+		import L from 'leaflet';
+
+		type Cobertura = 'ambos' | 'personal' | 'presupuesto' | 'ninguno';
+		interface Indicador {
+			id: string;
+			nombre: string;
+			provincia: string;
+			cobertura: Cobertura;
+			dotacionTotal: number;
+		}
+
+		const geojson = JSON.parse(document.getElementById('geojson-data')!.textContent!);
+		const indicadores: Indicador[] = JSON.parse(document.getElementById('indicadores-data')!.textContent!);
+		const indicadorPorId = new Map(indicadores.map((i) => [i.id, i]));
+
+		const COLOR_COBERTURA: Record<Cobertura, string> = {
+			ambos: '#059669',
+			personal: '#aa0000',
+			presupuesto: '#3b82f6',
+			ninguno: '#cbd5e1',
+		};
+		const LABEL_COBERTURA: Record<Cobertura, string> = {
+			ambos: 'Presupuesto y personal',
+			personal: 'Solo personal',
+			presupuesto: 'Solo presupuesto',
+			ninguno: 'Sin datos aún',
+		};
+
+		const map = L.map('mapa', { scrollWheelZoom: false }).setView([-30.6, -70.9], 8);
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+			maxZoom: 12,
+		}).addTo(map);
+
+		const maxDotacion = Math.max(...indicadores.map((i) => i.dotacionTotal), 1);
+
+		function colorDotacion(valor: number): string {
+			if (valor === 0) return '#cbd5e1';
+			const intensidad = 0.25 + 0.75 * (valor / maxDotacion);
+			const escala = Math.round(170 * intensidad);
+			return `rgb(${escala}, 0, 0)`;
+		}
+
+		let indicadorActivo: 'cobertura' | 'dotacion' = 'cobertura';
+
+		function estiloComuna(feature: any) {
+			const info = indicadorPorId.get(feature.properties.id);
+			const color = indicadorActivo === 'cobertura'
+				? COLOR_COBERTURA[info?.cobertura ?? 'ninguno']
+				: colorDotacion(info?.dotacionTotal ?? 0);
+			return { color: '#1e293b', weight: 1, fillColor: color, fillOpacity: 0.75 };
+		}
+
+		function actualizarLeyenda() {
+			const leyenda = document.getElementById('leyenda')!;
+			if (indicadorActivo === 'cobertura') {
+				leyenda.innerHTML = (Object.keys(COLOR_COBERTURA) as Cobertura[])
+					.map(
+						(c) =>
+							`<span class="flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-sm" style="background:${COLOR_COBERTURA[c]}"></span>${LABEL_COBERTURA[c]}</span>`
+					)
+					.join('');
+			} else {
+				leyenda.innerHTML =
+					'<span class="flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-sm" style="background:#cbd5e1"></span>Sin datos</span>' +
+					'<span class="flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-sm" style="background:rgb(43,0,0)"></span>Menor dotación</span>' +
+					'<span class="flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-sm" style="background:rgb(170,0,0)"></span>Mayor dotación</span>';
+			}
+		}
+
+		function popupHtml(feature: any): string {
+			const info = indicadorPorId.get(feature.properties.id);
+			const detalle =
+				indicadorActivo === 'cobertura'
+					? LABEL_COBERTURA[info?.cobertura ?? 'ninguno']
+					: `${info?.dotacionTotal.toLocaleString('es-CL') ?? 0} personas`;
+			return `<strong>${feature.properties.nombre}</strong><br>${detalle}<br><a href="/municipios/${feature.properties.id}/" style="color:#aa0000">Ver ficha &rarr;</a>`;
+		}
+
+		const capa = L.geoJSON(geojson, {
+			style: estiloComuna,
+			onEachFeature: (feature, layer) => {
+				layer.bindPopup(popupHtml(feature));
+				layer.on('mouseover', () => (layer as L.Path).setStyle({ weight: 3 }));
+				layer.on('mouseout', () => (layer as L.Path).setStyle({ weight: 1 }));
+			},
+		}).addTo(map);
+
+		document.querySelectorAll<HTMLButtonElement>('.indicador-btn').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				indicadorActivo = btn.dataset.indicador as 'cobertura' | 'dotacion';
+				document.querySelectorAll('.indicador-btn').forEach((b) => {
+					b.classList.remove('bg-brand-600', 'text-white');
+					b.classList.add('border', 'border-slate-300', 'text-slate-700');
+				});
+				btn.classList.add('bg-brand-600', 'text-white');
+				btn.classList.remove('border', 'border-slate-300', 'text-slate-700');
+				capa.setStyle(estiloComuna);
+				capa.eachLayer((layer: any) => layer.setPopupContent(popupHtml(layer.feature)));
+				actualizarLeyenda();
+			});
+		});
+
+		actualizarLeyenda();
+	</script>
+</Layout>

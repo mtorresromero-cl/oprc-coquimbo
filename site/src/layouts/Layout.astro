@@ -16,6 +16,7 @@ const DATOS_ITEMS = [
 	{ href: '/municipios/', label: 'Municipios' },
 	{ href: '/parlamentarios/', label: 'Parlamentarios' },
 	{ href: '/consejo-regional/', label: 'Consejo Regional' },
+	{ href: '/mapa/', label: 'Mapa de la Región' },
 ];
 
 const NAV = [
@@ -120,9 +121,9 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 					<div>
 						<p class="text-xs font-semibold tracking-wide text-slate-200 uppercase">Secciones</p>
 						<ul class="mt-3 space-y-2 text-sm">
-							<li><a href="/autoridades/" class="hover:text-white">Autoridades</a></li>
-							<li><a href="/municipios/" class="hover:text-white">Municipios</a></li>
-							<li><a href="/parlamentarios/" class="hover:text-white">Parlamentarios</a></li>
+							{DATOS_ITEMS.map((item) => (
+								<li><a href={item.href} class="hover:text-white">{item.label}</a></li>
+							))}
 							<li><a href="/nosotros/" class="hover:text-white">Nosotros</a></li>
 						</ul>
 					</div>

@@ -23,6 +23,18 @@ const filas = comunas
 	</div>
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
+		<a
+			href="/mapa/"
+			class="mb-6 flex items-center justify-between rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
+		>
+			<span>
+				<span class="font-semibold text-slate-900">Ver mapa interactivo de la región →</span>
+				<span class="mt-1 block text-sm text-slate-600">
+					Las 15 comunas coloreadas por cobertura de datos o dotación municipal.
+				</span>
+			</span>
+		</a>
+
 		<ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 			{filas.map(({ comuna, tienePresupuesto, tienePersonal }) => {
 				const tieneDatos = tienePresupuesto || tienePersonal;
