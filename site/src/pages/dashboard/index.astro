@@ -1,6 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { autoridades, votaciones, votacionesCore, indiceVotaciones, indiceMociones } from '../../lib/datos';
+import {
+	autoridades,
+	votaciones,
+	votacionesCore,
+	indiceVotaciones,
+	indiceMociones,
+	indiceAsistenciaDiputados,
+} from '../../lib/datos';
 
 const senadorIds = autoridades.filter((a) => a.cargo === 'senador').map((a) => a.id);
 const diputadoIds = autoridades.filter((a) => a.cargo === 'diputado').map((a) => a.id);
@@ -8,7 +15,9 @@ const coreIds = autoridades.filter((a) => a.cargo === 'core' || a.cargo === 'gob
 
 const indiceSenado = indiceVotaciones(votaciones, senadorIds);
 const indiceCore = indiceVotaciones(votacionesCore, coreIds);
-const indiceDiputados = indiceMociones(diputadoIds);
+const indiceMocionesDiputados = indiceMociones(diputadoIds);
+const indiceAsistencia = indiceAsistenciaDiputados(diputadoIds);
+const asistenciaPorId = new Map(indiceAsistencia.map((a) => [a.autoridad_id, a]));
 
 const grupos = {
 	senado: indiceSenado.map((i) => ({
@@ -40,10 +49,13 @@ const grupos = {
 			inhabilitado: i.inhabilitado,
 		},
 	})),
-	diputados: indiceDiputados.map((i) => ({
+	diputados: indiceMocionesDiputados.map((i) => ({
 		id: i.autoridad_id,
 		nombre: i.nombre,
-		metrics: { total: i.total },
+		metrics: {
+			asistenciaPct: asistenciaPorId.get(i.autoridad_id)?.asistenciaPct ?? null,
+			total: i.total,
+		},
 	})),
 };
 ---
@@ -58,8 +70,9 @@ const grupos = {
 			<p class="mt-2 max-w-2xl text-slate-600">
 				Elegí una cámara y una métrica para comparar a sus integrantes. El grupo "Consejo
 				Regional" incluye a los 16 consejeros y al gobernador regional, que participa de los
-				mismos acuerdos. Diputados y diputadas todavía no tienen datos de votaciones disponibles
-				— se muestra su total de mociones presentadas.
+				mismos acuerdos. Para diputados y diputadas todavía no tenemos un índice de alineamiento
+				de voto: camara.cl solo publica el voto individual de cada uno, no el resultado de toda
+				la Cámara para poder compararlo.
 			</p>
 		</div>
 	</div>
@@ -73,7 +86,7 @@ const grupos = {
 				Consejo Regional
 			</button>
 			<button type="button" data-grupo="diputados" class="grupo-btn rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
-				Diputados (mociones)
+				Diputados
 			</button>
 		</div>
 
@@ -117,6 +130,8 @@ const grupos = {
 			ausente: 'Cantidad de acuerdos a los que no asistió o en los que no emitió voto.',
 			inhabilitado: 'Cantidad de acuerdos en los que se inhabilitó por conflicto de interés.',
 			total: 'Mociones (proyectos de ley) presentadas como autor o coautor, según la ficha de cada diputado/a en camara.cl.',
+			asistenciaPct:
+				'% de asistencia a sesiones de sala del período, tal como lo calcula camara.cl (asistencias sobre sesiones computables).',
 		};
 
 		const METRICAS: Record<GrupoKey, [string, string][]> = {
@@ -136,7 +151,10 @@ const grupos = {
 				['ausente', 'Ausente'],
 				['inhabilitado', 'Inhabilitado'],
 			],
-			diputados: [['total', 'Mociones presentadas']],
+			diputados: [
+				['asistenciaPct', 'Asistencia'],
+				['total', 'Mociones presentadas'],
+			],
 		};
 
 		function esPct(metricKey: string) {

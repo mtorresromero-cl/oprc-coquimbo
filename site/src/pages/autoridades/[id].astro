@@ -1,6 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { autoridades, CARGO_LABEL, nombreComuna, votacionesDeAutoridad, VOTO_LABEL, mocionesDeAutoridad, presupuestoDeComuna, declaracionPatrimonioDeAutoridad } from '../../lib/datos';
+import {
+	autoridades,
+	CARGO_LABEL,
+	nombreComuna,
+	votacionesDeAutoridad,
+	VOTO_LABEL,
+	mocionesDeAutoridad,
+	presupuestoDeComuna,
+	declaracionPatrimonioDeAutoridad,
+	asistenciaResumenDeAutoridad,
+	votosDeDiputado,
+} from '../../lib/datos';
 
 export function getStaticPaths() {
 	return autoridades.map((a) => ({
@@ -14,6 +25,8 @@ const historialVotos = votacionesDeAutoridad(autoridad.id);
 const historialMociones = mocionesDeAutoridad(autoridad.id);
 const tienePresupuesto = autoridad.comuna ? presupuestoDeComuna(autoridad.comuna).length > 0 : false;
 const patrimonio = declaracionPatrimonioDeAutoridad(autoridad.id);
+const resumenAsistencia = asistenciaResumenDeAutoridad(autoridad.id);
+const historialVotosDiputado = votosDeDiputado(autoridad.id);
 
 function iniciales(nombre: string) {
 	const partes = nombre.split(' ').filter(Boolean);
@@ -173,8 +186,70 @@ function formatoCLP(monto: number) {
 					</section>
 				)}
 
+				{resumenAsistencia && (
+					<section class={patrimonio || historialVotos.length > 0 ? 'mt-10' : ''}>
+						<h2 class="text-lg font-semibold text-slate-900">Asistencia a sala ({resumenAsistencia.anno})</h2>
+						<p class="mt-1 text-xs text-slate-500">
+							Resumen del período tal como lo calcula camara.cl. Vía la ficha del diputado/a en camara.cl.
+						</p>
+						<div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+							<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+								<p class="text-xs text-slate-500">Asistencias</p>
+								<p class="mt-1 text-xl font-bold text-slate-900">
+									{resumenAsistencia.asistencias} / {resumenAsistencia.sesiones_computables}
+								</p>
+							</div>
+							<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+								<p class="text-xs text-slate-500">Ausencias justificadas</p>
+								<p class="mt-1 text-xl font-bold text-slate-900">
+									{resumenAsistencia.ausencias_justif_no_afecta + resumenAsistencia.ausencias_justif_si_afecta}
+								</p>
+							</div>
+							<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+								<p class="text-xs text-slate-500">Ausencias sin justificar</p>
+								<p class="mt-1 text-xl font-bold text-slate-900">{resumenAsistencia.ausencias_sin_justificar}</p>
+							</div>
+							<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+								<p class="text-xs text-slate-500">Total sesiones del período</p>
+								<p class="mt-1 text-xl font-bold text-slate-900">{resumenAsistencia.total_sesiones}</p>
+							</div>
+						</div>
+						<a href={resumenAsistencia.fuente_url} target="_blank" rel="noopener" class="mt-3 inline-block text-xs text-slate-400 hover:text-brand-600 hover:underline">
+							Ver ficha completa en camara.cl
+						</a>
+					</section>
+				)}
+
+				{historialVotosDiputado.length > 0 && (
+					<section class={patrimonio || historialVotos.length > 0 || resumenAsistencia ? 'mt-10' : ''}>
+						<h2 class="text-lg font-semibold text-slate-900">Votaciones de sala recientes</h2>
+						<p class="mt-1 max-w-2xl text-xs text-slate-500">
+							Voto individual del diputado/a en cada proyecto, vía su ficha en camara.cl. No incluye
+							el resultado de toda la Cámara ni si el proyecto fue aprobado — solo su voto propio.
+							Se muestran las votaciones más recientes, no el historial completo del período.
+						</p>
+						<ul class="mt-4 space-y-3">
+							{historialVotosDiputado.map((v) => (
+								<li class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+									<div class="flex items-center justify-between text-xs text-slate-500">
+										<span>{v.fecha}</span>
+										<span class="font-medium text-slate-700">{VOTO_LABEL[v.voto] ?? v.voto}</span>
+									</div>
+									<p class="mt-2 text-sm text-slate-800">{v.titulo || `Boletín N° ${v.boletin}`}</p>
+								</li>
+							))}
+						</ul>
+					</section>
+				)}
+
 				{historialMociones.length > 0 && (
-					<section class="mt-10">
+					<section
+						class={
+							patrimonio || historialVotos.length > 0 || resumenAsistencia || historialVotosDiputado.length > 0
+								? 'mt-10'
+								: ''
+						}
+					>
 						<h2 class="text-lg font-semibold text-slate-900">
 							Mociones presentadas ({historialMociones.length})
 						</h2>
@@ -199,11 +274,15 @@ function formatoCLP(monto: number) {
 					</section>
 				)}
 
-				{!patrimonio && historialVotos.length === 0 && historialMociones.length === 0 && (
-					<p class="text-sm text-slate-500">
-						Todavía no hay votaciones ni mociones registradas para esta autoridad.
-					</p>
-				)}
+				{!patrimonio &&
+					historialVotos.length === 0 &&
+					historialMociones.length === 0 &&
+					!resumenAsistencia &&
+					historialVotosDiputado.length === 0 && (
+						<p class="text-sm text-slate-500">
+							Todavía no hay votaciones ni mociones registradas para esta autoridad.
+						</p>
+					)}
 			</div>
 		</div>
 	</main>

@@ -102,6 +102,38 @@ export interface DeclaracionPatrimonio {
 	fuente_url: string;
 }
 
+export interface AsistenciaResumenDiputado {
+	autoridad_id: string;
+	anno: number;
+	total_sesiones: number;
+	sesiones_computables: number;
+	asistencias: number;
+	ausencias_justif_no_afecta: number;
+	ausencias_justif_si_afecta: number;
+	ausencias_sin_justificar: number;
+	fuente_url: string;
+}
+
+export interface AsistenciaSesionDiputado {
+	autoridad_id: string;
+	fecha: string;
+	numero_sesion: string;
+	presente: number;
+	justificacion: string | null;
+	fuente_url: string;
+}
+
+export interface VotoDiputado {
+	autoridad_id: string;
+	fecha: string;
+	hora: string;
+	sesion: string;
+	voto: string;
+	boletin: string;
+	titulo: string;
+	fuente_url: string;
+}
+
 import autoridadesRaw from '../../../data/processed/autoridades.json';
 import comunasRaw from '../../../data/processed/comunas.json';
 import votacionesRaw from '../../../data/processed/votaciones.json';
@@ -111,6 +143,9 @@ import presupuestoRaw from '../../../data/processed/presupuesto-municipal.json';
 import personalRaw from '../../../data/processed/personal-municipal.json';
 import remuneracionAutoridadRaw from '../../../data/processed/remuneracion-autoridad.json';
 import declaracionesPatrimonioRaw from '../../../data/processed/declaracion-patrimonio.json';
+import asistenciaResumenDiputadosRaw from '../../../data/processed/asistencia-resumen-diputados.json';
+import asistenciaDiputadosRaw from '../../../data/processed/asistencia-diputados.json';
+import votacionesDiputadosRaw from '../../../data/processed/votaciones-diputados.json';
 
 export const autoridades: Autoridad[] = autoridadesRaw as Autoridad[];
 export const comunas: Comuna[] = comunasRaw as Comuna[];
@@ -122,6 +157,11 @@ export const personal: PersonalItem[] = personalRaw as PersonalItem[];
 export const remuneracionAutoridad: RemuneracionAutoridad[] = remuneracionAutoridadRaw as RemuneracionAutoridad[];
 export const declaracionesPatrimonio: DeclaracionPatrimonio[] =
 	declaracionesPatrimonioRaw as DeclaracionPatrimonio[];
+export const asistenciaResumenDiputados: AsistenciaResumenDiputado[] =
+	asistenciaResumenDiputadosRaw as AsistenciaResumenDiputado[];
+export const asistenciaDiputados: AsistenciaSesionDiputado[] =
+	asistenciaDiputadosRaw as AsistenciaSesionDiputado[];
+export const votacionesDiputados: VotoDiputado[] = votacionesDiputadosRaw as VotoDiputado[];
 
 export function presupuestoDeComuna(comunaId: string) {
 	return presupuesto.filter((p) => p.comuna_id === comunaId);
@@ -223,6 +263,23 @@ export function declaracionPatrimonioDeAutoridad(autoridadId: string) {
 	return declaracionesPatrimonio.find((d) => d.autoridad_id === autoridadId) ?? null;
 }
 
+export function asistenciaResumenDeAutoridad(autoridadId: string) {
+	// puede haber más de un año acumulado con el tiempo; se muestra el más
+	// reciente, igual que con personalDeComuna.
+	const delAutoridad = asistenciaResumenDiputados
+		.filter((a) => a.autoridad_id === autoridadId)
+		.sort((a, b) => b.anno - a.anno);
+	return delAutoridad[0] ?? null;
+}
+
+export function asistenciaSesionesDeAutoridad(autoridadId: string) {
+	return asistenciaDiputados.filter((a) => a.autoridad_id === autoridadId);
+}
+
+export function votosDeDiputado(autoridadId: string) {
+	return votacionesDiputados.filter((v) => v.autoridad_id === autoridadId);
+}
+
 export const VOTO_LABEL: Record<string, string> = {
 	favor: 'A favor',
 	contra: 'En contra',
@@ -230,6 +287,7 @@ export const VOTO_LABEL: Record<string, string> = {
 	pareo: 'Pareo',
 	ausente: 'Ausente',
 	inhabilitado: 'Se inhabilita',
+	otro: 'Otro',
 };
 
 export function votacionesDeAutoridad(autoridadId: string) {
@@ -335,4 +393,41 @@ export function indiceMociones(autoridadIds: string[]): IndiceMociones[] {
 		...nombreYCargo(autoridad_id),
 		total: mociones.filter((m) => m.autoridad_id === autoridad_id).length,
 	}));
+}
+
+export interface IndiceAsistenciaDiputado {
+	autoridad_id: string;
+	nombre: string;
+	cargo: string;
+	asistenciaPct: number | null;
+	asistencias: number;
+	sesionesComputables: number;
+	ausenciasJustificadas: number;
+	ausenciasSinJustificar: number;
+}
+
+/**
+ * % de asistencia tal como lo calcula camara.cl (no lo recalculamos
+ * nosotros): asistencias sobre sesiones computables del período. A
+ * diferencia del índice de votaciones de Senado/CORE, este dato viene ya
+ * agregado de la fuente — no lo derivamos de las sesiones individuales
+ * que alcanzamos a scrapear (esas son solo un detalle reciente parcial).
+ */
+export function indiceAsistenciaDiputados(autoridadIds: string[]): IndiceAsistenciaDiputado[] {
+	return autoridadIds.map((autoridad_id) => {
+		const resumen = asistenciaResumenDeAutoridad(autoridad_id);
+		return {
+			autoridad_id,
+			...nombreYCargo(autoridad_id),
+			asistenciaPct:
+				resumen && resumen.sesiones_computables > 0
+					? Math.round((resumen.asistencias / resumen.sesiones_computables) * 1000) / 10
+					: null,
+			asistencias: resumen?.asistencias ?? 0,
+			sesionesComputables: resumen?.sesiones_computables ?? 0,
+			ausenciasJustificadas:
+				(resumen?.ausencias_justif_no_afecta ?? 0) + (resumen?.ausencias_justif_si_afecta ?? 0),
+			ausenciasSinJustificar: resumen?.ausencias_sin_justificar ?? 0,
+		};
+	});
 }

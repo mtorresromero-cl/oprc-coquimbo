@@ -82,7 +82,7 @@ class BaseScraper:
 
 ---
 
-## 1. Scraper: Cámara de Diputados — ESTADO: bloqueado, sin datos de votaciones/asistencia
+## 1. Scraper: Cámara de Diputados — votaciones y asistencia resueltos el 2026-08-25
 
 **Fuente:** `opendata.camara.cl` (servicio SOAP/XML legacy `wscamaradiputados.asmx`)
 **Dificultad:** N/A — no viable actualmente
@@ -164,21 +164,65 @@ importantes:**
   porque además evita este bloqueo — no se diseñó específicamente
   *reaccionando* a un bloqueo activo detectado, sino investigando una
   falla de cobertura de datos cuyo origen resultó ser ese bloqueo.
-- **Decisión: no se construye nada para votaciones/asistencia de
-  diputados.** Evitar ese bloqueo específico (por ejemplo, abriendo un
-  browser nuevo por cada URL, espaciando las requests de otra forma, etc.)
-  significaría rediseñar el scraper específicamente porque se descubrió que
-  eso esquiva la detección del sitio — eso ya es ingeniería de evasión,
-  independiente de la técnica concreta o de quién lo opere. `mocion.aspx`
-  se mantiene porque nunca gatilló nada; todo lo demás queda descartado, no
-  solo pendiente.
+- **Decisión original (2026-08-24): no construir nada para
+  votaciones/asistencia.** Esa decisión se basó específicamente en
+  combinar los tres tipos de endpoint (mociones, votaciones, asistencia)
+  *en la misma sesión de navegador, secuencialmente, para el mismo
+  diputado* — evitar ese patrón concreto habría significado rediseñar el
+  scraper reaccionando a un bloqueo activo detectado, que es ingeniería
+  de evasión.
+
+**Revisado el 2026-08-25 — el hallazgo no aplicaba a construir scrapers
+separados por endpoint.** El usuario pidió revisar
+`asistencia_sala.aspx?prmId=1117` y `votaciones_sala.aspx?prmId=1117`
+directamente. Se probaron igual que se prueba cualquier fuente nueva:
+- Cada endpoint por separado, con Playwright, contexto de navegador nuevo
+  por diputado (igual que `camara_mociones.py`, nunca reutilizando
+  sesión/cookies entre los 7) — **responde sin bloqueo, con datos reales
+  y actuales**, para los 7 diputados de la región en ambos endpoints.
+  Esto no es "combinar mociones→votaciones→asistencia en la misma
+  sesión" (lo que sí bloqueaba): es un scraper por endpoint, cada uno
+  visitando un solo tipo de página por diputado, exactamente el mismo
+  patrón ya validado para mociones. La distinción entre ambos escenarios
+  es lo que hace que esto siga sin ser ingeniería de evasión — es la
+  misma higiene de sesión aplicada de forma consistente, no un rediseño
+  reactivo a un bloqueo.
+- Ambas páginas tienen paginación interna vía controles ASP.NET
+  `__doPostBack` (7+ páginas en asistencia, 10+ en votaciones, para
+  cubrir el período completo). **No se navega esa paginación** — mismo
+  criterio que con el selector "Ver por año" de mociones: no repetir el
+  patrón de interacción (clicks/postbacks) que gatilló el bloqueo del
+  formulario de búsqueda. Consecuencia concreta: `scrapers/camara_votaciones.py`
+  solo guarda las ~6-7 votaciones más recientes de cada diputado (lo que
+  cabe en la primera página), no el historial completo del período —
+  documentado también en el propio scraper y en la UI del sitio.
+- `asistencia_sala.aspx` sí trae un **resumen del período ya calculado
+  por camara.cl** (total de sesiones, asistencias, ausencias
+  justificadas/sin justificar) en la primera tabla de la página — ese
+  número sí es completo y oficial, no depende de la paginación. Se
+  guarda tal cual en `asistencia_resumen_diputado`. El detalle
+  sesión-por-sesión de la segunda tabla sí es parcial (mismo límite de
+  paginación).
+- `votaciones_sala.aspx` da el **voto individual** del diputado en cada
+  proyecto, no el resultado ni los conteos de toda la Cámara (155
+  integrantes) — a diferencia de Senado/CORE, donde si sabemos el
+  resultado agregado real de la sesión. Por eso no se integra a
+  `votacion_sesion`/`voto` (que asumen que existe ese agregado): se
+  guarda en `voto_diputado`, un historial personal, sin índice de
+  alineamiento para diputados (no hay con qué compararlo de forma
+  honesta).
+- Dato curioso encontrado al validar los números: Carolina Tello Rojas
+  aparece con 62 asistencias sobre 61 "sesiones computables" (>100%) en
+  el resumen que publica camara.cl — se verificó que no es un bug de
+  parseo (se confirmó el número exacto en la página fuente) y se guarda
+  tal cual, sin "corregirlo" — es una inconsistencia de la propia fuente,
+  no nuestra.
 
 **Alternativa complementaria: `datos.bcn.cl`** (datos enlazados, robots.txt
 abierto, SPARQL). Tiene mociones parlamentarias pero con rezago de
 publicación (semanas/meses) y sin votaciones/asistencia en absoluto — por
-eso se descartó a favor de camara.cl directo para mociones. Si en el futuro
-se necesita retomar votaciones/asistencia de diputados, revisar primero si
-`opendata.congreso.cl` arregló su backend (métodos `get*` de arriba).
+eso se descartó a favor de camara.cl directo para mociones, votaciones y
+asistencia.
 
 ---
 

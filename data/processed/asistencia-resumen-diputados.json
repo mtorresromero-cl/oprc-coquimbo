@@ -1,0 +1,79 @@
+[
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "anno": 2026,
+    "total_sesiones": 61,
+    "sesiones_computables": 61,
+    "asistencias": 46,
+    "ausencias_justif_no_afecta": 11,
+    "ausencias_justif_si_afecta": 3,
+    "ausencias_sin_justificar": 2,
+    "fuente_url": "https://camara.cl/diputados/detalle/asistencia_sala.aspx?prmId=1117"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "anno": 2026,
+    "total_sesiones": 61,
+    "sesiones_computables": 61,
+    "asistencias": 61,
+    "ausencias_justif_no_afecta": 1,
+    "ausencias_justif_si_afecta": 0,
+    "ausencias_sin_justificar": 0,
+    "fuente_url": "https://camara.cl/diputados/detalle/asistencia_sala.aspx?prmId=1174"
+  },
+  {
+    "autoridad_id": "erich-christ-grohs-marin-diputado",
+    "anno": 2026,
+    "total_sesiones": 61,
+    "sesiones_computables": 61,
+    "asistencias": 56,
+    "ausencias_justif_no_afecta": 3,
+    "ausencias_justif_si_afecta": 3,
+    "ausencias_sin_justificar": 0,
+    "fuente_url": "https://camara.cl/diputados/detalle/asistencia_sala.aspx?prmId=1212"
+  },
+  {
+    "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+    "anno": 2026,
+    "total_sesiones": 61,
+    "sesiones_computables": 61,
+    "asistencias": 61,
+    "ausencias_justif_no_afecta": 1,
+    "ausencias_justif_si_afecta": 0,
+    "ausencias_sin_justificar": 0,
+    "fuente_url": "https://camara.cl/diputados/detalle/asistencia_sala.aspx?prmId=1255"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "anno": 2026,
+    "total_sesiones": 61,
+    "sesiones_computables": 61,
+    "asistencias": 59,
+    "ausencias_justif_no_afecta": 3,
+    "ausencias_justif_si_afecta": 0,
+    "ausencias_sin_justificar": 0,
+    "fuente_url": "https://camara.cl/diputados/detalle/asistencia_sala.aspx?prmId=1142"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "anno": 2026,
+    "total_sesiones": 61,
+    "sesiones_computables": 61,
+    "asistencias": 62,
+    "ausencias_justif_no_afecta": 0,
+    "ausencias_justif_si_afecta": 0,
+    "ausencias_sin_justificar": 0,
+    "fuente_url": "https://camara.cl/diputados/detalle/asistencia_sala.aspx?prmId=1177"
+  },
+  {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "anno": 2026,
+    "total_sesiones": 61,
+    "sesiones_computables": 61,
+    "asistencias": 55,
+    "ausencias_justif_no_afecta": 7,
+    "ausencias_justif_si_afecta": 0,
+    "ausencias_sin_justificar": 0,
+    "fuente_url": "https://camara.cl/diputados/detalle/asistencia_sala.aspx?prmId=1250"
+  }
+]

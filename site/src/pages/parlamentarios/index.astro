@@ -16,8 +16,7 @@ function nombreAutoridad(id: string) {
 			<h1 class="text-3xl font-bold tracking-tight text-slate-900">Parlamentarios</h1>
 			<p class="mt-2 max-w-2xl text-slate-600">
 				Seguimiento del trabajo legislativo de los diputados y senadores de la Región de Coquimbo:
-				votaciones y mociones presentadas. La asistencia a sesiones todavía no está disponible — la
-				fuente oficial (Cámara de Diputados) no publica ese dato de forma confiable actualmente.
+				votaciones, asistencia y mociones presentadas.
 			</p>
 		</div>
 	</div>
@@ -36,11 +35,10 @@ function nombreAutoridad(id: string) {
 		</a>
 
 		<section>
-			<h2 class="text-xl font-semibold text-slate-900">Votaciones recientes</h2>
+			<h2 class="text-xl font-semibold text-slate-900">Votaciones recientes — Senado</h2>
 			<p class="mt-1 max-w-2xl text-sm text-slate-500">
-				Votaciones del Senado en las que participó alguno de los 3 senadores de la región. Los
-				diputados de la región aún no tienen datos de votaciones disponibles por la misma razón
-				que la asistencia.
+				Votaciones del Senado en las que participó alguno de los 3 senadores de la región. Las
+				votaciones y asistencia de los diputados de la región están en la ficha de cada uno.
 			</p>
 
 			{votaciones.length === 0 && (

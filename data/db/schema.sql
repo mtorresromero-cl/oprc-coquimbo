@@ -94,6 +94,43 @@ CREATE TABLE IF NOT EXISTS mocion (
     FOREIGN KEY (proyecto_ley_id) REFERENCES proyecto_ley(id)
 );
 
+-- Resumen de asistencia del período que publica camara.cl en la ficha de
+-- cada diputado/a (totales ya calculados por la fuente, no derivados de
+-- las sesiones que alcanzamos a scrapear nosotros — su detalle paginado
+-- no se navega, ver docs/05-scrapers.md).
+CREATE TABLE IF NOT EXISTS asistencia_resumen_diputado (
+    id                              INTEGER PRIMARY KEY AUTOINCREMENT,
+    autoridad_id                    TEXT NOT NULL,
+    anno                            INTEGER NOT NULL,
+    total_sesiones                  INTEGER,
+    sesiones_computables            INTEGER,
+    asistencias                     INTEGER,
+    ausencias_justif_no_afecta      INTEGER,
+    ausencias_justif_si_afecta      INTEGER,
+    ausencias_sin_justificar        INTEGER,
+    fuente_url                      TEXT,
+    FOREIGN KEY (autoridad_id) REFERENCES autoridad(id)
+);
+
+-- Voto individual de cada diputado/a de la región en votaciones de sala,
+-- vía su ficha en camara.cl. A diferencia de votacion_sesion (Senado/CORE),
+-- acá no tenemos el resultado ni los conteos de toda la Cámara (155
+-- integrantes) — solo el voto propio de cada diputado regional. Por eso no
+-- se integra a votacion_sesion/voto: sería engañoso mostrar votos_favor o
+-- resultado como si fueran de la Cámara completa cuando son parciales.
+CREATE TABLE IF NOT EXISTS voto_diputado (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    autoridad_id    TEXT NOT NULL,
+    proyecto_ley_id TEXT NOT NULL,
+    fecha           DATE NOT NULL,
+    hora            TEXT,
+    sesion          TEXT,
+    voto            TEXT NOT NULL,           -- favor | contra | abstencion | pareo | otro
+    fuente_url      TEXT,
+    FOREIGN KEY (autoridad_id) REFERENCES autoridad(id),
+    FOREIGN KEY (proyecto_ley_id) REFERENCES proyecto_ley(id)
+);
+
 -- Resumen agregado de la declaración de patrimonio vigente (no itemizado:
 -- infoprobidad.cl publica el detalle completo de cada bien/sociedad/deuda,
 -- pero seguimos el mismo criterio que personal_municipal — totales
@@ -219,3 +256,9 @@ CREATE UNIQUE INDEX IF NOT EXISTS ux_presupuesto_municipal
     ON presupuesto_municipal(comuna_id, anno, tipo, categoria, subcategoria);
 CREATE UNIQUE INDEX IF NOT EXISTS ux_declaracion_patrimonio
     ON declaracion_patrimonio(autoridad_id, fecha_declaracion);
+CREATE UNIQUE INDEX IF NOT EXISTS ux_asistencia
+    ON asistencia(autoridad_id, camara, fecha, numero_sesion);
+CREATE UNIQUE INDEX IF NOT EXISTS ux_asistencia_resumen_diputado
+    ON asistencia_resumen_diputado(autoridad_id, anno);
+CREATE UNIQUE INDEX IF NOT EXISTS ux_voto_diputado
+    ON voto_diputado(autoridad_id, proyecto_ley_id, fecha, hora);
