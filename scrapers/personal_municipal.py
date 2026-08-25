@@ -92,10 +92,20 @@ class ScraperPersonalMunicipal(BaseScraper):
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             for comuna_id, org_code in MUNICIPIOS_COQUIMBO.items():
-                # página nueva por comuna: reusar una sola página para las 15
-                # comunas x 6 combinaciones resultó menos confiable (más
-                # timeouts/filas vacías) que abrir una fresca cada vez.
-                page = browser.new_page(user_agent=USER_AGENT)
+                # contexto (no solo página) nuevo por comuna: reusar el
+                # mismo browser.new_page() deja todas las comunas
+                # compartiendo cookies/sesión del contexto por defecto. Se
+                # observó que dentro de una misma corrida La Serena/Coquimbo
+                # y el grupo {andacollo, la-higuera, paihuano, ovalle,
+                # rio-hurtado} fallan de forma excluyente entre sí (uno u
+                # otro grupo, nunca ambos) — compatible con el portal
+                # repartiendo la sesión a distintos backends con datos
+                # desincronizados y la sesión pegándose al primero que
+                # respondió. Un contexto (y por lo tanto sesión) nuevo por
+                # comuna evita ese arrastre entre comunas de una misma
+                # corrida.
+                context = browser.new_context(user_agent=USER_AGENT)
+                page = context.new_page()
                 url = f"https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org={org_code}"
 
                 for tipo_contrato, categoria_re in CATEGORIAS.items():
@@ -139,39 +149,60 @@ class ScraperPersonalMunicipal(BaseScraper):
                                         }
                                     )
                         time.sleep(1)  # rate limiting entre categoría/área
-                page.close()
+                context.close()
                 time.sleep(1)  # rate limiting entre comunas
             browser.close()
         return resultado
 
     def _extraer_categoria(self, page, url_base, categoria_re, area_re):
-        page.goto(url_base, timeout=30000, wait_until="domcontentloaded")
-        page.wait_for_timeout(1500)
+        # timeouts más generosos que en transparencia_municipal.py: La
+        # Serena/Coquimbo (miles de filas de personal) tardan bastante más
+        # en resolver el AJAX de PrimeFaces que el resto de las comunas, y
+        # con los timeouts originales (30s goto, ~2.2s por paso) fallaban de
+        # forma intermitente incluso reintentando varias veces.
+        page.goto(url_base, timeout=60000, wait_until="domcontentloaded")
+        page.wait_for_timeout(2000)
         page.locator("a", has_text=categoria_re).first.click()
-        page.wait_for_timeout(2200)
+        page.wait_for_timeout(3500)
 
         # algunas comunas no separan por área (van directo a los años, como
         # La Serena en presupuesto) — solo se clickea el área si existe.
         area_link = page.locator("a", has_text=area_re)
         if area_link.count():
             area_link.first.click()
-            page.wait_for_timeout(2200)
+            page.wait_for_timeout(3500)
 
-        annos = page.locator("a", has_text=re.compile(r"^(Año )?\d{4}$")).all()
+        # el año puede venir solo ("2026"), con prefijo ("Año 2026") o con el
+        # área pegada (Ovalle: "MUNICIPAL 2026") — se matchea por el final.
+        annos = page.locator("a", has_text=re.compile(r"(19|20)\d{2}$")).all()
         if not annos:
             return []
         annos[0].click()
-        page.wait_for_timeout(2200)
+        page.wait_for_timeout(3500)
 
+        # el mes puede venir solo ("Julio") o con más texto alrededor
+        # (Ovalle: "Sueldos Municipal - Julio 2026") — se matchea por
+        # palabra completa, no por texto exacto del link.
         meses_regex = re.compile(
-            r"^(Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto"
-            r"|Septiembre|Octubre|Noviembre|Diciembre)$"
+            r"\b(Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto"
+            r"|Septiembre|Octubre|Noviembre|Diciembre)\b",
+            re.IGNORECASE,
         )
         meses = page.locator("a", has_text=meses_regex).all()
+
+        # algunas comunas (ej. La Higuera) piden el área DESPUÉS del año, no
+        # antes — si no aparecieron meses todavía, se prueba el área acá.
+        if not meses:
+            area_link = page.locator("a", has_text=area_re)
+            if area_link.count():
+                area_link.first.click()
+                page.wait_for_timeout(3500)
+                meses = page.locator("a", has_text=meses_regex).all()
+
         if not meses:
             return []
         meses[0].click()
-        page.wait_for_timeout(2500)
+        page.wait_for_timeout(3500)
 
         return self._extraer_todas_las_paginas(page)
 
@@ -242,13 +273,21 @@ class ScraperPersonalMunicipal(BaseScraper):
         return datos
 
     def guardar(self, datos: dict) -> None:
-        comunas = tuple(MUNICIPIOS_COQUIMBO.keys())
-        placeholders = ",".join("?" * len(comunas))
+        # borrado por comuna, no en bloque: una corrida con fallas de red en
+        # algunas comunas (rate limiting del portal tras extraer comunas
+        # grandes como La Serena/Coquimbo, ver docs/05-scrapers.md) no debe
+        # arrastrar y borrar los datos buenos de las comunas que SÍ trajeron
+        # esta vez. Solo se reemplaza lo de una comuna si esta corrida trajo
+        # datos nuevos para ella.
         ahora = datetime.now().isoformat()
 
-        self.db.execute(
-            f"DELETE FROM personal_municipal WHERE comuna_id IN ({placeholders})", comunas
-        )
+        comunas_agregados = {a["comuna_id"] for a in datos["agregados"]}
+        if comunas_agregados:
+            placeholders = ",".join("?" * len(comunas_agregados))
+            self.db.execute(
+                f"DELETE FROM personal_municipal WHERE comuna_id IN ({placeholders})",
+                tuple(comunas_agregados),
+            )
         for a in datos["agregados"]:
             self.db.execute(
                 """
@@ -264,9 +303,13 @@ class ScraperPersonalMunicipal(BaseScraper):
             )
             self.stats["nuevos"] += 1
 
-        self.db.execute(
-            f"DELETE FROM remuneracion_autoridad WHERE comuna_id IN ({placeholders})", comunas
-        )
+        comunas_autoridad = {r["comuna_id"] for r in datos["autoridad"]}
+        if comunas_autoridad:
+            placeholders = ",".join("?" * len(comunas_autoridad))
+            self.db.execute(
+                f"DELETE FROM remuneracion_autoridad WHERE comuna_id IN ({placeholders})",
+                tuple(comunas_autoridad),
+            )
         for r in datos["autoridad"]:
             self.db.execute(
                 """

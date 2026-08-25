@@ -427,28 +427,48 @@ Paihuano que sí encontró uno).
   identificado — parece ser falta real de publicación de su parte.
 
 **`scrapers/personal_municipal.py` (dotación/remuneraciones), generalizado
-el mismo día:** mismo enfoque, mismas correcciones (Municipal/Municipalidad
-tolerante, click de área defensivo para comunas que no separan por área,
-página nueva de Playwright por comuna). Resultado: **10/15 comunas con
-datos reales** (La Serena, Coquimbo, Vicuña, Combarbalá, Punitaqui,
-Illapel, Canela, Los Vilos, Salamanca completas; Monte Patria parcial) —
-notablemente mejor que presupuesto, porque esta categoría no tiene el
-mismo problema de "múltiples formatos de PDF" (los datos se leen de una
-tabla HTML uniforme, no de PDFs con plantillas distintas por comuna).
-9 remuneraciones de alcalde/alcaldesa capturadas, cifras coherentes entre
-sí (de ~$6M en Canela/Combarbalá a ~$12,5M en La Serena).
+el mismo día:** mismo enfoque base (Municipal/Municipalidad tolerante,
+click de área defensivo, página nueva de Playwright por comuna), más tres
+variantes de formato encontradas y corregidas al investigar por qué
+algunas comunas daban 0 filas de forma reproducible:
+- **La Higuera:** pide el área (Municipal/Salud) *después* de elegir el
+  año, no antes — se agregó un segundo intento de click de área si no
+  aparecen meses tras elegir el año.
+- **Ovalle (año):** el link del año trae el área pegada ("MUNICIPAL
+  2026") en vez de solo el año — el regex se cambió a matchear un año de
+  4 dígitos al final del texto, no el texto completo.
+- **Ovalle (mes):** el link del mes trae texto extra ("Sueldos Municipal
+  - Julio 2026") — se cambió a buscar el nombre del mes por límite de
+  palabra en vez de exigir texto exacto.
 
-Sin resolver, de forma reproducible en corridas repetidas (no es
-flakiness): Andacollo, La Higuera, Paihuano, Ovalle, Río Hurtado — dan 0
-filas de forma consistente dentro del loop de 15 comunas, pero Andacollo
-específicamente SÍ tiene datos reales confirmados al probarla aislada
-fuera del loop. Causa exacta no identificada — hipótesis: acumulación de
-estado a nivel de `browser` (no de `page`, que ya se abre nuevo por
-comuna) tras muchas navegaciones AJAX seguidas dentro de la misma sesión
-de Playwright.
+Estas correcciones recuperaron Andacollo, La Higuera, Paihuano, Ovalle y
+Río Hurtado, que antes daban 0 filas de forma consistente (no eran datos
+ausentes — eran bugs de navegación reales).
 
-**Resultado actual**: 3/15 comunas con datos reales verificados (La
-Serena, Coquimbo, La Higuera).
+**Resultado final: 13/15 comunas con datos reales** (todas salvo La
+Serena y Coquimbo). 14 remuneraciones de alcalde/alcaldesa capturadas
+(Paihuano aparece con 2 registros, sin investigar en detalle — posible
+cambio de alcalde/suplencia en el período).
+
+**La Serena y Coquimbo — intermitentes, no es un bug de código:** en 6
+corridas completas del scraper (con contexto de navegador aislado por
+comuna y con el timeout de navegación subido de 30s a 60s, ninguno de los
+dos cambios alteró el resultado) estas dos comunas alternaron entre éxito
+total (cientos a ~2000 filas por combinación tipo_contrato/área, la mayor
+dotación de la región) y fallo total (timeout de navegación) de forma
+excluyente con un grupo específico de comunas más chicas — compatible con
+el portal repartiendo la sesión entre backends con distinta capacidad de
+respuesta bajo carga, agravado por golpear estos dos organismos muchas
+más veces que al resto durante la depuración. Quedan pendientes de una
+corrida futura (el cron semanal las recuperará solo, sin intervención).
+
+**Corrección de `guardar()`:** originalmente borraba los registros de
+las 15 comunas antes de reinsertar en cada corrida — una corrida con
+fallas de red en algunas comunas borraba sus datos buenos previos sin
+reemplazarlos por nada. Se cambió a borrar e insertar por comuna
+individual, solo para las comunas que la corrida actual sí trajo datos
+nuevos — así corridas sucesivas acumulan cobertura en vez de arriesgar
+perderla.
 
 ---
 
