@@ -22,6 +22,7 @@ jobs:
       - run: python scrapers/transparencia_municipal.py
       - run: python scrapers/personal_municipal.py
       - run: python scrapers/infoprobidad.py
+      - run: python scrapers/core_coquimbo.py
       - name: Commit datos actualizados
         run: |
           git config user.name "OPRC Bot"

@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { autoridades, comunas, votaciones, presupuesto, personal } from '../lib/datos';
+import { autoridades, comunas, votaciones, votacionesCore, presupuesto, personal } from '../lib/datos';
 
 const comunasConDatos = comunas.filter(
 	(c) => presupuesto.some((p) => p.comuna_id === c.id) || personal.some((p) => p.comuna_id === c.id)
@@ -10,7 +10,7 @@ const stats = [
 	{ valor: autoridades.length, label: 'autoridades registradas' },
 	{ valor: comunas.length, label: 'comunas de la región' },
 	{ valor: comunasConDatos, label: 'con datos de transparencia' },
-	{ valor: votaciones.length, label: 'votaciones registradas' },
+	{ valor: votaciones.length + votacionesCore.length, label: 'votaciones registradas' },
 ];
 
 const secciones = [
@@ -31,6 +31,12 @@ const secciones = [
 		titulo: 'Parlamentarios',
 		descripcion: 'Votaciones y mociones de los senadores y diputados de la región.',
 		icono: 'documento',
+	},
+	{
+		href: '/consejo-regional/',
+		titulo: 'Consejo Regional',
+		descripcion: 'Votaciones de los consejeros regionales y el gobernador en los acuerdos del CORE.',
+		icono: 'columnas',
 	},
 ];
 
@@ -60,6 +66,7 @@ const ICONOS: Record<string, string> = {
 	lupa: 'M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm10 2-4.35-4.35',
 	escudo: 'M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Zm-2.5 9 2 2 4-4',
 	grafico: 'M4 20V10m6 10V4m6 16v-7',
+	columnas: 'M3 21h18M4 21V10m4 11V10m4 11V10m4 11V10m4 11V10M2 10l10-6 10 6',
 };
 ---
 
@@ -133,7 +140,7 @@ const ICONOS: Record<string, string> = {
 		<section class="border-t border-slate-100 bg-slate-50">
 			<div class="mx-auto max-w-6xl px-6 py-16">
 				<h2 class="text-2xl font-bold tracking-tight text-slate-900">Explorar los datos</h2>
-				<div class="mt-8 grid gap-5 sm:grid-cols-3">
+				<div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 					{secciones.map((s) => (
 						<a
 							href={s.href}

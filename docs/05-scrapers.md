@@ -556,6 +556,65 @@ WHERE {
 
 ---
 
+## 8. Scraper: CORE Coquimbo (Consejo Regional) — Fase 6
+
+**Fuente:** acuerdos.corecoquimbo.cl (buscador de acuerdos propio del Consejo Regional, no gorecoquimbo.cl)
+**Método:** Scraping con Playwright del buscador (no requiere JS pesado, la paginación funciona vía URL)
+**Dificultad:** Media
+**Prioridad:** Alta (Fase 6)
+**Estado:** ✅ Implementado, 101/110 acuerdos de los últimos 45 días (9 errores de red transitorios, no de código).
+
+### Cómo se encontró
+
+`gorecoquimbo.cl` (el sitio institucional) no publica actas/votaciones
+directamente — pero enlaza a "Acuerdos CORE"
+(`acuerdos.corecoquimbo.cl/busqueda_avanzada/busqueda/`), un buscador
+propio del Consejo Regional con más de 10.000 acuerdos desde 2013,
+paginado y con ficha individual por acuerdo. Cada ficha
+(`/acuerdos/acuerdo/<id>`) trae el texto completo del acuerdo **y el
+detalle de la votación nominal**: cuántos votos a favor/rechazo/
+abstención/inhabilitación/ausencia, con el nombre de cada consejero(a) en
+cada categoría — exactamente lo que pedía el roadmap
+("Votaciones de consejeros regionales").
+
+El dataset masivo de "Datos Abiertos" del GORE (`datos.cplt.cl` — no
+confundir con el de InfoProbidad, es un dominio de la Contraloría
+distinto) no se investigó porque el buscador propio ya resuelve el caso
+de uso completo.
+
+### Diseño
+
+- Reutiliza las tablas `votacion_sesion`/`voto` ya usadas por
+  `senado.py`, con `camara='core'` — el CORE también es un cuerpo
+  colegiado que vota acuerdos, así que el mismo modelo aplica sin
+  cambios. Consecuencia práctica: la ficha de cada consejero/gobernador
+  ya mostraba "Historial de votaciones" automáticamente, sin tocar el
+  sitio, apenas se guardaron los primeros votos.
+- Paginación por URL: `/busqueda_avanzada/busqueda/1/acuerdos/{pageSize}/{offset}/{fecha_inicio}/{fecha_fin}/null/null` — con `pageSize=200` entran todos los resultados de una ventana de 45 días en una sola carga, sin necesidad de clickear "Siguiente".
+- Solo se recolectan acuerdos de los **últimos 45 días** — hay más de
+  10.000 históricos desde 2013, muy por fuera del alcance de un scraper
+  semanal (mismo criterio que "votaciones recientes" del Senado).
+- El texto de la votación tiene un formato irregular (algunas categorías
+  como "se inhabilitan" a veces no llevan el prefijo "Sr(s):", los
+  nombres pueden llevar un cargo/título antepuesto como "Presidente del
+  Consejo Regional") — en vez de parsear nombres exactos, se verifica
+  si el nombre completo normalizado de cada consejero/gobernador de
+  nuestro catálogo aparece como substring dentro de cada categoría de
+  voto, lo que es tolerante a esos prefijos.
+- `guardar()` usa `ON CONFLICT DO UPDATE` (upsert) en vez de
+  borrar-e-insertar — una corrida con errores de red parciales no arriesga
+  perder datos de una corrida anterior, y los acuerdos que fallaron por
+  timeout se recuperan solos en la próxima corrida semanal.
+
+### Pendiente (fuera de alcance de esta pasada)
+
+- Proyectos FNDR aprobados/rechazados y presupuesto de inversión regional
+  (roadmap Fase 6) — el sitio tiene fuentes separadas para esto
+  (`fndr2.gorecoquimbo.gob.cl`, glosas presupuestarias en PDF) que no se
+  investigaron todavía.
+
+---
+
 ## Script de ejecución general
 
 ```python

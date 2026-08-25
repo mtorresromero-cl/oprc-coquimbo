@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS comuna (
 
 CREATE TABLE IF NOT EXISTS votacion_sesion (
     id              TEXT PRIMARY KEY,
-    camara          TEXT NOT NULL,           -- camara | senado
+    camara          TEXT NOT NULL,           -- camara | senado | core
     fecha           DATE NOT NULL,
     numero_sesion   TEXT,
     tipo            TEXT,                    -- ordinaria | extraordinaria | especial
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS voto (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     autoridad_id    TEXT NOT NULL,
     sesion_id       TEXT NOT NULL,
-    voto            TEXT NOT NULL,           -- favor | contra | abstencion | pareo | ausente
+    voto            TEXT NOT NULL,           -- favor | contra | abstencion | pareo | ausente | inhabilitado
     fecha           DATE NOT NULL,
     FOREIGN KEY (autoridad_id) REFERENCES autoridad(id),
     FOREIGN KEY (sesion_id) REFERENCES votacion_sesion(id),
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS voto (
 CREATE TABLE IF NOT EXISTS asistencia (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     autoridad_id    TEXT NOT NULL,
-    camara          TEXT NOT NULL,           -- camara | senado | concejo | core
+    camara          TEXT NOT NULL,           -- camara | senado | core | concejo
     fecha           DATE NOT NULL,
     numero_sesion   TEXT,
     presente        BOOLEAN NOT NULL,

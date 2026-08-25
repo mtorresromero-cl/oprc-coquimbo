@@ -105,6 +105,7 @@ export interface DeclaracionPatrimonio {
 import autoridadesRaw from '../../../data/processed/autoridades.json';
 import comunasRaw from '../../../data/processed/comunas.json';
 import votacionesRaw from '../../../data/processed/votaciones.json';
+import votacionesCoreRaw from '../../../data/processed/votaciones-core.json';
 import mocionesRaw from '../../../data/processed/mociones.json';
 import presupuestoRaw from '../../../data/processed/presupuesto-municipal.json';
 import personalRaw from '../../../data/processed/personal-municipal.json';
@@ -114,6 +115,7 @@ import declaracionesPatrimonioRaw from '../../../data/processed/declaracion-patr
 export const autoridades: Autoridad[] = autoridadesRaw as Autoridad[];
 export const comunas: Comuna[] = comunasRaw as Comuna[];
 export const votaciones: VotacionSesion[] = votacionesRaw as VotacionSesion[];
+export const votacionesCore: VotacionSesion[] = votacionesCoreRaw as VotacionSesion[];
 export const mociones: Mocion[] = mocionesRaw as Mocion[];
 export const presupuesto: PresupuestoItem[] = presupuestoRaw as PresupuestoItem[];
 export const personal: PersonalItem[] = personalRaw as PersonalItem[];
@@ -159,10 +161,11 @@ export const VOTO_LABEL: Record<string, string> = {
 	abstencion: 'Abstención',
 	pareo: 'Pareo',
 	ausente: 'Ausente',
+	inhabilitado: 'Se inhabilita',
 };
 
 export function votacionesDeAutoridad(autoridadId: string) {
-	return votaciones
+	return [...votaciones, ...votacionesCore]
 		.map((v) => ({ sesion: v, voto: v.votos.find((x) => x.autoridad_id === autoridadId) }))
 		.filter((x) => x.voto);
 }
