@@ -273,11 +273,11 @@ class ScraperTransparenciaMunicipal(BaseScraper):
         return registros
 
     def guardar(self, registros: list[dict]) -> None:
-        comunas = tuple(MUNICIPIOS_COQUIMBO.keys())
-        placeholders = ",".join("?" * len(comunas))
-        self.db.execute(
-            f"DELETE FROM presupuesto_municipal WHERE comuna_id IN ({placeholders})", comunas
-        )
+        # upsert por período real (comuna+año+tipo+categoría+subcategoría),
+        # no borrado-y-reinserción en bloque: el PDF es anual, así que años
+        # ya guardados deben quedar intactos aunque esta corrida solo haya
+        # encontrado el año más reciente para algunas comunas (o ninguno,
+        # por una falla de red puntual).
         ahora = datetime.now().isoformat()
         for r in registros:
             self.db.execute(
@@ -286,6 +286,10 @@ class ScraperTransparenciaMunicipal(BaseScraper):
                     (comuna_id, anno, tipo, categoria, subcategoria, monto,
                      fuente_url, actualizado_en)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(comuna_id, anno, tipo, categoria, subcategoria) DO UPDATE SET
+                    monto = excluded.monto,
+                    fuente_url = excluded.fuente_url,
+                    actualizado_en = excluded.actualizado_en
                 """,
                 (
                     r["comuna_id"],

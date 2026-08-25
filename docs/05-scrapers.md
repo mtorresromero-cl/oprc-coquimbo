@@ -708,7 +708,26 @@ python-dotenv>=1.0
 
 2. **Reintentos:** Implementar retry con backoff exponencial para errores de red.
 
-3. **Idempotencia:** Los scrapers deben poder ejecutarse múltiples veces sin duplicar datos (usar `INSERT OR IGNORE` / `INSERT OR REPLACE`).
+3. **Idempotencia e historización (2026-08-25):** `personal_municipal`,
+   `remuneracion_autoridad`, `presupuesto_municipal` y
+   `declaracion_patrimonio` tenían un problema real hasta esta fecha:
+   `guardar()` borraba todo lo de una comuna/autoridad antes de
+   reinsertar, así que cada corrida semanal **destruía el período
+   anterior** en vez de acumular historia — no había forma de comparar
+   "cómo cambió X en el tiempo", pese a que eso está explícitamente
+   pedido en el roadmap (Fase 4: "detectar cambios entre declaraciones",
+   "comparador entre períodos"). Se corrigió con índices únicos por
+   período real (`comuna_id+anno+mes+área+tipo_contrato`,
+   `autoridad_id+fecha_declaracion`, etc.) e `INSERT ... ON CONFLICT DO
+   UPDATE` (mismo patrón que `votacion_sesion`/`voto`, que ya eran
+   correctos por diseño — cada sesión/acuerdo es un evento único). Un
+   período que se vuelve a scrapear se actualiza en el lugar; un período
+   nuevo se agrega sin tocar los anteriores. Verificado con tests que
+   llaman `guardar()` dos veces con períodos distintos e iguales
+   (`scrapers/tests/test_historizacion.py`) — la prueba real de que
+   acumula en producción se verá recién en las próximas corridas
+   semanales, no había forma de probarlo retroactivo (la historia ya
+   borrada en corridas anteriores no se puede recuperar).
 
 4. **Logging:** Registrar cada ejecución en `actualizacion_log` para monitoreo.
 

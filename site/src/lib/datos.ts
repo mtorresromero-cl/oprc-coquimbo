@@ -128,7 +128,15 @@ export function presupuestoDeComuna(comunaId: string) {
 }
 
 export function personalDeComuna(comunaId: string) {
-	return personal.filter((p) => p.comuna_id === comunaId);
+	// personal ahora acumula histórico (varios meses por comuna) — se
+	// muestra solo el período más reciente, si no se sumarían dotación y
+	// remuneraciones de distintos meses. personal ya viene ordenado
+	// anno DESC, mes DESC desde el scraper, así que el primer registro de
+	// la comuna define el período vigente.
+	const deComuna = personal.filter((p) => p.comuna_id === comunaId);
+	const vigente = deComuna[0];
+	if (!vigente) return [];
+	return deComuna.filter((p) => p.anno === vigente.anno && p.mes === vigente.mes);
 }
 
 export function remuneracionAutoridadDeComuna(comunaId: string) {

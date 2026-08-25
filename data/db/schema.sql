@@ -205,3 +205,17 @@ CREATE INDEX IF NOT EXISTS idx_presupuesto_comuna ON presupuesto_municipal(comun
 CREATE INDEX IF NOT EXISTS idx_personal_comuna ON personal_municipal(comuna_id, anno, mes);
 CREATE INDEX IF NOT EXISTS idx_remuneracion_autoridad_comuna ON remuneracion_autoridad(comuna_id, anno, mes);
 CREATE INDEX IF NOT EXISTS idx_resultado_electoral ON resultado_electoral(anno, eleccion_tipo, comuna_id);
+
+-- Índices únicos para historización: permiten INSERT ... ON CONFLICT DO
+-- UPDATE (upsert) por período real en vez de borrar-todo-y-reinsertar, que
+-- destruía cualquier corrida anterior a la última. Con esto, cada semana
+-- que aparece un período nuevo (mes/año/declaración) se agrega sin pisar
+-- los períodos ya guardados.
+CREATE UNIQUE INDEX IF NOT EXISTS ux_personal_municipal
+    ON personal_municipal(comuna_id, anno, mes, area, tipo_contrato);
+CREATE UNIQUE INDEX IF NOT EXISTS ux_remuneracion_autoridad
+    ON remuneracion_autoridad(comuna_id, anno, mes, cargo);
+CREATE UNIQUE INDEX IF NOT EXISTS ux_presupuesto_municipal
+    ON presupuesto_municipal(comuna_id, anno, tipo, categoria, subcategoria);
+CREATE UNIQUE INDEX IF NOT EXISTS ux_declaracion_patrimonio
+    ON declaracion_patrimonio(autoridad_id, fecha_declaracion);

@@ -273,21 +273,14 @@ class ScraperPersonalMunicipal(BaseScraper):
         return datos
 
     def guardar(self, datos: dict) -> None:
-        # borrado por comuna, no en bloque: una corrida con fallas de red en
-        # algunas comunas (rate limiting del portal tras extraer comunas
-        # grandes como La Serena/Coquimbo, ver docs/05-scrapers.md) no debe
-        # arrastrar y borrar los datos buenos de las comunas que SÍ trajeron
-        # esta vez. Solo se reemplaza lo de una comuna si esta corrida trajo
-        # datos nuevos para ella.
+        # upsert por período real (comuna+año+mes+área+tipo_contrato), no
+        # borrado-y-reinserción: el portal solo expone "el mes más
+        # reciente disponible", así que cada semana que ese mes cambia se
+        # agrega un período nuevo sin pisar los meses ya guardados — antes
+        # borrar por comuna destruía la historia de meses anteriores en
+        # cada corrida.
         ahora = datetime.now().isoformat()
 
-        comunas_agregados = {a["comuna_id"] for a in datos["agregados"]}
-        if comunas_agregados:
-            placeholders = ",".join("?" * len(comunas_agregados))
-            self.db.execute(
-                f"DELETE FROM personal_municipal WHERE comuna_id IN ({placeholders})",
-                tuple(comunas_agregados),
-            )
         for a in datos["agregados"]:
             self.db.execute(
                 """
@@ -295,6 +288,11 @@ class ScraperPersonalMunicipal(BaseScraper):
                     (comuna_id, anno, mes, area, tipo_contrato, dotacion,
                      remuneracion_total, fuente_url, actualizado_en)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(comuna_id, anno, mes, area, tipo_contrato) DO UPDATE SET
+                    dotacion = excluded.dotacion,
+                    remuneracion_total = excluded.remuneracion_total,
+                    fuente_url = excluded.fuente_url,
+                    actualizado_en = excluded.actualizado_en
                 """,
                 (
                     a["comuna_id"], a["anno"], a["mes"], a["area"], a["tipo_contrato"],
@@ -303,19 +301,16 @@ class ScraperPersonalMunicipal(BaseScraper):
             )
             self.stats["nuevos"] += 1
 
-        comunas_autoridad = {r["comuna_id"] for r in datos["autoridad"]}
-        if comunas_autoridad:
-            placeholders = ",".join("?" * len(comunas_autoridad))
-            self.db.execute(
-                f"DELETE FROM remuneracion_autoridad WHERE comuna_id IN ({placeholders})",
-                tuple(comunas_autoridad),
-            )
         for r in datos["autoridad"]:
             self.db.execute(
                 """
                 INSERT INTO remuneracion_autoridad
                     (comuna_id, anno, mes, cargo, remuneracion_bruta, fuente_url, actualizado_en)
                 VALUES (?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(comuna_id, anno, mes, cargo) DO UPDATE SET
+                    remuneracion_bruta = excluded.remuneracion_bruta,
+                    fuente_url = excluded.fuente_url,
+                    actualizado_en = excluded.actualizado_en
                 """,
                 (
                     r["comuna_id"], r["anno"], r["mes"], r["cargo"],

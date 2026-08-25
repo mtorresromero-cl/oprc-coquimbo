@@ -218,9 +218,14 @@ class ScraperInfoProbidad(BaseScraper):
         texto = page.locator("body").inner_text()
         page.close()
 
-        fecha_m = re.search(r"(\d{2}-\d{2}-\d{4})\s+(.+)", texto)
-        fecha_declaracion = fecha_m.group(1) if fecha_m else None
-        tipo_declaracion = fecha_m.group(2).strip() if fecha_m else None
+        # la fecha aparece como DD-MM-YYYY en la ficha; se guarda en ISO
+        # (YYYY-MM-DD) porque un TEXT en formato DD-MM-YYYY no ordena
+        # cronológicamente como string (ej. "25-01-2026" > "17-03-2026").
+        fecha_m = re.search(r"(\d{2})-(\d{2})-(\d{4})\s+(.+)", texto)
+        fecha_declaracion = (
+            f"{fecha_m.group(3)}-{fecha_m.group(2)}-{fecha_m.group(1)}" if fecha_m else None
+        )
+        tipo_declaracion = fecha_m.group(4).strip() if fecha_m else None
 
         organismo_m = re.search(r"Organismo:\s*(.+)", texto)
         organismo = organismo_m.group(1).strip() if organismo_m else None
@@ -259,15 +264,11 @@ class ScraperInfoProbidad(BaseScraper):
         return datos
 
     def guardar(self, datos: list[dict]) -> None:
+        # upsert por (autoridad_id, fecha_declaracion): cada declaración es
+        # un evento propio en el tiempo, no un estado que se reemplaza —
+        # borrar antes de insertar destruía declaraciones anteriores de la
+        # misma autoridad e impedía comparar cómo cambió su patrimonio.
         ahora = datetime.now().isoformat()
-
-        autoridades_con_datos = {d["autoridad_id"] for d in datos}
-        if autoridades_con_datos:
-            placeholders = ",".join("?" * len(autoridades_con_datos))
-            self.db.execute(
-                f"DELETE FROM declaracion_patrimonio WHERE autoridad_id IN ({placeholders})",
-                tuple(autoridades_con_datos),
-            )
 
         for d in datos:
             self.db.execute(
@@ -277,6 +278,18 @@ class ScraperInfoProbidad(BaseScraper):
                      organismo, bienes_inmuebles_n, vehiculos_n, sociedades_n,
                      valores_monto, pasivos_tiene, pasivos_monto, fuente_url, actualizado_en)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(autoridad_id, fecha_declaracion) DO UPDATE SET
+                    tipo_declaracion = excluded.tipo_declaracion,
+                    cargo_declarado = excluded.cargo_declarado,
+                    organismo = excluded.organismo,
+                    bienes_inmuebles_n = excluded.bienes_inmuebles_n,
+                    vehiculos_n = excluded.vehiculos_n,
+                    sociedades_n = excluded.sociedades_n,
+                    valores_monto = excluded.valores_monto,
+                    pasivos_tiene = excluded.pasivos_tiene,
+                    pasivos_monto = excluded.pasivos_monto,
+                    fuente_url = excluded.fuente_url,
+                    actualizado_en = excluded.actualizado_en
                 """,
                 (
                     d["autoridad_id"], d["fecha_declaracion"], d["tipo_declaracion"],
@@ -297,7 +310,7 @@ class ScraperInfoProbidad(BaseScraper):
                    organismo, bienes_inmuebles_n, vehiculos_n, sociedades_n,
                    valores_monto, pasivos_tiene, pasivos_monto, fuente_url
             FROM declaracion_patrimonio
-            ORDER BY autoridad_id
+            ORDER BY autoridad_id, fecha_declaracion DESC
             """
         ).fetchall()
         (PROCESSED_DIR / "declaracion-patrimonio.json").write_text(
