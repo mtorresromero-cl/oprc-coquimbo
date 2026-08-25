@@ -102,16 +102,23 @@ export interface DeclaracionPatrimonio {
 	fuente_url: string;
 }
 
-export interface AsistenciaResumenDiputado {
+export interface AsistenciaResumen {
 	autoridad_id: string;
+	camara: 'camara' | 'senado';
+	// año calendario para diputados (camara.cl); número de legislatura para
+	// senadores (senado.cl no reporta por año calendario) — no comparar
+	// directamente entre cámaras, usar etiquetaPeriodoAsistencia().
 	anno: number;
 	total_sesiones: number;
 	sesiones_computables: number;
 	asistencias: number;
-	ausencias_justif_no_afecta: number;
-	ausencias_justif_si_afecta: number;
+	ausencias_justificadas: number;
 	ausencias_sin_justificar: number;
 	fuente_url: string;
+}
+
+export function etiquetaPeriodoAsistencia(r: AsistenciaResumen): string {
+	return r.camara === 'senado' ? `Legislatura ${r.anno}` : String(r.anno);
 }
 
 export interface AsistenciaSesionDiputado {
@@ -123,45 +130,37 @@ export interface AsistenciaSesionDiputado {
 	fuente_url: string;
 }
 
-export interface VotoDiputado {
-	autoridad_id: string;
-	fecha: string;
-	hora: string;
-	sesion: string;
-	voto: string;
-	boletin: string;
-	titulo: string;
-	fuente_url: string;
-}
-
 import autoridadesRaw from '../../../data/processed/autoridades.json';
 import comunasRaw from '../../../data/processed/comunas.json';
 import votacionesRaw from '../../../data/processed/votaciones.json';
 import votacionesCoreRaw from '../../../data/processed/votaciones-core.json';
+import votacionesCamaraRaw from '../../../data/processed/votaciones-camara.json';
 import mocionesRaw from '../../../data/processed/mociones.json';
 import presupuestoRaw from '../../../data/processed/presupuesto-municipal.json';
 import personalRaw from '../../../data/processed/personal-municipal.json';
 import remuneracionAutoridadRaw from '../../../data/processed/remuneracion-autoridad.json';
 import declaracionesPatrimonioRaw from '../../../data/processed/declaracion-patrimonio.json';
 import asistenciaResumenDiputadosRaw from '../../../data/processed/asistencia-resumen-diputados.json';
+import asistenciaResumenSenadoresRaw from '../../../data/processed/asistencia-resumen-senadores.json';
 import asistenciaDiputadosRaw from '../../../data/processed/asistencia-diputados.json';
-import votacionesDiputadosRaw from '../../../data/processed/votaciones-diputados.json';
 
 export const autoridades: Autoridad[] = autoridadesRaw as Autoridad[];
 export const comunas: Comuna[] = comunasRaw as Comuna[];
 export const votaciones: VotacionSesion[] = votacionesRaw as VotacionSesion[];
 export const votacionesCore: VotacionSesion[] = votacionesCoreRaw as VotacionSesion[];
+export const votacionesCamara: VotacionSesion[] = votacionesCamaraRaw as VotacionSesion[];
 export const mociones: Mocion[] = mocionesRaw as Mocion[];
 export const presupuesto: PresupuestoItem[] = presupuestoRaw as PresupuestoItem[];
 export const personal: PersonalItem[] = personalRaw as PersonalItem[];
 export const remuneracionAutoridad: RemuneracionAutoridad[] = remuneracionAutoridadRaw as RemuneracionAutoridad[];
 export const declaracionesPatrimonio: DeclaracionPatrimonio[] =
 	declaracionesPatrimonioRaw as DeclaracionPatrimonio[];
-export const asistenciaResumenDiputados: AsistenciaResumenDiputado[] =
-	asistenciaResumenDiputadosRaw as AsistenciaResumenDiputado[];
+export const asistenciaResumen: AsistenciaResumen[] = [
+	...(asistenciaResumenDiputadosRaw as AsistenciaResumen[]),
+	...(asistenciaResumenSenadoresRaw as AsistenciaResumen[]),
+];
 export const asistenciaDiputados: AsistenciaSesionDiputado[] =
 	asistenciaDiputadosRaw as AsistenciaSesionDiputado[];
-export const votacionesDiputados: VotoDiputado[] = votacionesDiputadosRaw as VotoDiputado[];
 
 export function presupuestoDeComuna(comunaId: string) {
 	return presupuesto.filter((p) => p.comuna_id === comunaId);
@@ -264,9 +263,9 @@ export function declaracionPatrimonioDeAutoridad(autoridadId: string) {
 }
 
 export function asistenciaResumenDeAutoridad(autoridadId: string) {
-	// puede haber más de un año acumulado con el tiempo; se muestra el más
-	// reciente, igual que con personalDeComuna.
-	const delAutoridad = asistenciaResumenDiputados
+	// puede haber más de un período acumulado con el tiempo; se muestra el
+	// más reciente, igual que con personalDeComuna.
+	const delAutoridad = asistenciaResumen
 		.filter((a) => a.autoridad_id === autoridadId)
 		.sort((a, b) => b.anno - a.anno);
 	return delAutoridad[0] ?? null;
@@ -276,10 +275,6 @@ export function asistenciaSesionesDeAutoridad(autoridadId: string) {
 	return asistenciaDiputados.filter((a) => a.autoridad_id === autoridadId);
 }
 
-export function votosDeDiputado(autoridadId: string) {
-	return votacionesDiputados.filter((v) => v.autoridad_id === autoridadId);
-}
-
 export const VOTO_LABEL: Record<string, string> = {
 	favor: 'A favor',
 	contra: 'En contra',
@@ -287,11 +282,11 @@ export const VOTO_LABEL: Record<string, string> = {
 	pareo: 'Pareo',
 	ausente: 'Ausente',
 	inhabilitado: 'Se inhabilita',
-	otro: 'Otro',
+	dispensado: 'Dispensado/a de votar',
 };
 
 export function votacionesDeAutoridad(autoridadId: string) {
-	return [...votaciones, ...votacionesCore]
+	return [...votaciones, ...votacionesCore, ...votacionesCamara]
 		.map((v) => ({ sesion: v, voto: v.votos.find((x) => x.autoridad_id === autoridadId) }))
 		.filter((x) => x.voto);
 }
@@ -322,6 +317,7 @@ export interface IndiceVotacion {
 	pareo: number;
 	ausente: number;
 	inhabilitado: number;
+	dispensado: number;
 	participacionPct: number;
 	alineamientoPct: number | null;
 }
@@ -374,6 +370,7 @@ export function indiceVotaciones(sesiones: VotacionSesion[], autoridadIds: strin
 			pareo: conteo.pareo ?? 0,
 			ausente: conteo.ausente ?? 0,
 			inhabilitado: conteo.inhabilitado ?? 0,
+			dispensado: conteo.dispensado ?? 0,
 			participacionPct: totalSesiones > 0 ? Math.round((votosReales / totalSesiones) * 1000) / 10 : 0,
 			alineamientoPct: comparables > 0 ? Math.round((alineados / comparables) * 1000) / 10 : null,
 		};
@@ -395,7 +392,7 @@ export function indiceMociones(autoridadIds: string[]): IndiceMociones[] {
 	}));
 }
 
-export interface IndiceAsistenciaDiputado {
+export interface IndiceAsistencia {
 	autoridad_id: string;
 	nombre: string;
 	cargo: string;
@@ -407,21 +404,24 @@ export interface IndiceAsistenciaDiputado {
 }
 
 /**
- * % de asistencia tal como lo calcula camara.cl (no lo recalculamos
- * nosotros): asistencias sobre sesiones computables del período. A
- * diferencia del índice de votaciones de Senado/CORE, este dato viene ya
- * agregado de la fuente — no lo derivamos de las sesiones individuales
- * que alcanzamos a scrapear (esas son solo un detalle reciente parcial).
+ * % de asistencia tal como lo calculan las fuentes oficiales (camara.cl
+ * para diputados, senado.cl para senadores) — no lo recalculamos
+ * nosotros. A diferencia del índice de votaciones, este dato viene ya
+ * agregado de la fuente, no lo derivamos de sesiones individuales.
  */
-export function indiceAsistenciaDiputados(autoridadIds: string[]): IndiceAsistenciaDiputado[] {
+export function indiceAsistencia(autoridadIds: string[]): IndiceAsistencia[] {
 	return autoridadIds.map((autoridad_id) => {
 		const resumen = asistenciaResumenDeAutoridad(autoridad_id);
 		return {
 			autoridad_id,
 			...nombreYCargo(autoridad_id),
+			// camara.cl a veces publica más asistencias que "sesiones
+			// computables" (ej. Carolina Tello: 62/61) — no lo corregimos
+			// nosotros porque no sabemos la causa real, pero un % sobre 100
+			// no es válido por definición, así que se topa en 100.
 			asistenciaPct:
 				resumen && resumen.sesiones_computables > 0
-					? Math.round((resumen.asistencias / resumen.sesiones_computables) * 1000) / 10
+					? Math.min(100, Math.round((resumen.asistencias / resumen.sesiones_computables) * 1000) / 10)
 					: null,
 			asistencias: resumen?.asistencias ?? 0,
 			sesionesComputables: resumen?.sesiones_computables ?? 0,

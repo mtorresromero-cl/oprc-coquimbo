@@ -1,0 +1,550 @@
+[
+  {
+    "id": "camara-89862",
+    "camara": "camara",
+    "fecha": "2026-08-19",
+    "numero_sesion": "60",
+    "tipo": null,
+    "proyecto_ley_id": "18429-10",
+    "descripcion": "Aprueba el Tratado entre la República de Chile y la República Federativa de Brasil sobre Asistencia Jurídica Mutua en Materia Penal, hecho en Brasilia, el 22 de abril de 2025",
+    "resultado": "aprobado",
+    "votos_favor": 124,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89862",
+    "votos": [
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89863",
+    "camara": "camara",
+    "fecha": "2026-08-19",
+    "numero_sesion": "60",
+    "tipo": null,
+    "proyecto_ley_id": "18189-14",
+    "descripcion": "Modifica la ley N° 20.898, con el objeto de ampliar el régimen excepcional de regularización de viviendas y actualizar la fecha de su aplicación",
+    "resultado": "aprobado",
+    "votos_favor": 124,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89863",
+    "votos": [
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89864",
+    "camara": "camara",
+    "fecha": "2026-08-19",
+    "numero_sesion": "60",
+    "tipo": null,
+    "proyecto_ley_id": "18189-14",
+    "descripcion": "Modifica la ley N° 20.898, con el objeto de ampliar el régimen excepcional de regularización de viviendas y actualizar la fecha de su aplicación",
+    "resultado": "aprobado",
+    "votos_favor": 64,
+    "votos_contra": 57,
+    "abstenciones": 3,
+    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89864",
+    "votos": [
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "contra"
+      }
+    ]
+  },
+  {
+    "id": "camara-89865",
+    "camara": "camara",
+    "fecha": "2026-08-19",
+    "numero_sesion": "60",
+    "tipo": null,
+    "proyecto_ley_id": "18189-14",
+    "descripcion": "Modifica la ley N° 20.898, con el objeto de ampliar el régimen excepcional de regularización de viviendas y actualizar la fecha de su aplicación",
+    "resultado": "aprobado",
+    "votos_favor": 67,
+    "votos_contra": 49,
+    "abstenciones": 8,
+    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89865",
+    "votos": [
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89866",
+    "camara": "camara",
+    "fecha": "2026-08-19",
+    "numero_sesion": "60",
+    "tipo": null,
+    "proyecto_ley_id": "16397-15",
+    "descripcion": "Modifica la ley N° 18.290, de Tránsito, para aumentar las sanciones por no usar sistemas de retención infantil y por trasladar menores de 12 años en asientos delanteros",
+    "resultado": "aprobado",
+    "votos_favor": 123,
+    "votos_contra": 0,
+    "abstenciones": 1,
+    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89866",
+    "votos": [
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89867",
+    "camara": "camara",
+    "fecha": "2026-08-19",
+    "numero_sesion": "60",
+    "tipo": null,
+    "proyecto_ley_id": "17324-33",
+    "descripcion": "Modifica el Código de Aguas para garantizar la participación de comités y cooperativas de agua potable rural, prestadoras de servicios sanitarios rurales, en los directorios de las comunidades de agua",
+    "resultado": "aprobado",
+    "votos_favor": 62,
+    "votos_contra": 18,
+    "abstenciones": 42,
+    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89867",
+    "votos": [
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89814",
+    "camara": "camara",
+    "fecha": "2026-08-18",
+    "numero_sesion": "58",
+    "tipo": null,
+    "proyecto_ley_id": "18525-06",
+    "descripcion": "Modifica la ley N° 21.802, que fortalece la institucionalidad municipal en materia de seguridad pública y prevención del delito",
+    "resultado": "aprobado",
+    "votos_favor": 134,
+    "votos_contra": 1,
+    "abstenciones": 0,
+    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89814",
+    "votos": [
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89815",
+    "camara": "camara",
+    "fecha": "2026-08-18",
+    "numero_sesion": "58",
+    "tipo": null,
+    "proyecto_ley_id": "18525-06",
+    "descripcion": "Modifica la ley N° 21.802, que fortalece la institucionalidad municipal en materia de seguridad pública y prevención del delito",
+    "resultado": "aprobado",
+    "votos_favor": 132,
+    "votos_contra": 1,
+    "abstenciones": 2,
+    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89815",
+    "votos": [
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "abstencion"
+      }
+    ]
+  },
+  {
+    "id": "camara-89816",
+    "camara": "camara",
+    "fecha": "2026-08-18",
+    "numero_sesion": "58",
+    "tipo": null,
+    "proyecto_ley_id": "18525-06",
+    "descripcion": "Modifica la ley N° 21.802, que fortalece la institucionalidad municipal en materia de seguridad pública y prevención del delito",
+    "resultado": "aprobado",
+    "votos_favor": 118,
+    "votos_contra": 15,
+    "abstenciones": 2,
+    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89816",
+    "votos": [
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89817",
+    "camara": "camara",
+    "fecha": "2026-08-18",
+    "numero_sesion": "58",
+    "tipo": null,
+    "proyecto_ley_id": "18525-06",
+    "descripcion": "Modifica la ley N° 21.802, que fortalece la institucionalidad municipal en materia de seguridad pública y prevención del delito",
+    "resultado": "rechazado",
+    "votos_favor": 77,
+    "votos_contra": 51,
+    "abstenciones": 7,
+    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89817",
+    "votos": [
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89842",
+    "camara": "camara",
+    "fecha": "2026-08-18",
+    "numero_sesion": "59",
+    "tipo": null,
+    "proyecto_ley_id": "15387-12",
+    "descripcion": "Modifica la ley N°21.020, sobre tenencia responsable de mascotas y animales de compañía, para prohibir y sancionar las carreras de perros",
+    "resultado": "aprobado",
+    "votos_favor": 80,
+    "votos_contra": 41,
+    "abstenciones": 7,
+    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89842",
+    "votos": [
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89843",
+    "camara": "camara",
+    "fecha": "2026-08-18",
+    "numero_sesion": "59",
+    "tipo": null,
+    "proyecto_ley_id": "12786-12",
+    "descripcion": "Modifica la ley N°20.380, sobre Protección de los animales, para regular las carreras de perros",
+    "resultado": "rechazado",
+    "votos_favor": 50,
+    "votos_contra": 68,
+    "abstenciones": 10,
+    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89843",
+    "votos": [
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "contra"
+      }
+    ]
+  },
+  {
+    "id": "camara-89844",
+    "camara": "camara",
+    "fecha": "2026-08-18",
+    "numero_sesion": "59",
+    "tipo": null,
+    "proyecto_ley_id": "12786-12",
+    "descripcion": "Modifica la ley N°20.380, sobre Protección de los animales, para regular las carreras de perros",
+    "resultado": "rechazado",
+    "votos_favor": 54,
+    "votos_contra": 65,
+    "abstenciones": 7,
+    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89844",
+    "votos": [
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "contra"
+      }
+    ]
+  }
+]

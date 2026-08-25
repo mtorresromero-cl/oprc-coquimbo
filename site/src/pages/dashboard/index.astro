@@ -4,9 +4,10 @@ import {
 	autoridades,
 	votaciones,
 	votacionesCore,
+	votacionesCamara,
 	indiceVotaciones,
 	indiceMociones,
-	indiceAsistenciaDiputados,
+	indiceAsistencia,
 } from '../../lib/datos';
 
 const senadorIds = autoridades.filter((a) => a.cargo === 'senador').map((a) => a.id);
@@ -15,15 +16,18 @@ const coreIds = autoridades.filter((a) => a.cargo === 'core' || a.cargo === 'gob
 
 const indiceSenado = indiceVotaciones(votaciones, senadorIds);
 const indiceCore = indiceVotaciones(votacionesCore, coreIds);
+const indiceDiputados = indiceVotaciones(votacionesCamara, diputadoIds);
 const indiceMocionesDiputados = indiceMociones(diputadoIds);
-const indiceAsistencia = indiceAsistenciaDiputados(diputadoIds);
-const asistenciaPorId = new Map(indiceAsistencia.map((a) => [a.autoridad_id, a]));
+const mocionesPorId = new Map(indiceMocionesDiputados.map((m) => [m.autoridad_id, m.total]));
+const asistenciaSenadoPorId = new Map(indiceAsistencia(senadorIds).map((a) => [a.autoridad_id, a]));
+const asistenciaDiputadosPorId = new Map(indiceAsistencia(diputadoIds).map((a) => [a.autoridad_id, a]));
 
 const grupos = {
 	senado: indiceSenado.map((i) => ({
 		id: i.autoridad_id,
 		nombre: i.nombre,
 		metrics: {
+			asistenciaPct: asistenciaSenadoPorId.get(i.autoridad_id)?.asistenciaPct ?? null,
 			participacionPct: i.participacionPct,
 			alineamientoPct: i.alineamientoPct,
 			favor: i.favor,
@@ -49,12 +53,18 @@ const grupos = {
 			inhabilitado: i.inhabilitado,
 		},
 	})),
-	diputados: indiceMocionesDiputados.map((i) => ({
+	diputados: indiceDiputados.map((i) => ({
 		id: i.autoridad_id,
 		nombre: i.nombre,
 		metrics: {
-			asistenciaPct: asistenciaPorId.get(i.autoridad_id)?.asistenciaPct ?? null,
-			total: i.total,
+			asistenciaPct: asistenciaDiputadosPorId.get(i.autoridad_id)?.asistenciaPct ?? null,
+			participacionPct: i.participacionPct,
+			alineamientoPct: i.alineamientoPct,
+			favor: i.favor,
+			contra: i.contra,
+			abstencion: i.abstencion,
+			pareo: i.pareo,
+			mociones: mocionesPorId.get(i.autoridad_id) ?? 0,
 		},
 	})),
 };
@@ -70,9 +80,9 @@ const grupos = {
 			<p class="mt-2 max-w-2xl text-slate-600">
 				Elegí una cámara y una métrica para comparar a sus integrantes. El grupo "Consejo
 				Regional" incluye a los 16 consejeros y al gobernador regional, que participa de los
-				mismos acuerdos. Para diputados y diputadas todavía no tenemos un índice de alineamiento
-				de voto: camara.cl solo publica el voto individual de cada uno, no el resultado de toda
-				la Cámara para poder compararlo.
+				mismos acuerdos. Diputados y diputadas solo cuentan con las votaciones más recientes
+				(camara.cl no permite navegar el historial completo del período), a diferencia de Senado
+				y CORE — por eso sus números no son directamente comparables entre cámaras.
 			</p>
 		</div>
 	</div>
@@ -129,13 +139,14 @@ const grupos = {
 				'Acuerdo formal para no votar junto a un/a parlamentario/a de la posición contraria, generalmente por inasistencia de alguno de los dos. Cuenta como participación, pero no como voto a favor ni en contra.',
 			ausente: 'Cantidad de acuerdos a los que no asistió o en los que no emitió voto.',
 			inhabilitado: 'Cantidad de acuerdos en los que se inhabilitó por conflicto de interés.',
-			total: 'Mociones (proyectos de ley) presentadas como autor o coautor, según la ficha de cada diputado/a en camara.cl.',
+			mociones: 'Mociones (proyectos de ley) presentadas como autor o coautor, según la ficha de cada diputado/a en camara.cl.',
 			asistenciaPct:
-				'% de asistencia a sesiones de sala del período, tal como lo calcula camara.cl (asistencias sobre sesiones computables).',
+				'% de asistencia a sesiones de sala del período, tal como lo calcula la fuente oficial (camara.cl o senado.cl): asistencias sobre sesiones computables.',
 		};
 
 		const METRICAS: Record<GrupoKey, [string, string][]> = {
 			senado: [
+				['asistenciaPct', 'Asistencia'],
 				['participacionPct', 'Participación'],
 				['alineamientoPct', 'Alineamiento'],
 				['favor', 'A favor'],
@@ -153,7 +164,13 @@ const grupos = {
 			],
 			diputados: [
 				['asistenciaPct', 'Asistencia'],
-				['total', 'Mociones presentadas'],
+				['participacionPct', 'Participación'],
+				['alineamientoPct', 'Alineamiento'],
+				['favor', 'A favor'],
+				['contra', 'En contra'],
+				['abstencion', 'Abstención'],
+				['pareo', 'Pareo'],
+				['mociones', 'Mociones presentadas'],
 			],
 		};
 

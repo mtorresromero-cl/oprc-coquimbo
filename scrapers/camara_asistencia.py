@@ -88,14 +88,19 @@ class ScraperCamaraAsistencia(BaseScraper):
 
                 resumen_celdas = tablas[0].locator("tbody tr td").all()
                 if len(resumen_celdas) >= 6:
+                    # camara.cl distingue justificadas que afectan o no el %;
+                    # ese detalle no se usa en ningún cálculo nuestro, se
+                    # suman en un solo total (igual a lo que ya se mostraba
+                    # en la UI).
+                    justif_no_afecta = int(resumen_celdas[3].inner_text().strip())
+                    justif_si_afecta = int(resumen_celdas[4].inner_text().strip())
                     resumen = {
                         "tipo": "resumen",
                         "autoridad_id": autoridad_id,
                         "total_sesiones": int(resumen_celdas[0].inner_text().strip()),
                         "sesiones_computables": int(resumen_celdas[1].inner_text().strip()),
                         "asistencias": int(resumen_celdas[2].inner_text().strip()),
-                        "ausencias_justif_no_afecta": int(resumen_celdas[3].inner_text().strip()),
-                        "ausencias_justif_si_afecta": int(resumen_celdas[4].inner_text().strip()),
+                        "ausencias_justificadas": justif_no_afecta + justif_si_afecta,
                         "ausencias_sin_justificar": int(resumen_celdas[5].inner_text().strip()),
                         "fuente_url": url,
                     }
@@ -137,17 +142,15 @@ class ScraperCamaraAsistencia(BaseScraper):
             if r["tipo"] == "resumen":
                 self.db.execute(
                     """
-                    INSERT INTO asistencia_resumen_diputado
-                        (autoridad_id, anno, total_sesiones, sesiones_computables,
-                         asistencias, ausencias_justif_no_afecta,
-                         ausencias_justif_si_afecta, ausencias_sin_justificar, fuente_url)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-                    ON CONFLICT(autoridad_id, anno) DO UPDATE SET
+                    INSERT INTO asistencia_resumen
+                        (autoridad_id, camara, anno, total_sesiones, sesiones_computables,
+                         asistencias, ausencias_justificadas, ausencias_sin_justificar, fuente_url)
+                    VALUES (?, 'camara', ?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(autoridad_id, camara, anno) DO UPDATE SET
                         total_sesiones = excluded.total_sesiones,
                         sesiones_computables = excluded.sesiones_computables,
                         asistencias = excluded.asistencias,
-                        ausencias_justif_no_afecta = excluded.ausencias_justif_no_afecta,
-                        ausencias_justif_si_afecta = excluded.ausencias_justif_si_afecta,
+                        ausencias_justificadas = excluded.ausencias_justificadas,
                         ausencias_sin_justificar = excluded.ausencias_sin_justificar,
                         fuente_url = excluded.fuente_url
                     """,
@@ -157,8 +160,7 @@ class ScraperCamaraAsistencia(BaseScraper):
                         r["total_sesiones"],
                         r["sesiones_computables"],
                         r["asistencias"],
-                        r["ausencias_justif_no_afecta"],
-                        r["ausencias_justif_si_afecta"],
+                        r["ausencias_justificadas"],
                         r["ausencias_sin_justificar"],
                         r["fuente_url"],
                     ),
@@ -194,11 +196,10 @@ class ScraperCamaraAsistencia(BaseScraper):
 
         resumen = self.db.execute(
             f"""
-            SELECT autoridad_id, anno, total_sesiones, sesiones_computables, asistencias,
-                   ausencias_justif_no_afecta, ausencias_justif_si_afecta,
-                   ausencias_sin_justificar, fuente_url
-            FROM asistencia_resumen_diputado
-            WHERE autoridad_id IN ({placeholders})
+            SELECT autoridad_id, camara, anno, total_sesiones, sesiones_computables, asistencias,
+                   ausencias_justificadas, ausencias_sin_justificar, fuente_url
+            FROM asistencia_resumen
+            WHERE camara = 'camara' AND autoridad_id IN ({placeholders})
             ORDER BY anno DESC
             """,
             autoridad_ids,

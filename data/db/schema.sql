@@ -94,41 +94,25 @@ CREATE TABLE IF NOT EXISTS mocion (
     FOREIGN KEY (proyecto_ley_id) REFERENCES proyecto_ley(id)
 );
 
--- Resumen de asistencia del período que publica camara.cl en la ficha de
--- cada diputado/a (totales ya calculados por la fuente, no derivados de
--- las sesiones que alcanzamos a scrapear nosotros — su detalle paginado
--- no se navega, ver docs/05-scrapers.md).
-CREATE TABLE IF NOT EXISTS asistencia_resumen_diputado (
-    id                              INTEGER PRIMARY KEY AUTOINCREMENT,
-    autoridad_id                    TEXT NOT NULL,
-    anno                            INTEGER NOT NULL,
-    total_sesiones                  INTEGER,
-    sesiones_computables            INTEGER,
-    asistencias                     INTEGER,
-    ausencias_justif_no_afecta      INTEGER,
-    ausencias_justif_si_afecta      INTEGER,
-    ausencias_sin_justificar        INTEGER,
-    fuente_url                      TEXT,
+-- Resumen de asistencia del período tal como lo publican las fuentes
+-- oficiales (camara.cl para diputados, senado.cl para senadores) — totales
+-- ya calculados por cada fuente, no derivados de sesiones individuales que
+-- alcancemos a scrapear nosotros. Compartida entre ambas cámaras porque el
+-- shape es el mismo; camara.cl distingue ausencias justificadas que
+-- afectan o no el % (se suman en ausencias_justificadas, ese detalle no se
+-- usa en ningún cálculo, solo se muestra el total en la UI).
+CREATE TABLE IF NOT EXISTS asistencia_resumen (
+    id                        INTEGER PRIMARY KEY AUTOINCREMENT,
+    autoridad_id              TEXT NOT NULL,
+    camara                    TEXT NOT NULL,           -- camara | senado
+    anno                      INTEGER NOT NULL,
+    total_sesiones            INTEGER,
+    sesiones_computables      INTEGER,
+    asistencias               INTEGER,
+    ausencias_justificadas    INTEGER,
+    ausencias_sin_justificar  INTEGER,
+    fuente_url                TEXT,
     FOREIGN KEY (autoridad_id) REFERENCES autoridad(id)
-);
-
--- Voto individual de cada diputado/a de la región en votaciones de sala,
--- vía su ficha en camara.cl. A diferencia de votacion_sesion (Senado/CORE),
--- acá no tenemos el resultado ni los conteos de toda la Cámara (155
--- integrantes) — solo el voto propio de cada diputado regional. Por eso no
--- se integra a votacion_sesion/voto: sería engañoso mostrar votos_favor o
--- resultado como si fueran de la Cámara completa cuando son parciales.
-CREATE TABLE IF NOT EXISTS voto_diputado (
-    id              INTEGER PRIMARY KEY AUTOINCREMENT,
-    autoridad_id    TEXT NOT NULL,
-    proyecto_ley_id TEXT NOT NULL,
-    fecha           DATE NOT NULL,
-    hora            TEXT,
-    sesion          TEXT,
-    voto            TEXT NOT NULL,           -- favor | contra | abstencion | pareo | otro
-    fuente_url      TEXT,
-    FOREIGN KEY (autoridad_id) REFERENCES autoridad(id),
-    FOREIGN KEY (proyecto_ley_id) REFERENCES proyecto_ley(id)
 );
 
 -- Resumen agregado de la declaración de patrimonio vigente (no itemizado:
@@ -258,7 +242,5 @@ CREATE UNIQUE INDEX IF NOT EXISTS ux_declaracion_patrimonio
     ON declaracion_patrimonio(autoridad_id, fecha_declaracion);
 CREATE UNIQUE INDEX IF NOT EXISTS ux_asistencia
     ON asistencia(autoridad_id, camara, fecha, numero_sesion);
-CREATE UNIQUE INDEX IF NOT EXISTS ux_asistencia_resumen_diputado
-    ON asistencia_resumen_diputado(autoridad_id, anno);
-CREATE UNIQUE INDEX IF NOT EXISTS ux_voto_diputado
-    ON voto_diputado(autoridad_id, proyecto_ley_id, fecha, hora);
+CREATE UNIQUE INDEX IF NOT EXISTS ux_asistencia_resumen
+    ON asistencia_resumen(autoridad_id, camara, anno);

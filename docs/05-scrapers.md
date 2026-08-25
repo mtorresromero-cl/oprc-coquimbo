@@ -200,23 +200,38 @@ directamente. Se probaron igual que se prueba cualquier fuente nueva:
   por camara.cl** (total de sesiones, asistencias, ausencias
   justificadas/sin justificar) en la primera tabla de la página — ese
   número sí es completo y oficial, no depende de la paginación. Se
-  guarda tal cual en `asistencia_resumen_diputado`. El detalle
-  sesión-por-sesión de la segunda tabla sí es parcial (mismo límite de
-  paginación).
-- `votaciones_sala.aspx` da el **voto individual** del diputado en cada
-  proyecto, no el resultado ni los conteos de toda la Cámara (155
-  integrantes) — a diferencia de Senado/CORE, donde si sabemos el
-  resultado agregado real de la sesión. Por eso no se integra a
-  `votacion_sesion`/`voto` (que asumen que existe ese agregado): se
-  guarda en `voto_diputado`, un historial personal, sin índice de
-  alineamiento para diputados (no hay con qué compararlo de forma
-  honesta).
+  guarda tal cual en `asistencia_resumen` (tabla compartida con Senado,
+  ver más abajo). El detalle sesión-por-sesión de la segunda tabla sí es
+  parcial (mismo límite de paginación).
+- `votaciones_sala.aspx` (ficha del diputado) da el **voto individual**
+  del diputado en cada proyecto, pero no el resultado ni los conteos de
+  toda la Cámara (155 integrantes) — insuficiente para calcular
+  alineamiento. Primer diseño (2026-08-25, descartado ese mismo día):
+  guardarlo aparte en una tabla `voto_diputado`, sin índice de
+  alineamiento. **Reemplazado por un hallazgo mejor**: cada fila de esa
+  ficha tiene un link "Detalle" (`ver`) hacia
+  `/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=<ID>`,
+  que sí trae el resultado oficial completo (Aprobado/Rechazado, conteo
+  real de A Favor/En Contra/Abstención/Dispensados/Pareos, y el listado
+  nominal de los ~155 diputados por categoría). De ahí se extrae el voto
+  real de los 7 diputados regionales por nombre (matching por tokens del
+  nombre completo, no string exacto — mismo problema de nombre/apellido
+  mal separados documentado en la sección de gotchas de nombres) y se
+  guarda en `votacion_sesion`/`voto` igual que Senado/CORE, habilitando
+  el mismo índice de participación/alineamiento. Confirmado que
+  reutilizar sesión de navegador entre distintos `votacion_detalle.aspx`
+  también bloquea (mismo patrón) y que contexto nuevo por ID lo evita.
+  Solo se procesan votaciones de tipo "Proyecto De Ley" (con boletín);
+  "Resolución", "Proyecto de Acuerdo" y "Otros" se omiten sin contar
+  como error — no encajan en el modelo `proyecto_ley` (que asume
+  boletín) y se documenta como omisión deliberada, no falla.
 - Dato curioso encontrado al validar los números: Carolina Tello Rojas
   aparece con 62 asistencias sobre 61 "sesiones computables" (>100%) en
   el resumen que publica camara.cl — se verificó que no es un bug de
   parseo (se confirmó el número exacto en la página fuente) y se guarda
-  tal cual, sin "corregirlo" — es una inconsistencia de la propia fuente,
-  no nuestra.
+  tal cual, sin "corregirlo" (aunque el % derivado sí se topa en 100 en
+  el sitio, porque un porcentaje sobre 100 no es válido por definición,
+  distinto de "corregir" el dato crudo).
 
 **Alternativa complementaria: `datos.bcn.cl`** (datos enlazados, robots.txt
 abierto, SPARQL). Tiene mociones parlamentarias pero con rezago de
@@ -258,6 +273,39 @@ class ScraperSenado(BaseScraper):
         # Si no, scraping de senado.cl/transparencia
         pass
 ```
+
+### Implementado: `senado.py` (votaciones) — vía `tramitacion.senado.cl/wspublico`, XML sin autenticación. Ver el archivo, está bien documentado.
+
+### Asistencia — resuelto el 2026-08-25
+
+`senado.py` deja anotado que la asistencia no está disponible por
+`tramitacion.senado.cl/wspublico` (`sesiones.php` solo trae metadata de la
+sesión, no presencia por parlamentario) — cierto, pero esa API no es la
+única fuente de senado.cl. A partir de la pregunta directa "¿los senadores
+no tienen asistencia?" se investigó la página pública
+`senado.cl/actividad-legislativa/sala/asistencia`, que si existe.
+
+- El HTML servido sin ejecutar JS **no trae la tabla** (aparece vacía:
+  "No hay resultados que coincidan con la búsqueda") — se carga vía fetch
+  del lado del cliente. Se encontró la llamada real inspeccionando las
+  requests de red de la página con Playwright (`page.on("request", ...)`),
+  no adivinando una URL.
+- La API real es `web-back.senado.cl/api/sessions/attendance?id_legislatura=<ID>&limit=100`,
+  JSON limpio, **responde con GET simple (httpx, sin Playwright ni
+  bloqueo)** — no tiene la protección de camara.cl. `id_legislatura` se
+  obtiene de `web-back.senado.cl/api/legislatures?limit=1` (la más
+  reciente, primera de la lista).
+- Trae la asistencia de los ~50 senadores de **toda la legislatura
+  vigente en una sola respuesta, sin paginar** — a diferencia de
+  camara.cl, acá sí es un dato completo del período, no parcial.
+- Implementado en `scrapers/senado_asistencia.py`, que guarda en la misma
+  tabla `asistencia_resumen` que usa `camara_asistencia.py` (columna
+  `camara` distingue `'camara'` de `'senado'`) — mismo shape, evita
+  duplicar la tabla. Diferencia semántica importante: el campo `anno`
+  es año calendario para diputados pero **número de legislatura** para
+  senadores (senado.cl no reporta por año calendario) — `datos.ts`
+  expone `etiquetaPeriodoAsistencia()` para no mostrar "374" como si
+  fuera un año.
 
 ---
 

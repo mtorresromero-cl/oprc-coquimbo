@@ -1,0 +1,35 @@
+[
+  {
+    "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+    "camara": "senado",
+    "anno": 374,
+    "total_sesiones": 55,
+    "sesiones_computables": 55,
+    "asistencias": 47,
+    "ausencias_justificadas": 4,
+    "ausencias_sin_justificar": 4,
+    "fuente_url": "https://www.senado.cl/actividad-legislativa/sala/asistencia"
+  },
+  {
+    "autoridad_id": "matias-walker-prieto-senador",
+    "camara": "senado",
+    "anno": 374,
+    "total_sesiones": 55,
+    "sesiones_computables": 55,
+    "asistencias": 50,
+    "ausencias_justificadas": 0,
+    "ausencias_sin_justificar": 5,
+    "fuente_url": "https://www.senado.cl/actividad-legislativa/sala/asistencia"
+  },
+  {
+    "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+    "camara": "senado",
+    "anno": 374,
+    "total_sesiones": 55,
+    "sesiones_computables": 55,
+    "asistencias": 50,
+    "ausencias_justificadas": 0,
+    "ausencias_sin_justificar": 5,
+    "fuente_url": "https://www.senado.cl/actividad-legislativa/sala/asistencia"
+  }
+]
