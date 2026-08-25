@@ -1,9 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { autoridades, comunas, votaciones, presupuesto, personal, CARGO_LABEL } from '../lib/datos';
+import { autoridades, comunas, votaciones, presupuesto, personal } from '../lib/datos';
 
-const totalAlcaldes = autoridades.filter((a) => a.cargo === 'alcalde').length;
-const totalConcejales = autoridades.filter((a) => a.cargo === 'concejal').length;
 const comunasConDatos = comunas.filter(
 	(c) => presupuesto.some((p) => p.comuna_id === c.id) || personal.some((p) => p.comuna_id === c.id)
 ).length;
@@ -20,41 +18,83 @@ const secciones = [
 		href: '/autoridades/',
 		titulo: 'Autoridades',
 		descripcion: `Alcaldes, concejales, consejeros regionales, diputados y senadores de la región — ${autoridades.length} en total.`,
+		icono: 'personas',
 	},
 	{
 		href: '/municipios/',
 		titulo: 'Municipios',
-		descripcion: `Presupuesto, dotación y remuneraciones de las 15 comunas, según el Portal de Transparencia.`,
+		descripcion: 'Presupuesto, dotación y remuneraciones de las 15 comunas, según el Portal de Transparencia.',
+		icono: 'edificio',
 	},
 	{
 		href: '/parlamentarios/',
 		titulo: 'Parlamentarios',
 		descripcion: 'Votaciones y mociones de los senadores y diputados de la región.',
+		icono: 'documento',
 	},
 ];
+
+const queHacemos = [
+	{
+		titulo: 'Análisis político',
+		texto: 'Estudiamos el contexto político de la región, facilitando información sobre autoridades, elecciones y decisiones clave.',
+		icono: 'lupa',
+	},
+	{
+		titulo: 'Fiscalización ciudadana',
+		texto: 'Te damos herramientas para monitorear y evaluar el trabajo de las autoridades locales y regionales.',
+		icono: 'escudo',
+	},
+	{
+		titulo: 'Datos abiertos',
+		texto: 'Publicamos las fuentes y la metodología detrás de cada dato, actualizados de forma automática cada semana.',
+		icono: 'grafico',
+	},
+];
+
+const ICONOS: Record<string, string> = {
+	personas:
+		'M17 20h5v-2a4 4 0 0 0-3-3.87M9 20H4v-2a4 4 0 0 1 3-3.87m5-2.13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7-2a4 4 0 1 0 0-8m-14 8a4 4 0 1 1 0-8',
+	edificio: 'M3 21h18M6 21V7l6-4 6 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01',
+	documento: 'M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm7 0v5h5M9 13h6M9 17h6M9 9h1',
+	lupa: 'M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm10 2-4.35-4.35',
+	escudo: 'M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Zm-2.5 9 2 2 4-4',
+	grafico: 'M4 20V10m6 10V4m6 16v-7',
+};
 ---
 
 <Layout title="OPRC — Observatorio Político Región de Coquimbo">
 	<main>
-		<section class="border-b border-slate-100 bg-slate-50">
-			<div class="mx-auto max-w-5xl px-6 py-16">
-				<h1 class="max-w-2xl text-4xl font-bold tracking-tight text-slate-900">
-					Seguimiento ciudadano de la política en la Región de Coquimbo
+		<section class="relative overflow-hidden bg-slate-900">
+			<div
+				class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"
+			>
+			</div>
+			<div
+				class="pointer-events-none absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full bg-brand-800/30 blur-3xl"
+			>
+			</div>
+			<div class="relative mx-auto max-w-6xl px-6 py-24">
+				<p class="text-sm font-semibold tracking-widest text-brand-300 uppercase">
+					Observatorio Político Región de Coquimbo
+				</p>
+				<h1 class="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
+					Seguimiento ciudadano de la política regional
 				</h1>
-				<p class="mt-4 max-w-xl text-slate-600">
-					Datos públicos sobre autoridades, votaciones y transparencia municipal, recopilados
+				<p class="mt-5 max-w-2xl text-lg text-slate-300">
+					Datos públicos sobre autoridades, parlamentarios y transparencia municipal, recopilados
 					directamente de fuentes oficiales y actualizados de forma automática.
 				</p>
-				<div class="mt-8 flex flex-wrap gap-3">
+				<div class="mt-9 flex flex-wrap gap-3">
 					<a
 						href="/autoridades/"
-						class="inline-block rounded-md bg-brand-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-brand-700"
+						class="inline-block rounded-md bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-900/40 hover:bg-brand-500"
 					>
 						Ver autoridades
 					</a>
 					<a
 						href="/municipios/"
-						class="inline-block rounded-md border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-900 hover:bg-white"
+						class="inline-block rounded-md border border-slate-600 px-6 py-3 text-sm font-semibold text-white hover:border-slate-400 hover:bg-white/5"
 					>
 						Ver municipios
 					</a>
@@ -62,28 +102,54 @@ const secciones = [
 			</div>
 		</section>
 
-		<section class="mx-auto max-w-5xl px-6 py-10">
-			<dl class="grid grid-cols-2 gap-6 sm:grid-cols-4">
+		<section class="bg-brand-600">
+			<dl class="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 sm:grid-cols-4">
 				{stats.map((s) => (
-					<div>
-						<dt class="text-3xl font-bold text-brand-600">{s.valor}</dt>
-						<dd class="mt-1 text-sm text-slate-500">{s.label}</dd>
+					<div class="text-center sm:text-left">
+						<dt class="text-4xl font-bold text-white">{s.valor}</dt>
+						<dd class="mt-1 text-sm font-medium text-brand-100">{s.label}</dd>
 					</div>
 				))}
 			</dl>
 		</section>
 
-		<section class="mx-auto max-w-5xl px-6 pb-16">
-			<div class="grid gap-4 sm:grid-cols-3">
-				{secciones.map((s) => (
-					<a
-						href={s.href}
-						class="group rounded-lg border border-slate-200 p-5 transition-colors hover:border-brand-300 hover:bg-brand-50"
-					>
-						<h2 class="font-semibold text-slate-900 group-hover:text-brand-700">{s.titulo}</h2>
-						<p class="mt-2 text-sm text-slate-600">{s.descripcion}</p>
-					</a>
+		<section class="mx-auto max-w-6xl px-6 py-16">
+			<h2 class="text-2xl font-bold tracking-tight text-slate-900">¿Qué hacemos?</h2>
+			<div class="mt-8 grid gap-8 sm:grid-cols-3">
+				{queHacemos.map((item) => (
+					<div>
+						<div class="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+								<path d={ICONOS[item.icono]} />
+							</svg>
+						</div>
+						<h3 class="mt-4 font-semibold text-slate-900">{item.titulo}</h3>
+						<p class="mt-2 text-sm leading-relaxed text-slate-600">{item.texto}</p>
+					</div>
 				))}
+			</div>
+		</section>
+
+		<section class="border-t border-slate-100 bg-slate-50">
+			<div class="mx-auto max-w-6xl px-6 py-16">
+				<h2 class="text-2xl font-bold tracking-tight text-slate-900">Explorar los datos</h2>
+				<div class="mt-8 grid gap-5 sm:grid-cols-3">
+					{secciones.map((s) => (
+						<a
+							href={s.href}
+							class="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
+						>
+							<div class="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+									<path d={ICONOS[s.icono]} />
+								</svg>
+							</div>
+							<h3 class="mt-4 font-semibold text-slate-900 group-hover:text-brand-700">{s.titulo}</h3>
+							<p class="mt-2 text-sm leading-relaxed text-slate-600">{s.descripcion}</p>
+							<span class="mt-4 inline-block text-sm font-semibold text-brand-600">Ver más &rarr;</span>
+						</a>
+					))}
+				</div>
 			</div>
 		</section>
 	</main>

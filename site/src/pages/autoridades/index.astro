@@ -3,16 +3,25 @@ import Layout from '../../layouts/Layout.astro';
 import { autoridades, comunas, CARGOS, CARGO_LABEL, nombreComuna } from '../../lib/datos';
 
 const partidos = [...new Set(autoridades.map((a) => a.partido).filter(Boolean))].sort() as string[];
+
+function iniciales(nombre: string) {
+	const partes = nombre.split(' ').filter(Boolean);
+	return ((partes[0]?.[0] ?? '') + (partes[1]?.[0] ?? '')).toUpperCase();
+}
 ---
 
-<Layout title="Autoridades — OPRC">
-	<main class="mx-auto max-w-5xl px-6 py-12">
-		<h1 class="text-3xl font-bold tracking-tight text-slate-900">Autoridades</h1>
-		<p class="mt-2 text-slate-600">
-			Listado de autoridades políticas de la Región de Coquimbo.
-		</p>
+<Layout title="Autoridades — OPRC" description="Alcaldes, concejales, consejeros regionales, diputados y senadores de la Región de Coquimbo.">
+	<div class="border-b border-slate-100 bg-slate-50">
+		<div class="mx-auto max-w-6xl px-6 py-12">
+			<h1 class="text-3xl font-bold tracking-tight text-slate-900">Autoridades</h1>
+			<p class="mt-2 text-slate-600">
+				Listado de {autoridades.length} autoridades políticas de la Región de Coquimbo.
+			</p>
+		</div>
+	</div>
 
-		<div class="mt-6 flex flex-wrap gap-3">
+	<main class="mx-auto max-w-6xl px-6 py-10">
+		<div class="flex flex-wrap gap-3">
 			<select id="filtro-cargo" class="rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none">
 				<option value="">Todos los cargos</option>
 				{CARGOS.map((c) => <option value={c}>{CARGO_LABEL[c]}</option>)}
@@ -28,21 +37,26 @@ const partidos = [...new Set(autoridades.map((a) => a.partido).filter(Boolean))]
 			<span id="contador" class="self-center text-sm text-slate-500"></span>
 		</div>
 
-		<ul id="lista-autoridades" class="mt-8 grid gap-3 sm:grid-cols-2">
+		<ul id="lista-autoridades" class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 			{autoridades.map((a) => (
 				<li
-					class="fila-autoridad rounded-lg border border-slate-200 p-4 hover:border-brand-300 hover:bg-brand-50"
+					class="fila-autoridad rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
 					data-cargo={a.cargo}
 					data-comuna={a.comuna ?? ''}
 					data-partido={a.partido ?? ''}
 				>
-					<a href={`/autoridades/${a.id}/`} class="block">
-						<p class="font-semibold text-slate-900">{a.nombre_completo}</p>
-						<p class="mt-1 text-sm text-slate-600">
-							{CARGO_LABEL[a.cargo] ?? a.cargo}
-							{a.comuna && ` · ${nombreComuna(a.comuna)}`}
-							{a.partido && ` · ${a.partido}`}
-						</p>
+					<a href={`/autoridades/${a.id}/`} class="flex items-start gap-3">
+						<span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-700">
+							{iniciales(a.nombre_completo)}
+						</span>
+						<span>
+							<p class="font-semibold text-slate-900">{a.nombre_completo}</p>
+							<p class="mt-1 text-sm text-slate-600">
+								{CARGO_LABEL[a.cargo] ?? a.cargo}
+								{a.comuna && ` · ${nombreComuna(a.comuna)}`}
+								{a.partido && ` · ${a.partido}`}
+							</p>
+						</span>
 					</a>
 				</li>
 			))}

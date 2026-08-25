@@ -13,17 +13,21 @@ const mocionesOrdenadas = [...mociones].sort((a, b) => b.fecha.localeCompare(a.f
 	title="Parlamentarios — OPRC"
 	description="Votaciones y mociones de los diputados y senadores de la Región de Coquimbo."
 >
-	<main class="mx-auto max-w-3xl px-6 py-12">
-		<h1 class="text-3xl font-bold tracking-tight text-slate-900">Parlamentarios</h1>
-		<p class="mt-2 text-slate-600">
-			Seguimiento del trabajo legislativo de los diputados y senadores de la Región de Coquimbo:
-			votaciones y mociones presentadas. La asistencia a sesiones todavía no está disponible — la
-			fuente oficial (Cámara de Diputados) no publica ese dato de forma confiable actualmente.
-		</p>
+	<div class="border-b border-slate-100 bg-slate-50">
+		<div class="mx-auto max-w-6xl px-6 py-12">
+			<h1 class="text-3xl font-bold tracking-tight text-slate-900">Parlamentarios</h1>
+			<p class="mt-2 max-w-2xl text-slate-600">
+				Seguimiento del trabajo legislativo de los diputados y senadores de la Región de Coquimbo:
+				votaciones y mociones presentadas. La asistencia a sesiones todavía no está disponible — la
+				fuente oficial (Cámara de Diputados) no publica ese dato de forma confiable actualmente.
+			</p>
+		</div>
+	</div>
 
-		<section class="mt-10">
+	<main class="mx-auto max-w-6xl px-6 py-10">
+		<section>
 			<h2 class="text-xl font-semibold text-slate-900">Votaciones recientes</h2>
-			<p class="mt-1 text-sm text-slate-500">
+			<p class="mt-1 max-w-2xl text-sm text-slate-500">
 				Votaciones del Senado en las que participó alguno de los 3 senadores de la región. Los
 				diputados de la región aún no tienen datos de votaciones disponibles por la misma razón
 				que la asistencia.
@@ -33,12 +37,12 @@ const mocionesOrdenadas = [...mociones].sort((a, b) => b.fecha.localeCompare(a.f
 				<p class="mt-6 text-sm text-slate-500">Todavía no hay votaciones registradas.</p>
 			)}
 
-			<ul class="mt-6 space-y-4">
+			<ul class="mt-6 grid gap-4 lg:grid-cols-2">
 				{votaciones.map((v) => (
-					<li class="rounded-lg border border-slate-200 p-4">
+					<li class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
 						<div class="flex items-center justify-between text-xs text-slate-500">
 							<span>{v.fecha}</span>
-							<span class={v.resultado === 'aprobado' ? 'text-emerald-600' : 'text-red-600'}>
+							<span class={v.resultado === 'aprobado' ? 'font-medium text-emerald-600' : 'font-medium text-red-600'}>
 								{v.resultado === 'aprobado' ? 'Aprobado' : 'Rechazado'} ({v.votos_favor} a favor /{' '}
 								{v.votos_contra} en contra)
 							</span>
@@ -69,9 +73,9 @@ const mocionesOrdenadas = [...mociones].sort((a, b) => b.fecha.localeCompare(a.f
 			</ul>
 		</section>
 
-		<section class="mt-12">
+		<section class="mt-14">
 			<h2 class="text-xl font-semibold text-slate-900">Mociones presentadas</h2>
-			<p class="mt-1 text-sm text-slate-500">
+			<p class="mt-1 max-w-2xl text-sm text-slate-500">
 				Proyectos de ley presentados como autor o coautor por diputados de la región, vía datos
 				abiertos de la BCN.
 			</p>
@@ -80,9 +84,9 @@ const mocionesOrdenadas = [...mociones].sort((a, b) => b.fecha.localeCompare(a.f
 				<p class="mt-6 text-sm text-slate-500">Todavía no hay mociones registradas.</p>
 			)}
 
-			<ul class="mt-6 space-y-4">
+			<ul class="mt-6 grid gap-4 lg:grid-cols-2">
 				{mocionesOrdenadas.map((m) => (
-					<li class="rounded-lg border border-slate-200 p-4">
+					<li class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
 						<div class="flex items-center justify-between text-xs text-slate-500">
 							<span>{m.fecha}</span>
 							<span>Boletín {m.boletin}{m.estado ? ` · ${m.estado}` : ''}</span>
