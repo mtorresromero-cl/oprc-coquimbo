@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Temas reales publicados en @oprcoquimbo (relevados del sitio anterior). No
+// hay feed sincronizado todavía: requiere credenciales de la API de
+// Instagram (Meta Developer, cuenta Business) que solo el equipo de OPRC
+// puede generar — una vez que exista un token, se puede automatizar la
+// sincronización con el mismo patrón que el resto de los scrapers del sitio.
+const temas = [
+	'Resultados electorales presidenciales por comuna',
+	'Participación femenina en política (2023-2025)',
+	'Desigualdades en control interno municipal',
+	'Índices de transparencia activa',
+	'Resultados PAES 2024',
+	'Elecciones de gobernador regional',
+	'Análisis de votaciones legislativas',
+	'Gastos de funcionarios públicos',
+	'Plebiscitos y procesos constituyentes',
+];
+---
+
+<Layout
+	title="Infografías — OPRC"
+	description="Infografías del Observatorio Político Región de Coquimbo sobre elecciones, transparencia y participación política."
+>
+	<main class="mx-auto max-w-3xl px-6 py-12">
+		<div class="flex flex-wrap items-center justify-between gap-4">
+			<h1 class="text-3xl font-bold tracking-tight text-slate-900">Infografías</h1>
+			<a
+				href="https://instagram.com/oprcoquimbo"
+				target="_blank"
+				rel="noopener"
+				class="rounded-md bg-brand-600 px-4 py-2 text-sm font-medium text-white hover:bg-brand-700"
+			>
+				Ver en Instagram
+			</a>
+		</div>
+		<p class="mt-3 text-slate-600">
+			Publicamos infografías con análisis de elecciones, transparencia municipal y participación
+			política en <a href="https://instagram.com/oprcoquimbo" target="_blank" rel="noopener" class="text-brand-600 hover:underline">@oprcoquimbo</a>.
+			El feed en vivo todavía no está sincronizado en el sitio — mientras tanto, estos son algunos
+			de los temas publicados:
+		</p>
+
+		<ul class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
+			{temas.map((tema) => (
+				<li>
+					<a
+						href="https://instagram.com/oprcoquimbo"
+						target="_blank"
+						rel="noopener"
+						class="flex aspect-square flex-col justify-end rounded-lg bg-gradient-to-br from-brand-600 to-brand-800 p-3 text-white transition-transform hover:scale-[1.02]"
+					>
+						<span class="text-sm font-medium leading-snug">{tema}</span>
+					</a>
+				</li>
+			))}
+		</ul>
+	</main>
+</Layout>

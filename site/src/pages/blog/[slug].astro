@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+function formatoFecha(fecha: Date) {
+	return fecha.toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Layout title={`${post.data.titulo} — OPRC`} description={post.data.resumen}>
+	<main class="mx-auto max-w-2xl px-6 py-12">
+		<a href="/blog/" class="text-sm text-slate-500 hover:text-brand-600 hover:underline">&larr; Blog</a>
+		<p class="mt-4 text-sm text-slate-500">
+			{formatoFecha(post.data.fecha)} · {post.data.autor}
+		</p>
+		<h1 class="mt-1 text-3xl font-bold tracking-tight text-slate-900">{post.data.titulo}</h1>
+		<div class="prose prose-slate mt-8 max-w-none prose-a:text-brand-600 prose-headings:text-slate-900">
+			<Content />
+		</div>
+	</main>
+</Layout>

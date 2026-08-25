@@ -8,19 +8,28 @@ interface Props {
 
 const {
 	title,
-	description = 'Datos abiertos sobre autoridades, votaciones y transparencia municipal de la Región de Coquimbo.',
+	description = 'Datos abiertos sobre autoridades, parlamentarios y transparencia municipal de la Región de Coquimbo.',
 } = Astro.props;
 
-const NAV = [
+const DATOS_ITEMS = [
 	{ href: '/autoridades/', label: 'Autoridades' },
 	{ href: '/municipios/', label: 'Municipios' },
-	{ href: '/votaciones/', label: 'Votaciones' },
+	{ href: '/parlamentarios/', label: 'Parlamentarios' },
+];
+
+const NAV = [
+	{ href: '/infografias/', label: 'Infografías' },
+	{ href: '/herramientas/', label: 'Herramientas' },
+	{ href: '/blog/', label: 'Blog' },
+	{ href: '/nosotros/', label: 'Nosotros' },
+	{ href: '/contacto/', label: 'Contacto' },
 ];
 
 const path = Astro.url.pathname;
 function activo(href: string) {
 	return href === '/' ? path === '/' : path.startsWith(href);
 }
+const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 ---
 
 <html lang="es">
@@ -46,7 +55,26 @@ function activo(href: string) {
 						Región de Coquimbo
 					</span>
 				</a>
-				<nav class="flex gap-5 text-sm font-medium">
+				<nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium">
+					<details class="group relative">
+						<summary
+							class={`cursor-pointer list-none transition-colors hover:text-white [&::-webkit-details-marker]:hidden ${
+								datosActivo ? 'text-white underline underline-offset-4' : 'text-brand-100'
+							}`}
+						>
+							Datos <span class="text-xs">▾</span>
+						</summary>
+						<div class="absolute left-0 top-full z-10 mt-2 w-48 rounded-md bg-white py-1 text-slate-900 shadow-lg ring-1 ring-black/5">
+							{DATOS_ITEMS.map((item) => (
+								<a
+									href={item.href}
+									class={`block px-4 py-2 text-sm hover:bg-brand-50 ${activo(item.href) ? 'font-semibold text-brand-700' : ''}`}
+								>
+									{item.label}
+								</a>
+							))}
+						</div>
+					</details>
 					{NAV.map((item) => (
 						<a
 							href={item.href}

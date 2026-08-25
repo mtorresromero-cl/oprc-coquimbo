@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf()
+);
+
+function formatoFecha(fecha: Date) {
+	return fecha.toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Layout title="Blog — OPRC" description="Análisis y artículos del Observatorio Político Región de Coquimbo.">
+	<main class="mx-auto max-w-3xl px-6 py-12">
+		<h1 class="text-3xl font-bold tracking-tight text-slate-900">Blog</h1>
+		<p class="mt-2 text-slate-600">Análisis y artículos del Observatorio Político Región de Coquimbo.</p>
+
+		{posts.length === 0 && (
+			<p class="mt-10 rounded-lg border border-dashed border-slate-300 p-6 text-sm text-slate-500">
+				Todavía no hay publicaciones. Vuelve pronto.
+			</p>
+		)}
+
+		<ul class="mt-8 space-y-6">
+			{posts.map((post) => (
+				<li class="rounded-lg border border-slate-200 p-5 hover:border-brand-300 hover:bg-brand-50">
+					<a href={`/blog/${post.id}/`}>
+						<p class="text-xs text-slate-500">{formatoFecha(post.data.fecha)}</p>
+						<h2 class="mt-1 text-lg font-semibold text-slate-900">{post.data.titulo}</h2>
+						<p class="mt-2 text-sm text-slate-600">{post.data.resumen}</p>
+					</a>
+				</li>
+			))}
+		</ul>
+	</main>
+</Layout>

@@ -53,6 +53,7 @@ export interface Mocion {
 	rol: string;
 	boletin: string;
 	titulo: string;
+	estado?: string;
 	url_bcn: string;
 }
 

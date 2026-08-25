@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const capacidades = [
+	'Investigación y Análisis',
+	'Comunicación y Estrategia',
+	'Desarrollo de Estudios y Reportes',
+	'Divulgación y Participación Ciudadana',
+];
+
+const loQueHacen = [
+	{
+		titulo: 'Acceso a Información Pública',
+		texto: 'Organizamos datos relevantes sobre actividades políticas regionales para facilitar la toma de decisiones informada.',
+	},
+	{
+		titulo: 'Evaluación de Gestión y Desempeño',
+		texto: 'Seguimiento del trabajo de autoridades, midiendo impacto y cumplimiento de compromisos para promover la rendición de cuentas.',
+	},
+	{
+		titulo: 'Monitoreo en Tiempo Real',
+		texto: 'Análisis actualizados de eventos políticos y administrativos regionales.',
+	},
+	{
+		titulo: 'Gestión y Participación Ciudadana',
+		texto: 'Herramientas para el control ciudadano y el debate fundamentado.',
+	},
+];
+---
+
+<Layout
+	title="Nosotros — OPRC"
+	description="Quiénes somos: el Observatorio Político Región de Coquimbo, su misión, financiamiento y metodología."
+>
+	<main class="mx-auto max-w-2xl px-6 py-12">
+		<h1 class="text-3xl font-bold tracking-tight text-slate-900">Nosotros</h1>
+
+		<section class="mt-8">
+			<h2 class="text-lg font-semibold text-slate-900">Quiénes somos</h2>
+			<p class="mt-3 text-slate-700">
+				El Observatorio Político Región de Coquimbo fue establecido en 2019 para proporcionar
+				información y herramientas analíticas sobre política regional. Su enfoque se concentra en
+				el seguimiento, investigación y previsión de elecciones, partidos políticos y la labor de
+				autoridades, promoviendo una visión crítica e informada.
+			</p>
+			<p class="mt-3 text-slate-700">
+				La organización opera como una plataforma interactiva que monitorea y analiza la
+				administración comunal y legislativa, distribuyendo contenidos en formatos accesibles.
+				Aspira a ser un espacio de orientación, capacitación y asesoramiento en la gestión de
+				políticas públicas.
+			</p>
+			<p class="mt-3 text-slate-700">
+				<strong class="text-slate-900">Director:</strong> Miguel Torres Romero, Politólogo con
+				Máster en Investigación en Ciencias Sociales de la Universidad de Buenos Aires.
+			</p>
+		</section>
+
+		<section class="mt-10">
+			<h2 class="text-lg font-semibold text-slate-900">Transparencia y autofinanciamiento</h2>
+			<p class="mt-3 text-slate-700">
+				El proyecto funciona de manera independiente, rechazando financiamiento de partidos
+				políticos o entidades gubernamentales. Su sostenibilidad proviene de aportes de miembros y
+				colaboraciones voluntarias.
+			</p>
+		</section>
+
+		<section class="mt-10">
+			<h2 class="text-lg font-semibold text-slate-900">Acceso a datos y metodología</h2>
+			<p class="mt-3 text-slate-700">
+				La institución se compromete con la transparencia metodológica, compartiendo fuentes,
+				bases de datos y procedimientos analíticos. El trabajo se fundamenta en la recopilación
+				rigurosa de datos públicos, informes oficiales y el seguimiento de indicadores clave.
+			</p>
+		</section>
+
+		<section class="mt-10">
+			<h2 class="text-lg font-semibold text-slate-900">Lo que hacemos</h2>
+			<div class="mt-4 grid gap-4 sm:grid-cols-2">
+				{loQueHacen.map((item) => (
+					<div class="rounded-lg border border-slate-200 p-4">
+						<p class="font-semibold text-slate-900">{item.titulo}</p>
+						<p class="mt-1 text-sm text-slate-600">{item.texto}</p>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="mt-10">
+			<h2 class="text-lg font-semibold text-slate-900">Capacidades principales</h2>
+			<ul class="mt-3 flex flex-wrap gap-2">
+				{capacidades.map((c) => (
+					<li class="rounded-full bg-brand-50 px-3 py-1 text-sm font-medium text-brand-700">{c}</li>
+				))}
+			</ul>
+		</section>
+
+		<section class="mt-10 border-t border-slate-100 pt-6 text-sm text-slate-500">
+			<p>
+				Contacto: <a href="mailto:contacto@oprcoquimbo.cl" class="text-brand-600 hover:underline">contacto@oprcoquimbo.cl</a>
+				· <a href="https://instagram.com/oprcoquimbo" target="_blank" rel="noopener" class="text-brand-600 hover:underline">Instagram</a>
+				· <a href="https://facebook.com/oprcoquimbo" target="_blank" rel="noopener" class="text-brand-600 hover:underline">Facebook</a>
+				· <a href="https://twitter.com/oprcoquimbo" target="_blank" rel="noopener" class="text-brand-600 hover:underline">Twitter</a>
+			</p>
+		</section>
+	</main>
+</Layout>

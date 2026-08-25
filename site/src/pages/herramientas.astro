@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const recursos = [
+	{
+		titulo: 'Guía de Fiscalización Ciudadana',
+		descripcion:
+			'Recurso educativo orientado al monitoreo y evaluación del desempeño de autoridades locales y regionales, para ejercer tu derecho a la transparencia y el control ciudadano.',
+		tipo: 'PDF',
+		url: '/docs/guia-fiscalizacion-ciudadana.pdf',
+	},
+];
+---
+
+<Layout
+	title="Herramientas — OPRC"
+	description="Guías, recursos y explicaciones para entender y participar en los procesos políticos de la Región de Coquimbo."
+>
+	<main class="mx-auto max-w-2xl px-6 py-12">
+		<h1 class="text-3xl font-bold tracking-tight text-slate-900">Herramientas</h1>
+		<p class="mt-3 text-slate-700">
+			En esta sección encontrarás guías, recursos y explicaciones claras para entender y
+			participar activamente en los procesos políticos de la Región de Coquimbo: seguimiento de
+			autoridades, análisis electoral y proyectos legislativos, con énfasis en ejercer derechos de
+			transparencia y supervisión ciudadana.
+		</p>
+
+		<ul class="mt-8 space-y-4">
+			{recursos.map((r) => (
+				<li class="rounded-lg border border-slate-200 p-5">
+					<div class="flex items-start justify-between gap-4">
+						<div>
+							<p class="font-semibold text-slate-900">{r.titulo}</p>
+							<p class="mt-1 text-sm text-slate-600">{r.descripcion}</p>
+						</div>
+						<span class="shrink-0 rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-medium text-brand-700">
+							{r.tipo}
+						</span>
+					</div>
+					<a
+						href={r.url}
+						target="_blank"
+						rel="noopener"
+						class="mt-3 inline-block text-sm font-medium text-brand-600 hover:underline"
+					>
+						Descargar &rarr;
+					</a>
+				</li>
+			))}
+		</ul>
+	</main>
+</Layout>
