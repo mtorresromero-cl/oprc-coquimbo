@@ -74,11 +74,20 @@ class ScraperCamaraMociones(BaseScraper):
     frecuencia = "semanal"
 
     def recolectar(self) -> list[dict]:
+        # contexto de navegador nuevo por diputado, no una sola página
+        # reutilizada: reutilizar sesión/cookies entre los 7 diputados
+        # disparaba el bloqueo explícito de Cloudflare ("Sorry, you have
+        # been blocked") a partir del segundo request — confirmado
+        # reproduciendo el problema con logging directo, no es una
+        # suposición. 0 filas encontradas sin lanzar excepción hacía que
+        # el scraper terminara "exitoso" con datos completos solo del
+        # primer diputado del diccionario.
         registros = []
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
-            page = browser.new_page(user_agent=USER_AGENT)
             for autoridad_id, dip_id in DIPUTADOS_COQUIMBO.items():
+                context = browser.new_context(user_agent=USER_AGENT)
+                page = context.new_page()
                 url = f"https://camara.cl/diputados/detalle/mociones.aspx?prmID={dip_id}"
                 page.goto(url, timeout=45000, wait_until="domcontentloaded")
                 page.wait_for_timeout(1500)
@@ -110,7 +119,8 @@ class ScraperCamaraMociones(BaseScraper):
                         }
                     )
 
-                time.sleep(2)  # rate limiting entre diputados
+                context.close()
+                time.sleep(5)  # rate limiting entre diputados
             browser.close()
         return registros
 

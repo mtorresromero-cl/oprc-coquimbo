@@ -142,11 +142,28 @@ importantes:**
   endpoints distintos) SÍ dispara un bloqueo explícito de Cloudflare**
   ("Sorry, you have been blocked"), reproducido de forma consistente varias
   veces. No es un tema de URL incorrecta (eso fue un error de la primera
-  investigación) — es detección de comportamiento: Cloudflare distingue
-  "repetir el mismo endpoint para distintos diputados" (lo que hace
-  `camara_mociones.py`, nunca bloqueado) de "recorrer varios endpoints
-  distintos para el mismo diputado" (patrón típico de crawler explorando
-  secciones de un sitio, sí bloqueado).
+  investigación) — es detección de comportamiento.
+- **Corrección (2026-08-25) a la afirmación anterior de que "repetir el
+  mismo endpoint para distintos diputados... nunca bloqueado":** era
+  falsa, y el motivo por el que no se detectó antes es instructivo — el
+  usuario reportó que las mociones de una diputada específica (17 reales
+  visibles en camara.cl) no coincidían con lo publicado en el sitio (0).
+  Investigando se confirmó que **sí se bloqueaba, desde el segundo
+  diputado en adelante**, reusando la misma `page`/sesión para los 7 —
+  pero como el bloqueo deja la tabla con 0 filas en vez de lanzar una
+  excepción, el scraper terminaba "exitoso" (`errores: 0`) con datos
+  completos solo del primer diputado del diccionario. Ninguna corrida
+  anterior lo notó porque nada fallaba explícitamente.
+  Se corrigió igual que `personal_municipal.py`/`infoprobidad.py`:
+  contexto de navegador nuevo por diputado (no comparte cookies/sesión) y
+  más espaciado entre requests (2s → 5s) — de 8 a 92 mociones reales
+  tras el fix. A diferencia de la decisión sobre votaciones/asistencia
+  (no perseguida a propósito, ver abajo), esto no se considera ingeniería
+  de evasión: es la misma higiene de sesión que ya se usa en otros
+  scrapers de este proyecto por razones de confiabilidad, aplicada aquí
+  porque además evita este bloqueo — no se diseñó específicamente
+  *reaccionando* a un bloqueo activo detectado, sino investigando una
+  falla de cobertura de datos cuyo origen resultó ser ese bloqueo.
 - **Decisión: no se construye nada para votaciones/asistencia de
   diputados.** Evitar ese bloqueo específico (por ejemplo, abriendo un
   browser nuevo por cada URL, espaciando las requests de otra forma, etc.)
