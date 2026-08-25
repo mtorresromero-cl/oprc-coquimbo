@@ -193,3 +193,86 @@ export function nombreComuna(comunaId: string | null): string | null {
 	if (!comunaId) return null;
 	return comunas.find((c) => c.id === comunaId)?.nombre ?? comunaId;
 }
+
+export interface IndiceVotacion {
+	autoridad_id: string;
+	nombre: string;
+	cargo: string;
+	favor: number;
+	contra: number;
+	abstencion: number;
+	pareo: number;
+	ausente: number;
+	inhabilitado: number;
+	participacionPct: number;
+	alineamientoPct: number | null;
+}
+
+function nombreYCargo(autoridadId: string): { nombre: string; cargo: string } {
+	const a = autoridades.find((x) => x.id === autoridadId);
+	return { nombre: a?.nombre_completo ?? autoridadId, cargo: a?.cargo ?? '' };
+}
+
+/**
+ * Métricas de votación por autoridad: participación (% de sesiones donde
+ * emitió un voto real, contando como ausente tanto los "ausente"
+ * explícitos como el simple no-aparecer en la sesión — el Senado no
+ * registra ausencias, solo omite a quien no votó) y alineamiento (%, de
+ * los votos favor/contra, que coincidieron con el resultado final de la
+ * sesión). No se calcula un puntaje único ponderado a propósito: mezclar
+ * participación y alineamiento en un solo número requeriría una
+ * ponderación arbitraria: se muestran ambas métricas por separado.
+ */
+export function indiceVotaciones(sesiones: VotacionSesion[], autoridadIds: string[]): IndiceVotacion[] {
+	const totalSesiones = sesiones.length;
+	return autoridadIds.map((autoridad_id) => {
+		const conteo: Record<string, number> = {};
+		let alineados = 0;
+		let comparables = 0;
+
+		for (const sesion of sesiones) {
+			const voto = sesion.votos.find((v) => v.autoridad_id === autoridad_id);
+			if (!voto) continue;
+			conteo[voto.voto] = (conteo[voto.voto] ?? 0) + 1;
+
+			const esFavorOContra = voto.voto === 'favor' || voto.voto === 'contra';
+			if (esFavorOContra && (sesion.resultado === 'aprobado' || sesion.resultado === 'rechazado')) {
+				comparables++;
+				const alineado =
+					(sesion.resultado === 'aprobado' && voto.voto === 'favor') ||
+					(sesion.resultado === 'rechazado' && voto.voto === 'contra');
+				if (alineado) alineados++;
+			}
+		}
+
+		const votosReales = (conteo.favor ?? 0) + (conteo.contra ?? 0) + (conteo.abstencion ?? 0) + (conteo.pareo ?? 0);
+
+		return {
+			autoridad_id,
+			...nombreYCargo(autoridad_id),
+			favor: conteo.favor ?? 0,
+			contra: conteo.contra ?? 0,
+			abstencion: conteo.abstencion ?? 0,
+			pareo: conteo.pareo ?? 0,
+			ausente: conteo.ausente ?? 0,
+			inhabilitado: conteo.inhabilitado ?? 0,
+			participacionPct: totalSesiones > 0 ? Math.round((votosReales / totalSesiones) * 1000) / 10 : 0,
+			alineamientoPct: comparables > 0 ? Math.round((alineados / comparables) * 1000) / 10 : null,
+		};
+	});
+}
+
+export interface IndiceMociones {
+	autoridad_id: string;
+	nombre: string;
+	cargo: string;
+	total: number;
+}
+
+export function indiceMociones(autoridadIds: string[]): IndiceMociones[] {
+	return autoridadIds.map((autoridad_id) => ({
+		autoridad_id,
+		...nombreYCargo(autoridad_id),
+		total: mociones.filter((m) => m.autoridad_id === autoridad_id).length,
+	}));
+}

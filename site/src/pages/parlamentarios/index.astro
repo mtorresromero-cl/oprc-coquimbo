@@ -1,17 +1,29 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { votaciones, mociones, autoridades, VOTO_LABEL } from '../../lib/datos';
+import { votaciones, mociones, autoridades, VOTO_LABEL, indiceVotaciones, indiceMociones } from '../../lib/datos';
 
 function nombreAutoridad(id: string) {
 	return autoridades.find((a) => a.id === id)?.nombre_completo ?? id;
 }
 
 const mocionesOrdenadas = [...mociones].sort((a, b) => b.fecha.localeCompare(a.fecha));
+
+const senadorIds = autoridades.filter((a) => a.cargo === 'senador').map((a) => a.id);
+const diputadoIds = autoridades.filter((a) => a.cargo === 'diputado').map((a) => a.id);
+
+const indiceSenado = indiceVotaciones(votaciones, senadorIds).sort(
+	(a, b) => b.participacionPct - a.participacionPct
+);
+const indiceMocionesDiputados = indiceMociones(diputadoIds).sort((a, b) => b.total - a.total);
+
+function formatoPct(valor: number | null) {
+	return valor === null ? '—' : `${valor.toFixed(1)}%`;
+}
 ---
 
 <Layout
 	title="Parlamentarios — OPRC"
-	description="Votaciones y mociones de los diputados y senadores de la Región de Coquimbo."
+	description="Votaciones, índice de participación y mociones de los diputados y senadores de la Región de Coquimbo."
 >
 	<div class="border-b border-slate-100 bg-slate-50">
 		<div class="mx-auto max-w-6xl px-6 py-12">
@@ -26,6 +38,69 @@ const mocionesOrdenadas = [...mociones].sort((a, b) => b.fecha.localeCompare(a.f
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
 		<section>
+			<h2 class="text-xl font-semibold text-slate-900">Índice de participación — Senado</h2>
+			<p class="mt-1 max-w-2xl text-sm text-slate-500">
+				Sobre las {votaciones.length} votaciones registradas. <strong>Participación</strong>: %
+				de votaciones en las que emitió un voto real (el Senado no publica ausencias explícitas,
+				así que no aparecer en una votación cuenta como no participada). <strong>Alineamiento</strong>:
+				de sus votos a favor/en contra, % que coincidió con el resultado final de la votación.
+				No calculamos un puntaje único: mezclar participación y alineamiento en un solo número
+				requeriría ponderarlos de forma arbitraria.
+			</p>
+			<div class="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+				<table class="w-full min-w-[560px] text-sm">
+					<thead>
+						<tr class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase">
+							<th class="px-4 py-2">Senador/a</th>
+							<th class="px-4 py-2 text-right">Participación</th>
+							<th class="px-4 py-2 text-right">Alineamiento</th>
+							<th class="px-4 py-2 text-right">A favor</th>
+							<th class="px-4 py-2 text-right">En contra</th>
+							<th class="px-4 py-2 text-right">Abstención</th>
+							<th class="px-4 py-2 text-right">Pareo</th>
+						</tr>
+					</thead>
+					<tbody class="divide-y divide-slate-100">
+						{indiceSenado.map((i) => (
+							<tr>
+								<td class="px-4 py-2.5">
+									<a href={`/autoridades/${i.autoridad_id}/`} class="font-medium text-slate-900 hover:text-brand-600 hover:underline">
+										{i.nombre}
+									</a>
+								</td>
+								<td class="px-4 py-2.5 text-right font-medium text-slate-900">{formatoPct(i.participacionPct)}</td>
+								<td class="px-4 py-2.5 text-right text-slate-700">{formatoPct(i.alineamientoPct)}</td>
+								<td class="px-4 py-2.5 text-right text-slate-700">{i.favor}</td>
+								<td class="px-4 py-2.5 text-right text-slate-700">{i.contra}</td>
+								<td class="px-4 py-2.5 text-right text-slate-700">{i.abstencion}</td>
+								<td class="px-4 py-2.5 text-right text-slate-700">{i.pareo}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="mt-14">
+			<h2 class="text-xl font-semibold text-slate-900">Mociones por diputado/a</h2>
+			<p class="mt-1 max-w-2xl text-sm text-slate-500">
+				Mociones presentadas como autor o coautor, vía datos abiertos de la BCN. Un total en cero
+				significa que no encontramos mociones suyas en esa fuente — no necesariamente que no haya
+				presentado ninguna.
+			</p>
+			<ul class="mt-4 grid gap-2 sm:grid-cols-2">
+				{indiceMocionesDiputados.map((i) => (
+					<li class="flex items-center justify-between rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm">
+						<a href={`/autoridades/${i.autoridad_id}/`} class="font-medium text-slate-900 hover:text-brand-600 hover:underline">
+							{i.nombre}
+						</a>
+						<span class="font-semibold text-slate-700">{i.total}</span>
+					</li>
+				))}
+			</ul>
+		</section>
+
+		<section class="mt-14">
 			<h2 class="text-xl font-semibold text-slate-900">Votaciones recientes</h2>
 			<p class="mt-1 max-w-2xl text-sm text-slate-500">
 				Votaciones del Senado en las que participó alguno de los 3 senadores de la región. Los
@@ -68,40 +143,6 @@ const mocionesOrdenadas = [...mociones].sort((a, b) => b.fecha.localeCompare(a.f
 								Fuente oficial
 							</a>
 						)}
-					</li>
-				))}
-			</ul>
-		</section>
-
-		<section class="mt-14">
-			<h2 class="text-xl font-semibold text-slate-900">Mociones presentadas</h2>
-			<p class="mt-1 max-w-2xl text-sm text-slate-500">
-				Proyectos de ley presentados como autor o coautor por diputados de la región, vía datos
-				abiertos de la BCN.
-			</p>
-
-			{mocionesOrdenadas.length === 0 && (
-				<p class="mt-6 text-sm text-slate-500">Todavía no hay mociones registradas.</p>
-			)}
-
-			<ul class="mt-6 grid gap-4 lg:grid-cols-2">
-				{mocionesOrdenadas.map((m) => (
-					<li class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-						<div class="flex items-center justify-between text-xs text-slate-500">
-							<span>{m.fecha}</span>
-							<span>Boletín {m.boletin}{m.estado ? ` · ${m.estado}` : ''}</span>
-						</div>
-						<p class="mt-2 text-sm text-slate-800">
-							<a href={m.url_bcn} target="_blank" rel="noopener" class="hover:text-brand-600 hover:underline">
-								{m.titulo}
-							</a>
-						</p>
-						<p class="mt-2 text-xs text-slate-500">
-							<a href={`/autoridades/${m.autoridad_id}/`} class="font-medium hover:text-brand-600 hover:underline">
-								{nombreAutoridad(m.autoridad_id)}
-							</a>
-							{' '}({m.rol})
-						</p>
 					</li>
 				))}
 			</ul>
