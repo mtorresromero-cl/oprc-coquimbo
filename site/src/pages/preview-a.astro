@@ -1,0 +1,84 @@
+---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/inter';
+import Layout from '../layouts/Layout.astro';
+import { autoridades, comunas, votaciones, presupuesto, personal } from '../lib/datos';
+
+const comunasConDatos = comunas.filter(
+	(c) => presupuesto.some((p) => p.comuna_id === c.id) || personal.some((p) => p.comuna_id === c.id)
+).length;
+
+const stats = [
+	{ valor: autoridades.length, label: 'autoridades registradas' },
+	{ valor: comunas.length, label: 'comunas de la región' },
+	{ valor: comunasConDatos, label: 'con datos de transparencia' },
+	{ valor: votaciones.length, label: 'votaciones registradas' },
+];
+---
+
+<Layout title="Preview A — Editorial">
+	<style>
+		.serif { font-family: 'Fraunces Variable', serif; font-optical-sizing: auto; }
+		.sans { font-family: 'Inter Variable', sans-serif; }
+	</style>
+	<main class="sans bg-[#faf7f2]">
+		<section class="border-b border-slate-200">
+			<div class="mx-auto grid max-w-6xl gap-10 px-6 py-24 lg:grid-cols-[1.3fr_1fr]">
+				<div>
+					<p class="text-sm font-semibold tracking-widest text-brand-700 uppercase">
+						Observatorio Político Región de Coquimbo
+					</p>
+					<h1 class="serif mt-5 text-6xl leading-[1.05] font-medium tracking-tight text-slate-900">
+						Seguimiento ciudadano de la política regional
+					</h1>
+					<p class="mt-6 max-w-lg text-lg leading-relaxed text-slate-600">
+						Datos públicos sobre autoridades, parlamentarios y transparencia municipal, recopilados
+						directamente de fuentes oficiales y actualizados de forma automática.
+					</p>
+					<div class="mt-9 flex flex-wrap gap-4">
+						<a href="/autoridades/" class="inline-block bg-brand-700 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-800">
+							Ver autoridades
+						</a>
+						<a href="/municipios/" class="inline-block border border-slate-400 px-6 py-3 text-sm font-semibold text-slate-900 hover:border-slate-900">
+							Ver municipios
+						</a>
+					</div>
+				</div>
+				<div class="flex flex-col justify-center divide-y divide-slate-300 border-t border-b border-slate-300 lg:border-t-0">
+					{stats.map((s) => (
+						<div class="flex items-baseline justify-between py-4">
+							<span class="serif text-4xl font-medium text-slate-900">{s.valor}</span>
+							<span class="max-w-[10rem] text-right text-sm text-slate-500">{s.label}</span>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="mx-auto max-w-6xl px-6 py-20">
+			<h2 class="serif text-3xl font-medium text-slate-900">¿Qué hacemos?</h2>
+			<div class="mt-10 grid gap-10 sm:grid-cols-3">
+				<div class="border-t-2 border-brand-700 pt-4">
+					<h3 class="serif text-xl font-medium text-slate-900">Análisis político</h3>
+					<p class="mt-2 text-sm leading-relaxed text-slate-600">
+						Estudiamos el contexto político de la región, facilitando información sobre
+						autoridades, elecciones y decisiones clave.
+					</p>
+				</div>
+				<div class="border-t-2 border-brand-700 pt-4">
+					<h3 class="serif text-xl font-medium text-slate-900">Fiscalización ciudadana</h3>
+					<p class="mt-2 text-sm leading-relaxed text-slate-600">
+						Te damos herramientas para monitorear y evaluar el trabajo de las autoridades locales
+						y regionales.
+					</p>
+				</div>
+				<div class="border-t-2 border-brand-700 pt-4">
+					<h3 class="serif text-xl font-medium text-slate-900">Datos abiertos</h3>
+					<p class="mt-2 text-sm leading-relaxed text-slate-600">
+						Publicamos las fuentes y la metodología detrás de cada dato, actualizados cada semana.
+					</p>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>

@@ -1,0 +1,73 @@
+---
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/inter';
+import Layout from '../layouts/Layout.astro';
+import { autoridades, comunas, votaciones, presupuesto, personal } from '../lib/datos';
+
+const comunasConDatos = comunas.filter(
+	(c) => presupuesto.some((p) => p.comuna_id === c.id) || personal.some((p) => p.comuna_id === c.id)
+).length;
+
+const stats = [
+	{ valor: autoridades.length, label: 'autoridades registradas' },
+	{ valor: comunas.length, label: 'comunas de la región' },
+	{ valor: comunasConDatos, label: 'con datos de transparencia' },
+	{ valor: votaciones.length, label: 'votaciones registradas' },
+];
+
+const secciones = [
+	{ titulo: 'Autoridades', descripcion: `${autoridades.length} alcaldes, concejales, core, diputados y senadores.`, href: '/autoridades/' },
+	{ titulo: 'Municipios', descripcion: 'Presupuesto y personal de las 15 comunas.', href: '/municipios/' },
+	{ titulo: 'Parlamentarios', descripcion: 'Votaciones y mociones legislativas.', href: '/parlamentarios/' },
+];
+---
+
+<Layout title="Preview B — Geometric">
+	<style>
+		.display { font-family: 'Space Grotesk Variable', sans-serif; }
+		.sans { font-family: 'Inter Variable', sans-serif; }
+	</style>
+	<main class="sans bg-white">
+		<section class="mx-auto max-w-6xl px-6 py-16">
+			<div class="grid grid-cols-1 gap-3 sm:grid-cols-4 sm:grid-rows-2">
+				<div class="rounded-2xl bg-slate-900 p-8 text-white sm:col-span-3 sm:row-span-2">
+					<p class="display text-xs font-bold tracking-widest text-brand-400 uppercase">OPRC · Región de Coquimbo</p>
+					<h1 class="display mt-4 text-5xl leading-[1.05] font-bold tracking-tight">
+						Seguimiento ciudadano de la política regional
+					</h1>
+					<p class="mt-5 max-w-md text-slate-300">
+						Datos públicos sobre autoridades, parlamentarios y transparencia municipal,
+						actualizados de forma automática desde fuentes oficiales.
+					</p>
+					<div class="mt-8 flex flex-wrap gap-3">
+						<a href="/autoridades/" class="display inline-block rounded-full bg-brand-600 px-6 py-3 text-sm font-bold hover:bg-brand-500">
+							Ver autoridades
+						</a>
+						<a href="/municipios/" class="display inline-block rounded-full border border-slate-600 px-6 py-3 text-sm font-bold hover:border-slate-400">
+							Ver municipios
+						</a>
+					</div>
+				</div>
+				{stats.map((s, i) => (
+					<div class={`rounded-2xl p-6 ${i % 2 === 0 ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-900'}`}>
+						<p class="display text-3xl font-bold">{s.valor}</p>
+						<p class="mt-1 text-xs font-medium opacity-80">{s.label}</p>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="mx-auto max-w-6xl px-6 pb-20">
+			<h2 class="display text-2xl font-bold tracking-tight text-slate-900">Explorar los datos</h2>
+			<div class="mt-6 grid gap-3 sm:grid-cols-3">
+				{secciones.map((s) => (
+					<a href={s.href} class="group rounded-2xl border-2 border-slate-900 p-6 transition hover:bg-slate-900 hover:text-white">
+						<h3 class="display text-lg font-bold">{s.titulo}</h3>
+						<p class="mt-2 text-sm opacity-70">{s.descripcion}</p>
+						<span class="display mt-4 inline-block text-sm font-bold text-brand-600 group-hover:text-brand-400">→</span>
+					</a>
+				))}
+			</div>
+		</section>
+	</main>
+</Layout>
