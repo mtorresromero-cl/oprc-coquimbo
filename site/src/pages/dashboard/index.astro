@@ -26,6 +26,11 @@ const grupos = {
 	core: indiceCore.map((i) => ({
 		id: i.autoridad_id,
 		nombre: i.nombre,
+		// el grupo "Consejo Regional" incluye al gobernador regional además
+		// de los 16 consejeros — se distingue con una etiqueta porque su
+		// cargo no es "consejero/a", vota en los mismos acuerdos pero con
+		// una función distinta.
+		esGobernador: i.cargo === 'gobernador',
 		metrics: {
 			participacionPct: i.participacionPct,
 			alineamientoPct: i.alineamientoPct,
@@ -51,9 +56,10 @@ const grupos = {
 		<div class="mx-auto max-w-6xl px-6 py-12">
 			<h1 class="text-3xl font-bold tracking-tight text-slate-900">Dashboard de Participación</h1>
 			<p class="mt-2 max-w-2xl text-slate-600">
-				Elegí una cámara y una métrica para comparar a sus integrantes. Diputados y diputadas
-				todavía no tienen datos de votaciones disponibles — se muestra su total de mociones
-				presentadas.
+				Elegí una cámara y una métrica para comparar a sus integrantes. El grupo "Consejo
+				Regional" incluye a los 16 consejeros y al gobernador regional, que participa de los
+				mismos acuerdos. Diputados y diputadas todavía no tienen datos de votaciones disponibles
+				— se muestra su total de mociones presentadas.
 			</p>
 		</div>
 	</div>
@@ -72,6 +78,7 @@ const grupos = {
 		</div>
 
 		<div id="metricas" class="mt-3 flex flex-wrap gap-2"></div>
+		<p id="metrica-definicion" class="mt-2 max-w-2xl text-sm text-slate-500"></p>
 
 		<div id="chart" class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm"></div>
 
@@ -89,12 +96,28 @@ const grupos = {
 		interface Item {
 			id: string;
 			nombre: string;
+			esGobernador?: boolean;
 			metrics: Record<string, number | null>;
 		}
 
 		type GrupoKey = 'senado' | 'core' | 'diputados';
 
 		const grupos: Record<GrupoKey, Item[]> = JSON.parse(document.getElementById('grupos-data')!.textContent!);
+
+		const DEFINICIONES: Record<string, string> = {
+			participacionPct:
+				'% de votaciones en las que emitió un voto real (a favor, en contra, abstención o pareo). No aparecer en una votación cuenta como no participada.',
+			alineamientoPct:
+				'De sus votos a favor o en contra, % que coincidió con el resultado final de la votación (si se aprobó o se rechazó).',
+			favor: 'Cantidad de votaciones en las que votó a favor.',
+			contra: 'Cantidad de votaciones en las que votó en contra.',
+			abstencion: 'Cantidad de votaciones en las que se abstuvo.',
+			pareo:
+				'Acuerdo formal para no votar junto a un/a parlamentario/a de la posición contraria, generalmente por inasistencia de alguno de los dos. Cuenta como participación, pero no como voto a favor ni en contra.',
+			ausente: 'Cantidad de acuerdos a los que no asistió o en los que no emitió voto.',
+			inhabilitado: 'Cantidad de acuerdos en los que se inhabilitó por conflicto de interés.',
+			total: 'Mociones (proyectos de ley) presentadas como autor o coautor, según la ficha de cada diputado/a en camara.cl.',
+		};
 
 		const METRICAS: Record<GrupoKey, [string, string][]> = {
 			senado: [
@@ -141,15 +164,24 @@ const grupos = {
 			cont.querySelectorAll<HTMLButtonElement>('.metrica-btn').forEach((btn) => {
 				btn.addEventListener('click', () => {
 					metricaActiva = btn.dataset.metrica!;
+					renderMetricas();
 					render();
 				});
 			});
+			document.getElementById('metrica-definicion')!.textContent = DEFINICIONES[metricaActiva] ?? '';
 		}
 
 		function render() {
 			const items = grupos[grupoActivo];
 			const ordenados = [...items].sort((a, b) => (b.metrics[metricaActiva] ?? -1) - (a.metrics[metricaActiva] ?? -1));
 			const max = Math.max(...ordenados.map((i) => i.metrics[metricaActiva] ?? 0), 1);
+
+			function etiquetaNombre(i: Item) {
+				const badge = i.esGobernador
+					? '<span class="shrink-0 whitespace-nowrap rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Gobernador/a Regional</span>'
+					: '';
+				return `<span class="truncate">${i.nombre}</span>${badge}`;
+			}
 
 			const chart = document.getElementById('chart')!;
 			chart.innerHTML = ordenados
@@ -158,7 +190,7 @@ const grupos = {
 					const anchoPct = valor === null ? 0 : (valor / max) * 100;
 					return `
 						<div class="flex items-center gap-3 py-1.5">
-							<a href="/autoridades/${i.id}/" class="w-48 shrink-0 truncate text-sm text-slate-700 hover:text-brand-600 hover:underline">${i.nombre}</a>
+							<a href="/autoridades/${i.id}/" class="flex w-64 shrink-0 items-center gap-1.5 text-sm text-slate-700 hover:text-brand-600 hover:underline">${etiquetaNombre(i)}</a>
 							<div class="h-5 flex-1 rounded bg-slate-100">
 								<div class="h-5 rounded bg-brand-600" style="width:${anchoPct}%"></div>
 							</div>
@@ -178,7 +210,7 @@ const grupos = {
 			body.innerHTML = ordenados
 				.map(
 					(i) =>
-						`<tr><td class="px-4 py-2.5"><a href="/autoridades/${i.id}/" class="font-medium text-slate-900 hover:text-brand-600 hover:underline">${i.nombre}</a></td>` +
+						`<tr><td class="px-4 py-2.5"><a href="/autoridades/${i.id}/" class="inline-flex items-center gap-1.5 font-medium text-slate-900 hover:text-brand-600 hover:underline">${etiquetaNombre(i)}</a></td>` +
 						cols
 							.map(([key]) => `<td class="px-4 py-2.5 text-right text-slate-700">${formatoValor(key, i.metrics[key])}</td>`)
 							.join('') +
