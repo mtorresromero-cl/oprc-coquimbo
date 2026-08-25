@@ -3,20 +3,86 @@ import '../styles/global.css';
 
 interface Props {
 	title: string;
+	description?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title,
+	description = 'Datos abiertos sobre autoridades, votaciones y transparencia municipal de la Región de Coquimbo.',
+} = Astro.props;
+
+const NAV = [
+	{ href: '/autoridades/', label: 'Autoridades' },
+	{ href: '/municipios/', label: 'Municipios' },
+	{ href: '/votaciones/', label: 'Votaciones' },
+];
+
+const path = Astro.url.pathname;
+function activo(href: string) {
+	return href === '/' ? path === '/' : path.startsWith(href);
+}
 ---
 
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="alternate icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/og-image.png" />
+		<meta property="og:type" content="website" />
 		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
+	<body class="flex min-h-screen flex-col bg-white text-slate-900">
+		<header class="bg-brand-600">
+			<div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-3">
+				<a href="/" class="flex items-center gap-2">
+					<img src="/logo-oprc-blanco.png" alt="OPRC" class="h-7 w-auto" />
+					<span class="hidden text-xs font-medium text-brand-100 sm:inline">
+						Región de Coquimbo
+					</span>
+				</a>
+				<nav class="flex gap-5 text-sm font-medium">
+					{NAV.map((item) => (
+						<a
+							href={item.href}
+							class={`transition-colors hover:text-white ${
+								activo(item.href) ? 'text-white underline underline-offset-4' : 'text-brand-100'
+							}`}
+						>
+							{item.label}
+						</a>
+					))}
+				</nav>
+			</div>
+		</header>
+
+		<div class="flex-1">
+			<slot />
+		</div>
+
+		<footer class="border-t border-slate-200 bg-slate-50">
+			<div class="mx-auto max-w-5xl px-6 py-8 text-sm text-slate-500">
+				<div class="flex flex-wrap items-center justify-between gap-4">
+					<img src="/logo-oprc-color.png" alt="OPRC" class="h-6 w-auto opacity-80" />
+					<p class="max-w-md text-xs leading-relaxed">
+						Datos públicos recopilados de fuentes oficiales (SERVEL, Cámara de Diputados, Senado,
+						Portal de Transparencia). Proyecto independiente, sin fines de lucro.
+					</p>
+					<a
+						href="https://github.com/mtorresromero-cl/oprc-coquimbo"
+						target="_blank"
+						rel="noopener"
+						class="text-xs font-medium text-slate-600 hover:text-brand-600 hover:underline"
+					>
+						Código en GitHub
+					</a>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>

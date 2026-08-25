@@ -1,28 +1,90 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { autoridades, comunas, votaciones, presupuesto, personal, CARGO_LABEL } from '../lib/datos';
+
+const totalAlcaldes = autoridades.filter((a) => a.cargo === 'alcalde').length;
+const totalConcejales = autoridades.filter((a) => a.cargo === 'concejal').length;
+const comunasConDatos = comunas.filter(
+	(c) => presupuesto.some((p) => p.comuna_id === c.id) || personal.some((p) => p.comuna_id === c.id)
+).length;
+
+const stats = [
+	{ valor: autoridades.length, label: 'autoridades registradas' },
+	{ valor: comunas.length, label: 'comunas de la región' },
+	{ valor: comunasConDatos, label: 'con datos de transparencia' },
+	{ valor: votaciones.length, label: 'votaciones registradas' },
+];
+
+const secciones = [
+	{
+		href: '/autoridades/',
+		titulo: 'Autoridades',
+		descripcion: `Alcaldes, concejales, consejeros regionales, diputados y senadores de la región — ${autoridades.length} en total.`,
+	},
+	{
+		href: '/municipios/',
+		titulo: 'Municipios',
+		descripcion: `Presupuesto, dotación y remuneraciones de las 15 comunas, según el Portal de Transparencia.`,
+	},
+	{
+		href: '/votaciones/',
+		titulo: 'Votaciones',
+		descripcion: 'Votaciones del Congreso en las que participaron los senadores y diputados de la región.',
+	},
+];
 ---
 
 <Layout title="OPRC — Observatorio Político Región de Coquimbo">
-	<main class="mx-auto max-w-3xl px-6 py-16">
-		<h1 class="text-3xl font-bold tracking-tight text-slate-900">
-			Observatorio Político Región de Coquimbo
-		</h1>
-		<p class="mt-4 text-slate-600">
-			Sitio en construcción.
-		</p>
-		<div class="mt-6 flex gap-3">
-			<a
-				href="/autoridades/"
-				class="inline-block rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-700"
-			>
-				Ver autoridades
-			</a>
-			<a
-				href="/votaciones/"
-				class="inline-block rounded-md border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900 hover:bg-slate-50"
-			>
-				Votaciones recientes
-			</a>
-		</div>
+	<main>
+		<section class="border-b border-slate-100 bg-slate-50">
+			<div class="mx-auto max-w-5xl px-6 py-16">
+				<h1 class="max-w-2xl text-4xl font-bold tracking-tight text-slate-900">
+					Seguimiento ciudadano de la política en la Región de Coquimbo
+				</h1>
+				<p class="mt-4 max-w-xl text-slate-600">
+					Datos públicos sobre autoridades, votaciones y transparencia municipal, recopilados
+					directamente de fuentes oficiales y actualizados de forma automática.
+				</p>
+				<div class="mt-8 flex flex-wrap gap-3">
+					<a
+						href="/autoridades/"
+						class="inline-block rounded-md bg-brand-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-brand-700"
+					>
+						Ver autoridades
+					</a>
+					<a
+						href="/municipios/"
+						class="inline-block rounded-md border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-900 hover:bg-white"
+					>
+						Ver municipios
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="mx-auto max-w-5xl px-6 py-10">
+			<dl class="grid grid-cols-2 gap-6 sm:grid-cols-4">
+				{stats.map((s) => (
+					<div>
+						<dt class="text-3xl font-bold text-brand-600">{s.valor}</dt>
+						<dd class="mt-1 text-sm text-slate-500">{s.label}</dd>
+					</div>
+				))}
+			</dl>
+		</section>
+
+		<section class="mx-auto max-w-5xl px-6 pb-16">
+			<div class="grid gap-4 sm:grid-cols-3">
+				{secciones.map((s) => (
+					<a
+						href={s.href}
+						class="group rounded-lg border border-slate-200 p-5 transition-colors hover:border-brand-300 hover:bg-brand-50"
+					>
+						<h2 class="font-semibold text-slate-900 group-hover:text-brand-700">{s.titulo}</h2>
+						<p class="mt-2 text-sm text-slate-600">{s.descripcion}</p>
+					</a>
+				))}
+			</div>
+		</section>
 	</main>
 </Layout>

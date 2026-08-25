@@ -40,7 +40,7 @@ function formatoCLP(monto: number) {
 
 <Layout title={`Presupuesto de ${comuna.nombre} — OPRC`}>
 	<main class="mx-auto max-w-2xl px-6 py-12">
-		<a href="/autoridades/" class="text-sm text-slate-500 hover:underline">&larr; Inicio</a>
+		<a href="/municipios/" class="text-sm text-slate-500 hover:text-brand-600 hover:underline">&larr; Municipios</a>
 		<h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">{comuna.nombre}</h1>
 
 		{items.length > 0 && (
@@ -87,7 +87,7 @@ function formatoCLP(monto: number) {
 
 				{fuenteUrl && (
 					<p class="mt-6 text-xs text-slate-400">
-						Fuente: <a href={fuenteUrl} class="hover:underline" target="_blank" rel="noopener">
+						Fuente: <a href={fuenteUrl} class="hover:text-brand-600 hover:underline" target="_blank" rel="noopener">
 							Balance de ejecución presupuestaria, transparencia municipal
 						</a>
 					</p>

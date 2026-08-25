@@ -17,7 +17,7 @@ const tienePresupuesto = autoridad.comuna ? presupuestoDeComuna(autoridad.comuna
 
 <Layout title={`${autoridad.nombre_completo} — OPRC`}>
 	<main class="mx-auto max-w-2xl px-6 py-12">
-		<a href="/autoridades/" class="text-sm text-slate-500 hover:underline">&larr; Autoridades</a>
+		<a href="/autoridades/" class="text-sm text-slate-500 hover:text-brand-600 hover:underline">&larr; Autoridades</a>
 
 		<h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">
 			{autoridad.nombre_completo}
@@ -42,7 +42,7 @@ const tienePresupuesto = autoridad.comuna ? presupuestoDeComuna(autoridad.comuna
 					<dt class="text-slate-500">Comuna</dt>
 					<dd class="text-slate-900">
 						{tienePresupuesto ? (
-							<a href={`/municipios/${autoridad.comuna}/`} class="hover:underline">
+							<a href={`/municipios/${autoridad.comuna}/`} class="hover:text-brand-600 hover:underline">
 								{nombreComuna(autoridad.comuna)} — ver presupuesto
 							</a>
 						) : (
@@ -75,7 +75,7 @@ const tienePresupuesto = autoridad.comuna ? presupuestoDeComuna(autoridad.comuna
 				<>
 					<dt class="text-slate-500">Contacto</dt>
 					<dd class="text-slate-900">
-						<a href={`mailto:${autoridad.email}`} class="hover:underline">{autoridad.email}</a>
+						<a href={`mailto:${autoridad.email}`} class="hover:text-brand-600 hover:underline">{autoridad.email}</a>
 					</dd>
 				</>
 			)}
@@ -116,7 +116,7 @@ const tienePresupuesto = autoridad.comuna ? presupuestoDeComuna(autoridad.comuna
 								<span>Boletín {m.boletin}</span>
 							</div>
 							<p class="mt-1 text-slate-800">
-								<a href={m.url_bcn} target="_blank" rel="noopener" class="hover:underline">
+								<a href={m.url_bcn} target="_blank" rel="noopener" class="hover:text-brand-600 hover:underline">
 									{m.titulo}
 								</a>
 							</p>
@@ -128,7 +128,7 @@ const tienePresupuesto = autoridad.comuna ? presupuestoDeComuna(autoridad.comuna
 
 		{autoridad.fuente && (
 			<p class="mt-8 text-xs text-slate-400">
-				Fuente: <a href={autoridad.fuente} class="hover:underline" target="_blank" rel="noopener">
+				Fuente: <a href={autoridad.fuente} class="hover:text-brand-600 hover:underline" target="_blank" rel="noopener">
 					{autoridad.fuente}
 				</a>
 			</p>

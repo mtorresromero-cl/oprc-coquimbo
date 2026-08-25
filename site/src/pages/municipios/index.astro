@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { comunas, presupuestoDeComuna, personalDeComuna } from '../../lib/datos';
+
+const filas = comunas
+	.map((c) => ({
+		comuna: c,
+		tienePresupuesto: presupuestoDeComuna(c.id).length > 0,
+		tienePersonal: personalDeComuna(c.id).length > 0,
+	}))
+	.sort((a, b) => a.comuna.nombre.localeCompare(b.comuna.nombre));
+---
+
+<Layout title="Municipios — OPRC" description="Presupuesto, dotación y remuneraciones de las 15 comunas de la Región de Coquimbo.">
+	<main class="mx-auto max-w-3xl px-6 py-12">
+		<h1 class="text-3xl font-bold tracking-tight text-slate-900">Municipios</h1>
+		<p class="mt-2 text-slate-600">
+			Presupuesto y personal municipal de las 15 comunas de la región, según el Portal de
+			Transparencia. La cobertura varía por comuna según lo que cada municipio publica.
+		</p>
+
+		<ul class="mt-8 grid gap-3 sm:grid-cols-2">
+			{filas.map(({ comuna, tienePresupuesto, tienePersonal }) => {
+				const tieneDatos = tienePresupuesto || tienePersonal;
+				const contenido = (
+					<>
+						<p class="font-semibold text-slate-900">{comuna.nombre}</p>
+						<p class="mt-1 text-sm text-slate-500">{comuna.provincia}</p>
+						<div class="mt-3 flex flex-wrap gap-2">
+							{tienePresupuesto && (
+								<span class="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
+									Presupuesto
+								</span>
+							)}
+							{tienePersonal && (
+								<span class="rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-medium text-brand-700">
+									Personal
+								</span>
+							)}
+							{!tieneDatos && (
+								<span class="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-500">
+									Sin datos aún
+								</span>
+							)}
+						</div>
+					</>
+				);
+
+				return tieneDatos ? (
+					<li>
+						<a
+							href={`/municipios/${comuna.id}/`}
+							class="block rounded-lg border border-slate-200 p-4 hover:border-brand-300 hover:bg-brand-50"
+						>
+							{contenido}
+						</a>
+					</li>
+				) : (
+					<li class="rounded-lg border border-slate-100 p-4 opacity-60">{contenido}</li>
+				);
+			})}
+		</ul>
+	</main>
+</Layout>
