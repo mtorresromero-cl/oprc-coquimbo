@@ -143,6 +143,66 @@ export function remuneracionAutoridadDeComuna(comunaId: string) {
 	return remuneracionAutoridad.filter((r) => r.comuna_id === comunaId);
 }
 
+export interface ComparativaMunicipal {
+	comuna_id: string;
+	nombre: string;
+	periodoPersonal: string | null;
+	dotacionTotal: number;
+	remuneracionTotal: number;
+	dotacionPlanta: number;
+	dotacionContrata: number;
+	dotacionHonorarios: number;
+	tienePresupuesto: boolean;
+	annoPresupuesto: number | null;
+	tieneIngresos: boolean;
+	tieneGastos: boolean;
+	ingresosTotal: number;
+	gastosTotal: number;
+}
+
+/**
+ * Comparativa entre comunas con los totales que ya tenemos. Son montos
+ * absolutos, no per cápita: no tenemos población real todavía (el campo
+ * existe en el catálogo pero nunca se completó), así que una comuna
+ * grande va a aparecer arriba en dotación/gasto simplemente por tener más
+ * habitantes, no porque gaste "peor" que una chica.
+ */
+export function comparativaMunicipal(): ComparativaMunicipal[] {
+	return comunas.map((c) => {
+		const suPersonal = personalDeComuna(c.id);
+		const suPresupuesto = presupuestoDeComuna(c.id);
+		const annoPresupuesto = suPresupuesto.length
+			? Math.max(...suPresupuesto.map((p) => p.anno))
+			: null;
+		const delAnno = suPresupuesto.filter((p) => p.anno === annoPresupuesto);
+		const ingresosDelAnno = delAnno.filter((p) => p.tipo === 'ingreso');
+		const gastosDelAnno = delAnno.filter((p) => p.tipo === 'gasto');
+
+		const porTipo = (tipo: string) =>
+			suPersonal.filter((p) => p.tipo_contrato === tipo).reduce((s, p) => s + p.dotacion, 0);
+
+		return {
+			comuna_id: c.id,
+			nombre: c.nombre,
+			periodoPersonal: suPersonal[0] ? `${suPersonal[0].mes}/${suPersonal[0].anno}` : null,
+			dotacionTotal: suPersonal.reduce((s, p) => s + p.dotacion, 0),
+			remuneracionTotal: suPersonal.reduce((s, p) => s + p.remuneracion_total, 0),
+			dotacionPlanta: porTipo('planta'),
+			dotacionContrata: porTipo('contrata'),
+			dotacionHonorarios: porTipo('honorarios'),
+			tienePresupuesto: suPresupuesto.length > 0,
+			annoPresupuesto,
+			// ingreso y gasto se registran como filas separadas del mismo tipo de
+			// dato: algunas comunas solo tienen uno de los dos capturado para su
+			// año más reciente. 0 filas de un tipo no significa monto real 0.
+			tieneIngresos: ingresosDelAnno.length > 0,
+			tieneGastos: gastosDelAnno.length > 0,
+			ingresosTotal: ingresosDelAnno.reduce((s, p) => s + p.monto, 0),
+			gastosTotal: gastosDelAnno.reduce((s, p) => s + p.monto, 0),
+		};
+	});
+}
+
 export const AREA_LABEL: Record<string, string> = {
 	municipal: 'Municipal',
 	salud: 'Salud',

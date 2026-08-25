@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { comunas, presupuestoDeComuna, personalDeComuna } from '../../lib/datos';
+import { comunas, presupuestoDeComuna, personalDeComuna, comparativaMunicipal } from '../../lib/datos';
 
 const filas = comunas
 	.map((c) => ({
@@ -9,6 +9,20 @@ const filas = comunas
 		tienePersonal: personalDeComuna(c.id).length > 0,
 	}))
 	.sort((a, b) => a.comuna.nombre.localeCompare(b.comuna.nombre));
+
+const comparativa = comparativaMunicipal()
+	.filter((c) => c.dotacionTotal > 0)
+	.sort((a, b) => b.dotacionTotal - a.dotacionTotal);
+
+function formatoCLP(monto: number) {
+	return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(
+		monto
+	);
+}
+
+function pctDe(parte: number, total: number) {
+	return total > 0 ? Math.round((parte / total) * 100) : 0;
+}
 ---
 
 <Layout title="Municipios — OPRC" description="Presupuesto, dotación y remuneraciones de las 15 comunas de la Región de Coquimbo.">
@@ -34,6 +48,65 @@ const filas = comunas
 				</span>
 			</span>
 		</a>
+
+		{comparativa.length > 0 && (
+			<section class="mb-14">
+				<h2 class="text-xl font-semibold text-slate-900">Comparativa entre comunas</h2>
+				<p class="mt-1 max-w-2xl text-sm text-slate-500">
+					Totales absolutos, no per cápita: todavía no tenemos población oficial cargada por
+					comuna, así que una comuna más grande va a aparecer arriba en dotación o gasto
+					simplemente por tener más habitantes, no porque gestione peor que una comuna chica.
+					Cada comuna en su período más reciente informado — los períodos no son iguales entre
+					comunas.
+				</p>
+				<div class="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+					<table class="w-full min-w-[720px] text-sm">
+						<thead>
+							<tr class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase">
+								<th class="px-4 py-2">Comuna</th>
+								<th class="px-4 py-2">Período</th>
+								<th class="px-4 py-2 text-right">Dotación total</th>
+								<th class="px-4 py-2 text-right">Planta</th>
+								<th class="px-4 py-2 text-right">Contrata</th>
+								<th class="px-4 py-2 text-right">Honorarios</th>
+								<th class="px-4 py-2 text-right">Remuneración total/mes</th>
+								<th class="px-4 py-2 text-right">Ingresos</th>
+								<th class="px-4 py-2 text-right">Gastos</th>
+							</tr>
+						</thead>
+						<tbody class="divide-y divide-slate-100">
+							{comparativa.map((c) => (
+								<tr>
+									<td class="px-4 py-2.5">
+										<a href={`/municipios/${c.comuna_id}/`} class="font-medium text-slate-900 hover:text-brand-600 hover:underline">
+											{c.nombre}
+										</a>
+									</td>
+									<td class="px-4 py-2.5 text-slate-500">{c.periodoPersonal}</td>
+									<td class="px-4 py-2.5 text-right font-semibold text-slate-900">{c.dotacionTotal}</td>
+									<td class="px-4 py-2.5 text-right text-slate-700">
+										{c.dotacionPlanta} <span class="text-xs text-slate-400">({pctDe(c.dotacionPlanta, c.dotacionTotal)}%)</span>
+									</td>
+									<td class="px-4 py-2.5 text-right text-slate-700">
+										{c.dotacionContrata} <span class="text-xs text-slate-400">({pctDe(c.dotacionContrata, c.dotacionTotal)}%)</span>
+									</td>
+									<td class="px-4 py-2.5 text-right text-slate-700">
+										{c.dotacionHonorarios} <span class="text-xs text-slate-400">({pctDe(c.dotacionHonorarios, c.dotacionTotal)}%)</span>
+									</td>
+									<td class="px-4 py-2.5 text-right text-slate-700">{formatoCLP(c.remuneracionTotal)}</td>
+									<td class="px-4 py-2.5 text-right text-slate-700">
+										{c.tieneIngresos ? formatoCLP(c.ingresosTotal) : <span class="text-slate-300">—</span>}
+									</td>
+									<td class="px-4 py-2.5 text-right text-slate-700">
+										{c.tieneGastos ? formatoCLP(c.gastosTotal) : <span class="text-slate-300">—</span>}
+									</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</section>
+		)}
 
 		<ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 			{filas.map(({ comuna, tienePresupuesto, tienePersonal }) => {
