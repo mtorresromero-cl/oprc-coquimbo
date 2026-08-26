@@ -7,7 +7,9 @@ const redes = [
 	{ nombre: 'Twitter', url: 'https://twitter.com/oprcoquimbo' },
 ];
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mjybnadq';
+// Público por diseño (Cloudflare Turnstile funciona con un site key
+// visible en el HTML, la clave privada vive solo en la Function).
+const TURNSTILE_SITE_KEY = '0x4AAAAAAEcSbMqJvOAlX1zo';
 ---
 
 <Layout title="Contacto — OPRC" description="Escríbenos al Observatorio Político Región de Coquimbo.">
@@ -28,8 +30,7 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mjybnadq';
 	<main class="mx-auto max-w-6xl px-6 py-14">
 		<div class="grid gap-12 lg:grid-cols-[1fr_22rem]">
 			<div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-				<form id="form-contacto" action={FORMSPREE_ENDPOINT} method="POST">
-					<input type="hidden" name="_next" value="https://oprcoquimbo.cl/contacto/?enviado=1" />
+				<form id="form-contacto">
 					<h2 class="text-lg font-semibold text-slate-900">Escríbenos</h2>
 					<p class="mt-1 text-sm text-slate-500">
 						Si tenés problemas con el formulario, escribinos directo a{' '}
@@ -79,10 +80,14 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mjybnadq';
 						</div>
 					</div>
 
+					<div class="cf-turnstile mt-5" data-sitekey={TURNSTILE_SITE_KEY}></div>
+
+					<p id="form-error" class="mt-4 hidden text-sm font-medium text-red-600"></p>
+
 					<button
 						id="form-submit"
 						type="submit"
-						class="mt-6 inline-flex items-center rounded-md bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
+						class="mt-6 inline-flex items-center rounded-md bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
 					>
 						Enviar mensaje
 					</button>
@@ -94,16 +99,36 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mjybnadq';
 				</div>
 			</div>
 
+			<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 			<script>
-				// Formspree redirige de vuelta acá con ?enviado=1 después de un
-				// envío exitoso (via _next) — no se usa fetch/AJAX porque el plan
-				// gratuito de Formspree bloquea eso salvo que se desactive
-				// reCAPTCHA o se configure una key especial en la cuenta.
-				if (new URLSearchParams(window.location.search).get('enviado') === '1') {
-					document.getElementById('form-contacto')!.classList.add('hidden');
-					document.getElementById('form-exito')!.classList.remove('hidden');
-					history.replaceState(null, '', window.location.pathname);
-				}
+				const form = document.getElementById('form-contacto') as HTMLFormElement;
+				const boton = document.getElementById('form-submit') as HTMLButtonElement;
+				const error = document.getElementById('form-error')!;
+				const exito = document.getElementById('form-exito')!;
+
+				form.addEventListener('submit', async (e) => {
+					e.preventDefault();
+					error.classList.add('hidden');
+					boton.disabled = true;
+					boton.textContent = 'Enviando…';
+
+					try {
+						const resp = await fetch('/api/contacto', { method: 'POST', body: new FormData(form) });
+						const datos = await resp.json();
+						if (resp.ok && datos.ok) {
+							form.classList.add('hidden');
+							exito.classList.remove('hidden');
+						} else {
+							throw new Error(datos.error || 'error desconocido');
+						}
+					} catch (err) {
+						error.textContent = 'No se pudo enviar el mensaje. Probá de nuevo o escribinos directo a contacto@oprcoquimbo.cl.';
+						error.classList.remove('hidden');
+						boton.disabled = false;
+						boton.textContent = 'Enviar mensaje';
+						console.error(err);
+					}
+				});
 			</script>
 
 			<aside class="space-y-6">
