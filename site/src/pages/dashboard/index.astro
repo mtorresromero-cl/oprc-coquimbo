@@ -17,8 +17,9 @@ const coreIds = autoridades.filter((a) => a.cargo === 'core' || a.cargo === 'gob
 const indiceSenado = indiceVotaciones(votaciones, senadorIds);
 const indiceCore = indiceVotaciones(votacionesCore, coreIds);
 const indiceDiputados = indiceVotaciones(votacionesCamara, diputadoIds);
-const indiceMocionesDiputados = indiceMociones(diputadoIds);
-const mocionesPorId = new Map(indiceMocionesDiputados.map((m) => [m.autoridad_id, m.total]));
+const mocionesPorId = new Map(
+	[...indiceMociones(senadorIds), ...indiceMociones(diputadoIds)].map((m) => [m.autoridad_id, m.total])
+);
 const asistenciaSenadoPorId = new Map(indiceAsistencia(senadorIds).map((a) => [a.autoridad_id, a]));
 const asistenciaDiputadosPorId = new Map(indiceAsistencia(diputadoIds).map((a) => [a.autoridad_id, a]));
 
@@ -34,6 +35,7 @@ const grupos = {
 			contra: i.contra,
 			abstencion: i.abstencion,
 			pareo: i.pareo,
+			mociones: mocionesPorId.get(i.autoridad_id) ?? 0,
 		},
 	})),
 	core: indiceCore.map((i) => ({
@@ -139,7 +141,8 @@ const grupos = {
 				'Acuerdo formal para no votar junto a un/a parlamentario/a de la posición contraria, generalmente por inasistencia de alguno de los dos. Cuenta como participación, pero no como voto a favor ni en contra.',
 			ausente: 'Cantidad de acuerdos a los que no asistió o en los que no emitió voto.',
 			inhabilitado: 'Cantidad de acuerdos en los que se inhabilitó por conflicto de interés.',
-			mociones: 'Mociones (proyectos de ley) presentadas como autor o coautor, según la ficha de cada diputado/a en camara.cl.',
+			mociones:
+				'Mociones (proyectos de ley) presentadas como autor o coautor este año, según la fuente oficial (camara.cl o el buscador de tramitación del Senado).',
 			asistenciaPct:
 				'% de asistencia a sesiones de sala del período, tal como lo calcula la fuente oficial (camara.cl o senado.cl): asistencias sobre sesiones computables.',
 		};
@@ -153,6 +156,7 @@ const grupos = {
 				['contra', 'En contra'],
 				['abstencion', 'Abstención'],
 				['pareo', 'Pareo'],
+				['mociones', 'Mociones presentadas'],
 			],
 			core: [
 				['participacionPct', 'Participación'],

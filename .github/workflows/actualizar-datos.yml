@@ -19,6 +19,7 @@ jobs:
       - run: python -m playwright install --with-deps chromium
       - run: python scrapers/senado.py
       - run: python scrapers/senado_asistencia.py
+      - run: python scrapers/senado_mociones.py
       - run: python scrapers/camara_mociones.py
       - run: python scrapers/camara_asistencia.py
       - run: python scrapers/camara_votaciones.py

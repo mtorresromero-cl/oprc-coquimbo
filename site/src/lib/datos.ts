@@ -136,6 +136,7 @@ import votacionesRaw from '../../../data/processed/votaciones.json';
 import votacionesCoreRaw from '../../../data/processed/votaciones-core.json';
 import votacionesCamaraRaw from '../../../data/processed/votaciones-camara.json';
 import mocionesRaw from '../../../data/processed/mociones.json';
+import mocionesSenadoresRaw from '../../../data/processed/mociones-senadores.json';
 import presupuestoRaw from '../../../data/processed/presupuesto-municipal.json';
 import personalRaw from '../../../data/processed/personal-municipal.json';
 import remuneracionAutoridadRaw from '../../../data/processed/remuneracion-autoridad.json';
@@ -149,7 +150,10 @@ export const comunas: Comuna[] = comunasRaw as Comuna[];
 export const votaciones: VotacionSesion[] = votacionesRaw as VotacionSesion[];
 export const votacionesCore: VotacionSesion[] = votacionesCoreRaw as VotacionSesion[];
 export const votacionesCamara: VotacionSesion[] = votacionesCamaraRaw as VotacionSesion[];
-export const mociones: Mocion[] = mocionesRaw as Mocion[];
+export const mociones: Mocion[] = [
+	...(mocionesRaw as Mocion[]),
+	...(mocionesSenadoresRaw as Mocion[]),
+];
 export const presupuesto: PresupuestoItem[] = presupuestoRaw as PresupuestoItem[];
 export const personal: PersonalItem[] = personalRaw as PersonalItem[];
 export const remuneracionAutoridad: RemuneracionAutoridad[] = remuneracionAutoridadRaw as RemuneracionAutoridad[];
