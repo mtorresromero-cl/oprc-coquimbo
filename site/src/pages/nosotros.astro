@@ -1,13 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const capacidades = [
-	'Investigación y Análisis',
-	'Comunicación y Estrategia',
-	'Desarrollo de Estudios y Reportes',
-	'Divulgación y Participación Ciudadana',
-];
-
 const items = [
 	{
 		titulo: 'Acceso a Información Pública',
@@ -34,7 +27,6 @@ const items = [
 		texto: 'El Observatorio es un proyecto independiente y autofinanciado. No recibimos fondos de partidos políticos ni de entidades gubernamentales, asegurando así un análisis objetivo y libre de intereses externos.',
 	},
 ];
-
 ---
 
 <Layout
@@ -56,10 +48,10 @@ const items = [
 		</div>
 	</section>
 
-	<main class="mx-auto max-w-3xl px-6 py-16">
-		<div>
-			<p class="text-xs font-semibold tracking-widest text-brand-600 uppercase">Origen · 2019</p>
-				<p class="mt-3 text-lg leading-relaxed text-slate-700">
+	<main class="mx-auto max-w-6xl px-6 py-16">
+		<div class="grid gap-12 lg:grid-cols-[1fr_20rem]">
+			<div>
+				<p class="text-lg leading-relaxed text-slate-700">
 					El Observatorio Político Región de Coquimbo nació en 2019 con el objetivo de brindar
 					información y herramientas de análisis sobre la política regional. Nuestro trabajo se
 					centra en el seguimiento, investigación y previsión de elecciones, partidos políticos y
@@ -72,6 +64,19 @@ const items = [
 					información en formatos accesibles y abiertos para fomentar el conocimiento, el control
 					ciudadano y el debate sobre la labor de quienes nos representan.
 				</p>
+
+				<div class="mt-10 flex items-center gap-4">
+					<img
+						src="/director-miguel.jpg"
+						alt="Miguel Torres Romero, director del Observatorio"
+						class="h-16 w-16 shrink-0 rounded-full object-cover"
+					/>
+					<p class="text-lg leading-relaxed text-slate-700">
+						El Observatorio es dirigido por <strong class="font-semibold text-slate-900">Miguel Torres Romero</strong>,
+						Cientista Político y Mg. en Investigación en Ciencias Sociales de la Universidad de
+						Buenos Aires, Argentina, con experiencia en investigación y análisis político.
+					</p>
+				</div>
 
 				<blockquote class="my-10 border-y border-slate-200 py-6 text-center">
 					<p class="text-2xl font-bold leading-tight tracking-tight text-slate-900">
@@ -90,47 +95,31 @@ const items = [
 					y libre de intereses externos. Nuestro trabajo es posible gracias al aporte de sus
 					integrantes y colaboraciones voluntarias.
 				</p>
-
-				<div class="mt-9 flex items-center gap-4">
-					<img
-						src="/director-miguel.jpg"
-						alt="Miguel Torres Romero, director del Observatorio"
-						class="h-14 w-14 shrink-0 rounded-full object-cover"
-					/>
-					<div>
-						<p class="font-semibold text-slate-900">Miguel Torres Romero</p>
-						<p class="mt-0.5 text-sm text-slate-500">
-							Dirección — Cientista Político, Mg. en Investigación en Ciencias Sociales
-							(Universidad de Buenos Aires, Argentina)
-						</p>
-					</div>
-				</div>
-
-				<p class="mt-6 text-sm leading-relaxed text-slate-500">
-					<span class="font-semibold text-slate-600">Capacidades:</span> {capacidades.join(' · ')}
-				</p>
-
-				<div class="mt-16 border-t border-slate-100 pt-14">
-					<h2 class="text-2xl font-bold tracking-tight text-slate-900">Qué hacemos</h2>
-					<p class="mt-2 text-lg leading-relaxed text-slate-600">
-						Analizamos, monitoreamos y difundimos información clave sobre la política en la
-						Región de Coquimbo. Buscamos fortalecer la transparencia, la participación ciudadana
-						y el control democrático a través de datos y análisis accesibles.
-					</p>
-
-					<div class="mt-8 grid gap-7">
-						{items.map((item, i) => (
-							<div class={`flex gap-4 ${i > 0 ? 'border-t border-slate-100 pt-7' : ''}`}>
-								<span class="w-6 shrink-0 text-sm font-bold text-brand-600">{String(i + 1).padStart(2, '0')}</span>
-								<div>
-									<h3 class="font-semibold text-slate-900">{item.titulo}</h3>
-									<p class="mt-1.5 leading-relaxed text-slate-600">{item.texto}</p>
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
 			</div>
+
+			<div class="flex min-h-[16rem] items-center justify-center rounded-xl border border-dashed border-slate-300 bg-slate-50 p-6 text-center lg:min-h-full">
+				<p class="text-sm text-slate-400">Bloque por definir</p>
+			</div>
+		</div>
+
+		<div class="mt-16 border-t border-slate-100 pt-14">
+			<h2 class="text-2xl font-bold tracking-tight text-slate-900">Qué hacemos</h2>
+			<p class="mt-2 max-w-2xl text-lg leading-relaxed text-slate-600">
+				Analizamos, monitoreamos y difundimos información clave sobre la política en la Región de
+				Coquimbo. Buscamos fortalecer la transparencia, la participación ciudadana y el control
+				democrático a través de datos y análisis accesibles.
+			</p>
+
+			<div class="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+				{items.map((item, i) => (
+					<div class="border-t border-slate-100 pt-6">
+						<span class="text-sm font-bold text-brand-600">{String(i + 1).padStart(2, '0')}</span>
+						<h3 class="mt-1 font-semibold text-slate-900">{item.titulo}</h3>
+						<p class="mt-1.5 leading-relaxed text-slate-600">{item.texto}</p>
+					</div>
+				))}
+			</div>
+		</div>
 	</main>
 
 	<section class="bg-brand-600">
