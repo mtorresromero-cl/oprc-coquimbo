@@ -2,6 +2,8 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
+	--font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+
 	--color-brand-50: #fdf2f2;
 	--color-brand-100: #fbdcdc;
 	--color-brand-200: #f5b3b3;
