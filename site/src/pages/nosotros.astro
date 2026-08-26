@@ -27,6 +27,18 @@ const items = [
 		texto: 'El Observatorio es un proyecto independiente y autofinanciado. No recibimos fondos de partidos políticos ni de entidades gubernamentales, asegurando así un análisis objetivo y libre de intereses externos.',
 	},
 ];
+
+// Nodos del diagrama radial: mismas 6 áreas de "Qué hacemos", en versión
+// corta para caber en el círculo. Coordenadas del hexágono alrededor del
+// centro (180,180), radio ~128.
+const nodos = [
+	{ n: '01', l1: 'Información', l2: 'Pública', cx: 180, cy: 52 },
+	{ n: '02', l1: 'Evaluación', l2: 'de Gestión', cx: 291, cy: 116 },
+	{ n: '03', l1: 'Monitoreo', l2: 'en Vivo', cx: 291, cy: 244 },
+	{ n: '04', l1: 'Participación', l2: 'Ciudadana', cx: 180, cy: 308 },
+	{ n: '05', l1: 'Datos y', l2: 'Metodología', cx: 69, cy: 244 },
+	{ n: '06', l1: 'Transparencia', l2: 'Financiera', cx: 69, cy: 116 },
+];
 ---
 
 <Layout
@@ -80,7 +92,7 @@ const items = [
 
 				<blockquote class="my-10 border-y border-slate-200 py-6 text-center">
 					<p class="text-2xl font-bold leading-tight tracking-tight text-slate-900">
-						"El Observatorio es un proyecto independiente y autofinanciado."
+						El Observatorio es un proyecto independiente y autofinanciado
 					</p>
 				</blockquote>
 
@@ -97,8 +109,42 @@ const items = [
 				</p>
 			</div>
 
-			<div class="flex min-h-[16rem] items-center justify-center rounded-xl border border-dashed border-slate-300 bg-slate-50 p-6 text-center lg:min-h-full">
-				<p class="text-sm text-slate-400">Bloque por definir</p>
+			<div class="flex items-center justify-center rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+				<svg viewBox="0 0 360 360" class="w-full max-w-[22rem]" role="img" aria-label="Las seis áreas de trabajo del Observatorio">
+					<defs>
+						<linearGradient id="oprc-hub" x1="0" y1="0" x2="1" y2="1">
+							<stop offset="0%" stop-color="#560000"></stop>
+							<stop offset="100%" stop-color="#aa0000"></stop>
+						</linearGradient>
+						<filter id="oprc-shadow-node" x="-20%" y="-20%" width="140%" height="140%">
+							<feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.12"></feDropShadow>
+						</filter>
+						<filter id="oprc-shadow-hub" x="-20%" y="-20%" width="140%" height="140%">
+							<feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.2"></feDropShadow>
+						</filter>
+					</defs>
+
+					<circle cx="180" cy="180" r="130" fill="none" stroke="#e2b8b8" stroke-width="1" stroke-dasharray="3 6"></circle>
+					<circle cx="180" cy="180" r="90" fill="none" stroke="#e2b8b8" stroke-width="1"></circle>
+
+					{nodos.map((nd) => (
+						<line x1="180" y1="180" x2={nd.cx} y2={nd.cy} stroke="#e2b8b8" stroke-width="1"></line>
+					))}
+
+					<circle cx="180" cy="180" r="52" fill="url(#oprc-hub)" filter="url(#oprc-shadow-hub)"></circle>
+					<text x="180" y="176" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">OPRC</text>
+					<text x="180" y="192" text-anchor="middle" font-size="8" letter-spacing="0.12em" fill="#f5b3b3">OBSERVATORIO</text>
+					<circle cx="180" cy="180" r="4" fill="#f5b3b3" class="oprc-pulse"></circle>
+
+					{nodos.map((nd) => (
+						<>
+							<circle cx={nd.cx} cy={nd.cy} r="36" fill="#ffffff" filter="url(#oprc-shadow-node)"></circle>
+							<text x={nd.cx} y={nd.cy - 7} text-anchor="middle" font-size="9" fill="#aa0000" font-weight="600">{nd.n}</text>
+							<text x={nd.cx} y={nd.cy + 5} text-anchor="middle" font-size="10.5" font-weight="600" fill="#0f172a">{nd.l1}</text>
+							<text x={nd.cx} y={nd.cy + 17} text-anchor="middle" font-size="10.5" font-weight="600" fill="#0f172a">{nd.l2}</text>
+						</>
+					))}
+				</svg>
 			</div>
 		</div>
 
@@ -145,4 +191,21 @@ const items = [
 			</a>
 		</div>
 	</section>
+
+	<style>
+		.oprc-pulse {
+			animation: oprc-pulse 2.4s ease-out infinite;
+			transform-origin: 180px 180px;
+		}
+		@keyframes oprc-pulse {
+			0% { opacity: 0.9; }
+			70% { opacity: 0; transform: scale(6); }
+			100% { opacity: 0; transform: scale(6); }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			.oprc-pulse {
+				animation: none;
+			}
+		}
+	</style>
 </Layout>
