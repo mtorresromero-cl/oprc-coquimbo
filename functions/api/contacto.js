@@ -12,11 +12,8 @@
 //   TURNSTILE_SECRET_KEY — dash.cloudflare.com → Turnstile → el widget → Secret Key
 
 const DESTINATARIO = 'contacto@oprcoquimbo.cl';
-// resend.com exige verificar el dominio propio para poder usarlo como
-// remitente — hasta que oprcoquimbo.cl esté verificado en Resend, se usa
-// su dirección de pruebas. Una vez verificado, cambiar esto a algo como
-// "OPRC <contacto@oprcoquimbo.cl>".
-const REMITENTE = 'OPRC <onboarding@resend.dev>';
+// oprcoquimbo.cl verificado en Resend el 2026-08-25.
+const REMITENTE = 'OPRC <contacto@oprcoquimbo.cl>';
 
 function escaparHtml(texto) {
 	return texto
