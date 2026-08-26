@@ -1,19 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { autoridades, comunas, votaciones, votacionesCore, votacionesCamara, mociones } from '../lib/datos';
 
 const capacidades = [
 	'Investigación y Análisis',
 	'Comunicación y Estrategia',
 	'Desarrollo de Estudios y Reportes',
 	'Divulgación y Participación Ciudadana',
-];
-
-const cifras = [
-	{ valor: 2019, label: 'Trabajando desde', esAnio: true },
-	{ valor: autoridades.length, label: 'autoridades bajo seguimiento' },
-	{ valor: votaciones.length + votacionesCore.length + votacionesCamara.length, label: 'votaciones y acuerdos registrados' },
-	{ valor: mociones.length, label: 'mociones analizadas' },
 ];
 
 const pilares = [
@@ -61,6 +53,8 @@ const ICONOS: Record<string, string> = {
 	personas:
 		'M17 20h5v-2a4 4 0 0 0-3-3.87M9 20H4v-2a4 4 0 0 1 3-3.87m5-2.13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7-2a4 4 0 1 0 0-8m-14 8a4 4 0 1 1 0-8',
 };
+
+const items = [...pilares, ...loQueHacen];
 ---
 
 <Layout
@@ -82,190 +76,85 @@ const ICONOS: Record<string, string> = {
 		</div>
 	</section>
 
-	<main>
-		<section class="mx-auto max-w-6xl px-6 py-16">
-			<div class="reveal grid gap-10 lg:grid-cols-5 lg:gap-12">
-				<div class="lg:col-span-3">
-					<p class="leading-relaxed text-slate-700">
-						Nuestro trabajo se centra en el seguimiento, investigación y previsión de elecciones,
-						partidos políticos y la labor de autoridades, promoviendo una visión crítica e informada
-						que permita comprender y actuar en el escenario político local.
-					</p>
-					<p class="mt-4 leading-relaxed text-slate-700">
-						Nos ponemos al servicio de la comunidad a través de una plataforma dinámica e
-						interactiva, monitoreando y analizando la gestión comunal y legislativa. Difundimos esta
-						información en formatos accesibles y abiertos para fomentar el conocimiento, el control
-						ciudadano y el debate sobre la labor de quienes nos representan.
-					</p>
-					<p class="mt-4 leading-relaxed text-slate-700">
-						Aspiramos a ser un espacio de orientación, capacitación y asesoramiento en la gestión de
-						políticas públicas, conectando sus contenidos con la comunidad y los diversos actores de
-						la región.
-					</p>
-				</div>
+	<main class="mx-auto max-w-6xl px-6">
+		<section class="grid gap-10 py-16 lg:grid-cols-5 lg:gap-12">
+			<div class="lg:col-span-3">
+				<p class="leading-relaxed text-slate-700">
+					Nuestro trabajo se centra en el seguimiento, investigación y previsión de elecciones,
+					partidos políticos y la labor de autoridades, promoviendo una visión crítica e informada
+					que permita comprender y actuar en el escenario político local.
+				</p>
+				<p class="mt-4 leading-relaxed text-slate-700">
+					Nos ponemos al servicio de la comunidad a través de una plataforma dinámica e
+					interactiva, monitoreando y analizando la gestión comunal y legislativa. Difundimos esta
+					información en formatos accesibles y abiertos para fomentar el conocimiento, el control
+					ciudadano y el debate sobre la labor de quienes nos representan.
+				</p>
+				<p class="mt-4 leading-relaxed text-slate-700">
+					Aspiramos a ser un espacio de orientación, capacitación y asesoramiento en la gestión de
+					políticas públicas, conectando sus contenidos con la comunidad y los diversos actores de
+					la región.
+				</p>
+			</div>
 
-				<div class="lg:col-span-2">
-					<div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-						<img
-							src="/director-miguel.jpg"
-							alt="Miguel Torres Romero, director del Observatorio"
-							class="aspect-square w-full object-cover"
-						/>
-						<div class="p-6">
-							<p class="text-xs font-semibold tracking-wide text-slate-500 uppercase">Dirección</p>
-							<p class="mt-2 leading-relaxed text-slate-700">
-								El Observatorio es dirigido por <strong class="font-semibold text-slate-900">Miguel Torres Romero</strong>,
-								Cientista Político y Mg. (c) en Investigación en Ciencias Sociales de la Universidad de
-								Buenos Aires, Argentina, con experiencia en investigación y análisis político.
-							</p>
-							<ul class="mt-4 flex flex-wrap gap-2">
-								{capacidades.map((c) => (
-									<li class="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">{c}</li>
-								))}
-							</ul>
-						</div>
+			<div class="lg:col-span-2">
+				<div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+					<img
+						src="/director-miguel.jpg"
+						alt="Miguel Torres Romero, director del Observatorio"
+						class="aspect-square w-full object-cover"
+					/>
+					<div class="p-6">
+						<p class="text-xs font-semibold tracking-wide text-slate-500 uppercase">Dirección</p>
+						<p class="mt-2 leading-relaxed text-slate-700">
+							El Observatorio es dirigido por <strong class="font-semibold text-slate-900">Miguel Torres Romero</strong>,
+							Cientista Político y Mg. (c) en Investigación en Ciencias Sociales de la Universidad de
+							Buenos Aires, Argentina, con experiencia en investigación y análisis político.
+						</p>
+						<ul class="mt-4 flex flex-wrap gap-2">
+							{capacidades.map((c) => (
+								<li class="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">{c}</li>
+							))}
+						</ul>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="border-y border-slate-100 bg-slate-50">
-			<dl class="reveal mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-12 sm:grid-cols-4">
-				{cifras.map((c) => (
-					<div class="text-center sm:text-left">
-						<dt
-							class="cifra text-4xl font-bold tabular-nums text-brand-600"
-							data-valor={c.valor}
-							data-es-anio={c.esAnio ? '1' : '0'}
-						>
-							{c.esAnio ? c.valor : c.valor.toLocaleString('es-CL')}
-						</dt>
-						<dd class="mt-1 text-sm font-medium text-slate-600">{c.label}</dd>
+		<section class="border-t border-slate-200 py-16">
+			<h2 class="text-2xl font-bold tracking-tight text-slate-900">Qué hacemos y cómo trabajamos</h2>
+			<p class="mt-2 max-w-2xl text-sm text-slate-600">
+				Analizamos, monitoreamos y difundimos información clave sobre la política en la Región de
+				Coquimbo, con un método abierto y verificable.
+			</p>
+			<div class="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+				{items.map((item) => (
+					<div class="flex gap-4">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 shrink-0 text-brand-600">
+							<path d={ICONOS[item.icono]} />
+						</svg>
+						<div>
+							<h3 class="font-semibold text-slate-900">{item.titulo}</h3>
+							<p class="mt-1.5 text-sm leading-relaxed text-slate-600">{item.texto}</p>
+						</div>
 					</div>
 				))}
-			</dl>
-		</section>
-
-		<section class="bg-white">
-			<div class="reveal mx-auto max-w-6xl px-6 py-16">
-				<h2 class="text-2xl font-bold tracking-tight text-slate-900">Cómo trabajamos</h2>
-				<div class="mt-8 grid gap-8 sm:grid-cols-2">
-					{pilares.map((p) => (
-						<div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-							<div class="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
-								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-									<path d={ICONOS[p.icono]} />
-								</svg>
-							</div>
-							<h3 class="mt-4 font-semibold text-slate-900">{p.titulo}</h3>
-							<p class="mt-2 text-sm leading-relaxed text-slate-600">{p.texto}</p>
-						</div>
-					))}
-				</div>
-			</div>
-		</section>
-
-		<section class="border-t border-slate-100 bg-slate-50">
-			<div class="reveal mx-auto max-w-6xl px-6 py-16">
-				<h2 class="text-2xl font-bold tracking-tight text-slate-900">Lo que hacemos</h2>
-				<p class="mt-2 max-w-2xl text-sm text-slate-600">
-					Analizamos, monitoreamos y difundimos información clave sobre la política en la Región de
-					Coquimbo. Buscamos fortalecer la transparencia, la participación ciudadana y el control
-					democrático a través de datos y análisis accesibles.
-				</p>
-				<div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-					{loQueHacen.map((item) => (
-						<div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md">
-							<div class="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
-								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-									<path d={ICONOS[item.icono]} />
-								</svg>
-							</div>
-							<h3 class="mt-4 font-semibold text-slate-900">{item.titulo}</h3>
-							<p class="mt-2 text-sm leading-relaxed text-slate-600">{item.texto}</p>
-						</div>
-					))}
-				</div>
-			</div>
-		</section>
-
-		<section class="bg-brand-600">
-			<div class="reveal mx-auto max-w-6xl px-6 py-14 text-center">
-				<h2 class="text-2xl font-bold tracking-tight text-white">¿Tienes una pregunta o un dato para nosotros?</h2>
-				<p class="mx-auto mt-2 max-w-2xl text-brand-100">
-					Escríbenos si encontraste un error, tienes una idea o quieres colaborar con el Observatorio.
-				</p>
-				<a
-					href="/contacto/"
-					class="mt-6 inline-block rounded-md bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow-lg hover:bg-brand-50"
-				>
-					Escríbenos
-				</a>
 			</div>
 		</section>
 	</main>
 
-	<script>
-		// Progresivo: el contenido ya es visible por defecto en el HTML. Solo si
-		// el JS corre a tiempo lo escondemos para animar su entrada al hacer scroll.
-		const prefiereMenosMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-		if (!prefiereMenosMovimiento) {
-			document.querySelectorAll<HTMLElement>('.reveal').forEach((el) => {
-				el.classList.add('reveal-init');
-				const observer = new IntersectionObserver(
-					(entries) => {
-						entries.forEach((entry) => {
-							if (entry.isIntersecting) {
-								entry.target.classList.add('is-visible');
-								observer.unobserve(entry.target);
-							}
-						});
-					},
-					{ threshold: 0.15 }
-				);
-				observer.observe(el);
-			});
-		}
-
-		document.querySelectorAll<HTMLElement>('.cifra').forEach((el) => {
-			if (prefiereMenosMovimiento) return;
-			const destino = Number(el.dataset.valor ?? '0');
-			const esAnio = el.dataset.esAnio === '1';
-
-			const observer = new IntersectionObserver(
-				(entries) => {
-					entries.forEach((entry) => {
-						if (!entry.isIntersecting) return;
-						observer.unobserve(entry.target);
-						const inicio = esAnio ? destino - 12 : 0;
-						const duracionMs = 1200;
-						const t0 = performance.now();
-						function paso(ahora: number) {
-							const progreso = Math.min(1, (ahora - t0) / duracionMs);
-							const facilitado = 1 - Math.pow(1 - progreso, 3);
-							const valorActual = Math.round(inicio + (destino - inicio) * facilitado);
-							el.textContent = esAnio ? String(valorActual) : valorActual.toLocaleString('es-CL');
-							if (progreso < 1) requestAnimationFrame(paso);
-						}
-						requestAnimationFrame(paso);
-					});
-				},
-				{ threshold: 0.5 }
-			);
-			observer.observe(el);
-		});
-	</script>
-
-	<style>
-		.reveal.reveal-init {
-			opacity: 0;
-			transform: translateY(18px);
-			transition: opacity 0.7s ease, transform 0.7s ease;
-		}
-		.reveal.reveal-init.is-visible {
-			opacity: 1;
-			transform: none;
-		}
-	</style>
+	<section class="bg-brand-600">
+		<div class="mx-auto max-w-6xl px-6 py-14 text-center">
+			<h2 class="text-2xl font-bold tracking-tight text-white">¿Tienes una pregunta o un dato para nosotros?</h2>
+			<p class="mx-auto mt-2 max-w-2xl text-brand-100">
+				Escríbenos si encontraste un error, tienes una idea o quieres colaborar con el Observatorio.
+			</p>
+			<a
+				href="/contacto/"
+				class="mt-6 inline-block rounded-md bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow-lg hover:bg-brand-50"
+			>
+				Escríbenos
+			</a>
+		</div>
+	</section>
 </Layout>
