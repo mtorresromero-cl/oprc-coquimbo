@@ -18,10 +18,10 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAAEcSbMqJvOAlX1zo';
 		<div class="relative mx-auto max-w-6xl px-6 py-16">
 			<p class="text-sm font-semibold tracking-widest text-brand-600 uppercase">Contacto</p>
 			<h1 class="mt-3 max-w-2xl text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-				¿Tenés un dato, una alerta o una consulta?
+				¿Tienes un dato, una alerta o una consulta?
 			</h1>
 			<p class="mt-4 max-w-xl text-lg text-slate-600">
-				Escribinos. Ya sea una corrección a un dato, una idea para el observatorio o algo que
+				Escríbenos. Ya sea una corrección a un dato, una idea para el observatorio o algo que
 				creas que deberíamos estar mirando en tu comuna — te leemos.
 			</p>
 		</div>
@@ -33,7 +33,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAAEcSbMqJvOAlX1zo';
 				<form id="form-contacto">
 					<h2 class="text-lg font-semibold text-slate-900">Escríbenos</h2>
 					<p class="mt-1 text-sm text-slate-500">
-						Si tenés problemas con el formulario, escribinos directo a{' '}
+						Si tienes problemas con el formulario, escríbenos directo a{' '}
 						<a href="mailto:contacto@oprcoquimbo.cl" class="font-medium text-brand-600 hover:underline">contacto@oprcoquimbo.cl</a>.
 					</p>
 
@@ -122,7 +122,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAAEcSbMqJvOAlX1zo';
 							throw new Error(datos.error || 'error desconocido');
 						}
 					} catch (err) {
-						error.textContent = 'No se pudo enviar el mensaje. Probá de nuevo o escribinos directo a contacto@oprcoquimbo.cl.';
+						error.textContent = 'No se pudo enviar el mensaje. Intenta de nuevo o escríbenos directo a contacto@oprcoquimbo.cl.';
 						error.classList.remove('hidden');
 						boton.disabled = false;
 						boton.textContent = 'Enviar mensaje';

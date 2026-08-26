@@ -94,7 +94,7 @@ function esUnanime(v: (typeof votacionesCore)[number]) {
 		<div class="mx-auto max-w-6xl px-6 py-12">
 			<h1 class="text-3xl font-bold tracking-tight text-slate-900">Congreso y Consejo Regional</h1>
 			<p class="mt-2 max-w-2xl text-slate-600">
-				Elegí a quién mirar. Cada cámara muestra su ranking de participación y sus votaciones o
+				Elige a quién mirar. Cada cámara muestra su ranking de participación y sus votaciones o
 				acuerdos más recientes juntos. El grupo "Consejo Regional" incluye a los 16 consejeros y al
 				gobernador regional, que participa de los mismos acuerdos. Diputados y diputadas solo
 				cuentan con las votaciones más recientes (camara.cl no permite navegar el historial
@@ -366,7 +366,7 @@ function esUnanime(v: (typeof votacionesCore)[number]) {
 				const badge = i.esGobernador
 					? '<span class="shrink-0 whitespace-nowrap rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Gobernador/a Regional</span>'
 					: '';
-				return `<span class="truncate">${i.nombre}</span>${badge}`;
+				return `<span class="min-w-0 truncate">${i.nombre}</span>${badge}`;
 			}
 
 			const chart = document.getElementById('chart')!;
@@ -375,12 +375,12 @@ function esUnanime(v: (typeof votacionesCore)[number]) {
 					const valor = i.metrics[metricaActiva];
 					const anchoPct = valor === null ? 0 : (valor / max) * 100;
 					return `
-						<div class="flex items-center gap-3 py-1.5">
-							<a href="/autoridades/${i.id}/" class="flex w-64 shrink-0 items-center gap-1.5 text-sm text-slate-700 hover:text-brand-600 hover:underline">${etiquetaNombre(i)}</a>
+						<div class="flex items-center gap-2 py-1.5 sm:gap-3">
+							<a href="/autoridades/${i.id}/" class="flex w-24 shrink-0 items-center gap-1.5 text-sm text-slate-700 hover:text-brand-600 hover:underline sm:w-64">${etiquetaNombre(i)}</a>
 							<div class="h-5 flex-1 rounded bg-slate-100">
 								<div class="h-5 rounded bg-brand-600" style="width:${anchoPct}%"></div>
 							</div>
-							<span class="w-32 shrink-0 text-right text-sm font-medium text-slate-900">${formatoValor(metricaActiva, valor)}</span>
+							<span class="w-16 shrink-0 text-right text-sm font-medium text-slate-900 sm:w-32">${formatoValor(metricaActiva, valor)}</span>
 						</div>`;
 				})
 				.join('');
