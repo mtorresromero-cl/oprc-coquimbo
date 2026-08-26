@@ -119,25 +119,27 @@ const nodos = [
 				</p>
 			</div>
 
-			<div class="radar-face relative aspect-square w-full self-start rounded-xl border border-slate-200 p-3 shadow-sm" role="img" aria-label="Radar con las seis áreas de trabajo del Observatorio">
-				<div class="absolute inset-[13%] rounded-full border border-brand-400/25"></div>
-				<div class="absolute inset-[30%] rounded-full border border-brand-400/25"></div>
-				<div class="absolute inset-[47%] rounded-full border border-brand-400/25"></div>
+			<div class="flex items-center justify-center">
+				<div class="radar-face relative aspect-square w-full max-w-[19rem]" role="img" aria-label="Radar con las seis áreas de trabajo del Observatorio">
+					<div class="absolute inset-[13%] rounded-full border border-slate-200"></div>
+					<div class="absolute inset-[30%] rounded-full border border-slate-200"></div>
+					<div class="absolute inset-[47%] rounded-full border border-slate-200"></div>
 
-				<div class="absolute inset-3 overflow-hidden rounded-full">
-					<div class="radar-sweep absolute inset-0"></div>
-				</div>
-
-				<div class="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-200"></div>
-
-				{nodos.map((nd) => (
-					<div class="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${nd.left}%`, top: `${nd.top}%` }}>
-						<span class="radar-blip mx-auto block h-2 w-2 rounded-full bg-brand-200" style={{ animationDelay: `${nd.delay}s` }}></span>
-						<span class="absolute top-4 left-1/2 w-20 -translate-x-1/2 text-center text-[9.5px] leading-tight font-medium text-brand-100">
-							{nd.l1}<br />{nd.l2}
-						</span>
+					<div class="absolute inset-0 overflow-hidden rounded-full">
+						<div class="radar-sweep absolute inset-0"></div>
 					</div>
-				))}
+
+					<div class="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-600"></div>
+
+					{nodos.map((nd) => (
+						<div class="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${nd.left}%`, top: `${nd.top}%` }}>
+							<span class="radar-blip mx-auto block h-2 w-2 rounded-full bg-brand-600" style={{ animationDelay: `${nd.delay}s` }}></span>
+							<span class="absolute top-4 left-1/2 w-20 -translate-x-1/2 text-center text-[9.5px] leading-tight font-medium text-slate-600">
+								{nd.l1}<br />{nd.l2}
+							</span>
+						</div>
+					))}
+				</div>
 			</div>
 		</div>
 
@@ -186,11 +188,8 @@ const nodos = [
 	</section>
 
 	<style>
-		.radar-face {
-			background: radial-gradient(circle, #2a0a0a 0%, #1a0505 65%, #100202 100%);
-		}
 		.radar-sweep {
-			background: conic-gradient(from 0deg, transparent 0deg, rgba(245, 179, 179, 0.4) 18deg, transparent 60deg);
+			background: conic-gradient(from 0deg, transparent 0deg, rgba(170, 0, 0, 0.16) 18deg, transparent 60deg);
 			animation: radar-spin 4s linear infinite;
 		}
 		@keyframes radar-spin {
@@ -200,8 +199,8 @@ const nodos = [
 			animation: radar-blip 4s ease-out infinite;
 		}
 		@keyframes radar-blip {
-			0%, 92% { box-shadow: 0 0 0 0 rgba(245, 179, 179, 0.6); }
-			4% { box-shadow: 0 0 0 6px rgba(245, 179, 179, 0); }
+			0%, 92% { box-shadow: 0 0 0 0 rgba(170, 0, 0, 0.45); }
+			4% { box-shadow: 0 0 0 6px rgba(170, 0, 0, 0); }
 		}
 		@media (prefers-reduced-motion: reduce) {
 			.radar-sweep {
