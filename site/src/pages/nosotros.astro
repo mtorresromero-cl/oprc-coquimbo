@@ -31,18 +31,24 @@ const items = [
 // Puntos del radar: las mismas 6 áreas de "Qué hacemos", distribuidas cada
 // 60° alrededor del centro. El barrido (sweep) gira continuamente y cada
 // punto destella cuando el barrido lo "detecta", con el mismo desfase.
-const RADIO = 38; // % del contenedor
-const nodos = ['Información Pública', 'Evaluación de Gestión', 'Monitoreo en Vivo', 'Participación Ciudadana', 'Datos y Metodología', 'Transparencia Financiera'].map(
-	(label, i) => {
-		const angulo = (-90 + i * 60) * (Math.PI / 180);
-		return {
-			label,
-			left: 50 + RADIO * Math.cos(angulo),
-			top: 50 + RADIO * Math.sin(angulo),
-			delay: (i * 4) / 6,
-		};
-	}
-);
+const RADIO = 36; // % del contenedor
+const nodos = [
+	['Información', 'Pública'],
+	['Evaluación', 'de Gestión'],
+	['Monitoreo', 'en Vivo'],
+	['Participación', 'Ciudadana'],
+	['Datos y', 'Metodología'],
+	['Transparencia', 'Financiera'],
+].map(([l1, l2], i) => {
+	const angulo = (-90 + i * 60) * (Math.PI / 180);
+	return {
+		l1,
+		l2,
+		left: 50 + RADIO * Math.cos(angulo),
+		top: 50 + RADIO * Math.sin(angulo),
+		delay: (i * 4) / 6,
+	};
+});
 ---
 
 <Layout
@@ -113,27 +119,25 @@ const nodos = ['Información Pública', 'Evaluación de Gestión', 'Monitoreo en
 				</p>
 			</div>
 
-			<div class="flex items-center justify-center rounded-xl border border-slate-200 bg-slate-900 p-6 shadow-sm">
-				<div class="radar-face relative aspect-square w-full max-w-[19rem] rounded-full" role="img" aria-label="Radar con las seis áreas de trabajo del Observatorio">
-					<div class="absolute inset-[10%] rounded-full border border-brand-400/25"></div>
-					<div class="absolute inset-[28%] rounded-full border border-brand-400/25"></div>
-					<div class="absolute inset-[46%] rounded-full border border-brand-400/25"></div>
+			<div class="radar-face relative aspect-square w-full self-start rounded-xl border border-slate-200 p-3 shadow-sm" role="img" aria-label="Radar con las seis áreas de trabajo del Observatorio">
+				<div class="absolute inset-[13%] rounded-full border border-brand-400/25"></div>
+				<div class="absolute inset-[30%] rounded-full border border-brand-400/25"></div>
+				<div class="absolute inset-[47%] rounded-full border border-brand-400/25"></div>
 
-					<div class="absolute inset-0 overflow-hidden rounded-full">
-						<div class="radar-sweep absolute inset-0"></div>
-					</div>
-
-					<div class="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-200"></div>
-
-					{nodos.map((nd) => (
-						<div class="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${nd.left}%`, top: `${nd.top}%` }}>
-							<span class="radar-blip block h-2 w-2 rounded-full bg-brand-200" style={{ animationDelay: `${nd.delay}s` }}></span>
-							<span class="absolute top-4 left-1/2 w-max -translate-x-1/2 text-center text-[10px] font-medium text-brand-100">
-								{nd.label}
-							</span>
-						</div>
-					))}
+				<div class="absolute inset-3 overflow-hidden rounded-full">
+					<div class="radar-sweep absolute inset-0"></div>
 				</div>
+
+				<div class="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-200"></div>
+
+				{nodos.map((nd) => (
+					<div class="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${nd.left}%`, top: `${nd.top}%` }}>
+						<span class="radar-blip mx-auto block h-2 w-2 rounded-full bg-brand-200" style={{ animationDelay: `${nd.delay}s` }}></span>
+						<span class="absolute top-4 left-1/2 w-20 -translate-x-1/2 text-center text-[9.5px] leading-tight font-medium text-brand-100">
+							{nd.l1}<br />{nd.l2}
+						</span>
+					</div>
+				))}
 			</div>
 		</div>
 
@@ -183,7 +187,7 @@ const nodos = ['Información Pública', 'Evaluación de Gestión', 'Monitoreo en
 
 	<style>
 		.radar-face {
-			background: radial-gradient(circle, #1e0505 0%, #0f172a 75%);
+			background: radial-gradient(circle, #2a0a0a 0%, #1a0505 65%, #100202 100%);
 		}
 		.radar-sweep {
 			background: conic-gradient(from 0deg, transparent 0deg, rgba(245, 179, 179, 0.4) 18deg, transparent 60deg);
