@@ -1,3 +1,6 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
 export interface Autoridad {
 	id: string;
 	nombre: string;
@@ -305,6 +308,31 @@ export const CARGO_LABEL: Record<string, string> = {
 	senador: 'Senador/a',
 	gobernador: 'Gobernador/a Regional',
 };
+
+export const GRUPO_LABEL: Record<string, string> = {
+	senador: 'Senadores',
+	diputado: 'Diputados',
+	gobernador: 'Gobernador Regional',
+	core: 'Consejo Regional',
+	alcalde: 'Alcaldes',
+	concejal: 'Concejales',
+};
+
+// Fotos de autoridades: se suben manualmente a site/public/autoridades/,
+// nombradas exactamente como el id de la autoridad (el mismo slug que usa
+// su URL /autoridades/{id}/), en jpg/jpeg/png/webp. Si no existe el
+// archivo, se usa el fallback de iniciales en el template.
+const FOTOS_DIR = path.join(process.cwd(), 'public', 'autoridades');
+const EXTENSIONES_FOTO = ['jpg', 'jpeg', 'png', 'webp'];
+
+export function fotoAutoridad(id: string): string | null {
+	for (const ext of EXTENSIONES_FOTO) {
+		if (fs.existsSync(path.join(FOTOS_DIR, `${id}.${ext}`))) {
+			return `/autoridades/${id}.${ext}`;
+		}
+	}
+	return null;
+}
 
 export function nombreComuna(comunaId: string | null): string | null {
 	if (!comunaId) return null;

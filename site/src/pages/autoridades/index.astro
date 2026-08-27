@@ -1,14 +1,16 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { autoridades, comunas, CARGOS, CARGO_LABEL, nombreComuna } from '../../lib/datos';
+import { autoridades, comunas, CARGOS, CARGO_LABEL, GRUPO_LABEL, nombreComuna, fotoAutoridad } from '../../lib/datos';
 
 const partidos = [...new Set(autoridades.map((a) => a.partido).filter(Boolean))].sort() as string[];
 
-const ORDEN_CARGO = Object.fromEntries(CARGOS.map((c, i) => [c, i]));
-const autoridadesOrdenadas = [...autoridades].sort((a, b) => {
-	const porCargo = (ORDEN_CARGO[a.cargo] ?? 99) - (ORDEN_CARGO[b.cargo] ?? 99);
-	return porCargo !== 0 ? porCargo : a.nombre_completo.localeCompare(b.nombre_completo);
-});
+const grupos = CARGOS.map((cargo) => ({
+	cargo,
+	label: GRUPO_LABEL[cargo] ?? cargo,
+	items: autoridades
+		.filter((a) => a.cargo === cargo)
+		.sort((a, b) => a.nombre_completo.localeCompare(b.nombre_completo)),
+})).filter((g) => g.items.length > 0);
 
 function iniciales(nombre: string) {
 	const partes = nombre.split(' ').filter(Boolean);
@@ -46,30 +48,46 @@ function iniciales(nombre: string) {
 			<span id="contador" class="self-center text-sm text-slate-500"></span>
 		</div>
 
-		<ul id="lista-autoridades" class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-			{autoridadesOrdenadas.map((a) => (
-				<li
-					class="fila-autoridad rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
-					data-cargo={a.cargo}
-					data-comuna={a.comuna ?? ''}
-					data-partido={a.partido ?? ''}
-				>
-					<a href={`/autoridades/${a.id}/`} class="flex items-start gap-3">
-						<span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-700">
-							{iniciales(a.nombre_completo)}
-						</span>
-						<span>
-							<p class="font-semibold text-slate-900">{a.nombre_completo}</p>
-							<p class="mt-1 text-sm text-slate-600">
-								{CARGO_LABEL[a.cargo] ?? a.cargo}
-								{a.comuna && ` · ${nombreComuna(a.comuna)}`}
-								{a.partido && ` · ${a.partido}`}
-							</p>
-						</span>
-					</a>
-				</li>
+		<div id="grupos-autoridades" class="mt-10 space-y-12">
+			{grupos.map((g) => (
+				<section class="grupo-cargo" data-grupo-cargo={g.cargo}>
+					<h2 class="text-lg font-bold tracking-tight text-slate-900">
+						{g.label} <span class="font-normal text-slate-400">({g.items.length})</span>
+					</h2>
+					<ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+						{g.items.map((a) => {
+							const foto = fotoAutoridad(a.id);
+							return (
+								<li
+									class="fila-autoridad rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
+									data-cargo={a.cargo}
+									data-comuna={a.comuna ?? ''}
+									data-partido={a.partido ?? ''}
+								>
+									<a href={`/autoridades/${a.id}/`} class="flex items-start gap-3">
+										{foto ? (
+											<img src={foto} alt={a.nombre_completo} class="h-10 w-10 shrink-0 rounded-full object-cover" />
+										) : (
+											<span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-700">
+												{iniciales(a.nombre_completo)}
+											</span>
+										)}
+										<span>
+											<p class="font-semibold text-slate-900">{a.nombre_completo}</p>
+											<p class="mt-1 text-sm text-slate-600">
+												{CARGO_LABEL[a.cargo] ?? a.cargo}
+												{a.comuna && ` · ${nombreComuna(a.comuna)}`}
+												{a.partido && ` · ${a.partido}`}
+											</p>
+										</span>
+									</a>
+								</li>
+							);
+						})}
+					</ul>
+				</section>
 			))}
-		</ul>
+		</div>
 
 		<p id="sin-resultados" class="mt-8 hidden text-sm text-slate-500">
 			No hay autoridades que coincidan con los filtros seleccionados.
@@ -81,6 +99,7 @@ function iniciales(nombre: string) {
 		const filtroComuna = document.getElementById('filtro-comuna') as HTMLSelectElement;
 		const filtroPartido = document.getElementById('filtro-partido') as HTMLSelectElement;
 		const filas = Array.from(document.querySelectorAll<HTMLLIElement>('.fila-autoridad'));
+		const grupoSecciones = Array.from(document.querySelectorAll<HTMLElement>('.grupo-cargo'));
 		const contador = document.getElementById('contador')!;
 		const sinResultados = document.getElementById('sin-resultados')!;
 
@@ -97,6 +116,11 @@ function iniciales(nombre: string) {
 					(!partido || fila.dataset.partido === partido);
 				fila.classList.toggle('hidden', !coincide);
 				if (coincide) visibles++;
+			}
+
+			for (const seccion of grupoSecciones) {
+				const tieneVisibles = seccion.querySelectorAll('.fila-autoridad:not(.hidden)').length > 0;
+				seccion.classList.toggle('hidden', !tieneVisibles);
 			}
 
 			contador.textContent = `${visibles} de ${filas.length}`;
