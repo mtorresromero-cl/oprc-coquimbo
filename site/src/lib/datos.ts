@@ -351,11 +351,21 @@ const PARTIDO_ALIAS: Record<string, string> = {
 	'Partido Comunista (PC)': 'Partido Comunista',
 	'Partido Socialista de Chile': 'Partido Socialista',
 	'Partido Socialista (PS)': 'Partido Socialista',
+	'Partido Socialista de Chile (PS)': 'Partido Socialista',
+	PS: 'Partido Socialista',
 	'Unión Demócrata Independiente (UDI)': 'Unión Demócrata Independiente',
 	'Frente Amplio (FA)': 'Frente Amplio',
 	'Partido de la Gente (PDG)': 'Partido de la Gente',
 	'Partido Nacional Libertario (PNL)': 'Partido Nacional Libertario',
 	'Independiente (cupo PC, lista Unidad por Chile)': 'Independiente',
+	'Renovación Nacional (RN)': 'Renovación Nacional',
+	RN: 'Renovación Nacional',
+	'Partido Republicano de Chile': 'Partido Republicano',
+	'Partido Demócrata Cristiano (PDC)': 'Partido Demócrata Cristiano',
+	DC: 'Partido Demócrata Cristiano',
+	'Partido Por la Democracia (PPD)': 'Partido Por la Democracia',
+	'Partido Demócratas Chile': 'Partido Demócratas',
+	Demócratas: 'Partido Demócratas',
 };
 
 export interface ComposicionPartido {
@@ -364,16 +374,16 @@ export interface ComposicionPartido {
 }
 
 /**
- * Composición por partido de diputados, senadores, consejeros regionales
- * y el gobernador (27 personas) — no incluye alcaldes/concejales, donde
- * "partido" tiene muchas más variantes sin normalizar y el volumen (100+
- * concejales) diluiría la lectura de la composición legislativa/CORE.
+ * Composición por partido de las 142 autoridades (alcaldes, concejales,
+ * consejeros regionales, gobernador, diputados y senadores). Normaliza
+ * variantes reales observadas en los datos (siglas, "de Chile", etc.) vía
+ * PARTIDO_ALIAS de forma explícita, en vez de un regex que podría fusionar
+ * partidos distintos por error.
  */
-export function composicionPartidoLegislativoCore(): ComposicionPartido[] {
-	const cargos = new Set(['diputado', 'senador', 'core', 'gobernador']);
+export function composicionPartidoTodos(): ComposicionPartido[] {
 	const conteo = new Map<string, number>();
 	for (const a of autoridades) {
-		if (!cargos.has(a.cargo) || !a.partido) continue;
+		if (!a.partido) continue;
 		const partido = PARTIDO_ALIAS[a.partido] ?? a.partido;
 		conteo.set(partido, (conteo.get(partido) ?? 0) + 1);
 	}
