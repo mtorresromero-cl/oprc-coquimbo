@@ -295,7 +295,7 @@ export function votacionesDeAutoridad(autoridadId: string) {
 		.filter((x) => x.voto);
 }
 
-export const CARGOS = ['alcalde', 'concejal', 'core', 'diputado', 'senador', 'gobernador'] as const;
+export const CARGOS = ['senador', 'diputado', 'gobernador', 'core', 'alcalde', 'concejal'] as const;
 
 export const CARGO_LABEL: Record<string, string> = {
 	alcalde: 'Alcalde/sa',

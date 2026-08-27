@@ -6,9 +6,8 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   redirects: {
-    '/parlamentarios': '/congreso/',
-    '/consejo-regional': '/congreso/',
-    '/dashboard': '/congreso/',
+    '/congreso': '/parlamentarios/',
+    '/dashboard': '/parlamentarios/',
   },
   vite: {
     plugins: [tailwindcss()]

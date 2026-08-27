@@ -4,6 +4,12 @@ import { autoridades, comunas, CARGOS, CARGO_LABEL, nombreComuna } from '../../l
 
 const partidos = [...new Set(autoridades.map((a) => a.partido).filter(Boolean))].sort() as string[];
 
+const ORDEN_CARGO = Object.fromEntries(CARGOS.map((c, i) => [c, i]));
+const autoridadesOrdenadas = [...autoridades].sort((a, b) => {
+	const porCargo = (ORDEN_CARGO[a.cargo] ?? 99) - (ORDEN_CARGO[b.cargo] ?? 99);
+	return porCargo !== 0 ? porCargo : a.nombre_completo.localeCompare(b.nombre_completo);
+});
+
 function iniciales(nombre: string) {
 	const partes = nombre.split(' ').filter(Boolean);
 	return ((partes[0]?.[0] ?? '') + (partes[1]?.[0] ?? '')).toUpperCase();
@@ -11,14 +17,17 @@ function iniciales(nombre: string) {
 ---
 
 <Layout title="Autoridades — OPRC" description="Alcaldes, concejales, consejeros regionales, diputados y senadores de la Región de Coquimbo.">
-	<div class="border-b border-slate-100 bg-slate-50">
-		<div class="mx-auto max-w-6xl px-6 py-12">
-			<h1 class="text-3xl font-bold tracking-tight text-slate-900">Autoridades</h1>
-			<p class="mt-2 text-slate-600">
+	<section class="relative overflow-hidden bg-slate-900">
+		<div class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"></div>
+		<div class="pointer-events-none absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full bg-brand-800/30 blur-3xl"></div>
+		<div class="relative mx-auto max-w-6xl px-6 py-20">
+			<p class="text-sm font-semibold tracking-widest text-brand-300 uppercase">Datos</p>
+			<h1 class="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">Autoridades</h1>
+			<p class="mt-5 max-w-2xl text-lg text-slate-300">
 				Listado de {autoridades.length} autoridades políticas de la Región de Coquimbo.
 			</p>
 		</div>
-	</div>
+	</section>
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
 		<div class="flex flex-wrap gap-3">
@@ -38,7 +47,7 @@ function iniciales(nombre: string) {
 		</div>
 
 		<ul id="lista-autoridades" class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-			{autoridades.map((a) => (
+			{autoridadesOrdenadas.map((a) => (
 				<li
 					class="fila-autoridad rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
 					data-cargo={a.cargo}

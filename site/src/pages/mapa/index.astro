@@ -26,18 +26,21 @@ const indicadores = comunas.map((c) => {
 	title="Mapa de la Región — OPRC"
 	description="Mapa interactivo de las 15 comunas de la Región de Coquimbo, con cobertura de datos de transparencia y dotación municipal."
 >
-	<div class="border-b border-slate-100 bg-slate-50">
-		<div class="mx-auto max-w-6xl px-6 py-12">
-			<h1 class="text-3xl font-bold tracking-tight text-slate-900">Mapa de la Región</h1>
-			<p class="mt-2 max-w-2xl text-slate-600">
-				Las 15 comunas de la Región de Coquimbo. Elige un indicador para colorear el mapa, o
-				tocá una comuna para ver su ficha completa. Límites administrativos de
-				<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" class="text-brand-600 hover:underline">
+	<section class="relative overflow-hidden bg-slate-900">
+		<div class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"></div>
+		<div class="pointer-events-none absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full bg-brand-800/30 blur-3xl"></div>
+		<div class="relative mx-auto max-w-6xl px-6 py-20">
+			<p class="text-sm font-semibold tracking-widest text-brand-300 uppercase">Datos</p>
+			<h1 class="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">Mapa de la Región</h1>
+			<p class="mt-5 max-w-2xl text-lg text-slate-300">
+				Las 15 comunas de la Región de Coquimbo. Elige un indicador para colorear el mapa, o toca
+				una comuna para ver su ficha completa. Límites administrativos de
+				<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" class="text-brand-300 hover:underline">
 					OpenStreetMap
 				</a>.
 			</p>
 		</div>
-	</div>
+	</section>
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
 		<div class="mb-4 flex flex-wrap gap-2">

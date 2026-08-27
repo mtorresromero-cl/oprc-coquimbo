@@ -39,10 +39,16 @@ const secciones = [
 		icono: 'edificio',
 	},
 	{
-		href: '/congreso/',
-		titulo: 'Congreso y Consejo Regional',
-		descripcion: 'Ranking de participación y votaciones o acuerdos recientes de senadores, diputados y consejeros regionales.',
+		href: '/parlamentarios/',
+		titulo: 'Parlamentarios',
+		descripcion: 'Ranking de participación y votaciones recientes de senadores y diputados de la región.',
 		icono: 'columnas',
+	},
+	{
+		href: '/consejo-regional/',
+		titulo: 'Consejo Regional',
+		descripcion: 'Ranking de participación y acuerdos recientes de los consejeros regionales y el gobernador.',
+		icono: 'acuerdo',
 	},
 ];
 
@@ -72,6 +78,7 @@ const ICONOS: Record<string, string> = {
 	escudo: 'M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Zm-2.5 9 2 2 4-4',
 	grafico: 'M4 20V10m6 10V4m6 16v-7',
 	columnas: 'M3 21h18M4 21V10m4 11V10m4 11V10m4 11V10m4 11V10M2 10l10-6 10 6',
+	acuerdo: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11',
 };
 ---
 
@@ -175,7 +182,7 @@ const ICONOS: Record<string, string> = {
 		<section class="border-t border-slate-100 bg-slate-50">
 			<div class="mx-auto max-w-6xl px-6 py-16">
 				<h2 class="text-2xl font-bold tracking-tight text-slate-900">Explorar los datos</h2>
-				<div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+				<div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 					{secciones.map((s) => (
 						<a
 							href={s.href}
