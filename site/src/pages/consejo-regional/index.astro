@@ -207,7 +207,7 @@ const METRICAS: [string, string][] = [
 			const cont = document.getElementById('metricas')!;
 			cont.innerHTML = METRICAS.map(
 				([key, label]) =>
-					`<button type="button" data-metrica="${key}" class="metrica-btn rounded-full px-3 py-1 text-xs font-medium ${
+					`<button type="button" data-metrica="${key}" class="metrica-btn cursor-pointer rounded-full px-3 py-1 text-xs font-medium ${
 						key === metricaActiva ? 'bg-slate-800 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
 					}">${label}</button>`
 			).join('');

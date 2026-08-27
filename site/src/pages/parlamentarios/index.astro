@@ -83,10 +83,10 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
 		<div class="flex flex-wrap gap-2">
-			<button type="button" data-grupo="senado" class="grupo-btn rounded-md bg-brand-600 px-4 py-2 text-sm font-semibold text-white">
+			<button type="button" data-grupo="senado" class="grupo-btn cursor-pointer rounded-md px-4 py-2 text-sm font-semibold bg-brand-600 text-white hover:bg-brand-700">
 				Senado
 			</button>
-			<button type="button" data-grupo="diputados" class="grupo-btn rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+			<button type="button" data-grupo="diputados" class="grupo-btn cursor-pointer rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
 				Diputados
 			</button>
 		</div>
@@ -257,7 +257,7 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 			cont.innerHTML = METRICAS[grupoActivo]
 				.map(
 					([key, label]) =>
-						`<button type="button" data-metrica="${key}" class="metrica-btn rounded-full px-3 py-1 text-xs font-medium ${
+						`<button type="button" data-metrica="${key}" class="metrica-btn cursor-pointer rounded-full px-3 py-1 text-xs font-medium ${
 							key === metricaActiva ? 'bg-slate-800 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
 						}">${label}</button>`
 				)
@@ -322,11 +322,11 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 				grupoActivo = btn.dataset.grupo as GrupoKey;
 				metricaActiva = METRICAS[grupoActivo][0][0];
 				document.querySelectorAll('.grupo-btn').forEach((b) => {
-					b.classList.remove('bg-brand-600', 'text-white');
-					b.classList.add('border', 'border-slate-300', 'text-slate-700');
+					b.classList.remove('bg-brand-600', 'text-white', 'hover:bg-brand-700');
+					b.classList.add('border', 'border-slate-300', 'text-slate-700', 'hover:bg-slate-50');
 				});
-				btn.classList.add('bg-brand-600', 'text-white');
-				btn.classList.remove('border', 'border-slate-300', 'text-slate-700');
+				btn.classList.add('bg-brand-600', 'text-white', 'hover:bg-brand-700');
+				btn.classList.remove('border', 'border-slate-300', 'text-slate-700', 'hover:bg-slate-50');
 				renderMetricas();
 				render();
 
