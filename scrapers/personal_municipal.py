@@ -188,7 +188,16 @@ class ScraperPersonalMunicipal(BaseScraper):
             r"|Septiembre|Octubre|Noviembre|Diciembre)\b",
             re.IGNORECASE,
         )
-        meses = page.locator("a", has_text=meses_regex).all()
+
+        def _filtrar_meses(locator):
+            # La Serena antepone un enlace "Histórico (Enero 2009 a Marzo
+            # 2023)" que matchea meses_regex por contener "Enero" como
+            # palabra completa, pero no es un mes real — lleva a un
+            # listado con otra estructura y hace que la extracción
+            # devuelva 0 filas en silencio. Se descarta explícitamente.
+            return [m for m in locator.all() if "histórico" not in (m.inner_text() or "").lower()]
+
+        meses = _filtrar_meses(page.locator("a", has_text=meses_regex))
 
         # algunas comunas (ej. La Higuera) piden el área DESPUÉS del año, no
         # antes — si no aparecieron meses todavía, se prueba el área acá.
@@ -197,7 +206,7 @@ class ScraperPersonalMunicipal(BaseScraper):
             if area_link.count():
                 area_link.first.click()
                 page.wait_for_timeout(3500)
-                meses = page.locator("a", has_text=meses_regex).all()
+                meses = _filtrar_meses(page.locator("a", has_text=meses_regex))
 
         if not meses:
             return []

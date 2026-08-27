@@ -547,8 +547,8 @@ const CARGOS_ALCALDE_VALIDOS = new Set(['ALCALDE', 'ALCALDESA', 'ALCALDE ALCALDI
 /**
  * Remuneración bruta de alcaldes/alcaldesas por comuna (Portal de
  * Transparencia). No incluye concejales: esa remuneración no está
- * publicada en la fuente que usamos. Cubre 13 de las 15 comunas — La
- * Serena y Coquimbo no tienen registro disponible todavía.
+ * publicada en la fuente que usamos. Coquimbo todavía no tiene registro
+ * disponible.
  */
 export function remuneracionAlcaldesPorComuna(): RemuneracionAlcalde[] {
 	return remuneracionAutoridad

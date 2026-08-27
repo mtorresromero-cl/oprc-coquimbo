@@ -24,6 +24,7 @@ const maxPartido = Math.max(...composicionPartido.map((p) => p.total), 1);
 const dotacionTipo = dotacionPorTipoContrato();
 const totalDotacion = dotacionTipo.reduce((s, d) => s + d.dotacion, 0);
 const maxDotacionTipo = Math.max(...dotacionTipo.map((d) => d.dotacion), 1);
+const municipiosConDotacion = new Set(personal.map((p) => p.comuna_id)).size;
 const TIPO_CONTRATO_LABEL_HOME: Record<string, string> = {
 	planta: 'Planta',
 	contrata: 'Contrata',
@@ -31,6 +32,9 @@ const TIPO_CONTRATO_LABEL_HOME: Record<string, string> = {
 };
 
 const remuneracionAlcaldes = remuneracionAlcaldesPorComuna();
+const comunasSinRemuneracion = comunas
+	.filter((c) => !remuneracionAlcaldes.some((r) => r.comunaId === c.id))
+	.map((c) => c.nombre);
 const maxRemuneracion = Math.max(...remuneracionAlcaldes.map((r) => r.remuneracionBruta), 1);
 
 const cargoProvincia = autoridadesPorCargoProvincia();
@@ -288,7 +292,7 @@ const ICONOS: Record<string, string> = {
 					<div>
 						<h3 class="font-semibold text-slate-900">Dotación por tipo de contrato</h3>
 						<p class="mt-1 text-sm text-slate-600">
-							Suma regional de las {totalDotacion} personas que trabajan en los 13 municipios con
+							Suma regional de las {totalDotacion} personas que trabajan en los {municipiosConDotacion} municipios con
 							datos publicados.
 						</p>
 						<div class="mt-6 space-y-3">
@@ -308,8 +312,10 @@ const ICONOS: Record<string, string> = {
 						<h3 class="font-semibold text-slate-900">Remuneración de alcaldes/as por comuna</h3>
 						<p class="mt-1 text-sm text-slate-600">
 							Remuneración bruta mensual según el Portal de Transparencia. No incluye a
-							concejales — esa remuneración no está publicada en la fuente que usamos. Faltan La
-							Serena y Coquimbo, sin registro disponible.
+							concejales — esa remuneración no está publicada en la fuente que usamos.
+							{comunasSinRemuneracion.length > 0 && (
+								<>Falta{comunasSinRemuneracion.length === 1 ? '' : 'n'} {comunasSinRemuneracion.join(' y ')}, sin registro disponible.</>
+							)}
 						</p>
 						<div class="mt-6 space-y-2.5">
 							{remuneracionAlcaldes.map((r) => (
