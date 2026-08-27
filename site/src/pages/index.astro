@@ -8,7 +8,6 @@ import {
 	presupuesto,
 	personal,
 	composicionPartidoTodos,
-	participacionPromedioPorPartido,
 } from '../lib/datos';
 
 const comunasConDatos = comunas.filter(
@@ -18,9 +17,6 @@ const comunasConDatos = comunas.filter(
 const composicionPartido = composicionPartidoTodos();
 const totalAutoridadesConPartido = composicionPartido.reduce((s, p) => s + p.total, 0);
 const maxPartido = Math.max(...composicionPartido.map((p) => p.total), 1);
-
-const participacionPartido = participacionPromedioPorPartido();
-const maxParticipacion = Math.max(...participacionPartido.map((p) => p.participacionPromedio), 1);
 
 const stats = [
 	{ valor: autoridades.length, label: 'autoridades registradas' },
@@ -165,34 +161,6 @@ const ICONOS: Record<string, string> = {
 					Ver el detalle de cada autoridad &rarr;
 				</a>
 			</div>
-		</section>
-
-		<section class="border-b border-slate-100 mx-auto max-w-6xl px-6 py-16">
-			<h2 class="text-2xl font-bold tracking-tight text-slate-900">Participación promedio por partido</h2>
-			<p class="mt-2 max-w-2xl text-sm text-slate-600">
-				Cruzando el historial de votaciones de senadores, diputados, consejeros regionales y el
-				gobernador con su partido declarado. Solo se muestran partidos con al menos 2 personas
-				con datos de votación, para que el promedio sea real y no el dato de una sola persona.
-			</p>
-			<div class="mt-8 space-y-3">
-				{participacionPartido.map((p) => (
-					<div class="flex items-center gap-4">
-						<span class="w-56 shrink-0 truncate text-sm font-medium text-slate-700">
-							{p.partido} <span class="text-slate-400">({p.personas})</span>
-						</span>
-						<div class="h-6 flex-1 rounded bg-slate-200">
-							<div class="h-6 rounded bg-brand-600" style={`width:${(p.participacionPromedio / maxParticipacion) * 100}%`}></div>
-						</div>
-						<span class="w-16 shrink-0 text-right text-sm font-semibold text-slate-900">{p.participacionPromedio}%</span>
-					</div>
-				))}
-			</div>
-			<p class="mt-6 text-sm text-slate-500">
-				Participación = % de votaciones en las que emitió un voto real (a favor, en contra,
-				abstención o pareo). Ver el detalle de cada persona en
-				{' '}<a href="/parlamentarios/" class="text-brand-600 hover:underline">Parlamentarios</a> y
-				{' '}<a href="/consejo-regional/" class="text-brand-600 hover:underline">Consejo Regional</a>.
-			</p>
 		</section>
 
 		<section class="mx-auto max-w-6xl px-6 py-16">
