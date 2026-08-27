@@ -187,9 +187,6 @@ const ICONOS: Record<string, string> = {
 							</div>
 						))}
 					</div>
-					<a href="/nosotros/" class="text-sm font-semibold text-brand-300 hover:text-white hover:underline">
-						Conócenos más ↓
-					</a>
 				</div>
 			</div>
 		</section>
@@ -203,6 +200,23 @@ const ICONOS: Record<string, string> = {
 					</div>
 				))}
 			</dl>
+		</section>
+
+		<section class="mx-auto max-w-6xl px-6 py-16">
+			<h2 class="text-2xl font-bold tracking-tight text-slate-900">¿Qué hacemos?</h2>
+			<div class="mt-8 grid gap-8 sm:grid-cols-3">
+				{queHacemos.map((item) => (
+					<div>
+						<div class="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+								<path d={ICONOS[item.icono]} />
+							</svg>
+						</div>
+						<h3 class="mt-4 font-semibold text-slate-900">{item.titulo}</h3>
+						<p class="mt-2 text-sm leading-relaxed text-slate-600">{item.texto}</p>
+					</div>
+				))}
+			</div>
 		</section>
 
 		<section class="border-b border-slate-100 bg-slate-50">
@@ -310,23 +324,6 @@ const ICONOS: Record<string, string> = {
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
-
-		<section class="mx-auto max-w-6xl px-6 py-16">
-			<h2 class="text-2xl font-bold tracking-tight text-slate-900">¿Qué hacemos?</h2>
-			<div class="mt-8 grid gap-8 sm:grid-cols-3">
-				{queHacemos.map((item) => (
-					<div>
-						<div class="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-								<path d={ICONOS[item.icono]} />
-							</svg>
-						</div>
-						<h3 class="mt-4 font-semibold text-slate-900">{item.titulo}</h3>
-						<p class="mt-2 text-sm leading-relaxed text-slate-600">{item.texto}</p>
-					</div>
-				))}
 			</div>
 		</section>
 
