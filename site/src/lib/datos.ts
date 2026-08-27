@@ -517,3 +517,79 @@ export function indiceAsistencia(autoridadIds: string[]): IndiceAsistencia[] {
 	});
 }
 
+export interface DotacionTipoContrato {
+	tipoContrato: string;
+	dotacion: number;
+}
+
+/** Dotación municipal total de la región, sumada por tipo de contrato. */
+export function dotacionPorTipoContrato(): DotacionTipoContrato[] {
+	const conteo = new Map<string, number>();
+	for (const p of personal) {
+		conteo.set(p.tipo_contrato, (conteo.get(p.tipo_contrato) ?? 0) + p.dotacion);
+	}
+	return [...conteo.entries()]
+		.map(([tipoContrato, dotacion]) => ({ tipoContrato, dotacion }))
+		.sort((a, b) => b.dotacion - a.dotacion);
+}
+
+export interface RemuneracionAlcalde {
+	comunaId: string;
+	nombreComuna: string;
+	remuneracionBruta: number;
+}
+
+// "SECRETARIA ALCALDE" es un cargo administrativo distinto (no es el
+// alcalde/sa electo), se excluye. "ALCALDE ALCALDIA" es la misma variante
+// real observada en el Portal de Transparencia para una comuna.
+const CARGOS_ALCALDE_VALIDOS = new Set(['ALCALDE', 'ALCALDESA', 'ALCALDE ALCALDIA']);
+
+/**
+ * Remuneración bruta de alcaldes/alcaldesas por comuna (Portal de
+ * Transparencia). No incluye concejales: esa remuneración no está
+ * publicada en la fuente que usamos. Cubre 13 de las 15 comunas — La
+ * Serena y Coquimbo no tienen registro disponible todavía.
+ */
+export function remuneracionAlcaldesPorComuna(): RemuneracionAlcalde[] {
+	return remuneracionAutoridad
+		.filter((r) => CARGOS_ALCALDE_VALIDOS.has(r.cargo))
+		.map((r) => ({
+			comunaId: r.comuna_id,
+			nombreComuna: nombreComuna(r.comuna_id) ?? r.comuna_id,
+			remuneracionBruta: r.remuneracion_bruta,
+		}))
+		.sort((a, b) => b.remuneracionBruta - a.remuneracionBruta);
+}
+
+export interface CargoPorProvincia {
+	provincia: string;
+	alcalde: number;
+	concejal: number;
+	core: number;
+}
+
+/**
+ * Cruza cargo × provincia (Elqui, Limarí, Choapa). Alcaldes/concejales se
+ * ubican por la provincia de su comuna; los consejeros regionales, por su
+ * circunscripción provincial (así se eligen realmente). Senadores,
+ * diputados y el gobernador no se incluyen: representan a toda la región,
+ * no a una provincia en particular.
+ */
+export function autoridadesPorCargoProvincia(): CargoPorProvincia[] {
+	const provincias = ['Elqui', 'Limarí', 'Choapa'];
+	const resultado: CargoPorProvincia[] = provincias.map((provincia) => ({ provincia, alcalde: 0, concejal: 0, core: 0 }));
+	const idx = Object.fromEntries(provincias.map((p, i) => [p, i]));
+
+	for (const a of autoridades) {
+		if (a.cargo === 'alcalde' || a.cargo === 'concejal') {
+			const c = comunas.find((c) => c.id === a.comuna);
+			if (c && idx[c.provincia] !== undefined) {
+				resultado[idx[c.provincia]][a.cargo]++;
+			}
+		} else if (a.cargo === 'core' && a.circunscripcion && idx[a.circunscripcion] !== undefined) {
+			resultado[idx[a.circunscripcion]].core++;
+		}
+	}
+	return resultado;
+}
+

@@ -8,6 +8,9 @@ import {
 	presupuesto,
 	personal,
 	composicionPartidoTodos,
+	dotacionPorTipoContrato,
+	remuneracionAlcaldesPorComuna,
+	autoridadesPorCargoProvincia,
 } from '../lib/datos';
 
 const comunasConDatos = comunas.filter(
@@ -17,6 +20,48 @@ const comunasConDatos = comunas.filter(
 const composicionPartido = composicionPartidoTodos();
 const totalAutoridadesConPartido = composicionPartido.reduce((s, p) => s + p.total, 0);
 const maxPartido = Math.max(...composicionPartido.map((p) => p.total), 1);
+
+const dotacionTipo = dotacionPorTipoContrato();
+const totalDotacion = dotacionTipo.reduce((s, d) => s + d.dotacion, 0);
+const maxDotacionTipo = Math.max(...dotacionTipo.map((d) => d.dotacion), 1);
+const TIPO_CONTRATO_LABEL_HOME: Record<string, string> = {
+	planta: 'Planta',
+	contrata: 'Contrata',
+	honorarios: 'Honorarios',
+};
+
+const remuneracionAlcaldes = remuneracionAlcaldesPorComuna();
+const maxRemuneracion = Math.max(...remuneracionAlcaldes.map((r) => r.remuneracionBruta), 1);
+
+const cargoProvincia = autoridadesPorCargoProvincia();
+const maxCargoProvincia = Math.max(...cargoProvincia.flatMap((p) => [p.alcalde, p.concejal, p.core]), 1);
+
+function formatoCLP(monto: number) {
+	return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(
+		monto
+	);
+}
+
+// Radar del hero: mismas 6 áreas de trabajo que en /nosotros/, recoloreado
+// para verse sobre el fondo oscuro del hero en vez del fondo blanco.
+const RADIO_RADAR = 36;
+const nodosRadar = [
+	['Información', 'Pública'],
+	['Evaluación', 'de Gestión'],
+	['Monitoreo', 'en Vivo'],
+	['Participación', 'Ciudadana'],
+	['Datos y', 'Metodología'],
+	['Transparencia', 'Financiera'],
+].map(([l1, l2], i) => {
+	const angulo = (-90 + i * 60) * (Math.PI / 180);
+	return {
+		l1,
+		l2,
+		left: 50 + RADIO_RADAR * Math.cos(angulo),
+		top: 50 + RADIO_RADAR * Math.sin(angulo),
+		delay: (i * 4) / 6,
+	};
+});
 
 const stats = [
 	{ valor: autoridades.length, label: 'autoridades registradas' },
@@ -93,29 +138,57 @@ const ICONOS: Record<string, string> = {
 				class="pointer-events-none absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full bg-brand-800/30 blur-3xl"
 			>
 			</div>
-			<div class="relative mx-auto max-w-6xl px-6 py-24">
-				<p class="text-sm font-semibold tracking-widest text-brand-300 uppercase">
-					Observatorio Político Región de Coquimbo
-				</p>
-				<h1 class="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
-					Seguimiento ciudadano de la política regional
-				</h1>
-				<p class="mt-5 max-w-2xl text-lg text-slate-300">
-					Datos públicos sobre autoridades, parlamentarios y transparencia municipal, recopilados
-					directamente de fuentes oficiales y actualizados de forma automática.
-				</p>
-				<div class="mt-9 flex flex-wrap gap-3">
-					<a
-						href="/autoridades/"
-						class="inline-block rounded-md bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-900/40 hover:bg-brand-500"
-					>
-						Ver autoridades
-					</a>
-					<a
-						href="/municipios/"
-						class="inline-block rounded-md border border-slate-600 px-6 py-3 text-sm font-semibold text-white hover:border-slate-400 hover:bg-white/5"
-					>
-						Ver municipios
+			<div class="relative mx-auto grid max-w-6xl gap-10 px-6 py-24 lg:grid-cols-[1fr_20rem] lg:items-center">
+				<div>
+					<p class="text-sm font-semibold tracking-widest text-brand-300 uppercase">
+						Observatorio Político Región de Coquimbo
+					</p>
+					<h1 class="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
+						Seguimiento ciudadano de la política regional
+					</h1>
+					<p class="mt-5 max-w-2xl text-lg text-slate-300">
+						Datos públicos sobre autoridades, parlamentarios y transparencia municipal, recopilados
+						directamente de fuentes oficiales y actualizados de forma automática.
+					</p>
+					<div class="mt-9 flex flex-wrap gap-3">
+						<a
+							href="/autoridades/"
+							class="inline-block rounded-md bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-900/40 hover:bg-brand-500"
+						>
+							Ver autoridades
+						</a>
+						<a
+							href="/municipios/"
+							class="inline-block rounded-md border border-slate-600 px-6 py-3 text-sm font-semibold text-white hover:border-slate-400 hover:bg-white/5"
+						>
+							Ver municipios
+						</a>
+					</div>
+				</div>
+
+				<div class="flex flex-col items-center gap-4">
+					<div class="radar-face relative aspect-square w-full max-w-[19rem]" role="img" aria-label="Radar con las seis áreas de trabajo del Observatorio">
+						<div class="absolute inset-[13%] rounded-full border border-white/15"></div>
+						<div class="absolute inset-[30%] rounded-full border border-white/15"></div>
+						<div class="absolute inset-[47%] rounded-full border border-white/15"></div>
+
+						<div class="absolute inset-0 overflow-hidden rounded-full">
+							<div class="radar-sweep absolute inset-0"></div>
+						</div>
+
+						<div class="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-300"></div>
+
+						{nodosRadar.map((nd) => (
+							<div class="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${nd.left}%`, top: `${nd.top}%` }}>
+								<span class="radar-blip mx-auto block h-2 w-2 rounded-full bg-brand-300" style={{ animationDelay: `${nd.delay}s` }}></span>
+								<span class="absolute top-4 left-1/2 w-20 -translate-x-1/2 text-center text-[9.5px] leading-tight font-medium text-slate-200">
+									{nd.l1}<br />{nd.l2}
+								</span>
+							</div>
+						))}
+					</div>
+					<a href="/nosotros/" class="text-sm font-semibold text-brand-300 hover:text-white hover:underline">
+						Conócenos más ↓
 					</a>
 				</div>
 			</div>
@@ -164,6 +237,83 @@ const ICONOS: Record<string, string> = {
 		</section>
 
 		<section class="mx-auto max-w-6xl px-6 py-16">
+			<h2 class="text-2xl font-bold tracking-tight text-slate-900">Autoridades por provincia</h2>
+			<p class="mt-2 max-w-2xl text-sm text-slate-600">
+				Alcaldes y concejales según la provincia de su comuna; consejeros regionales según su
+				circunscripción provincial (así se eligen). No incluye senadores, diputados ni al
+				gobernador, que representan a toda la región y no a una provincia en particular.
+			</p>
+			<div class="mt-8 overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+				<table class="w-full text-sm">
+					<thead class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase">
+						<tr>
+							<th class="px-4 py-3">Provincia</th>
+							<th class="px-4 py-3 text-right">Alcaldes</th>
+							<th class="px-4 py-3 text-right">Concejales</th>
+							<th class="px-4 py-3 text-right">Consejeros regionales</th>
+						</tr>
+					</thead>
+					<tbody class="divide-y divide-slate-100 bg-white">
+						{cargoProvincia.map((p) => (
+							<tr>
+								<td class="px-4 py-3 font-medium text-slate-900">{p.provincia}</td>
+								<td class="px-4 py-3 text-right text-slate-700">{p.alcalde}</td>
+								<td class="px-4 py-3 text-right text-slate-700">{p.concejal}</td>
+								<td class="px-4 py-3 text-right text-slate-700">{p.core}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="border-y border-slate-100 bg-slate-50">
+			<div class="mx-auto max-w-6xl px-6 py-16">
+				<h2 class="text-2xl font-bold tracking-tight text-slate-900">Datos municipales</h2>
+				<div class="mt-8 grid gap-12 lg:grid-cols-2">
+					<div>
+						<h3 class="font-semibold text-slate-900">Dotación por tipo de contrato</h3>
+						<p class="mt-1 text-sm text-slate-600">
+							Suma regional de las {totalDotacion} personas que trabajan en los 13 municipios con
+							datos publicados.
+						</p>
+						<div class="mt-6 space-y-3">
+							{dotacionTipo.map((d) => (
+								<div class="flex items-center gap-4">
+									<span class="w-24 shrink-0 text-sm font-medium text-slate-700">{TIPO_CONTRATO_LABEL_HOME[d.tipoContrato] ?? d.tipoContrato}</span>
+									<div class="h-6 flex-1 rounded bg-slate-200">
+										<div class="h-6 rounded bg-brand-600" style={`width:${(d.dotacion / maxDotacionTipo) * 100}%`}></div>
+									</div>
+									<span class="w-14 shrink-0 text-right text-sm font-semibold text-slate-900">{d.dotacion}</span>
+								</div>
+							))}
+						</div>
+					</div>
+
+					<div>
+						<h3 class="font-semibold text-slate-900">Remuneración de alcaldes/as por comuna</h3>
+						<p class="mt-1 text-sm text-slate-600">
+							Remuneración bruta mensual según el Portal de Transparencia. No incluye a
+							concejales — esa remuneración no está publicada en la fuente que usamos. Faltan La
+							Serena y Coquimbo, sin registro disponible.
+						</p>
+						<div class="mt-6 space-y-2.5">
+							{remuneracionAlcaldes.map((r) => (
+								<div class="flex items-center gap-4">
+									<span class="w-28 shrink-0 truncate text-sm font-medium text-slate-700">{r.nombreComuna}</span>
+									<div class="h-5 flex-1 rounded bg-slate-200">
+										<div class="h-5 rounded bg-brand-600" style={`width:${(r.remuneracionBruta / maxRemuneracion) * 100}%`}></div>
+									</div>
+									<span class="w-24 shrink-0 text-right text-xs font-semibold text-slate-900">{formatoCLP(r.remuneracionBruta)}</span>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="mx-auto max-w-6xl px-6 py-16">
 			<h2 class="text-2xl font-bold tracking-tight text-slate-900">¿Qué hacemos?</h2>
 			<div class="mt-8 grid gap-8 sm:grid-cols-3">
 				{queHacemos.map((item) => (
@@ -203,4 +353,30 @@ const ICONOS: Record<string, string> = {
 			</div>
 		</section>
 	</main>
+
+	<style>
+		.radar-sweep {
+			background: conic-gradient(from 0deg, transparent 0deg, rgba(245, 179, 179, 0.35) 18deg, transparent 60deg);
+			animation: radar-spin 4s linear infinite;
+		}
+		@keyframes radar-spin {
+			to { transform: rotate(360deg); }
+		}
+		.radar-blip {
+			animation: radar-blip 4s ease-out infinite;
+		}
+		@keyframes radar-blip {
+			0%, 92% { box-shadow: 0 0 0 0 rgba(245, 179, 179, 0.55); }
+			4% { box-shadow: 0 0 0 6px rgba(245, 179, 179, 0); }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			.radar-sweep {
+				animation: none;
+				background: none;
+			}
+			.radar-blip {
+				animation: none;
+			}
+		}
+	</style>
 </Layout>
