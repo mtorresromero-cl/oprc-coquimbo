@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { SEXO_AUTORIDAD } from './sexo-autoridades';
 
 export interface Autoridad {
 	id: string;
@@ -421,6 +422,39 @@ export function composicionPartidoTodos(): ComposicionPartido[] {
 	return [...conteo.entries()]
 		.map(([partido, total]) => ({ partido, total }))
 		.sort((a, b) => b.total - a.total);
+}
+
+/** Sexo de una autoridad ('M'/'F') — ver sexo-autoridades.ts para la fuente y el método. */
+export function sexoAutoridad(id: string): 'M' | 'F' | null {
+	return SEXO_AUTORIDAD[id] ?? null;
+}
+
+export interface ComposicionGenero {
+	sexo: 'M' | 'F';
+	label: string;
+	total: number;
+}
+
+/**
+ * Composición por género de las 142 autoridades. A diferencia del resto de
+ * los datos del sitio, esto NO viene de ninguna fuente oficial (SERVEL, BCN
+ * y el Portal de Transparencia no publican el sexo de cada persona) — se
+ * infirió del nombre de pila de cada una, a mano, y los ~4 nombres
+ * genuinamente ambiguos se verificaron directamente en vez de adivinar.
+ * Ver sexo-autoridades.ts.
+ */
+export function composicionPorGenero(): ComposicionGenero[] {
+	let hombres = 0;
+	let mujeres = 0;
+	for (const a of autoridades) {
+		const s = sexoAutoridad(a.id);
+		if (s === 'M') hombres++;
+		else if (s === 'F') mujeres++;
+	}
+	return [
+		{ sexo: 'M', label: 'Hombres', total: hombres },
+		{ sexo: 'F', label: 'Mujeres', total: mujeres },
+	];
 }
 
 export interface IndiceVotacion {

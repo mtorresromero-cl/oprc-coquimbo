@@ -8,6 +8,7 @@ import {
 	presupuesto,
 	personal,
 	composicionPartidoTodos,
+	composicionPorGenero,
 	dotacionPorTipoContrato,
 	remuneracionAlcaldesPorComuna,
 	autoridadesPorCargoProvincia,
@@ -21,6 +22,10 @@ const comunasConDatos = comunas.filter(
 const composicionPartido = composicionPartidoTodos();
 const totalAutoridadesConPartido = composicionPartido.reduce((s, p) => s + p.total, 0);
 const maxPartido = Math.max(...composicionPartido.map((p) => p.total), 1);
+
+const composicionGenero = composicionPorGenero();
+const totalConGenero = composicionGenero.reduce((s, g) => s + g.total, 0);
+const maxGenero = Math.max(...composicionGenero.map((g) => g.total), 1);
 
 const dotacionTipo = dotacionPorTipoContrato();
 const totalDotacion = dotacionTipo.reduce((s, d) => s + d.dotacion, 0);
@@ -249,6 +254,29 @@ const ICONOS: Record<string, string> = {
 						</div>
 					))}
 				</div>
+
+				<h3 class="mt-10 font-semibold text-slate-900">Composición por género</h3>
+				<p class="mt-1 max-w-2xl text-xs text-slate-500">
+					Este dato no viene de ninguna fuente oficial (SERVEL, BCN ni el Portal de Transparencia
+					lo publican): se infirió a partir del nombre de pila de cada una de las {totalConGenero}{' '}
+					autoridades, a mano, verificando directamente los pocos casos ambiguos en vez de adivinar.
+				</p>
+				<div class="mt-4 max-w-sm space-y-3">
+					{composicionGenero.map((g) => (
+						<div class="flex items-center gap-4">
+							<span class="w-16 shrink-0 text-sm font-medium text-slate-700">{g.label}</span>
+							<div class="h-6 flex-1 rounded bg-slate-200">
+								<div
+									class="h-6 rounded bg-brand-600"
+									style={`width:${(g.total / maxGenero) * 100}%`}
+								>
+								</div>
+							</div>
+							<span class="w-10 shrink-0 text-right text-sm font-semibold text-slate-900">{g.total}</span>
+						</div>
+					))}
+				</div>
+
 				<a href="/autoridades/" class="mt-6 inline-block text-sm font-semibold text-brand-600 hover:underline">
 					Ver el detalle de cada autoridad &rarr;
 				</a>
