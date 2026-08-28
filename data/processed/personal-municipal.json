@@ -274,6 +274,16 @@
     "anno": 2026,
     "mes": 7,
     "area": "salud",
+    "tipo_contrato": "contrata",
+    "dotacion": 59,
+    "remuneracion_total": 96394699.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU110"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
     "tipo_contrato": "honorarios",
     "dotacion": 270,
     "remuneracion_total": 173040668.0,
@@ -517,6 +527,16 @@
     "tipo_contrato": "contrata",
     "dotacion": 58,
     "remuneracion_total": 110148616.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU175"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "honorarios",
+    "dotacion": 386,
+    "remuneracion_total": 234606792.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU175"
   },
   {

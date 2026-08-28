@@ -175,6 +175,22 @@ class ScraperPersonalMunicipal(BaseScraper):
         # el año puede venir solo ("2026"), con prefijo ("Año 2026") o con el
         # área pegada (Ovalle: "MUNICIPAL 2026") — se matchea por el final.
         annos = page.locator("a", has_text=re.compile(r"(19|20)\d{2}$")).all()
+
+        # algunas comunas (ej. Monte Patria en honorarios) repiten el link de
+        # la categoría una vez más tras elegir el área — sin ese segundo
+        # click no aparecen los años. Se detecta por ausencia de años y se
+        # reintenta clickeando el link de categoría otra vez. Se usa .last
+        # porque categoria_re también matchea el breadcrumb superior ("04.
+        # Personal y remuneraciones: <categoría>"), que contiene el mismo
+        # texto como substring — el link que realmente hay que clickear es
+        # el más profundo (el último en aparecer en el DOM).
+        if not annos:
+            repetido = page.locator("a", has_text=categoria_re)
+            if repetido.count():
+                repetido.last.click()
+                page.wait_for_timeout(3500)
+                annos = page.locator("a", has_text=re.compile(r"(19|20)\d{2}$")).all()
+
         if not annos:
             return []
         annos[0].click()

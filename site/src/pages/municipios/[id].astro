@@ -8,6 +8,7 @@ import {
 	AREA_LABEL,
 	TIPO_CONTRATO_LABEL,
 	nombreMes,
+	periodoDesdeFuenteUrl,
 } from '../../lib/datos';
 
 export function getStaticPaths() {
@@ -25,12 +26,15 @@ const gastos = delAnno.filter((i) => i.tipo === 'gasto').sort((a, b) => b.monto 
 const totalIngresos = ingresos.reduce((s, i) => s + i.monto, 0);
 const totalGastos = gastos.reduce((s, i) => s + i.monto, 0);
 const fuenteUrl = delAnno[0]?.fuente_url;
+const periodoIngresos = periodoDesdeFuenteUrl(ingresos[0]?.fuente_url, anno);
+const periodoGastos = periodoDesdeFuenteUrl(gastos[0]?.fuente_url, anno);
 
 const personal = personalDeComuna(comuna.id);
 const remuneracionAutoridad = remuneracionAutoridadDeComuna(comuna.id);
 const dotacionTotal = personal.reduce((s, p) => s + p.dotacion, 0);
 const remuneracionTotalPersonal = personal.reduce((s, p) => s + p.remuneracion_total, 0);
-const periodoPersonal = personal[0] ? `${personal[0].mes}/${personal[0].anno}` : null;
+const periodosPersonal = [...new Set(personal.map((p) => `${nombreMes(p.mes)}/${p.anno}`))];
+const periodoPersonal = periodosPersonal.length === 1 ? periodosPersonal[0] : null;
 
 function formatoCLP(monto: number) {
 	return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(
@@ -61,40 +65,54 @@ function formatoCLP(monto: number) {
 					<div class="mt-5 grid grid-cols-2 gap-4">
 						<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
 							<p class="text-xs text-slate-500">Ingresos percibidos</p>
-							<p class="mt-1 text-xl font-bold text-emerald-700">{formatoCLP(totalIngresos)}</p>
+							<p class="mt-1 text-xl font-bold text-emerald-700">
+								{ingresos.length > 0 ? formatoCLP(totalIngresos) : 'No publicado'}
+							</p>
 						</div>
 						<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
 							<p class="text-xs text-slate-500">Gastos ejecutados</p>
-							<p class="mt-1 text-xl font-bold text-red-700">{formatoCLP(totalGastos)}</p>
+							<p class="mt-1 text-xl font-bold text-red-700">
+								{gastos.length > 0 ? formatoCLP(totalGastos) : 'No publicado'}
+							</p>
 						</div>
 					</div>
 
 					<div class="mt-6 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-						<p class="border-b border-slate-100 bg-slate-50 px-4 py-2 text-xs font-semibold tracking-wide text-slate-500 uppercase">
-							Ingresos por categoría
+						<p class="flex items-center justify-between gap-3 border-b border-slate-100 bg-slate-50 px-4 py-2 text-xs font-semibold tracking-wide text-slate-500 uppercase">
+							<span>Ingresos por categoría</span>
+							{periodoIngresos && <span class="font-normal normal-case text-slate-400">{periodoIngresos}</span>}
 						</p>
-						<ul class="divide-y divide-slate-100 text-sm">
-							{ingresos.map((i) => (
-								<li class="flex justify-between gap-3 px-4 py-2.5">
-									<span class="min-w-0 break-words text-slate-700">{i.categoria}</span>
-									<span class="shrink-0 font-medium text-slate-900">{formatoCLP(i.monto)}</span>
-								</li>
-							))}
-						</ul>
+						{ingresos.length > 0 ? (
+							<ul class="divide-y divide-slate-100 text-sm">
+								{ingresos.map((i) => (
+									<li class="flex justify-between gap-3 px-4 py-2.5">
+										<span class="min-w-0 break-words text-slate-700">{i.categoria}</span>
+										<span class="shrink-0 font-medium text-slate-900">{formatoCLP(i.monto)}</span>
+									</li>
+								))}
+							</ul>
+						) : (
+							<p class="px-4 py-3 text-sm text-slate-400">No publicado por la comuna para {anno}.</p>
+						)}
 					</div>
 
 					<div class="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-						<p class="border-b border-slate-100 bg-slate-50 px-4 py-2 text-xs font-semibold tracking-wide text-slate-500 uppercase">
-							Gastos por categoría
+						<p class="flex items-center justify-between gap-3 border-b border-slate-100 bg-slate-50 px-4 py-2 text-xs font-semibold tracking-wide text-slate-500 uppercase">
+							<span>Gastos por categoría</span>
+							{periodoGastos && <span class="font-normal normal-case text-slate-400">{periodoGastos}</span>}
 						</p>
-						<ul class="divide-y divide-slate-100 text-sm">
-							{gastos.map((g) => (
-								<li class="flex justify-between gap-3 px-4 py-2.5">
-									<span class="min-w-0 break-words text-slate-700">{g.categoria}</span>
-									<span class="shrink-0 font-medium text-slate-900">{formatoCLP(g.monto)}</span>
-								</li>
-							))}
-						</ul>
+						{gastos.length > 0 ? (
+							<ul class="divide-y divide-slate-100 text-sm">
+								{gastos.map((g) => (
+									<li class="flex justify-between gap-3 px-4 py-2.5">
+										<span class="min-w-0 break-words text-slate-700">{g.categoria}</span>
+										<span class="shrink-0 font-medium text-slate-900">{formatoCLP(g.monto)}</span>
+									</li>
+								))}
+							</ul>
+						) : (
+							<p class="px-4 py-3 text-sm text-slate-400">No publicado por la comuna para {anno}.</p>
+						)}
 					</div>
 
 					{fuenteUrl && (
@@ -109,10 +127,18 @@ function formatoCLP(monto: number) {
 
 			{personal.length > 0 && (
 				<section class="max-w-xl">
-					<h2 class="text-lg font-semibold text-slate-900">Personal municipal ({periodoPersonal})</h2>
+					<h2 class="text-lg font-semibold text-slate-900">
+						Personal municipal{periodoPersonal ? ` (${periodoPersonal})` : ''}
+					</h2>
 					<p class="mt-1 text-base text-slate-500">
 						Totales agregados por tipo de contrato y área — no incluye nombres individuales, salvo
 						autoridades electas (ver abajo). Fuente: portaltransparencia.cl.
+						{!periodoPersonal && (
+							<span class="block">
+								No todas las categorías se actualizan el mismo mes: cada fila indica su propio
+								período.
+							</span>
+						)}
 					</p>
 
 					<div class="mt-5 grid grid-cols-2 gap-4">
@@ -123,7 +149,7 @@ function formatoCLP(monto: number) {
 							</p>
 						</div>
 						<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-							<p class="text-xs text-slate-500">Remuneraciones totales del mes</p>
+							<p class="text-xs text-slate-500">Remuneraciones totales{periodoPersonal ? ' del mes' : ''}</p>
 							<p class="mt-1 text-xl font-bold text-slate-900">
 								{formatoCLP(remuneracionTotalPersonal)}
 							</p>
@@ -138,6 +164,7 @@ function formatoCLP(monto: number) {
 									<th class="px-4 py-2">Tipo</th>
 									<th class="px-4 py-2 text-right">Dotación</th>
 									<th class="px-4 py-2 text-right">Remuneración total</th>
+									<th class="px-4 py-2 text-right">Período</th>
 								</tr>
 							</thead>
 							<tbody class="divide-y divide-slate-100">
@@ -151,6 +178,7 @@ function formatoCLP(monto: number) {
 										<td class="px-4 py-2.5 text-right font-medium text-slate-900">
 											{formatoCLP(p.remuneracion_total)}
 										</td>
+										<td class="px-4 py-2.5 text-right text-xs text-slate-400">{nombreMes(p.mes)}/{p.anno}</td>
 									</tr>
 								))}
 							</tbody>

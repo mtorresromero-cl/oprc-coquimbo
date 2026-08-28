@@ -174,16 +174,75 @@ export function presupuestoDeComuna(comunaId: string) {
 	return presupuesto.filter((p) => p.comuna_id === comunaId);
 }
 
+const MESES_URL = [
+	'enero',
+	'febrero',
+	'marzo',
+	'abril',
+	'mayo',
+	'junio',
+	'julio',
+	'agosto',
+	'septiembre',
+	'octubre',
+	'noviembre',
+	'diciembre',
+];
+const TRIMESTRE_NUMERO: Record<string, string> = { i: 'I', ii: 'II', iii: 'III', iv: 'IV' };
+
+/**
+ * El mes/trimestre exacto de un balance de presupuesto no se guarda como
+ * campo aparte (solo el año) — el nombre del archivo casi siempre lo trae
+ * igual (ej. "...JULIO+2026...", "...II-TRIM-2026..."), así que se
+ * extrae de ahí para mostrarlo como nota. Si el nombre no lo especifica
+ * (ej. La Serena, con un ID de documento genérico), devuelve null.
+ */
+export function periodoDesdeFuenteUrl(
+	url: string | null | undefined,
+	annoFallback?: number | null
+): string | null {
+	if (!url) return null;
+	const texto = decodeURIComponent(url).toLowerCase();
+
+	const trim = texto.match(/\b(i{1,3}|iv)[\s-]+trim(?:estre)?[\s-]*(\d{4})?/);
+	if (trim) {
+		const numero = TRIMESTRE_NUMERO[trim[1]] ?? trim[1].toUpperCase();
+		const anno = trim[2] ?? annoFallback;
+		return `${numero} trimestre${anno ? ' ' + anno : ''}`;
+	}
+
+	for (const mes of MESES_URL) {
+		// el año no siempre queda pegado al mes en el nombre del archivo
+		// (ej. Paihuano: "...MES+JULIO-+INGRESOS.pdf", sin año) — si no
+		// aparece ahí, se usa el año de la fila (siempre disponible).
+		const regex = new RegExp(`${mes}[\\s+_-]*(?:de[\\s+_-]*)?(\\d{4})?`);
+		const m = texto.match(regex);
+		if (m) {
+			const anno = m[1] ?? annoFallback;
+			return `${mes.charAt(0).toUpperCase()}${mes.slice(1)}${anno ? ' ' + anno : ''}`;
+		}
+	}
+	return null;
+}
+
 export function personalDeComuna(comunaId: string) {
-	// personal ahora acumula histórico (varios meses por comuna) — se
-	// muestra solo el período más reciente, si no se sumarían dotación y
-	// remuneraciones de distintos meses. personal ya viene ordenado
-	// anno DESC, mes DESC desde el scraper, así que el primer registro de
-	// la comuna define el período vigente.
-	const deComuna = personal.filter((p) => p.comuna_id === comunaId);
-	const vigente = deComuna[0];
-	if (!vigente) return [];
-	return deComuna.filter((p) => p.anno === vigente.anno && p.mes === vigente.mes);
+	// personal acumula histórico (varias corridas pueden dejar más de un
+	// mes por comuna) — se muestra el mes más reciente de CADA categoría
+	// (área × tipo de contrato) por separado, no un único mes global para
+	// toda la comuna: filtrar por un solo período descartaba categorías
+	// reales que simplemente se actualizaron en una corrida distinta (ej.
+	// Paihuano: salud/honorarios quedó en junio mientras el resto ya
+	// estaba en julio) en vez de ser filas duplicadas a limpiar.
+	const masReciente = new Map<string, (typeof personal)[number]>();
+	for (const p of personal) {
+		if (p.comuna_id !== comunaId) continue;
+		const clave = `${p.area}|${p.tipo_contrato}`;
+		const actual = masReciente.get(clave);
+		if (!actual || p.anno * 100 + p.mes > actual.anno * 100 + actual.mes) {
+			masReciente.set(clave, p);
+		}
+	}
+	return [...masReciente.values()];
 }
 
 export function remuneracionAutoridadDeComuna(comunaId: string) {
