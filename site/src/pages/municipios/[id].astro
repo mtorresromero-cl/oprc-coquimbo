@@ -48,7 +48,7 @@ function formatoCLP(monto: number) {
 	</div>
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
-		<div class="grid gap-10 lg:grid-cols-2">
+		<div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
 			{items.length > 0 && (
 				<section class="max-w-xl">
 					<h2 class="text-lg font-semibold text-slate-900">Presupuesto {anno}</h2>
@@ -74,9 +74,9 @@ function formatoCLP(monto: number) {
 						</p>
 						<ul class="divide-y divide-slate-100 text-sm">
 							{ingresos.map((i) => (
-								<li class="flex justify-between px-4 py-2.5">
-									<span class="text-slate-700">{i.categoria}</span>
-									<span class="font-medium text-slate-900">{formatoCLP(i.monto)}</span>
+								<li class="flex justify-between gap-3 px-4 py-2.5">
+									<span class="min-w-0 break-words text-slate-700">{i.categoria}</span>
+									<span class="shrink-0 font-medium text-slate-900">{formatoCLP(i.monto)}</span>
 								</li>
 							))}
 						</ul>
@@ -88,9 +88,9 @@ function formatoCLP(monto: number) {
 						</p>
 						<ul class="divide-y divide-slate-100 text-sm">
 							{gastos.map((g) => (
-								<li class="flex justify-between px-4 py-2.5">
-									<span class="text-slate-700">{g.categoria}</span>
-									<span class="font-medium text-slate-900">{formatoCLP(g.monto)}</span>
+								<li class="flex justify-between gap-3 px-4 py-2.5">
+									<span class="min-w-0 break-words text-slate-700">{g.categoria}</span>
+									<span class="shrink-0 font-medium text-slate-900">{formatoCLP(g.monto)}</span>
 								</li>
 							))}
 						</ul>
@@ -129,7 +129,7 @@ function formatoCLP(monto: number) {
 						</div>
 					</div>
 
-					<div class="mt-6 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+					<div class="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
 						<table class="w-full text-sm">
 							<thead>
 								<tr class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase">

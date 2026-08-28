@@ -540,9 +540,15 @@ export interface RemuneracionAlcalde {
 }
 
 // "SECRETARIA ALCALDE" es un cargo administrativo distinto (no es el
-// alcalde/sa electo), se excluye. "ALCALDE ALCALDIA" es la misma variante
-// real observada en el Portal de Transparencia para una comuna.
-const CARGOS_ALCALDE_VALIDOS = new Set(['ALCALDE', 'ALCALDESA', 'ALCALDE ALCALDIA']);
+// alcalde/sa electo), se excluye. "ALCALDE ALCALDIA" y "ALCALDE DE
+// COQUIMBO" son variantes reales observadas en el Portal de Transparencia
+// para comunas específicas.
+const CARGOS_ALCALDE_VALIDOS = new Set([
+	'ALCALDE',
+	'ALCALDESA',
+	'ALCALDE ALCALDIA',
+	'ALCALDE DE COQUIMBO',
+]);
 
 /**
  * Remuneración bruta de alcaldes/alcaldesas por comuna (Portal de

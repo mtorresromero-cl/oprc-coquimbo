@@ -150,6 +150,66 @@
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU060"
   },
   {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "contrata",
+    "dotacion": 228,
+    "remuneracion_total": 333097778.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU067"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "honorarios",
+    "dotacion": 1847,
+    "remuneracion_total": 1467553535.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU067"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "mes": 7,
+    "area": "municipal",
+    "tipo_contrato": "planta",
+    "dotacion": 326,
+    "remuneracion_total": 696016682.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU067"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "contrata",
+    "dotacion": 648,
+    "remuneracion_total": 950072722.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU067"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "honorarios",
+    "dotacion": 710,
+    "remuneracion_total": 382404147.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU067"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "mes": 7,
+    "area": "salud",
+    "tipo_contrato": "planta",
+    "dotacion": 914,
+    "remuneracion_total": 2010080038.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU067"
+  },
+  {
     "comuna_id": "illapel",
     "anno": 2026,
     "mes": 7,
