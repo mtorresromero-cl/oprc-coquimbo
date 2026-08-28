@@ -21,7 +21,7 @@ function formatoFecha(fecha: Date) {
 <Layout title={`${post.data.titulo} — OPRC`} description={post.data.resumen}>
 	<main class="mx-auto max-w-2xl px-6 py-12">
 		<a href="/blog/" class="text-sm text-slate-500 hover:text-brand-600 hover:underline">&larr; Blog</a>
-		<p class="mt-4 text-sm text-slate-500">
+		<p class="mt-4 text-base text-slate-500">
 			{formatoFecha(post.data.fecha)} · {post.data.autor}
 		</p>
 		<h1 class="mt-1 text-3xl font-bold tracking-tight text-slate-900">{post.data.titulo}</h1>

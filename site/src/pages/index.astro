@@ -223,7 +223,7 @@ const ICONOS: Record<string, string> = {
 							</svg>
 						</div>
 						<h3 class="mt-4 font-semibold text-slate-900">{item.titulo}</h3>
-						<p class="mt-2 text-sm leading-relaxed text-slate-600">{item.texto}</p>
+						<p class="mt-2 text-base leading-relaxed text-slate-600">{item.texto}</p>
 					</div>
 				))}
 			</div>
@@ -234,7 +234,7 @@ const ICONOS: Record<string, string> = {
 				<h2 class="text-2xl font-bold tracking-tight text-slate-900">
 					Composición por partido — todas las autoridades
 				</h2>
-				<p class="mt-2 max-w-2xl text-sm text-slate-600">
+				<p class="mt-2 max-w-2xl text-base text-slate-600">
 					Las {totalAutoridadesConPartido} autoridades de la Región de Coquimbo con partido
 					declarado: alcaldes, concejales, consejeros regionales, el gobernador, diputados y
 					senadores.
@@ -255,28 +255,6 @@ const ICONOS: Record<string, string> = {
 					))}
 				</div>
 
-				<h3 class="mt-10 font-semibold text-slate-900">Composición por género</h3>
-				<p class="mt-1 max-w-2xl text-xs text-slate-500">
-					Este dato no viene de ninguna fuente oficial (SERVEL, BCN ni el Portal de Transparencia
-					lo publican): se infirió a partir del nombre de pila de cada una de las {totalConGenero}{' '}
-					autoridades, a mano, verificando directamente los pocos casos ambiguos en vez de adivinar.
-				</p>
-				<div class="mt-4 max-w-sm space-y-3">
-					{composicionGenero.map((g) => (
-						<div class="flex items-center gap-4">
-							<span class="w-16 shrink-0 text-sm font-medium text-slate-700">{g.label}</span>
-							<div class="h-6 flex-1 rounded bg-slate-200">
-								<div
-									class="h-6 rounded bg-brand-600"
-									style={`width:${(g.total / maxGenero) * 100}%`}
-								>
-								</div>
-							</div>
-							<span class="w-10 shrink-0 text-right text-sm font-semibold text-slate-900">{g.total}</span>
-						</div>
-					))}
-				</div>
-
 				<a href="/autoridades/" class="mt-6 inline-block text-sm font-semibold text-brand-600 hover:underline">
 					Ver el detalle de cada autoridad &rarr;
 				</a>
@@ -284,43 +262,71 @@ const ICONOS: Record<string, string> = {
 		</section>
 
 		<section class="mx-auto max-w-6xl px-6 py-16">
-			<h2 class="text-2xl font-bold tracking-tight text-slate-900">Autoridades por provincia</h2>
-			<p class="mt-2 max-w-2xl text-sm text-slate-600">
-				Alcaldes y concejales según la provincia de su comuna; consejeros regionales según su
-				circunscripción provincial (así se eligen). No incluye senadores, diputados ni al
-				gobernador, que representan a toda la región y no a una provincia en particular.
-			</p>
-			<div class="mt-8 overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
-				<table class="w-full text-sm">
-					<thead class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase">
-						<tr>
-							<th class="px-4 py-3">Provincia</th>
-							<th class="px-4 py-3 text-right">Alcaldes</th>
-							<th class="px-4 py-3 text-right">Concejales</th>
-							<th class="px-4 py-3 text-right">Consejeros regionales</th>
-						</tr>
-					</thead>
-					<tbody class="divide-y divide-slate-100 bg-white">
-						{cargoProvincia.map((p) => (
-							<tr>
-								<td class="px-4 py-3 font-medium text-slate-900">{p.provincia}</td>
-								<td class="px-4 py-3 text-right text-slate-700">{p.alcalde}</td>
-								<td class="px-4 py-3 text-right text-slate-700">{p.concejal}</td>
-								<td class="px-4 py-3 text-right text-slate-700">{p.core}</td>
-							</tr>
+			<div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+				<div>
+					<h2 class="text-2xl font-bold tracking-tight text-slate-900">Autoridades por provincia</h2>
+					<p class="mt-2 text-base text-slate-600">
+						Alcaldes y concejales según la provincia de su comuna; consejeros regionales según su
+						circunscripción provincial (así se eligen). No incluye senadores, diputados ni al
+						gobernador, que representan a toda la región y no a una provincia en particular.
+					</p>
+					<div class="mt-8 overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+						<table class="w-full text-sm">
+							<thead class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase">
+								<tr>
+									<th class="px-4 py-3">Provincia</th>
+									<th class="px-4 py-3 text-right">Alcaldes</th>
+									<th class="px-4 py-3 text-right">Concejales</th>
+									<th class="px-4 py-3 text-right">Consejeros regionales</th>
+								</tr>
+							</thead>
+							<tbody class="divide-y divide-slate-100 bg-white">
+								{cargoProvincia.map((p) => (
+									<tr>
+										<td class="px-4 py-3 font-medium text-slate-900">{p.provincia}</td>
+										<td class="px-4 py-3 text-right text-slate-700">{p.alcalde}</td>
+										<td class="px-4 py-3 text-right text-slate-700">{p.concejal}</td>
+										<td class="px-4 py-3 text-right text-slate-700">{p.core}</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div>
+					<h2 class="text-2xl font-bold tracking-tight text-slate-900">Composición por género</h2>
+					<p class="mt-2 text-base text-slate-600">
+						Este dato no viene de ninguna fuente oficial (SERVEL, BCN ni el Portal de Transparencia
+						lo publican): se infirió a partir del nombre de pila de cada una de las {totalConGenero}{' '}
+						autoridades, a mano, verificando directamente los pocos casos ambiguos en vez de adivinar.
+					</p>
+					<div class="mt-8 space-y-3">
+						{composicionGenero.map((g) => (
+							<div class="flex items-center gap-4">
+								<span class="w-16 shrink-0 text-sm font-medium text-slate-700">{g.label}</span>
+								<div class="h-6 flex-1 rounded bg-slate-200">
+									<div
+										class="h-6 rounded bg-brand-600"
+										style={`width:${(g.total / maxGenero) * 100}%`}
+									>
+									</div>
+								</div>
+								<span class="w-10 shrink-0 text-right text-sm font-semibold text-slate-900">{g.total}</span>
+							</div>
 						))}
-					</tbody>
-				</table>
+					</div>
+				</div>
 			</div>
 		</section>
 
 		<section class="border-y border-slate-100 bg-slate-50">
 			<div class="mx-auto max-w-6xl px-6 py-16">
 				<h2 class="text-2xl font-bold tracking-tight text-slate-900">Datos municipales</h2>
-				<div class="mt-8 grid gap-12 lg:grid-cols-2">
+				<div class="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-2">
 					<div>
 						<h3 class="font-semibold text-slate-900">Dotación por tipo de contrato</h3>
-						<p class="mt-1 text-sm text-slate-600">
+						<p class="mt-1 text-base text-slate-600">
 							Suma regional de las {totalDotacion} personas que trabajan en los {municipiosConDotacion} municipios con
 							datos publicados.
 						</p>
@@ -339,7 +345,7 @@ const ICONOS: Record<string, string> = {
 
 					<div>
 						<h3 class="font-semibold text-slate-900">Remuneración de alcaldes/as por comuna</h3>
-						<p class="mt-1 text-sm text-slate-600">
+						<p class="mt-1 text-base text-slate-600">
 							Remuneración bruta del mes más reciente publicado por cada comuna (indicado junto a
 							cada barra) según el Portal de Transparencia. No incluye a concejales — esa
 							remuneración no está publicada en la fuente que usamos.
@@ -390,7 +396,7 @@ const ICONOS: Record<string, string> = {
 								</svg>
 							</div>
 							<h3 class="mt-4 font-semibold text-slate-900 group-hover:text-brand-700">{s.titulo}</h3>
-							<p class="mt-2 text-sm leading-relaxed text-slate-600">{s.descripcion}</p>
+							<p class="mt-2 text-base leading-relaxed text-slate-600">{s.descripcion}</p>
 							<span class="mt-4 inline-block text-sm font-semibold text-brand-600">Ver más &rarr;</span>
 						</a>
 					))}
