@@ -262,7 +262,7 @@ const ICONOS: Record<string, string> = {
 		</section>
 
 		<section class="mx-auto max-w-6xl px-6 py-16">
-			<div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+			<div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-24">
 				<div>
 					<h2 class="text-2xl font-bold tracking-tight text-slate-900">Autoridades por provincia</h2>
 					<p class="mt-2 text-base text-slate-600">
@@ -297,9 +297,9 @@ const ICONOS: Record<string, string> = {
 				<div>
 					<h2 class="text-2xl font-bold tracking-tight text-slate-900">Composición por género</h2>
 					<p class="mt-2 text-base text-slate-600">
-						Este dato no viene de ninguna fuente oficial (SERVEL, BCN ni el Portal de Transparencia
-						lo publican): se infirió a partir del nombre de pila de cada una de las {totalConGenero}{' '}
-						autoridades, a mano, verificando directamente los pocos casos ambiguos en vez de adivinar.
+						Estimación a partir del nombre de cada una de las {totalConGenero} autoridades. No es un
+						dato publicado por las fuentes oficiales (SERVEL, BCN, Portal de Transparencia), que no
+						registran sexo o género.
 					</p>
 					<div class="mt-8 space-y-3">
 						{composicionGenero.map((g) => (
@@ -312,7 +312,9 @@ const ICONOS: Record<string, string> = {
 									>
 									</div>
 								</div>
-								<span class="w-10 shrink-0 text-right text-sm font-semibold text-slate-900">{g.total}</span>
+								<span class="w-24 shrink-0 text-right text-sm font-semibold text-slate-900">
+									{g.total} <span class="font-normal text-slate-500">({Math.round((g.total / totalConGenero) * 100)}%)</span>
+								</span>
 							</div>
 						))}
 					</div>
@@ -347,8 +349,7 @@ const ICONOS: Record<string, string> = {
 						<h3 class="font-semibold text-slate-900">Remuneración de alcaldes/as por comuna</h3>
 						<p class="mt-1 text-base text-slate-600">
 							Remuneración bruta del mes más reciente publicado por cada comuna (indicado junto a
-							cada barra) según el Portal de Transparencia. No incluye a concejales — esa
-							remuneración no está publicada en la fuente que usamos.
+							cada barra) según el Portal de Transparencia. No incluye a concejales.
 							{comunasSinRemuneracion.length > 0 && (
 								<>{' '}Falta{comunasSinRemuneracion.length === 1 ? '' : 'n'} {comunasSinRemuneracion.join(' y ')}, sin registro disponible.</>
 							)}
