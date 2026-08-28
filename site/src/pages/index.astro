@@ -311,7 +311,10 @@ const ICONOS: Record<string, string> = {
 					<div>
 						<h3 class="font-semibold text-slate-900">Remuneración de alcaldes/as por comuna</h3>
 						<p class="mt-1 text-sm text-slate-600">
-							Remuneración bruta mensual según el Portal de Transparencia. No incluye a
+							Remuneración bruta del mes más reciente según el Portal de Transparencia. Es una
+							cifra puntual, no un sueldo base: puede incluir bonos y asignaciones variables que
+							hacen que fluctúe bastante de un mes a otro para la misma persona, así que no
+							conviene leerla como una comparación estable entre comunas. No incluye a
 							concejales — esa remuneración no está publicada en la fuente que usamos.
 							{comunasSinRemuneracion.length > 0 && (
 								<>Falta{comunasSinRemuneracion.length === 1 ? '' : 'n'} {comunasSinRemuneracion.join(' y ')}, sin registro disponible.</>

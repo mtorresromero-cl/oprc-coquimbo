@@ -551,10 +551,16 @@ const CARGOS_ALCALDE_VALIDOS = new Set([
 ]);
 
 /**
- * Remuneración bruta de alcaldes/alcaldesas por comuna (Portal de
- * Transparencia). No incluye concejales: esa remuneración no está
- * publicada en la fuente que usamos. Coquimbo todavía no tiene registro
- * disponible.
+ * Remuneración bruta de alcaldes/alcaldesas por comuna, mes más reciente
+ * disponible (Portal de Transparencia). No incluye concejales: esa
+ * remuneración no está publicada en la fuente que usamos.
+ *
+ * Ojo: es una cifra puntual de un mes, no un sueldo base — verificado
+ * contra la fuente en vivo que fluctúa bastante mes a mes para la misma
+ * persona (ej. Vicuña: $11.069.639 en mayo/2026, $7.637.099 en
+ * junio/2026, $11.219.274 en julio/2026), probablemente por bonos o
+ * asignaciones variables. No comparar entre comunas como si fuera un
+ * sueldo fijo.
  */
 export function remuneracionAlcaldesPorComuna(): RemuneracionAlcalde[] {
 	return remuneracionAutoridad

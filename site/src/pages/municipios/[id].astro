@@ -160,6 +160,9 @@ function formatoCLP(monto: number) {
 						<p class="mt-4 text-sm text-slate-700">
 							Remuneración bruta de {r.cargo.toLowerCase()} ({r.mes}/{r.anno}):{' '}
 							<span class="font-semibold text-slate-900">{formatoCLP(r.remuneracion_bruta)}</span>
+							<span class="block text-xs text-slate-400">
+								Cifra del mes, puede incluir bonos variables — no es un sueldo base fijo.
+							</span>
 						</p>
 					))}
 				</section>
