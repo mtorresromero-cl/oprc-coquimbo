@@ -210,7 +210,17 @@ class ScraperPersonalMunicipal(BaseScraper):
 
         if not meses:
             return []
-        meses[0].click()
+        # no asumir que el DOM lista los meses de más reciente a más
+        # antiguo: la mayoría de las comunas sí (Julio primero), pero
+        # Andacollo, La Higuera y Río Hurtado los listan al revés (Enero
+        # primero) — meses[0] agarraba el mes equivocado en esas tres.
+        # Se elige por el número real del mes, no por posición.
+        def _numero_mes(m):
+            match = meses_regex.search(m.inner_text() or "")
+            return MES_NUM.get(match.group(1).lower(), 0) if match else 0
+
+        mes_mas_reciente = max(meses, key=_numero_mes)
+        mes_mas_reciente.click()
         page.wait_for_timeout(3500)
 
         return self._extraer_todas_las_paginas(page)

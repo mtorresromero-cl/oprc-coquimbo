@@ -2,6 +2,14 @@
   {
     "comuna_id": "andacollo",
     "anno": 2026,
+    "mes": 7,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 9503883.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU007"
+  },
+  {
+    "comuna_id": "andacollo",
+    "anno": 2026,
     "mes": 1,
     "cargo": "ALCALDE",
     "remuneracion_bruta": 6535179.0,
@@ -38,6 +46,14 @@
     "cargo": "ALCALDE",
     "remuneracion_bruta": 9530790.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU110"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "mes": 7,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 5964775.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU122"
   },
   {
     "comuna_id": "la-higuera",
@@ -102,6 +118,14 @@
     "cargo": "ALCALDE",
     "remuneracion_bruta": 8220467.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU238"
+  },
+  {
+    "comuna_id": "rio-hurtado",
+    "anno": 2026,
+    "mes": 7,
+    "cargo": "ALCALDESA",
+    "remuneracion_bruta": 8477842.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU272"
   },
   {
     "comuna_id": "rio-hurtado",

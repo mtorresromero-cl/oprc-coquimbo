@@ -7,6 +7,7 @@ import {
 	remuneracionAutoridadDeComuna,
 	AREA_LABEL,
 	TIPO_CONTRATO_LABEL,
+	nombreMes,
 } from '../../lib/datos';
 
 export function getStaticPaths() {
@@ -158,10 +159,13 @@ function formatoCLP(monto: number) {
 
 					{remuneracionAutoridad.map((r) => (
 						<p class="mt-4 text-sm text-slate-700">
-							Remuneración bruta de {r.cargo.toLowerCase()} ({r.mes}/{r.anno}):{' '}
+							Remuneración bruta de {r.cargo.toLowerCase()} ({nombreMes(r.mes)}/{r.anno}):{' '}
 							<span class="font-semibold text-slate-900">{formatoCLP(r.remuneracion_bruta)}</span>
-							<span class="block text-xs text-slate-400">
-								Cifra del mes, puede incluir bonos variables — no es un sueldo base fijo.
+							<span class="mt-1 block max-w-md rounded-md bg-amber-50 px-2 py-1.5 text-xs text-amber-800">
+								Cifra bruta de ese mes puntual, no un sueldo base fijo: al revisar
+								enero-julio/2026 en toda la región, la mayoría de las comunas tiene meses
+								(típicamente mayo y julio) con un salto de hasta 30-70% por bonos o
+								asignaciones variables que no se pagan todos los meses.
 							</span>
 						</p>
 					))}

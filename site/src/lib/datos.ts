@@ -186,7 +186,18 @@ export function personalDeComuna(comunaId: string) {
 }
 
 export function remuneracionAutoridadDeComuna(comunaId: string) {
-	return remuneracionAutoridad.filter((r) => r.comuna_id === comunaId);
+	// el histórico no se pisa: si el mismo cargo aparece en más de un mes
+	// (ej. una corrida vieja que quedó con enero, más la corrida nueva con
+	// julio), se muestra solo el mes más reciente de cada cargo.
+	const masReciente = new Map<string, (typeof remuneracionAutoridad)[number]>();
+	for (const r of remuneracionAutoridad) {
+		if (r.comuna_id !== comunaId) continue;
+		const actual = masReciente.get(r.cargo);
+		if (!actual || r.anno * 100 + r.mes > actual.anno * 100 + actual.mes) {
+			masReciente.set(r.cargo, r);
+		}
+	}
+	return [...masReciente.values()];
 }
 
 export interface ComparativaMunicipal {
@@ -337,6 +348,26 @@ export function fotoAutoridad(id: string): string | null {
 export function nombreComuna(comunaId: string | null): string | null {
 	if (!comunaId) return null;
 	return comunas.find((c) => c.id === comunaId)?.nombre ?? comunaId;
+}
+
+const MES_LABEL = [
+	'',
+	'enero',
+	'febrero',
+	'marzo',
+	'abril',
+	'mayo',
+	'junio',
+	'julio',
+	'agosto',
+	'septiembre',
+	'octubre',
+	'noviembre',
+	'diciembre',
+];
+
+export function nombreMes(mes: number): string {
+	return MES_LABEL[mes] ?? String(mes);
 }
 
 // El campo partido viene de distintas fuentes (SERVEL, BCN, sitios
@@ -537,6 +568,8 @@ export interface RemuneracionAlcalde {
 	comunaId: string;
 	nombreComuna: string;
 	remuneracionBruta: number;
+	anno: number;
+	mes: number;
 }
 
 // "SECRETARIA ALCALDE" es un cargo administrativo distinto (no es el
@@ -555,22 +588,38 @@ const CARGOS_ALCALDE_VALIDOS = new Set([
  * disponible (Portal de Transparencia). No incluye concejales: esa
  * remuneración no está publicada en la fuente que usamos.
  *
- * Ojo: es una cifra puntual de un mes, no un sueldo base — verificado
- * contra la fuente en vivo que fluctúa bastante mes a mes para la misma
- * persona (ej. Vicuña: $11.069.639 en mayo/2026, $7.637.099 en
- * junio/2026, $11.219.274 en julio/2026), probablemente por bonos o
- * asignaciones variables. No comparar entre comunas como si fuera un
- * sueldo fijo.
+ * Ojo: es una cifra puntual de un mes, no un sueldo base. Se armó a mano
+ * una matriz enero-julio/2026 para las 15 comunas (verificada en vivo
+ * contra la fuente, con sesiones nuevas) y el patrón es consistente: en
+ * mayo y julio la mayoría de las comunas muestra un salto de 30-70%
+ * sobre su línea base de enero/marzo/abril/junio (ej. Vicuña pasa de
+ * ~$7,5M a $11,2M en julio), compatible con algún bono o asignación
+ * variable que no se paga todos los meses. No es parejo entre comunas:
+ * Paihuano, Salamanca, Combarbalá, Canela y La Higuera se mantienen
+ * planas todo el semestre, sin ese salto — así que el componente
+ * variable depende de algo propio de cada municipio, no es regional
+ * parejo. Por esto no debe leerse como sueldo fijo comparable 1 a 1
+ * entre comunas.
  */
 export function remuneracionAlcaldesPorComuna(): RemuneracionAlcalde[] {
-	return remuneracionAutoridad
-		.filter((r) => CARGOS_ALCALDE_VALIDOS.has(r.cargo))
-		.map((r) => ({
-			comunaId: r.comuna_id,
-			nombreComuna: nombreComuna(r.comuna_id) ?? r.comuna_id,
-			remuneracionBruta: r.remuneracion_bruta,
-		}))
-		.sort((a, b) => b.remuneracionBruta - a.remuneracionBruta);
+	// el histórico no se pisa (cada corrida agrega el período nuevo sin
+	// borrar meses anteriores), así que puede haber varias filas por
+	// comuna — se queda solo con el mes más reciente de cada una.
+	const masReciente = new Map<string, RemuneracionAlcalde>();
+	for (const r of remuneracionAutoridad) {
+		if (!CARGOS_ALCALDE_VALIDOS.has(r.cargo)) continue;
+		const actual = masReciente.get(r.comuna_id);
+		if (!actual || r.anno * 100 + r.mes > actual.anno * 100 + actual.mes) {
+			masReciente.set(r.comuna_id, {
+				comunaId: r.comuna_id,
+				nombreComuna: nombreComuna(r.comuna_id) ?? r.comuna_id,
+				remuneracionBruta: r.remuneracion_bruta,
+				anno: r.anno,
+				mes: r.mes,
+			});
+		}
+	}
+	return [...masReciente.values()].sort((a, b) => b.remuneracionBruta - a.remuneracionBruta);
 }
 
 export interface CargoPorProvincia {

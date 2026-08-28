@@ -11,6 +11,7 @@ import {
 	dotacionPorTipoContrato,
 	remuneracionAlcaldesPorComuna,
 	autoridadesPorCargoProvincia,
+	nombreMes,
 } from '../lib/datos';
 
 const comunasConDatos = comunas.filter(
@@ -311,14 +312,21 @@ const ICONOS: Record<string, string> = {
 					<div>
 						<h3 class="font-semibold text-slate-900">Remuneración de alcaldes/as por comuna</h3>
 						<p class="mt-1 text-sm text-slate-600">
-							Remuneración bruta del mes más reciente según el Portal de Transparencia. Es una
-							cifra puntual, no un sueldo base: puede incluir bonos y asignaciones variables que
-							hacen que fluctúe bastante de un mes a otro para la misma persona, así que no
-							conviene leerla como una comparación estable entre comunas. No incluye a
-							concejales — esa remuneración no está publicada en la fuente que usamos.
+							Remuneración bruta del mes más reciente publicado por cada comuna (indicado junto a
+							cada barra) según el Portal de Transparencia. No incluye a concejales — esa
+							remuneración no está publicada en la fuente que usamos.
 							{comunasSinRemuneracion.length > 0 && (
-								<>Falta{comunasSinRemuneracion.length === 1 ? '' : 'n'} {comunasSinRemuneracion.join(' y ')}, sin registro disponible.</>
+								<>{' '}Falta{comunasSinRemuneracion.length === 1 ? '' : 'n'} {comunasSinRemuneracion.join(' y ')}, sin registro disponible.</>
 							)}
+						</p>
+						<p class="mt-2 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-800">
+							<strong>Por qué varía tanto entre comunas:</strong> revisamos el histórico
+							enero-julio 2026 de las 15 comunas y en la mayoría hay un salto de 30-70% en mayo y
+							julio sobre su línea base de otros meses — compatible con algún bono o asignación
+							variable que no se paga todos los meses. No es parejo: algunas comunas (Paihuano,
+							Salamanca, Combarbalá, Canela, La Higuera) se mantienen planas todo el semestre. Por
+							eso esta cifra no es un sueldo base comparable 1 a 1 entre comunas, sino el monto
+							bruto de ese mes puntual.
 						</p>
 						<div class="mt-6 space-y-2.5">
 							{remuneracionAlcaldes.map((r) => (
@@ -327,7 +335,10 @@ const ICONOS: Record<string, string> = {
 									<div class="h-5 flex-1 rounded bg-slate-200">
 										<div class="h-5 rounded bg-brand-600" style={`width:${(r.remuneracionBruta / maxRemuneracion) * 100}%`}></div>
 									</div>
-									<span class="w-24 shrink-0 text-right text-xs font-semibold text-slate-900">{formatoCLP(r.remuneracionBruta)}</span>
+									<span class="w-32 shrink-0 text-right text-xs font-semibold text-slate-900">
+										{formatoCLP(r.remuneracionBruta)}
+										<span class="block font-normal text-slate-400">{nombreMes(r.mes)}/{r.anno}</span>
+									</span>
 								</div>
 							))}
 						</div>
