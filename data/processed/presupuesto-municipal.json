@@ -1,5 +1,185 @@
 [
   {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "ACREEDORES PRESUPUESTARIOS 121..",
+    "subcategoria": "215-00-00-000-000-000",
+    "monto": 4925577203.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P GASTOS EN PERSONAL",
+    "subcategoria": "215-21-00-000-000-000",
+    "monto": 1785600899.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P BIENES Y SERVICIOS DE CONSUMO",
+    "subcategoria": "215-22-00-000-000-000",
+    "monto": 1299453711.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P TRANSFERENCIAS CORRIENTES",
+    "subcategoria": "215-24-00-000-000-000",
+    "monto": 1228168265.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P INICIATIVAS DE INVERSIÓN",
+    "subcategoria": "215-31-00-000-000-000",
+    "monto": 333843403.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P ADQUISICIÓN DE ACTIVOS NO  FINANCIEROS",
+    "subcategoria": "215-29-00-000-000-000",
+    "monto": 110962214.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P SERVICIO DE LA DEUDA",
+    "subcategoria": "215-34-00-000-000-000",
+    "monto": 110870882.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P PRESTACIONES DE SEGURIDAD SOCIAL",
+    "subcategoria": "215-23-00-000-000-000",
+    "monto": 45390796.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P OTROS GASTOS CORRIENTES",
+    "subcategoria": "215-26-00-000-000-000",
+    "monto": 11287033.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P ÍNTEGROS AL FISCO",
+    "subcategoria": "215-25-00-000-000-000",
+    "monto": 0.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P ADQUISICIÓN DE ACTIVOS FINANCIEROS",
+    "subcategoria": "215-30-00-000-000-000",
+    "monto": 0.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P PRÉSTAMOS",
+    "subcategoria": "215-32-00-000-000-000",
+    "monto": 0.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P TRANSFERENCIAS DE CAPITAL",
+    "subcategoria": "215-33-00-000-000-000",
+    "monto": 0.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "SALDO FINAL CAJA",
+    "subcategoria": "215-35-00-000-000-000",
+    "monto": 0.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "DEUDORES PRESUPUESTARIOS",
+    "subcategoria": "115-00-00-000-000-000",
+    "monto": 5633855183.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C OTROS INGRESOS CORRIENTES",
+    "subcategoria": "115-08-00-000-000-000",
+    "monto": 4203372332.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRIBUTOS SOBRE EL USO DE BIENES Y LA  REALIZA",
+    "subcategoria": "115-03-00-000-000-000",
+    "monto": 632253480.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRANSFERENCIAS CORRIENTES",
+    "subcategoria": "115-05-00-000-000-000",
+    "monto": 136183315.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C RENTAS DE LA PROPIEDAD",
+    "subcategoria": "115-06-00-000-000-000",
+    "monto": 12377632.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C INGRESOS DE OPERACIÓN",
+    "subcategoria": "115-07-00-000-000-000",
+    "monto": 0.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/npbaf6uvaxfgqakhoe9zs/Balance-Ejecuci-n-Presupuestaria.pdf?rlkey=3f3qwqutk8mex1eyo1ro36z28&st=fwyfhyzj&e=1&dl=0"
+  },
+  {
     "comuna_id": "coquimbo",
     "anno": 2026,
     "tipo": "gasto",
@@ -25,6 +205,51 @@
     "subcategoria": "115-03-00-000-000-000",
     "monto": 3628263047.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C OTROS INGRESOS CORRIENTES",
+    "subcategoria": "08-00-000-000-000",
+    "monto": 4618732000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/07.-+BEP+Ingresos+%281%29.pdf/a0958815-5164-49d7-b6b1-d2695b1f75f8"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRANSFERENCIAS PARA GASTOS DE CAPITAL",
+    "subcategoria": "13-00-000-000-000",
+    "monto": 281542000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/07.-+BEP+Ingresos+%281%29.pdf/a0958815-5164-49d7-b6b1-d2695b1f75f8"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRANSFERENCIAS CORRIENTES",
+    "subcategoria": "05-00-000-000-000",
+    "monto": 145612000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/07.-+BEP+Ingresos+%281%29.pdf/a0958815-5164-49d7-b6b1-d2695b1f75f8"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C RENTAS DE LA PROPIEDAD",
+    "subcategoria": "06-00-000-000-000",
+    "monto": 133934000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/07.-+BEP+Ingresos+%281%29.pdf/a0958815-5164-49d7-b6b1-d2695b1f75f8"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C RECUPERACIÓN DE PRÉSTAMOS",
+    "subcategoria": "12-00-000-000-000",
+    "monto": 73882000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/07.-+BEP+Ingresos+%281%29.pdf/a0958815-5164-49d7-b6b1-d2695b1f75f8"
   },
   {
     "comuna_id": "la-higuera",
@@ -277,6 +502,69 @@
     "subcategoria": "14-00-000-000-000",
     "monto": 0.0,
     "fuente_url": "https://transparencia.laserena.cl/documentos/doc_108__24062025102804.pdf"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "DEUDORES PRESUPUESTARIOS",
+    "subcategoria": "115-00-00-000-000-000",
+    "monto": 1860144581.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/7/Balance de Ejecucion Presupuestaria Ingresos_80139.pdf"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C OTROS INGRESOS CORRIENTES",
+    "subcategoria": "115-08-00-000-000-000",
+    "monto": 1477090981.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/7/Balance de Ejecucion Presupuestaria Ingresos_80139.pdf"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRANSFERENCIAS PARA GASTOS DE",
+    "subcategoria": "115-13-00-000-000-000",
+    "monto": 180824421.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/7/Balance de Ejecucion Presupuestaria Ingresos_80139.pdf"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRIBUTOS SOBRE EL USO DE BIENES Y LA",
+    "subcategoria": "115-03-00-000-000-000",
+    "monto": 113005726.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/7/Balance de Ejecucion Presupuestaria Ingresos_80139.pdf"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C RENTAS DE LA PROPIEDAD",
+    "subcategoria": "115-06-00-000-000-000",
+    "monto": 84293276.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/7/Balance de Ejecucion Presupuestaria Ingresos_80139.pdf"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C INGRESOS DE OPERACIÓN",
+    "subcategoria": "115-07-00-000-000-000",
+    "monto": 4664990.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/7/Balance de Ejecucion Presupuestaria Ingresos_80139.pdf"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C RECUPERACIÓN DE PRÉSTAMOS",
+    "subcategoria": "115-12-00-000-000-000",
+    "monto": 265187.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/7/Balance de Ejecucion Presupuestaria Ingresos_80139.pdf"
   },
   {
     "comuna_id": "paihuano",
