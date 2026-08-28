@@ -28,10 +28,22 @@ const NAV = [
 ];
 
 const REDES = [
-	{ nombre: 'Instagram', url: 'https://instagram.com/oprcoquimbo' },
-	{ nombre: 'Facebook', url: 'https://facebook.com/oprcoquimbo' },
-	{ nombre: 'Twitter', url: 'https://twitter.com/oprcoquimbo' },
+	{ nombre: 'Instagram', url: 'https://instagram.com/oprcoquimbo', icono: 'instagram' },
+	{ nombre: 'Facebook', url: 'https://facebook.com/oprcoquimbo', icono: 'facebook' },
+	{ nombre: 'X (Twitter)', url: 'https://x.com/oprcoquimbo', icono: 'x' },
 ];
+
+// markup interno de cada ícono (sin el <svg> envolvente, para poder
+// reusar un solo <svg class="..."> con distinto tamaño en header/footer)
+const ICONOS_REDES_SVG: Record<string, string> = {
+	instagram:
+		'<rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/>' +
+		'<circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/>' +
+		'<circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/>',
+	facebook:
+		'<path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h2.5l.5-4H13V7a1 1 0 0 1 1-1h2z" fill="currentColor"/>',
+	x: '<path d="m3.5 3.5 17 17m0-17-17 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+};
 
 const path = Astro.url.pathname;
 function activo(href: string) {
@@ -66,7 +78,9 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 				<a href="mailto:contacto@oprcoquimbo.cl" class="hover:text-white">contacto@oprcoquimbo.cl</a>
 				<div class="flex gap-4">
 					{REDES.map((r) => (
-						<a href={r.url} target="_blank" rel="noopener" class="hover:text-white">{r.nombre}</a>
+						<a href={r.url} target="_blank" rel="noopener" aria-label={r.nombre} class="hover:text-white">
+							<svg viewBox="0 0 24 24" class="h-4 w-4" set:html={ICONOS_REDES_SVG[r.icono]} />
+						</a>
 					))}
 				</div>
 			</div>
@@ -77,7 +91,7 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 				<a href="/" class="flex items-center">
 					<img src="/logo-oprc-color.png" alt="OPRC — Observatorio Político Región de Coquimbo" class="h-12 w-auto sm:h-14" />
 				</a>
-				<nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-semibold tracking-wide text-slate-600 uppercase">
+				<nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold tracking-wide text-slate-600 uppercase">
 					<details class="group relative">
 						<summary
 							class={`flex cursor-pointer list-none items-center gap-1 transition-colors hover:text-brand-600 [&::-webkit-details-marker]:hidden ${
@@ -137,9 +151,6 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 						<p class="text-xs font-semibold tracking-wide text-slate-200 uppercase">Contacto</p>
 						<ul class="mt-3 space-y-2 text-sm">
 							<li><a href="mailto:contacto@oprcoquimbo.cl" class="hover:text-white">contacto@oprcoquimbo.cl</a></li>
-							{REDES.map((r) => (
-								<li><a href={r.url} target="_blank" rel="noopener" class="hover:text-white">{r.nombre}</a></li>
-							))}
 							<li>
 								<a
 									href="https://github.com/mtorresromero-cl/oprc-coquimbo"
@@ -151,6 +162,13 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 								</a>
 							</li>
 						</ul>
+						<div class="mt-4 flex gap-4">
+							{REDES.map((r) => (
+								<a href={r.url} target="_blank" rel="noopener" aria-label={r.nombre} class="text-slate-400 hover:text-white">
+									<svg viewBox="0 0 24 24" class="h-5 w-5" set:html={ICONOS_REDES_SVG[r.icono]} />
+								</a>
+							))}
+						</div>
 					</div>
 				</div>
 				<div class="mt-10 border-t border-slate-800 pt-6 text-xs text-slate-500">

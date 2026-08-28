@@ -319,15 +319,6 @@ const ICONOS: Record<string, string> = {
 								<>{' '}Falta{comunasSinRemuneracion.length === 1 ? '' : 'n'} {comunasSinRemuneracion.join(' y ')}, sin registro disponible.</>
 							)}
 						</p>
-						<p class="mt-2 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-800">
-							<strong>Por qué varía tanto entre comunas:</strong> revisamos el histórico
-							enero-julio 2026 de las 15 comunas y en la mayoría hay un salto de 30-70% en mayo y
-							julio sobre su línea base de otros meses — compatible con algún bono o asignación
-							variable que no se paga todos los meses. No es parejo: algunas comunas (Paihuano,
-							Salamanca, Combarbalá, Canela, La Higuera) se mantienen planas todo el semestre. Por
-							eso esta cifra no es un sueldo base comparable 1 a 1 entre comunas, sino el monto
-							bruto de ese mes puntual.
-						</p>
 						<div class="mt-6 space-y-2.5">
 							{remuneracionAlcaldes.map((r) => (
 								<div class="flex items-center gap-4">
@@ -342,6 +333,15 @@ const ICONOS: Record<string, string> = {
 								</div>
 							))}
 						</div>
+						<p class="mt-4 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-800">
+							<strong>Por qué varía tanto entre comunas:</strong> revisamos el histórico
+							enero-julio 2026 de las 15 comunas y en la mayoría hay un salto de 30-70% en mayo y
+							julio sobre su línea base de otros meses — compatible con algún bono o asignación
+							variable que no se paga todos los meses. No es parejo: algunas comunas (Paihuano,
+							Salamanca, Combarbalá, Canela, La Higuera) se mantienen planas todo el semestre. Por
+							eso esta cifra no es un sueldo base comparable 1 a 1 entre comunas, sino el monto
+							bruto de ese mes puntual.
+						</p>
 					</div>
 				</div>
 			</div>
