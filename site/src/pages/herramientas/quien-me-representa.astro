@@ -35,7 +35,7 @@ const regionales = autoridades
 
 <Layout
 	title="¿Quién me representa? — OPRC"
-	description="Elegí tu comuna y mirá de una vez a todas las autoridades que te representan: alcalde/sa, concejales, consejero/a regional, diputados, senadores y el gobernador regional."
+	description="Elige tu comuna y mira de una vez a todas las autoridades que te representan: alcalde/sa, concejales, consejero/a regional, diputados, senadores y el gobernador regional."
 >
 	<section class="relative overflow-hidden bg-slate-900">
 		<div class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"></div>
@@ -46,7 +46,7 @@ const regionales = autoridades
 				¿Quién me representa?
 			</h1>
 			<p class="mt-5 max-w-2xl text-lg text-slate-300">
-				Elegí tu comuna y mirá de una vez a todas las autoridades que te representan, desde tu
+				Elige tu comuna y mira de una vez a todas las autoridades que te representan, desde tu
 				alcalde/sa hasta el gobierno regional y el Congreso.
 			</p>
 		</div>
@@ -58,14 +58,14 @@ const regionales = autoridades
 			id="selector-comuna"
 			class="mt-2 w-full max-w-xs rounded-md border border-slate-300 px-3 py-2.5 text-sm focus:border-brand-500 focus:outline-none"
 		>
-			<option value="">-- Elegí tu comuna --</option>
+			<option value="">-- Elige tu comuna --</option>
 			{comunasOrdenadas.map((c) => (
 				<option value={c.id} data-provincia={c.provincia}>{c.nombre}</option>
 			))}
 		</select>
 
 		<p id="sin-seleccion" class="mt-8 text-sm text-slate-500">
-			Elegí una comuna arriba para ver a tu alcalde/sa, concejales y consejero/a regional.
+			Elige una comuna arriba para ver a tu alcalde/sa, concejales y consejero/a regional.
 		</p>
 
 		<div id="resultados-locales" class="hidden">
