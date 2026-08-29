@@ -14,3 +14,8 @@ __pycache__/
 
 # macOS
 .DS_Store
+
+# Fuente cruda de resultados electorales 2012-2025 provista por el usuario
+# (~1.7GB, xlsx nacionales sin filtrar a la región) — se procesa a
+# data/processed/, el crudo no se versiona.
+extras/elecciones/
