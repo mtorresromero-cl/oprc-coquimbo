@@ -1,0 +1,308 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { comunas, participacionElectoral } from '../../lib/datos';
+
+// Mismo orden geográfico real (provincias de Elqui, Limarí y Choapa, de
+// norte a sur) usado en /autoridades/ y /herramientas/quien-me-representa/.
+const COMUNA_ORDEN = [
+	'la-higuera', 'la-serena', 'coquimbo', 'vicuna', 'paihuano', 'andacollo',
+	'rio-hurtado', 'monte-patria', 'ovalle', 'punitaqui', 'combarbala',
+	'canela', 'illapel', 'salamanca', 'los-vilos',
+];
+const ORDEN_COMUNA_IDX = Object.fromEntries(COMUNA_ORDEN.map((id, i) => [id, i]));
+const comunasOrdenadas = [...comunas].sort(
+	(a, b) => (ORDEN_COMUNA_IDX[a.id] ?? 99) - (ORDEN_COMUNA_IDX[b.id] ?? 99)
+);
+const NOMBRE_COMUNA = Object.fromEntries(comunas.map((c) => [c.id, c.nombre]));
+
+// Orden cronológico real de las jornadas de votación (una jornada puede
+// agrupar varias elecciones simultáneas, ej. municipales + gobernador +
+// convención constituyente el mismo día de mayo 2021).
+const ORDEN_JORNADA = [
+	'municipal_2012',
+	'parlamentaria_presidencial_2013',
+	'municipal_2016',
+	'parlamentaria_presidencial_2017',
+	'plebiscito_2020',
+	'megaeleccion_2021',
+	'parlamentaria_presidencial_2021',
+	'plebiscito_2022',
+	'plebiscito_2023',
+	'municipal_2024',
+	'parlamentaria_presidencial_2025',
+];
+const ETIQUETA_CORTA: Record<string, string> = {
+	municipal_2012: 'Municipales 2012',
+	parlamentaria_presidencial_2013: 'Parlamentarias 2013',
+	municipal_2016: 'Municipales 2016',
+	parlamentaria_presidencial_2017: 'Parlamentarias 2017',
+	plebiscito_2020: 'Plebiscito 2020',
+	megaeleccion_2021: 'Municipales 2021',
+	parlamentaria_presidencial_2021: 'Parlamentarias 2021',
+	plebiscito_2022: 'Plebiscito 2022',
+	plebiscito_2023: 'Plebiscito 2023',
+	municipal_2024: 'Municipales 2024',
+	parlamentaria_presidencial_2025: 'Parlamentarias 2025',
+};
+
+// Vista "por comuna": las 11 jornadas de una comuna, en orden cronológico.
+const porComuna = comunasOrdenadas.map((c) => ({
+	comuna: c,
+	registros: ORDEN_JORNADA.map((j) =>
+		participacionElectoral.find((r) => r.jornada === j && r.comuna_id === c.id)
+	).filter((r) => r !== undefined),
+}));
+
+// Vista "por jornada": las 15 comunas de una jornada, ordenadas de mayor a
+// menor participación.
+const porJornada = ORDEN_JORNADA.map((j) => {
+	const registros = participacionElectoral
+		.filter((r) => r.jornada === j)
+		.sort((a, b) => b.participacion_pct - a.participacion_pct);
+	return { jornada: j, etiqueta: registros[0]?.etiqueta ?? '', anno: registros[0]?.anno ?? 0, registros };
+}).filter((g) => g.registros.length > 0);
+---
+
+<Layout
+	title="Participación Electoral — OPRC"
+	description="Cuánta gente inscrita fue a votar en cada elección desde 2012, comuna por comuna, en la Región de Coquimbo."
+>
+	<section class="relative overflow-hidden bg-slate-900">
+		<div class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"></div>
+		<div class="pointer-events-none absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full bg-brand-800/30 blur-3xl"></div>
+		<div class="relative mx-auto max-w-6xl px-6 py-20">
+			<p class="text-sm font-semibold tracking-widest text-brand-300 uppercase">Herramientas</p>
+			<h1 class="mt-4 max-w-2xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
+				Participación Electoral
+			</h1>
+			<p class="mt-5 max-w-2xl text-lg text-slate-300">
+				Cuánta gente inscrita para votar realmente fue a votar, comuna por comuna, en cada
+				elección desde 2012.
+			</p>
+		</div>
+	</section>
+
+	<main class="mx-auto max-w-6xl px-6 py-10">
+		<p class="max-w-3xl text-sm text-slate-500">
+			La participación mide qué porcentaje de las personas inscritas votó ese día — no es el
+			resultado de la elección (para eso revisa <a href="/autoridades/" class="font-medium text-brand-600 hover:underline">Autoridades</a>
+			y <a href="/parlamentarios/" class="font-medium text-brand-600 hover:underline">Parlamentarios</a>).
+			Cuando varias elecciones se hicieron el mismo día — por ejemplo municipales y gobernador en
+			2021 — comparten una sola cifra, porque quien fue a votar lo hizo por todas esas papeletas a
+			la vez. No incluye segundas vueltas presidenciales ni de gobernador, que se votan en una
+			jornada aparte y para las que no tenemos datos de participación todavía.
+		</p>
+
+		<div class="mt-8 flex gap-2" role="tablist">
+			<button
+				type="button"
+				id="tab-comuna"
+				data-vista="comuna"
+				class="boton-vista rounded-md px-4 py-2 text-sm font-semibold"
+				aria-pressed="true"
+			>
+				Ver la evolución de una comuna
+			</button>
+			<button
+				type="button"
+				id="tab-jornada"
+				data-vista="jornada"
+				class="boton-vista rounded-md px-4 py-2 text-sm font-semibold"
+				aria-pressed="false"
+			>
+				Comparar comunas en una elección
+			</button>
+		</div>
+
+		<!-- Vista por comuna -->
+		<div id="vista-comuna" class="mt-8">
+			<p class="text-sm font-semibold text-slate-900">Elige una o más comunas para comparar</p>
+			<div id="chips-comuna" class="mt-3 flex flex-wrap gap-2">
+				{comunasOrdenadas.map((c) => (
+					<button
+						type="button"
+						class="chip-comuna rounded-full border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-brand-400"
+						data-comuna={c.id}
+						data-activo={c.id === 'la-serena' ? 'true' : 'false'}
+					>
+						{c.nombre}
+					</button>
+				))}
+			</div>
+
+			<p id="sin-seleccion-comuna" class="mt-8 hidden text-sm text-slate-500">
+				Elige al menos una comuna arriba para ver su evolución.
+			</p>
+
+			<div class="mt-8 space-y-8">
+				{porComuna.map(({ comuna, registros }) => (
+					<div
+						class="grupo-comuna"
+						data-comuna={comuna.id}
+						class:list={{ hidden: comuna.id !== 'la-serena' }}
+					>
+						<h3 class="text-base font-bold tracking-tight text-slate-900">{comuna.nombre}</h3>
+						<div class="mt-3 space-y-2">
+							{registros.map((r) => (
+								<div class="flex items-center gap-3">
+									<span
+										class="w-32 shrink-0 truncate text-xs text-slate-500 sm:w-44"
+										title={r.etiqueta}
+									>
+										{ETIQUETA_CORTA[r.jornada]}
+									</span>
+									<div class="h-5 flex-1 rounded bg-slate-200">
+										<div class="h-5 rounded bg-brand-600" style={`width:${r.participacion_pct}%`}></div>
+									</div>
+									<span class="w-14 shrink-0 text-right text-sm font-semibold text-slate-900">
+										{r.participacion_pct.toFixed(1)}%
+									</span>
+								</div>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- Vista por jornada -->
+		<div id="vista-jornada" class="mt-8 hidden">
+			<div class="flex flex-wrap items-end gap-6">
+				<div>
+					<label for="selector-jornada" class="block text-sm font-semibold text-slate-900">
+						Elección
+					</label>
+					<select
+						id="selector-jornada"
+						class="mt-2 w-full max-w-xs rounded-md border border-slate-300 px-3 py-2.5 text-sm focus:border-brand-500 focus:outline-none"
+					>
+						{porJornada.map((g) => (
+							<option value={g.jornada} selected={g.jornada === 'parlamentaria_presidencial_2025'}>
+								{ETIQUETA_CORTA[g.jornada]}
+							</option>
+						))}
+					</select>
+				</div>
+				<div>
+					<label for="selector-resaltar" class="block text-sm font-semibold text-slate-900">
+						Resaltar tu comuna
+					</label>
+					<select
+						id="selector-resaltar"
+						class="mt-2 w-full max-w-xs rounded-md border border-slate-300 px-3 py-2.5 text-sm focus:border-brand-500 focus:outline-none"
+					>
+						<option value="">-- Ninguna --</option>
+						{comunasOrdenadas.map((c) => <option value={c.id}>{c.nombre}</option>)}
+					</select>
+				</div>
+			</div>
+
+			<p id="etiqueta-jornada" class="mt-6 text-sm text-slate-500"></p>
+
+			<div class="mt-3 space-y-8">
+				{porJornada.map((g) => (
+					<div class="grupo-jornada hidden" data-jornada={g.jornada} data-etiqueta={g.etiqueta}>
+						<div class="space-y-2">
+							{g.registros.map((r) => (
+								<div class="fila-comuna flex items-center gap-3" data-comuna={r.comuna_id}>
+									<span class="w-28 shrink-0 truncate text-xs text-slate-600 sm:w-36">
+										{NOMBRE_COMUNA[r.comuna_id]}
+									</span>
+									<div class="h-5 flex-1 rounded bg-slate-200">
+										<div class="barra h-5 rounded bg-brand-600" style={`width:${r.participacion_pct}%`}></div>
+									</div>
+									<span class="w-14 shrink-0 text-right text-sm font-semibold text-slate-900">
+										{r.participacion_pct.toFixed(1)}%
+									</span>
+								</div>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</main>
+
+	<style>
+		.boton-vista {
+			background-color: #f1f5f9;
+			color: #475569;
+		}
+		.boton-vista[aria-pressed='true'] {
+			background-color: var(--color-brand-600);
+			color: #fff;
+		}
+		.chip-comuna[data-activo='true'] {
+			border-color: var(--color-brand-600);
+			background-color: var(--color-brand-50);
+			color: var(--color-brand-700);
+		}
+	</style>
+
+	<script>
+		// --- Toggle entre las dos vistas ---
+		const botonesVista = document.querySelectorAll<HTMLButtonElement>('.boton-vista');
+		const vistaComuna = document.getElementById('vista-comuna')!;
+		const vistaJornada = document.getElementById('vista-jornada')!;
+
+		botonesVista.forEach((boton) => {
+			boton.addEventListener('click', () => {
+				botonesVista.forEach((b) => b.setAttribute('aria-pressed', String(b === boton)));
+				vistaComuna.classList.toggle('hidden', boton.dataset.vista !== 'comuna');
+				vistaJornada.classList.toggle('hidden', boton.dataset.vista !== 'jornada');
+			});
+		});
+
+		// --- Vista por comuna: chips multi-selección ---
+		const chips = document.querySelectorAll<HTMLButtonElement>('.chip-comuna');
+		const sinSeleccionComuna = document.getElementById('sin-seleccion-comuna')!;
+
+		function actualizaSinSeleccionComuna() {
+			const algunaActiva = Array.from(chips).some((c) => c.dataset.activo === 'true');
+			sinSeleccionComuna.classList.toggle('hidden', algunaActiva);
+		}
+
+		chips.forEach((chip) => {
+			chip.addEventListener('click', () => {
+				const activo = chip.dataset.activo === 'true';
+				chip.dataset.activo = activo ? 'false' : 'true';
+				const grupo = document.querySelector<HTMLElement>(
+					`.grupo-comuna[data-comuna="${chip.dataset.comuna}"]`
+				);
+				grupo?.classList.toggle('hidden', activo);
+				actualizaSinSeleccionComuna();
+			});
+		});
+		actualizaSinSeleccionComuna();
+
+		// --- Vista por jornada: selector de elección + resaltar comuna ---
+		const selectorJornada = document.getElementById('selector-jornada') as HTMLSelectElement;
+		const selectorResaltar = document.getElementById('selector-resaltar') as HTMLSelectElement;
+		const gruposJornada = document.querySelectorAll<HTMLElement>('.grupo-jornada');
+		const etiquetaJornada = document.getElementById('etiqueta-jornada')!;
+
+		function actualizaVistaJornada() {
+			for (const grupo of gruposJornada) {
+				const visible = grupo.dataset.jornada === selectorJornada.value;
+				grupo.classList.toggle('hidden', !visible);
+				if (visible) etiquetaJornada.textContent = grupo.dataset.etiqueta ?? '';
+			}
+		}
+
+		function actualizaResaltado() {
+			const filas = document.querySelectorAll<HTMLElement>('.fila-comuna');
+			for (const fila of filas) {
+				const barra = fila.querySelector<HTMLElement>('.barra')!;
+				const hayResaltado = selectorResaltar.value !== '';
+				const esLaResaltada = fila.dataset.comuna === selectorResaltar.value;
+				const enGris = hayResaltado && !esLaResaltada;
+				barra.classList.toggle('bg-brand-600', !enGris);
+				barra.classList.toggle('bg-slate-400', enGris);
+			}
+		}
+
+		selectorJornada.addEventListener('change', actualizaVistaJornada);
+		selectorResaltar.addEventListener('change', actualizaResaltado);
+		actualizaVistaJornada();
+	</script>
+</Layout>

@@ -125,6 +125,17 @@ export function etiquetaPeriodoAsistencia(r: AsistenciaResumen): string {
 	return r.camara === 'senado' ? `Legislatura ${r.anno}` : String(r.anno);
 }
 
+export interface ParticipacionElectoral {
+	jornada: string;
+	anno: number;
+	etiqueta: string;
+	tipos_relacionados: string;
+	comuna_id: string;
+	inscritos: number;
+	votantes: number;
+	participacion_pct: number;
+}
+
 export interface AsistenciaSesionDiputado {
 	autoridad_id: string;
 	fecha: string;
@@ -148,6 +159,7 @@ import declaracionesPatrimonioRaw from '../../../data/processed/declaracion-patr
 import asistenciaResumenDiputadosRaw from '../../../data/processed/asistencia-resumen-diputados.json';
 import asistenciaResumenSenadoresRaw from '../../../data/processed/asistencia-resumen-senadores.json';
 import asistenciaDiputadosRaw from '../../../data/processed/asistencia-diputados.json';
+import participacionRaw from '../../../data/processed/participacion-electoral.json';
 
 export const autoridades: Autoridad[] = autoridadesRaw as Autoridad[];
 export const comunas: Comuna[] = comunasRaw as Comuna[];
@@ -169,6 +181,8 @@ export const asistenciaResumen: AsistenciaResumen[] = [
 ];
 export const asistenciaDiputados: AsistenciaSesionDiputado[] =
 	asistenciaDiputadosRaw as AsistenciaSesionDiputado[];
+export const participacionElectoral: ParticipacionElectoral[] =
+	participacionRaw as ParticipacionElectoral[];
 
 export function presupuestoDeComuna(comunaId: string) {
 	return presupuesto.filter((p) => p.comuna_id === comunaId);
