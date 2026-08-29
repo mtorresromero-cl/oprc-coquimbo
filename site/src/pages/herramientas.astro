@@ -11,6 +11,15 @@ const recursos = [
 	},
 ];
 
+const interactivas = [
+	{
+		titulo: '¿Quién me representa?',
+		descripcion:
+			'Elegí tu comuna y mirá de una vez a tu alcalde/sa, concejales, consejero/a regional, diputados, senadores y el gobernador regional.',
+		url: '/herramientas/quien-me-representa/',
+	},
+];
+
 // Categorías reales que ya puedes fiscalizar con los datos del sitio (no es
 // contenido decorativo inventado: cada una enlaza a datos que existen hoy).
 const fiscaliza = [
@@ -71,7 +80,29 @@ const ICONOS_FISCALIZA: Record<string, string> = {
 	</section>
 
 	<main class="mx-auto max-w-6xl px-6 py-14">
-		<div class="grid gap-6 sm:grid-cols-2">
+		<h2 class="text-xl font-semibold text-slate-900">Herramientas interactivas</h2>
+		<div class="mt-4 grid gap-6 sm:grid-cols-2">
+			{interactivas.map((h) => (
+				<a
+					href={h.url}
+					class="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md sm:flex sm:items-start sm:gap-5"
+				>
+					<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+							<path d="M17 20h5v-2a4 4 0 0 0-3-3.87M9 20H4v-2a4 4 0 0 1 3-3.87m5-2.13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7-2a4 4 0 1 0 0-8m-14 8a4 4 0 1 1 0-8"></path>
+						</svg>
+					</div>
+					<div class="mt-4 sm:mt-0">
+						<h3 class="font-semibold text-slate-900 group-hover:text-brand-700">{h.titulo}</h3>
+						<p class="mt-2 text-base leading-relaxed text-slate-600">{h.descripcion}</p>
+						<span class="mt-4 inline-block text-sm font-semibold text-brand-600">Abrir herramienta &rarr;</span>
+					</div>
+				</a>
+			))}
+		</div>
+
+		<h2 class="mt-14 text-xl font-semibold text-slate-900">Guías descargables</h2>
+		<div class="mt-4 grid gap-6 sm:grid-cols-2">
 			{recursos.map((r) => (
 				<div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm sm:flex sm:items-start sm:gap-5">
 					<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
