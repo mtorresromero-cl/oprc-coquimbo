@@ -19,6 +19,8 @@ const DATOS_ITEMS = [
 	{ href: '/mapa/', label: 'Mapa de la Región' },
 ];
 
+const annoActual = new Date().getFullYear();
+
 const NAV = [
 	{ href: '/infografias/', label: 'Infografías' },
 	{ href: '/herramientas/', label: 'Herramientas' },
@@ -140,7 +142,7 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 				<div class="grid gap-10 sm:grid-cols-3">
 					<div>
 						<img src="/logo-oprc-blanco.png" alt="OPRC" class="h-16 w-auto" />
-						<p class="mt-4 max-w-xs text-base leading-relaxed text-slate-400">
+						<p class="mt-4 max-w-xs text-xs leading-relaxed text-slate-400">
 							Información y herramientas de análisis, seguimiento e investigación en materia
 							política, trabajo de autoridades, elecciones y partidos políticos de la Región de
 							Coquimbo.
@@ -182,8 +184,11 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 					</div>
 				</div>
 				<div class="mt-10 border-t border-slate-800 pt-6 text-xs text-slate-500">
-					Datos públicos recopilados de fuentes oficiales (SERVEL, Cámara de Diputados, Senado,
-					Portal de Transparencia). Proyecto independiente, sin fines de lucro.
+					<p>&copy; {annoActual} OPRC — Observatorio Político Región de Coquimbo. Todos los derechos reservados.</p>
+					<p class="mt-2">
+						Datos públicos recopilados de fuentes oficiales (SERVEL, Cámara de Diputados, Senado,
+						Portal de Transparencia). Proyecto independiente, sin fines de lucro.
+					</p>
 				</div>
 			</div>
 		</footer>
