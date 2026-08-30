@@ -3,10 +3,27 @@ import Layout from '../layouts/Layout.astro';
 
 // No hay feed sincronizado todavía: requiere credenciales de la API de
 // Instagram (Meta Developer, cuenta Business) que solo el equipo de OPRC
-// puede generar. Mientras tanto, se van agregando a mano las publicaciones
-// reales de @oprcoquimbo con el embed oficial de Instagram — para sumar una
-// nueva, solo hace falta el permalink (instagram.com/p/XXXXXXXXX/).
-const POSTS_INSTAGRAM = ['https://www.instagram.com/p/DSS70mJjkNP/'];
+// puede generar. Mientras tanto, se mantienen a mano las últimas 15
+// publicaciones reales de @oprcoquimbo con el embed oficial de Instagram,
+// de más nueva a más antigua. Al sumar una nueva al principio, hay que
+// sacar la última (la más antigua) para mantener el total en 15.
+const POSTS_INSTAGRAM = [
+	'https://www.instagram.com/p/DSS70mJjkNP/',
+	'https://www.instagram.com/p/DRNA6uxjtvT/',
+	'https://www.instagram.com/p/DRKNBQlDuOw/',
+	'https://www.instagram.com/p/DG8I5BPMaMN/',
+	'https://www.instagram.com/p/DFvBHFNMRpl/',
+	'https://www.instagram.com/p/DFbJdlouybb/',
+	'https://www.instagram.com/p/DEpoV1TuwGq/',
+	'https://www.instagram.com/p/DCzGTiWus_V/',
+	'https://www.instagram.com/p/DCE1D78sYMH/',
+	'https://www.instagram.com/p/DBxD_YUvRoR/',
+	'https://www.instagram.com/p/C8FH6iRsqMS/',
+	'https://www.instagram.com/p/C4gPJskM49L/',
+	'https://www.instagram.com/p/C3adsmtM0YP/',
+	'https://www.instagram.com/p/C2u51hxM-TF/',
+	'https://www.instagram.com/p/C2ff9DoOBXk/',
+];
 ---
 
 <Layout
@@ -41,6 +58,10 @@ const POSTS_INSTAGRAM = ['https://www.instagram.com/p/DSS70mJjkNP/'];
 	</section>
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
+		<p class="mb-6 text-sm text-slate-500">
+			Estas son las últimas {POSTS_INSTAGRAM.length} publicaciones de @oprcoquimbo.
+		</p>
+
 		<div class="columns-1 gap-6 sm:columns-2 lg:columns-3">
 			{POSTS_INSTAGRAM.map((url) => (
 				<div class="mb-6 break-inside-avoid">
@@ -54,6 +75,11 @@ const POSTS_INSTAGRAM = ['https://www.instagram.com/p/DSS70mJjkNP/'];
 				</div>
 			))}
 		</div>
+
+		<p class="mt-4 text-center text-sm text-slate-500">
+			Ver más en
+			<a href="https://instagram.com/oprcoquimbo" target="_blank" rel="noopener" class="font-medium text-brand-600 hover:underline">@oprcoquimbo</a>
+		</p>
 	</main>
 
 	<script is:inline src="https://www.instagram.com/embed.js" async></script>
