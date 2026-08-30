@@ -20,11 +20,11 @@ function formatoFecha(fecha: Date) {
 
 <Layout title={`${post.data.titulo} — OPRC`} description={post.data.resumen}>
 	<main class="mx-auto max-w-2xl px-6 py-12">
-		<a href="/blog/" class="text-sm text-slate-500 hover:text-brand-600 hover:underline">&larr; Blog</a>
-		<p class="mt-4 text-base text-slate-500">
+		<a href="/blog/" class="inline-flex items-center gap-1 text-sm font-medium text-slate-500 hover:text-brand-600">&larr; Blog</a>
+		<p class="mt-5 text-xs font-semibold tracking-wide text-slate-400 uppercase">
 			{formatoFecha(post.data.fecha)} · {post.data.autor}
 		</p>
-		<h1 class="mt-1 text-3xl font-bold tracking-tight text-slate-900">{post.data.titulo}</h1>
+		<h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">{post.data.titulo}</h1>
 		<div class="prose prose-slate mt-8 max-w-none prose-a:text-brand-600 prose-headings:text-slate-900">
 			<Content />
 		</div>
