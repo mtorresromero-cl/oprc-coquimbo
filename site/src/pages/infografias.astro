@@ -1,29 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-// No hay feed sincronizado todavía: requiere credenciales de la API de
-// Instagram (Meta Developer, cuenta Business) que solo el equipo de OPRC
-// puede generar. Mientras tanto, se mantienen a mano las últimas 15
-// publicaciones reales de @oprcoquimbo con el embed oficial de Instagram,
-// de más nueva a más antigua. Al sumar una nueva al principio, hay que
-// sacar la última (la más antigua) para mantener el total en 15.
-const POSTS_INSTAGRAM = [
-	'https://www.instagram.com/p/DSS70mJjkNP/',
-	'https://www.instagram.com/p/DRNA6uxjtvT/',
-	'https://www.instagram.com/p/DRKNBQlDuOw/',
-	'https://www.instagram.com/p/DG8I5BPMaMN/',
-	'https://www.instagram.com/p/DFvBHFNMRpl/',
-	'https://www.instagram.com/p/DFbJdlouybb/',
-	'https://www.instagram.com/p/DEpoV1TuwGq/',
-	'https://www.instagram.com/p/DCzGTiWus_V/',
-	'https://www.instagram.com/p/DCE1D78sYMH/',
-	'https://www.instagram.com/p/DBxD_YUvRoR/',
-	'https://www.instagram.com/p/C8FH6iRsqMS/',
-	'https://www.instagram.com/p/C4gPJskM49L/',
-	'https://www.instagram.com/p/C3adsmtM0YP/',
-	'https://www.instagram.com/p/C2u51hxM-TF/',
-	'https://www.instagram.com/p/C2ff9DoOBXk/',
-];
 ---
 
 <Layout
@@ -43,8 +19,6 @@ const POSTS_INSTAGRAM = [
 			<p class="mt-5 max-w-xl text-lg text-slate-300">
 				Publicamos infografías con análisis de elecciones, transparencia municipal y participación
 				política en <a href="https://instagram.com/oprcoquimbo" target="_blank" rel="noopener" class="text-brand-300 hover:underline">@oprcoquimbo</a>.
-				El feed en vivo todavía no está sincronizado en el sitio — mientras tanto, vamos sumando acá
-				algunas publicaciones. El resto está directamente en Instagram.
 			</p>
 			<a
 				href="https://instagram.com/oprcoquimbo"
@@ -58,33 +32,8 @@ const POSTS_INSTAGRAM = [
 	</section>
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
-		<p class="mb-2 text-xs font-semibold tracking-wide text-slate-400 uppercase">Prueba: widget Elfsight</p>
-		<div class="elfsight-app-35fd9750-0e62-4b45-87e8-ab62def57d12 mb-12" data-elfsight-app-lazy></div>
-
-		<p class="mb-6 text-sm text-slate-500">
-			Estas son las últimas {POSTS_INSTAGRAM.length} publicaciones de @oprcoquimbo.
-		</p>
-
-		<div class="columns-1 gap-6 sm:columns-2 lg:columns-3">
-			{POSTS_INSTAGRAM.map((url) => (
-				<div class="mb-6 break-inside-avoid">
-					<blockquote
-						class="instagram-media"
-						data-instgrm-permalink={`${url}?utm_source=ig_embed&utm_campaign=loading`}
-						data-instgrm-version="14"
-						style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0 auto; max-width:540px; min-width:326px; padding:0; width:99%;"
-					>
-					</blockquote>
-				</div>
-			))}
-		</div>
-
-		<p class="mt-4 text-center text-sm text-slate-500">
-			Ver más en
-			<a href="https://instagram.com/oprcoquimbo" target="_blank" rel="noopener" class="font-medium text-brand-600 hover:underline">@oprcoquimbo</a>
-		</p>
+		<div class="sk-instagram-feed" data-embed-id="25709564"></div>
 	</main>
 
-	<script is:inline src="https://www.instagram.com/embed.js" async></script>
-	<script is:inline src="https://elfsightcdn.com/platform.js" async></script>
+	<script src="https://widgets.sociablekit.com/instagram-feed/widget.js" defer></script>
 </Layout>
