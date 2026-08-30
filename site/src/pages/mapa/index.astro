@@ -1,7 +1,28 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { comunas, presupuestoDeComuna, personalDeComuna } from '../../lib/datos';
+import {
+	comunas,
+	presupuestoDeComuna,
+	personalDeComuna,
+	comparativaMunicipal,
+	remuneracionAlcaldesPorComuna,
+	participacionElectoral,
+	resultadosElectorales,
+	nombreMes,
+} from '../../lib/datos';
+import { colorPartido, nombreCanonicoPartido } from '../../lib/colores-electorales';
 import comunasGeojson from '../../../../data/processed/comunas-geojson.json';
+
+// Misma jornada y año usados en /herramientas/electoral/ para "la elección
+// municipal más reciente" (municipales 2024): así el indicador de partido
+// del alcalde/sa y el de participación describen la misma elección.
+const JORNADA_MUNICIPAL_RECIENTE = 'municipal_2024';
+const ultimoAnnoMunicipal = Math.max(
+	...resultadosElectorales.filter((r) => r.eleccion_tipo === 'municipal').map((r) => r.anno)
+);
+
+const comparativa = comparativaMunicipal();
+const remuneracionAlcaldes = remuneracionAlcaldesPorComuna();
 
 const indicadores = comunas.map((c) => {
 	const presupuesto = presupuestoDeComuna(c.id);
@@ -12,19 +33,47 @@ const indicadores = comunas.map((c) => {
 	else if (personal.length > 0) cobertura = 'personal';
 	else if (presupuesto.length > 0) cobertura = 'presupuesto';
 
+	const comp = comparativa.find((x) => x.comuna_id === c.id);
+	const gastoTotal = comp?.tieneGastos ? comp.gastosTotal : null;
+
+	const remAlcalde = remuneracionAlcaldes.find((r) => r.comunaId === c.id) ?? null;
+
+	const participacion = participacionElectoral.find(
+		(r) => r.comuna_id === c.id && r.jornada === JORNADA_MUNICIPAL_RECIENTE
+	);
+
+	const alcaldeElecto = resultadosElectorales
+		.filter(
+			(r) =>
+				r.eleccion_tipo === 'municipal' &&
+				r.cargo === 'Alcalde' &&
+				r.comuna_id === c.id &&
+				r.anno === ultimoAnnoMunicipal &&
+				r.electo
+		)
+		.sort((a, b) => b.votos - a.votos)[0];
+
 	return {
 		id: c.id,
 		nombre: c.nombre,
 		provincia: c.provincia,
 		cobertura,
 		dotacionTotal,
+		gastoTotal,
+		annoGasto: comp?.annoPresupuesto ?? null,
+		remuneracionAlcalde: remAlcalde?.remuneracionBruta ?? null,
+		remuneracionPeriodo: remAlcalde ? `${nombreMes(remAlcalde.mes)}/${remAlcalde.anno}` : null,
+		participacionMunicipal: participacion?.participacion_pct ?? null,
+		alcaldeNombre: alcaldeElecto?.candidato ?? null,
+		alcaldePartido: alcaldeElecto ? nombreCanonicoPartido(alcaldeElecto.partido) : null,
+		alcaldePartidoColor: alcaldeElecto ? colorPartido(alcaldeElecto.partido) : null,
 	};
 });
 ---
 
 <Layout
 	title="Mapa de la Región — OPRC"
-	description="Mapa interactivo de las 15 comunas de la Región de Coquimbo, con cobertura de datos de transparencia y dotación municipal."
+	description="Mapa interactivo de las 15 comunas de la Región de Coquimbo: cobertura de datos, dotación y gasto municipal, remuneración de alcaldes/as, participación electoral y partido del alcalde/sa."
 >
 	<section class="relative overflow-hidden bg-slate-900">
 		<div class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"></div>
@@ -43,13 +92,23 @@ const indicadores = comunas.map((c) => {
 	</section>
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
-		<div class="mb-4 flex flex-wrap gap-2">
-			<button type="button" data-indicador="cobertura" class="indicador-btn cursor-pointer rounded-md px-4 py-2 text-sm font-semibold bg-brand-600 text-white hover:bg-brand-700">
-				Cobertura de datos
-			</button>
-			<button type="button" data-indicador="dotacion" class="indicador-btn cursor-pointer rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
-				Dotación municipal
-			</button>
+		<div class="mb-4 flex flex-wrap items-center gap-3">
+			<label for="selector-indicador" class="text-sm font-semibold text-slate-700">Indicador:</label>
+			<select
+				id="selector-indicador"
+				class="cursor-pointer rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+			>
+				<optgroup label="Categoría">
+					<option value="cobertura" selected>Cobertura de datos</option>
+					<option value="partido">Partido del alcalde/sa (2024)</option>
+				</optgroup>
+				<optgroup label="Magnitud">
+					<option value="dotacion">Dotación municipal</option>
+					<option value="gasto">Gasto municipal</option>
+					<option value="remuneracion">Remuneración del alcalde/sa</option>
+					<option value="participacion">Participación electoral (2024)</option>
+				</optgroup>
+			</select>
 		</div>
 
 		<div id="mapa" class="h-[600px] w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm"></div>
@@ -65,12 +124,23 @@ const indicadores = comunas.map((c) => {
 		import L from 'leaflet';
 
 		type Cobertura = 'ambos' | 'personal' | 'presupuesto' | 'ninguno';
+		type IndicadorId = 'cobertura' | 'dotacion' | 'gasto' | 'remuneracion' | 'participacion' | 'partido';
+		type IndicadorGradiente = 'dotacion' | 'gasto' | 'remuneracion' | 'participacion';
+
 		interface Indicador {
 			id: string;
 			nombre: string;
 			provincia: string;
 			cobertura: Cobertura;
 			dotacionTotal: number;
+			gastoTotal: number | null;
+			annoGasto: number | null;
+			remuneracionAlcalde: number | null;
+			remuneracionPeriodo: string | null;
+			participacionMunicipal: number | null;
+			alcaldeNombre: string | null;
+			alcaldePartido: string | null;
+			alcaldePartidoColor: string | null;
 		}
 
 		const geojson = JSON.parse(document.getElementById('geojson-data')!.textContent!);
@@ -90,28 +160,96 @@ const indicadores = comunas.map((c) => {
 			ninguno: 'Sin datos aún',
 		};
 
+		function formatoCLP(monto: number): string {
+			return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(
+				monto
+			);
+		}
+
+		// Los tres indicadores de magnitud (dotación, gasto, remuneración) parten
+		// desde 0: el tamaño real de un municipio grande frente a uno chico es
+		// justamente el punto. La participación, en cambio, es un porcentaje que
+		// en la práctica se mueve en una banda angosta (83%-88% en 2024) — usar
+		// una escala 0-100 dejaría el mapa entero casi del mismo color, así que
+		// su gradiente se estira entre el mínimo y máximo real observado.
+		const participacionValues = indicadores
+			.map((i) => i.participacionMunicipal)
+			.filter((v): v is number => v !== null);
+		const minParticipacion = participacionValues.length ? Math.min(...participacionValues) : 0;
+		const maxParticipacion = participacionValues.length ? Math.max(...participacionValues) : 100;
+
+		const CONFIG_GRADIENTE: Record<
+			IndicadorGradiente,
+			{
+				accessor: (i: Indicador) => number | null;
+				min: number;
+				max: number;
+				formato: (v: number, i: Indicador) => string;
+				menor: string;
+				mayor: string;
+			}
+		> = {
+			dotacion: {
+				accessor: (i) => i.dotacionTotal || null,
+				min: 0,
+				max: Math.max(...indicadores.map((i) => i.dotacionTotal), 1),
+				formato: (v) => `${v.toLocaleString('es-CL')} personas`,
+				menor: 'Menor dotación',
+				mayor: 'Mayor dotación',
+			},
+			gasto: {
+				accessor: (i) => i.gastoTotal,
+				min: 0,
+				max: Math.max(...indicadores.map((i) => i.gastoTotal ?? 0), 1),
+				formato: (v, i) => `${formatoCLP(v)}${i.annoGasto ? ` (${i.annoGasto})` : ''}`,
+				menor: 'Menor gasto',
+				mayor: 'Mayor gasto',
+			},
+			remuneracion: {
+				accessor: (i) => i.remuneracionAlcalde,
+				min: 0,
+				max: Math.max(...indicadores.map((i) => i.remuneracionAlcalde ?? 0), 1),
+				formato: (v, i) => `${formatoCLP(v)} bruto${i.remuneracionPeriodo ? ` (${i.remuneracionPeriodo})` : ''}`,
+				menor: 'Menor remuneración',
+				mayor: 'Mayor remuneración',
+			},
+			participacion: {
+				accessor: (i) => i.participacionMunicipal,
+				min: minParticipacion,
+				max: maxParticipacion,
+				formato: (v) => `${v.toFixed(1)}% de participación (municipales 2024)`,
+				menor: `Menor participación (${minParticipacion.toFixed(1)}%)`,
+				mayor: `Mayor participación (${maxParticipacion.toFixed(1)}%)`,
+			},
+		};
+
 		const map = L.map('mapa', { scrollWheelZoom: false }).setView([-30.6, -70.9], 8);
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 			maxZoom: 12,
 		}).addTo(map);
 
-		const maxDotacion = Math.max(...indicadores.map((i) => i.dotacionTotal), 1);
-
-		function colorDotacion(valor: number): string {
-			if (valor === 0) return '#cbd5e1';
-			const intensidad = 0.25 + 0.75 * (valor / maxDotacion);
+		function colorGradiente(valor: number | null, min: number, max: number): string {
+			if (valor === null) return '#cbd5e1';
+			const rango = max - min || 1;
+			const intensidad = 0.25 + 0.75 * Math.max(0, Math.min(1, (valor - min) / rango));
 			const escala = Math.round(170 * intensidad);
 			return `rgb(${escala}, 0, 0)`;
 		}
 
-		let indicadorActivo: 'cobertura' | 'dotacion' = 'cobertura';
+		let indicadorActivo: IndicadorId = 'cobertura';
 
 		function estiloComuna(feature: any) {
 			const info = indicadorPorId.get(feature.properties.id);
-			const color = indicadorActivo === 'cobertura'
-				? COLOR_COBERTURA[info?.cobertura ?? 'ninguno']
-				: colorDotacion(info?.dotacionTotal ?? 0);
+			let color: string;
+			if (indicadorActivo === 'cobertura') {
+				color = COLOR_COBERTURA[info?.cobertura ?? 'ninguno'];
+			} else if (indicadorActivo === 'partido') {
+				color = info?.alcaldePartidoColor ?? '#cbd5e1';
+			} else {
+				const cfg = CONFIG_GRADIENTE[indicadorActivo];
+				color = colorGradiente(info ? cfg.accessor(info) : null, cfg.min, cfg.max);
+			}
 			return { color: '#1e293b', weight: 1, fillColor: color, fillOpacity: 0.75 };
 		}
 
@@ -124,21 +262,50 @@ const indicadores = comunas.map((c) => {
 							`<span class="flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-sm" style="background:${COLOR_COBERTURA[c]}"></span>${LABEL_COBERTURA[c]}</span>`
 					)
 					.join('');
+			} else if (indicadorActivo === 'partido') {
+				const partidos = new Map<string, string>();
+				for (const i of indicadores) {
+					if (i.alcaldePartido && i.alcaldePartidoColor) partidos.set(i.alcaldePartido, i.alcaldePartidoColor);
+				}
+				const items = [...partidos.entries()].sort((a, b) => a[0].localeCompare(b[0], 'es'));
+				leyenda.innerHTML =
+					items
+						.map(
+							([nombre, color]) =>
+								`<span class="flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-sm" style="background:${color}"></span>${nombre}</span>`
+						)
+						.join('') +
+					'<span class="flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-sm" style="background:#cbd5e1"></span>Sin datos</span>';
 			} else {
+				const cfg = CONFIG_GRADIENTE[indicadorActivo];
 				leyenda.innerHTML =
 					'<span class="flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-sm" style="background:#cbd5e1"></span>Sin datos</span>' +
-					'<span class="flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-sm" style="background:rgb(43,0,0)"></span>Menor dotación</span>' +
-					'<span class="flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-sm" style="background:rgb(170,0,0)"></span>Mayor dotación</span>';
+					`<span class="flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-sm" style="background:rgb(43,0,0)"></span>${cfg.menor}</span>` +
+					`<span class="flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-sm" style="background:rgb(170,0,0)"></span>${cfg.mayor}</span>`;
 			}
+		}
+
+		function enlaceFicha(id: string): string {
+			return indicadorActivo === 'partido' || indicadorActivo === 'participacion'
+				? `/herramientas/electoral/comuna/${id}/`
+				: `/municipios/${id}/`;
 		}
 
 		function popupHtml(feature: any): string {
 			const info = indicadorPorId.get(feature.properties.id);
-			const detalle =
-				indicadorActivo === 'cobertura'
-					? LABEL_COBERTURA[info?.cobertura ?? 'ninguno']
-					: `${info?.dotacionTotal.toLocaleString('es-CL') ?? 0} personas`;
-			return `<strong>${feature.properties.nombre}</strong><br>${detalle}<br><a href="/municipios/${feature.properties.id}/" style="color:#aa0000">Ver ficha &rarr;</a>`;
+			let detalle: string;
+			if (indicadorActivo === 'cobertura') {
+				detalle = LABEL_COBERTURA[info?.cobertura ?? 'ninguno'];
+			} else if (indicadorActivo === 'partido') {
+				detalle = info?.alcaldePartido
+					? `${info.alcaldeNombre} — ${info.alcaldePartido}`
+					: 'Sin datos de la elección 2024';
+			} else {
+				const cfg = CONFIG_GRADIENTE[indicadorActivo];
+				const valor = info ? cfg.accessor(info) : null;
+				detalle = valor !== null && info ? cfg.formato(valor, info) : 'Sin datos';
+			}
+			return `<strong>${feature.properties.nombre}</strong><br>${detalle}<br><a href="${enlaceFicha(feature.properties.id)}" style="color:#aa0000">Ver ficha &rarr;</a>`;
 		}
 
 		const capa = L.geoJSON(geojson, {
@@ -150,19 +317,11 @@ const indicadores = comunas.map((c) => {
 			},
 		}).addTo(map);
 
-		document.querySelectorAll<HTMLButtonElement>('.indicador-btn').forEach((btn) => {
-			btn.addEventListener('click', () => {
-				indicadorActivo = btn.dataset.indicador as 'cobertura' | 'dotacion';
-				document.querySelectorAll('.indicador-btn').forEach((b) => {
-					b.classList.remove('bg-brand-600', 'text-white', 'hover:bg-brand-700');
-					b.classList.add('border', 'border-slate-300', 'text-slate-700', 'hover:bg-slate-50');
-				});
-				btn.classList.add('bg-brand-600', 'text-white', 'hover:bg-brand-700');
-				btn.classList.remove('border', 'border-slate-300', 'text-slate-700', 'hover:bg-slate-50');
-				capa.setStyle(estiloComuna);
-				capa.eachLayer((layer: any) => layer.setPopupContent(popupHtml(layer.feature)));
-				actualizarLeyenda();
-			});
+		document.getElementById('selector-indicador')!.addEventListener('change', (e) => {
+			indicadorActivo = (e.target as HTMLSelectElement).value as IndicadorId;
+			capa.setStyle(estiloComuna);
+			capa.eachLayer((layer: any) => layer.setPopupContent(popupHtml(layer.feature)));
+			actualizarLeyenda();
 		});
 
 		actualizarLeyenda();
