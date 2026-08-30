@@ -114,7 +114,12 @@ def _separar_codigo_denominacion(celda: str) -> tuple[str, str] | None:
 
 
 def _monto_a_numero(texto: str) -> float | None:
-    texto = (texto or "").strip().replace(".", "").replace(",", "")
+    # el propio texto extraído del PDF a veces trae un espacio suelto en
+    # medio de un número (ej. "8 9.066.402" en vez de "89.066.402",
+    # confirmado en el PDF de Coquimbo) — un artefacto real de extracción,
+    # no un separador de miles: se remueven todos los espacios, no solo
+    # los de los extremos.
+    texto = re.sub(r"\s+", "", texto or "").replace(".", "").replace(",", "")
     if not texto or texto in ("-",):
         return None
     try:
@@ -143,6 +148,111 @@ def _mapear_columnas_pdf(tabla: list[list], tipo: str) -> dict[str, int] | None:
     if idx_monto is None:
         return None
     return {"codigo": 0, "denominacion": 1, "monto": idx_monto}
+
+
+def _parsear_pdf(
+    tmp_path: Path, comuna_id: str, anno: int, tipo_forzado: str | None, fuente_url: str
+) -> list[dict]:
+    """Separada de _descargar_y_parsear (que además navega y descarga) para
+    poder re-parsear un PDF ya guardado en disco sin necesitar una página
+    de Playwright viva — útil para depurar o re-procesar una comuna
+    puntual sin repetir la navegación de las otras 14."""
+    registros: list[dict] = []
+    with pdfplumber.open(tmp_path) as pdf:
+        # tipo_actual y columnas_actual se mantienen entre páginas que no
+        # repiten el encabezado (tablas de varias páginas, ej. Coquimbo: la
+        # sección de ingresos por sí sola ocupa 2 páginas) — antes esto
+        # solo se hacía para tipo_actual, así que cualquier página de
+        # continuación sin encabezado propio se descartaba entera
+        # (columnas=None), perdiendo categorías completas como el Fondo
+        # Común Municipal. columnas_actual solo se reinicia cuando una
+        # página nueva declara explícitamente una sección distinta a la
+        # anterior — arrastrarla entre ingresos y gastos sería un bug
+        # real, ya que cada sección usa una columna de monto distinta
+        # (PERCIBIDO vs DEVENGADO/PAGADO).
+        tipo_actual = tipo_forzado
+        columnas_actual = None
+        for pagina in pdf.pages:
+            texto = pagina.extract_text() or ""
+            texto_up = texto.upper()
+            tabla = pagina.extract_table()
+            if not tabla:
+                continue
+
+            # si el árbol de navegación ya separó ingresos de gastos (ej.
+            # Vicuña), el PDF trae un solo tipo y se respeta tipo_forzado
+            # aunque el texto de alguna página mencione la palabra
+            # "gastos" de pasada (ej. en un total).
+            if not tipo_forzado:
+                tipo_anterior = tipo_actual
+                if "INGRESOS DE" in texto or "BALANCE PRESUPUESTARIO DE INGRESOS" in texto_up:
+                    tipo_actual = "ingreso"
+                elif "GASTOS DE" in texto or "BALANCE PRESUPUESTARIO DE GASTOS" in texto_up:
+                    tipo_actual = "gasto"
+                else:
+                    # el título de la sección no siempre dice
+                    # "ingresos"/"gastos" explícito (ej. Combarbalá:
+                    # "Informe General Presupuestario" combinado) — el
+                    # primer dígito del código de cuenta sí es universal
+                    # en el clasificador presupuestario chileno: 1xx =
+                    # ingresos, 2xx = gastos.
+                    primeros_digitos = [
+                        fila[0].strip()[0]
+                        for fila in tabla
+                        if fila and fila[0] and fila[0].strip()[:1].isdigit()
+                    ]
+                    if primeros_digitos:
+                        mas_comun = max(set(primeros_digitos), key=primeros_digitos.count)
+                        if mas_comun == "1":
+                            tipo_actual = "ingreso"
+                        elif mas_comun == "2":
+                            tipo_actual = "gasto"
+                if tipo_actual != tipo_anterior:
+                    columnas_actual = None
+            if tipo_actual is None:
+                continue
+
+            # no todas las comunas declaran los montos en miles de $ (ej.
+            # La Serena sí, Coquimbo no) — se detecta por página en vez de
+            # asumirlo fijo, para no inflar x1000 por error.
+            multiplicador = 1000 if re.search(r"MILES\s*\$", texto_up) else 1
+
+            columnas = _mapear_columnas_pdf(tabla, tipo_actual)
+            if columnas is not None:
+                columnas_actual = columnas
+            elif columnas_actual is not None:
+                columnas = columnas_actual
+            else:
+                continue
+
+            for fila in tabla:
+                if not fila or not fila[columnas["codigo"]]:
+                    continue
+                codigo = fila[columnas["codigo"]].strip()
+                categoria = (fila[columnas["denominacion"]] or "").strip().replace("\n", " ")
+                if not _es_codigo_nivel_top(codigo):
+                    # código y denominación pueden venir juntos en una sola
+                    # celda (Combarbalá, Monte Patria) en vez de en
+                    # columnas separadas.
+                    separado = _separar_codigo_denominacion(fila[columnas["codigo"]])
+                    if not separado or not _es_codigo_nivel_top(separado[0]):
+                        continue
+                    codigo, categoria = separado
+                monto = _monto_a_numero(fila[columnas["monto"]])
+                if not categoria or monto is None:
+                    continue
+                registros.append(
+                    {
+                        "comuna_id": comuna_id,
+                        "anno": anno,
+                        "tipo": tipo_actual,
+                        "categoria": categoria,
+                        "subcategoria": codigo,
+                        "monto": monto * multiplicador,
+                        "fuente_url": fuente_url,
+                    }
+                )
+    return registros
 
 
 class ScraperTransparenciaMunicipal(BaseScraper):
@@ -409,86 +519,7 @@ class ScraperTransparenciaMunicipal(BaseScraper):
         tmp_path.parent.mkdir(parents=True, exist_ok=True)
         tmp_path.write_bytes(resp.body())
 
-        registros = []
-        with pdfplumber.open(tmp_path) as pdf:
-            # tipo_actual se mantiene entre páginas que no repiten el
-            # encabezado (tablas de varias páginas) — solo cambia cuando
-            # una página nueva declara explícitamente la sección.
-            tipo_actual = tipo_forzado
-            for pagina in pdf.pages:
-                texto = pagina.extract_text() or ""
-                texto_up = texto.upper()
-                tabla = pagina.extract_table()
-                if not tabla:
-                    continue
-
-                # si el árbol de navegación ya separó ingresos de gastos
-                # (ej. Vicuña), el PDF trae un solo tipo y se respeta
-                # tipo_forzado aunque el texto de alguna página mencione
-                # la palabra "gastos" de pasada (ej. en un total).
-                if not tipo_forzado:
-                    if "INGRESOS DE" in texto or "BALANCE PRESUPUESTARIO DE INGRESOS" in texto_up:
-                        tipo_actual = "ingreso"
-                    elif "GASTOS DE" in texto or "BALANCE PRESUPUESTARIO DE GASTOS" in texto_up:
-                        tipo_actual = "gasto"
-                    else:
-                        # el título de la sección no siempre dice
-                        # "ingresos"/"gastos" explícito (ej. Combarbalá:
-                        # "Informe General Presupuestario" combinado) — el
-                        # primer dígito del código de cuenta sí es
-                        # universal en el clasificador presupuestario
-                        # chileno: 1xx = ingresos, 2xx = gastos.
-                        primeros_digitos = [
-                            fila[0].strip()[0]
-                            for fila in tabla
-                            if fila and fila[0] and fila[0].strip()[:1].isdigit()
-                        ]
-                        if primeros_digitos:
-                            mas_comun = max(set(primeros_digitos), key=primeros_digitos.count)
-                            if mas_comun == "1":
-                                tipo_actual = "ingreso"
-                            elif mas_comun == "2":
-                                tipo_actual = "gasto"
-                if tipo_actual is None:
-                    continue
-
-                # no todas las comunas declaran los montos en miles de $ (ej.
-                # La Serena sí, Coquimbo no) — se detecta por página en vez
-                # de asumirlo fijo, para no inflar x1000 por error.
-                multiplicador = 1000 if re.search(r"MILES\s*\$", texto_up) else 1
-
-                columnas = _mapear_columnas_pdf(tabla, tipo_actual)
-                if columnas is None:
-                    continue
-
-                for fila in tabla:
-                    if not fila or not fila[columnas["codigo"]]:
-                        continue
-                    codigo = fila[columnas["codigo"]].strip()
-                    categoria = (fila[columnas["denominacion"]] or "").strip().replace("\n", " ")
-                    if not _es_codigo_nivel_top(codigo):
-                        # código y denominación pueden venir juntos en una
-                        # sola celda (Combarbalá, Monte Patria) en vez de
-                        # en columnas separadas.
-                        separado = _separar_codigo_denominacion(fila[columnas["codigo"]])
-                        if not separado or not _es_codigo_nivel_top(separado[0]):
-                            continue
-                        codigo, categoria = separado
-                    monto = _monto_a_numero(fila[columnas["monto"]])
-                    if not categoria or monto is None:
-                        continue
-                    registros.append(
-                        {
-                            "comuna_id": comuna_id,
-                            "anno": anno,
-                            "tipo": tipo_actual,
-                            "categoria": categoria,
-                            "subcategoria": codigo,
-                            "monto": monto * multiplicador,
-                            "fuente_url": fuente_url,
-                        }
-                    )
-        return registros
+        return _parsear_pdf(tmp_path, comuna_id, anno, tipo_forzado, fuente_url)
 
     def procesar(self, registros: list[dict]) -> list[dict]:
         return registros

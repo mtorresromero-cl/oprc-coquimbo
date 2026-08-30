@@ -200,10 +200,118 @@
   {
     "comuna_id": "coquimbo",
     "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "CxP INICIATIVAS DE INVERSION",
+    "subcategoria": "215-31-00-000-000-000",
+    "monto": 879533693.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "CxP TRANSFERENCIAS CORRIENTES",
+    "subcategoria": "215-24-00-000-000-000",
+    "monto": 455295632.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "CxP INTEGROS AL FISCO",
+    "subcategoria": "215-25-00-000-000-000",
+    "monto": 72714714.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "CxP ADQUISICION DE ACTIVOS NO FINANCIEROS",
+    "subcategoria": "215-29-00-000-000-000",
+    "monto": 66763620.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "CxP OTROS GASTOS CORRIENTES",
+    "subcategoria": "215-26-00-000-000-000",
+    "monto": 48502110.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "CxP PRESTACIONES DE SEGURIDAD SOCIAL",
+    "subcategoria": "215-23-00-000-000-000",
+    "monto": 37361835.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "CxC OTROS INGRESOS CORRIENTES",
+    "subcategoria": "115-08-00-000-000-000",
+    "monto": 3934874601.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
     "tipo": "ingreso",
     "categoria": "CXCTRIBUTO SOBRE EL USO DE BIENES Y LA REALIZACION",
     "subcategoria": "115-03-00-000-000-000",
     "monto": 3628263047.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "CxC TRANSFERENCIAS PARA GASTOS DE CAPITAL",
+    "subcategoria": "115-13-00-000-000-000",
+    "monto": 1629507185.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "RENTAS DE LA PROPIEDAD",
+    "subcategoria": "115-06-00-000-000-000",
+    "monto": 97378288.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C xC TRANSFERENCIAS CORRIENTES",
+    "subcategoria": "115-05-00-000-000-000",
+    "monto": 89066402.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "CxC RECUPERACION DE PRESTAMOS",
+    "subcategoria": "115-12-00-000-000-000",
+    "monto": 44285156.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "CxC INGRESOS DE OPERACION",
+    "subcategoria": "115-07-00-000-000-000",
+    "monto": 17189723.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
   },
   {
