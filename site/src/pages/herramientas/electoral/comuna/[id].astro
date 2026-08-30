@@ -23,16 +23,19 @@ const comunasOrdenadas = [...comunas].sort(
 // /herramientas/participacion-electoral/ — una jornada puede agrupar varias
 // elecciones simultáneas).
 const ORDEN_JORNADA = [
-	'municipal_2012', 'parlamentaria_presidencial_2013', 'municipal_2016',
-	'parlamentaria_presidencial_2017', 'plebiscito_2020', 'megaeleccion_2021',
-	'parlamentaria_presidencial_2021', 'plebiscito_2022', 'plebiscito_2023',
-	'municipal_2024', 'parlamentaria_presidencial_2025',
+	'municipal_2012', 'parlamentaria_presidencial_2013', 'presidencial_2v_2013', 'municipal_2016',
+	'parlamentaria_presidencial_2017', 'presidencial_2v_2017', 'plebiscito_2020', 'megaeleccion_2021',
+	'gobernador_2v_2021', 'parlamentaria_presidencial_2021', 'presidencial_2v_2021', 'plebiscito_2022',
+	'plebiscito_2023', 'municipal_2024', 'gobernador_2v_2024', 'parlamentaria_presidencial_2025',
+	'presidencial_2v_2025',
 ];
 const ETIQUETA_EJE: Record<string, string> = {
-	municipal_2012: '2012', parlamentaria_presidencial_2013: '2013', municipal_2016: '2016',
-	parlamentaria_presidencial_2017: '2017', plebiscito_2020: '2020', megaeleccion_2021: '2021 (may)',
-	parlamentaria_presidencial_2021: '2021 (nov)', plebiscito_2022: '2022', plebiscito_2023: '2023',
-	municipal_2024: '2024', parlamentaria_presidencial_2025: '2025',
+	municipal_2012: '2012', parlamentaria_presidencial_2013: '2013 (nov)', presidencial_2v_2013: '2013 (dic)',
+	municipal_2016: '2016', parlamentaria_presidencial_2017: '2017 (nov)', presidencial_2v_2017: '2017 (dic)',
+	plebiscito_2020: '2020', megaeleccion_2021: '2021 (may)', gobernador_2v_2021: '2021 (jun)',
+	parlamentaria_presidencial_2021: '2021 (nov)', presidencial_2v_2021: '2021 (dic)', plebiscito_2022: '2022',
+	plebiscito_2023: '2023', municipal_2024: '2024 (oct)', gobernador_2v_2024: '2024 (nov)',
+	parlamentaria_presidencial_2025: '2025 (nov)', presidencial_2v_2025: '2025 (dic)',
 };
 
 // --- Alcaldes electos, en orden cronológico, con el período real (hasta la

@@ -26,43 +26,61 @@ const SELECCION_INICIAL = new Set(['la-serena', 'ovalle', 'illapel']);
 const ORDEN_JORNADA = [
 	'municipal_2012',
 	'parlamentaria_presidencial_2013',
+	'presidencial_2v_2013',
 	'municipal_2016',
 	'parlamentaria_presidencial_2017',
+	'presidencial_2v_2017',
 	'plebiscito_2020',
 	'megaeleccion_2021',
+	'gobernador_2v_2021',
 	'parlamentaria_presidencial_2021',
+	'presidencial_2v_2021',
 	'plebiscito_2022',
 	'plebiscito_2023',
 	'municipal_2024',
+	'gobernador_2v_2024',
 	'parlamentaria_presidencial_2025',
+	'presidencial_2v_2025',
 ];
 const ETIQUETA_CORTA: Record<string, string> = {
 	municipal_2012: 'Municipales 2012',
 	parlamentaria_presidencial_2013: 'Parlamentarias 2013',
+	presidencial_2v_2013: 'Presidencial 2ª vuelta 2013',
 	municipal_2016: 'Municipales 2016',
 	parlamentaria_presidencial_2017: 'Parlamentarias 2017',
+	presidencial_2v_2017: 'Presidencial 2ª vuelta 2017',
 	plebiscito_2020: 'Plebiscito 2020',
 	megaeleccion_2021: 'Municipales 2021',
+	gobernador_2v_2021: 'Gobernador 2ª vuelta 2021',
 	parlamentaria_presidencial_2021: 'Parlamentarias 2021',
+	presidencial_2v_2021: 'Presidencial 2ª vuelta 2021',
 	plebiscito_2022: 'Plebiscito 2022',
 	plebiscito_2023: 'Plebiscito 2023',
 	municipal_2024: 'Municipales 2024',
+	gobernador_2v_2024: 'Gobernador 2ª vuelta 2024',
 	parlamentaria_presidencial_2025: 'Parlamentarias 2025',
+	presidencial_2v_2025: 'Presidencial 2ª vuelta 2025',
 };
-// Etiqueta corta para el eje X del gráfico (las dos jornadas de 2021 se
-// distinguen por mes, ya que comparten año).
+// Etiqueta corta para el eje X del gráfico (los años con más de una
+// jornada se distinguen por mes).
 const ETIQUETA_EJE: Record<string, string> = {
 	municipal_2012: '2012',
-	parlamentaria_presidencial_2013: '2013',
+	parlamentaria_presidencial_2013: '2013 (nov)',
+	presidencial_2v_2013: '2013 (dic)',
 	municipal_2016: '2016',
-	parlamentaria_presidencial_2017: '2017',
+	parlamentaria_presidencial_2017: '2017 (nov)',
+	presidencial_2v_2017: '2017 (dic)',
 	plebiscito_2020: '2020',
 	megaeleccion_2021: '2021 (may)',
+	gobernador_2v_2021: '2021 (jun)',
 	parlamentaria_presidencial_2021: '2021 (nov)',
+	presidencial_2v_2021: '2021 (dic)',
 	plebiscito_2022: '2022',
 	plebiscito_2023: '2023',
-	municipal_2024: '2024',
-	parlamentaria_presidencial_2025: '2025',
+	municipal_2024: '2024 (oct)',
+	gobernador_2v_2024: '2024 (nov)',
+	parlamentaria_presidencial_2025: '2025 (nov)',
+	presidencial_2v_2025: '2025 (dic)',
 };
 
 // Vista "por comuna": las 11 jornadas de una comuna, en orden cronológico.
@@ -119,9 +137,10 @@ const PLOT_H = CHART_H - PAD_T - PAD_B;
 const xFor = (i: number) => PAD_L + (i / (ORDEN_JORNADA.length - 1)) * PLOT_W;
 const yFor = (pct: number) => PAD_T + (1 - pct / 100) * PLOT_H;
 const EJE_Y = [0, 20, 40, 60, 80, 100];
-// Vuelve el voto obligatorio: la participación salta entre parlamentarias
-// 2021 (índice 6) y plebiscito 2022 (índice 7).
-const X_ANOTACION = (xFor(6) + xFor(7)) / 2;
+// Vuelve el voto obligatorio: la participación salta entre la última
+// jornada de la era de voto voluntario y la primera de voto obligatorio.
+const X_ANOTACION =
+	(xFor(ORDEN_JORNADA.indexOf('presidencial_2v_2021')) + xFor(ORDEN_JORNADA.indexOf('plebiscito_2022'))) / 2;
 
 const lineasComuna = comunasOrdenadas.map((c) => {
 	const puntos = ORDEN_JORNADA.map((j, i) => {
@@ -171,8 +190,8 @@ const polylinePromedio = ORDEN_JORNADA.map((j, i) => `${xFor(i)},${yFor(promedio
 					y <a href="/parlamentarios/" class="font-medium text-brand-600 hover:underline">Parlamentarios</a>).
 					Cuando varias elecciones se hicieron el mismo día — por ejemplo municipales y gobernador
 					en 2021 — comparten una sola cifra, porque quien fue a votar lo hizo por todas esas
-					papeletas a la vez. No incluye segundas vueltas presidenciales ni de gobernador, que se
-					votan en una jornada aparte y para las que no tenemos datos de participación todavía.
+					papeletas a la vez. Las segundas vueltas presidenciales y de gobernador se votan en un
+					día aparte, así que aquí aparecen como jornadas propias.
 				</p>
 				<p>
 					Los resultados de cada candidato sí llegan hasta 1989, pero esas elecciones (1989-2009)

@@ -150,6 +150,306 @@
     "participacion_pct": 87.98
   },
   {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "andacollo",
+    "inscritos": 11278,
+    "votantes": 9928,
+    "participacion_pct": 88.03
+  },
+  {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "canela",
+    "inscritos": 9461,
+    "votantes": 8055,
+    "participacion_pct": 85.14
+  },
+  {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "combarbala",
+    "inscritos": 12338,
+    "votantes": 10314,
+    "participacion_pct": 83.6
+  },
+  {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "coquimbo",
+    "inscritos": 193715,
+    "votantes": 167548,
+    "participacion_pct": 86.49
+  },
+  {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "illapel",
+    "inscritos": 28376,
+    "votantes": 24471,
+    "participacion_pct": 86.24
+  },
+  {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "la-higuera",
+    "inscritos": 4844,
+    "votantes": 4089,
+    "participacion_pct": 84.41
+  },
+  {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "la-serena",
+    "inscritos": 201924,
+    "votantes": 173207,
+    "participacion_pct": 85.78
+  },
+  {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "los-vilos",
+    "inscritos": 19700,
+    "votantes": 16912,
+    "participacion_pct": 85.85
+  },
+  {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "monte-patria",
+    "inscritos": 28035,
+    "votantes": 23993,
+    "participacion_pct": 85.58
+  },
+  {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "ovalle",
+    "inscritos": 96432,
+    "votantes": 83600,
+    "participacion_pct": 86.69
+  },
+  {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "paihuano",
+    "inscritos": 5213,
+    "votantes": 4415,
+    "participacion_pct": 84.69
+  },
+  {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "punitaqui",
+    "inscritos": 11243,
+    "votantes": 9673,
+    "participacion_pct": 86.04
+  },
+  {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "rio-hurtado",
+    "inscritos": 4709,
+    "votantes": 3953,
+    "participacion_pct": 83.95
+  },
+  {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "salamanca",
+    "inscritos": 24680,
+    "votantes": 21239,
+    "participacion_pct": 86.06
+  },
+  {
+    "jornada": "presidencial_2v_2025",
+    "anno": 2025,
+    "etiqueta": "Presidencial (2ª vuelta) 2025",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "vicuna",
+    "inscritos": 25052,
+    "votantes": 21981,
+    "participacion_pct": 87.74
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "andacollo",
+    "inscritos": 11308,
+    "votantes": 9777,
+    "participacion_pct": 86.46
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "canela",
+    "inscritos": 9458,
+    "votantes": 7725,
+    "participacion_pct": 81.68
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "combarbala",
+    "inscritos": 12346,
+    "votantes": 10002,
+    "participacion_pct": 81.01
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "coquimbo",
+    "inscritos": 189298,
+    "votantes": 158921,
+    "participacion_pct": 83.95
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "illapel",
+    "inscritos": 28227,
+    "votantes": 23392,
+    "participacion_pct": 82.87
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "la-higuera",
+    "inscritos": 5035,
+    "votantes": 4164,
+    "participacion_pct": 82.7
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "la-serena",
+    "inscritos": 197784,
+    "votantes": 163897,
+    "participacion_pct": 82.87
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "los-vilos",
+    "inscritos": 19646,
+    "votantes": 15984,
+    "participacion_pct": 81.36
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "monte-patria",
+    "inscritos": 28023,
+    "votantes": 23518,
+    "participacion_pct": 83.92
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "ovalle",
+    "inscritos": 95605,
+    "votantes": 81029,
+    "participacion_pct": 84.75
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "paihuano",
+    "inscritos": 5294,
+    "votantes": 4387,
+    "participacion_pct": 82.87
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "punitaqui",
+    "inscritos": 11201,
+    "votantes": 9516,
+    "participacion_pct": 84.96
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "rio-hurtado",
+    "inscritos": 4789,
+    "votantes": 3902,
+    "participacion_pct": 81.48
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "salamanca",
+    "inscritos": 24477,
+    "votantes": 20183,
+    "participacion_pct": 82.46
+  },
+  {
+    "jornada": "gobernador_2v_2024",
+    "anno": 2024,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2024",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "vicuna",
+    "inscritos": 24889,
+    "votantes": 21267,
+    "participacion_pct": 85.45
+  },
+  {
     "jornada": "municipal_2024",
     "anno": 2024,
     "etiqueta": "Municipales, gobernador (1ª vuelta) y CORE 2024",
@@ -600,6 +900,156 @@
     "participacion_pct": 88.56
   },
   {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "andacollo",
+    "inscritos": 11296,
+    "votantes": 1952,
+    "participacion_pct": 17.28
+  },
+  {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "canela",
+    "inscritos": 9047,
+    "votantes": 1543,
+    "participacion_pct": 17.06
+  },
+  {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "combarbala",
+    "inscritos": 12550,
+    "votantes": 2000,
+    "participacion_pct": 15.94
+  },
+  {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "coquimbo",
+    "inscritos": 167854,
+    "votantes": 30482,
+    "participacion_pct": 18.16
+  },
+  {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "illapel",
+    "inscritos": 27921,
+    "votantes": 4281,
+    "participacion_pct": 15.33
+  },
+  {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "la-higuera",
+    "inscritos": 4505,
+    "votantes": 1110,
+    "participacion_pct": 24.64
+  },
+  {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "la-serena",
+    "inscritos": 174853,
+    "votantes": 36983,
+    "participacion_pct": 21.15
+  },
+  {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "los-vilos",
+    "inscritos": 18266,
+    "votantes": 2886,
+    "participacion_pct": 15.8
+  },
+  {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "monte-patria",
+    "inscritos": 28025,
+    "votantes": 3610,
+    "participacion_pct": 12.88
+  },
+  {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "ovalle",
+    "inscritos": 91832,
+    "votantes": 12468,
+    "participacion_pct": 13.58
+  },
+  {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "paihuano",
+    "inscritos": 5389,
+    "votantes": 1081,
+    "participacion_pct": 20.06
+  },
+  {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "punitaqui",
+    "inscritos": 10763,
+    "votantes": 1282,
+    "participacion_pct": 11.91
+  },
+  {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "rio-hurtado",
+    "inscritos": 4938,
+    "votantes": 656,
+    "participacion_pct": 13.28
+  },
+  {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "salamanca",
+    "inscritos": 23431,
+    "votantes": 3006,
+    "participacion_pct": 12.83
+  },
+  {
+    "jornada": "gobernador_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Gobernador Regional (2ª vuelta) 2021",
+    "tipos_relacionados": "gobernador_2v",
+    "comuna_id": "vicuna",
+    "inscritos": 23678,
+    "votantes": 3584,
+    "participacion_pct": 15.14
+  },
+  {
     "jornada": "megaeleccion_2021",
     "anno": 2021,
     "etiqueta": "Municipales, gobernador (1ª vuelta) y Convención Constituyente 2021",
@@ -898,6 +1348,156 @@
     "inscritos": 23805,
     "votantes": 9304,
     "participacion_pct": 39.08
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "andacollo",
+    "inscritos": 11278,
+    "votantes": 5833,
+    "participacion_pct": 51.72
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "canela",
+    "inscritos": 9203,
+    "votantes": 4863,
+    "participacion_pct": 52.84
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "combarbala",
+    "inscritos": 12522,
+    "votantes": 5828,
+    "participacion_pct": 46.54
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "coquimbo",
+    "inscritos": 171212,
+    "votantes": 86579,
+    "participacion_pct": 50.57
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "illapel",
+    "inscritos": 27992,
+    "votantes": 14345,
+    "participacion_pct": 51.25
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "la-higuera",
+    "inscritos": 4487,
+    "votantes": 1968,
+    "participacion_pct": 43.86
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "la-serena",
+    "inscritos": 179322,
+    "votantes": 100101,
+    "participacion_pct": 55.82
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "los-vilos",
+    "inscritos": 18641,
+    "votantes": 9770,
+    "participacion_pct": 52.41
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "monte-patria",
+    "inscritos": 28145,
+    "votantes": 12054,
+    "participacion_pct": 42.83
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "ovalle",
+    "inscritos": 92330,
+    "votantes": 44403,
+    "participacion_pct": 48.09
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "paihuano",
+    "inscritos": 5295,
+    "votantes": 2754,
+    "participacion_pct": 52.01
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "punitaqui",
+    "inscritos": 10782,
+    "votantes": 4624,
+    "participacion_pct": 42.89
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "rio-hurtado",
+    "inscritos": 4933,
+    "votantes": 2055,
+    "participacion_pct": 41.66
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "salamanca",
+    "inscritos": 23633,
+    "votantes": 11556,
+    "participacion_pct": 48.9
+  },
+  {
+    "jornada": "presidencial_2v_2021",
+    "anno": 2021,
+    "etiqueta": "Presidencial (2ª vuelta) 2021",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "vicuna",
+    "inscritos": 23805,
+    "votantes": 11766,
+    "participacion_pct": 49.43
   },
   {
     "jornada": "plebiscito_2020",
@@ -1200,6 +1800,156 @@
     "participacion_pct": 45.17
   },
   {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "andacollo",
+    "inscritos": 11040,
+    "votantes": 5488,
+    "participacion_pct": 49.71
+  },
+  {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "canela",
+    "inscritos": 8778,
+    "votantes": 4512,
+    "participacion_pct": 51.4
+  },
+  {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "combarbala",
+    "inscritos": 12406,
+    "votantes": 5578,
+    "participacion_pct": 44.96
+  },
+  {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "coquimbo",
+    "inscritos": 156212,
+    "votantes": 70526,
+    "participacion_pct": 45.15
+  },
+  {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "illapel",
+    "inscritos": 27019,
+    "votantes": 12190,
+    "participacion_pct": 45.12
+  },
+  {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "la-higuera",
+    "inscritos": 4162,
+    "votantes": 1883,
+    "participacion_pct": 45.24
+  },
+  {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "la-serena",
+    "inscritos": 160944,
+    "votantes": 79173,
+    "participacion_pct": 49.19
+  },
+  {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "los-vilos",
+    "inscritos": 17434,
+    "votantes": 8023,
+    "participacion_pct": 46.02
+  },
+  {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "monte-patria",
+    "inscritos": 27066,
+    "votantes": 11231,
+    "participacion_pct": 41.49
+  },
+  {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "ovalle",
+    "inscritos": 88386,
+    "votantes": 38639,
+    "participacion_pct": 43.72
+  },
+  {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "paihuano",
+    "inscritos": 4769,
+    "votantes": 2307,
+    "participacion_pct": 48.37
+  },
+  {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "punitaqui",
+    "inscritos": 10130,
+    "votantes": 4614,
+    "participacion_pct": 45.55
+  },
+  {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "rio-hurtado",
+    "inscritos": 4739,
+    "votantes": 2031,
+    "participacion_pct": 42.86
+  },
+  {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "salamanca",
+    "inscritos": 22174,
+    "votantes": 10000,
+    "participacion_pct": 45.1
+  },
+  {
+    "jornada": "presidencial_2v_2017",
+    "anno": 2017,
+    "etiqueta": "Presidencial (2ª vuelta) 2017",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "vicuna",
+    "inscritos": 22062,
+    "votantes": 10478,
+    "participacion_pct": 47.49
+  },
+  {
     "jornada": "municipal_2016",
     "anno": 2016,
     "etiqueta": "Municipales 2016",
@@ -1498,6 +2248,156 @@
     "inscritos": 20686,
     "votantes": 10375,
     "participacion_pct": 50.15
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "andacollo",
+    "inscritos": 10965,
+    "votantes": 5030,
+    "participacion_pct": 45.87
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "canela",
+    "inscritos": 8434,
+    "votantes": 4208,
+    "participacion_pct": 49.89
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "combarbala",
+    "inscritos": 12103,
+    "votantes": 5501,
+    "participacion_pct": 45.45
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "coquimbo",
+    "inscritos": 142497,
+    "votantes": 54543,
+    "participacion_pct": 38.28
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "illapel",
+    "inscritos": 26107,
+    "votantes": 11141,
+    "participacion_pct": 42.67
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "la-higuera",
+    "inscritos": 3997,
+    "votantes": 1872,
+    "participacion_pct": 46.84
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "la-serena",
+    "inscritos": 147768,
+    "votantes": 61075,
+    "participacion_pct": 41.33
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "los-vilos",
+    "inscritos": 16649,
+    "votantes": 7284,
+    "participacion_pct": 43.75
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "monte-patria",
+    "inscritos": 25894,
+    "votantes": 11447,
+    "participacion_pct": 44.21
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "ovalle",
+    "inscritos": 83802,
+    "votantes": 34756,
+    "participacion_pct": 41.47
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "paihuano",
+    "inscritos": 4525,
+    "votantes": 2078,
+    "participacion_pct": 45.92
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "punitaqui",
+    "inscritos": 9696,
+    "votantes": 4568,
+    "participacion_pct": 47.11
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "rio-hurtado",
+    "inscritos": 4660,
+    "votantes": 2044,
+    "participacion_pct": 43.86
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "salamanca",
+    "inscritos": 21022,
+    "votantes": 9008,
+    "participacion_pct": 42.85
+  },
+  {
+    "jornada": "presidencial_2v_2013",
+    "anno": 2013,
+    "etiqueta": "Presidencial (2ª vuelta) 2013",
+    "tipos_relacionados": "presidencial_2v",
+    "comuna_id": "vicuna",
+    "inscritos": 20686,
+    "votantes": 9430,
+    "participacion_pct": 45.59
   },
   {
     "jornada": "municipal_2012",
