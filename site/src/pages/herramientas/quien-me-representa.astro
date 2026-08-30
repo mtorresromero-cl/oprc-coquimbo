@@ -31,6 +31,35 @@ const regionales = autoridades
 		const diff = (orden[a.cargo as keyof typeof orden] ?? 9) - (orden[b.cargo as keyof typeof orden] ?? 9);
 		return diff !== 0 ? diff : a.nombre_completo.localeCompare(b.nombre_completo);
 	});
+
+// Un color y un ícono por cargo, para que cada grupo se distinga de un
+// vistazo en vez de ser solo un título más en la página.
+const ESTILO_CARGO: Record<string, { color: string; icono: string }> = {
+	alcalde: { color: 'brand', icono: 'M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6' },
+	concejal: {
+		color: 'blue',
+		icono: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75',
+	},
+	core: { color: 'purple', icono: 'M3 21h18M4 21V8l8-5 8 5v13M9 21v-5h6v5M9 12h.01M15 12h.01M9 16h.01M15 16h.01' },
+	gobernador: { color: 'teal', icono: 'M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4Z' },
+	senador: { color: 'amber', icono: 'M3 21h18M5 21V10M19 21V10M3 10l9-6 9 6M9 21v-6h6v6' },
+	diputado: {
+		color: 'emerald',
+		icono: 'M14 3v5a2 2 0 0 0 2 2h5M6 3h8l6 6v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z M9 13h6M9 17h4',
+	},
+};
+const BG_ICONO: Record<string, string> = {
+	brand: 'bg-brand-50 text-brand-600',
+	blue: 'bg-blue-50 text-blue-600',
+	purple: 'bg-purple-50 text-purple-600',
+	teal: 'bg-teal-50 text-teal-600',
+	amber: 'bg-amber-50 text-amber-600',
+	emerald: 'bg-emerald-50 text-emerald-600',
+};
+
+function IconoCargo(cargo: string) {
+	return ESTILO_CARGO[cargo] ?? { color: 'brand', icono: '' };
+}
 ---
 
 <Layout
@@ -53,26 +82,48 @@ const regionales = autoridades
 	</section>
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
-		<label for="selector-comuna" class="block text-sm font-semibold text-slate-900">Tu comuna</label>
-		<select
-			id="selector-comuna"
-			class="mt-2 w-full max-w-xs rounded-md border border-slate-300 px-3 py-2.5 text-sm focus:border-brand-500 focus:outline-none"
-		>
-			<option value="">-- Elige tu comuna --</option>
-			{comunasOrdenadas.map((c) => (
-				<option value={c.id} data-provincia={c.provincia}>{c.nombre}</option>
-			))}
-		</select>
+		<div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+			<div class="flex items-start gap-4">
+				<span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+						<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"></path>
+						<circle cx="12" cy="10" r="3"></circle>
+					</svg>
+				</span>
+				<div class="min-w-0 flex-1">
+					<label for="selector-comuna" class="block text-sm font-semibold text-slate-900">Tu comuna</label>
+					<select
+						id="selector-comuna"
+						class="mt-2 w-full max-w-sm rounded-lg border border-slate-300 px-3.5 py-2.5 text-base focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
+					>
+						<option value="">-- Elige tu comuna --</option>
+						{comunasOrdenadas.map((c) => (
+							<option value={c.id} data-provincia={c.provincia}>{c.nombre}</option>
+						))}
+					</select>
+				</div>
+			</div>
+		</div>
 
-		<p id="sin-seleccion" class="mt-8 text-sm text-slate-500">
-			Elige una comuna arriba para ver a tu alcalde/sa, concejales y consejero/a regional.
-		</p>
+		<div id="sin-seleccion" class="mt-6 rounded-xl border-2 border-dashed border-slate-200 px-6 py-10 text-center">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto h-8 w-8 text-slate-300">
+				<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
+			</svg>
+			<p class="mt-3 text-sm text-slate-500">Elige una comuna arriba para ver a tu alcalde/sa, concejales y consejero/a regional.</p>
+		</div>
 
 		<div id="resultados-locales" class="hidden">
 			{['alcalde', 'concejal', 'core'].map((cargo) => (
-				<section class="mt-10 grupo-local" data-grupo-local={cargo}>
-					<h2 class="text-lg font-bold tracking-tight text-slate-900">{GRUPO_LABEL[cargo]}</h2>
-					<ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				<section class="mt-8 grupo-local rounded-xl border border-slate-200 bg-white p-6 shadow-sm" data-grupo-local={cargo}>
+					<div class="flex items-center gap-3">
+						<span class={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${BG_ICONO[IconoCargo(cargo).color]}`}>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+								<path d={IconoCargo(cargo).icono}></path>
+							</svg>
+						</span>
+						<h2 class="text-lg font-bold tracking-tight text-slate-900">{GRUPO_LABEL[cargo]}</h2>
+					</div>
+					<ul class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 						{locales
 							.filter((a) => a.cargo === cargo)
 							.map((a) => <TarjetaAutoridad autoridad={a} />)}
@@ -81,20 +132,27 @@ const regionales = autoridades
 			))}
 		</div>
 
-		<section class="mt-14 border-t border-slate-100 pt-10">
+		<section class="mt-10 -mx-6 border-y border-slate-100 bg-slate-50 px-6 py-10 sm:mx-0 sm:rounded-2xl sm:border sm:px-8">
 			<h2 class="text-lg font-bold tracking-tight text-slate-900">
 				Representantes de toda la región
 			</h2>
-			<p class="mt-1 text-sm text-slate-500">
+			<p class="mt-1 max-w-2xl text-sm text-slate-500">
 				El gobernador regional, los diputados y los senadores representan a toda la Región de
 				Coquimbo, no a una comuna en particular — son los mismos sea cual sea tu comuna.
 			</p>
 			{['gobernador', 'senador', 'diputado'].map((cargo) => (
-				<div class="mt-6">
-					<h3 class="text-sm font-semibold tracking-wide text-slate-500 uppercase">
-						{GRUPO_LABEL[cargo]}
-					</h3>
-					<ul class="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				<div class="mt-8 first:mt-6">
+					<div class="flex items-center gap-3">
+						<span class={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${BG_ICONO[IconoCargo(cargo).color]}`}>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]">
+								<path d={IconoCargo(cargo).icono}></path>
+							</svg>
+						</span>
+						<h3 class="text-sm font-bold tracking-wide text-slate-700 uppercase">
+							{GRUPO_LABEL[cargo]}
+						</h3>
+					</div>
+					<ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 						{regionales
 							.filter((a) => a.cargo === cargo)
 							.map((a) => <TarjetaAutoridad autoridad={a} />)}
