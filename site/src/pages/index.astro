@@ -9,6 +9,7 @@ import {
 	personal,
 	composicionPartidoTodos,
 	composicionPorGenero,
+	composicionPorGeneroYCargo,
 	dotacionPorTipoContrato,
 	remuneracionAlcaldesPorComuna,
 	autoridadesPorCargoProvincia,
@@ -26,6 +27,9 @@ const maxPartido = Math.max(...composicionPartido.map((p) => p.total), 1);
 const composicionGenero = composicionPorGenero();
 const totalConGenero = composicionGenero.reduce((s, g) => s + g.total, 0);
 const maxGenero = Math.max(...composicionGenero.map((g) => g.total), 1);
+
+const generoPorCargo = composicionPorGeneroYCargo();
+const maxGeneroPorCargo = Math.max(...generoPorCargo.flatMap((c) => [c.hombres, c.mujeres]), 1);
 
 const dotacionTipo = dotacionPorTipoContrato();
 const totalDotacion = dotacionTipo.reduce((s, d) => s + d.dotacion, 0);
@@ -261,122 +265,161 @@ const ICONOS: Record<string, string> = {
 			</div>
 		</section>
 
-		<section class="mx-auto max-w-6xl px-6 py-16">
-			<div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-24">
-				<div>
-					<h2 class="text-2xl font-bold tracking-tight text-slate-900">Autoridades por provincia</h2>
-					<p class="mt-2 text-base text-slate-600">
-						Alcaldes y concejales según la provincia de su comuna; consejeros regionales según su
-						circunscripción provincial (así se eligen). No incluye senadores, diputados ni al
-						gobernador, que representan a toda la región y no a una provincia en particular.
-					</p>
-					<div class="mt-8 overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
-						<table class="w-full text-sm">
-							<thead class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase">
-								<tr>
-									<th class="px-4 py-3">Provincia</th>
-									<th class="px-4 py-3 text-right">Alcaldes</th>
-									<th class="px-4 py-3 text-right">Concejales</th>
-									<th class="px-4 py-3 text-right">Consejeros regionales</th>
-								</tr>
-							</thead>
-							<tbody class="divide-y divide-slate-100 bg-white">
-								{cargoProvincia.map((p) => (
-									<tr>
-										<td class="px-4 py-3 font-medium text-slate-900">{p.provincia}</td>
-										<td class="px-4 py-3 text-right text-slate-700">{p.alcalde}</td>
-										<td class="px-4 py-3 text-right text-slate-700">{p.concejal}</td>
-										<td class="px-4 py-3 text-right text-slate-700">{p.core}</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
-					</div>
-				</div>
-
-				<div>
-					<h2 class="text-2xl font-bold tracking-tight text-slate-900">Composición por género</h2>
-					<p class="mt-2 text-base text-slate-600">
-						Estimación a partir del nombre de cada una de las {totalConGenero} autoridades. No es un
-						dato publicado por las fuentes oficiales (SERVEL, BCN, Portal de Transparencia), que no
-						registran sexo o género.
-					</p>
-					<div class="mt-8 space-y-3">
-						{composicionGenero.map((g) => (
-							<div class="flex items-center gap-4">
-								<span class="w-16 shrink-0 text-sm font-medium text-slate-700">{g.label}</span>
-								<div class="h-6 flex-1 rounded bg-slate-200">
-									<div
-										class="h-6 rounded bg-brand-600"
-										style={`width:${(g.total / maxGenero) * 100}%`}
-									>
-									</div>
-								</div>
-								<span class="w-24 shrink-0 text-right text-sm font-semibold text-slate-900">
-									{g.total} <span class="font-normal text-slate-500">({Math.round((g.total / totalConGenero) * 100)}%)</span>
-								</span>
-							</div>
-						))}
-					</div>
-				</div>
-			</div>
-		</section>
-
 		<section class="border-y border-slate-100 bg-slate-50">
 			<div class="mx-auto max-w-6xl px-6 py-16">
-				<h2 class="text-2xl font-bold tracking-tight text-slate-900">Datos municipales</h2>
-				<div class="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-2">
-					<div>
-						<h3 class="font-semibold text-slate-900">Dotación por tipo de contrato</h3>
-						<p class="mt-1 text-base text-slate-600">
-							Suma regional de las {totalDotacion} personas que trabajan en los {municipiosConDotacion} municipios con
-							datos publicados.
-						</p>
-						<div class="mt-6 space-y-3">
-							{dotacionTipo.map((d) => (
-								<div class="flex items-center gap-4">
-									<span class="w-24 shrink-0 text-sm font-medium text-slate-700">{TIPO_CONTRATO_LABEL_HOME[d.tipoContrato] ?? d.tipoContrato}</span>
-									<div class="h-6 flex-1 rounded bg-slate-200">
-										<div class="h-6 rounded bg-brand-600" style={`width:${(d.dotacion / maxDotacionTipo) * 100}%`}></div>
-									</div>
-									<span class="w-14 shrink-0 text-right text-sm font-semibold text-slate-900">{d.dotacion}</span>
+				<div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+					<div class="space-y-12">
+						<div>
+							<h2 class="text-2xl font-bold tracking-tight text-slate-900">Autoridades por provincia</h2>
+							<p class="mt-2 text-base text-slate-600">
+								Alcaldes y concejales según la provincia de su comuna; consejeros regionales según su
+								circunscripción provincial (así se eligen). No incluye senadores, diputados ni al
+								gobernador, que representan a toda la región y no a una provincia en particular.
+							</p>
+							<div class="mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+								<table class="w-full text-sm">
+									<thead class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase">
+										<tr>
+											<th class="px-4 py-3">Provincia</th>
+											<th class="px-4 py-3 text-right">Alcaldes</th>
+											<th class="px-4 py-3 text-right">Concejales</th>
+											<th class="px-4 py-3 text-right">Consejeros regionales</th>
+										</tr>
+									</thead>
+									<tbody class="divide-y divide-slate-100 bg-white">
+										{cargoProvincia.map((p) => (
+											<tr>
+												<td class="px-4 py-3 font-medium text-slate-900">{p.provincia}</td>
+												<td class="px-4 py-3 text-right text-slate-700">{p.alcalde}</td>
+												<td class="px-4 py-3 text-right text-slate-700">{p.concejal}</td>
+												<td class="px-4 py-3 text-right text-slate-700">{p.core}</td>
+											</tr>
+										))}
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div>
+							<h2 class="text-2xl font-bold tracking-tight text-slate-900">Composición por género</h2>
+							<p class="mt-2 text-base text-slate-600">
+								Estimación a partir del nombre de cada una de las {totalConGenero} autoridades. No es un
+								dato publicado por las fuentes oficiales (SERVEL, BCN, Portal de Transparencia), que no
+								registran sexo o género.
+							</p>
+							<div class="mt-8 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+								<div class="space-y-3">
+									{composicionGenero.map((g) => (
+										<div class="flex items-center gap-4">
+											<span class="w-16 shrink-0 text-sm font-medium text-slate-700">{g.label}</span>
+											<div class="h-6 flex-1 rounded bg-slate-200">
+												<div
+													class="h-6 rounded bg-brand-600"
+													style={`width:${(g.total / maxGenero) * 100}%`}
+												>
+												</div>
+											</div>
+											<span class="w-24 shrink-0 text-right text-sm font-semibold text-slate-900">
+												{g.total} <span class="font-normal text-slate-500">({Math.round((g.total / totalConGenero) * 100)}%)</span>
+											</span>
+										</div>
+									))}
 								</div>
-							))}
+							</div>
+						</div>
+
+						<div>
+							<h2 class="text-2xl font-bold tracking-tight text-slate-900">Género por cargo</h2>
+							<p class="mt-2 text-base text-slate-600">
+								La misma estimación, desglosada por tipo de cargo.
+							</p>
+							<div class="mt-8 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+								<div class="mb-4 flex items-center justify-center gap-8 text-xs font-semibold tracking-wide text-slate-500 uppercase">
+									<span class="flex items-center gap-1.5"><span class="h-2.5 w-2.5 rounded-sm bg-slate-600"></span>Hombres</span>
+									<span class="flex items-center gap-1.5"><span class="h-2.5 w-2.5 rounded-sm bg-brand-600"></span>Mujeres</span>
+								</div>
+								<div class="space-y-2.5">
+									{generoPorCargo.map((c) => (
+										<div class="flex items-center gap-1 sm:gap-2">
+											<span class="w-12 shrink-0 text-right text-[10px] font-medium text-slate-600 sm:w-20 sm:text-xs">
+												{c.hombres} <span class="text-slate-400">({Math.round(c.hombresPct)}%)</span>
+											</span>
+											<div class="flex h-4 flex-1 justify-end">
+												<div class="h-4 rounded-l bg-slate-600" style={`width:${(c.hombres / maxGeneroPorCargo) * 100}%`}></div>
+											</div>
+											<span class="w-16 shrink-0 text-center text-[10px] font-semibold text-slate-900 sm:w-28 sm:text-xs">{c.label}</span>
+											<div class="flex h-4 flex-1 justify-start">
+												<div class="h-4 rounded-r bg-brand-600" style={`width:${(c.mujeres / maxGeneroPorCargo) * 100}%`}></div>
+											</div>
+											<span class="w-12 shrink-0 text-[10px] font-medium text-slate-600 sm:w-20 sm:text-xs">
+												{c.mujeres} <span class="text-slate-400">({Math.round(c.mujeresPct)}%)</span>
+											</span>
+										</div>
+									))}
+								</div>
+							</div>
 						</div>
 					</div>
 
 					<div>
-						<h3 class="font-semibold text-slate-900">Remuneración de alcaldes/as por comuna</h3>
-						<p class="mt-1 text-base text-slate-600">
-							Remuneración bruta del mes más reciente publicado por cada comuna (indicado junto a
-							cada barra) según el Portal de Transparencia. No incluye a concejales.
-							{comunasSinRemuneracion.length > 0 && (
-								<>{' '}Falta{comunasSinRemuneracion.length === 1 ? '' : 'n'} {comunasSinRemuneracion.join(' y ')}, sin registro disponible.</>
-							)}
-						</p>
-						<div class="mt-6 space-y-2.5">
-							{remuneracionAlcaldes.map((r) => (
-								<div class="flex items-center gap-4">
-									<span class="w-28 shrink-0 truncate text-sm font-medium text-slate-700">{r.nombreComuna}</span>
-									<div class="h-5 flex-1 rounded bg-slate-200">
-										<div class="h-5 rounded bg-brand-600" style={`width:${(r.remuneracionBruta / maxRemuneracion) * 100}%`}></div>
-									</div>
-									<span class="w-32 shrink-0 text-right text-xs font-semibold text-slate-900">
-										{formatoCLP(r.remuneracionBruta)}
-										<span class="block font-normal text-slate-400">{nombreMes(r.mes)}/{r.anno}</span>
-									</span>
+						<h2 class="text-2xl font-bold tracking-tight text-slate-900">Datos municipales</h2>
+
+						<div class="mt-8">
+							<h3 class="font-semibold text-slate-900">Dotación por tipo de contrato</h3>
+							<p class="mt-1 text-base text-slate-600">
+								Suma regional de las {totalDotacion} personas que trabajan en los {municipiosConDotacion} municipios con
+								datos publicados.
+							</p>
+							<div class="mt-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+								<div class="space-y-3">
+									{dotacionTipo.map((d) => (
+										<div class="flex items-center gap-4">
+											<span class="w-24 shrink-0 text-sm font-medium text-slate-700">{TIPO_CONTRATO_LABEL_HOME[d.tipoContrato] ?? d.tipoContrato}</span>
+											<div class="h-6 flex-1 rounded bg-slate-200">
+												<div class="h-6 rounded bg-brand-600" style={`width:${(d.dotacion / maxDotacionTipo) * 100}%`}></div>
+											</div>
+											<span class="w-14 shrink-0 text-right text-sm font-semibold text-slate-900">{d.dotacion}</span>
+										</div>
+									))}
 								</div>
-							))}
+							</div>
 						</div>
-						<p class="mt-4 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-800">
-							<strong>Por qué varía tanto entre comunas:</strong> revisamos el histórico
-							enero-julio 2026 de las 15 comunas y en la mayoría hay un salto de 30-70% en mayo y
-							julio sobre su línea base de otros meses — compatible con algún bono o asignación
-							variable que no se paga todos los meses. No es parejo: algunas comunas (Paihuano,
-							Salamanca, Combarbalá, Canela, La Higuera) se mantienen planas todo el semestre. Por
-							eso esta cifra no es un sueldo base comparable 1 a 1 entre comunas, sino el monto
-							bruto de ese mes puntual.
-						</p>
+
+						<div class="mt-12">
+							<h3 class="font-semibold text-slate-900">Remuneración de alcaldes/as por comuna</h3>
+							<p class="mt-1 text-base text-slate-600">
+								Remuneración bruta del mes más reciente publicado por cada comuna (indicado junto a
+								cada barra) según el Portal de Transparencia. No incluye a concejales.
+								{comunasSinRemuneracion.length > 0 && (
+									<>{' '}Falta{comunasSinRemuneracion.length === 1 ? '' : 'n'} {comunasSinRemuneracion.join(' y ')}, sin registro disponible.</>
+								)}
+							</p>
+							<div class="mt-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+								<div class="space-y-2.5">
+									{remuneracionAlcaldes.map((r) => (
+										<div class="flex items-center gap-4">
+											<span class="w-28 shrink-0 truncate text-sm font-medium text-slate-700">{r.nombreComuna}</span>
+											<div class="h-5 flex-1 rounded bg-slate-200">
+												<div class="h-5 rounded bg-brand-600" style={`width:${(r.remuneracionBruta / maxRemuneracion) * 100}%`}></div>
+											</div>
+											<span class="w-32 shrink-0 text-right text-xs font-semibold text-slate-900">
+												{formatoCLP(r.remuneracionBruta)}
+												<span class="block font-normal text-slate-400">{nombreMes(r.mes)}/{r.anno}</span>
+											</span>
+										</div>
+									))}
+								</div>
+							</div>
+							<p class="mt-4 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-800">
+								<strong>Por qué varía tanto entre comunas:</strong> revisamos el histórico
+								enero-julio 2026 de las 15 comunas y en la mayoría hay un salto de 30-70% en mayo y
+								julio sobre su línea base de otros meses — compatible con algún bono o asignación
+								variable que no se paga todos los meses. No es parejo: algunas comunas (Paihuano,
+								Salamanca, Combarbalá, Canela, La Higuera) se mantienen planas todo el semestre. Por
+								eso esta cifra no es un sueldo base comparable 1 a 1 entre comunas, sino el monto
+								bruto de ese mes puntual.
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>

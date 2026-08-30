@@ -562,6 +562,44 @@ export function composicionPorGenero(): ComposicionGenero[] {
 	];
 }
 
+export interface ComposicionGeneroCargo {
+	cargo: string;
+	label: string;
+	hombres: number;
+	mujeres: number;
+	total: number;
+	hombresPct: number;
+	mujeresPct: number;
+}
+
+/**
+ * Lo mismo que composicionPorGenero() pero desglosado por cargo, para el
+ * gráfico de pirámide de la portada. Mismo origen y misma salvedad: no es
+ * un dato de ninguna fuente oficial, se infirió del nombre de pila.
+ */
+export function composicionPorGeneroYCargo(): ComposicionGeneroCargo[] {
+	return CARGOS.map((cargo) => {
+		let hombres = 0;
+		let mujeres = 0;
+		for (const a of autoridades) {
+			if (a.cargo !== cargo) continue;
+			const s = sexoAutoridad(a.id);
+			if (s === 'M') hombres++;
+			else if (s === 'F') mujeres++;
+		}
+		const total = hombres + mujeres;
+		return {
+			cargo,
+			label: GRUPO_LABEL[cargo] ?? cargo,
+			hombres,
+			mujeres,
+			total,
+			hombresPct: total ? (hombres / total) * 100 : 0,
+			mujeresPct: total ? (mujeres / total) * 100 : 0,
+		};
+	}).filter((c) => c.total > 0);
+}
+
 export interface IndiceVotacion {
 	autoridad_id: string;
 	nombre: string;
