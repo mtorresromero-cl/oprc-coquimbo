@@ -11,6 +11,14 @@ const ORDEN_COMUNA_IDX = Object.fromEntries(COMUNA_ORDEN.map((id, i) => [id, i])
 const comunasOrdenadas = [...comunas].sort(
 	(a, b) => (ORDEN_COMUNA_IDX[a.id] ?? 99) - (ORDEN_COMUNA_IDX[b.id] ?? 99)
 );
+
+// fuente_url nunca se usa en el cliente y siempre es null en estos datos —
+// se descarta antes de mandar los ~14 mil registros al navegador.
+const resultadosParaCliente = resultadosElectorales.map(
+	({ eleccion_tipo, anno, comuna_id, candidato, partido, pacto, votos, porcentaje, electo, cargo }) => ({
+		eleccion_tipo, anno, comuna_id, candidato, partido, pacto, votos, porcentaje, electo, cargo,
+	})
+);
 ---
 
 <Layout
@@ -62,6 +70,7 @@ const comunasOrdenadas = [...comunas].sort(
 			</div>
 		</div>
 
+		<p id="cargando" class="mt-6 text-sm text-slate-400">Cargando datos electorales…</p>
 		<div id="resultado" class="mt-6"></div>
 
 		<template id="tpl-fila">
@@ -78,7 +87,7 @@ const comunasOrdenadas = [...comunas].sort(
 		</template>
 	</main>
 
-	<script define:vars={{ resultadosElectorales, participacionElectoral, comunasOrdenadas }}>
+	<script define:vars={{ resultadosElectorales: resultadosParaCliente, participacionElectoral, comunasOrdenadas }}>
 		// --- Catálogo de tipos de elección: cómo se relaciona cada uno con
 		// eleccion_tipo/cargo/año en resultado_electoral, y si el resultado se
 		// mira por comuna (alcalde/concejal/core) o para toda la región
@@ -338,5 +347,6 @@ const comunasOrdenadas = [...comunas].sort(
 		actualizaAnnos();
 		actualizaComunaDisponible();
 		render();
+		document.getElementById('cargando').style.display = 'none';
 	</script>
 </Layout>

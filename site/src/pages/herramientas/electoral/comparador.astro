@@ -288,7 +288,10 @@ const SELECCION_INICIAL = ['la-serena', 'ovalle', 'illapel'];
 				filaMetrica('Concejales actuales por partido', (f) => {
 					if (f.concejalesPorPartido.length === 0) return '—';
 					const barra = f.concejalesPorPartido
-						.map((cp) => `<div class="h-4" style="width:${(cp.n / f.totalConcejales) * 100}%;background-color:${cp.color}" title="${cp.partido}: ${cp.n}"></div>`)
+						.map(
+							(cp, i) =>
+								`<div class="h-4${i < f.concejalesPorPartido.length - 1 ? ' border-r border-white' : ''}" style="width:${(cp.n / f.totalConcejales) * 100}%;background-color:${cp.color}" title="${cp.partido}: ${cp.n}"></div>`
+						)
 						.join('');
 					const lista = f.concejalesPorPartido
 						.map(

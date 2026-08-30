@@ -284,9 +284,9 @@ const polylineParticipacion = puntosParticipacion.map((p) => `${xFor(p.i)},${yFo
 					<div class="flex items-center gap-3">
 						<span class="w-12 shrink-0 text-xs font-semibold text-slate-500">{c.anno}</span>
 						<div class="flex h-6 flex-1 overflow-hidden rounded">
-							{c.segmentos.map((s) => (
+							{c.segmentos.map((s, i) => (
 								<div
-									class="h-6"
+									class={i < c.segmentos.length - 1 ? 'h-6 border-r border-white' : 'h-6'}
 									style={`width:${s.pct}%;background-color:${colorPartido(s.partido)}`}
 									title={`${tituloCase(s.candidato)} (${formatoPartido(s.partido) ?? 'Independiente'}) — ${s.pct.toFixed(1)}%`}
 								></div>
