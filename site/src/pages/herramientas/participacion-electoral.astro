@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { comunas, participacionElectoral } from '../../lib/datos';
+import { COLOR_COMUNA } from '../../lib/colores-comunas';
 
 // Mismo orden geográfico real (provincias de Elqui, Limarí y Choapa, de
 // norte a sur) usado en /autoridades/ y /herramientas/quien-me-representa/.
@@ -14,27 +15,6 @@ const comunasOrdenadas = [...comunas].sort(
 	(a, b) => (ORDEN_COMUNA_IDX[a.id] ?? 99) - (ORDEN_COMUNA_IDX[b.id] ?? 99)
 );
 const NOMBRE_COMUNA = Object.fromEntries(comunas.map((c) => [c.id, c.nombre]));
-
-// Un color distinto por comuna: sirve a la vez de leyenda (el checkbox del
-// sidebar se pinta con accent-color) y de línea en el gráfico, así no hace
-// falta una leyenda aparte.
-const COLOR_COMUNA: Record<string, string> = {
-	'la-higuera': '#e63946',
-	'la-serena': '#aa0000',
-	coquimbo: '#f4a261',
-	vicuna: '#2a9d8f',
-	paihuano: '#06a77d',
-	andacollo: '#264653',
-	'rio-hurtado': '#4ea8de',
-	'monte-patria': '#219ebc',
-	ovalle: '#e07a00',
-	punitaqui: '#fb8500',
-	combarbala: '#6a4c93',
-	canela: '#b5838d',
-	illapel: '#457b9d',
-	salamanca: '#9d4edd',
-	'los-vilos': '#386641',
-};
 
 // Comunas seleccionadas por defecto al cargar: la capital regional y una
 // comuna representativa de cada una de las otras dos provincias.

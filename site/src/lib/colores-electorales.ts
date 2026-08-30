@@ -75,3 +75,38 @@ export function formatoPartido(s: string | null): string | null {
 	if (!s) return s;
 	return !s.includes(' ') && s.length <= 5 ? s.toUpperCase() : tituloCase(s);
 }
+
+// Para agrupar "quién ha ganado más veces" a través de décadas hace falta
+// tratar "PS" y "PARTIDO SOCIALISTA DE CHILE" como el mismo partido — sin
+// esto, un partido que usó ambas formas en años distintos aparecería
+// dividido en dos y subcontado. Solo cubre los mismos ~25 partidos
+// reconocibles del mapa de colores; el resto usa formatoPartido() tal cual,
+// que para listas/independientes menores ya es su propio grupo razonable.
+const NOMBRE_CANONICO: Record<string, string> = {
+	RN: 'Renovación Nacional', 'RENOVACION NACIONAL': 'Renovación Nacional',
+	UDI: 'UDI', 'UNION DEMOCRATA INDEPENDIENTE': 'UDI',
+	PS: 'Partido Socialista', 'PARTIDO SOCIALISTA DE CHILE': 'Partido Socialista',
+	PPD: 'PPD', 'PARTIDO POR LA DEMOCRACIA': 'PPD',
+	PDC: 'Democracia Cristiana', DC: 'Democracia Cristiana', 'PARTIDO DEMOCRATA CRISTIANO': 'Democracia Cristiana',
+	PC: 'Partido Comunista', PCCH: 'Partido Comunista', 'PARTIDO COMUNISTA DE CHILE': 'Partido Comunista',
+	'FRENTE AMPLIO': 'Frente Amplio',
+	PR: 'Partido Radical', PRSD: 'Partido Radical',
+	'PARTIDO RADICAL DE CHILE': 'Partido Radical', 'PARTIDO RADICAL SOCIALDEMOCRATA': 'Partido Radical',
+	'PARTIDO REPUBLICANO DE CHILE': 'Partido Republicano',
+	'REVOLUCION DEMOCRATICA': 'Revolución Democrática',
+	'CONVERGENCIA SOCIAL': 'Convergencia Social',
+	'EVOLUCION POLITICA': 'Evolución Política',
+	'PARTIDO ECOLOGISTA VERDE': 'Partido Ecologista Verde',
+	PH: 'Partido Humanista', 'PARTIDO HUMANISTA': 'Partido Humanista',
+	'PARTIDO DE LA GENTE': 'Partido de la Gente',
+	COMUNES: 'Comunes',
+	AMPLITUD: 'Amplitud',
+	'FEDERACION REGIONALISTA VERDE SOCIAL': 'Federación Regionalista Verde Social',
+	IGUALDAD: 'Igualdad',
+	'PARTIDO PROGRESISTA': 'Partido Progresista', 'PARTIDO PROGRESISTA DE CHILE': 'Partido Progresista',
+};
+
+export function nombreCanonicoPartido(s: string | null): string {
+	if (!s) return 'Independiente';
+	return NOMBRE_CANONICO[s.trim().toUpperCase()] ?? (formatoPartido(s) as string);
+}
