@@ -15,6 +15,31 @@ const comunasOrdenadas = [...comunas].sort(
 );
 const NOMBRE_COMUNA = Object.fromEntries(comunas.map((c) => [c.id, c.nombre]));
 
+// Un color distinto por comuna: sirve a la vez de leyenda (el checkbox del
+// sidebar se pinta con accent-color) y de línea en el gráfico, así no hace
+// falta una leyenda aparte.
+const COLOR_COMUNA: Record<string, string> = {
+	'la-higuera': '#e63946',
+	'la-serena': '#aa0000',
+	coquimbo: '#f4a261',
+	vicuna: '#2a9d8f',
+	paihuano: '#06a77d',
+	andacollo: '#264653',
+	'rio-hurtado': '#4ea8de',
+	'monte-patria': '#219ebc',
+	ovalle: '#e07a00',
+	punitaqui: '#fb8500',
+	combarbala: '#6a4c93',
+	canela: '#b5838d',
+	illapel: '#457b9d',
+	salamanca: '#9d4edd',
+	'los-vilos': '#386641',
+};
+
+// Comunas seleccionadas por defecto al cargar: la capital regional y una
+// comuna representativa de cada una de las otras dos provincias.
+const SELECCION_INICIAL = new Set(['la-serena', 'ovalle', 'illapel']);
+
 // Orden cronológico real de las jornadas de votación (una jornada puede
 // agrupar varias elecciones simultáneas, ej. municipales + gobernador +
 // convención constituyente el mismo día de mayo 2021).
@@ -44,6 +69,21 @@ const ETIQUETA_CORTA: Record<string, string> = {
 	municipal_2024: 'Municipales 2024',
 	parlamentaria_presidencial_2025: 'Parlamentarias 2025',
 };
+// Etiqueta corta para el eje X del gráfico (las dos jornadas de 2021 se
+// distinguen por mes, ya que comparten año).
+const ETIQUETA_EJE: Record<string, string> = {
+	municipal_2012: '2012',
+	parlamentaria_presidencial_2013: '2013',
+	municipal_2016: '2016',
+	parlamentaria_presidencial_2017: '2017',
+	plebiscito_2020: '2020',
+	megaeleccion_2021: '2021 (may)',
+	parlamentaria_presidencial_2021: '2021 (nov)',
+	plebiscito_2022: '2022',
+	plebiscito_2023: '2023',
+	municipal_2024: '2024',
+	parlamentaria_presidencial_2025: '2025',
+};
 
 // Vista "por comuna": las 11 jornadas de una comuna, en orden cronológico.
 const porComuna = comunasOrdenadas.map((c) => ({
@@ -61,6 +101,61 @@ const porJornada = ORDEN_JORNADA.map((j) => {
 		.sort((a, b) => b.participacion_pct - a.participacion_pct);
 	return { jornada: j, etiqueta: registros[0]?.etiqueta ?? '', anno: registros[0]?.anno ?? 0, registros };
 }).filter((g) => g.registros.length > 0);
+
+// Promedio regional por jornada (votantes totales / inscritos totales), para
+// la línea de referencia gris del gráfico.
+const promedioRegional: Record<string, number> = {};
+for (const j of ORDEN_JORNADA) {
+	const registros = participacionElectoral.filter((r) => r.jornada === j);
+	const inscritos = registros.reduce((s, r) => s + r.inscritos, 0);
+	const votantes = registros.reduce((s, r) => s + r.votantes, 0);
+	promedioRegional[j] = inscritos ? Math.round((votantes / inscritos) * 1000) / 10 : 0;
+}
+
+// "Entonces vs. ahora": primera y última jornada disponibles, para la tabla
+// resumen.
+const PRIMERA_JORNADA = ORDEN_JORNADA[0];
+const ULTIMA_JORNADA = ORDEN_JORNADA[ORDEN_JORNADA.length - 1];
+const resumenComparativo = comunasOrdenadas.map((c) => {
+	const inicial = participacionElectoral.find((r) => r.comuna_id === c.id && r.jornada === PRIMERA_JORNADA);
+	const final = participacionElectoral.find((r) => r.comuna_id === c.id && r.jornada === ULTIMA_JORNADA);
+	return {
+		comuna: c,
+		inicial,
+		final,
+		cambio: inicial && final ? Math.round((final.participacion_pct - inicial.participacion_pct) * 10) / 10 : null,
+	};
+});
+
+// --- Geometría del gráfico de líneas (SVG, calculado en el servidor) ---
+const CHART_W = 900;
+const CHART_H = 340;
+const PAD_L = 46;
+const PAD_R = 16;
+const PAD_T = 30;
+const PAD_B = 66;
+const PLOT_W = CHART_W - PAD_L - PAD_R;
+const PLOT_H = CHART_H - PAD_T - PAD_B;
+const xFor = (i: number) => PAD_L + (i / (ORDEN_JORNADA.length - 1)) * PLOT_W;
+const yFor = (pct: number) => PAD_T + (1 - pct / 100) * PLOT_H;
+const EJE_Y = [0, 20, 40, 60, 80, 100];
+// Vuelve el voto obligatorio: la participación salta entre parlamentarias
+// 2021 (índice 6) y plebiscito 2022 (índice 7).
+const X_ANOTACION = (xFor(6) + xFor(7)) / 2;
+
+const lineasComuna = comunasOrdenadas.map((c) => {
+	const puntos = ORDEN_JORNADA.map((j, i) => {
+		const r = participacionElectoral.find((reg) => reg.jornada === j && reg.comuna_id === c.id);
+		return r ? { i, r } : null;
+	}).filter((p) => p !== null);
+	return {
+		comuna: c,
+		color: COLOR_COMUNA[c.id],
+		polyline: puntos.map((p) => `${xFor(p.i)},${yFor(p.r.participacion_pct)}`).join(' '),
+		puntos,
+	};
+});
+const polylinePromedio = ORDEN_JORNADA.map((j, i) => `${xFor(i)},${yFor(promedioRegional[j])}`).join(' ');
 ---
 
 <Layout
@@ -83,152 +178,272 @@ const porJornada = ORDEN_JORNADA.map((j) => {
 	</section>
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
-		<p class="max-w-3xl text-sm text-slate-500">
-			La participación mide qué porcentaje de las personas inscritas votó ese día — no es el
-			resultado de la elección (para eso revisa <a href="/autoridades/" class="font-medium text-brand-600 hover:underline">Autoridades</a>
-			y <a href="/parlamentarios/" class="font-medium text-brand-600 hover:underline">Parlamentarios</a>).
-			Cuando varias elecciones se hicieron el mismo día — por ejemplo municipales y gobernador en
-			2021 — comparten una sola cifra, porque quien fue a votar lo hizo por todas esas papeletas a
-			la vez. No incluye segundas vueltas presidenciales ni de gobernador, que se votan en una
-			jornada aparte y para las que no tenemos datos de participación todavía.
-		</p>
+		<details class="group rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
+			<summary class="cursor-pointer text-sm font-semibold text-slate-700 marker:content-none">
+				<span class="inline-block transition group-open:rotate-90">&#9656;</span>
+				¿Qué es "participación" y por qué parte en 2012?
+			</summary>
+			<div class="mt-3 space-y-3 text-sm text-slate-600">
+				<p>
+					Mide qué porcentaje de las personas inscritas votó ese día — no es el resultado de la
+					elección (para eso revisa <a href="/autoridades/" class="font-medium text-brand-600 hover:underline">Autoridades</a>
+					y <a href="/parlamentarios/" class="font-medium text-brand-600 hover:underline">Parlamentarios</a>).
+					Cuando varias elecciones se hicieron el mismo día — por ejemplo municipales y gobernador
+					en 2021 — comparten una sola cifra, porque quien fue a votar lo hizo por todas esas
+					papeletas a la vez. No incluye segundas vueltas presidenciales ni de gobernador, que se
+					votan en una jornada aparte y para las que no tenemos datos de participación todavía.
+				</p>
+				<p>
+					Los resultados de cada candidato sí llegan hasta 1989, pero esas elecciones (1989-2009)
+					se publicaron en un sitio antiguo del SERVEL que nunca informó cuánta gente estaba
+					inscrita para votar, solo los votos que recibió cada candidato. Sin ese dato no se puede
+					calcular participación real para ese período, así que esta página parte en 2012, desde
+					cuando sí existe esa información.
+				</p>
+			</div>
+		</details>
 
-		<p class="mt-3 max-w-3xl text-sm text-slate-500">
-			¿Por qué desde 2012 y no antes? Los resultados de cada candidato sí llegan hasta 1989 (los
-			puedes ver en <a href="/autoridades/" class="font-medium text-brand-600 hover:underline">Autoridades</a>
-			y <a href="/parlamentarios/" class="font-medium text-brand-600 hover:underline">Parlamentarios</a>),
-			pero las elecciones de 1989 a 2009 se publicaron en un sitio antiguo del SERVEL que nunca
-			informó cuánta gente estaba inscrita para votar — solo los votos que recibió cada candidato.
-			Sin ese dato no se puede calcular qué porcentaje de la gente inscrita realmente votó, así que
-			esta página parte en 2012, que es desde cuando sí existe esa información.
-		</p>
+		<div class="mt-8 flex flex-col gap-8 lg:flex-row lg:items-start">
+			<!-- Sidebar: filtro de comunas (también hace de leyenda de color) -->
+			<aside class="lg:sticky lg:top-6 lg:w-64 lg:shrink-0">
+				<div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+					<div class="flex items-center justify-between">
+						<h2 class="text-sm font-bold text-slate-900">Comunas</h2>
+						<button type="button" id="btn-todas" class="text-xs font-semibold text-brand-600 hover:underline">
+							Marcar todas
+						</button>
+					</div>
+					<p class="mt-1 text-xs text-slate-400">Elige cuáles comparar. El color marca su línea en el gráfico.</p>
+					<ul class="mt-3 space-y-0.5">
+						{comunasOrdenadas.map((c) => {
+							const ultima = participacionElectoral.find(
+								(r) => r.comuna_id === c.id && r.jornada === ULTIMA_JORNADA
+							);
+							return (
+								<li>
+									<label class="flex cursor-pointer items-center justify-between gap-2 rounded-md px-2 py-1.5 text-sm hover:bg-slate-50">
+										<span class="flex items-center gap-2">
+											<input
+												type="checkbox"
+												class="check-comuna h-4 w-4 rounded border-slate-300"
+												style={`accent-color:${COLOR_COMUNA[c.id]}`}
+												data-comuna={c.id}
+												checked={SELECCION_INICIAL.has(c.id)}
+											/>
+											<span class="text-slate-700">{c.nombre}</span>
+										</span>
+										<span class="text-xs font-semibold text-slate-400">
+											{ultima ? `${ultima.participacion_pct.toFixed(0)}%` : ''}
+										</span>
+									</label>
+								</li>
+							);
+						})}
+					</ul>
+				</div>
+			</aside>
 
-		<div class="mt-8 flex gap-2" role="tablist">
-			<button
-				type="button"
-				id="tab-comuna"
-				data-vista="comuna"
-				class="boton-vista rounded-md px-4 py-2 text-sm font-semibold"
-				aria-pressed="true"
-			>
-				Ver la evolución de una comuna
-			</button>
-			<button
-				type="button"
-				id="tab-jornada"
-				data-vista="jornada"
-				class="boton-vista rounded-md px-4 py-2 text-sm font-semibold"
-				aria-pressed="false"
-			>
-				Comparar comunas en una elección
-			</button>
-		</div>
-
-		<!-- Vista por comuna -->
-		<div id="vista-comuna" class="mt-8">
-			<p class="text-sm font-semibold text-slate-900">Elige una o más comunas para comparar</p>
-			<div id="chips-comuna" class="mt-3 flex flex-wrap gap-2">
-				{comunasOrdenadas.map((c) => (
+			<div class="min-w-0 flex-1">
+				<div class="flex gap-2" role="tablist">
 					<button
 						type="button"
-						class="chip-comuna rounded-full border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-brand-400"
-						data-comuna={c.id}
-						data-activo={c.id === 'la-serena' ? 'true' : 'false'}
+						id="tab-comuna"
+						data-vista="comuna"
+						class="boton-vista rounded-md px-4 py-2 text-sm font-semibold"
+						aria-pressed="true"
 					>
-						{c.nombre}
+						Evolución en el tiempo
 					</button>
-				))}
-			</div>
-
-			<p id="sin-seleccion-comuna" class="mt-8 hidden text-sm text-slate-500">
-				Elige al menos una comuna arriba para ver su evolución.
-			</p>
-
-			<div class="mt-8 space-y-8">
-				{porComuna.map(({ comuna, registros }) => (
-					<div
-						class="grupo-comuna"
-						data-comuna={comuna.id}
-						class:list={{ hidden: comuna.id !== 'la-serena' }}
+					<button
+						type="button"
+						id="tab-jornada"
+						data-vista="jornada"
+						class="boton-vista rounded-md px-4 py-2 text-sm font-semibold"
+						aria-pressed="false"
 					>
-						<h3 class="text-base font-bold tracking-tight text-slate-900">{comuna.nombre}</h3>
-						<div class="mt-3 space-y-2">
-							{registros.map((r) => (
-								<div class="flex items-center gap-3">
-									<span
-										class="w-32 shrink-0 truncate text-xs text-slate-500 sm:w-44"
-										title={r.etiqueta}
+						Comparar en una elección
+					</button>
+				</div>
+
+				<p id="sin-seleccion" class="mt-4 hidden rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+					No hay comunas marcadas — elige al menos una en el panel de la izquierda.
+				</p>
+
+				<!-- Vista: evolución en el tiempo (gráfico de líneas) -->
+				<div id="vista-comuna">
+					<div class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+						<p class="text-sm text-slate-500">
+							Porcentaje de participación de las comunas marcadas en el panel, en cada jornada de
+							votación desde 2012. La línea gris punteada es el promedio regional.
+						</p>
+
+						<div class="relative mt-4 overflow-x-auto">
+							<svg viewBox={`0 0 ${CHART_W} ${CHART_H}`} class="w-full min-w-[560px]" id="grafico-lineas">
+								{EJE_Y.map((v) => (
+									<g>
+										<line x1={PAD_L} x2={CHART_W - PAD_R} y1={yFor(v)} y2={yFor(v)} stroke="#e2e8f0" stroke-width="1" />
+										<text x={PAD_L - 8} y={yFor(v) + 4} text-anchor="end" font-size="11" fill="#64748b">{v}%</text>
+									</g>
+								))}
+
+								<line
+									x1={X_ANOTACION}
+									x2={X_ANOTACION}
+									y1={PAD_T - 12}
+									y2={CHART_H - PAD_B}
+									stroke="#aa0000"
+									stroke-width="1.5"
+									stroke-dasharray="3,3"
+									opacity="0.55"
+								/>
+
+								{ORDEN_JORNADA.map((j, i) => (
+									<text
+										x={xFor(i)}
+										y={CHART_H - PAD_B + 18}
+										text-anchor="end"
+										font-size="11"
+										fill="#64748b"
+										transform={`rotate(-35 ${xFor(i)} ${CHART_H - PAD_B + 18})`}
 									>
-										{ETIQUETA_CORTA[r.jornada]}
-									</span>
-									<div class="h-5 flex-1 rounded bg-slate-200">
-										<div class="h-5 rounded bg-brand-600" style={`width:${r.participacion_pct}%`}></div>
+										{ETIQUETA_EJE[j]}
+									</text>
+								))}
+
+								<polyline points={polylinePromedio} fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,4" />
+
+								{lineasComuna.map(({ comuna, color, polyline, puntos }) => (
+									<g class="serie-comuna" data-comuna={comuna.id} style={SELECCION_INICIAL.has(comuna.id) ? '' : 'display:none'}>
+										<polyline points={polyline} fill="none" stroke={color} stroke-width="2.5" />
+										{puntos.map(({ i, r }) => (
+											<circle
+												class="punto-dato"
+												cx={xFor(i)}
+												cy={yFor(r.participacion_pct)}
+												r="4.5"
+												fill={color}
+												stroke="white"
+												stroke-width="1.5"
+												data-nombre={comuna.nombre}
+												data-etiqueta={r.etiqueta}
+												data-pct={r.participacion_pct}
+												data-inscritos={r.inscritos}
+												data-votantes={r.votantes}
+											/>
+										))}
+									</g>
+								))}
+							</svg>
+
+							<div
+								id="tooltip-chart"
+								class="pointer-events-none absolute z-10 hidden max-w-[220px] rounded-md bg-slate-900 px-3 py-2 text-xs text-white shadow-lg"
+							></div>
+						</div>
+
+						<p class="mt-3 text-xs text-slate-400">
+							<span class="mr-1 inline-block h-0 w-4 border-t-2 border-dashed border-red-800 align-middle"></span>
+							Vuelve el voto obligatorio (2022)
+							<span class="mx-2">·</span>
+							<span class="mr-1 inline-block h-0 w-4 border-t-2 border-dashed border-slate-400 align-middle"></span>
+							Promedio regional
+						</p>
+					</div>
+
+					<div class="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+						<table class="w-full min-w-[520px] text-left text-sm">
+							<caption class="sr-only">Comparación de participación entre la primera y la última jornada disponible, por comuna</caption>
+							<thead>
+								<tr class="border-b border-slate-100 text-xs tracking-wide text-slate-400 uppercase">
+									<th scope="col" class="px-4 py-3 font-semibold">Comuna</th>
+									<th scope="col" class="px-4 py-3 text-right font-semibold">{ETIQUETA_CORTA[PRIMERA_JORNADA]}</th>
+									<th scope="col" class="px-4 py-3 text-right font-semibold">{ETIQUETA_CORTA[ULTIMA_JORNADA]}</th>
+									<th scope="col" class="px-4 py-3 text-right font-semibold">Cambio</th>
+									<th scope="col" class="px-4 py-3 text-right font-semibold">Inscritos hoy</th>
+								</tr>
+							</thead>
+							<tbody>
+								{resumenComparativo.map(({ comuna, inicial, final, cambio }) => (
+									<tr
+										class="fila-resumen border-b border-slate-50 last:border-0"
+										data-comuna={comuna.id}
+										style={SELECCION_INICIAL.has(comuna.id) ? '' : 'display:none'}
+									>
+										<td class="px-4 py-2.5 font-medium text-slate-700">
+											<span
+												class="mr-2 inline-block h-2.5 w-2.5 rounded-full align-middle"
+												style={`background-color:${COLOR_COMUNA[comuna.id]}`}
+											></span>
+											{comuna.nombre}
+										</td>
+										<td class="px-4 py-2.5 text-right text-slate-500">{inicial ? `${inicial.participacion_pct.toFixed(1)}%` : '—'}</td>
+										<td class="px-4 py-2.5 text-right text-slate-500">{final ? `${final.participacion_pct.toFixed(1)}%` : '—'}</td>
+										<td class={`px-4 py-2.5 text-right font-semibold ${cambio !== null && cambio >= 0 ? 'text-emerald-600' : 'text-red-700'}`}>
+											{cambio !== null ? `${cambio >= 0 ? '+' : ''}${cambio.toFixed(1)} pts` : '—'}
+										</td>
+										<td class="px-4 py-2.5 text-right text-slate-500">{final ? final.inscritos.toLocaleString('es-CL') : '—'}</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Vista: comparar en una elección (ranking) -->
+				<div id="vista-jornada" class="hidden">
+					<div class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+						<div class="flex flex-wrap items-end justify-between gap-4">
+							<div>
+								<label for="selector-jornada" class="block text-sm font-semibold text-slate-900">Elección</label>
+								<select
+									id="selector-jornada"
+									class="mt-2 w-full max-w-xs rounded-md border border-slate-300 px-3 py-2.5 text-sm focus:border-brand-500 focus:outline-none"
+								>
+									{porJornada.map((g) => (
+										<option value={g.jornada} selected={g.jornada === ULTIMA_JORNADA}>
+											{ETIQUETA_CORTA[g.jornada]}
+										</option>
+									))}
+								</select>
+							</div>
+							<p class="text-sm text-slate-500">Solo se muestran las comunas marcadas en el panel de la izquierda.</p>
+						</div>
+
+						<p id="etiqueta-jornada" class="mt-4 text-sm font-medium text-slate-700"></p>
+
+						<div class="mt-3 space-y-3">
+							{porJornada.map((g) => (
+								<div class="grupo-jornada hidden" data-jornada={g.jornada} data-etiqueta={g.etiqueta}>
+									<div class="space-y-3">
+										{g.registros.map((r) => (
+											<div class="fila-comuna" data-comuna={r.comuna_id}>
+												<div class="flex items-baseline justify-between gap-3">
+													<span class="text-sm font-medium text-slate-700">
+														<span
+															class="mr-2 inline-block h-2.5 w-2.5 rounded-full align-middle"
+															style={`background-color:${COLOR_COMUNA[r.comuna_id]}`}
+														></span>
+														{NOMBRE_COMUNA[r.comuna_id]}
+													</span>
+													<span class="text-sm font-semibold text-slate-900">{r.participacion_pct.toFixed(1)}%</span>
+												</div>
+												<div class="mt-1 h-5 rounded bg-slate-200">
+													<div
+														class="barra h-5 rounded"
+														style={`width:${r.participacion_pct}%;background-color:${COLOR_COMUNA[r.comuna_id]}`}
+													></div>
+												</div>
+												<p class="mt-1 text-xs text-slate-400">
+													{r.votantes.toLocaleString('es-CL')} de {r.inscritos.toLocaleString('es-CL')} inscritos votaron
+												</p>
+											</div>
+										))}
 									</div>
-									<span class="w-14 shrink-0 text-right text-sm font-semibold text-slate-900">
-										{r.participacion_pct.toFixed(1)}%
-									</span>
 								</div>
 							))}
 						</div>
 					</div>
-				))}
-			</div>
-		</div>
-
-		<!-- Vista por jornada -->
-		<div id="vista-jornada" class="mt-8 hidden">
-			<div class="flex flex-wrap items-end gap-6">
-				<div>
-					<label for="selector-jornada" class="block text-sm font-semibold text-slate-900">
-						Elección
-					</label>
-					<select
-						id="selector-jornada"
-						class="mt-2 w-full max-w-xs rounded-md border border-slate-300 px-3 py-2.5 text-sm focus:border-brand-500 focus:outline-none"
-					>
-						{porJornada.map((g) => (
-							<option value={g.jornada} selected={g.jornada === 'parlamentaria_presidencial_2025'}>
-								{ETIQUETA_CORTA[g.jornada]}
-							</option>
-						))}
-					</select>
 				</div>
-				<div>
-					<label for="selector-resaltar" class="block text-sm font-semibold text-slate-900">
-						Resaltar tu comuna
-					</label>
-					<select
-						id="selector-resaltar"
-						class="mt-2 w-full max-w-xs rounded-md border border-slate-300 px-3 py-2.5 text-sm focus:border-brand-500 focus:outline-none"
-					>
-						<option value="">-- Ninguna --</option>
-						{comunasOrdenadas.map((c) => <option value={c.id}>{c.nombre}</option>)}
-					</select>
-				</div>
-			</div>
-
-			<p id="etiqueta-jornada" class="mt-6 text-sm text-slate-500"></p>
-
-			<div class="mt-3 space-y-8">
-				{porJornada.map((g) => (
-					<div class="grupo-jornada hidden" data-jornada={g.jornada} data-etiqueta={g.etiqueta}>
-						<div class="space-y-2">
-							{g.registros.map((r) => (
-								<div class="fila-comuna flex items-center gap-3" data-comuna={r.comuna_id}>
-									<span class="w-28 shrink-0 truncate text-xs text-slate-600 sm:w-36">
-										{NOMBRE_COMUNA[r.comuna_id]}
-									</span>
-									<div class="h-5 flex-1 rounded bg-slate-200">
-										<div class="barra h-5 rounded bg-brand-600" style={`width:${r.participacion_pct}%`}></div>
-									</div>
-									<span class="w-14 shrink-0 text-right text-sm font-semibold text-slate-900">
-										{r.participacion_pct.toFixed(1)}%
-									</span>
-								</div>
-							))}
-						</div>
-					</div>
-				))}
 			</div>
 		</div>
 	</main>
@@ -242,10 +457,8 @@ const porJornada = ORDEN_JORNADA.map((j) => {
 			background-color: var(--color-brand-600);
 			color: #fff;
 		}
-		.chip-comuna[data-activo='true'] {
-			border-color: var(--color-brand-600);
-			background-color: var(--color-brand-50);
-			color: var(--color-brand-700);
+		.punto-dato {
+			cursor: pointer;
 		}
 	</style>
 
@@ -263,31 +476,60 @@ const porJornada = ORDEN_JORNADA.map((j) => {
 			});
 		});
 
-		// --- Vista por comuna: chips multi-selección ---
-		const chips = document.querySelectorAll<HTMLButtonElement>('.chip-comuna');
-		const sinSeleccionComuna = document.getElementById('sin-seleccion-comuna')!;
+		// --- Sidebar: filtro de comunas, comparte estado entre las dos vistas ---
+		const checks = document.querySelectorAll<HTMLInputElement>('.check-comuna');
+		const btnTodas = document.getElementById('btn-todas')!;
+		const sinSeleccion = document.getElementById('sin-seleccion')!;
 
-		function actualizaSinSeleccionComuna() {
-			const algunaActiva = Array.from(chips).some((c) => c.dataset.activo === 'true');
-			sinSeleccionComuna.classList.toggle('hidden', algunaActiva);
+		function aplicaFiltro(chk: HTMLInputElement) {
+			const comunaId = chk.dataset.comuna;
+			document
+				.querySelectorAll<HTMLElement>(`.serie-comuna[data-comuna="${comunaId}"]`)
+				.forEach((el) => (el.style.display = chk.checked ? '' : 'none'));
+			document
+				.querySelectorAll<HTMLElement>(`.fila-resumen[data-comuna="${comunaId}"]`)
+				.forEach((el) => (el.style.display = chk.checked ? '' : 'none'));
+			document
+				.querySelectorAll<HTMLElement>(`.fila-comuna[data-comuna="${comunaId}"]`)
+				.forEach((el) => (el.style.display = chk.checked ? '' : 'none'));
+			sinSeleccion.classList.toggle('hidden', Array.from(checks).some((c) => c.checked));
 		}
 
-		chips.forEach((chip) => {
-			chip.addEventListener('click', () => {
-				const activo = chip.dataset.activo === 'true';
-				chip.dataset.activo = activo ? 'false' : 'true';
-				const grupo = document.querySelector<HTMLElement>(
-					`.grupo-comuna[data-comuna="${chip.dataset.comuna}"]`
-				);
-				grupo?.classList.toggle('hidden', activo);
-				actualizaSinSeleccionComuna();
+		checks.forEach((chk) => chk.addEventListener('change', () => aplicaFiltro(chk)));
+		btnTodas.addEventListener('click', () => {
+			checks.forEach((chk) => {
+				chk.checked = true;
+				aplicaFiltro(chk);
 			});
 		});
-		actualizaSinSeleccionComuna();
 
-		// --- Vista por jornada: selector de elección + resaltar comuna ---
+		// --- Gráfico de líneas: tooltip al pasar el mouse o tocar un punto ---
+		const tooltip = document.getElementById('tooltip-chart')!;
+		const wrapper = tooltip.parentElement!;
+
+		function muestraTooltip(punto: SVGCircleElement, clientX: number, clientY: number) {
+			const { nombre, etiqueta, pct, inscritos, votantes } = punto.dataset;
+			tooltip.innerHTML = `
+				<strong>${nombre}</strong><br>
+				${etiqueta}<br>
+				${Number(pct).toFixed(1)}% de participación<br>
+				${Number(votantes).toLocaleString('es-CL')} de ${Number(inscritos).toLocaleString('es-CL')} inscritos
+			`;
+			const rect = wrapper.getBoundingClientRect();
+			tooltip.style.left = `${clientX - rect.left + 12}px`;
+			tooltip.style.top = `${clientY - rect.top + 12}px`;
+			tooltip.classList.remove('hidden');
+		}
+
+		document.querySelectorAll<SVGCircleElement>('.punto-dato').forEach((punto) => {
+			punto.addEventListener('pointerenter', (e) => muestraTooltip(punto, e.clientX, e.clientY));
+			punto.addEventListener('pointermove', (e) => muestraTooltip(punto, e.clientX, e.clientY));
+			punto.addEventListener('pointerleave', () => tooltip.classList.add('hidden'));
+			punto.addEventListener('click', (e) => muestraTooltip(punto, (e as PointerEvent).clientX, (e as PointerEvent).clientY));
+		});
+
+		// --- Vista por jornada: selector de elección ---
 		const selectorJornada = document.getElementById('selector-jornada') as HTMLSelectElement;
-		const selectorResaltar = document.getElementById('selector-resaltar') as HTMLSelectElement;
 		const gruposJornada = document.querySelectorAll<HTMLElement>('.grupo-jornada');
 		const etiquetaJornada = document.getElementById('etiqueta-jornada')!;
 
@@ -299,20 +541,7 @@ const porJornada = ORDEN_JORNADA.map((j) => {
 			}
 		}
 
-		function actualizaResaltado() {
-			const filas = document.querySelectorAll<HTMLElement>('.fila-comuna');
-			for (const fila of filas) {
-				const barra = fila.querySelector<HTMLElement>('.barra')!;
-				const hayResaltado = selectorResaltar.value !== '';
-				const esLaResaltada = fila.dataset.comuna === selectorResaltar.value;
-				const enGris = hayResaltado && !esLaResaltada;
-				barra.classList.toggle('bg-brand-600', !enGris);
-				barra.classList.toggle('bg-slate-400', enGris);
-			}
-		}
-
 		selectorJornada.addEventListener('change', actualizaVistaJornada);
-		selectorResaltar.addEventListener('change', actualizaResaltado);
 		actualizaVistaJornada();
 	</script>
 </Layout>
