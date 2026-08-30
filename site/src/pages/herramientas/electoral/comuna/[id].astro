@@ -68,19 +68,38 @@ const inscritosIniciales = participacionComuna.length ? participacionComuna[0].i
 const crecimientoPadron =
 	inscritosActuales && inscritosIniciales ? ((inscritosActuales - inscritosIniciales) / inscritosIniciales) * 100 : null;
 
-// --- Composición por partido en la elección de Alcalde, año por año ---
+// --- Composición por partido, año por año ---
+// Hasta 2000 alcalde y concejales salían de un solo voto: quien sacaba más
+// votos era electo/a alcalde y el resto quedaban como concejales — por eso
+// para esos años solo existe UNA fila con cargo="Alcalde" (el ganador), no
+// una elección de alcalde real con varios candidatos. Filtrar solo por
+// cargo="Alcalde" ahí muestra un falso "100% de los votos" para esa
+// persona. Desde 2004 la elección de alcalde es aparte (2004 ya tiene 3
+// candidatos reales compitiendo entre sí) — recién ahí cargo="Alcalde"
+// representa una elección completa por sí sola.
+const PRIMER_ANNO_ALCALDE_SEPARADO = 2004;
 const composicionPorAnio = aniosMunicipales.map((anno) => {
+	const combinada = anno < PRIMER_ANNO_ALCALDE_SEPARADO;
+	const cargosIncluidos = combinada ? ['Alcalde', 'Concejal'] : ['Alcalde'];
 	const filas = resultadosElectorales
-		.filter((r) => r.eleccion_tipo === 'municipal' && r.cargo === 'Alcalde' && r.comuna_id === comuna.id && r.anno === anno)
+		.filter(
+			(r) =>
+				r.eleccion_tipo === 'municipal' &&
+				cargosIncluidos.includes(r.cargo) &&
+				r.comuna_id === comuna.id &&
+				r.anno === anno
+		)
 		.sort((a, b) => b.votos - a.votos);
 	const total = filas.reduce((s, r) => s + r.votos, 0);
 	return {
 		anno,
+		combinada,
 		segmentos: filas.map((r) => ({
 			partido: r.partido,
 			candidato: r.candidato,
 			pct: total ? (r.votos / total) * 100 : 0,
 			electo: r.electo,
+			cargo: r.cargo,
 		})),
 	};
 });
@@ -277,8 +296,17 @@ const polylineParticipacion = puntosParticipacion.map((p) => `${xFor(p.i)},${yFo
 		</section>
 
 		<section class="mt-10">
-			<h2 class="text-lg font-bold tracking-tight text-slate-900">Composición por partido — elección de Alcalde</h2>
+			<h2 class="text-lg font-bold tracking-tight text-slate-900">Composición por partido</h2>
 			<p class="mt-1 text-sm text-slate-500">Qué proporción de los votos sacó cada partido en cada elección municipal.</p>
+			{composicionPorAnio.some((c) => c.combinada) && (
+				<p class="mt-1 text-xs text-slate-400">
+					Hasta {Math.max(...composicionPorAnio.filter((c) => c.combinada).map((c) => c.anno))}, alcalde y
+					concejales se elegían con un solo voto: quien sacaba más votos era electo/a alcalde y el
+					resto quedaban como concejales — por eso esos años muestran a todas las candidaturas, no
+					solo a quien ganó la alcaldía. Desde {PRIMER_ANNO_ALCALDE_SEPARADO} la elección de alcalde
+					es aparte.
+				</p>
+			)}
 			<div class="relative mt-4 space-y-3 rounded-xl border border-slate-200 bg-white p-5 shadow-sm" id="composicion-partido">
 				{composicionPorAnio.map((c) => (
 					<div class="flex items-center gap-3">
@@ -292,6 +320,7 @@ const polylineParticipacion = puntosParticipacion.map((p) => `${xFor(p.i)},${yFo
 									data-partido={formatoPartido(s.partido) ?? 'Independiente'}
 									data-pct={s.pct.toFixed(1)}
 									data-electo={s.electo ? '1' : '0'}
+									data-cargo={s.cargo}
 								></div>
 							))}
 						</div>
@@ -315,8 +344,9 @@ const polylineParticipacion = puntosParticipacion.map((p) => `${xFor(p.i)},${yFo
 		const contenedor = document.getElementById('composicion-partido') as HTMLElement;
 
 		function muestraTooltip(seg: HTMLElement, clientX: number, clientY: number) {
-			const { candidato, partido, pct, electo } = seg.dataset;
-			tooltip.innerHTML = `<strong>${candidato}</strong>${electo === '1' ? ' ✓ electo/a' : ''}<br>${partido}<br>${pct}% de los votos`;
+			const { candidato, partido, pct, electo, cargo } = seg.dataset;
+			const estado = electo === '1' ? ` ✓ electo/a ${cargo === 'Alcalde' ? 'alcalde' : 'concejal'}` : '';
+			tooltip.innerHTML = `<strong>${candidato}</strong>${estado}<br>${partido}<br>${pct}% de los votos`;
 			const rect = contenedor.getBoundingClientRect();
 			tooltip.style.left = `${clientX - rect.left + 12}px`;
 			tooltip.style.top = `${clientY - rect.top + 12}px`;
