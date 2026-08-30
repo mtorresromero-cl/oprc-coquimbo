@@ -136,6 +136,16 @@ export interface ParticipacionElectoral {
 	participacion_pct: number;
 }
 
+export interface PadronDemografico {
+	jornada: string;
+	anno: number;
+	comuna_id: string;
+	sexo: string;
+	rango_etario: string;
+	extranjero: number;
+	votantes: number;
+}
+
 export interface ResultadoElectoral {
 	eleccion_tipo: string;
 	anno: number;
@@ -176,6 +186,7 @@ import asistenciaDiputadosRaw from '../../../data/processed/asistencia-diputados
 import participacionRaw from '../../../data/processed/participacion-electoral.json';
 import resultadosHistoricosRaw from '../../../data/processed/resultados-electorales-historicos.json';
 import resultadosRecientesRaw from '../../../data/processed/resultados-electorales-recientes.json';
+import padronDemograficoRaw from '../../../data/processed/padron-demografico.json';
 
 export const autoridades: Autoridad[] = autoridadesRaw as Autoridad[];
 export const comunas: Comuna[] = comunasRaw as Comuna[];
@@ -203,6 +214,7 @@ export const resultadosElectorales: ResultadoElectoral[] = [
 	...(resultadosHistoricosRaw as ResultadoElectoral[]),
 	...(resultadosRecientesRaw as ResultadoElectoral[]),
 ];
+export const padronDemografico: PadronDemografico[] = padronDemograficoRaw as PadronDemografico[];
 
 export function presupuestoDeComuna(comunaId: string) {
 	return presupuesto.filter((p) => p.comuna_id === comunaId);

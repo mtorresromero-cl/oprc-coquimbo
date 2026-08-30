@@ -205,6 +205,18 @@ CREATE TABLE IF NOT EXISTS resultado_electoral (
     FOREIGN KEY (comuna_id) REFERENCES comuna(id)
 );
 
+CREATE TABLE IF NOT EXISTS padron_demografico (
+    id             INTEGER PRIMARY KEY AUTOINCREMENT,
+    jornada        TEXT NOT NULL,           -- misma jornada que participacion_electoral
+    anno           INTEGER NOT NULL,
+    comuna_id      TEXT NOT NULL,
+    sexo           TEXT NOT NULL,           -- HOMBRES | MUJERES
+    rango_etario   TEXT NOT NULL,           -- 18-19 | 20-29 | ... | 80+
+    extranjero     BOOLEAN NOT NULL,        -- nacionalidad declarada != CHILE
+    votantes       INTEGER NOT NULL,
+    FOREIGN KEY (comuna_id) REFERENCES comuna(id)
+);
+
 CREATE TABLE IF NOT EXISTS participacion_electoral (
     id                 INTEGER PRIMARY KEY AUTOINCREMENT,
     jornada            TEXT NOT NULL,           -- identifica el día de votación (agrupa varias elecciones simultáneas)
@@ -240,6 +252,7 @@ CREATE INDEX IF NOT EXISTS idx_personal_comuna ON personal_municipal(comuna_id, 
 CREATE INDEX IF NOT EXISTS idx_remuneracion_autoridad_comuna ON remuneracion_autoridad(comuna_id, anno, mes);
 CREATE INDEX IF NOT EXISTS idx_resultado_electoral ON resultado_electoral(anno, eleccion_tipo, comuna_id);
 CREATE INDEX IF NOT EXISTS idx_participacion_electoral ON participacion_electoral(anno, comuna_id);
+CREATE INDEX IF NOT EXISTS idx_padron_demografico ON padron_demografico(anno, comuna_id);
 
 -- Índices únicos para historización: permiten INSERT ... ON CONFLICT DO
 -- UPDATE (upsert) por período real en vez de borrar-todo-y-reinsertar, que
@@ -260,3 +273,5 @@ CREATE UNIQUE INDEX IF NOT EXISTS ux_asistencia_resumen
     ON asistencia_resumen(autoridad_id, camara, anno);
 CREATE UNIQUE INDEX IF NOT EXISTS ux_participacion_electoral
     ON participacion_electoral(jornada, comuna_id);
+CREATE UNIQUE INDEX IF NOT EXISTS ux_padron_demografico
+    ON padron_demografico(jornada, comuna_id, sexo, rango_etario, extranjero);
