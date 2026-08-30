@@ -1,0 +1,342 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { comunas, participacionElectoral, resultadosElectorales } from '../../../lib/datos';
+
+const COMUNA_ORDEN = [
+	'la-higuera', 'la-serena', 'coquimbo', 'vicuna', 'paihuano', 'andacollo',
+	'rio-hurtado', 'monte-patria', 'ovalle', 'punitaqui', 'combarbala',
+	'canela', 'illapel', 'salamanca', 'los-vilos',
+];
+const ORDEN_COMUNA_IDX = Object.fromEntries(COMUNA_ORDEN.map((id, i) => [id, i]));
+const comunasOrdenadas = [...comunas].sort(
+	(a, b) => (ORDEN_COMUNA_IDX[a.id] ?? 99) - (ORDEN_COMUNA_IDX[b.id] ?? 99)
+);
+---
+
+<Layout
+	title="Resultados Electorales — OPRC"
+	description="Resultados candidato por candidato de cada elección en la Región de Coquimbo, desde 1989 hasta 2025."
+>
+	<section class="relative overflow-hidden bg-slate-900">
+		<div class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"></div>
+		<div class="pointer-events-none absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full bg-brand-800/30 blur-3xl"></div>
+		<div class="relative mx-auto max-w-6xl px-6 py-20">
+			<p class="text-sm font-semibold tracking-widest text-brand-300 uppercase">Herramientas · Electoral</p>
+			<h1 class="mt-4 max-w-2xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
+				Resultados Electorales
+			</h1>
+			<p class="mt-5 max-w-2xl text-lg text-slate-300">
+				Quién ganó y con cuántos votos, candidato por candidato, en cada elección de la Región de
+				Coquimbo desde 1989.
+			</p>
+		</div>
+	</section>
+
+	<main class="mx-auto max-w-6xl px-6 py-10">
+		<div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+			<div class="grid gap-4 sm:grid-cols-3">
+				<div>
+					<label for="sel-tipo" class="block text-sm font-semibold text-slate-900">Tipo de elección</label>
+					<select
+						id="sel-tipo"
+						class="mt-2 w-full rounded-md border border-slate-300 px-3 py-2.5 text-sm focus:border-brand-500 focus:outline-none"
+					></select>
+				</div>
+				<div>
+					<label for="sel-anno" class="block text-sm font-semibold text-slate-900">Año</label>
+					<select
+						id="sel-anno"
+						class="mt-2 w-full rounded-md border border-slate-300 px-3 py-2.5 text-sm focus:border-brand-500 focus:outline-none"
+					></select>
+				</div>
+				<div>
+					<label for="sel-comuna" class="block text-sm font-semibold text-slate-900">Comuna</label>
+					<select
+						id="sel-comuna"
+						class="mt-2 w-full rounded-md border border-slate-300 px-3 py-2.5 text-sm focus:border-brand-500 focus:outline-none"
+					>
+						<option value="">Toda la región (sumado)</option>
+						{comunasOrdenadas.map((c) => <option value={c.id}>{c.nombre}</option>)}
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div id="resultado" class="mt-6"></div>
+
+		<template id="tpl-fila">
+			<div class="fila-candidato border-b border-slate-50 py-3 last:border-0">
+				<div class="flex items-center justify-between gap-3">
+					<span class="nombre flex items-center gap-1.5 text-sm font-medium text-slate-700"></span>
+					<span class="cifras shrink-0 text-sm font-semibold text-slate-900"></span>
+				</div>
+				<div class="mt-1.5 h-4 rounded bg-slate-100">
+					<div class="barra h-4 rounded"></div>
+				</div>
+				<p class="detalle mt-1 text-xs text-slate-400"></p>
+			</div>
+		</template>
+	</main>
+
+	<script define:vars={{ resultadosElectorales, participacionElectoral, comunasOrdenadas }}>
+		// --- Catálogo de tipos de elección: cómo se relaciona cada uno con
+		// eleccion_tipo/cargo/año en resultado_electoral, y si el resultado se
+		// mira por comuna (alcalde/concejal/core) o para toda la región
+		// (todo lo demás, sumando las 15 comunas).
+		const TIPOS = [
+			{ slug: 'alcalde', eleccionTipo: 'municipal', cargo: 'Alcalde', escala: 'comuna', label: 'Alcalde/sa' },
+			{ slug: 'concejal', eleccionTipo: 'municipal', cargo: 'Concejal', escala: 'comuna', label: 'Concejales' },
+			{ slug: 'core', eleccionTipo: 'consejeros_regionales', escala: 'comuna', label: 'Consejero/a Regional (CORE)' },
+			{ slug: 'diputado', eleccionTipo: 'diputados', escala: 'region', label: 'Diputados' },
+			{ slug: 'senador', eleccionTipo: 'senadores', escala: 'region', label: 'Senadores' },
+			{ slug: 'presidencial_1v', eleccionTipo: 'presidencial_1v', escala: 'region', label: 'Presidente/a (1ª vuelta)' },
+			{ slug: 'presidencial_2v', eleccionTipo: 'presidencial_2v', escala: 'region', label: 'Presidente/a (2ª vuelta)' },
+			{ slug: 'gobernador_1v', eleccionTipo: 'gobernador_1v', escala: 'region', label: 'Gobernador/a Regional (1ª vuelta)' },
+			{ slug: 'gobernador_2v', eleccionTipo: 'gobernador_2v', escala: 'region', label: 'Gobernador/a Regional (2ª vuelta)' },
+			{ slug: 'convencional', eleccionTipo: 'convencional_constituyente', escala: 'region', label: 'Convencional Constituyente' },
+			{ slug: 'convencional_indigena', eleccionTipo: 'convencional_constituyente_indigena', escala: 'region', label: 'Convencional Constituyente (escaño indígena)' },
+			{ slug: 'consejo_constitucional', eleccionTipo: 'consejo_constitucional', escala: 'region', label: 'Consejo Constitucional' },
+			{ slug: 'consejo_constitucional_indigena', eleccionTipo: 'consejo_constitucional_indigena', escala: 'region', label: 'Consejo Constitucional (escaño indígena)' },
+			{ slug: 'plebiscito_2020_entrada', eleccionTipo: 'plebiscito_constitucion', escala: 'region', label: 'Plebiscito 2020 — ¿Nueva Constitución?' },
+			{ slug: 'plebiscito_2020_organo', eleccionTipo: 'plebiscito_tipo_organo', escala: 'region', label: 'Plebiscito 2020 — Tipo de órgano' },
+			{ slug: 'plebiscito_2022', eleccionTipo: 'plebiscito_constitucional', anno: 2022, escala: 'region', label: 'Plebiscito Constitucional 2022' },
+			{ slug: 'plebiscito_2023', eleccionTipo: 'plebiscito_constitucional', anno: 2023, escala: 'region', label: 'Plebiscito Constitucional 2023' },
+		];
+
+		const NOMBRE_COMUNA = Object.fromEntries(comunasOrdenadas.map((c) => [c.id, c.nombre]));
+
+		// Colores reales encontrados en los datos (nombres completos y siglas
+		// tal como los guarda SERVEL) para los partidos más frecuentes. Todo lo
+		// demás (independientes-por-lista, subpactos, escaños étnicos, partidos
+		// menores) recibe un color generado a partir de su propio nombre, para
+		// que sigan siendo distinguibles entre sí en vez de un gris plano.
+		const COLOR_PARTIDO = {
+			'RENOVACION NACIONAL': '#1565c0', RN: '#1565c0',
+			'UNION DEMOCRATA INDEPENDIENTE': '#0d47a1', UDI: '#0d47a1',
+			'PARTIDO SOCIALISTA DE CHILE': '#e91e63', PS: '#e91e63',
+			'PARTIDO POR LA DEMOCRACIA': '#2196f3', PPD: '#2196f3',
+			'PARTIDO DEMOCRATA CRISTIANO': '#4caf50', PDC: '#4caf50', DC: '#4caf50',
+			'PARTIDO COMUNISTA DE CHILE': '#c62828', PC: '#c62828', PCCH: '#c62828',
+			'FRENTE AMPLIO': '#e53935',
+			'PARTIDO RADICAL DE CHILE': '#7b1fa2', PR: '#7b1fa2',
+			'PARTIDO RADICAL SOCIALDEMOCRATA': '#7b1fa2', PRSD: '#7b1fa2',
+			'PARTIDO REPUBLICANO DE CHILE': '#ff6f00',
+			'REVOLUCION DEMOCRATICA': '#d32f2f',
+			'CONVERGENCIA SOCIAL': '#b71c1c',
+			'EVOLUCION POLITICA': '#42a5f5',
+			'PARTIDO ECOLOGISTA VERDE': '#2e7d32',
+			'PARTIDO HUMANISTA': '#66bb6a', PH: '#66bb6a',
+			'PARTIDO DE LA GENTE': '#ff9800',
+			COMUNES: '#8d6e63',
+			AMPLITUD: '#26a69a',
+			'FEDERACION REGIONALISTA VERDE SOCIAL': '#00897b',
+			IGUALDAD: '#5d4037',
+			'PARTIDO PROGRESISTA': '#f4511e', 'PARTIDO PROGRESISTA DE CHILE': '#f4511e',
+		};
+		function hashColor(str) {
+			let hash = 0;
+			for (let i = 0; i < str.length; i++) hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+			return `hsl(${hash % 360} 55% 42%)`;
+		}
+		function colorPartido(partido) {
+			if (!partido) return '#78909c';
+			const key = partido.trim().toUpperCase();
+			return COLOR_PARTIDO[key] || hashColor(key);
+		}
+		// Los plebiscitos no tienen partido — la opción misma (Apruebo/Rechazo,
+		// A favor/En contra...) define el color, no el candidato.
+		const COLOR_OPCION = {
+			APRUEBO: '#1565c0',
+			'A FAVOR': '#1565c0',
+			'CONVENCION CONSTITUCIONAL': '#1565c0',
+			RECHAZO: '#c62828',
+			'EN CONTRA': '#c62828',
+			'CONVENCION MIXTA CONSTITUCIONAL': '#c62828',
+		};
+		function colorOpcion(candidato) {
+			return COLOR_OPCION[candidato.trim().toUpperCase()] || hashColor(candidato);
+		}
+		function tituloCase(s) {
+			return s
+				.toLowerCase()
+				.split(' ')
+				.map((w) => (w ? w.charAt(0).toUpperCase() + w.slice(1) : w))
+				.join(' ');
+		}
+		// Siglas cortas (DC, RN, UDI, PPD...) se ven mal en título ("Dc", "Udi")
+		// — se dejan en mayúsculas tal como vienen.
+		function formatoPartido(s) {
+			if (!s) return s;
+			return !s.includes(' ') && s.length <= 5 ? s.toUpperCase() : tituloCase(s);
+		}
+
+		function coincideTipo(r, t) {
+			if (r.eleccion_tipo !== t.eleccionTipo) return false;
+			if (t.cargo && r.cargo !== t.cargo) return false;
+			if (t.anno && r.anno !== t.anno) return false;
+			return true;
+		}
+
+		// --- Elementos del DOM ---
+		const selTipo = document.getElementById('sel-tipo');
+		const selAnno = document.getElementById('sel-anno');
+		const selComuna = document.getElementById('sel-comuna');
+		const contenedor = document.getElementById('resultado');
+		const plantillaFila = document.getElementById('tpl-fila');
+		const opcionTodaLaRegion = selComuna.querySelector('option[value=""]');
+
+		for (const t of TIPOS) {
+			const opt = document.createElement('option');
+			opt.value = t.slug;
+			opt.textContent = t.label;
+			selTipo.appendChild(opt);
+		}
+
+		function tipoActual() {
+			return TIPOS.find((t) => t.slug === selTipo.value);
+		}
+
+		function actualizaAnnos() {
+			const t = tipoActual();
+			const annos = Array.from(
+				new Set(resultadosElectorales.filter((r) => coincideTipo(r, t)).map((r) => r.anno))
+			).sort((a, b) => a - b);
+			selAnno.innerHTML = '';
+			for (const a of annos) {
+				const opt = document.createElement('option');
+				opt.value = String(a);
+				opt.textContent = String(a);
+				selAnno.appendChild(opt);
+			}
+			selAnno.value = String(annos[annos.length - 1]);
+		}
+
+		function actualizaComunaDisponible() {
+			const t = tipoActual();
+			opcionTodaLaRegion.disabled = t.escala === 'comuna';
+			opcionTodaLaRegion.hidden = t.escala === 'comuna';
+			if (t.escala === 'comuna' && selComuna.value === '') {
+				selComuna.value = comunasOrdenadas[0].id;
+			}
+		}
+
+		function buscaPadron(t, anno, comunaId) {
+			const registros = participacionElectoral.filter(
+				(p) => p.anno === anno && p.tipos_relacionados.split(',').includes(t.eleccionTipo)
+			);
+			if (registros.length === 0) return null;
+			if (comunaId) {
+				return registros.find((p) => p.comuna_id === comunaId) ?? null;
+			}
+			const inscritos = registros.reduce((s, p) => s + p.inscritos, 0);
+			const votantes = registros.reduce((s, p) => s + p.votantes, 0);
+			return { inscritos, votantes, participacion_pct: inscritos ? (votantes / inscritos) * 100 : 0 };
+		}
+
+		function render() {
+			const t = tipoActual();
+			const anno = Number(selAnno.value);
+			const comunaId = selComuna.value;
+
+			let filas = resultadosElectorales.filter(
+				(r) => coincideTipo(r, t) && r.anno === anno && (comunaId ? r.comuna_id === comunaId : true)
+			);
+
+			let candidatos;
+			if (!comunaId && t.escala === 'region') {
+				const mapa = new Map();
+				for (const r of filas) {
+					const clave = `${r.candidato}|${r.partido ?? ''}|${r.pacto ?? ''}`;
+					if (!mapa.has(clave)) mapa.set(clave, { ...r, votos: 0, electo: 0 });
+					const acc = mapa.get(clave);
+					acc.votos += r.votos;
+					if (r.electo) acc.electo = 1;
+				}
+				candidatos = Array.from(mapa.values());
+				const total = candidatos.reduce((s, r) => s + r.votos, 0);
+				for (const r of candidatos) r.porcentaje = total ? (r.votos / total) * 100 : 0;
+			} else {
+				candidatos = filas;
+			}
+			candidatos.sort((a, b) => b.votos - a.votos);
+
+			contenedor.innerHTML = '';
+
+			const tarjeta = document.createElement('div');
+			tarjeta.className = 'rounded-xl border border-slate-200 bg-white p-5 shadow-sm';
+
+			const encabezado = document.createElement('div');
+			encabezado.className = 'flex flex-wrap items-baseline justify-between gap-2 border-b border-slate-100 pb-4';
+			const titulo = document.createElement('h2');
+			titulo.className = 'text-lg font-bold tracking-tight text-slate-900';
+			titulo.textContent = `${t.label} · ${comunaId ? NOMBRE_COMUNA[comunaId] : 'Toda la región'} · ${anno}`;
+			encabezado.appendChild(titulo);
+
+			const padron = buscaPadron(t, anno, comunaId);
+			if (padron) {
+				const p = document.createElement('p');
+				p.className = 'text-sm text-slate-500';
+				p.textContent = `Inscritos: ${padron.inscritos.toLocaleString('es-CL')} · Votantes: ${padron.votantes.toLocaleString('es-CL')} (${padron.participacion_pct.toFixed(1)}%)`;
+				encabezado.appendChild(p);
+			}
+			tarjeta.appendChild(encabezado);
+
+			if ((t.slug === 'diputado' || t.slug === 'senador') && anno < 2017) {
+				const nota = document.createElement('p');
+				nota.className = 'mt-3 text-xs text-slate-400';
+				nota.textContent =
+					'Antes de la reforma de 2015 la región tenía más de un distrito/circunscripción electoral. Aquí se muestra el resultado sumado de las 15 comunas.';
+				tarjeta.appendChild(nota);
+			}
+
+			const lista = document.createElement('div');
+			lista.className = 'mt-2';
+			if (candidatos.length === 0) {
+				const vacio = document.createElement('p');
+				vacio.className = 'py-6 text-sm text-slate-400';
+				vacio.textContent = 'No hay datos para esta combinación.';
+				lista.appendChild(vacio);
+			}
+			const esOpcion = t.eleccionTipo.startsWith('plebiscito');
+			for (const c of candidatos) {
+				const fila = plantillaFila.content.cloneNode(true);
+				const color = esOpcion ? colorOpcion(c.candidato) : colorPartido(c.partido);
+				const nombreEl = fila.querySelector('.nombre');
+				if (c.electo) {
+					const check = document.createElement('span');
+					check.className = 'text-emerald-600';
+					check.textContent = '✓';
+					check.setAttribute('aria-label', 'Electo/a');
+					nombreEl.appendChild(check);
+				}
+				nombreEl.appendChild(document.createTextNode(tituloCase(c.candidato)));
+				nombreEl.classList.toggle('font-semibold', !!c.electo);
+
+				fila.querySelector('.cifras').textContent = `${c.porcentaje.toFixed(1)}% · ${c.votos.toLocaleString('es-CL')}`;
+				const barra = fila.querySelector('.barra');
+				barra.style.width = `${Math.max(c.porcentaje, 0.5)}%`;
+				barra.style.backgroundColor = color;
+				fila.querySelector('.detalle').textContent = esOpcion
+					? ''
+					: [c.partido ? formatoPartido(c.partido) : 'Independiente', c.pacto ? tituloCase(c.pacto) : null]
+							.filter(Boolean)
+							.join(' · ');
+				lista.appendChild(fila);
+			}
+			tarjeta.appendChild(lista);
+			contenedor.appendChild(tarjeta);
+		}
+
+		selTipo.addEventListener('change', () => {
+			actualizaAnnos();
+			actualizaComunaDisponible();
+			render();
+		});
+		selAnno.addEventListener('change', render);
+		selComuna.addEventListener('change', render);
+
+		actualizaAnnos();
+		actualizaComunaDisponible();
+		render();
+	</script>
+</Layout>

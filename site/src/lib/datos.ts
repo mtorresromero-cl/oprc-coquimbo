@@ -136,6 +136,20 @@ export interface ParticipacionElectoral {
 	participacion_pct: number;
 }
 
+export interface ResultadoElectoral {
+	eleccion_tipo: string;
+	anno: number;
+	comuna_id: string | null;
+	candidato: string;
+	partido: string | null;
+	pacto: string | null;
+	votos: number;
+	porcentaje: number | null;
+	electo: number;
+	cargo: string | null;
+	fuente_url: string | null;
+}
+
 export interface AsistenciaSesionDiputado {
 	autoridad_id: string;
 	fecha: string;
@@ -160,6 +174,8 @@ import asistenciaResumenDiputadosRaw from '../../../data/processed/asistencia-re
 import asistenciaResumenSenadoresRaw from '../../../data/processed/asistencia-resumen-senadores.json';
 import asistenciaDiputadosRaw from '../../../data/processed/asistencia-diputados.json';
 import participacionRaw from '../../../data/processed/participacion-electoral.json';
+import resultadosHistoricosRaw from '../../../data/processed/resultados-electorales-historicos.json';
+import resultadosRecientesRaw from '../../../data/processed/resultados-electorales-recientes.json';
 
 export const autoridades: Autoridad[] = autoridadesRaw as Autoridad[];
 export const comunas: Comuna[] = comunasRaw as Comuna[];
@@ -183,6 +199,10 @@ export const asistenciaDiputados: AsistenciaSesionDiputado[] =
 	asistenciaDiputadosRaw as AsistenciaSesionDiputado[];
 export const participacionElectoral: ParticipacionElectoral[] =
 	participacionRaw as ParticipacionElectoral[];
+export const resultadosElectorales: ResultadoElectoral[] = [
+	...(resultadosHistoricosRaw as ResultadoElectoral[]),
+	...(resultadosRecientesRaw as ResultadoElectoral[]),
+];
 
 export function presupuestoDeComuna(comunaId: string) {
 	return presupuesto.filter((p) => p.comuna_id === comunaId);
