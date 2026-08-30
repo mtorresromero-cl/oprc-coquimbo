@@ -29,6 +29,15 @@ const NAV = [
 	{ href: '/contacto/', label: 'Contacto' },
 ];
 
+const ELECTORAL_ITEMS = [
+	{ href: '/herramientas/electoral/resultados/', label: 'Resultados Electorales' },
+	{ href: '/herramientas/participacion-electoral/', label: 'Participación Electoral' },
+	{ href: '/herramientas/electoral/plebiscitos/', label: 'Plebiscitos' },
+	{ href: '/herramientas/electoral/comuna/', label: 'Explorador por Comuna' },
+	{ href: '/herramientas/electoral/comparador/', label: 'Comparador entre Comunas' },
+	{ href: '/herramientas/electoral/padron/', label: 'Padrón Electoral' },
+];
+
 const REDES = [
 	{ nombre: 'Instagram', url: 'https://instagram.com/oprcoquimbo', icono: 'instagram' },
 	{ nombre: 'Facebook', url: 'https://facebook.com/oprcoquimbo', icono: 'facebook' },
@@ -82,12 +91,12 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 	</head>
 	<body class="flex min-h-screen flex-col bg-white text-slate-900">
 		<div class="bg-slate-900 text-slate-300">
-			<div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-1 px-6 py-2 text-xs">
+			<div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-[18.4px] gap-y-[4.6px] px-6 py-[9.2px] text-[13.8px]">
 				<a href="mailto:contacto@oprcoquimbo.cl" class="hover:text-white">contacto@oprcoquimbo.cl</a>
-				<div class="flex gap-4">
+				<div class="flex gap-[18.4px]">
 					{REDES.map((r) => (
 						<a href={r.url} target="_blank" rel="noopener" aria-label={r.nombre} class="hover:text-white">
-							<svg viewBox={ICONOS_REDES_SVG[r.icono].viewBox} fill="currentColor" class="h-4 w-4">
+							<svg viewBox={ICONOS_REDES_SVG[r.icono].viewBox} fill="currentColor" class="h-[18.4px] w-[18.4px]">
 							<path d={ICONOS_REDES_SVG[r.icono].path} />
 						</svg>
 						</a>
@@ -139,10 +148,10 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 
 		<footer class="bg-slate-900 text-slate-400">
 			<div class="mx-auto max-w-6xl px-6 py-12">
-				<div class="grid gap-10 sm:grid-cols-3">
-					<div>
+				<div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-6">
+					<div class="sm:col-span-2 lg:col-span-2">
 						<img src="/logo-oprc-blanco.png" alt="OPRC" class="h-16 w-auto" />
-						<p class="mt-4 max-w-xs text-xs leading-relaxed text-slate-400">
+						<p class="mt-4 max-w-xs text-[13px] leading-relaxed text-slate-400">
 							Información y herramientas de análisis, seguimiento e investigación en materia
 							política, trabajo de autoridades, elecciones y partidos políticos de la Región de
 							Coquimbo.
@@ -151,10 +160,25 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 					<div>
 						<p class="text-xs font-semibold tracking-wide text-slate-200 uppercase">Secciones</p>
 						<ul class="mt-3 space-y-2 text-sm">
+							{NAV.map((item) => (
+								<li><a href={item.href} class="hover:text-white">{item.label}</a></li>
+							))}
+						</ul>
+					</div>
+					<div>
+						<p class="text-xs font-semibold tracking-wide text-slate-200 uppercase">Datos</p>
+						<ul class="mt-3 space-y-2 text-sm">
 							{DATOS_ITEMS.map((item) => (
 								<li><a href={item.href} class="hover:text-white">{item.label}</a></li>
 							))}
-							<li><a href="/nosotros/" class="hover:text-white">Nosotros</a></li>
+						</ul>
+					</div>
+					<div>
+						<p class="text-xs font-semibold tracking-wide text-slate-200 uppercase">Archivo Electoral</p>
+						<ul class="mt-3 space-y-2 text-sm">
+							{ELECTORAL_ITEMS.map((item) => (
+								<li><a href={item.href} class="hover:text-white">{item.label}</a></li>
+							))}
 						</ul>
 					</div>
 					<div>
