@@ -104,7 +104,7 @@ ARCHIVOS = [
 # nombres de columna que indican quién ganó/quedó nominado — varía según
 # el tipo de elección y el archivo (typo real "Carrgo" en gobernadores
 # 2021 1V).
-COLUMNAS_ELECTO = ["Cargo", "Carrgo", "Nominado", "Selección"]
+COLUMNAS_ELECTO = ["Cargo", "Carrgo", "Nominado", "Selección", "Resultado"]
 
 CANDIDATOS_PLACEHOLDER = {"VOTOS EN BLANCO", "VOTOS NULOS"}
 
@@ -163,30 +163,34 @@ class ProcesadorEleccionesRecientes(BaseScraper):
         idx_encabezado = None
         for i, fila in enumerate(ws.iter_rows(max_row=15, values_only=True)):
             textos = [_texto(c) for c in fila]
-            if "Región" in textos or "Nro.Región" in textos:
+            textos_lower = [t.lower() for t in textos]
+            if "región" in textos_lower:
                 encabezado = textos
                 idx_encabezado = i
                 break
         if encabezado is None:
             return []
 
-        col = {nombre: i for i, nombre in enumerate(encabezado) if nombre}
-        idx_region = col.get("Región")
-        idx_comuna = col.get("Comuna")
-        idx_votos = col.get("Votos")
+        # las mayúsculas/minúsculas del encabezado varían entre archivos (ej.
+        # "Primer apellido" vs "Primer Apellido" en los presidenciales 2021 y
+        # 2025) — se compara siempre en minúsculas.
+        col = {nombre.lower(): i for i, nombre in enumerate(encabezado) if nombre}
+        idx_region = col.get("región")
+        idx_comuna = col.get("comuna")
+        idx_votos = col.get("votos")
         if idx_region is None or idx_comuna is None or idx_votos is None:
             return []
 
-        idx_nombres = col.get("Nombres")
-        idx_ap1 = col.get("Primer apellido")
-        idx_ap2 = col.get("Segundo apellido")
-        idx_candidato = col.get("Candidato")  # 2023 CCG/CCPI: nombre completo en 1 columna
-        idx_opcion = col.get("Opción") or col.get("Opciones")
-        idx_partido = col.get("Partido")
-        idx_pacto = col.get("Pacto")
-        idx_pueblo = col.get("Pueblo")
-        idx_mesa = col.get("Mesa")
-        idx_electo = next((col[c] for c in COLUMNAS_ELECTO if c in col), None)
+        idx_nombres = col.get("nombres")
+        idx_ap1 = col.get("primer apellido")
+        idx_ap2 = col.get("segundo apellido")
+        idx_candidato = col.get("candidato")  # 2023 CCG/CCPI: nombre completo en 1 columna
+        idx_opcion = col.get("opción") or col.get("opciones")
+        idx_partido = col.get("partido")
+        idx_pacto = col.get("pacto")
+        idx_pueblo = col.get("pueblo")
+        idx_mesa = col.get("mesa")
+        idx_electo = next((col[c.lower()] for c in COLUMNAS_ELECTO if c.lower() in col), None)
 
         es_mesa = idx_mesa is not None  # plebiscitos: nivel mesa, hay que agregar
 
