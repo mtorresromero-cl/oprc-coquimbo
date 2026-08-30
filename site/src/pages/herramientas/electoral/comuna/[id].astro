@@ -1,0 +1,307 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { comunas, participacionElectoral, resultadosElectorales } from '../../../../lib/datos';
+import { colorPartido, formatoPartido, tituloCase } from '../../../../lib/colores-electorales';
+
+export function getStaticPaths() {
+	return comunas.map((c) => ({ params: { id: c.id }, props: { comuna: c } }));
+}
+
+const { comuna } = Astro.props;
+
+const COMUNA_ORDEN = [
+	'la-higuera', 'la-serena', 'coquimbo', 'vicuna', 'paihuano', 'andacollo',
+	'rio-hurtado', 'monte-patria', 'ovalle', 'punitaqui', 'combarbala',
+	'canela', 'illapel', 'salamanca', 'los-vilos',
+];
+const ORDEN_COMUNA_IDX = Object.fromEntries(COMUNA_ORDEN.map((id, i) => [id, i]));
+const comunasOrdenadas = [...comunas].sort(
+	(a, b) => (ORDEN_COMUNA_IDX[a.id] ?? 99) - (ORDEN_COMUNA_IDX[b.id] ?? 99)
+);
+
+// Orden cronológico real de jornadas de votación (igual que en
+// /herramientas/participacion-electoral/ — una jornada puede agrupar varias
+// elecciones simultáneas).
+const ORDEN_JORNADA = [
+	'municipal_2012', 'parlamentaria_presidencial_2013', 'municipal_2016',
+	'parlamentaria_presidencial_2017', 'plebiscito_2020', 'megaeleccion_2021',
+	'parlamentaria_presidencial_2021', 'plebiscito_2022', 'plebiscito_2023',
+	'municipal_2024', 'parlamentaria_presidencial_2025',
+];
+const ETIQUETA_EJE: Record<string, string> = {
+	municipal_2012: '2012', parlamentaria_presidencial_2013: '2013', municipal_2016: '2016',
+	parlamentaria_presidencial_2017: '2017', plebiscito_2020: '2020', megaeleccion_2021: '2021 (may)',
+	parlamentaria_presidencial_2021: '2021 (nov)', plebiscito_2022: '2022', plebiscito_2023: '2023',
+	municipal_2024: '2024', parlamentaria_presidencial_2025: '2025',
+};
+
+// --- Alcaldes electos, en orden cronológico, con el período real (hasta la
+// próxima elección municipal que exista en los datos, no un +4 fijo — los
+// períodos municipales no siempre duraron 4 años: 2016→2021 fueron 5,
+// 2021→2024 fueron 3, por el desfase que dejó la pandemia). ---
+const aniosMunicipales = Array.from(
+	new Set(resultadosElectorales.filter((r) => r.eleccion_tipo === 'municipal').map((r) => r.anno))
+).sort((a, b) => a - b);
+
+const alcaldesElectos = resultadosElectorales
+	.filter((r) => r.eleccion_tipo === 'municipal' && r.cargo === 'Alcalde' && r.comuna_id === comuna.id && r.electo)
+	.sort((a, b) => a.anno - b.anno)
+	.map((r) => ({ ...r, periodoFin: aniosMunicipales.find((a) => a > r.anno) ?? null }));
+
+const ultimoAnnoMunicipal = aniosMunicipales[aniosMunicipales.length - 1];
+const alcaldesUltimaEleccion = resultadosElectorales
+	.filter((r) => r.eleccion_tipo === 'municipal' && r.cargo === 'Alcalde' && r.comuna_id === comuna.id && r.anno === ultimoAnnoMunicipal)
+	.sort((a, b) => b.votos - a.votos);
+const concejalesUltimaEleccion = resultadosElectorales
+	.filter((r) => r.eleccion_tipo === 'municipal' && r.cargo === 'Concejal' && r.comuna_id === comuna.id && r.anno === ultimoAnnoMunicipal)
+	.sort((a, b) => b.votos - a.votos);
+
+// --- Participación: evolución + promedio + inscritos actuales ---
+const participacionComuna = ORDEN_JORNADA.map((j) =>
+	participacionElectoral.find((p) => p.jornada === j && p.comuna_id === comuna.id)
+).filter((p) => p !== undefined);
+const participacionPromedio = participacionComuna.length
+	? participacionComuna.reduce((s, p) => s + p.participacion_pct, 0) / participacionComuna.length
+	: null;
+const inscritosActuales = participacionComuna.length ? participacionComuna[participacionComuna.length - 1].inscritos : null;
+const inscritosIniciales = participacionComuna.length ? participacionComuna[0].inscritos : null;
+const crecimientoPadron =
+	inscritosActuales && inscritosIniciales ? ((inscritosActuales - inscritosIniciales) / inscritosIniciales) * 100 : null;
+
+// --- Composición por partido en la elección de Alcalde, año por año ---
+const composicionPorAnio = aniosMunicipales.map((anno) => {
+	const filas = resultadosElectorales
+		.filter((r) => r.eleccion_tipo === 'municipal' && r.cargo === 'Alcalde' && r.comuna_id === comuna.id && r.anno === anno)
+		.sort((a, b) => b.votos - a.votos);
+	const total = filas.reduce((s, r) => s + r.votos, 0);
+	return {
+		anno,
+		segmentos: filas.map((r) => ({
+			partido: r.partido,
+			candidato: r.candidato,
+			pct: total ? (r.votos / total) * 100 : 0,
+			electo: r.electo,
+		})),
+	};
+});
+
+// --- Geometría del gráfico de líneas de participación (SVG) ---
+const CHART_W = 720;
+const CHART_H = 220;
+const PAD_L = 40;
+const PAD_R = 12;
+const PAD_T = 24;
+const PAD_B = 46;
+const PLOT_W = CHART_W - PAD_L - PAD_R;
+const PLOT_H = CHART_H - PAD_T - PAD_B;
+const xFor = (i: number) => PAD_L + (i / (ORDEN_JORNADA.length - 1)) * PLOT_W;
+const yFor = (pct: number) => PAD_T + (1 - pct / 100) * PLOT_H;
+const EJE_Y = [0, 50, 100];
+const puntosParticipacion = ORDEN_JORNADA.map((j, i) => {
+	const r = participacionElectoral.find((p) => p.jornada === j && p.comuna_id === comuna.id);
+	return r ? { i, pct: r.participacion_pct } : null;
+}).filter((p) => p !== null);
+const polylineParticipacion = puntosParticipacion.map((p) => `${xFor(p.i)},${yFor(p.pct)}`).join(' ');
+---
+
+<Layout
+	title={`Historia Electoral de ${comuna.nombre} — OPRC`}
+	description={`Alcaldes, participación y resultados electorales históricos de ${comuna.nombre}, Región de Coquimbo.`}
+>
+	<div class="border-b border-slate-100 bg-slate-50">
+		<div class="mx-auto max-w-6xl px-6 py-12">
+			<a href="/herramientas/electoral/comuna/" class="text-sm font-medium text-slate-500 hover:text-brand-600">
+				&larr; Explorador por comuna
+			</a>
+			<div class="mt-3 flex flex-wrap items-end justify-between gap-4">
+				<div>
+					<h1 class="text-3xl font-bold tracking-tight text-slate-900">Historia Electoral de {comuna.nombre}</h1>
+					<p class="mt-1 text-slate-500">{comuna.provincia}</p>
+				</div>
+				<select
+					id="cambiar-comuna"
+					class="rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none"
+				>
+					{comunasOrdenadas.map((c) => (
+						<option value={`/herramientas/electoral/comuna/${c.id}/`} selected={c.id === comuna.id}>
+							{c.nombre}
+						</option>
+					))}
+				</select>
+			</div>
+		</div>
+	</div>
+
+	<main class="mx-auto max-w-6xl px-6 py-10">
+		<div class="grid gap-4 sm:grid-cols-3">
+			<div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+				<p class="text-xs font-semibold tracking-wide text-slate-400 uppercase">Inscritos hoy</p>
+				<p class="mt-1 text-2xl font-bold text-slate-900">{inscritosActuales?.toLocaleString('es-CL') ?? '—'}</p>
+				{crecimientoPadron !== null && (
+					<p class="mt-1 text-xs text-slate-400">
+						{crecimientoPadron >= 0 ? '+' : ''}
+						{crecimientoPadron.toFixed(0)}% desde 2012
+					</p>
+				)}
+			</div>
+			<div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+				<p class="text-xs font-semibold tracking-wide text-slate-400 uppercase">Participación promedio</p>
+				<p class="mt-1 text-2xl font-bold text-slate-900">
+					{participacionPromedio !== null ? `${participacionPromedio.toFixed(1)}%` : '—'}
+				</p>
+				<p class="mt-1 text-xs text-slate-400">2012-2025</p>
+			</div>
+			<div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+				<p class="text-xs font-semibold tracking-wide text-slate-400 uppercase">Alcalde/sa actual</p>
+				<p class="mt-1 text-lg font-bold text-slate-900">
+					{alcaldesElectos.length ? tituloCase(alcaldesElectos[alcaldesElectos.length - 1].candidato) : '—'}
+				</p>
+				<p class="mt-1 text-xs text-slate-400">
+					{alcaldesElectos.length ? formatoPartido(alcaldesElectos[alcaldesElectos.length - 1].partido) ?? 'Independiente' : ''}
+				</p>
+			</div>
+		</div>
+
+		<section class="mt-10">
+			<h2 class="text-lg font-bold tracking-tight text-slate-900">Alcaldes desde 1992</h2>
+			<ul class="mt-4 space-y-2">
+				{[...alcaldesElectos].reverse().map((a) => (
+					<li class="flex items-center justify-between gap-3 rounded-lg border border-slate-100 px-4 py-3">
+						<div class="flex items-center gap-3">
+							<span
+								class="h-2.5 w-2.5 shrink-0 rounded-full"
+								style={`background-color:${colorPartido(a.partido)}`}
+							></span>
+							<span class="font-medium text-slate-800">{tituloCase(a.candidato)}</span>
+							<span class="text-sm text-slate-400">{formatoPartido(a.partido) ?? 'Independiente'}</span>
+						</div>
+						<span class="shrink-0 text-sm font-semibold text-slate-500">
+							{a.anno}–{a.periodoFin ?? 'presente'}
+						</span>
+					</li>
+				))}
+			</ul>
+		</section>
+
+		<section class="mt-10">
+			<h2 class="text-lg font-bold tracking-tight text-slate-900">
+				Última elección municipal ({ultimoAnnoMunicipal})
+			</h2>
+			<div class="mt-4 grid gap-6 lg:grid-cols-2">
+				<div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+					<h3 class="text-sm font-bold tracking-wide text-slate-500 uppercase">Alcalde/sa</h3>
+					<div class="mt-3 space-y-3">
+						{alcaldesUltimaEleccion.map((c) => (
+							<div>
+								<div class="flex items-baseline justify-between gap-3">
+									<span class="text-sm font-medium text-slate-700">
+										{c.electo ? <span class="mr-1 text-emerald-600">✓</span> : null}
+										{tituloCase(c.candidato)}
+									</span>
+									<span class="text-sm font-semibold text-slate-900">
+										{c.porcentaje?.toFixed(1)}% · {c.votos.toLocaleString('es-CL')}
+									</span>
+								</div>
+								<div class="mt-1 h-4 rounded bg-slate-100">
+									<div
+										class="h-4 rounded"
+										style={`width:${Math.max(c.porcentaje ?? 0, 0.5)}%;background-color:${colorPartido(c.partido)}`}
+									></div>
+								</div>
+								<p class="mt-0.5 text-xs text-slate-400">{formatoPartido(c.partido) ?? 'Independiente'}</p>
+							</div>
+						))}
+					</div>
+				</div>
+				<div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+					<h3 class="text-sm font-bold tracking-wide text-slate-500 uppercase">
+						Concejales ({concejalesUltimaEleccion.length} candidaturas)
+					</h3>
+					<div class="mt-3 max-h-96 space-y-3 overflow-y-auto pr-1">
+						{concejalesUltimaEleccion.map((c) => (
+							<div>
+								<div class="flex items-baseline justify-between gap-3">
+									<span class="text-sm font-medium text-slate-700">
+										{c.electo ? <span class="mr-1 text-emerald-600">✓</span> : null}
+										{tituloCase(c.candidato)}
+									</span>
+									<span class="text-sm font-semibold text-slate-900">{c.porcentaje?.toFixed(1)}%</span>
+								</div>
+								<div class="mt-1 h-3 rounded bg-slate-100">
+									<div
+										class="h-3 rounded"
+										style={`width:${Math.max(c.porcentaje ?? 0, 0.5)}%;background-color:${colorPartido(c.partido)}`}
+									></div>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="mt-10">
+			<h2 class="text-lg font-bold tracking-tight text-slate-900">Evolución de la participación</h2>
+			<p class="mt-1 text-sm text-slate-500">Porcentaje de participación en cada jornada de votación, 2012-2025.</p>
+			<div class="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+				<svg viewBox={`0 0 ${CHART_W} ${CHART_H}`} class="w-full min-w-[480px]">
+					{EJE_Y.map((v) => (
+						<g>
+							<line x1={PAD_L} x2={CHART_W - PAD_R} y1={yFor(v)} y2={yFor(v)} stroke="#e2e8f0" stroke-width="1" />
+							<text x={PAD_L - 8} y={yFor(v) + 4} text-anchor="end" font-size="10" fill="#64748b">{v}%</text>
+						</g>
+					))}
+					{ORDEN_JORNADA.map((j, i) => (
+						<text
+							x={xFor(i)}
+							y={CHART_H - PAD_B + 16}
+							text-anchor="end"
+							font-size="10"
+							fill="#64748b"
+							transform={`rotate(-35 ${xFor(i)} ${CHART_H - PAD_B + 16})`}
+						>
+							{ETIQUETA_EJE[j]}
+						</text>
+					))}
+					<polyline points={polylineParticipacion} fill="none" stroke="#aa0000" stroke-width="2.5" />
+					{puntosParticipacion.map((p) => (
+						<>
+							<circle cx={xFor(p.i)} cy={yFor(p.pct)} r="4" fill="#aa0000" stroke="white" stroke-width="1.5" />
+							<text x={xFor(p.i)} y={yFor(p.pct) - 10} text-anchor="middle" font-size="10" fill="#334155">
+								{p.pct.toFixed(0)}%
+							</text>
+						</>
+					))}
+				</svg>
+			</div>
+		</section>
+
+		<section class="mt-10">
+			<h2 class="text-lg font-bold tracking-tight text-slate-900">Composición por partido — elección de Alcalde</h2>
+			<p class="mt-1 text-sm text-slate-500">Qué proporción de los votos sacó cada partido en cada elección municipal.</p>
+			<div class="mt-4 space-y-3 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+				{composicionPorAnio.map((c) => (
+					<div class="flex items-center gap-3">
+						<span class="w-12 shrink-0 text-xs font-semibold text-slate-500">{c.anno}</span>
+						<div class="flex h-6 flex-1 overflow-hidden rounded">
+							{c.segmentos.map((s) => (
+								<div
+									class="h-6"
+									style={`width:${s.pct}%;background-color:${colorPartido(s.partido)}`}
+									title={`${tituloCase(s.candidato)} (${formatoPartido(s.partido) ?? 'Independiente'}) — ${s.pct.toFixed(1)}%`}
+								></div>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+	</main>
+
+	<script>
+		const selector = document.getElementById('cambiar-comuna') as HTMLSelectElement;
+		selector.addEventListener('change', () => {
+			window.location.href = selector.value;
+		});
+	</script>
+</Layout>

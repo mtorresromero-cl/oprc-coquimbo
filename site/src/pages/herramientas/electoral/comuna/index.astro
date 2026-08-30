@@ -1,0 +1,68 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { comunas, participacionElectoral, resultadosElectorales } from '../../../../lib/datos';
+import { formatoPartido, tituloCase } from '../../../../lib/colores-electorales';
+
+const COMUNA_ORDEN = [
+	'la-higuera', 'la-serena', 'coquimbo', 'vicuna', 'paihuano', 'andacollo',
+	'rio-hurtado', 'monte-patria', 'ovalle', 'punitaqui', 'combarbala',
+	'canela', 'illapel', 'salamanca', 'los-vilos',
+];
+const ORDEN_COMUNA_IDX = Object.fromEntries(COMUNA_ORDEN.map((id, i) => [id, i]));
+const comunasOrdenadas = [...comunas].sort(
+	(a, b) => (ORDEN_COMUNA_IDX[a.id] ?? 99) - (ORDEN_COMUNA_IDX[b.id] ?? 99)
+);
+
+const fichas = comunasOrdenadas.map((c) => {
+	const alcalde = resultadosElectorales
+		.filter((r) => r.eleccion_tipo === 'municipal' && r.cargo === 'Alcalde' && r.comuna_id === c.id && r.electo)
+		.sort((a, b) => b.anno - a.anno)[0];
+	const ultimaParticipacion = participacionElectoral
+		.filter((p) => p.comuna_id === c.id)
+		.sort((a, b) => b.anno - a.anno)[0];
+	return { comuna: c, alcalde, ultimaParticipacion };
+});
+---
+
+<Layout
+	title="Explorador por Comuna — OPRC"
+	description="Toda la historia electoral de cada comuna de la Región de Coquimbo: alcaldes, participación y resultados."
+>
+	<section class="relative overflow-hidden bg-slate-900">
+		<div class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"></div>
+		<div class="pointer-events-none absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full bg-brand-800/30 blur-3xl"></div>
+		<div class="relative mx-auto max-w-6xl px-6 py-20">
+			<p class="text-sm font-semibold tracking-widest text-brand-300 uppercase">Herramientas · Electoral</p>
+			<h1 class="mt-4 max-w-2xl text-4xl font-bold tracking-tight text-white sm:text-5xl">Explorador por Comuna</h1>
+			<p class="mt-5 max-w-2xl text-lg text-slate-300">
+				Elige una comuna para ver toda su historia electoral: alcaldes desde 1992, participación y
+				quién ha ganado cada elección municipal.
+			</p>
+		</div>
+	</section>
+
+	<main class="mx-auto max-w-6xl px-6 py-14">
+		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			{fichas.map(({ comuna, alcalde, ultimaParticipacion }) => (
+				<a
+					href={`/herramientas/electoral/comuna/${comuna.id}/`}
+					class="group rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
+				>
+					<h2 class="font-semibold text-slate-900 group-hover:text-brand-700">{comuna.nombre}</h2>
+					<p class="mt-1 text-xs text-slate-400">{comuna.provincia}</p>
+					{alcalde && (
+						<p class="mt-3 text-sm text-slate-600">
+							{tituloCase(alcalde.candidato)}
+							<span class="text-slate-400"> · {formatoPartido(alcalde.partido) ?? 'Independiente'}</span>
+						</p>
+					)}
+					{ultimaParticipacion && (
+						<p class="mt-1 text-xs text-slate-400">
+							{ultimaParticipacion.participacion_pct.toFixed(1)}% participación ({ultimaParticipacion.anno})
+						</p>
+					)}
+				</a>
+			))}
+		</div>
+	</main>
+</Layout>
