@@ -1,22 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Temas reales publicados en @oprcoquimbo (relevados del sitio anterior). No
-// hay feed sincronizado todavía: requiere credenciales de la API de
+// No hay feed sincronizado todavía: requiere credenciales de la API de
 // Instagram (Meta Developer, cuenta Business) que solo el equipo de OPRC
-// puede generar — una vez que exista un token, se puede automatizar la
-// sincronización con el mismo patrón que el resto de los scrapers del sitio.
-const temas = [
-	'Resultados electorales presidenciales por comuna',
-	'Participación femenina en política (2023-2025)',
-	'Desigualdades en control interno municipal',
-	'Índices de transparencia activa',
-	'Resultados PAES 2024',
-	'Elecciones de gobernador regional',
-	'Análisis de votaciones legislativas',
-	'Gastos de funcionarios públicos',
-	'Plebiscitos y procesos constituyentes',
-];
+// puede generar. Mientras tanto, se van agregando a mano las publicaciones
+// reales de @oprcoquimbo con el embed oficial de Instagram — para sumar una
+// nueva, solo hace falta el permalink (instagram.com/p/XXXXXXXXX/).
+const POSTS_INSTAGRAM = ['https://www.instagram.com/p/DSS70mJjkNP/'];
 ---
 
 <Layout
@@ -36,8 +26,8 @@ const temas = [
 			<p class="mt-5 max-w-xl text-lg text-slate-300">
 				Publicamos infografías con análisis de elecciones, transparencia municipal y participación
 				política en <a href="https://instagram.com/oprcoquimbo" target="_blank" rel="noopener" class="text-brand-300 hover:underline">@oprcoquimbo</a>.
-				El feed en vivo todavía no está sincronizado en el sitio — mientras tanto, estos son algunos
-				de los temas publicados:
+				El feed en vivo todavía no está sincronizado en el sitio — mientras tanto, vamos sumando acá
+				algunas publicaciones. El resto está directamente en Instagram.
 			</p>
 			<a
 				href="https://instagram.com/oprcoquimbo"
@@ -51,19 +41,21 @@ const temas = [
 	</section>
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
-		<ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-			{temas.map((tema) => (
-				<li>
-					<a
-						href="https://instagram.com/oprcoquimbo"
-						target="_blank"
-						rel="noopener"
-						class="flex aspect-square flex-col justify-end rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 p-4 text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+		<div class="columns-1 gap-6 sm:columns-2 lg:columns-3">
+			{POSTS_INSTAGRAM.map((url) => (
+				<div class="mb-6 break-inside-avoid">
+					<blockquote
+						class="instagram-media"
+						data-instgrm-captioned
+						data-instgrm-permalink={`${url}?utm_source=ig_embed&utm_campaign=loading`}
+						data-instgrm-version="14"
+						style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0 auto; max-width:540px; min-width:326px; padding:0; width:99%;"
 					>
-						<span class="text-sm font-medium leading-snug">{tema}</span>
-					</a>
-				</li>
+					</blockquote>
+				</div>
 			))}
-		</ul>
+		</div>
 	</main>
+
+	<script is:inline src="https://www.instagram.com/embed.js" async></script>
 </Layout>
