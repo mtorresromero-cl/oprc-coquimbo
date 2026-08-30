@@ -127,6 +127,22 @@ def _normaliza_cargo(texto_cargo: str, cargo_defecto: str) -> str:
     return texto
 
 
+def _sufijo_periodo_alcalde(texto_cargo: str) -> str:
+    """En la elección municipal de 1992, algunas comunas dividieron la
+    alcaldía en dos mitades de 2 años cada una (pacto entre las listas más
+    votadas) — el texto original dice "Alcalde 2 años primer/segundo
+    período". _normaliza_cargo() lo colapsa a solo "Alcalde", perdiendo cuál
+    de los dos fue; sin este sufijo, la comuna muestra dos alcaldes electos
+    el mismo año sin explicación. Se preserva como una aclaración en el
+    nombre en vez de un campo nuevo, para no tocar el resto del esquema."""
+    texto = (texto_cargo or "").lower()
+    if "primer per" in texto:
+        return " (1er período, 2 años)"
+    if "segundo per" in texto:
+        return " (2º período, 2 años)"
+    return ""
+
+
 class ScraperServelHistorico(BaseScraper):
     """Resultados electorales 1989-2009 de la Región de Coquimbo, a nivel
     comuna, candidato por candidato."""
@@ -206,6 +222,8 @@ class ScraperServelHistorico(BaseScraper):
             texto_cargo = celdas[idx_cargo] if hay_cargo else ""
             texto_cargo = texto_cargo.replace("&nbsp;", "").strip()
             cargo = _normaliza_cargo(texto_cargo, cargo_defecto)
+            if cargo == "Alcalde":
+                nombre = f"{nombre}{_sufijo_periodo_alcalde(texto_cargo)}"
             hay_partido = idx_partido is not None and idx_partido < len(celdas)
             partido = celdas[idx_partido].strip() if hay_partido else None
             registros.append(
