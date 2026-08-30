@@ -3,6 +3,7 @@ titulo: "📊 Desigualdades en el Control Interno Municipal en la Región de Coq
 fecha: 2025-02-06
 resumen: "Un informe de la Contraloría muestra grandes desigualdades en la dotación de personal de las Unidades de Control Interno municipal durante 2024: mientras Coquimbo y La Serena cuentan con 10 y 11 funcionarios, comunas rurales como La Higuera, Río Hurtado, Canela y Paihuano tienen solo uno."
 autor: "OPRC"
+imagenDestacada: "/blog/2025-02-06-control-interno-municipal/destacada.webp"
 ---
 
 El reciente informe de la **Contraloría** muestra grandes desigualdades en la dotación de personal en las Unidades de Control Interno de las municipalidades chilenas durante el 2024. Esta disparidad afecta directamente la capacidad de fiscalización y transparencia en la gestión de los recursos públicos, lo que pone en riesgo el buen uso de los fondos destinados a las comunas.
@@ -23,3 +24,20 @@ La fiscalización municipal es fundamental para garantizar que los recursos púb
 ## 📌 Conclusiones y propuestas
 
 El informe de la Contraloría evidencia la necesidad urgente de fortalecer las Unidades de Control Interno, especialmente en las comunas rurales con menos recursos. Es crucial implementar una redistribución equitativa del personal y realizar una mayor inversión en fiscalización para garantizar que los recursos sean utilizados de manera eficiente y para fomentar la transparencia en la gestión municipal.
+
+
+## 📈 Gráficos
+
+![Gráfico 1 — 📊 Desigualdades en el Control Interno Municipal en la Región de Coquimbo](/blog/2025-02-06-control-interno-municipal/01.webp)
+
+![Gráfico 2 — 📊 Desigualdades en el Control Interno Municipal en la Región de Coquimbo](/blog/2025-02-06-control-interno-municipal/02.webp)
+
+![Gráfico 3 — 📊 Desigualdades en el Control Interno Municipal en la Región de Coquimbo](/blog/2025-02-06-control-interno-municipal/03.webp)
+
+![Gráfico 4 — 📊 Desigualdades en el Control Interno Municipal en la Región de Coquimbo](/blog/2025-02-06-control-interno-municipal/04.webp)
+
+![Gráfico 5 — 📊 Desigualdades en el Control Interno Municipal en la Región de Coquimbo](/blog/2025-02-06-control-interno-municipal/05.webp)
+
+![Gráfico 6 — 📊 Desigualdades en el Control Interno Municipal en la Región de Coquimbo](/blog/2025-02-06-control-interno-municipal/06.webp)
+
+![Gráfico 7 — 📊 Desigualdades en el Control Interno Municipal en la Región de Coquimbo](/blog/2025-02-06-control-interno-municipal/07.webp)

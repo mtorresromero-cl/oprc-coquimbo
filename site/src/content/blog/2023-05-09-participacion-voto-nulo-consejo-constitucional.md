@@ -3,6 +3,7 @@ titulo: "🗳️ Elección de Consejeros Constitucionales 2023 en Coquimbo: Part
 fecha: 2023-05-09
 resumen: "La elección de Consejeros Constitucionales en la Región de Coquimbo tuvo un 84,5% de participación (549.222 votantes), 2,6% menos que en el plebiscito de 2022, con un 24,64% de votos nulos y blancos. Revisamos la participación y los resultados comuna por comuna."
 autor: "OPRC"
+imagenDestacada: "/blog/2023-05-09-participacion-voto-nulo-consejo-constitucional/destacada.webp"
 ---
 
 La elección de Consejeros Constitucionales en la Región de Coquimbo tuvo un **84,5% de participación** (549.222 votantes), **2,6% menos que en el plebiscito de 2022**.
@@ -35,3 +36,14 @@ La elección de Consejeros Constitucionales en la Región de Coquimbo tuvo un **
 Las comunas con menor votación en 2022 volvieron a registrar bajas cifras: La Higuera, Combarbalá, Canela y Río Hurtado.
 
 ## 💬 ¿Por qué bajó la participación y aumentó el voto nulo?
+
+
+## 📈 Gráficos
+
+![Gráfico 1 — 🗳️ Elección de Consejeros Constitucionales 2023 en Coquimbo: Participación y Voto Nulo en Cifras](/blog/2023-05-09-participacion-voto-nulo-consejo-constitucional/01.webp)
+
+![Gráfico 2 — 🗳️ Elección de Consejeros Constitucionales 2023 en Coquimbo: Participación y Voto Nulo en Cifras](/blog/2023-05-09-participacion-voto-nulo-consejo-constitucional/02.webp)
+
+![Gráfico 3 — 🗳️ Elección de Consejeros Constitucionales 2023 en Coquimbo: Participación y Voto Nulo en Cifras](/blog/2023-05-09-participacion-voto-nulo-consejo-constitucional/03.webp)
+
+![Gráfico 4 — 🗳️ Elección de Consejeros Constitucionales 2023 en Coquimbo: Participación y Voto Nulo en Cifras](/blog/2023-05-09-participacion-voto-nulo-consejo-constitucional/04.webp)

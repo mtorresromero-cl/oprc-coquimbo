@@ -3,6 +3,7 @@ titulo: "💰 ¿Cuánto dinero recibieron los candidatos a consejeros constituci
 fecha: 2023-05-04
 resumen: "Para la elección del 7 de mayo de 2023, los candidatos a consejeros constitucionales en la Región de Coquimbo recibieron $227 millones en financiamiento de campaña. Revisamos de dónde vino ese dinero y quiénes recibieron más y menos."
 autor: "OPRC"
+imagenDestacada: "/blog/2023-05-04-financiamiento-candidatos-consejo-constitucional/destacada.webp"
 ---
 
 Para la elección del 7 de mayo de 2023, los candidatos a consejeros constitucionales en la Región de Coquimbo recibieron **$227 millones en financiamiento de campaña** hasta el 28 de abril.
@@ -33,3 +34,14 @@ Para la elección del 7 de mayo de 2023, los candidatos a consejeros constitucio
 ## 💬 ¿El dinero influye en los resultados?
 
 El financiamiento es clave en las campañas, pero ¿qué tan determinante es en el voto final?
+
+
+## 📈 Gráficos
+
+![Gráfico 1 — 💰 ¿Cuánto dinero recibieron los candidatos a consejeros constitucionales en la Región de Coquimbo?](/blog/2023-05-04-financiamiento-candidatos-consejo-constitucional/01.webp)
+
+![Gráfico 2 — 💰 ¿Cuánto dinero recibieron los candidatos a consejeros constitucionales en la Región de Coquimbo?](/blog/2023-05-04-financiamiento-candidatos-consejo-constitucional/02.webp)
+
+![Gráfico 3 — 💰 ¿Cuánto dinero recibieron los candidatos a consejeros constitucionales en la Región de Coquimbo?](/blog/2023-05-04-financiamiento-candidatos-consejo-constitucional/03.webp)
+
+![Gráfico 4 — 💰 ¿Cuánto dinero recibieron los candidatos a consejeros constitucionales en la Región de Coquimbo?](/blog/2023-05-04-financiamiento-candidatos-consejo-constitucional/04.webp)

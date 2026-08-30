@@ -3,6 +3,7 @@ titulo: "🗳️ Así cambió el mapa político en la Región de Coquimbo tras l
 fecha: 2024-11-07
 resumen: "Las elecciones del 26 y 27 de octubre de 2024 reconfiguraron el escenario político en la Región de Coquimbo: Renovación Nacional se consolidó como el partido con más autoridades electas, la UDI y la Democracia Cristiana retrocedieron, y la representación de mujeres aumentó en alcaldías y en el Consejo Regional."
 autor: "OPRC"
+imagenDestacada: "/blog/2024-11-07-mapa-politico-tras-elecciones-2024/destacada.webp"
 ---
 
 Las elecciones del **26 y 27 de octubre de 2024** reconfiguraron el escenario político en la Región de Coquimbo, con cambios significativos en alcaldías, concejos municipales y el Consejo Regional.
@@ -48,3 +49,22 @@ En 2021, solo 4 de los 16 consejeros eran mujeres. Este año, la cifra subió a 
 ## 🔎 ¿Cómo ves estos cambios?
 
 ¿Crees que reflejan una nueva tendencia política en la región?
+
+
+## 📈 Gráficos
+
+![Gráfico 1 — 🗳️ Así cambió el mapa político en la Región de Coquimbo tras las elecciones de 2024](/blog/2024-11-07-mapa-politico-tras-elecciones-2024/01.webp)
+
+![Gráfico 2 — 🗳️ Así cambió el mapa político en la Región de Coquimbo tras las elecciones de 2024](/blog/2024-11-07-mapa-politico-tras-elecciones-2024/02.webp)
+
+![Gráfico 3 — 🗳️ Así cambió el mapa político en la Región de Coquimbo tras las elecciones de 2024](/blog/2024-11-07-mapa-politico-tras-elecciones-2024/03.webp)
+
+![Gráfico 4 — 🗳️ Así cambió el mapa político en la Región de Coquimbo tras las elecciones de 2024](/blog/2024-11-07-mapa-politico-tras-elecciones-2024/04.webp)
+
+![Gráfico 5 — 🗳️ Así cambió el mapa político en la Región de Coquimbo tras las elecciones de 2024](/blog/2024-11-07-mapa-politico-tras-elecciones-2024/05.webp)
+
+![Gráfico 6 — 🗳️ Así cambió el mapa político en la Región de Coquimbo tras las elecciones de 2024](/blog/2024-11-07-mapa-politico-tras-elecciones-2024/06.webp)
+
+![Gráfico 7 — 🗳️ Así cambió el mapa político en la Región de Coquimbo tras las elecciones de 2024](/blog/2024-11-07-mapa-politico-tras-elecciones-2024/07.webp)
+
+![Gráfico 8 — 🗳️ Así cambió el mapa político en la Región de Coquimbo tras las elecciones de 2024](/blog/2024-11-07-mapa-politico-tras-elecciones-2024/08.webp)

@@ -25,7 +25,14 @@ function formatoFecha(fecha: Date) {
 			{formatoFecha(post.data.fecha)} · {post.data.autor}
 		</p>
 		<h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">{post.data.titulo}</h1>
-		<div class="prose prose-slate mt-8 max-w-none prose-a:text-brand-600 prose-headings:text-slate-900">
+		{post.data.imagenDestacada && (
+			<img
+				src={post.data.imagenDestacada}
+				alt={post.data.titulo}
+				class="mt-8 w-full rounded-xl border border-slate-200 shadow-sm"
+			/>
+		)}
+		<div class="prose prose-slate mt-8 max-w-none prose-a:text-brand-600 prose-headings:text-slate-900 prose-img:rounded-xl prose-img:border prose-img:border-slate-200 prose-img:shadow-sm">
 			<Content />
 		</div>
 	</main>

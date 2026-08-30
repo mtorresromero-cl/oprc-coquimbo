@@ -3,6 +3,7 @@ titulo: "🏛️ La Región de Coquimbo Retrocede en Transparencia Activa"
 fecha: 2025-01-29
 resumen: "El último informe del Consejo para la Transparencia revela un retroceso en el cumplimiento de Transparencia Activa de las municipalidades de la Región de Coquimbo: el promedio regional bajó a 68,46% en 2024, muy por debajo del promedio nacional de 78,14%."
 autor: "OPRC"
+imagenDestacada: "/blog/2025-01-29-retrocede-transparencia-activa/destacada.webp"
 ---
 
 El último informe del **Consejo para la Transparencia** revela un preocupante retroceso en el cumplimiento de **Transparencia Activa** por parte de las municipalidades de la Región de Coquimbo.
@@ -36,3 +37,18 @@ La Higuera y Vicuña se ubican entre las 10 comunas con peor puntaje a nivel nac
 La transparencia permite que los ciudadanos accedan a información clave sobre el uso de los recursos públicos y la gestión municipal. Las comunas que han retrocedido deben revisar sus procesos y mejorar sus mecanismos de acceso a la información.
 
 ## 📢 ¿Qué opinas de estos resultados?
+
+
+## 📈 Gráficos
+
+![Gráfico 1 — 🏛️ La Región de Coquimbo Retrocede en Transparencia Activa](/blog/2025-01-29-retrocede-transparencia-activa/01.webp)
+
+![Gráfico 2 — 🏛️ La Región de Coquimbo Retrocede en Transparencia Activa](/blog/2025-01-29-retrocede-transparencia-activa/02.webp)
+
+![Gráfico 3 — 🏛️ La Región de Coquimbo Retrocede en Transparencia Activa](/blog/2025-01-29-retrocede-transparencia-activa/03.webp)
+
+![Gráfico 4 — 🏛️ La Región de Coquimbo Retrocede en Transparencia Activa](/blog/2025-01-29-retrocede-transparencia-activa/04.webp)
+
+![Gráfico 5 — 🏛️ La Región de Coquimbo Retrocede en Transparencia Activa](/blog/2025-01-29-retrocede-transparencia-activa/05.webp)
+
+![Gráfico 6 — 🏛️ La Región de Coquimbo Retrocede en Transparencia Activa](/blog/2025-01-29-retrocede-transparencia-activa/06.webp)

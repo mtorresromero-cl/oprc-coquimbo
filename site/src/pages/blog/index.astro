@@ -41,12 +41,22 @@ function formatoFecha(fecha: Date) {
 
 		<ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{posts.map((post) => (
-				<li class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md">
+				<li class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md">
 					<a href={`/blog/${post.id}/`}>
-						<p class="text-xs font-semibold tracking-wide text-slate-400 uppercase">{formatoFecha(post.data.fecha)}</p>
-						<h2 class="mt-2 text-lg font-bold tracking-tight text-slate-900">{post.data.titulo}</h2>
-						<p class="mt-2 text-base leading-relaxed text-slate-600">{post.data.resumen}</p>
-						<span class="mt-4 inline-block text-sm font-semibold text-brand-600">Leer más &rarr;</span>
+						{post.data.imagenDestacada && (
+							<img
+								src={post.data.imagenDestacada}
+								alt={post.data.titulo}
+								class="aspect-square w-full object-cover"
+								loading="lazy"
+							/>
+						)}
+						<div class="p-6">
+							<p class="text-xs font-semibold tracking-wide text-slate-400 uppercase">{formatoFecha(post.data.fecha)}</p>
+							<h2 class="mt-2 text-lg font-bold tracking-tight text-slate-900">{post.data.titulo}</h2>
+							<p class="mt-2 text-base leading-relaxed text-slate-600">{post.data.resumen}</p>
+							<span class="mt-4 inline-block text-sm font-semibold text-brand-600">Leer más &rarr;</span>
+						</div>
 					</a>
 				</li>
 			))}

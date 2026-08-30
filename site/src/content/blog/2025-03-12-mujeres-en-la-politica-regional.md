@@ -3,6 +3,7 @@ titulo: "En el Día de la Mujer, analizamos el rol y la participación de las mu
 fecha: 2025-03-12
 resumen: "A partir de datos comparativos entre 2023 y 2025, revisamos los avances y las brechas que persisten en la participación política de las mujeres en la Región de Coquimbo: más alcaldesas y concejalas, paridad en las SEREMIs, pero ninguna representación femenina en el Senado."
 autor: "OPRC"
+imagenDestacada: "/blog/2025-03-12-mujeres-en-la-politica-regional/destacada.webp"
 ---
 
 En este Día de la Mujer, hacemos una pausa para reflexionar sobre el rol y la participación femenina en la política de la Región de Coquimbo. A través de un análisis de los datos comparativos entre 2023 y 2025, se observa que, aunque se han logrado avances, aún queda un largo camino por recorrer para lograr una verdadera equidad de género en los espacios de poder.
@@ -24,3 +25,14 @@ A pesar de los avances, aún existen vacíos importantes en la representación f
 Aunque hemos avanzado en ciertos niveles, la representación femenina sigue siendo insuficiente en muchos de los cargos de poder en nuestra región.
 
 ## 💬 ¿Qué acciones propones para lograr una mayor participación de las mujeres en la política?
+
+
+## 📈 Gráficos
+
+![Gráfico 1 — En el Día de la Mujer, analizamos el rol y la participación de las mujeres en la Región de Coquimbo](/blog/2025-03-12-mujeres-en-la-politica-regional/01.webp)
+
+![Gráfico 2 — En el Día de la Mujer, analizamos el rol y la participación de las mujeres en la Región de Coquimbo](/blog/2025-03-12-mujeres-en-la-politica-regional/02.webp)
+
+![Gráfico 3 — En el Día de la Mujer, analizamos el rol y la participación de las mujeres en la Región de Coquimbo](/blog/2025-03-12-mujeres-en-la-politica-regional/03.webp)
+
+![Gráfico 4 — En el Día de la Mujer, analizamos el rol y la participación de las mujeres en la Región de Coquimbo](/blog/2025-03-12-mujeres-en-la-politica-regional/04.webp)

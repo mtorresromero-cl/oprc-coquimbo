@@ -8,6 +8,7 @@ const blog = defineCollection({
 		fecha: z.coerce.date(),
 		resumen: z.string(),
 		autor: z.string().default('OPRC'),
+		imagenDestacada: z.string().optional(),
 	}),
 });
 

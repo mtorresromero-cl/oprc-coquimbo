@@ -3,6 +3,7 @@ titulo: "🗳️ Segunda vuelta de gobernador en Coquimbo: menos participación 
 fecha: 2024-11-25
 resumen: "La segunda vuelta de la elección de gobernador registró una participación de 83,52%, 2,49 puntos menos que en primera vuelta. Cristóbal Juliá se impuso en 13 de las 15 comunas, pasando del 21,77% al 63% de los votos frente a Javier Vega."
 autor: "OPRC"
+imagenDestacada: "/blog/2024-11-25-segunda-vuelta-gobernador-2024/destacada.webp"
 ---
 
 La segunda vuelta de la elección de gobernador en la Región de Coquimbo registró una menor participación en comparación con la primera vuelta de octubre. La asistencia a las urnas fue de **83,52%**, lo que representa una caída de **2,49 puntos** respecto al **85,65%** de la primera votación.
@@ -41,3 +42,18 @@ Hubo una reducción de 9,77 puntos en votos nulos y blancos entre la primera (**
 ## 🔎 ¿Qué opinas de estos resultados?
 
 ¿Te sorprendió la caída en participación o el triunfo de Juliá?
+
+
+## 📈 Gráficos
+
+![Gráfico 1 — 🗳️ Segunda vuelta de gobernador en Coquimbo: menos participación y un triunfo claro para Cristóbal Juliá](/blog/2024-11-25-segunda-vuelta-gobernador-2024/01.webp)
+
+![Gráfico 2 — 🗳️ Segunda vuelta de gobernador en Coquimbo: menos participación y un triunfo claro para Cristóbal Juliá](/blog/2024-11-25-segunda-vuelta-gobernador-2024/02.webp)
+
+![Gráfico 3 — 🗳️ Segunda vuelta de gobernador en Coquimbo: menos participación y un triunfo claro para Cristóbal Juliá](/blog/2024-11-25-segunda-vuelta-gobernador-2024/03.webp)
+
+![Gráfico 4 — 🗳️ Segunda vuelta de gobernador en Coquimbo: menos participación y un triunfo claro para Cristóbal Juliá](/blog/2024-11-25-segunda-vuelta-gobernador-2024/04.webp)
+
+![Gráfico 5 — 🗳️ Segunda vuelta de gobernador en Coquimbo: menos participación y un triunfo claro para Cristóbal Juliá](/blog/2024-11-25-segunda-vuelta-gobernador-2024/05.webp)
+
+![Gráfico 6 — 🗳️ Segunda vuelta de gobernador en Coquimbo: menos participación y un triunfo claro para Cristóbal Juliá](/blog/2024-11-25-segunda-vuelta-gobernador-2024/06.webp)
