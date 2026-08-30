@@ -493,15 +493,23 @@ const polylinePromedio = ORDEN_JORNADA.map((j, i) => `${xFor(i)},${yFor(promedio
 				.querySelectorAll<HTMLElement>(`.fila-comuna[data-comuna="${comunaId}"]`)
 				.forEach((el) => (el.style.display = chk.checked ? '' : 'none'));
 			sinSeleccion.classList.toggle('hidden', Array.from(checks).some((c) => c.checked));
+			actualizaBotonTodas();
+		}
+
+		function actualizaBotonTodas() {
+			const todasMarcadas = Array.from(checks).every((c) => c.checked);
+			btnTodas.textContent = todasMarcadas ? 'Desmarcar todas' : 'Marcar todas';
 		}
 
 		checks.forEach((chk) => chk.addEventListener('change', () => aplicaFiltro(chk)));
 		btnTodas.addEventListener('click', () => {
+			const marcarTodas = btnTodas.textContent?.trim() === 'Marcar todas';
 			checks.forEach((chk) => {
-				chk.checked = true;
+				chk.checked = marcarTodas;
 				aplicaFiltro(chk);
 			});
 		});
+		actualizaBotonTodas();
 
 		// --- Gráfico de líneas: tooltip al pasar el mouse o tocar un punto ---
 		const tooltip = document.getElementById('tooltip-chart')!;
