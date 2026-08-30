@@ -138,6 +138,7 @@ const ICONOS: Record<string, string> = {
 	grafico: 'M4 20V10m6 10V4m6 16v-7',
 	columnas: 'M3 21h18M4 21V10m4 11V10m4 11V10m4 11V10m4 11V10M2 10l10-6 10 6',
 	acuerdo: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11',
+	electoral: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11',
 };
 ---
 
@@ -230,6 +231,28 @@ const ICONOS: Record<string, string> = {
 						<p class="mt-2 text-base leading-relaxed text-slate-600">{item.texto}</p>
 					</div>
 				))}
+			</div>
+		</section>
+
+		<section class="bg-slate-900">
+			<div class="mx-auto flex max-w-6xl flex-col items-center gap-5 px-6 py-8 text-center sm:flex-row sm:justify-between sm:text-left">
+				<div class="flex items-center gap-4">
+					<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-600/20 text-brand-300">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+							<path d={ICONOS.electoral} />
+						</svg>
+					</div>
+					<div>
+						<p class="text-lg font-semibold text-white">¿Te interesan los datos electorales?</p>
+						<p class="mt-1 text-sm text-slate-300">Resultados, participación, plebiscitos, comparador y padrón, desde 1989.</p>
+					</div>
+				</div>
+				<a
+					href="/herramientas/electoral/"
+					class="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-500"
+				>
+					Revísalos acá &rarr;
+				</a>
 			</div>
 		</section>
 
