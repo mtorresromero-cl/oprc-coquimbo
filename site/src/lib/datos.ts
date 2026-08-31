@@ -917,6 +917,46 @@ export function matricesGastoParlamentario(): MatrizGasto[] {
 	}));
 }
 
+export interface Asesor {
+	nombre: string;
+	cargo: string;
+	renta: number | null;
+}
+
+export interface EquipoDiputado {
+	id: string;
+	nombre: string;
+	asesores: Asesor[];
+}
+
+const CARGOS_ASESOR_CONOCIDOS = new Set(['Profesional', 'Administrativo', 'Asesor']);
+
+/** Normaliza cargos largos/únicos (ej. descripciones de asesorías puntuales) a "Otro". */
+function normalizaCargoAsesor(cargo: string): string {
+	return CARGOS_ASESOR_CONOCIDOS.has(cargo) ? cargo : 'Otro';
+}
+
+/**
+ * Personal de apoyo de cada diputado/a de la región, mes más reciente con
+ * datos (julio 2026). Insumo real para la red de asesores — no hay ningún
+ * asesor que aparezca bajo más de un diputado/a (se revisó cruzando los 7
+ * equipos), así que la red son 7 equipos independientes, no un entramado.
+ */
+export function equiposDiputados(): EquipoDiputado[] {
+	const diputados = autoridades.filter((a) => a.cargo === 'diputado');
+	return diputados.map((d) => {
+		const registro = gastoParlamentario.find(
+			(g) => g.autoridad_id === d.id && g.categoria === 'personal_apoyo' && g.mes === 7
+		);
+		const detalle: Asesor[] = registro?.detalle ? JSON.parse(registro.detalle) : [];
+		return {
+			id: d.id,
+			nombre: d.nombre_completo,
+			asesores: detalle.map((a) => ({ ...a, cargo: normalizaCargoAsesor(a.cargo) })),
+		};
+	});
+}
+
 export function autoridadesPorCargoProvincia(): CargoPorProvincia[] {
 	const provincias = ['Elqui', 'Limarí', 'Choapa'];
 	const resultado: CargoPorProvincia[] = provincias.map((provincia) => ({ provincia, alcalde: 0, concejal: 0, core: 0 }));
