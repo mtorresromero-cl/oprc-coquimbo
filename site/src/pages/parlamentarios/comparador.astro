@@ -1,0 +1,205 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {
+	autoridades,
+	votaciones,
+	votacionesCamara,
+	indiceVotaciones,
+	indiceMociones,
+	indiceAsistencia,
+} from '../../lib/datos';
+
+const senadorIds = autoridades.filter((a) => a.cargo === 'senador').map((a) => a.id);
+const diputadoIds = autoridades.filter((a) => a.cargo === 'diputado').map((a) => a.id);
+
+const votacionesPorId = new Map(
+	[...indiceVotaciones(votaciones, senadorIds), ...indiceVotaciones(votacionesCamara, diputadoIds)].map((v) => [
+		v.autoridad_id,
+		v,
+	])
+);
+const mocionesPorId = new Map(
+	[...indiceMociones(senadorIds), ...indiceMociones(diputadoIds)].map((m) => [m.autoridad_id, m.total])
+);
+const asistenciaPorId = new Map(
+	[...indiceAsistencia(senadorIds), ...indiceAsistencia(diputadoIds)].map((a) => [a.autoridad_id, a])
+);
+
+const personas = [...diputadoIds, ...senadorIds].map((id) => {
+	const a = autoridades.find((x) => x.id === id)!;
+	const v = votacionesPorId.get(id);
+	return {
+		id,
+		nombre: a.nombre_completo,
+		cargo: a.cargo,
+		metrics: {
+			asistenciaPct: asistenciaPorId.get(id)?.asistenciaPct ?? null,
+			participacionPct: v?.participacionPct ?? null,
+			alineamientoPct: v?.alineamientoPct ?? null,
+			favor: v?.favor ?? 0,
+			contra: v?.contra ?? 0,
+			abstencion: v?.abstencion ?? 0,
+			pareo: v?.pareo ?? 0,
+			mociones: mocionesPorId.get(id) ?? 0,
+		},
+	};
+});
+---
+
+<Layout
+	title="Comparador — OPRC"
+	description="Compara hasta 3 diputados o senadores de la Región de Coquimbo lado a lado: asistencia, votaciones y mociones."
+>
+	<section class="relative overflow-hidden bg-slate-900">
+		<div class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"></div>
+		<div class="pointer-events-none absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full bg-brand-800/30 blur-3xl"></div>
+		<div class="relative mx-auto max-w-6xl px-6 py-20">
+			<p class="text-sm font-semibold tracking-widest text-brand-300 uppercase">Datos</p>
+			<h1 class="mt-4 max-w-2xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
+				Comparador
+			</h1>
+			<p class="mt-5 max-w-2xl text-lg text-slate-300">
+				Elige hasta 3 diputados o senadores de la región y compáralos lado a lado.
+			</p>
+		</div>
+	</section>
+
+	<main class="mx-auto max-w-6xl px-6 py-10">
+		<div class="grid gap-3 sm:grid-cols-3">
+			<select data-slot="0" class="persona-select rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-700">
+				<option value="">Persona 1</option>
+			</select>
+			<select data-slot="1" class="persona-select rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-700">
+				<option value="">Persona 2</option>
+			</select>
+			<select data-slot="2" class="persona-select rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-700">
+				<option value="">Persona 3 (opcional)</option>
+			</select>
+		</div>
+
+		<p id="prompt" class="mt-10 text-base text-slate-500">Elige al menos 2 personas para comparar.</p>
+
+		<div id="resultado" class="mt-8 hidden">
+			<div id="chips" class="flex flex-wrap gap-2"></div>
+			<div id="metricas" class="mt-6 space-y-5 rounded-xl border border-slate-200 bg-white p-6 shadow-sm"></div>
+		</div>
+	</main>
+
+	<script type="application/json" id="personas-data" set:html={JSON.stringify(personas)} />
+
+	<script>
+		interface Metrics {
+			asistenciaPct: number | null;
+			participacionPct: number | null;
+			alineamientoPct: number | null;
+			favor: number;
+			contra: number;
+			abstencion: number;
+			pareo: number;
+			mociones: number;
+		}
+		interface Persona {
+			id: string;
+			nombre: string;
+			cargo: string;
+			metrics: Metrics;
+		}
+
+		const personas: Persona[] = JSON.parse(document.getElementById('personas-data')!.textContent!);
+		const porId = new Map(personas.map((p) => [p.id, p]));
+
+		// mismos 3 primeros tonos del sistema de color (validados para
+		// distinguirse entre sí incluso comparados de a pares) — nunca el
+		// rojo de marca, para no confundir "persona" con "identidad OPRC".
+		const COLORES = ['#2a78d6', '#eb6834', '#1baf7a'];
+
+		const METRICAS: [keyof Metrics, string, boolean][] = [
+			['asistenciaPct', 'Asistencia', true],
+			['participacionPct', 'Participación', true],
+			['alineamientoPct', 'Alineamiento', true],
+			['mociones', 'Mociones presentadas', false],
+			['favor', 'Votos a favor', false],
+			['contra', 'Votos en contra', false],
+			['abstencion', 'Abstenciones', false],
+			['pareo', 'Pareos', false],
+		];
+
+		const CARGO_LABEL: Record<string, string> = { diputado: 'Diputado/a', senador: 'Senador/a' };
+
+		const selects = Array.from(document.querySelectorAll<HTMLSelectElement>('.persona-select'));
+
+		function seleccionActual(excluyendo: HTMLSelectElement): string[] {
+			return selects.filter((s) => s !== excluyendo).map((s) => s.value).filter(Boolean);
+		}
+
+		function pobladoSelect(select: HTMLSelectElement) {
+			const usados = new Set(seleccionActual(select));
+			const actual = select.value;
+			const placeholder = select.querySelector('option[value=""]')!.outerHTML;
+			const diputados = personas.filter((p) => p.cargo === 'diputado');
+			const senadores = personas.filter((p) => p.cargo === 'senador');
+			const opcion = (p: Persona) =>
+				`<option value="${p.id}" ${usados.has(p.id) && p.id !== actual ? 'disabled' : ''}>${p.nombre}</option>`;
+			select.innerHTML =
+				placeholder +
+				`<optgroup label="Diputados">${diputados.map(opcion).join('')}</optgroup>` +
+				`<optgroup label="Senadores">${senadores.map(opcion).join('')}</optgroup>`;
+			select.value = actual;
+		}
+
+		function formatoValor(esPct: boolean, valor: number | null): string {
+			if (valor === null) return 'Sin datos comparables';
+			return esPct ? `${valor.toFixed(1)}%` : String(valor);
+		}
+
+		function render() {
+			selects.forEach(pobladoSelect);
+
+			const elegidas = selects.map((s) => s.value).filter(Boolean).map((id) => porId.get(id)!);
+			const prompt = document.getElementById('prompt')!;
+			const resultado = document.getElementById('resultado')!;
+
+			if (elegidas.length < 2) {
+				prompt.classList.remove('hidden');
+				resultado.classList.add('hidden');
+				return;
+			}
+			prompt.classList.add('hidden');
+			resultado.classList.remove('hidden');
+
+			const chips = document.getElementById('chips')!;
+			chips.innerHTML = elegidas
+				.map(
+					(p, i) =>
+						`<a href="/autoridades/${p.id}/" class="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-semibold hover:underline" style="border-color:${COLORES[i]};color:${COLORES[i]}">
+							<span class="h-2.5 w-2.5 rounded-full" style="background:${COLORES[i]}"></span>
+							${p.nombre} <span class="font-normal text-slate-400">· ${CARGO_LABEL[p.cargo] ?? p.cargo}</span>
+						</a>`
+				)
+				.join('');
+
+			const metricas = document.getElementById('metricas')!;
+			metricas.innerHTML = METRICAS.map(([key, label, esPct]) => {
+				const max = esPct ? 100 : Math.max(...elegidas.map((p) => (p.metrics[key] as number) ?? 0), 1);
+				const filas = elegidas
+					.map((p, i) => {
+						const valor = p.metrics[key];
+						const anchoPct = valor === null ? 0 : (Number(valor) / max) * 100;
+						return `
+							<div class="flex items-center gap-2">
+								<span class="h-2.5 w-2.5 shrink-0 rounded-full" style="background:${COLORES[i]}"></span>
+								<div class="h-4 flex-1 rounded bg-slate-100">
+									<div class="h-4 rounded" style="width:${anchoPct}%;background:${COLORES[i]}"></div>
+								</div>
+								<span class="w-24 shrink-0 text-right text-sm font-medium text-slate-900">${formatoValor(esPct, valor as number | null)}</span>
+							</div>`;
+					})
+					.join('');
+				return `<div><p class="mb-2 text-sm font-semibold text-slate-700">${label}</p><div class="space-y-1.5">${filas}</div></div>`;
+			}).join('');
+		}
+
+		selects.forEach((s) => s.addEventListener('change', render));
+		render();
+	</script>
+</Layout>

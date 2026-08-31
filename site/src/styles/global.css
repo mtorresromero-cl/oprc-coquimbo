@@ -14,4 +14,20 @@
 	--color-brand-700: #8f0000;
 	--color-brand-800: #700000;
 	--color-brand-900: #560000;
+
+	/* Un color fijo por tema de datos (perfil de autoridad, comparador).
+	   Validado contra daltonismo/contraste — ver /docs o el chat para el
+	   detalle. El rojo de esa misma familia se deja fuera a propósito para
+	   que ningún tema compita visualmente con el rojo de marca. */
+	--color-topic-asistencia: #2a78d6;
+	--color-topic-votaciones: #eb6834;
+	--color-topic-mociones: #1baf7a;
+	--color-topic-patrimonio: #eda100;
+	--color-topic-gasto: #e87ba4;
+	--color-topic-audiencias: #008300;
+
+	/* Estado — significado fijo (publicado/verificado vs. pendiente),
+	   nunca reutilizados como "tema 7" u otra serie. */
+	--color-good: #0ca30c;
+	--color-warning: #fab219;
 }
