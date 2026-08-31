@@ -1,6 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { comunas, presupuestoDeComuna, personalDeComuna, comparativaMunicipal } from '../../lib/datos';
+import {
+	comunas,
+	personal,
+	presupuestoDeComuna,
+	personalDeComuna,
+	comparativaMunicipal,
+	dotacionPorTipoContrato,
+	remuneracionAlcaldesPorComuna,
+	nombreMes,
+} from '../../lib/datos';
 
 const filas = comunas
 	.map((c) => ({
@@ -13,6 +22,22 @@ const filas = comunas
 const comparativa = comparativaMunicipal()
 	.filter((c) => c.dotacionTotal > 0)
 	.sort((a, b) => b.dotacionTotal - a.dotacionTotal);
+
+const dotacionTipo = dotacionPorTipoContrato();
+const totalDotacion = dotacionTipo.reduce((s, d) => s + d.dotacion, 0);
+const maxDotacionTipo = Math.max(...dotacionTipo.map((d) => d.dotacion), 1);
+const municipiosConDotacion = new Set(personal.map((p) => p.comuna_id)).size;
+const TIPO_CONTRATO_LABEL: Record<string, string> = {
+	planta: 'Planta',
+	contrata: 'Contrata',
+	honorarios: 'Honorarios',
+};
+
+const remuneracionAlcaldes = remuneracionAlcaldesPorComuna();
+const comunasSinRemuneracion = comunas
+	.filter((c) => !remuneracionAlcaldes.some((r) => r.comunaId === c.id))
+	.map((c) => c.nombre);
+const maxRemuneracion = Math.max(...remuneracionAlcaldes.map((r) => r.remuneracionBruta), 1);
 
 function formatoCLP(monto: number) {
 	return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(
@@ -117,6 +142,64 @@ function pctDe(parte: number, total: number) {
 				</p>
 			</section>
 		)}
+
+		<section class="mb-14 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+			<div>
+				<h2 class="text-xl font-semibold text-slate-900">Dotación por tipo de contrato</h2>
+				<p class="mt-1 max-w-md text-base text-slate-500">
+					Suma regional de las {totalDotacion} personas que trabajan en los {municipiosConDotacion}{' '}
+					municipios con datos publicados.
+				</p>
+				<div class="mt-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+					<div class="space-y-3">
+						{dotacionTipo.map((d) => (
+							<div class="flex items-center gap-4">
+								<span class="w-24 shrink-0 text-sm font-medium text-slate-700">{TIPO_CONTRATO_LABEL[d.tipoContrato] ?? d.tipoContrato}</span>
+								<div class="h-6 flex-1 rounded bg-slate-200">
+									<div class="h-6 rounded bg-brand-600" style={`width:${(d.dotacion / maxDotacionTipo) * 100}%`}></div>
+								</div>
+								<span class="w-14 shrink-0 text-right text-sm font-semibold text-slate-900">{d.dotacion}</span>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<h2 class="text-xl font-semibold text-slate-900">Remuneración de alcaldes/as por comuna</h2>
+				<p class="mt-1 max-w-md text-base text-slate-500">
+					Remuneración bruta del mes más reciente publicado por cada comuna (indicado junto a cada
+					barra) según el Portal de Transparencia. No incluye a concejales.
+					{comunasSinRemuneracion.length > 0 && (
+						<>{' '}Falta{comunasSinRemuneracion.length === 1 ? '' : 'n'} {comunasSinRemuneracion.join(' y ')}, sin registro disponible.</>
+					)}
+				</p>
+				<div class="mt-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+					<div class="space-y-2.5">
+						{remuneracionAlcaldes.map((r) => (
+							<div class="flex items-center gap-4">
+								<span class="w-28 shrink-0 truncate text-sm font-medium text-slate-700">{r.nombreComuna}</span>
+								<div class="h-5 flex-1 rounded bg-slate-200">
+									<div class="h-5 rounded bg-brand-600" style={`width:${(r.remuneracionBruta / maxRemuneracion) * 100}%`}></div>
+								</div>
+								<span class="w-32 shrink-0 text-right text-xs font-semibold text-slate-900">
+									{formatoCLP(r.remuneracionBruta)}
+									<span class="block font-normal text-slate-400">{nombreMes(r.mes)}/{r.anno}</span>
+								</span>
+							</div>
+						))}
+					</div>
+				</div>
+				<p class="mt-4 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-800">
+					<strong>Por qué varía tanto entre comunas:</strong> revisamos el histórico enero-julio
+					2026 de las 15 comunas y en la mayoría hay un salto de 30-70% en mayo y julio sobre su
+					línea base de otros meses — compatible con algún bono o asignación variable que no se
+					paga todos los meses. No es parejo: algunas comunas (Paihuano, Salamanca, Combarbalá,
+					Canela, La Higuera) se mantienen planas todo el semestre. Por eso esta cifra no es un
+					sueldo base comparable 1 a 1 entre comunas, sino el monto bruto de ese mes puntual.
+				</p>
+			</div>
+		</section>
 
 		<ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 			{filas.map(({ comuna, tienePresupuesto, tienePersonal }) => {

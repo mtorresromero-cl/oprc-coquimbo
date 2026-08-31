@@ -1,9 +1,33 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { autoridades, comunas, CARGOS, CARGO_LABEL, GRUPO_LABEL, nombreComuna } from '../../lib/datos';
+import {
+	autoridades,
+	comunas,
+	CARGOS,
+	CARGO_LABEL,
+	GRUPO_LABEL,
+	nombreComuna,
+	composicionPartidoTodos,
+	composicionPorGenero,
+	composicionPorGeneroYCargo,
+	autoridadesPorCargoProvincia,
+} from '../../lib/datos';
 import TarjetaAutoridad from '../../components/TarjetaAutoridad.astro';
 
 const partidos = [...new Set(autoridades.map((a) => a.partido).filter(Boolean))].sort() as string[];
+
+const composicionPartido = composicionPartidoTodos();
+const totalAutoridadesConPartido = composicionPartido.reduce((s, p) => s + p.total, 0);
+const maxPartido = Math.max(...composicionPartido.map((p) => p.total), 1);
+
+const composicionGenero = composicionPorGenero();
+const totalConGenero = composicionGenero.reduce((s, g) => s + g.total, 0);
+const maxGenero = Math.max(...composicionGenero.map((g) => g.total), 1);
+
+const generoPorCargo = composicionPorGeneroYCargo();
+const maxGeneroPorCargo = Math.max(...generoPorCargo.flatMap((c) => [c.hombres, c.mujeres]), 1);
+
+const cargoProvincia = autoridadesPorCargoProvincia();
 
 // Orden geográfico real de las comunas (provincias de Elqui, Limarí y
 // Choapa, de norte a sur), usado para alcaldes y concejales.
@@ -55,6 +79,119 @@ const grupos = CARGOS.map((cargo) => {
 			<p class="mt-5 max-w-2xl text-lg text-slate-300">
 				Listado de {autoridades.length} autoridades políticas de la Región de Coquimbo.
 			</p>
+		</div>
+	</section>
+
+	<section class="border-b border-slate-100 bg-slate-50">
+		<div class="mx-auto max-w-6xl px-6 py-16">
+			<h2 class="text-2xl font-bold tracking-tight text-slate-900">
+				Composición por partido — todas las autoridades
+			</h2>
+			<p class="mt-2 max-w-2xl text-base text-slate-600">
+				Las {totalAutoridadesConPartido} autoridades de la Región de Coquimbo con partido
+				declarado: alcaldes, concejales, consejeros regionales, el gobernador, diputados y
+				senadores.
+			</p>
+			<div class="mt-8 space-y-3">
+				{composicionPartido.map((p) => (
+					<div class="flex items-center gap-4">
+						<span class="w-56 shrink-0 truncate text-sm font-medium text-slate-700">{p.partido}</span>
+						<div class="h-6 flex-1 rounded bg-slate-200">
+							<div class="h-6 rounded bg-brand-600" style={`width:${(p.total / maxPartido) * 100}%`}></div>
+						</div>
+						<span class="w-6 shrink-0 text-right text-sm font-semibold text-slate-900">{p.total}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="border-b border-slate-100 bg-slate-50">
+		<div class="mx-auto max-w-6xl px-6 py-16">
+			<div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+				<div>
+					<h2 class="text-2xl font-bold tracking-tight text-slate-900">Autoridades por provincia</h2>
+					<p class="mt-2 text-base text-slate-600">
+						Alcaldes y concejales según la provincia de su comuna; consejeros regionales según su
+						circunscripción provincial. No incluye senadores, diputados ni al gobernador, que
+						representan a toda la región y no a una provincia en particular.
+					</p>
+					<div class="mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+						<table class="w-full text-sm">
+							<thead class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase">
+								<tr>
+									<th class="px-4 py-3">Provincia</th>
+									<th class="px-4 py-3 text-right">Alcaldes</th>
+									<th class="px-4 py-3 text-right">Concejales</th>
+									<th class="px-4 py-3 text-right">Consejeros regionales</th>
+								</tr>
+							</thead>
+							<tbody class="divide-y divide-slate-100 bg-white">
+								{cargoProvincia.map((p) => (
+									<tr>
+										<td class="px-4 py-3 font-medium text-slate-900">{p.provincia}</td>
+										<td class="px-4 py-3 text-right text-slate-700">{p.alcalde}</td>
+										<td class="px-4 py-3 text-right text-slate-700">{p.concejal}</td>
+										<td class="px-4 py-3 text-right text-slate-700">{p.core}</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div>
+					<h2 class="text-2xl font-bold tracking-tight text-slate-900">Composición por género</h2>
+					<p class="mt-2 text-base text-slate-600">
+						Estimación a partir del nombre de cada una de las {totalConGenero} autoridades. No es un
+						dato publicado por las fuentes oficiales (SERVEL, BCN, Portal de Transparencia), que no
+						registran sexo o género.
+					</p>
+					<div class="mt-8 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+						<div class="space-y-3">
+							{composicionGenero.map((g) => (
+								<div class="flex items-center gap-4">
+									<span class="w-16 shrink-0 text-sm font-medium text-slate-700">{g.label}</span>
+									<div class="h-6 flex-1 rounded bg-slate-200">
+										<div class="h-6 rounded bg-brand-600" style={`width:${(g.total / maxGenero) * 100}%`}></div>
+									</div>
+									<span class="w-24 shrink-0 text-right text-sm font-semibold text-slate-900">
+										{g.total} <span class="font-normal text-slate-500">({Math.round((g.total / totalConGenero) * 100)}%)</span>
+									</span>
+								</div>
+							))}
+						</div>
+					</div>
+
+					<h2 class="mt-12 text-2xl font-bold tracking-tight text-slate-900">Género por cargo</h2>
+					<p class="mt-2 text-base text-slate-600">La misma estimación, desglosada por tipo de cargo.</p>
+					<div class="mt-8 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+						<div class="mb-4 flex items-center justify-center gap-8 text-xs font-semibold tracking-wide text-slate-500 uppercase">
+							<span class="flex items-center gap-1.5"><span class="h-2.5 w-2.5 rounded-sm bg-slate-600"></span>Hombres</span>
+							<span class="flex items-center gap-1.5"><span class="h-2.5 w-2.5 rounded-sm bg-brand-600"></span>Mujeres</span>
+						</div>
+						<div class="space-y-2.5">
+							{generoPorCargo.map((c) => (
+								<div class="flex items-center gap-1 sm:gap-2">
+									<span class="w-12 shrink-0 text-right text-[10px] font-medium text-slate-600 sm:w-20 sm:text-xs">
+										{c.hombres} <span class="text-slate-400">({Math.round(c.hombresPct)}%)</span>
+									</span>
+									<div class="flex h-4 flex-1 justify-end">
+										<div class="h-4 rounded-l bg-slate-600" style={`width:${(c.hombres / maxGeneroPorCargo) * 100}%`}></div>
+									</div>
+									<span class="w-16 shrink-0 text-center text-[10px] font-semibold text-slate-900 sm:w-28 sm:text-xs">{c.label}</span>
+									<div class="flex h-4 flex-1 justify-start">
+										<div class="h-4 rounded-r bg-brand-600" style={`width:${(c.mujeres / maxGeneroPorCargo) * 100}%`}></div>
+									</div>
+									<span class="w-12 shrink-0 text-[10px] font-medium text-slate-600 sm:w-20 sm:text-xs">
+										{c.mujeres} <span class="text-slate-400">({Math.round(c.mujeresPct)}%)</span>
+									</span>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 
