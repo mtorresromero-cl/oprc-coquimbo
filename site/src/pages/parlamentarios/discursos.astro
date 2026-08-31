@@ -464,6 +464,11 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 			ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 			construirNodosRed();
 			asentarRed();
+			// arranca dos niveles más cerca (lo mismo que tocar "+" dos
+			// veces) — se veía muy chico apenas se abría la pestaña
+			view.zoom = 1; view.offsetX = 0; view.offsetY = 0;
+			aplicarZoomRed(1.3, anchoC / 2, altoC / 2);
+			aplicarZoomRed(1.3, anchoC / 2, altoC / 2);
 		}
 
 		function pantallaAMundoRed(px: number, py: number) {
@@ -478,6 +483,7 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 		}
 
 		const maxPeso = Math.max(...cooData.enlaces.map((e) => e.peso), 1);
+		const maxNodoN = Math.max(...cooData.nodos.map((n) => n.n), 1);
 		let nodoActivoRed: Nodo | null = null;
 
 		function pasoRed() {
@@ -598,11 +604,23 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 				ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
 				ctx.fillStyle = '#4a3aa7cc';
 				ctx.fill();
-				ctx.fillStyle = '#fff';
-				ctx.font = `${Math.min(11, 7 + n.r * 0.15)}px "Space Grotesk", sans-serif`;
+
+				// tamaño de fuente proporcional a la frecuencia real (no al
+				// radio, que estaba tan comprimido que casi todas las
+				// palabras terminaban con el mismo tamaño tope) — y un halo
+				// oscuro detrás del texto blanco: sin él, la parte de la
+				// palabra que sobresale del círculo (texto blanco) se pierde
+				// contra el fondo blanco del canvas
+				const fontSize = 9 + (n.n / maxNodoN) * 20;
+				ctx.font = `700 ${fontSize}px "Space Grotesk", sans-serif`;
 				ctx.textAlign = 'center';
 				ctx.textBaseline = 'middle';
-				if (n.r > 9) ctx.fillText(n.palabra, n.x, n.y);
+				ctx.lineJoin = 'round';
+				ctx.lineWidth = Math.max(3, fontSize * 0.22);
+				ctx.strokeStyle = 'rgba(42,35,88,0.85)';
+				ctx.strokeText(n.palabra, n.x, n.y);
+				ctx.fillStyle = '#fff';
+				ctx.fillText(n.palabra, n.x, n.y);
 				ctx.globalAlpha = 1;
 			}
 			ctx.restore();
