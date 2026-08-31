@@ -427,7 +427,7 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 		const cooData: { nodos: PalabraFrecuencia[]; enlaces: Enlace[] } =
 			JSON.parse(document.getElementById('coocurrencia-data')!.textContent!);
 
-		type Nodo = { palabra: string; n: number; x: number; y: number; vx: number; vy: number; r: number };
+		type Nodo = { palabra: string; n: number; x: number; y: number; vx: number; vy: number; r: number; rTexto: number };
 
 		const canvas = document.getElementById('red-palabras') as HTMLCanvasElement;
 		const ctx = canvas.getContext('2d')!;
@@ -443,6 +443,14 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 			nodos = cooData.nodos.map((n, i) => {
 				const angulo = (i / cooData.nodos.length) * Math.PI * 2;
 				const radio = Math.min(anchoC, altoC) * (0.15 + Math.random() * 0.2);
+				const fontSize = 7 + (n.n / maxN) * 13;
+				// el radio del punto representa la frecuencia, pero para
+				// separar nodos hay que considerar el ancho real del texto:
+				// una palabra larga sobresale mucho más que su círculo, y
+				// dos círculos que no se tocan igual pueden quedar con las
+				// etiquetas superpuestas si no se mide esto
+				ctx.font = `700 ${fontSize}px "Space Grotesk", sans-serif`;
+				const anchoTexto = ctx.measureText(n.palabra).width;
 				return {
 					palabra: n.palabra,
 					n: n.n,
@@ -451,6 +459,7 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 					vx: 0,
 					vy: 0,
 					r: 6 + (n.n / maxN) * 22,
+					rTexto: Math.max(6 + (n.n / maxN) * 22, anchoTexto / 2 + 3),
 				};
 			});
 		}
@@ -546,14 +555,14 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 			// resolución de colisiones: restricción dura sobre la posición
 			// (no solo fuerza) para que dos círculos nunca queden superpuestos
 			// tapándose la etiqueta, pase lo que pase con los resortes/repulsión
-			const PADDING_ETIQUETA = 14;
+			const PADDING_ETIQUETA = 12;
 			for (let iter = 0; iter < 3; iter++) {
 				for (let i = 0; i < nodos.length; i++) {
 					for (let j = i + 1; j < nodos.length; j++) {
 						const a = nodos[i], b = nodos[j];
 						const dx = b.x - a.x, dy = b.y - a.y;
 						const dist = Math.hypot(dx, dy) || 0.01;
-						const minDist = a.r + b.r + PADDING_ETIQUETA;
+						const minDist = a.rTexto + b.rTexto + PADDING_ETIQUETA;
 						if (dist < minDist) {
 							const solape = (minDist - dist) / 2;
 							const nx = dx / dist, ny = dy / dist;
@@ -611,7 +620,7 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 				// oscuro detrás del texto blanco: sin él, la parte de la
 				// palabra que sobresale del círculo (texto blanco) se pierde
 				// contra el fondo blanco del canvas
-				const fontSize = 9 + (n.n / maxNodoN) * 20;
+				const fontSize = 7 + (n.n / maxNodoN) * 13;
 				ctx.font = `700 ${fontSize}px "Space Grotesk", sans-serif`;
 				ctx.textAlign = 'center';
 				ctx.textBaseline = 'middle';
