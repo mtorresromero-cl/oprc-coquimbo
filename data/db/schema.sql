@@ -230,21 +230,6 @@ CREATE TABLE IF NOT EXISTS participacion_electoral (
     FOREIGN KEY (comuna_id) REFERENCES comuna(id)
 );
 
-CREATE TABLE IF NOT EXISTS gasto_parlamentario (
-    id              INTEGER PRIMARY KEY AUTOINCREMENT,
-    autoridad_id    TEXT NOT NULL,           -- mismo id que autoridades.id
-    anno            INTEGER NOT NULL,
-    mes             INTEGER NOT NULL,
-    categoria       TEXT NOT NULL,           -- gastos_operacionales | asesorias_externas | pasajes_aereos | personal_apoyo
-    publicado       BOOLEAN NOT NULL,        -- si la Camara ya publico ese mes/categoria (false = pendiente, no es un cero real)
-    monto           REAL,
-    cantidad        INTEGER,
-    fuente_url      TEXT,
-    FOREIGN KEY (autoridad_id) REFERENCES autoridad(id)
-);
-CREATE UNIQUE INDEX IF NOT EXISTS ux_gasto_parlamentario
-    ON gasto_parlamentario(autoridad_id, anno, mes, categoria);
-
 CREATE TABLE IF NOT EXISTS actualizacion_log (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     scraper         TEXT NOT NULL,           -- nombre del scraper

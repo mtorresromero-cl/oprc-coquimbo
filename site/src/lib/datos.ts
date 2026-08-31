@@ -187,7 +187,6 @@ import participacionRaw from '../../../data/processed/participacion-electoral.js
 import resultadosHistoricosRaw from '../../../data/processed/resultados-electorales-historicos.json';
 import resultadosRecientesRaw from '../../../data/processed/resultados-electorales-recientes.json';
 import padronDemograficoRaw from '../../../data/processed/padron-demografico.json';
-import gastoParlamentarioRaw from '../../../data/processed/gasto-parlamentario.json';
 
 export const autoridades: Autoridad[] = autoridadesRaw as Autoridad[];
 export const comunas: Comuna[] = comunasRaw as Comuna[];
@@ -216,18 +215,6 @@ export const resultadosElectorales: ResultadoElectoral[] = [
 	...(resultadosRecientesRaw as ResultadoElectoral[]),
 ];
 export const padronDemografico: PadronDemografico[] = padronDemograficoRaw as PadronDemografico[];
-
-export interface GastoParlamentario {
-	autoridad_id: string;
-	anno: number;
-	mes: number;
-	categoria: string;
-	publicado: number;
-	monto: number | null;
-	cantidad: number | null;
-	fuente_url: string | null;
-}
-export const gastoParlamentario: GastoParlamentario[] = gastoParlamentarioRaw as GastoParlamentario[];
 
 export function presupuestoDeComuna(comunaId: string) {
 	return presupuesto.filter((p) => p.comuna_id === comunaId);
@@ -826,94 +813,6 @@ export interface CargoPorProvincia {
  * diputados y el gobernador no se incluyen: representan a toda la región,
  * no a una provincia en particular.
  */
-interface CategoriaGastoConfig {
-	label: string;
-	campo: 'monto' | 'cantidad';
-	unidad: string;
-	nota: string;
-}
-
-export const CATEGORIA_GASTO: Record<string, CategoriaGastoConfig> = {
-	gastos_operacionales: {
-		label: 'Gastos operacionales',
-		campo: 'monto',
-		unidad: '$',
-		nota: 'La Cámara no ha publicado gastos operacionales de ningún diputado de la región para marzo–julio 2026: los 0 de esta tabla significan "sin dato publicado", no un gasto real de cero.',
-	},
-	asesorias_externas: {
-		label: 'Asesorías externas',
-		campo: 'monto',
-		unidad: '$',
-		nota: 'A diferencia de las otras categorías, la página de asesorías externas de camara.cl no muestra, para ningún diputado de la región, ni una tabla con montos ni el mensaje "no publicado": queda en blanco. Los 0 de esta tabla significan que no se pudo confirmar el dato, no que se haya verificado un gasto de cero.',
-	},
-	pasajes_aereos: {
-		label: 'Pasajes aéreos nacionales',
-		campo: 'cantidad',
-		unidad: 'vuelos',
-		nota: 'Dato publicado y verificado en camara.cl: los 7 diputados de la región registran 0 pasajes aéreos nacionales entre marzo y julio de 2026.',
-	},
-	personal_apoyo: {
-		label: 'Personal de apoyo',
-		campo: 'monto',
-		unidad: '$',
-		nota: 'Dato publicado y verificado en camara.cl: gasto mensual total en sueldos del personal de apoyo contratado por cada diputado.',
-	},
-};
-
-export interface CeldaGasto {
-	mes: number;
-	publicado: boolean;
-	valor: number | null;
-	fuenteUrl: string | null;
-}
-
-export interface FilaGastoParlamentario {
-	id: string;
-	nombre: string;
-	celdas: CeldaGasto[];
-}
-
-export interface MatrizGasto {
-	categoria: string;
-	label: string;
-	unidad: string;
-	nota: string;
-	meses: number[];
-	filas: FilaGastoParlamentario[];
-}
-
-const MESES_GASTO_PARLAMENTARIO = [3, 4, 5, 6, 7];
-
-/** Datos hasta julio de 2026 (agosto en adelante todavía no se han recolectado). */
-export function matricesGastoParlamentario(): MatrizGasto[] {
-	const diputados = autoridades
-		.filter((a) => a.cargo === 'diputado')
-		.sort((a, b) => a.apellido.localeCompare(b.apellido));
-
-	return Object.entries(CATEGORIA_GASTO).map(([categoria, config]) => ({
-		categoria,
-		label: config.label,
-		unidad: config.unidad,
-		nota: config.nota,
-		meses: MESES_GASTO_PARLAMENTARIO,
-		filas: diputados.map((d) => ({
-			id: d.id,
-			nombre: d.nombre_completo,
-			celdas: MESES_GASTO_PARLAMENTARIO.map((mes) => {
-				const r = gastoParlamentario.find(
-					(g) => g.autoridad_id === d.id && g.categoria === categoria && g.mes === mes
-				);
-				return {
-					mes,
-					publicado: !!r?.publicado,
-					valor: r ? (r[config.campo] ?? null) : null,
-					fuenteUrl: r?.fuente_url ?? null,
-				};
-			}),
-		})),
-	}));
-}
-
 export function autoridadesPorCargoProvincia(): CargoPorProvincia[] {
 	const provincias = ['Elqui', 'Limarí', 'Choapa'];
 	const resultado: CargoPorProvincia[] = provincias.map((provincia) => ({ provincia, alcalde: 0, concejal: 0, core: 0 }));
