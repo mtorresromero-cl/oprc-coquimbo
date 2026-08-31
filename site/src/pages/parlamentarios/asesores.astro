@@ -140,15 +140,23 @@ const totalAsesores = equipos.reduce((n, e) => n + e.asesores.length, 0);
 
 		function construirNodos() {
 			const cx = ancho / 2;
-			const cy = alto / 2;
-			const radioClusters = Math.min(ancho, alto) * 0.36;
+			// un poco más abajo del centro real: los nombres se dibujan bajo
+			// cada nodo, así que el centro "visual" del grafo queda más alto
+			// que su centro matemático si cy = alto/2 — bajarlo lo compensa
+			const cy = alto * 0.54;
+			// elipse, no círculo: el canvas es mucho más ancho que alto, y un
+			// solo radio (basado en el lado corto) dejaba a los equipos de
+			// arriba/abajo pegados a esos bordes, con asesores empujados
+			// fuera del marco por la repulsión
+			const radioX = ancho * 0.32;
+			const radioY = alto * 0.28;
 			const maxRenta = Math.max(...equipos.flatMap((e) => e.asesores.map((a) => a.renta ?? 0)), 1);
 
 			nodos = [];
 			equipos.forEach((equipo, i) => {
 				const angulo = (i / equipos.length) * Math.PI * 2 - Math.PI / 2;
-				const homeX = cx + Math.cos(angulo) * radioClusters;
-				const homeY = cy + Math.sin(angulo) * radioClusters;
+				const homeX = cx + Math.cos(angulo) * radioX;
+				const homeY = cy + Math.sin(angulo) * radioY;
 				const color = COLORES_DIPUTADO[i % COLORES_DIPUTADO.length];
 
 				nodos.push({
@@ -237,6 +245,10 @@ const totalAsesores = equipos.reduce((n, e) => n + e.asesores.length, 0);
 				n.vy *= 0.82;
 				n.x += n.vx;
 				n.y += n.vy;
+				// tope duro: sin esto, un equipo grande cerca del borde puede
+				// terminar con asesores empujados fuera del canvas
+				n.x = Math.max(n.r + 2, Math.min(ancho - n.r - 2, n.x));
+				n.y = Math.max(n.r + 2, Math.min(alto - n.r - 2, n.y));
 			}
 		}
 
