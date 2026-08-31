@@ -8,6 +8,7 @@ export default defineConfig({
   redirects: {
     '/congreso': '/parlamentarios/',
     '/dashboard': '/parlamentarios/',
+    '/parlamentarios/asesores': '/parlamentarios/gastos/#personal-apoyo',
   },
   vite: {
     plugins: [tailwindcss()]
