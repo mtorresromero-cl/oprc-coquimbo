@@ -107,6 +107,16 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAAEcSbMqJvOAlX1zo';
 				const error = document.getElementById('form-error')!;
 				const exito = document.getElementById('form-exito')!;
 
+				const params = new URLSearchParams(location.search);
+				if (params.get('asunto') === 'error-datos') {
+					(document.getElementById('asunto') as HTMLInputElement).value = 'Error en un dato';
+					const pagina = params.get('pagina');
+					const mensaje = document.getElementById('mensaje') as HTMLTextAreaElement;
+					mensaje.value = `Encontré un posible error en esta página: ${location.origin}${pagina ?? ''}\n\nEl error es: `;
+					mensaje.focus();
+					mensaje.setSelectionRange(mensaje.value.length, mensaje.value.length);
+				}
+
 				form.addEventListener('submit', async (e) => {
 					e.preventDefault();
 					error.classList.add('hidden');

@@ -1529,36 +1529,64 @@
   "coocurrencia": {
     "nodos": [
       {
+        "palabra": "familias",
+        "n": 176
+      },
+      {
         "palabra": "región",
         "n": 204
       },
       {
-        "palabra": "puede",
-        "n": 174
+        "palabra": "gobierno",
+        "n": 141
       },
       {
-        "palabra": "sistema",
-        "n": 82
+        "palabra": "manera",
+        "n": 94
       },
       {
-        "palabra": "seguridad",
-        "n": 140
+        "palabra": "agua",
+        "n": 114
+      },
+      {
+        "palabra": "debe",
+        "n": 101
       },
       {
         "palabra": "sino",
         "n": 143
       },
       {
-        "palabra": "comisión",
-        "n": 85
-      },
-      {
         "palabra": "personas",
         "n": 128
       },
       {
-        "palabra": "derechos",
-        "n": 86
+        "palabra": "coquimbo",
+        "n": 202
+      },
+      {
+        "palabra": "sistema",
+        "n": 82
+      },
+      {
+        "palabra": "sesión",
+        "n": 100
+      },
+      {
+        "palabra": "rurales",
+        "n": 101
+      },
+      {
+        "palabra": "seguridad",
+        "n": 140
+      },
+      {
+        "palabra": "artículo",
+        "n": 100
+      },
+      {
+        "palabra": "puede",
+        "n": 174
       },
       {
         "palabra": "problema",
@@ -1569,60 +1597,32 @@
         "n": 115
       },
       {
-        "palabra": "gobierno",
-        "n": 141
-      },
-      {
-        "palabra": "comunidades",
-        "n": 85
-      },
-      {
-        "palabra": "agua",
-        "n": 114
-      },
-      {
-        "palabra": "país",
-        "n": 184
+        "palabra": "derechos",
+        "n": 86
       },
       {
         "palabra": "nacional",
         "n": 83
       },
       {
-        "palabra": "sesión",
-        "n": 100
-      },
-      {
         "palabra": "proyecto",
         "n": 366
       },
       {
-        "palabra": "coquimbo",
-        "n": 202
+        "palabra": "comisión",
+        "n": 85
       },
       {
-        "palabra": "rurales",
-        "n": 101
+        "palabra": "comunidades",
+        "n": 85
       },
       {
-        "palabra": "manera",
-        "n": 94
-      },
-      {
-        "palabra": "artículo",
-        "n": 100
+        "palabra": "país",
+        "n": 184
       },
       {
         "palabra": "chile",
         "n": 140
-      },
-      {
-        "palabra": "familias",
-        "n": 176
-      },
-      {
-        "palabra": "debe",
-        "n": 101
       },
       {
         "palabra": "recursos",

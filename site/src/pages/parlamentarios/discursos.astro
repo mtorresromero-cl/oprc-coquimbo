@@ -34,7 +34,10 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 		<div class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"></div>
 		<div class="pointer-events-none absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full bg-brand-800/30 blur-3xl"></div>
 		<div class="relative mx-auto max-w-6xl px-6 py-20">
-			<p class="text-sm font-semibold tracking-widest text-brand-300 uppercase">Datos</p>
+			<a href="/parlamentarios/" class="inline-flex items-center gap-1 text-sm font-medium text-slate-300 hover:text-white">
+				← Volver a Parlamentarios
+			</a>
+			<p class="mt-6 text-sm font-semibold tracking-widest text-brand-300 uppercase">Datos</p>
 			<h1 class="mt-4 max-w-2xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
 				Intervenciones en sala
 			</h1>
@@ -48,7 +51,7 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
 		<div class="flex flex-wrap gap-2">
-			{['Participación', 'Palabras más usadas', 'Tendencia', 'Red de palabras'].map((label, i) => (
+			{['Uso de la palabra', 'Palabras más usadas', 'Tendencia', 'Red de palabras'].map((label, i) => (
 				<button
 					type="button"
 					data-tab={i}
@@ -62,14 +65,21 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 			))}
 		</div>
 
-		<!-- Participación -->
+		<!-- Uso de la palabra -->
 		<section class="panel mt-8" data-panel="0">
-			<h2 class="text-xl font-semibold text-slate-900">Participación</h2>
+			<h2 class="text-xl font-semibold text-slate-900">Uso de la palabra</h2>
 			<p class="mt-1 max-w-2xl text-sm text-slate-500">
-				Tiempo hablado y cantidad de intervenciones registradas por camara.cl, todo tipo de
-				intervención (discursos, incidentes, puntos reglamentarios).
+				Tiempo hablado (en minutos:segundos) y cantidad de intervenciones registradas por
+				camara.cl, todo tipo de intervención (discursos, incidentes, puntos reglamentarios).
 			</p>
-			<div class="mt-6 space-y-3 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+			<div class="mt-4 flex items-center gap-3 text-xs font-semibold tracking-wide text-slate-400 uppercase">
+				<span class="w-8 shrink-0"></span>
+				<span class="w-24 shrink-0 sm:w-56"></span>
+				<div class="flex-1"></div>
+				<span class="w-16 shrink-0 text-right">Min:seg</span>
+				<span class="hidden w-20 shrink-0 text-right sm:inline">Interv.</span>
+			</div>
+			<div class="mt-2 space-y-3 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
 				{participacionOrdenada.map((d) => {
 					const max = Math.max(...participacionOrdenada.map((x) => x.segundos), 1);
 					const anchoPct = (d.segundos / max) * 100;
@@ -110,18 +120,28 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 				))}
 			</select>
 			<div id="lista-palabras" class="mt-4 grid gap-x-8 gap-y-1.5 rounded-xl border border-slate-200 bg-white p-5 shadow-sm sm:grid-cols-2"></div>
+
+			<h3 class="mt-10 text-base font-semibold text-slate-900">Nube de palabras</h3>
+			<p class="mt-1 max-w-2xl text-sm text-slate-500">
+				Lo mismo, en movimiento — el tamaño es la frecuencia. Pasa el mouse sobre una palabra
+				para ver cuántas veces se usó.
+			</p>
+			<div class="relative mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+				<canvas id="nube-palabras" class="block h-[420px] w-full"></canvas>
+				<div id="tooltip-nube" class="pointer-events-none absolute z-10 hidden max-w-[14rem] rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs shadow-lg"></div>
+			</div>
 		</section>
 
 		<!-- Tendencia -->
 		<section class="panel mt-8 hidden" data-panel="2">
 			<h2 class="text-xl font-semibold text-slate-900">Tendencia mensual</h2>
 			<p class="mt-1 max-w-2xl text-sm text-slate-500">
-				De las palabras más usadas en total, cuántas veces aparece cada una mes a mes.
+				De las palabras más usadas en total, cuántas veces aparece cada una mes a mes. Más
+				oscuro = más menciones ese mes. Pasa el mouse sobre una celda para ver el detalle.
 			</p>
 			<div class="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-				<svg id="grafico-tendencia" viewBox="0 0 720 340" class="w-full min-w-[600px]"></svg>
+				<div id="mapa-tendencia" class="relative inline-block min-w-full"></div>
 			</div>
-			<div id="leyenda-tendencia" class="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-xs text-slate-600"></div>
 		</section>
 
 		<!-- Red de palabras -->
@@ -170,9 +190,10 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 				document.querySelectorAll<HTMLElement>('.panel').forEach((p) => {
 					p.classList.toggle('hidden', p.dataset.panel !== tab);
 				});
-				// el canvas de la red mide 0x0 mientras su panel está oculto
-				// (display:none) — hay que recalcular el layout recién cuando
-				// se hace visible, si no los nodos quedan todos en (0,0)
+				// los canvas miden 0x0 mientras su panel está oculto (display:none)
+				// — hay que recalcular el layout recién cuando se hacen visibles,
+				// si no los nodos quedan todos amontonados en (0,0)
+				if (tab === '1') requestAnimationFrame(() => iniciarNubeSiHaceFalta());
 				if (tab === '3') requestAnimationFrame(() => iniciarRedSiHaceFalta());
 			});
 		});
@@ -206,51 +227,199 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 				.join('');
 		}
 		const selector = document.getElementById('selector-diputado') as HTMLSelectElement;
-		selector.addEventListener('change', () => renderPalabras(selector.value));
+		selector.addEventListener('change', () => {
+			renderPalabras(selector.value);
+			reconstruirNubeSiHaceFalta(selector.value);
+		});
 		renderPalabras('__total__');
-
-		// --- tendencia (linea SVG) ---
-		const tendenciaData: { meses: string[]; palabras: string[]; serie: Record<string, number[]>; mesesEtiquetas: string[] } =
-			JSON.parse(document.getElementById('tendencia-data')!.textContent!);
 
 		const COLORES = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300', '#4a3aa7', '#e34948'];
 
-		(function renderTendencia() {
-			const svg = document.getElementById('grafico-tendencia')!;
+		// --- nube de palabras (canvas, flotando, hover = frecuencia) ---
+		type NodoNube = { palabra: string; n: number; x: number; y: number; vx: number; vy: number; w: number; h: number; fontSize: number; color: string };
+
+		const canvasNube = document.getElementById('nube-palabras') as HTMLCanvasElement;
+		const ctxNube = canvasNube.getContext('2d')!;
+		const tooltipNube = document.getElementById('tooltip-nube')!;
+		const dprNube = Math.min(window.devicePixelRatio || 1, 2);
+		let anchoNube = 0, altoNube = 0;
+		let nodosNube: NodoNube[] = [];
+		let nodoActivoNube: NodoNube | null = null;
+
+		function construirNube(lista: PalabraFrecuencia[]) {
+			const top = lista.slice(0, 35);
+			const max = Math.max(...top.map((p) => p.n), 1);
+			ctxNube.save();
+			nodosNube = top.map((p, i) => {
+				const fontSize = 13 + (p.n / max) * 26;
+				ctxNube.font = `700 ${fontSize}px "Space Grotesk", sans-serif`;
+				const w = ctxNube.measureText(p.palabra).width + 10;
+				const h = fontSize + 8;
+				return {
+					palabra: p.palabra,
+					n: p.n,
+					x: Math.random() * Math.max(anchoNube - w, w) + w / 2,
+					y: Math.random() * Math.max(altoNube - h, h) + h / 2,
+					vx: (Math.random() - 0.5) * 0.3,
+					vy: (Math.random() - 0.5) * 0.3,
+					w, h, fontSize,
+					color: COLORES[i % COLORES.length],
+				};
+			});
+			ctxNube.restore();
+		}
+
+		function redimensionarNube() {
+			const rect = canvasNube.getBoundingClientRect();
+			anchoNube = rect.width;
+			altoNube = rect.height;
+			canvasNube.width = anchoNube * dprNube;
+			canvasNube.height = altoNube * dprNube;
+			ctxNube.setTransform(dprNube, 0, 0, dprNube, 0, 0);
+			construirNube(palabrasData.top_palabras_total);
+		}
+
+		function pasoNube() {
+			// deriva suave + rebote en los bordes
+			for (const n of nodosNube) {
+				if (Math.random() < 0.01) {
+					n.vx += (Math.random() - 0.5) * 0.15;
+					n.vy += (Math.random() - 0.5) * 0.15;
+				}
+				const vel = Math.hypot(n.vx, n.vy);
+				if (vel > 0.4) { n.vx = (n.vx / vel) * 0.4; n.vy = (n.vy / vel) * 0.4; }
+				n.x += n.vx; n.y += n.vy;
+				if (n.x - n.w / 2 < 0 || n.x + n.w / 2 > anchoNube) n.vx *= -1;
+				if (n.y - n.h / 2 < 0 || n.y + n.h / 2 > altoNube) n.vy *= -1;
+				n.x = Math.max(n.w / 2, Math.min(anchoNube - n.w / 2, n.x));
+				n.y = Math.max(n.h / 2, Math.min(altoNube - n.h / 2, n.y));
+			}
+			// separación por colisión de rectángulos — que nunca se tapen
+			for (let iter = 0; iter < 2; iter++) {
+				for (let i = 0; i < nodosNube.length; i++) {
+					for (let j = i + 1; j < nodosNube.length; j++) {
+						const a = nodosNube[i], b = nodosNube[j];
+						const dx = b.x - a.x, dy = b.y - a.y;
+						const solapaX = (a.w + b.w) / 2 + 6 - Math.abs(dx);
+						const solapaY = (a.h + b.h) / 2 + 4 - Math.abs(dy);
+						if (solapaX > 0 && solapaY > 0) {
+							if (solapaX < solapaY) {
+								const push = (solapaX / 2) * Math.sign(dx || 1);
+								a.x -= push; b.x += push;
+							} else {
+								const push = (solapaY / 2) * Math.sign(dy || 1);
+								a.y -= push; b.y += push;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		function dibujarNube() {
+			ctxNube.clearRect(0, 0, anchoNube, altoNube);
+			for (const n of nodosNube) {
+				const atenuado = nodoActivoNube && nodoActivoNube !== n;
+				ctxNube.globalAlpha = atenuado ? 0.35 : 1;
+				ctxNube.font = `700 ${n.fontSize}px "Space Grotesk", sans-serif`;
+				ctxNube.fillStyle = n.color;
+				ctxNube.textAlign = 'center';
+				ctxNube.textBaseline = 'middle';
+				ctxNube.fillText(n.palabra, n.x, n.y);
+			}
+			ctxNube.globalAlpha = 1;
+		}
+
+		function animarNube() {
+			pasoNube();
+			dibujarNube();
+			requestAnimationFrame(animarNube);
+		}
+
+		function nodoEnPosicionNube(px: number, py: number): NodoNube | null {
+			for (let i = nodosNube.length - 1; i >= 0; i--) {
+				const n = nodosNube[i];
+				if (Math.abs(px - n.x) <= n.w / 2 && Math.abs(py - n.y) <= n.h / 2) return n;
+			}
+			return null;
+		}
+
+		canvasNube.addEventListener('mousemove', (ev) => {
+			const rect = canvasNube.getBoundingClientRect();
+			const px = ev.clientX - rect.left, py = ev.clientY - rect.top;
+			const nodo = nodoEnPosicionNube(px, py);
+			nodoActivoNube = nodo;
+			if (nodo) {
+				tooltipNube.classList.remove('hidden');
+				tooltipNube.style.left = `${Math.min(px + 12, anchoNube - 160)}px`;
+				tooltipNube.style.top = `${py + 12}px`;
+				tooltipNube.innerHTML = `<p class="font-semibold text-slate-900">${nodo.palabra}</p><p class="mt-1 text-slate-500">${nodo.n} menciones</p>`;
+			} else {
+				tooltipNube.classList.add('hidden');
+			}
+		});
+		canvasNube.addEventListener('mouseleave', () => { nodoActivoNube = null; tooltipNube.classList.add('hidden'); });
+
+		let nubeIniciada = false;
+		function iniciarNubeSiHaceFalta() {
+			if (nubeIniciada) return;
+			nubeIniciada = true;
+			window.addEventListener('resize', redimensionarNube);
+			redimensionarNube();
+			animarNube();
+		}
+		function reconstruirNubeSiHaceFalta(clave: string) {
+			if (!nubeIniciada) return;
+			const lista = clave === '__total__' ? palabrasData.top_palabras_total : palabrasData.top_palabras_por_autoridad[clave] ?? [];
+			construirNube(lista);
+		}
+
+		// --- tendencia (mapa de calor: palabra x mes) ---
+		const tendenciaData: { meses: string[]; palabras: string[]; serie: Record<string, number[]>; mesesEtiquetas: string[] } =
+			JSON.parse(document.getElementById('tendencia-data')!.textContent!);
+
+		(function renderMapaTendencia() {
+			const cont = document.getElementById('mapa-tendencia')!;
 			const { meses, palabras, serie, mesesEtiquetas } = tendenciaData;
 			if (meses.length < 2) {
-				svg.outerHTML = '<p class="text-sm text-slate-500">No hay suficientes meses con datos todavía.</p>';
+				cont.innerHTML = '<p class="text-sm text-slate-500">No hay suficientes meses con datos todavía.</p>';
 				return;
 			}
-			const palabrasMostradas = palabras.slice(0, 8);
-			const padL = 30, padB = 30, padT = 10, padR = 10;
-			const w = 720 - padL - padR;
-			const h = 340 - padT - padB;
-			const max = Math.max(...palabrasMostradas.flatMap((p) => serie[p]), 1);
-			const x = (i: number) => padL + (i / (meses.length - 1)) * w;
-			const y = (v: number) => padT + h - (v / max) * h;
+			const palabrasMostradas = palabras.slice(0, 14);
+			const maxGlobal = Math.max(...palabrasMostradas.flatMap((p) => serie[p]), 1);
 
-			let svgHtml = `<line x1="${padL}" y1="${padT + h}" x2="${padL + w}" y2="${padT + h}" stroke="#e2e8f0" stroke-width="1" />`;
-			meses.forEach((_, i) => {
-				const esUltimo = i === meses.length - 1;
-				if (!esUltimo && i % Math.ceil(meses.length / 6) !== 0) return;
-				const anchor = i === 0 ? 'start' : esUltimo ? 'end' : 'middle';
-				svgHtml += `<text x="${x(i)}" y="${padT + h + 16}" font-size="9" fill="#94a3b8" text-anchor="${anchor}">${mesesEtiquetas[i]}</text>`;
+			let html = `<div class="grid" style="grid-template-columns:7.5rem repeat(${meses.length},minmax(2.75rem,1fr))">`;
+			html += `<div></div>`;
+			mesesEtiquetas.forEach((m) => {
+				html += `<div class="pb-1.5 text-center text-[10px] font-semibold tracking-wide text-slate-400 uppercase">${m}</div>`;
 			});
-
-			palabrasMostradas.forEach((palabra, pi) => {
-				const color = COLORES[pi % COLORES.length];
-				const puntos = serie[palabra].map((v, i) => `${x(i)},${y(v)}`).join(' ');
-				svgHtml += `<polyline points="${puntos}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />`;
-				const ultimoI = meses.length - 1;
-				svgHtml += `<circle cx="${x(ultimoI)}" cy="${y(serie[palabra][ultimoI])}" r="3" fill="${color}" />`;
+			palabrasMostradas.forEach((palabra) => {
+				html += `<div class="flex items-center pr-3 text-sm font-medium text-slate-700">${palabra}</div>`;
+				serie[palabra].forEach((v, i) => {
+					const intensidad = v / maxGlobal;
+					const bg = `color-mix(in srgb, var(--color-topic-discursos) ${Math.round(intensidad * 90)}%, white)`;
+					const claro = intensidad > 0.55;
+					html += `<div class="celda-mapa m-0.5 flex aspect-square cursor-default items-center justify-center rounded-md text-[11px] font-semibold tabular-nums" data-palabra="${palabra}" data-mes="${mesesEtiquetas[i]}" data-n="${v}" style="background:${bg};color:${claro ? '#fff' : v > 0 ? '#312a5c' : '#cbd5e1'}">${v > 0 ? v : ''}</div>`;
+				});
 			});
-			svg.innerHTML = svgHtml;
+			html += `</div>`;
+			cont.innerHTML = html;
 
-			const leyenda = document.getElementById('leyenda-tendencia')!;
-			leyenda.innerHTML = palabrasMostradas
-				.map((p, i) => `<span class="flex items-center gap-1.5"><span class="h-2.5 w-2.5 rounded-full" style="background:${COLORES[i % COLORES.length]}"></span>${p}</span>`)
-				.join('');
+			const tooltip = document.createElement('div');
+			tooltip.className = 'pointer-events-none absolute z-10 hidden rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs shadow-lg';
+			cont.appendChild(tooltip);
+
+			cont.querySelectorAll<HTMLElement>('.celda-mapa').forEach((celda) => {
+				celda.addEventListener('mouseenter', () => {
+					const { palabra, mes, n } = celda.dataset;
+					tooltip.innerHTML = `<p class="font-semibold text-slate-900">${palabra}</p><p class="mt-1 text-slate-500">${mes}: ${n} menciones</p>`;
+					tooltip.style.left = `${celda.offsetLeft}px`;
+					tooltip.style.top = `${celda.offsetTop - 8}px`;
+					tooltip.style.transform = 'translateY(-100%)';
+					tooltip.classList.remove('hidden');
+				});
+				celda.addEventListener('mouseleave', () => tooltip.classList.add('hidden'));
+			});
 		})();
 
 		// --- red de coocurrencia (canvas, fuerzas, zoom/pan) ---
@@ -314,8 +483,8 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 			// flotando fuera de pantalla, no debe competir con la repulsión
 			const centroX = anchoC / 2, centroY = altoC / 2;
 			for (const n of nodos) {
-				n.vx += (centroX - n.x) * 0.0003;
-				n.vy += (centroY - n.y) * 0.0003;
+				n.vx += (centroX - n.x) * 0.0005;
+				n.vy += (centroY - n.y) * 0.0005;
 			}
 			// repulsion de largo alcance entre TODOS los pares (no solo los
 			// que ya están cerca) — si solo repele a corta distancia, el
@@ -329,7 +498,7 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 					// reciben una fuerza gigante y salen disparados fuera de
 					// pantalla en vez de simplemente separarse
 					const dist = Math.max(Math.hypot(dx, dy), 24);
-					const f = Math.min(1400 / (dist * dist), 6);
+					const f = Math.min(2200 / (dist * dist), 8);
 					const fx = (dx / dist) * f, fy = (dy / dist) * f;
 					a.vx -= fx; a.vy -= fy;
 					b.vx += fx; b.vy += fy;
@@ -365,6 +534,39 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 					n.vy = (n.vy / velocidad) * VELOCIDAD_MAX;
 				}
 				n.x += n.vx; n.y += n.vy;
+			}
+			// resolución de colisiones: restricción dura sobre la posición
+			// (no solo fuerza) para que dos círculos nunca queden superpuestos
+			// tapándose la etiqueta, pase lo que pase con los resortes/repulsión
+			const PADDING_ETIQUETA = 14;
+			for (let iter = 0; iter < 3; iter++) {
+				for (let i = 0; i < nodos.length; i++) {
+					for (let j = i + 1; j < nodos.length; j++) {
+						const a = nodos[i], b = nodos[j];
+						const dx = b.x - a.x, dy = b.y - a.y;
+						const dist = Math.hypot(dx, dy) || 0.01;
+						const minDist = a.r + b.r + PADDING_ETIQUETA;
+						if (dist < minDist) {
+							const solape = (minDist - dist) / 2;
+							const nx = dx / dist, ny = dy / dist;
+							a.x -= nx * solape; a.y -= ny * solape;
+							b.x += nx * solape; b.y += ny * solape;
+						}
+					}
+				}
+			}
+			// recentrado duro del conjunto: la fuerza de centrado por nodo no
+			// evita que el grupo entero derive hacia una esquina (la dinámica
+			// de repulsión + resortes no es perfectamente simétrica) — esto
+			// sí lo garantiza, corrigiendo cada frame el centroide real
+			let cx = 0, cy = 0;
+			for (const n of nodos) { cx += n.x; cy += n.y; }
+			cx /= nodos.length; cy /= nodos.length;
+			const dCx = centroX - cx, dCy = centroY - cy;
+			for (const n of nodos) {
+				n.x += dCx; n.y += dCy;
+				n.x = Math.max(n.r, Math.min(anchoC - n.r, n.x));
+				n.y = Math.max(n.r, Math.min(altoC - n.r, n.y));
 			}
 		}
 

@@ -7,16 +7,19 @@ const totalAsesores = equipos.reduce((n, e) => n + e.asesores.length, 0);
 ---
 
 <Layout
-	title="Red de asesores — OPRC"
+	title="Asesores — OPRC"
 	description="Quién trabaja para cada diputado de la Región de Coquimbo: personal de apoyo, cargo y sueldo, según camara.cl."
 >
 	<section class="relative overflow-hidden bg-slate-900">
 		<div class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"></div>
 		<div class="pointer-events-none absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full bg-brand-800/30 blur-3xl"></div>
 		<div class="relative mx-auto max-w-6xl px-6 py-20">
-			<p class="text-sm font-semibold tracking-widest text-brand-300 uppercase">Datos</p>
+			<a href="/parlamentarios/" class="inline-flex items-center gap-1 text-sm font-medium text-slate-300 hover:text-white">
+				← Volver a Parlamentarios
+			</a>
+			<p class="mt-6 text-sm font-semibold tracking-widest text-brand-300 uppercase">Datos</p>
 			<h1 class="mt-4 max-w-2xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
-				Red de asesores
+				Asesores
 			</h1>
 			<p class="mt-5 max-w-2xl text-lg text-slate-300">
 				Los {totalAsesores} profesionales, administrativos y asesores del personal de apoyo de los

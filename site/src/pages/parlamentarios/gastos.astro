@@ -1,9 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { matricesGastoParlamentario, nombreMes } from '../../lib/datos';
+import { matricesGastoParlamentario, detalleGastosOperacionales, equiposDiputados, nombreMes } from '../../lib/datos';
 
 const matrices = matricesGastoParlamentario();
 const meses = matrices[0]?.meses ?? [];
+const detalleOperacionales = detalleGastosOperacionales();
+const equipos = equiposDiputados();
 
 function iniciales(nombre: string): string {
 	const partes = nombre.split(' ').filter(Boolean);
@@ -25,7 +27,10 @@ function formatoValor(unidad: string, valor: number | null): string {
 		<div class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"></div>
 		<div class="pointer-events-none absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full bg-brand-800/30 blur-3xl"></div>
 		<div class="relative mx-auto max-w-6xl px-6 py-20">
-			<p class="text-sm font-semibold tracking-widest text-brand-300 uppercase">Datos</p>
+			<a href="/parlamentarios/" class="inline-flex items-center gap-1 text-sm font-medium text-slate-300 hover:text-white">
+				← Volver a Parlamentarios
+			</a>
+			<p class="mt-6 text-sm font-semibold tracking-widest text-brand-300 uppercase">Datos</p>
 			<h1 class="mt-4 max-w-2xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
 				Gasto parlamentario
 			</h1>
@@ -116,9 +121,50 @@ function formatoValor(unidad: string, valor: number | null): string {
 					</a>
 					, ficha de transparencia de cada diputado/a.
 				</p>
+
+				{m.categoria === 'gastos_operacionales' && (
+					<div class="mt-10">
+						<h3 class="text-base font-semibold text-slate-900">Detalle por ítem</h3>
+						<p class="mt-1 max-w-2xl text-sm text-slate-500">
+							Elige diputado/a y mes para ver cada concepto de gasto operacional, no solo el total.
+						</p>
+						<div class="mt-4 flex flex-wrap gap-3">
+							<select id="detalle-op-diputado" class="rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-700">
+								{detalleOperacionales.map((d) => <option value={d.id}>{d.nombre}</option>)}
+							</select>
+							<select id="detalle-op-mes" class="rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-700">
+								{meses.map((mes) => <option value={mes}>{nombreMes(mes)}</option>)}
+							</select>
+						</div>
+						<div id="detalle-op-lista" class="mt-4 divide-y divide-slate-100 rounded-xl border border-slate-200 bg-white shadow-sm"></div>
+					</div>
+				)}
+
+				{m.categoria === 'personal_apoyo' && (
+					<div class="mt-10">
+						<h3 class="text-base font-semibold text-slate-900">Equipo por diputado/a</h3>
+						<p class="mt-1 max-w-2xl text-sm text-slate-500">
+							Nombre, cargo y sueldo de cada persona del equipo, julio 2026 (último mes con datos completos).
+						</p>
+						<select id="equipo-diputado" class="mt-4 rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-700">
+							{equipos.map((e) => <option value={e.id}>{e.nombre}</option>)}
+						</select>
+						<div class="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+							<table class="w-full text-sm">
+								<thead class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase">
+									<tr><th class="px-4 py-2">Nombre</th><th class="px-4 py-2">Cargo</th><th class="px-4 py-2 text-right">Sueldo</th></tr>
+								</thead>
+								<tbody id="equipo-lista" class="divide-y divide-slate-100"></tbody>
+							</table>
+						</div>
+					</div>
+				)}
 			</section>
 		))}
 	</main>
+
+	<script type="application/json" id="detalle-op-data" set:html={JSON.stringify(detalleOperacionales)} />
+	<script type="application/json" id="equipos-data" set:html={JSON.stringify(equipos)} />
 
 	<script>
 		document.querySelectorAll<HTMLButtonElement>('.categoria-btn').forEach((btn) => {
@@ -138,5 +184,60 @@ function formatoValor(unidad: string, valor: number | null): string {
 				});
 			});
 		});
+
+		// --- detalle de gastos operacionales por diputado/mes ---
+		interface ItemGasto { concepto: string; monto: number }
+		interface DetalleDiputado { id: string; nombre: string; meses: { mes: number; items: ItemGasto[] }[] }
+		const detalleOp: DetalleDiputado[] = JSON.parse(document.getElementById('detalle-op-data')!.textContent!);
+
+		function renderDetalleOp() {
+			const selDiputado = document.getElementById('detalle-op-diputado') as HTMLSelectElement;
+			const selMes = document.getElementById('detalle-op-mes') as HTMLSelectElement;
+			const cont = document.getElementById('detalle-op-lista');
+			if (!cont) return;
+			const dip = detalleOp.find((d) => d.id === selDiputado.value);
+			const items = dip?.meses.find((m) => m.mes === Number(selMes.value))?.items ?? [];
+			if (items.length === 0) {
+				cont.innerHTML = '<p class="p-4 text-sm text-slate-500">Sin ítems con gasto ese mes.</p>';
+				return;
+			}
+			cont.innerHTML = items
+				.map(
+					(it) => `
+					<div class="flex items-center justify-between gap-4 px-4 py-2.5 text-sm">
+						<span class="text-slate-700">${it.concepto}</span>
+						<span class="shrink-0 font-semibold text-slate-900 tabular-nums">$${it.monto.toLocaleString('es-CL')}</span>
+					</div>`
+				)
+				.join('');
+		}
+		document.getElementById('detalle-op-diputado')?.addEventListener('change', renderDetalleOp);
+		document.getElementById('detalle-op-mes')?.addEventListener('change', renderDetalleOp);
+		if (document.getElementById('detalle-op-lista')) renderDetalleOp();
+
+		// --- equipo (personal de apoyo) por diputado ---
+		interface Asesor { nombre: string; cargo: string; renta: number | null }
+		interface EquipoDiputado { id: string; nombre: string; asesores: Asesor[] }
+		const equiposData: EquipoDiputado[] = JSON.parse(document.getElementById('equipos-data')!.textContent!);
+
+		function renderEquipo() {
+			const sel = document.getElementById('equipo-diputado') as HTMLSelectElement;
+			const cont = document.getElementById('equipo-lista');
+			if (!cont) return;
+			const equipo = equiposData.find((e) => e.id === sel.value);
+			const asesores = [...(equipo?.asesores ?? [])].sort((a, b) => (b.renta ?? 0) - (a.renta ?? 0));
+			cont.innerHTML = asesores
+				.map(
+					(a) => `
+					<tr>
+						<td class="px-4 py-2.5 font-medium text-slate-900">${a.nombre}</td>
+						<td class="px-4 py-2.5 text-slate-700">${a.cargo}</td>
+						<td class="px-4 py-2.5 text-right font-semibold text-slate-900 tabular-nums">${a.renta ? `$${a.renta.toLocaleString('es-CL')}` : '—'}</td>
+					</tr>`
+				)
+				.join('');
+		}
+		document.getElementById('equipo-diputado')?.addEventListener('change', renderEquipo);
+		if (document.getElementById('equipo-lista')) renderEquipo();
 	</script>
 </Layout>

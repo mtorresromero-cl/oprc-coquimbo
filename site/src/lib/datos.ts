@@ -938,6 +938,49 @@ export function matricesGastoParlamentario(): MatrizGasto[] {
 	}));
 }
 
+export interface ItemGastoOperacional {
+	concepto: string;
+	monto: number;
+}
+
+export interface DetalleGastoOperacionalMes {
+	mes: number;
+	items: ItemGastoOperacional[];
+}
+
+export interface DetalleGastoOperacionalDiputado {
+	id: string;
+	nombre: string;
+	meses: DetalleGastoOperacionalMes[];
+}
+
+/**
+ * Desglose completo (todos los ítems, no solo el total) de gastos
+ * operacionales de cada diputado/a, mes a mes — mismo insumo que la sección
+ * de gasto en el perfil de autoridad, pero para los 7 a la vez.
+ */
+export function detalleGastosOperacionales(): DetalleGastoOperacionalDiputado[] {
+	const diputados = autoridades
+		.filter((a) => a.cargo === 'diputado')
+		.sort((a, b) => a.apellido.localeCompare(b.apellido));
+
+	return diputados.map((d) => ({
+		id: d.id,
+		nombre: d.nombre_completo,
+		meses: MESES_GASTO_PARLAMENTARIO.map((mes) => {
+			const registro = gastoParlamentario.find(
+				(g) => g.autoridad_id === d.id && g.categoria === 'gastos_operacionales' && g.mes === mes
+			);
+			const items: ItemGastoOperacional[] = registro?.detalle
+				? (JSON.parse(registro.detalle) as ItemGastoOperacional[])
+						.filter((i) => (i.monto ?? 0) > 0)
+						.sort((a, b) => b.monto - a.monto)
+				: [];
+			return { mes, items };
+		}),
+	}));
+}
+
 export interface Asesor {
 	nombre: string;
 	cargo: string;

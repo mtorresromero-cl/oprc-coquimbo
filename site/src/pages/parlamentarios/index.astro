@@ -83,19 +83,27 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 	</section>
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
-		<div class="flex flex-wrap gap-2">
-			<button type="button" data-grupo="senado" class="grupo-btn cursor-pointer rounded-md px-4 py-2 text-sm font-semibold bg-brand-600 text-white hover:bg-brand-700">
-				Senadores
-			</button>
-			<button type="button" data-grupo="diputados" class="grupo-btn cursor-pointer rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
-				Diputados
-			</button>
+		<div class="flex flex-wrap items-center justify-between gap-3">
+			<div class="flex flex-wrap gap-2">
+				<button type="button" data-grupo="senado" class="grupo-btn cursor-pointer rounded-md px-4 py-2 text-sm font-semibold bg-brand-600 text-white hover:bg-brand-700">
+					Senadores
+				</button>
+				<button type="button" data-grupo="diputados" class="grupo-btn cursor-pointer rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+					Diputados
+				</button>
+			</div>
 			<a
 				href="/parlamentarios/comparador/"
-				class="rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+				class="flex items-center gap-2 rounded-md bg-topic-asistencia px-4 py-2 text-sm font-semibold text-white shadow-sm hover:brightness-110"
 			>
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+					<path d="M8 3 4 7l4 4" /><path d="M4 7h16" /><path d="M16 21l4-4-4-4" /><path d="M20 17H4" />
+				</svg>
 				Comparador
 			</a>
+		</div>
+
+		<div id="submenu-diputados" class="mt-3 hidden flex-wrap gap-2 border-l-2 border-slate-200 pl-3">
 			<a
 				href="/parlamentarios/gastos/"
 				class="rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
@@ -106,7 +114,7 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 				href="/parlamentarios/asesores/"
 				class="rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
 			>
-				Red de asesores
+				Asesores
 			</a>
 			<a
 				href="/parlamentarios/discursos/"
@@ -372,6 +380,10 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 				document.querySelectorAll<HTMLElement>('.recientes').forEach((sec) => {
 					sec.classList.toggle('hidden', sec.dataset.recientes !== grupoActivo);
 				});
+
+				const submenu = document.getElementById('submenu-diputados')!;
+				submenu.classList.toggle('hidden', grupoActivo !== 'diputados');
+				submenu.classList.toggle('flex', grupoActivo === 'diputados');
 			});
 		});
 
