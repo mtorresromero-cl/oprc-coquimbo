@@ -8,6 +8,7 @@ import {
 	indiceMociones,
 	indiceAsistencia,
 	VOTO_LABEL,
+	fotoAutoridad,
 } from '../../lib/datos';
 
 function nombreAutoridad(id: string) {
@@ -29,6 +30,7 @@ const grupos = {
 	senado: indiceSenado.map((i) => ({
 		id: i.autoridad_id,
 		nombre: i.nombre,
+		foto: fotoAutoridad(i.autoridad_id),
 		metrics: {
 			asistenciaPct: asistenciaSenadoPorId.get(i.autoridad_id)?.asistenciaPct ?? null,
 			participacionPct: i.participacionPct,
@@ -43,6 +45,7 @@ const grupos = {
 	diputados: indiceDiputados.map((i) => ({
 		id: i.autoridad_id,
 		nombre: i.nombre,
+		foto: fotoAutoridad(i.autoridad_id),
 		metrics: {
 			asistenciaPct: asistenciaDiputadosPorId.get(i.autoridad_id)?.asistenciaPct ?? null,
 			participacionPct: i.participacionPct,
@@ -76,23 +79,23 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 				Elige a quién mirar. Cada cámara muestra su ranking de participación y sus votaciones más
 				recientes.
 			</p>
-			<a
-				href="/parlamentarios/comparador/"
-				class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-300 hover:text-brand-200 hover:underline"
-			>
-				Comparar hasta 3 diputados o senadores lado a lado →
-			</a>
 		</div>
 	</section>
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
 		<div class="flex flex-wrap gap-2">
 			<button type="button" data-grupo="senado" class="grupo-btn cursor-pointer rounded-md px-4 py-2 text-sm font-semibold bg-brand-600 text-white hover:bg-brand-700">
-				Senado
+				Senadores
 			</button>
 			<button type="button" data-grupo="diputados" class="grupo-btn cursor-pointer rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
 				Diputados
 			</button>
+			<a
+				href="/parlamentarios/comparador/"
+				class="rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+			>
+				Comparador
+			</a>
 		</div>
 
 		<section class="mt-8">
@@ -102,12 +105,17 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 
 			<div id="chart" class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm"></div>
 
-			<div class="mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
-				<table class="w-full text-sm">
-					<thead id="tabla-head" class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase"></thead>
-					<tbody id="tabla-body" class="divide-y divide-slate-100"></tbody>
-				</table>
-			</div>
+			<details class="mt-6 group">
+				<summary class="cursor-pointer text-sm font-semibold text-brand-600 hover:text-brand-700">
+					Ver tabla con todas las métricas a la vez →
+				</summary>
+				<div class="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+					<table class="w-full text-sm">
+						<thead id="tabla-head" class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase"></thead>
+						<tbody id="tabla-body" class="divide-y divide-slate-100"></tbody>
+					</table>
+				</div>
+			</details>
 		</section>
 
 		<!-- SENADO — recientes -->
@@ -198,6 +206,7 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 		interface Item {
 			id: string;
 			nombre: string;
+			foto: string | null;
 			metrics: Record<string, number | null>;
 		}
 
@@ -253,6 +262,11 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 			return esPct(metricKey) ? `${valor.toFixed(1)}%` : String(valor);
 		}
 
+		function iniciales(nombre: string): string {
+			const partes = nombre.split(' ').filter(Boolean);
+			return ((partes[0]?.[0] ?? '') + (partes[1]?.[0] ?? '')).toUpperCase();
+		}
+
 		let grupoActivo: GrupoKey = 'senado';
 		let metricaActiva = METRICAS.senado[0][0];
 
@@ -282,7 +296,10 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 			const max = Math.max(...ordenados.map((i) => i.metrics[metricaActiva] ?? 0), 1);
 
 			function etiquetaNombre(i: Item) {
-				return `<span class="min-w-0 truncate">${i.nombre}</span>`;
+				const avatar = i.foto
+					? `<img src="${i.foto}" alt="" class="h-6 w-6 shrink-0 rounded-full border-2 border-slate-100 object-cover" />`
+					: `<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-slate-100 bg-brand-50 text-[10px] font-bold text-brand-700">${iniciales(i.nombre)}</span>`;
+				return `${avatar}<span class="min-w-0 truncate">${i.nombre}</span>`;
 			}
 
 			const chart = document.getElementById('chart')!;
