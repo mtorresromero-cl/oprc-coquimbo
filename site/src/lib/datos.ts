@@ -188,6 +188,7 @@ import resultadosHistoricosRaw from '../../../data/processed/resultados-electora
 import resultadosRecientesRaw from '../../../data/processed/resultados-electorales-recientes.json';
 import padronDemograficoRaw from '../../../data/processed/padron-demografico.json';
 import gastoParlamentarioRaw from '../../../data/processed/gasto-parlamentario.json';
+import analisisIntervencionesRaw from '../../../data/processed/analisis-intervenciones.json';
 
 export const autoridades: Autoridad[] = autoridadesRaw as Autoridad[];
 export const comunas: Comuna[] = comunasRaw as Comuna[];
@@ -229,6 +230,26 @@ export interface GastoParlamentario {
 	fuente_url: string | null;
 }
 export const gastoParlamentario: GastoParlamentario[] = gastoParlamentarioRaw as GastoParlamentario[];
+
+export interface PalabraFrecuencia {
+	palabra: string;
+	n: number;
+}
+export interface AnalisisIntervenciones {
+	top_palabras_por_autoridad: Record<string, PalabraFrecuencia[]>;
+	top_palabras_total: PalabraFrecuencia[];
+	tendencia: { meses: string[]; palabras: string[]; serie: Record<string, number[]> };
+	coocurrencia: {
+		nodos: PalabraFrecuencia[];
+		enlaces: { a: string; b: string; peso: number }[];
+	};
+	participacion: Record<string, { intervenciones: number; segundos: number; con_texto: number }>;
+	total_intervenciones: number;
+	total_con_texto: number;
+	total_palabras_corpus: number;
+}
+export const analisisIntervenciones: AnalisisIntervenciones =
+	analisisIntervencionesRaw as AnalisisIntervenciones;
 
 export function presupuestoDeComuna(comunaId: string) {
 	return presupuesto.filter((p) => p.comuna_id === comunaId);

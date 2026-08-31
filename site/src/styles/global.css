@@ -25,6 +25,7 @@
 	--color-topic-patrimonio: #eda100;
 	--color-topic-gasto: #e87ba4;
 	--color-topic-audiencias: #008300;
+	--color-topic-discursos: #4a3aa7;
 
 	/* Estado — significado fijo (publicado/verificado vs. pendiente),
 	   nunca reutilizados como "tema 7" u otra serie. */
