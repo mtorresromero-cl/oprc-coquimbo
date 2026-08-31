@@ -291,3 +291,18 @@ CREATE TABLE IF NOT EXISTS gasto_parlamentario (
 );
 CREATE UNIQUE INDEX IF NOT EXISTS ux_gasto_parlamentario
     ON gasto_parlamentario(autoridad_id, anno, mes, categoria);
+
+CREATE TABLE IF NOT EXISTS intervencion_sala (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    sesion_id       TEXT NOT NULL,           -- id interno de camara.cl (prmid del boletin)
+    numero_sesion   INTEGER NOT NULL,
+    etiqueta_sesion TEXT NOT NULL,           -- ej. "31ª, martes 9 junio 2026"
+    autoridad_id    TEXT,                    -- NULL = sesion revisada, nadie de la region intervino
+    tipo            TEXT,                    -- Discurso a favor | Discurso en contra | Incidentes | ...
+    detalle         TEXT,                    -- item/boletin sobre el que intervino
+    duracion        TEXT,                    -- mm:ss tal como lo publica camara.cl
+    texto           TEXT,                    -- texto real de la intervencion (boletin PDF), o NULL si no se pudo extraer
+    FOREIGN KEY (autoridad_id) REFERENCES autoridad(id)
+);
+CREATE UNIQUE INDEX IF NOT EXISTS ux_intervencion_sala
+    ON intervencion_sala(sesion_id, autoridad_id, tipo, detalle);
