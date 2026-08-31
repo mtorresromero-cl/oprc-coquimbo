@@ -275,3 +275,18 @@ CREATE UNIQUE INDEX IF NOT EXISTS ux_participacion_electoral
     ON participacion_electoral(jornada, comuna_id);
 CREATE UNIQUE INDEX IF NOT EXISTS ux_padron_demografico
     ON padron_demografico(jornada, comuna_id, sexo, rango_etario, extranjero);
+
+CREATE TABLE IF NOT EXISTS gasto_parlamentario (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    autoridad_id    TEXT NOT NULL,           -- mismo id que autoridad.id
+    anno            INTEGER NOT NULL,
+    mes             INTEGER NOT NULL,
+    categoria       TEXT NOT NULL,           -- gastos_operacionales | asesorias_externas | pasajes_aereos | personal_apoyo
+    publicado       BOOLEAN NOT NULL,        -- si la Camara ya publico ese mes/categoria (false = pendiente, no es un cero real)
+    monto           REAL,
+    cantidad        INTEGER,
+    fuente_url      TEXT,
+    FOREIGN KEY (autoridad_id) REFERENCES autoridad(id)
+);
+CREATE UNIQUE INDEX IF NOT EXISTS ux_gasto_parlamentario
+    ON gasto_parlamentario(autoridad_id, anno, mes, categoria);
