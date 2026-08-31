@@ -58,6 +58,7 @@ HEADERS = {
 }
 
 SLEEP_ENTRE_PETICIONES = 3.0
+MAX_LARGO_TEXTO = 4500  # ver nota en extraer_discursos
 REINTENTOS = 4
 
 BASE_URL = "https://www.camara.cl"
@@ -206,9 +207,19 @@ def descargar_boletin_texto(session, sesion_id: str) -> str | None:
 # (votos/mociones) se registran como resumen en tercera persona sin cita
 # textual, así que quedan sin texto aunque el diputado sí haya hablado.
 _TRATAMIENTO = r"(?:El señor|La señora|La señorita)"
+# la mesa (presidente/a, vicepresidente/a) a veces se identifica con una
+# coma antes del calificador — "La señora OSSANDÓN, doña Ximena
+# (Vicepresidenta).-" — a diferencia del formato normal de un diputado/a
+# cualquiera, "La señorita CASTILLO (doña Nathalie).-"; si no se reconoce
+# esta variante como límite válido, el texto de quien habló antes se sigue
+# capturando de más hasta el próximo marcador real (visto en la práctica:
+# intervenciones de otros diputados/as o hasta la lista de asistencia
+# colándose al final del texto de uno de los nuestros)
+_CALIFICADOR_CAPTURA = r"(?:,\s*(?:doña|don)\s+[A-ZÑÁÉÍÓÚa-zñáéíóú]+)?\s*(?:\(([^)]*)\))?"
+_CALIFICADOR_SIMPLE = r"(?:,\s*(?:doña|don)\s+[A-ZÑÁÉÍÓÚa-zñáéíóú]+)?\s*(?:\([^)]*\))?"
 PATRON_INTERVENCION = re.compile(
-    rf"{_TRATAMIENTO}\s+([A-ZÑÁÉÍÓÚ][A-ZÑÁÉÍÓÚ\s]*?)\s*(?:\(([^)]*)\))?\.-\s*(.+?)"
-    rf"(?={_TRATAMIENTO}\s+[A-ZÑÁÉÍÓÚ][A-ZÑÁÉÍÓÚ\s]*?\s*(?:\([^)]*\))?\.-|\Z)",
+    rf"{_TRATAMIENTO}\s+([A-ZÑÁÉÍÓÚ][A-ZÑÁÉÍÓÚ\s]*?){_CALIFICADOR_CAPTURA}\.-\s*(.+?)"
+    rf"(?={_TRATAMIENTO}\s+[A-ZÑÁÉÍÓÚ][A-ZÑÁÉÍÓÚ\s]*?{_CALIFICADOR_SIMPLE}\.-|\Z)",
     re.S,
 )
 
@@ -253,6 +264,14 @@ def extraer_discursos(
         texto = re.sub(r"\s+", " ", m.group(3)).strip()
         if len(texto) < 20:  # interrupciones/frases sueltas, no una intervención real
             continue
+        if len(texto) > MAX_LARGO_TEXTO:
+            # red de seguridad: una intervención real de sala no llega a
+            # esto — si pasa, es casi seguro que el límite real (otro
+            # formato de marcador de la mesa que no reconocemos aún) no se
+            # detectó y se siguió capturando texto ajeno (listas de
+            # asistencia, tabla de comisiones, etc.)
+            corte = texto.rfind(".", 0, MAX_LARGO_TEXTO)
+            texto = texto[: corte + 1] if corte != -1 else texto[:MAX_LARGO_TEXTO]
         resultado.setdefault(autoridad_id, []).append(texto)
     return resultado
 
