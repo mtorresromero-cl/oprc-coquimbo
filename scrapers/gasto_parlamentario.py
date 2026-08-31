@@ -223,16 +223,18 @@ class ScraperGastoParlamentario(BaseScraper):
             }
 
         if categoria == "personal_apoyo":
-            # fila tipica: [nombre, cargo, renta, tipo_contrato, fecha_inicio]
+            # fila real: [Tipo, (icono expandir), Nombre, Cargo, Sueldo,
+            # Cargo Eleccion (SERVEL), Cese de funciones] — confirmado
+            # contra la tabla real (no la columna 0, como asume la mayoria
+            # de las paginas de camara.cl)
             items = []
             for f in filas:
-                if len(f) < 3 or not f[0]:
+                if len(f) < 5 or not f[2]:
                     continue
                 items.append({
-                    "nombre": f[0],
-                    "cargo": f[1] if len(f) > 1 else None,
-                    "renta": _monto_a_numero(f[2]) if len(f) > 2 else None,
-                    "tipo_contrato": f[3] if len(f) > 3 else None,
+                    "nombre": f[2],
+                    "cargo": f[3] if len(f) > 3 else None,
+                    "renta": _monto_a_numero(f[4]) if len(f) > 4 else None,
                 })
             total = sum(i["renta"] or 0 for i in items)
             return {
@@ -267,22 +269,23 @@ class ScraperGastoParlamentario(BaseScraper):
             }
 
         if categoria == "pasajes_aereos":
-            # fila tipica: [fecha, origen, destino, aerolinea, monto, motivo]
+            # fila real: [Fecha, Pasajero, Tramo, Linea, (icono)] — esta
+            # tabla NO publica costo por pasaje, solo el registro del viaje;
+            # "cantidad" (vuelos) es el dato real, "monto" queda sin dato
+            # a proposito en vez de aparentar un cero verificado
             items = []
             for f in filas:
                 if len(f) < 3 or not f[1]:
                     continue
                 items.append({
                     "fecha": f[0] if len(f) > 0 else None,
-                    "origen": f[1] if len(f) > 1 else None,
-                    "destino": f[2] if len(f) > 2 else None,
+                    "pasajero": f[1] if len(f) > 1 else None,
+                    "tramo": f[2] if len(f) > 2 else None,
                     "aerolinea": f[3] if len(f) > 3 else None,
-                    "monto": _monto_a_numero(f[4]) if len(f) > 4 else None,
                 })
-            total = sum(i["monto"] or 0 for i in items)
             return {
                 **base, "publicado": True,
-                "monto": total if items else (0 if sin_registros else None),
+                "monto": None,
                 "cantidad": len(items),
                 "detalle": json.dumps(items, ensure_ascii=False) if items else None,
             }
