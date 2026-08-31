@@ -29,6 +29,14 @@ const patrimonio = declaracionPatrimonioDeAutoridad(autoridad.id);
 const resumenAsistencia = asistenciaResumenDeAutoridad(autoridad.id);
 const foto = fotoAutoridad(autoridad.id);
 
+const asistenciaPct = resumenAsistencia
+	? Math.min(100, Math.round((resumenAsistencia.asistencias / resumenAsistencia.sesiones_computables) * 1000) / 10)
+	: null;
+
+// aro del donut de asistencia: circunferencia de un círculo r=54
+const AROS_CIRCUNFERENCIA = 2 * Math.PI * 54;
+const aroRelleno = asistenciaPct !== null ? (asistenciaPct / 100) * AROS_CIRCUNFERENCIA : 0;
+
 function iniciales(nombre: string) {
 	const partes = nombre.split(' ').filter(Boolean);
 	return ((partes[0]?.[0] ?? '') + (partes[1]?.[0] ?? '')).toUpperCase();
@@ -45,6 +53,16 @@ function formatoCLP(monto: number) {
 		monto
 	);
 }
+
+// un color e ícono fijo por tema — mismo sistema del comparador, para que
+// el perfil y el comparador se lean como parte de un mismo lenguaje visual
+const TEMA = {
+	patrimonio: { color: 'var(--color-topic-patrimonio)', icono: 'M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6' },
+	asistencia: { color: 'var(--color-topic-asistencia)', icono: 'M12 6v6l4 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z' },
+	mociones: { color: 'var(--color-topic-mociones)', icono: 'M14 3v5a2 2 0 0 0 2 2h5M6 3h8l6 6v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z' },
+	votaciones: { color: 'var(--color-topic-votaciones)', icono: 'm9 12 2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z' },
+};
+
 ---
 
 <Layout title={`${autoridad.nombre_completo} — OPRC`}>
@@ -144,16 +162,16 @@ function formatoCLP(monto: number) {
 						<p class="text-xs font-semibold tracking-wide text-slate-500 uppercase">En esta página</p>
 						<ul class="mt-3 space-y-2">
 							{patrimonio && (
-								<li><a href="#patrimonio" class="text-brand-600 hover:underline">Declaración de patrimonio e intereses</a></li>
+								<li><a href="#patrimonio" class="flex items-center gap-2 text-brand-600 hover:underline"><span class="h-2 w-2 shrink-0 rounded-full" style={`background:${TEMA.patrimonio.color}`}></span>Declaración de patrimonio e intereses</a></li>
 							)}
 							{resumenAsistencia && (
-								<li><a href="#asistencia" class="text-brand-600 hover:underline">Asistencia a sala</a></li>
+								<li><a href="#asistencia" class="flex items-center gap-2 text-brand-600 hover:underline"><span class="h-2 w-2 shrink-0 rounded-full" style={`background:${TEMA.asistencia.color}`}></span>Asistencia a sala</a></li>
 							)}
 							{historialMociones.length > 0 && (
-								<li><a href="#mociones" class="text-brand-600 hover:underline">Mociones presentadas ({historialMociones.length})</a></li>
+								<li><a href="#mociones" class="flex items-center gap-2 text-brand-600 hover:underline"><span class="h-2 w-2 shrink-0 rounded-full" style={`background:${TEMA.mociones.color}`}></span>Mociones presentadas ({historialMociones.length})</a></li>
 							)}
 							{historialVotos.length > 0 && (
-								<li><a href="#votaciones" class="text-brand-600 hover:underline">Historial de votaciones</a></li>
+								<li><a href="#votaciones" class="flex items-center gap-2 text-brand-600 hover:underline"><span class="h-2 w-2 shrink-0 rounded-full" style={`background:${TEMA.votaciones.color}`}></span>Historial de votaciones</a></li>
 							)}
 						</ul>
 					</nav>
@@ -163,26 +181,31 @@ function formatoCLP(monto: number) {
 			<div>
 				{patrimonio && (
 					<section id="patrimonio" class="scroll-mt-24">
-						<h2 class="text-lg font-semibold text-slate-900">Declaración de patrimonio e intereses</h2>
+						<h2 class="flex items-center gap-2.5 text-lg font-semibold text-slate-900">
+							<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg" style={`background:color-mix(in srgb, ${TEMA.patrimonio.color} 14%, white)`}>
+								<svg viewBox="0 0 24 24" fill="none" stroke={TEMA.patrimonio.color} stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d={TEMA.patrimonio.icono}></path></svg>
+							</span>
+							Declaración de patrimonio e intereses
+						</h2>
 						<p class="mt-1 text-xs text-slate-500">
 							Resumen de la declaración vigente ({patrimonio.tipo_declaracion}, {patrimonio.fecha_declaracion}),
 							como {patrimonio.cargo_declarado} de {patrimonio.organismo}. Vía infoprobidad.cl (Consejo para
 							la Transparencia / Contraloría General de la República).
 						</p>
 						<div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-							<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+							<div class="rounded-xl border border-t-4 border-slate-200 bg-white p-4 shadow-sm" style={`border-top-color:${TEMA.patrimonio.color}`}>
 								<p class="text-xs text-slate-500">Bienes inmuebles</p>
 								<p class="mt-1 text-xl font-bold text-slate-900">{patrimonio.bienes_inmuebles_n}</p>
 							</div>
-							<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+							<div class="rounded-xl border border-t-4 border-slate-200 bg-white p-4 shadow-sm" style={`border-top-color:${TEMA.patrimonio.color}`}>
 								<p class="text-xs text-slate-500">Vehículos</p>
 								<p class="mt-1 text-xl font-bold text-slate-900">{patrimonio.vehiculos_n}</p>
 							</div>
-							<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+							<div class="rounded-xl border border-t-4 border-slate-200 bg-white p-4 shadow-sm" style={`border-top-color:${TEMA.patrimonio.color}`}>
 								<p class="text-xs text-slate-500">Sociedades</p>
 								<p class="mt-1 text-xl font-bold text-slate-900">{patrimonio.sociedades_n}</p>
 							</div>
-							<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+							<div class="rounded-xl border border-t-4 border-slate-200 bg-white p-4 shadow-sm" style={`border-top-color:${TEMA.patrimonio.color}`}>
 								<p class="text-xs text-slate-500">Pasivos declarados</p>
 								<p class="mt-1 text-xl font-bold text-slate-900">
 									{patrimonio.pasivos_tiene ? formatoCLP(patrimonio.pasivos_monto) : 'No declara'}
@@ -202,7 +225,10 @@ function formatoCLP(monto: number) {
 
 				{resumenAsistencia && (
 					<section id="asistencia" class={`scroll-mt-24 ${patrimonio ? 'mt-10' : ''}`}>
-						<h2 class="text-lg font-semibold text-slate-900">
+						<h2 class="flex items-center gap-2.5 text-lg font-semibold text-slate-900">
+							<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg" style={`background:color-mix(in srgb, ${TEMA.asistencia.color} 14%, white)`}>
+								<svg viewBox="0 0 24 24" fill="none" stroke={TEMA.asistencia.color} stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d={TEMA.asistencia.icono}></path></svg>
+							</span>
 							Asistencia a sala ({etiquetaPeriodoAsistencia(resumenAsistencia)})
 						</h2>
 						<p class="mt-1 text-xs text-slate-500">
@@ -214,24 +240,47 @@ function formatoCLP(monto: number) {
 								</span>
 							)}
 						</p>
-						<div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-							<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-								<p class="text-xs text-slate-500">Asistencias</p>
-								<p class="mt-1 text-xl font-bold text-slate-900">
-									{resumenAsistencia.asistencias} / {resumenAsistencia.sesiones_computables}
-								</p>
-							</div>
-							<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-								<p class="text-xs text-slate-500">Ausencias justificadas</p>
-								<p class="mt-1 text-xl font-bold text-slate-900">{resumenAsistencia.ausencias_justificadas}</p>
-							</div>
-							<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-								<p class="text-xs text-slate-500">Ausencias sin justificar</p>
-								<p class="mt-1 text-xl font-bold text-slate-900">{resumenAsistencia.ausencias_sin_justificar}</p>
-							</div>
-							<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-								<p class="text-xs text-slate-500">Total sesiones del período</p>
-								<p class="mt-1 text-xl font-bold text-slate-900">{resumenAsistencia.total_sesiones}</p>
+						<div class="mt-4 flex flex-col gap-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm sm:flex-row sm:items-center">
+							{asistenciaPct !== null && (
+								<div class="relative h-32 w-32 shrink-0 self-center">
+									<svg viewBox="0 0 120 120" class="h-32 w-32 -rotate-90">
+										<circle cx="60" cy="60" r="54" fill="none" stroke="#f1f5f9" stroke-width="12" />
+										<circle
+											cx="60"
+											cy="60"
+											r="54"
+											fill="none"
+											stroke={TEMA.asistencia.color}
+											stroke-width="12"
+											stroke-linecap="round"
+											stroke-dasharray={`${aroRelleno} ${AROS_CIRCUNFERENCIA}`}
+										/>
+									</svg>
+									<div class="absolute inset-0 flex flex-col items-center justify-center">
+										<span class="text-2xl font-bold text-slate-900">{asistenciaPct}%</span>
+										<span class="text-[10px] text-slate-500">asistencia</span>
+									</div>
+								</div>
+							)}
+							<div class="grid flex-1 grid-cols-2 gap-3">
+								<div class="rounded-lg bg-slate-50 p-3">
+									<p class="text-xs text-slate-500">Asistencias</p>
+									<p class="mt-1 text-xl font-bold text-slate-900">
+										{resumenAsistencia.asistencias} / {resumenAsistencia.sesiones_computables}
+									</p>
+								</div>
+								<div class="rounded-lg bg-slate-50 p-3">
+									<p class="text-xs text-slate-500">Total sesiones del período</p>
+									<p class="mt-1 text-xl font-bold text-slate-900">{resumenAsistencia.total_sesiones}</p>
+								</div>
+								<div class="rounded-lg bg-slate-50 p-3">
+									<p class="text-xs text-slate-500">Ausencias justificadas</p>
+									<p class="mt-1 text-xl font-bold text-slate-900">{resumenAsistencia.ausencias_justificadas}</p>
+								</div>
+								<div class="rounded-lg bg-slate-50 p-3">
+									<p class="text-xs text-slate-500">Ausencias sin justificar</p>
+									<p class="mt-1 text-xl font-bold text-slate-900">{resumenAsistencia.ausencias_sin_justificar}</p>
+								</div>
 							</div>
 						</div>
 						<a href={resumenAsistencia.fuente_url} target="_blank" rel="noopener" class="mt-3 inline-block text-xs text-slate-400 hover:text-brand-600 hover:underline">
@@ -242,7 +291,10 @@ function formatoCLP(monto: number) {
 
 				{historialMociones.length > 0 && (
 					<section id="mociones" class={`scroll-mt-24 ${patrimonio || resumenAsistencia ? 'mt-10' : ''}`}>
-						<h2 class="text-lg font-semibold text-slate-900">
+						<h2 class="flex items-center gap-2.5 text-lg font-semibold text-slate-900">
+							<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg" style={`background:color-mix(in srgb, ${TEMA.mociones.color} 14%, white)`}>
+								<svg viewBox="0 0 24 24" fill="none" stroke={TEMA.mociones.color} stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d={TEMA.mociones.icono}></path></svg>
+							</span>
 							Mociones presentadas ({historialMociones.length})
 						</h2>
 						<p class="mt-1 text-xs text-slate-500">
@@ -250,7 +302,7 @@ function formatoCLP(monto: number) {
 						</p>
 						<ul class="mt-4 space-y-3">
 							{historialMociones.map((m) => (
-								<li class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+								<li class="rounded-xl border border-l-4 border-slate-200 bg-white p-4 shadow-sm" style={`border-left-color:${TEMA.mociones.color}`}>
 									<div class="flex items-center justify-between text-xs text-slate-500">
 										<span>{m.fecha}</span>
 										<span>Boletín {m.boletin}</span>
@@ -268,7 +320,12 @@ function formatoCLP(monto: number) {
 
 				{historialVotos.length > 0 && (
 					<section id="votaciones" class={`scroll-mt-24 ${patrimonio || resumenAsistencia || historialMociones.length > 0 ? 'mt-10' : ''}`}>
-						<h2 class="text-lg font-semibold text-slate-900">Historial de votaciones</h2>
+						<h2 class="flex items-center gap-2.5 text-lg font-semibold text-slate-900">
+							<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg" style={`background:color-mix(in srgb, ${TEMA.votaciones.color} 14%, white)`}>
+								<svg viewBox="0 0 24 24" fill="none" stroke={TEMA.votaciones.color} stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d={TEMA.votaciones.icono}></path></svg>
+							</span>
+							Historial de votaciones
+						</h2>
 						{autoridad.cargo === 'diputado' && (
 							<p class="mt-1 text-xs text-slate-500">
 								Vía camara.cl. Se muestran solo las votaciones más recientes, no el historial completo
@@ -277,7 +334,7 @@ function formatoCLP(monto: number) {
 						)}
 						<ul class="mt-4 space-y-3">
 							{historialVotos.map(({ sesion, voto }) => (
-								<li class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+								<li class="rounded-xl border border-l-4 border-slate-200 bg-white p-4 shadow-sm" style={`border-left-color:${TEMA.votaciones.color}`}>
 									<div class="flex items-center justify-between text-xs text-slate-500">
 										<span>{sesion.fecha}</span>
 										<span class={`font-medium ${colorVoto(voto!.voto)}`}>
