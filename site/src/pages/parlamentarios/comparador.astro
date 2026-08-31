@@ -7,6 +7,7 @@ import {
 	indiceVotaciones,
 	indiceMociones,
 	indiceAsistencia,
+	fotoAutoridad,
 } from '../../lib/datos';
 
 const senadorIds = autoridades.filter((a) => a.cargo === 'senador').map((a) => a.id);
@@ -32,6 +33,8 @@ const personas = [...diputadoIds, ...senadorIds].map((id) => {
 		id,
 		nombre: a.nombre_completo,
 		cargo: a.cargo,
+		partido: a.partido,
+		foto: fotoAutoridad(id),
 		metrics: {
 			asistenciaPct: asistenciaPorId.get(id)?.asistenciaPct ?? null,
 			participacionPct: v?.participacionPct ?? null,
@@ -59,7 +62,7 @@ const personas = [...diputadoIds, ...senadorIds].map((id) => {
 				Comparador
 			</h1>
 			<p class="mt-5 max-w-2xl text-lg text-slate-300">
-				Elige hasta 3 diputados o senadores de la región y compáralos lado a lado.
+				Elige 2 diputados o senadores para un duelo cara a cara, o hasta 3 para comparar en tabla.
 			</p>
 		</div>
 	</section>
@@ -79,10 +82,7 @@ const personas = [...diputadoIds, ...senadorIds].map((id) => {
 
 		<p id="prompt" class="mt-10 text-base text-slate-500">Elige al menos 2 personas para comparar.</p>
 
-		<div id="resultado" class="mt-8 hidden">
-			<div id="chips" class="flex flex-wrap gap-2"></div>
-			<div id="metricas" class="mt-6 space-y-5 rounded-xl border border-slate-200 bg-white p-6 shadow-sm"></div>
-		</div>
+		<div id="resultado" class="mt-8 hidden"></div>
 	</main>
 
 	<script type="application/json" id="personas-data" set:html={JSON.stringify(personas)} />
@@ -102,16 +102,29 @@ const personas = [...diputadoIds, ...senadorIds].map((id) => {
 			id: string;
 			nombre: string;
 			cargo: string;
+			partido: string | null;
+			foto: string | null;
 			metrics: Metrics;
 		}
 
 		const personas: Persona[] = JSON.parse(document.getElementById('personas-data')!.textContent!);
 		const porId = new Map(personas.map((p) => [p.id, p]));
 
-		// mismos 3 primeros tonos del sistema de color (validados para
+		// mismos 2-3 primeros tonos del sistema de color (validados para
 		// distinguirse entre sí incluso comparados de a pares) — nunca el
 		// rojo de marca, para no confundir "persona" con "identidad OPRC".
 		const COLORES = ['#2a78d6', '#eb6834', '#1baf7a'];
+
+		const ICONOS: Record<string, string> = {
+			asistenciaPct: 'M12 6v6l4 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z',
+			participacionPct: 'm9 12 2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z',
+			alineamientoPct: 'M3 6h18M6 6v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6M10 6V4a2 2 0 0 1 2-2 2 2 0 0 1 2 2v2',
+			mociones: 'M14 3v5a2 2 0 0 0 2 2h5M6 3h8l6 6v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z',
+			favor: 'M7 10v11M2 10h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H2v-11ZM7 10l3.5-7A1.5 1.5 0 0 1 12 2v0a3 3 0 0 1 3 3v4h3.5a2 2 0 0 1 2 2.3l-1.4 7A2 2 0 0 1 17.1 20H7',
+			contra: 'M17 14V3M22 14h-3a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3V14ZM17 14l-3.5 7A1.5 1.5 0 0 1 12 22v0a3 3 0 0 1-3-3v-4H5.5a2 2 0 0 1-2-2.3l1.4-7A2 2 0 0 1 6.9 4H17',
+			abstencion: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM8 12h8',
+			pareo: 'm8 3 4 4-4 4M4 7h12M16 21l-4-4 4-4M20 17H8',
+		};
 
 		const METRICAS: [keyof Metrics, string, boolean][] = [
 			['asistenciaPct', 'Asistencia', true],
@@ -148,8 +161,116 @@ const personas = [...diputadoIds, ...senadorIds].map((id) => {
 		}
 
 		function formatoValor(esPct: boolean, valor: number | null): string {
-			if (valor === null) return 'Sin datos comparables';
+			if (valor === null) return '—';
 			return esPct ? `${valor.toFixed(1)}%` : String(valor);
+		}
+
+		function iniciales(nombre: string): string {
+			const partes = nombre.split(' ').filter(Boolean);
+			return ((partes[0]?.[0] ?? '') + (partes[1]?.[0] ?? '')).toUpperCase();
+		}
+
+		function avatar(p: Persona, color: string, tamano: number): string {
+			const borde = `border:3px solid ${color};`;
+			if (p.foto) {
+				return `<img src="${p.foto}" alt="${p.nombre}" style="width:${tamano}px;height:${tamano}px;${borde}" class="rounded-full object-cover shadow-sm" />`;
+			}
+			return `<span style="width:${tamano}px;height:${tamano}px;${borde};background:color-mix(in srgb, ${color} 12%, white);color:${color};font-size:${tamano * 0.34}px" class="flex items-center justify-center rounded-full font-bold shadow-sm">${iniciales(p.nombre)}</span>`;
+		}
+
+		function icono(key: string): string {
+			return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 mx-auto"><path d="${ICONOS[key]}"></path></svg>`;
+		}
+
+		// --- duelo: exactamente 2 personas, barras espejo desde cada borde ---
+		function renderDuelo(a: Persona, b: Persona): string {
+			const colorA = COLORES[0];
+			const colorB = COLORES[1];
+
+			const cabecera = `
+				<div class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+					<a href="/autoridades/${a.id}/" class="flex flex-col items-center text-center hover:opacity-90">
+						${avatar(a, colorA, 96)}
+						<p class="mt-3 text-lg font-bold text-slate-900">${a.nombre}</p>
+						<p class="mt-0.5 text-sm text-slate-500">${CARGO_LABEL[a.cargo] ?? a.cargo}${a.partido ? ` · ${a.partido}` : ''}</p>
+					</a>
+					<span class="text-sm font-black tracking-widest text-slate-300">VS</span>
+					<a href="/autoridades/${b.id}/" class="flex flex-col items-center text-center hover:opacity-90">
+						${avatar(b, colorB, 96)}
+						<p class="mt-3 text-lg font-bold text-slate-900">${b.nombre}</p>
+						<p class="mt-0.5 text-sm text-slate-500">${CARGO_LABEL[b.cargo] ?? b.cargo}${b.partido ? ` · ${b.partido}` : ''}</p>
+					</a>
+				</div>`;
+
+			const filas = METRICAS.map(([key, label, esPct]) => {
+				const va = a.metrics[key] as number | null;
+				const vb = b.metrics[key] as number | null;
+				const max = Math.max(Math.abs(va ?? 0), Math.abs(vb ?? 0), esPct ? 100 : 1);
+				const anchoA = va === null ? 0 : (Math.abs(va) / max) * 100;
+				const anchoB = vb === null ? 0 : (Math.abs(vb) / max) * 100;
+				return `
+					<div class="grid grid-cols-[1fr_5rem_1fr] items-center gap-3 py-3">
+						<div class="flex items-center justify-end gap-3">
+							<span class="text-lg font-bold text-slate-900 tabular-nums">${formatoValor(esPct, va)}</span>
+							<div class="h-3 w-full max-w-[10rem] rounded-full bg-slate-100">
+								<div class="ml-auto h-3 rounded-full" style="width:${anchoA}%;background:${colorA}"></div>
+							</div>
+						</div>
+						<div class="flex flex-col items-center gap-1 text-slate-400">
+							${icono(key)}
+							<span class="text-center text-[10px] font-semibold tracking-wide uppercase leading-tight">${label}</span>
+						</div>
+						<div class="flex items-center gap-3">
+							<div class="h-3 w-full max-w-[10rem] rounded-full bg-slate-100">
+								<div class="h-3 rounded-full" style="width:${anchoB}%;background:${colorB}"></div>
+							</div>
+							<span class="text-lg font-bold text-slate-900 tabular-nums">${formatoValor(esPct, vb)}</span>
+						</div>
+					</div>`;
+			}).join('');
+
+			return `${cabecera}<div class="mt-6 divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-white px-4 shadow-sm sm:px-8">${filas}</div>`;
+		}
+
+		// --- tabla: 3 personas, sin la mecánica de espejo ---
+		function renderTabla(elegidas: Persona[]): string {
+			const chips = elegidas
+				.map(
+					(p, i) => `
+					<a href="/autoridades/${p.id}/" class="flex items-center gap-2.5 rounded-full border py-1.5 pr-4 pl-1.5 text-sm font-semibold hover:underline" style="border-color:${COLORES[i]};color:${COLORES[i]}">
+						${avatar(p, COLORES[i], 28)}
+						${p.nombre} <span class="font-normal text-slate-400">· ${CARGO_LABEL[p.cargo] ?? p.cargo}</span>
+					</a>`
+				)
+				.join('');
+
+			const filas = METRICAS.map(([key, label, esPct]) => {
+				const max = Math.max(...elegidas.map((p) => Math.abs((p.metrics[key] as number) ?? 0)), esPct ? 100 : 1);
+				const barras = elegidas
+					.map((p, i) => {
+						const valor = p.metrics[key] as number | null;
+						const anchoPct = valor === null ? 0 : (Math.abs(valor) / max) * 100;
+						return `
+							<div class="flex items-center gap-3">
+								<div class="h-3.5 flex-1 rounded-full bg-slate-100">
+									<div class="h-3.5 rounded-full" style="width:${anchoPct}%;background:${COLORES[i]}"></div>
+								</div>
+								<span class="w-16 shrink-0 text-right text-base font-bold text-slate-900 tabular-nums">${formatoValor(esPct, valor)}</span>
+							</div>`;
+					})
+					.join('');
+				return `
+					<div class="flex items-start gap-4 py-4">
+						<div class="flex w-16 shrink-0 flex-col items-center gap-1 pt-0.5 text-slate-400">
+							${icono(key)}
+							<span class="text-center text-[10px] font-semibold tracking-wide uppercase leading-tight">${label}</span>
+						</div>
+						<div class="flex-1 space-y-2">${barras}</div>
+					</div>`;
+			}).join('');
+
+			return `<div class="flex flex-wrap gap-2">${chips}</div>
+				<div class="mt-6 divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-white px-6 shadow-sm">${filas}</div>`;
 		}
 
 		function render() {
@@ -166,37 +287,8 @@ const personas = [...diputadoIds, ...senadorIds].map((id) => {
 			}
 			prompt.classList.add('hidden');
 			resultado.classList.remove('hidden');
-
-			const chips = document.getElementById('chips')!;
-			chips.innerHTML = elegidas
-				.map(
-					(p, i) =>
-						`<a href="/autoridades/${p.id}/" class="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-semibold hover:underline" style="border-color:${COLORES[i]};color:${COLORES[i]}">
-							<span class="h-2.5 w-2.5 rounded-full" style="background:${COLORES[i]}"></span>
-							${p.nombre} <span class="font-normal text-slate-400">· ${CARGO_LABEL[p.cargo] ?? p.cargo}</span>
-						</a>`
-				)
-				.join('');
-
-			const metricas = document.getElementById('metricas')!;
-			metricas.innerHTML = METRICAS.map(([key, label, esPct]) => {
-				const max = esPct ? 100 : Math.max(...elegidas.map((p) => (p.metrics[key] as number) ?? 0), 1);
-				const filas = elegidas
-					.map((p, i) => {
-						const valor = p.metrics[key];
-						const anchoPct = valor === null ? 0 : (Number(valor) / max) * 100;
-						return `
-							<div class="flex items-center gap-2">
-								<span class="h-2.5 w-2.5 shrink-0 rounded-full" style="background:${COLORES[i]}"></span>
-								<div class="h-4 flex-1 rounded bg-slate-100">
-									<div class="h-4 rounded" style="width:${anchoPct}%;background:${COLORES[i]}"></div>
-								</div>
-								<span class="w-24 shrink-0 text-right text-sm font-medium text-slate-900">${formatoValor(esPct, valor as number | null)}</span>
-							</div>`;
-					})
-					.join('');
-				return `<div><p class="mb-2 text-sm font-semibold text-slate-700">${label}</p><div class="space-y-1.5">${filas}</div></div>`;
-			}).join('');
+			resultado.innerHTML =
+				elegidas.length === 2 ? renderDuelo(elegidas[0], elegidas[1]) : renderTabla(elegidas);
 		}
 
 		selects.forEach((s) => s.addEventListener('change', render));
