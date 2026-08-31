@@ -285,6 +285,7 @@ CREATE TABLE IF NOT EXISTS gasto_parlamentario (
     publicado       BOOLEAN NOT NULL,        -- si la Camara ya publico ese mes/categoria (false = pendiente, no es un cero real)
     monto           REAL,
     cantidad        INTEGER,
+    detalle         TEXT,                    -- JSON: lista de items ([{concepto,monto}] o [{nombre,monto,...}])
     fuente_url      TEXT,
     FOREIGN KEY (autoridad_id) REFERENCES autoridad(id)
 );

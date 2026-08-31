@@ -190,6 +190,8 @@ class ScraperGastoParlamentario(BaseScraper):
     def _extraer(
         self, categoria: str, soup: BeautifulSoup, autoridad_id: str, mes: str, url: str
     ) -> dict:
+        import json
+
         txt = _texto(soup)
         no_publicado = "no han sido publicados" in txt.lower()
         base = {
@@ -200,34 +202,106 @@ class ScraperGastoParlamentario(BaseScraper):
             "fuente_url": url,
         }
         if no_publicado:
-            return {**base, "publicado": False, "monto": None, "cantidad": None}
+            return {**base, "publicado": False, "monto": None, "cantidad": None, "detalle": None}
 
-        if categoria == "pasajes_aereos":
-            if "no hay registros para el mes seleccionado" in txt.lower():
-                return {**base, "publicado": True, "monto": None, "cantidad": 0}
-            fechas = re.findall(r"\b\d{2}/\d{2}/\d{4}\b", txt)
-            return {**base, "publicado": True, "monto": None, "cantidad": len(fechas)}
-
-        if categoria == "personal_apoyo":
-            sueldos = re.findall(r"Contrato\s+.+?\s([\d]{2,3}\.\d{3})\s", txt)
-            total = sum(_monto_a_numero(s) or 0 for s in sueldos)
-            monto = total if sueldos else 0
-            return {**base, "publicado": True, "monto": monto, "cantidad": len(sueldos)}
+        sin_registros = "no hay registros para el mes seleccionado" in txt.lower()
+        filas = self._filas_tabla(soup) if not sin_registros else []
 
         if categoria == "gastos_operacionales":
-            m = re.search(r"TOTAL[\s:]*\$?\s*([\d.,\s]+)", txt)
-            valor = _monto_a_numero(m.group(1)) if m else None
-            return {**base, "publicado": True, "monto": valor, "cantidad": None}
+            # cada fila: [concepto, monto] — sin línea de TOTAL, se suma a mano
+            items = [
+                {"concepto": f[0], "monto": _monto_a_numero(f[1]) or 0}
+                for f in filas if len(f) >= 2 and f[0]
+            ]
+            total = sum(i["monto"] for i in items)
+            publicado = True if (items or sin_registros) else None
+            return {
+                **base, "publicado": publicado if publicado is not None else False,
+                "monto": total if items else (0 if sin_registros else None),
+                "cantidad": None,
+                "detalle": json.dumps(items, ensure_ascii=False) if items else None,
+            }
+
+        if categoria == "personal_apoyo":
+            # fila tipica: [nombre, cargo, renta, tipo_contrato, fecha_inicio]
+            items = []
+            for f in filas:
+                if len(f) < 3 or not f[0]:
+                    continue
+                items.append({
+                    "nombre": f[0],
+                    "cargo": f[1] if len(f) > 1 else None,
+                    "renta": _monto_a_numero(f[2]) if len(f) > 2 else None,
+                    "tipo_contrato": f[3] if len(f) > 3 else None,
+                })
+            total = sum(i["renta"] or 0 for i in items)
+            return {
+                **base, "publicado": True,
+                "monto": total if items else (0 if sin_registros else None),
+                "cantidad": len(items),
+                "detalle": json.dumps(items, ensure_ascii=False) if items else None,
+            }
 
         if categoria == "asesorias_externas":
-            montos = re.findall(r"\$\s*([\d.,]+)", txt)
-            total = sum(v for v in (_monto_a_numero(m) for m in montos) if v)
-            tiene_tabla = soup.find("table") is not None
-            if not tiene_tabla and total == 0:
-                return {**base, "publicado": False, "monto": None, "cantidad": None}
-            return {**base, "publicado": True, "monto": total, "cantidad": None}
+            # fila tipica: [nombre_asesor, monto, materia]
+            items = [
+                {
+                    "nombre_asesor": f[0],
+                    "monto": _monto_a_numero(f[1]) or 0,
+                    "materia": f[2] if len(f) > 2 else None,
+                }
+                for f in filas if len(f) >= 2 and f[0]
+            ]
+            total = sum(i["monto"] for i in items)
+            if not items and not sin_registros:
+                # esta pagina no muestra tabla NI mensaje de "no publicado" cuando
+                # no hay datos: se marca como no confirmado, no como cero verificado
+                return {
+                    **base, "publicado": False, "monto": None, "cantidad": None, "detalle": None,
+                }
+            return {
+                **base, "publicado": True,
+                "monto": total if items else 0,
+                "cantidad": len(items) if items else 0,
+                "detalle": json.dumps(items, ensure_ascii=False) if items else None,
+            }
 
-        return {**base, "publicado": None, "monto": None, "cantidad": None}
+        if categoria == "pasajes_aereos":
+            # fila tipica: [fecha, origen, destino, aerolinea, monto, motivo]
+            items = []
+            for f in filas:
+                if len(f) < 3 or not f[1]:
+                    continue
+                items.append({
+                    "fecha": f[0] if len(f) > 0 else None,
+                    "origen": f[1] if len(f) > 1 else None,
+                    "destino": f[2] if len(f) > 2 else None,
+                    "aerolinea": f[3] if len(f) > 3 else None,
+                    "monto": _monto_a_numero(f[4]) if len(f) > 4 else None,
+                })
+            total = sum(i["monto"] or 0 for i in items)
+            return {
+                **base, "publicado": True,
+                "monto": total if items else (0 if sin_registros else None),
+                "cantidad": len(items),
+                "detalle": json.dumps(items, ensure_ascii=False) if items else None,
+            }
+
+        return {**base, "publicado": None, "monto": None, "cantidad": None, "detalle": None}
+
+    @staticmethod
+    def _filas_tabla(soup: BeautifulSoup) -> list[list[str]]:
+        """Todas las filas de datos (sin encabezado) de la primera tabla real de
+        la pagina, como listas de texto por columna."""
+        tabla = soup.find("table")
+        if not tabla:
+            return []
+        filas = []
+        for tr in tabla.find_all("tr")[1:]:
+            celdas = [td.get_text(strip=True) for td in tr.find_all("td")]
+            if celdas:
+                filas.append(celdas)
+        return filas
 
     def procesar(self, registros):
         return registros
@@ -238,18 +312,20 @@ class ScraperGastoParlamentario(BaseScraper):
             cur.execute(
                 """
                 INSERT INTO gasto_parlamentario
-                    (autoridad_id, anno, mes, categoria, publicado, monto, cantidad, fuente_url)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    (autoridad_id, anno, mes, categoria, publicado, monto, cantidad,
+                     detalle, fuente_url)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(autoridad_id, anno, mes, categoria) DO UPDATE SET
                     publicado=excluded.publicado,
                     monto=excluded.monto,
                     cantidad=excluded.cantidad,
+                    detalle=excluded.detalle,
                     fuente_url=excluded.fuente_url
                 """,
                 (
                     r["autoridad_id"], r["anno"], r["mes"], r["categoria"],
                     int(bool(r["publicado"])) if r["publicado"] is not None else None,
-                    r["monto"], r["cantidad"], r["fuente_url"],
+                    r["monto"], r["cantidad"], r.get("detalle"), r["fuente_url"],
                 ),
             )
         self.db.commit()
@@ -260,7 +336,8 @@ class ScraperGastoParlamentario(BaseScraper):
         cur = self.db.cursor()
         cur.execute(
             """
-            SELECT autoridad_id, anno, mes, categoria, publicado, monto, cantidad, fuente_url
+            SELECT autoridad_id, anno, mes, categoria, publicado, monto, cantidad,
+                   detalle, fuente_url
             FROM gasto_parlamentario
             ORDER BY autoridad_id, categoria, mes
             """
