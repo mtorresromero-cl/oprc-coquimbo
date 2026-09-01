@@ -227,17 +227,17 @@ const TEMA = {
 							{resumenAsistencia && (
 								<li><a href="#asistencia" class="flex items-center gap-2 text-brand-600 hover:underline"><span class="h-2 w-2 shrink-0 rounded-full" style={`background:${TEMA.asistencia.color}`}></span>Asistencia a sala</a></li>
 							)}
-							{historialMociones.length > 0 && (
-								<li><a href="#mociones" class="flex items-center gap-2 text-brand-600 hover:underline"><span class="h-2 w-2 shrink-0 rounded-full" style={`background:${TEMA.mociones.color}`}></span>Mociones presentadas ({historialMociones.length})</a></li>
-							)}
-							{historialVotos.length > 0 && (
-								<li><a href="#votaciones" class="flex items-center gap-2 text-brand-600 hover:underline"><span class="h-2 w-2 shrink-0 rounded-full" style={`background:${TEMA.votaciones.color}`}></span>Historial de votaciones</a></li>
-							)}
 							{hayGastoPublicado && (
 								<li><a href="#gasto" class="flex items-center gap-2 text-brand-600 hover:underline"><span class="h-2 w-2 shrink-0 rounded-full" style={`background:${TEMA.gasto.color}`}></span>Gasto parlamentario</a></li>
 							)}
 							{hayIntervenciones && (
 								<li><a href="#discursos" class="flex items-center gap-2 text-brand-600 hover:underline"><span class="h-2 w-2 shrink-0 rounded-full" style={`background:${TEMA.discursos.color}`}></span>Intervenciones en sala</a></li>
+							)}
+							{historialMociones.length > 0 && (
+								<li><a href="#mociones" class="flex items-center gap-2 text-brand-600 hover:underline"><span class="h-2 w-2 shrink-0 rounded-full" style={`background:${TEMA.mociones.color}`}></span>Mociones presentadas ({historialMociones.length})</a></li>
+							)}
+							{historialVotos.length > 0 && (
+								<li><a href="#votaciones" class="flex items-center gap-2 text-brand-600 hover:underline"><span class="h-2 w-2 shrink-0 rounded-full" style={`background:${TEMA.votaciones.color}`}></span>Historial de votaciones</a></li>
 							)}
 						</ul>
 					</nav>
@@ -355,67 +355,8 @@ const TEMA = {
 					</section>
 				)}
 
-				{historialMociones.length > 0 && (
-					<section id="mociones" class={`scroll-mt-24 ${patrimonio || resumenAsistencia ? 'mt-10' : ''}`}>
-						<h2 class="flex items-center gap-2.5 text-lg font-semibold text-slate-900">
-							<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg" style={`background:color-mix(in srgb, ${TEMA.mociones.color} 14%, white)`}>
-								<svg viewBox="0 0 24 24" fill="none" stroke={TEMA.mociones.color} stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d={TEMA.mociones.icono}></path></svg>
-							</span>
-							Mociones presentadas ({historialMociones.length})
-						</h2>
-						<p class="mt-1 text-xs text-slate-500">
-							Como autor o coautor este año, vía {autoridad.cargo === 'senador' ? 'el buscador de tramitación del Senado' : 'la ficha del diputado/a en camara.cl'}.
-						</p>
-						<ul class="mt-4 space-y-3">
-							{historialMociones.map((m) => (
-								<li class="rounded-xl border border-l-4 border-slate-200 bg-white p-4 shadow-sm" style={`border-left-color:${TEMA.mociones.color}`}>
-									<div class="flex items-center justify-between text-xs text-slate-500">
-										<span>{m.fecha}</span>
-										<span>Boletín {m.boletin}</span>
-									</div>
-									<p class="mt-2 text-base text-slate-800">
-										<a href={m.url_bcn} target="_blank" rel="noopener" class="hover:text-brand-600 hover:underline">
-											{m.titulo}
-										</a>
-									</p>
-								</li>
-							))}
-						</ul>
-					</section>
-				)}
-
-				{historialVotos.length > 0 && (
-					<section id="votaciones" class={`scroll-mt-24 ${patrimonio || resumenAsistencia || historialMociones.length > 0 ? 'mt-10' : ''}`}>
-						<h2 class="flex items-center gap-2.5 text-lg font-semibold text-slate-900">
-							<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg" style={`background:color-mix(in srgb, ${TEMA.votaciones.color} 14%, white)`}>
-								<svg viewBox="0 0 24 24" fill="none" stroke={TEMA.votaciones.color} stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d={TEMA.votaciones.icono}></path></svg>
-							</span>
-							Historial de votaciones
-						</h2>
-						{autoridad.cargo === 'diputado' && (
-							<p class="mt-1 text-xs text-slate-500">
-								Vía camara.cl. Se muestran solo las votaciones más recientes, no el historial completo
-								del período — la fuente no permite navegar hacia atrás.
-							</p>
-						)}
-						<ul class="mt-4 space-y-3">
-							{historialVotos.map(({ sesion, voto }) => (
-								<li class="rounded-xl border border-l-4 border-slate-200 bg-white p-4 shadow-sm" style={`border-left-color:${TEMA.votaciones.color}`}>
-									<div class="flex items-center justify-between text-xs text-slate-500">
-										<span>{sesion.fecha}</span>
-										<span class={`font-medium ${colorVoto(voto!.voto)}`}>
-											{VOTO_LABEL[voto!.voto] ?? voto!.voto}
-										</span>
-									</div>
-									<p class="mt-2 text-base text-slate-800">{sesion.descripcion}</p>
-								</li>
-							))}
-						</ul>
-					</section>
-				)}
-
 				{hayGastoPublicado && (
-					<section id="gasto" class={`scroll-mt-24 ${patrimonio || resumenAsistencia || historialMociones.length > 0 || historialVotos.length > 0 ? 'mt-10' : ''}`}>
+					<section id="gasto" class={`scroll-mt-24 ${patrimonio || resumenAsistencia ? 'mt-10' : ''}`}>
 						<h2 class="flex items-center gap-2.5 text-lg font-semibold text-slate-900">
 							<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg" style={`background:color-mix(in srgb, ${TEMA.gasto.color} 14%, white)`}>
 								<svg viewBox="0 0 24 24" fill="none" stroke={TEMA.gasto.color} stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d={TEMA.gasto.icono}></path></svg>
@@ -466,7 +407,7 @@ const TEMA = {
 				)}
 
 				{hayIntervenciones && (
-					<section id="discursos" class={`scroll-mt-24 ${patrimonio || resumenAsistencia || historialMociones.length > 0 || historialVotos.length > 0 || hayGastoPublicado ? 'mt-10' : ''}`}>
+					<section id="discursos" class={`scroll-mt-24 ${patrimonio || resumenAsistencia || hayGastoPublicado ? 'mt-10' : ''}`}>
 						<h2 class="flex items-center gap-2.5 text-lg font-semibold text-slate-900">
 							<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg" style={`background:color-mix(in srgb, ${TEMA.discursos.color} 14%, white)`}>
 								<svg viewBox="0 0 24 24" fill="none" stroke={TEMA.discursos.color} stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d={TEMA.discursos.icono}></path></svg>
@@ -508,6 +449,65 @@ const TEMA = {
 								</div>
 							</div>
 						)}
+					</section>
+				)}
+
+				{historialMociones.length > 0 && (
+					<section id="mociones" class={`scroll-mt-24 ${patrimonio || resumenAsistencia || hayGastoPublicado || hayIntervenciones ? 'mt-10' : ''}`}>
+						<h2 class="flex items-center gap-2.5 text-lg font-semibold text-slate-900">
+							<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg" style={`background:color-mix(in srgb, ${TEMA.mociones.color} 14%, white)`}>
+								<svg viewBox="0 0 24 24" fill="none" stroke={TEMA.mociones.color} stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d={TEMA.mociones.icono}></path></svg>
+							</span>
+							Mociones presentadas ({historialMociones.length})
+						</h2>
+						<p class="mt-1 text-xs text-slate-500">
+							Como autor o coautor este año, vía {autoridad.cargo === 'senador' ? 'el buscador de tramitación del Senado' : 'la ficha del diputado/a en camara.cl'}.
+						</p>
+						<ul class="mt-4 space-y-3">
+							{historialMociones.map((m) => (
+								<li class="rounded-xl border border-l-4 border-slate-200 bg-white p-4 shadow-sm" style={`border-left-color:${TEMA.mociones.color}`}>
+									<div class="flex items-center justify-between text-xs text-slate-500">
+										<span>{m.fecha}</span>
+										<span>Boletín {m.boletin}</span>
+									</div>
+									<p class="mt-2 text-base text-slate-800">
+										<a href={m.url_bcn} target="_blank" rel="noopener" class="hover:text-brand-600 hover:underline">
+											{m.titulo}
+										</a>
+									</p>
+								</li>
+							))}
+						</ul>
+					</section>
+				)}
+
+				{historialVotos.length > 0 && (
+					<section id="votaciones" class={`scroll-mt-24 ${patrimonio || resumenAsistencia || hayGastoPublicado || hayIntervenciones || historialMociones.length > 0 ? 'mt-10' : ''}`}>
+						<h2 class="flex items-center gap-2.5 text-lg font-semibold text-slate-900">
+							<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg" style={`background:color-mix(in srgb, ${TEMA.votaciones.color} 14%, white)`}>
+								<svg viewBox="0 0 24 24" fill="none" stroke={TEMA.votaciones.color} stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d={TEMA.votaciones.icono}></path></svg>
+							</span>
+							Historial de votaciones
+						</h2>
+						{autoridad.cargo === 'diputado' && (
+							<p class="mt-1 text-xs text-slate-500">
+								Vía camara.cl. Se muestran solo las votaciones más recientes, no el historial completo
+								del período — la fuente no permite navegar hacia atrás.
+							</p>
+						)}
+						<ul class="mt-4 space-y-3">
+							{historialVotos.map(({ sesion, voto }) => (
+								<li class="rounded-xl border border-l-4 border-slate-200 bg-white p-4 shadow-sm" style={`border-left-color:${TEMA.votaciones.color}`}>
+									<div class="flex items-center justify-between text-xs text-slate-500">
+										<span>{sesion.fecha}</span>
+										<span class={`font-medium ${colorVoto(voto!.voto)}`}>
+											{VOTO_LABEL[voto!.voto] ?? voto!.voto}
+										</span>
+									</div>
+									<p class="mt-2 text-base text-slate-800">{sesion.descripcion}</p>
+								</li>
+							))}
+						</ul>
 					</section>
 				)}
 
