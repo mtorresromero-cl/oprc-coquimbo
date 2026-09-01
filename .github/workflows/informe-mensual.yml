@@ -1,0 +1,43 @@
+name: Informe mensual
+
+on:
+  schedule:
+    - cron: '0 13 1 * *' # el día 1 de cada mes, 10am Chile (UTC-3)
+  workflow_dispatch:
+    inputs:
+      enviar:
+        description: 'Enviar de verdad por Mailrelay (si no, solo genera el HTML)'
+        type: boolean
+        default: false
+      mes:
+        description: 'Mes a informar, formato AAAA-MM (vacío = mes calendario anterior)'
+        type: string
+        required: false
+
+jobs:
+  informe:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r scrapers/requirements.txt
+      - name: Generar y enviar informe
+        env:
+          MAILRELAY_API_KEY: ${{ secrets.MAILRELAY_API_KEY }}
+        run: |
+          ARGS="${{ github.event.inputs.mes }}"
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event.inputs.enviar }}" = "true" ]; then
+            ARGS="$ARGS --send"
+          fi
+          python scrapers/informe_mensual.py $ARGS
+      - name: Guardar el HTML del informe
+        run: |
+          git config user.name "OPRC Bot"
+          git config user.email "bot@oprcoquimbo.cl"
+          git add data/informes/
+          git diff --staged --quiet || git commit -m "informe: mensual $(date +%Y-%m)"
+          git push

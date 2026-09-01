@@ -4,3 +4,9 @@ target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+# HTML del informe mensual embebido como f-string — las líneas de markup
+# con estilos inline son naturalmente largas, partirlas a mano solo
+# introduce espacios en blanco riesgosos dentro del atributo style.
+"scrapers/informe_mensual.py" = ["E501"]

@@ -191,7 +191,33 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 								))}
 							</div>
 						</div>
+					<form id="form-newsletter" class="mt-8 max-w-xs">
+						<label for="newsletter-email" class="block text-xs font-semibold tracking-wide text-slate-200 uppercase">
+							Informe mensual por correo
+						</label>
+						<p class="mt-1.5 text-[13px] text-slate-400">Un resumen automático cada mes: votaciones, gasto parlamentario y discursos.</p>
+						<div class="mt-3 flex gap-2">
+							<input
+								id="newsletter-email"
+								type="email"
+								name="email"
+								required
+								placeholder="tu@correo.cl"
+								class="min-w-0 flex-1 rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder:text-slate-500 focus:border-brand-500 focus:outline-none"
+							/>
+							<input type="text" name="sitio_web" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+							<button
+								id="newsletter-submit"
+								type="submit"
+								class="shrink-0 rounded-md bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
+							>
+								Suscribirme
+							</button>
+						</div>
+						<p id="newsletter-mensaje" class="mt-2 hidden text-[13px]"></p>
+					</form>
 					</div>
+
 					<div>
 						<p class="text-xs font-semibold tracking-wide text-slate-200 uppercase">Secciones</p>
 						<ul class="mt-3 space-y-2 text-sm">
@@ -246,6 +272,39 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 				});
 				dd.addEventListener('mouseleave', () => {
 					cerrar = setTimeout(() => { dd.open = false; }, 150);
+				});
+			}
+
+			// suscripción al informe mensual (footer)
+			const formNewsletter = document.getElementById('form-newsletter') as HTMLFormElement | null;
+			if (formNewsletter) {
+				const boton = document.getElementById('newsletter-submit') as HTMLButtonElement;
+				const mensaje = document.getElementById('newsletter-mensaje')!;
+				formNewsletter.addEventListener('submit', async (e) => {
+					e.preventDefault();
+					boton.disabled = true;
+					boton.textContent = 'Enviando…';
+					mensaje.classList.add('hidden');
+					try {
+						const resp = await fetch('/api/newsletter', { method: 'POST', body: new FormData(formNewsletter) });
+						const datos = await resp.json();
+						if (resp.ok && datos.ok) {
+							formNewsletter.reset();
+							mensaje.textContent = '¡Listo! Revisa tu correo para confirmar la suscripción.';
+							mensaje.classList.remove('hidden', 'text-red-400');
+							mensaje.classList.add('text-emerald-400');
+						} else {
+							throw new Error(datos.error || 'error desconocido');
+						}
+					} catch (err) {
+						mensaje.textContent = 'No se pudo suscribir. Intenta de nuevo o escríbenos a contacto@oprcoquimbo.cl.';
+						mensaje.classList.remove('hidden', 'text-emerald-400');
+						mensaje.classList.add('text-red-400');
+						console.error(err);
+					} finally {
+						boton.disabled = false;
+						boton.textContent = 'Suscribirme';
+					}
 				});
 			}
 		</script>
