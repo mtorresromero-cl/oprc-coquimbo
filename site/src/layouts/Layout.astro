@@ -228,7 +228,13 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 					</div>
 				</div>
 				<div class="mt-10 border-t border-slate-800 pt-6 text-xs text-slate-500">
-					<p>&copy; {annoActual} OPRC — Observatorio Político Región de Coquimbo. Todos los derechos reservados.</p>
+					<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+						<p>&copy; {annoActual} OPRC — Observatorio Político Región de Coquimbo. Todos los derechos reservados.</p>
+						<nav class="flex gap-4">
+							<a href="/politica-de-privacidad/" class="hover:text-white">Privacidad</a>
+							<a href="https://github.com/mtorresromero-cl/oprc-coquimbo" target="_blank" rel="noopener" class="hover:text-white">GitHub</a>
+						</nav>
+					</div>
 					<p class="mt-2">
 						Sitio creado por Miguel Torres Romero. Datos verificados cruzando fuentes oficiales;
 						análisis y desarrollo con apoyo de IA. Proyecto independiente, sin fines de lucro.
