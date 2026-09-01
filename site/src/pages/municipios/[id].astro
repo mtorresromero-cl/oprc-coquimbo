@@ -1,7 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import TarjetaAutoridad from '../../components/TarjetaAutoridad.astro';
 import {
 	comunas,
+	autoridades,
 	presupuestoDeComuna,
 	personalDeComuna,
 	remuneracionAutoridadDeComuna,
@@ -29,6 +31,10 @@ const fuenteUrl = delAnno[0]?.fuente_url;
 const periodoIngresos = periodoDesdeFuenteUrl(ingresos[0]?.fuente_url, anno);
 const periodoGastos = periodoDesdeFuenteUrl(gastos[0]?.fuente_url, anno);
 
+const autoridadesComuna = autoridades
+	.filter((a) => a.comuna === comuna.id)
+	.sort((a, b) => (a.cargo === b.cargo ? a.nombre_completo.localeCompare(b.nombre_completo) : a.cargo === 'alcalde' ? -1 : 1));
+
 const personal = personalDeComuna(comuna.id);
 const remuneracionAutoridad = remuneracionAutoridadDeComuna(comuna.id);
 const dotacionTotal = personal.reduce((s, p) => s + p.dotacion, 0);
@@ -53,6 +59,18 @@ function formatoCLP(monto: number) {
 	</div>
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
+		{autoridadesComuna.length > 0 && (
+			<section class="mb-12">
+				<h2 class="text-lg font-semibold text-slate-900">Autoridades</h2>
+				<p class="mt-1 text-base text-slate-500">
+					Alcalde/sa y concejales de {comuna.nombre}.
+				</p>
+				<ul class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					{autoridadesComuna.map((a) => <TarjetaAutoridad autoridad={a} />)}
+				</ul>
+			</section>
+		)}
+
 		<div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
 			{items.length > 0 && (
 				<section class="max-w-xl">
