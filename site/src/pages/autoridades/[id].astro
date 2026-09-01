@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import {
 	autoridades,
-	CARGO_LABEL,
+	cargoDeAutoridad,
 	nombreComuna,
 	votacionesDeAutoridad,
 	VOTO_LABEL,
@@ -141,7 +141,7 @@ const TEMA = {
 				)}
 				<div class="min-w-0">
 					<h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">{autoridad.nombre_completo}</h1>
-					<p class="mt-1 text-lg text-slate-300">{CARGO_LABEL[autoridad.cargo] ?? autoridad.cargo}</p>
+					<p class="mt-1 text-lg text-slate-300">{cargoDeAutoridad(autoridad)}</p>
 				</div>
 			</div>
 		</div>

@@ -452,6 +452,9 @@ export function votacionesDeAutoridad(autoridadId: string) {
 
 export const CARGOS = ['senador', 'diputado', 'gobernador', 'core', 'alcalde', 'concejal'] as const;
 
+// forma "/" — se usa para categorías (filtros, encabezados de columna,
+// tipos de elección) que no representan a una sola persona con un sexo
+// conocido, sino a un cargo en general
 export const CARGO_LABEL: Record<string, string> = {
 	alcalde: 'Alcalde/sa',
 	concejal: 'Concejal/a',
@@ -460,6 +463,37 @@ export const CARGO_LABEL: Record<string, string> = {
 	senador: 'Senador/a',
 	gobernador: 'Gobernador/a Regional',
 };
+
+const CARGO_LABEL_M: Record<string, string> = {
+	alcalde: 'Alcalde',
+	concejal: 'Concejal',
+	core: 'Consejero Regional',
+	diputado: 'Diputado',
+	senador: 'Senador',
+	gobernador: 'Gobernador Regional',
+};
+
+const CARGO_LABEL_F: Record<string, string> = {
+	alcalde: 'Alcaldesa',
+	concejal: 'Concejala',
+	core: 'Consejera Regional',
+	diputado: 'Diputada',
+	senador: 'Senadora',
+	gobernador: 'Gobernadora Regional',
+};
+
+/**
+ * Forma con género — se usa cuando el cargo etiqueta a una persona en
+ * particular (una tarjeta, un encabezado de perfil, un ítem seleccionado
+ * en el comparador). Si no hay sexo estimado para esa autoridad, cae de
+ * vuelta a la forma "/" en vez de adivinar.
+ */
+export function cargoDeAutoridad(a: { id: string; cargo: string }): string {
+	const sexo = sexoAutoridad(a.id);
+	if (sexo === 'M') return CARGO_LABEL_M[a.cargo] ?? CARGO_LABEL[a.cargo] ?? a.cargo;
+	if (sexo === 'F') return CARGO_LABEL_F[a.cargo] ?? CARGO_LABEL[a.cargo] ?? a.cargo;
+	return CARGO_LABEL[a.cargo] ?? a.cargo;
+}
 
 export const GRUPO_LABEL: Record<string, string> = {
 	senador: 'Senadores',

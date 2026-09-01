@@ -9,6 +9,7 @@ import {
 	remuneracionAutoridadDeComuna,
 	fotoAutoridad,
 	sexoAutoridad,
+	cargoDeAutoridad,
 	AREA_LABEL,
 	TIPO_CONTRATO_LABEL,
 	nombreMes,
@@ -121,7 +122,7 @@ function formatoCLP(monto: number) {
 									</span>
 								)}
 								<div class="min-w-0">
-									<p class="text-xs font-semibold tracking-wide text-white/70 uppercase">Alcalde/sa</p>
+									<p class="text-xs font-semibold tracking-wide text-white/70 uppercase">{cargoDeAutoridad(alcalde)}</p>
 									<p class="mt-0.5 text-xl font-bold leading-tight">{alcalde.nombre_completo}</p>
 									<p class="mt-1 text-sm text-white/80">{alcalde.partido ?? 'Independiente'}</p>
 								</div>
@@ -173,7 +174,9 @@ function formatoCLP(monto: number) {
 
 						{remuneracionAlcalde && (
 							<div class="mt-5 border-t border-slate-100 pt-4">
-								<p class="text-sm font-semibold text-slate-700">Sueldo del alcalde/sa</p>
+								<p class="text-sm font-semibold text-slate-700">
+								Sueldo {alcalde && sexoAutoridad(alcalde.id) === 'F' ? 'de la' : 'del'} {alcalde ? cargoDeAutoridad(alcalde).toLowerCase() : 'alcalde/sa'}
+							</p>
 								<p class="mt-1 text-xl font-bold text-slate-900">{formatoCLP(remuneracionAlcalde.remuneracion_bruta)}</p>
 								<p class="mt-0.5 text-xs text-slate-400">
 									{nombreMes(remuneracionAlcalde.mes)}/{remuneracionAlcalde.anno} — cifra bruta de ese mes, no un sueldo base fijo.

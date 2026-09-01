@@ -1,5 +1,5 @@
 ---
-import { CARGO_LABEL, nombreComuna, fotoAutoridad, type Autoridad } from '../lib/datos';
+import { cargoDeAutoridad, nombreComuna, fotoAutoridad, type Autoridad } from '../lib/datos';
 
 interface Props {
 	autoridad: Autoridad;
@@ -32,7 +32,7 @@ function iniciales(nombre: string) {
 		<span>
 			<p class="font-semibold text-slate-900">{a.nombre_completo}</p>
 			<p class="mt-1 text-sm text-slate-600">
-				{CARGO_LABEL[a.cargo] ?? a.cargo}
+				{cargoDeAutoridad(a)}
 				{a.comuna && ` · ${nombreComuna(a.comuna)}`}
 				{a.partido && ` · ${a.partido}`}
 			</p>
