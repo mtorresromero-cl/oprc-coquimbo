@@ -167,6 +167,34 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 			)}
 		</div>
 
+		<section class="bg-brand-600">
+			<div class="mx-auto flex max-w-6xl flex-col items-start gap-5 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
+				<div>
+					<p class="text-lg font-semibold text-white">Informe mensual por correo</p>
+					<p class="mt-1 text-sm text-brand-100">Un resumen automático cada mes: votaciones, gasto parlamentario y discursos.</p>
+				</div>
+				<form id="form-newsletter" class="flex w-full max-w-md gap-2 sm:w-auto">
+					<input
+						id="newsletter-email"
+						type="email"
+						name="email"
+						required
+						placeholder="tu@correo.cl"
+						class="min-w-0 flex-1 rounded-md border border-white/30 bg-white/10 px-3.5 py-2.5 text-sm text-white placeholder:text-brand-100 focus:border-white focus:outline-none sm:w-64"
+					/>
+					<input type="text" name="sitio_web" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+					<button
+						id="newsletter-submit"
+						type="submit"
+						class="shrink-0 rounded-md bg-white px-4 py-2.5 text-sm font-semibold text-brand-700 hover:bg-brand-50 disabled:cursor-not-allowed disabled:opacity-60"
+					>
+						Suscribirme
+					</button>
+				</form>
+			</div>
+			<p id="newsletter-mensaje" class="mx-auto hidden max-w-6xl px-6 pb-8 text-sm text-white"></p>
+		</section>
+
 		<footer class="bg-slate-900 text-slate-400">
 			<div class="mx-auto max-w-6xl px-6 py-12">
 				<div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5">
@@ -191,31 +219,6 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 								))}
 							</div>
 						</div>
-					<form id="form-newsletter" class="mt-8 max-w-xs">
-						<label for="newsletter-email" class="block text-xs font-semibold tracking-wide text-slate-200 uppercase">
-							Informe mensual por correo
-						</label>
-						<p class="mt-1.5 text-[13px] text-slate-400">Un resumen automático cada mes: votaciones, gasto parlamentario y discursos.</p>
-						<div class="mt-3 flex gap-2">
-							<input
-								id="newsletter-email"
-								type="email"
-								name="email"
-								required
-								placeholder="tu@correo.cl"
-								class="min-w-0 flex-1 rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder:text-slate-500 focus:border-brand-500 focus:outline-none"
-							/>
-							<input type="text" name="sitio_web" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
-							<button
-								id="newsletter-submit"
-								type="submit"
-								class="shrink-0 rounded-md bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
-							>
-								Suscribirme
-							</button>
-						</div>
-						<p id="newsletter-mensaje" class="mt-2 hidden text-[13px]"></p>
-					</form>
 					</div>
 
 					<div>
@@ -291,15 +294,15 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 						if (resp.ok && datos.ok) {
 							formNewsletter.reset();
 							mensaje.textContent = '¡Listo! Revisa tu correo para confirmar la suscripción.';
-							mensaje.classList.remove('hidden', 'text-red-400');
-							mensaje.classList.add('text-emerald-400');
+							mensaje.classList.remove('hidden', 'text-amber-200');
+							mensaje.classList.add('text-white', 'font-semibold');
 						} else {
 							throw new Error(datos.error || 'error desconocido');
 						}
 					} catch (err) {
 						mensaje.textContent = 'No se pudo suscribir. Intenta de nuevo o escríbenos a contacto@oprcoquimbo.cl.';
-						mensaje.classList.remove('hidden', 'text-emerald-400');
-						mensaje.classList.add('text-red-400');
+						mensaje.classList.remove('hidden', 'text-white', 'font-semibold');
+						mensaje.classList.add('text-amber-200');
 						console.error(err);
 					} finally {
 						boton.disabled = false;

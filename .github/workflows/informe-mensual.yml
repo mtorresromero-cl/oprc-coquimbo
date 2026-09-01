@@ -25,12 +25,15 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -r scrapers/requirements.txt
-      - name: Generar y enviar informe
+      - name: Generar informe (y enviar solo si se pide explícitamente)
         env:
           MAILRELAY_API_KEY: ${{ secrets.MAILRELAY_API_KEY }}
         run: |
           ARGS="${{ github.event.inputs.mes }}"
-          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event.inputs.enviar }}" = "true" ]; then
+          # el día 1 SOLO genera y comitea el HTML — nunca envía solo. El
+          # envío real requiere un disparo manual con "enviar" marcado,
+          # después de revisar el HTML que este mismo paso deja en el repo.
+          if [ "${{ github.event.inputs.enviar }}" = "true" ]; then
             ARGS="$ARGS --send"
           fi
           python scrapers/informe_mensual.py $ARGS
