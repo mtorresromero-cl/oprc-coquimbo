@@ -262,6 +262,26 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 			</div>
 		</footer>
 
+		<div
+			id="aviso-cookies"
+			hidden
+			class="fixed inset-x-0 bottom-0 z-30 border-t border-slate-700 bg-slate-900/95 px-6 py-4 text-sm text-slate-300 backdrop-blur"
+		>
+			<div class="mx-auto flex max-w-6xl flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
+				<p>
+					Usamos cookies de análisis (Google Analytics) para entender cómo se usa el sitio.{' '}
+					<a href="/politica-de-privacidad/" class="underline hover:text-white">Más información</a>.
+				</p>
+				<button
+					id="aviso-cookies-ok"
+					type="button"
+					class="shrink-0 rounded-md bg-white px-4 py-2 text-xs font-semibold text-slate-900 hover:bg-slate-100"
+				>
+					Entendido
+				</button>
+			</div>
+		</div>
+
 		<script>
 			// en desktop, el menú "Datos" se abre/cierra con el mouse — en
 			// touch (sin hover real) se deja el comportamiento nativo de
@@ -307,6 +327,24 @@ const datosActivo = DATOS_ITEMS.some((item) => activo(item.href));
 					} finally {
 						boton.disabled = false;
 						boton.textContent = 'Suscribirme';
+					}
+				});
+			}
+
+			// aviso de cookies: se recuerda con localStorage, no bloquea Analytics
+			const avisoCookies = document.getElementById('aviso-cookies') as HTMLDivElement | null;
+			if (avisoCookies) {
+				try {
+					if (!localStorage.getItem('cookies-ok')) avisoCookies.hidden = false;
+				} catch {
+					avisoCookies.hidden = false;
+				}
+				document.getElementById('aviso-cookies-ok')?.addEventListener('click', () => {
+					avisoCookies.hidden = true;
+					try {
+						localStorage.setItem('cookies-ok', '1');
+					} catch {
+						// si localStorage no está disponible, el aviso volverá a salir la próxima visita
 					}
 				});
 			}
