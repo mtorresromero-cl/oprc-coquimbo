@@ -7,11 +7,24 @@ import {
 	presupuestoDeComuna,
 	personalDeComuna,
 	remuneracionAutoridadDeComuna,
+	fotoAutoridad,
+	sexoAutoridad,
 	AREA_LABEL,
 	TIPO_CONTRATO_LABEL,
 	nombreMes,
 	periodoDesdeFuenteUrl,
 } from '../../lib/datos';
+
+// azul de la paleta categórica del sitio (mismo orden que usa, por ej.,
+// la red de asesores) — resalta al alcalde/sa como la autoridad principal
+// de la comuna, sin pisar los colores ya reservados por tema (gasto,
+// asistencia, etc.)
+const COLOR_ALCALDE = '#2a78d6';
+
+function iniciales(nombre: string) {
+	const partes = nombre.split(' ').filter(Boolean);
+	return ((partes[0]?.[0] ?? '') + (partes[1]?.[0] ?? '')).toUpperCase();
+}
 
 export function getStaticPaths() {
 	return comunas
@@ -34,6 +47,26 @@ const periodoGastos = periodoDesdeFuenteUrl(gastos[0]?.fuente_url, anno);
 const autoridadesComuna = autoridades
 	.filter((a) => a.comuna === comuna.id)
 	.sort((a, b) => (a.cargo === b.cargo ? a.nombre_completo.localeCompare(b.nombre_completo) : a.cargo === 'alcalde' ? -1 : 1));
+const alcalde = autoridadesComuna.find((a) => a.cargo === 'alcalde');
+const fotoAlcalde = alcalde ? fotoAutoridad(alcalde.id) : null;
+const concejales = autoridadesComuna.filter((a) => a.cargo === 'concejal');
+
+const partidoCounts = new Map<string, number>();
+for (const a of autoridadesComuna) {
+	const key = a.partido ?? 'Independiente';
+	partidoCounts.set(key, (partidoCounts.get(key) ?? 0) + 1);
+}
+const partidosOrdenados = [...partidoCounts.entries()].sort((a, b) => b[1] - a[1]);
+const maxPartido = Math.max(...partidosOrdenados.map(([, n]) => n), 1);
+
+let hombresAutoridades = 0;
+let mujeresAutoridades = 0;
+for (const a of autoridadesComuna) {
+	const s = sexoAutoridad(a.id);
+	if (s === 'M') hombresAutoridades++;
+	else if (s === 'F') mujeresAutoridades++;
+}
+const totalConGenero = hombresAutoridades + mujeresAutoridades;
 
 const personal = personalDeComuna(comuna.id);
 const remuneracionAutoridad = remuneracionAutoridadDeComuna(comuna.id);
@@ -41,6 +74,11 @@ const dotacionTotal = personal.reduce((s, p) => s + p.dotacion, 0);
 const remuneracionTotalPersonal = personal.reduce((s, p) => s + p.remuneracion_total, 0);
 const periodosPersonal = [...new Set(personal.map((p) => `${nombreMes(p.mes)}/${p.anno}`))];
 const periodoPersonal = periodosPersonal.length === 1 ? periodosPersonal[0] : null;
+// "SECRETARIA ALCALDE" es un cargo real, pero no es el/la alcalde/sa —
+// hay que excluirlo explícitamente para no mostrar el sueldo equivocado
+const remuneracionAlcalde = remuneracionAutoridad.find(
+	(r) => r.cargo.toUpperCase().includes('ALCALDE') && !r.cargo.toUpperCase().includes('SECRETAR')
+);
 
 function formatoCLP(monto: number) {
 	return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(
@@ -63,11 +101,95 @@ function formatoCLP(monto: number) {
 			<section class="mb-12">
 				<h2 class="text-lg font-semibold text-slate-900">Autoridades</h2>
 				<p class="mt-1 text-base text-slate-500">
-					Alcalde/sa y concejales de {comuna.nombre}.
+					Quién gobierna {comuna.nombre}: alcalde/sa, concejales, y un vistazo al peso político y
+					de género.
 				</p>
-				<ul class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-					{autoridadesComuna.map((a) => <TarjetaAutoridad autoridad={a} />)}
-				</ul>
+
+				<div class="mt-5 grid grid-cols-1 gap-6 lg:grid-cols-3">
+					<div class="lg:col-span-2">
+						{alcalde && (
+							<a
+								href={`/autoridades/${alcalde.id}/`}
+								class="flex items-center gap-4 rounded-xl p-5 text-white shadow-sm transition hover:brightness-110"
+								style={`background:${COLOR_ALCALDE}`}
+							>
+								{fotoAlcalde ? (
+									<img src={fotoAlcalde} alt="" class="h-16 w-16 shrink-0 rounded-full border-2 border-white/70 object-cover" />
+								) : (
+									<span class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-white/70 bg-white/15 text-xl font-bold">
+										{iniciales(alcalde.nombre_completo)}
+									</span>
+								)}
+								<div class="min-w-0">
+									<p class="text-xs font-semibold tracking-wide text-white/70 uppercase">Alcalde/sa</p>
+									<p class="mt-0.5 text-xl font-bold leading-tight">{alcalde.nombre_completo}</p>
+									<p class="mt-1 text-sm text-white/80">{alcalde.partido ?? 'Independiente'}</p>
+								</div>
+							</a>
+						)}
+
+						{concejales.length > 0 && (
+							<ul class="mt-4 grid gap-4 sm:grid-cols-2">
+								{concejales.map((a) => <TarjetaAutoridad autoridad={a} />)}
+							</ul>
+						)}
+					</div>
+
+					<div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+						<p class="text-xs font-semibold tracking-wide text-slate-500 uppercase">Estadísticas</p>
+
+						{partidosOrdenados.length > 0 && (
+							<div class="mt-4">
+								<p class="text-sm font-semibold text-slate-700">Peso por partido</p>
+								<div class="mt-2 space-y-2">
+									{partidosOrdenados.map(([partido, n]) => (
+										<div>
+											<div class="flex items-center justify-between gap-2 text-xs text-slate-600">
+												<span class="min-w-0 truncate">{partido}</span>
+												<span class="shrink-0 font-semibold text-slate-900">{n}</span>
+											</div>
+											<div class="mt-1 h-1.5 rounded bg-slate-100">
+												<div class="h-1.5 rounded" style={`width:${(n / maxPartido) * 100}%;background:${COLOR_ALCALDE}`}></div>
+											</div>
+										</div>
+									))}
+								</div>
+							</div>
+						)}
+
+						{totalConGenero > 0 && (
+							<div class="mt-5 border-t border-slate-100 pt-4">
+								<p class="text-sm font-semibold text-slate-700">Hombres y mujeres</p>
+								<div class="mt-2 flex items-center justify-between text-sm text-slate-700">
+									<span>Hombres <span class="font-semibold text-slate-900">{hombresAutoridades}</span></span>
+									<span>Mujeres <span class="font-semibold text-slate-900">{mujeresAutoridades}</span></span>
+								</div>
+								<div class="mt-2 flex h-2 overflow-hidden rounded-full bg-slate-100">
+									<div class="h-2 bg-slate-600" style={`width:${(hombresAutoridades / totalConGenero) * 100}%`}></div>
+									<div class="h-2 bg-brand-600" style={`width:${(mujeresAutoridades / totalConGenero) * 100}%`}></div>
+								</div>
+							</div>
+						)}
+
+						{remuneracionAlcalde && (
+							<div class="mt-5 border-t border-slate-100 pt-4">
+								<p class="text-sm font-semibold text-slate-700">Sueldo del alcalde/sa</p>
+								<p class="mt-1 text-xl font-bold text-slate-900">{formatoCLP(remuneracionAlcalde.remuneracion_bruta)}</p>
+								<p class="mt-0.5 text-xs text-slate-400">
+									{nombreMes(remuneracionAlcalde.mes)}/{remuneracionAlcalde.anno} — cifra bruta de ese mes, no un sueldo base fijo.
+								</p>
+							</div>
+						)}
+
+						{dotacionTotal > 0 && (
+							<div class="mt-5 border-t border-slate-100 pt-4">
+								<p class="text-sm font-semibold text-slate-700">Dotación municipal</p>
+								<p class="mt-1 text-xl font-bold text-slate-900">{dotacionTotal.toLocaleString('es-CL')} personas</p>
+								<p class="mt-0.5 text-xs text-slate-400">dependen de este municipio, entre planta, contrata y honorarios.</p>
+							</div>
+						)}
+					</div>
+				</div>
 			</section>
 		)}
 
@@ -202,19 +324,6 @@ function formatoCLP(monto: number) {
 							</tbody>
 						</table>
 					</div>
-
-					{remuneracionAutoridad.map((r) => (
-						<p class="mt-4 text-base text-slate-700">
-							Remuneración bruta de {r.cargo.toLowerCase()} ({nombreMes(r.mes)}/{r.anno}):{' '}
-							<span class="font-semibold text-slate-900">{formatoCLP(r.remuneracion_bruta)}</span>
-							<span class="mt-1 block max-w-md rounded-md bg-amber-50 px-2 py-1.5 text-xs text-amber-800">
-								Cifra bruta de ese mes puntual, no un sueldo base fijo: al revisar
-								enero-julio/2026 en toda la región, la mayoría de las comunas tiene meses
-								(típicamente mayo y julio) con un salto de hasta 30-70% por bonos o
-								asignaciones variables que no se pagan todos los meses.
-							</span>
-						</p>
-					))}
 				</section>
 			)}
 		</div>
