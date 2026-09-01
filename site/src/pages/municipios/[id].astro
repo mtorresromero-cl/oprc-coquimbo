@@ -10,6 +10,7 @@ import {
 	fotoAutoridad,
 	sexoAutoridad,
 	cargoDeAutoridad,
+	nombrePartido,
 	AREA_LABEL,
 	TIPO_CONTRATO_LABEL,
 	nombreMes,
@@ -54,7 +55,7 @@ const concejales = autoridadesComuna.filter((a) => a.cargo === 'concejal');
 
 const partidoCounts = new Map<string, number>();
 for (const a of autoridadesComuna) {
-	const key = a.partido ?? 'Independiente';
+	const key = a.partido ? nombrePartido(a.partido) : 'Independiente';
 	partidoCounts.set(key, (partidoCounts.get(key) ?? 0) + 1);
 }
 const partidosOrdenados = [...partidoCounts.entries()].sort((a, b) => b[1] - a[1]);
@@ -129,7 +130,7 @@ function formatoCLP(monto: number) {
 								<div class="min-w-0">
 									<p class="text-xs font-semibold tracking-wide text-white/70 uppercase">{cargoDeAutoridad(alcalde)}</p>
 									<p class="mt-0.5 text-xl font-bold leading-tight">{alcalde.nombre_completo}</p>
-									<p class="mt-1 text-sm text-white/80">{alcalde.partido ?? 'Independiente'}</p>
+									<p class="mt-1 text-sm text-white/80">{alcalde.partido ? nombrePartido(alcalde.partido) : 'Independiente'}</p>
 								</div>
 							</a>
 						)}

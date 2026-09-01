@@ -9,6 +9,7 @@ import {
 	indiceAsistencia,
 	fotoAutoridad,
 	cargoDeAutoridad,
+	nombrePartido,
 } from '../../lib/datos';
 
 const senadorIds = autoridades.filter((a) => a.cargo === 'senador').map((a) => a.id);
@@ -35,7 +36,7 @@ const personas = [...diputadoIds, ...senadorIds].map((id) => {
 		nombre: a.nombre_completo,
 		cargo: a.cargo,
 		cargoLabel: cargoDeAutoridad(a),
-		partido: a.partido,
+		partido: a.partido ? nombrePartido(a.partido) : null,
 		foto: fotoAutoridad(id),
 		metrics: {
 			asistenciaPct: asistenciaPorId.get(id)?.asistenciaPct ?? null,

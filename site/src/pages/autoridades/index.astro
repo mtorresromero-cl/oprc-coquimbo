@@ -11,10 +11,11 @@ import {
 	composicionPorGenero,
 	composicionPorGeneroYCargo,
 	autoridadesPorCargoProvincia,
+	nombrePartido,
 } from '../../lib/datos';
 import TarjetaAutoridad from '../../components/TarjetaAutoridad.astro';
 
-const partidos = [...new Set(autoridades.map((a) => a.partido).filter(Boolean))].sort() as string[];
+const partidos = [...new Set(autoridades.map((a) => (a.partido ? nombrePartido(a.partido) : null)).filter(Boolean))].sort() as string[];
 
 const composicionPartido = composicionPartidoTodos();
 const totalAutoridadesConPartido = composicionPartido.reduce((s, p) => s + p.total, 0);

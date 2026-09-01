@@ -16,6 +16,7 @@ import {
 	CATEGORIA_GASTO,
 	nombreMes,
 	analisisIntervenciones,
+	nombrePartido,
 } from '../../lib/datos';
 
 export function getStaticPaths() {
@@ -155,7 +156,7 @@ const TEMA = {
 						{autoridad.partido && (
 							<div>
 								<dt class="text-slate-500">Partido</dt>
-								<dd class="font-medium text-slate-900">{autoridad.partido}</dd>
+								<dd class="font-medium text-slate-900">{nombrePartido(autoridad.partido)}</dd>
 							</div>
 						)}
 						{autoridad.pacto && (

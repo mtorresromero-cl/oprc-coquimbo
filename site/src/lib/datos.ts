@@ -574,6 +574,19 @@ const PARTIDO_ALIAS: Record<string, string> = {
 	Demócratas: 'Partido Demócratas',
 };
 
+/**
+ * Nombre normalizado de un partido (autoridades.partido) — mismas
+ * variantes reales observadas en los datos (siglas, "de Chile", etc.)
+ * unificadas vía PARTIDO_ALIAS de forma explícita, en vez de un regex que
+ * podría fusionar partidos distintos por error. Usar en cualquier lugar
+ * que muestre o agrupe por partido — si no, dos autoridades del mismo
+ * partido con la sigla escrita distinto aparecen como partidos separados
+ * (pasaba en el filtro de /autoridades/, que no usaba esto).
+ */
+export function nombrePartido(partido: string): string {
+	return PARTIDO_ALIAS[partido] ?? partido;
+}
+
 export interface ComposicionPartido {
 	partido: string;
 	total: number;
@@ -581,16 +594,13 @@ export interface ComposicionPartido {
 
 /**
  * Composición por partido de las 142 autoridades (alcaldes, concejales,
- * consejeros regionales, gobernador, diputados y senadores). Normaliza
- * variantes reales observadas en los datos (siglas, "de Chile", etc.) vía
- * PARTIDO_ALIAS de forma explícita, en vez de un regex que podría fusionar
- * partidos distintos por error.
+ * consejeros regionales, gobernador, diputados y senadores).
  */
 export function composicionPartidoTodos(): ComposicionPartido[] {
 	const conteo = new Map<string, number>();
 	for (const a of autoridades) {
 		if (!a.partido) continue;
-		const partido = PARTIDO_ALIAS[a.partido] ?? a.partido;
+		const partido = nombrePartido(a.partido);
 		conteo.set(partido, (conteo.get(partido) ?? 0) + 1);
 	}
 	return [...conteo.entries()]
