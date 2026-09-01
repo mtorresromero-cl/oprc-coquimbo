@@ -473,10 +473,9 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 			ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 			construirNodosRed();
 			asentarRed();
-			// arranca dos niveles más cerca (lo mismo que tocar "+" dos
-			// veces) — se veía muy chico apenas se abría la pestaña
+			// arranca un nivel más cerca (lo mismo que tocar "+" una vez) —
+			// se veía muy chico apenas se abría la pestaña
 			view.zoom = 1; view.offsetX = 0; view.offsetY = 0;
-			aplicarZoomRed(1.3, anchoC / 2, altoC / 2);
 			aplicarZoomRed(1.3, anchoC / 2, altoC / 2);
 		}
 

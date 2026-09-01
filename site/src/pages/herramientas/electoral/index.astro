@@ -8,6 +8,7 @@ const secciones = [
 			'Quién ganó y con cuántos votos, candidato por candidato, en cada elección de la Región de Coquimbo desde 1989.',
 		url: '/herramientas/electoral/resultados/',
 		disponible: true,
+		icono: 'M12 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z M8.5 13 7 22l5-3 5 3-1.5-9',
 	},
 	{
 		titulo: 'Plebiscitos',
@@ -15,6 +16,7 @@ const secciones = [
 			'Cómo votó cada comuna en los plebiscitos nacionales de 2020, 2022 y 2023, con mapa por comuna.',
 		url: '/herramientas/electoral/plebiscitos/',
 		disponible: true,
+		icono: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11',
 	},
 	{
 		titulo: 'Explorador por Comuna',
@@ -22,6 +24,7 @@ const secciones = [
 			'Toda la historia electoral de una comuna: alcaldes desde 1992, participación y quién ha ganado cada elección.',
 		url: '/herramientas/electoral/comuna/',
 		disponible: true,
+		icono: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z',
 	},
 	{
 		titulo: 'Comparador entre Comunas',
@@ -29,6 +32,7 @@ const secciones = [
 			'Compara padrón, participación, partido dominante y competitividad electoral entre 2 o 3 comunas.',
 		url: '/herramientas/electoral/comparador/',
 		disponible: true,
+		icono: 'M8 3 4 7l4 4 M4 7h16 M16 21l4-4-4-4 M20 17H4',
 	},
 	{
 		titulo: 'Padrón Electoral',
@@ -36,12 +40,14 @@ const secciones = [
 			'Quiénes fueron a votar: composición por sexo, edad y nacionalidad, 2012-2025.',
 		url: '/herramientas/electoral/padron/',
 		disponible: true,
+		icono: 'M9 2h6a2 2 0 0 1 2 2v1H7V4a2 2 0 0 1 2-2Z M5 6h14v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6Z M9 12h6M9 16h6',
 	},
 	{
 		titulo: 'Participación Electoral',
 		descripcion: 'Cuánta gente inscrita realmente votó, comuna por comuna, desde 2012.',
 		url: '/herramientas/participacion-electoral/',
 		disponible: true,
+		icono: 'M23 6l-9.5 9.5-5-5L1 18 M17 6h6v6',
 	},
 ];
 ---
@@ -72,7 +78,12 @@ const secciones = [
 					href={s.url}
 					class="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
 				>
-					<h2 class="font-semibold text-slate-900 group-hover:text-brand-700">{s.titulo}</h2>
+					<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+							<path d={s.icono}></path>
+						</svg>
+					</div>
+					<h2 class="mt-4 font-semibold text-slate-900 group-hover:text-brand-700">{s.titulo}</h2>
 					<p class="mt-2 text-base leading-relaxed text-slate-600">{s.descripcion}</p>
 					<span class="mt-4 inline-block text-sm font-semibold text-brand-600">Abrir &rarr;</span>
 				</a>
