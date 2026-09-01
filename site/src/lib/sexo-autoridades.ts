@@ -73,7 +73,7 @@ export const SEXO_AUTORIDAD: Record<string, 'M' | 'F'> = {
 	'homero-ademir-cortes-campusano-concejal': 'M',
 	'ignacio-hernan-plaza-ramirez-concejal': 'M',
 	'ivan-david-guzman-araya-concejal': 'M',
-	'ivana-patricia-godoy-ahumada-concejal': 'F',
+	'ivanna-patricia-godoy-ahumada-concejal': 'F',
 	'ivonne-del-carmen-valenzuela-valenzuela-concejal': 'F',
 	'jacqueline-del-carmen-briceno-salinas-concejal': 'F',
 	'jaime-eduardo-palma-gallardo-concejal': 'M',
