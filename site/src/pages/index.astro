@@ -1,10 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { autoridades, comunas, votaciones, votacionesCore, presupuesto, personal } from '../lib/datos';
+import { autoridades, comunas, votaciones, votacionesCore, gastoParlamentario } from '../lib/datos';
 
-const comunasConDatos = comunas.filter(
-	(c) => presupuesto.some((p) => p.comuna_id === c.id) || personal.some((p) => p.comuna_id === c.id)
-).length;
+// Solo las 2 categorías con monto real verificado (gastos_operacionales y
+// personal_apoyo) — pasajes_aereos no tiene costo publicado y
+// asesorias_externas no tiene datos, así que sumarlas inflaría la cifra
+// con ceros que no son un gasto real de cero.
+const totalGastoFiscalizado = gastoParlamentario
+	.filter((g) => (g.categoria === 'gastos_operacionales' || g.categoria === 'personal_apoyo') && g.monto)
+	.reduce((s, g) => s + (g.monto ?? 0), 0);
 
 // Radar del hero: mismas 6 áreas de trabajo que en /nosotros/, recoloreado
 // para verse sobre el fondo oscuro del hero en vez del fondo blanco.
@@ -30,7 +34,7 @@ const nodosRadar = [
 const stats = [
 	{ valor: autoridades.length, label: 'autoridades registradas' },
 	{ valor: comunas.length, label: 'comunas de la región' },
-	{ valor: comunasConDatos, label: 'con datos de transparencia' },
+	{ valor: `$${Math.round(totalGastoFiscalizado / 1_000_000)}M`, label: 'en gasto parlamentario fiscalizado' },
 	{ valor: votaciones.length + votacionesCore.length, label: 'votaciones registradas' },
 ];
 
