@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { autoridades, votacionesCore, indiceVotaciones, VOTO_LABEL } from '../../lib/datos';
+import { autoridades, votacionesCore, indiceVotaciones, VOTO_LABEL, fotoAutoridad } from '../../lib/datos';
 
 function nombreAutoridad(id: string) {
 	return autoridades.find((a) => a.id === id)?.nombre_completo ?? id;
@@ -26,6 +26,7 @@ const indiceGobernador = indiceCore.find((i) => i.cargo === 'gobernador');
 const gobernador = indiceGobernador && {
 	id: indiceGobernador.autoridad_id,
 	nombre: indiceGobernador.nombre,
+	foto: fotoAutoridad(indiceGobernador.autoridad_id),
 	metrics: metricsDe(indiceGobernador),
 };
 
@@ -34,6 +35,7 @@ const grupo = indiceCore
 	.map((i) => ({
 		id: i.autoridad_id,
 		nombre: i.nombre,
+		foto: fotoAutoridad(i.autoridad_id),
 		metrics: metricsDe(i),
 	}));
 
@@ -82,13 +84,22 @@ const METRICAS: [string, string][] = [
 	<main class="mx-auto max-w-6xl px-6 py-10">
 		{gobernador && (
 			<section class="rounded-xl border border-amber-200 bg-amber-50 p-5 shadow-sm">
-				<div class="flex items-center gap-2">
-					<span class="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-700">
-						Gobernador/a Regional
-					</span>
-					<a href={`/autoridades/${gobernador.id}/`} class="font-semibold text-slate-900 hover:text-brand-600 hover:underline">
-						{gobernador.nombre}
-					</a>
+				<div class="flex items-center gap-3">
+					{gobernador.foto ? (
+						<img src={gobernador.foto} alt="" class="h-9 w-9 shrink-0 rounded-full border-2 border-white object-cover shadow-sm" />
+					) : (
+						<span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-white bg-brand-50 text-xs font-bold text-brand-700 shadow-sm">
+							{gobernador.nombre.split(' ').slice(0, 2).map((p: string) => p[0]).join('')}
+						</span>
+					)}
+					<div class="flex flex-wrap items-center gap-2">
+						<span class="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-700">
+							Gobernador/a Regional
+						</span>
+						<a href={`/autoridades/${gobernador.id}/`} class="font-semibold text-slate-900 hover:text-brand-600 hover:underline">
+							{gobernador.nombre}
+						</a>
+					</div>
 				</div>
 				<p class="mt-2 text-base text-slate-600">
 					No es consejero/a, pero participa de los mismos acuerdos del Consejo Regional.
@@ -111,12 +122,17 @@ const METRICAS: [string, string][] = [
 
 			<div id="chart" class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm"></div>
 
-			<div class="mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
-				<table class="w-full text-sm">
-					<thead id="tabla-head" class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase"></thead>
-					<tbody id="tabla-body" class="divide-y divide-slate-100"></tbody>
-				</table>
-			</div>
+			<details class="mt-6 group">
+				<summary class="cursor-pointer text-sm font-semibold text-brand-600 hover:text-brand-700">
+					Ver tabla con todas las métricas a la vez →
+				</summary>
+				<div class="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+					<table class="w-full text-sm">
+						<thead id="tabla-head" class="bg-slate-50 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase"></thead>
+						<tbody id="tabla-body" class="divide-y divide-slate-100"></tbody>
+					</table>
+				</div>
+			</details>
 		</section>
 
 		<section class="mt-14">
@@ -175,6 +191,7 @@ const METRICAS: [string, string][] = [
 		interface Item {
 			id: string;
 			nombre: string;
+			foto: string | null;
 			metrics: Record<string, number | null>;
 		}
 
@@ -221,8 +238,16 @@ const METRICAS: [string, string][] = [
 			document.getElementById('metrica-definicion')!.textContent = DEFINICIONES[metricaActiva] ?? '';
 		}
 
+		function iniciales(nombre: string): string {
+			const partes = nombre.split(' ').filter(Boolean);
+			return ((partes[0]?.[0] ?? '') + (partes[1]?.[0] ?? '')).toUpperCase();
+		}
+
 		function etiquetaNombre(i: Item) {
-			return `<span class="min-w-0 truncate">${i.nombre}</span>`;
+			const avatar = i.foto
+				? `<img src="${i.foto}" alt="" class="h-6 w-6 shrink-0 rounded-full border-2 border-slate-100 object-cover" />`
+				: `<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-slate-100 bg-brand-50 text-[10px] font-bold text-brand-700">${iniciales(i.nombre)}</span>`;
+			return `${avatar}<span class="min-w-0 truncate">${i.nombre}</span>`;
 		}
 
 		function render() {
