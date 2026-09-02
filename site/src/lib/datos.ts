@@ -189,6 +189,7 @@ import resultadosRecientesRaw from '../../../data/processed/resultados-electoral
 import padronDemograficoRaw from '../../../data/processed/padron-demografico.json';
 import gastoParlamentarioRaw from '../../../data/processed/gasto-parlamentario.json';
 import analisisIntervencionesRaw from '../../../data/processed/analisis-intervenciones.json';
+import analisisIntervencionesSenadoRaw from '../../../data/processed/analisis-intervenciones-senado.json';
 
 export const autoridades: Autoridad[] = autoridadesRaw as Autoridad[];
 export const comunas: Comuna[] = comunasRaw as Comuna[];
@@ -250,6 +251,8 @@ export interface AnalisisIntervenciones {
 }
 export const analisisIntervenciones: AnalisisIntervenciones =
 	analisisIntervencionesRaw as AnalisisIntervenciones;
+export const analisisIntervencionesSenado: AnalisisIntervenciones =
+	analisisIntervencionesSenadoRaw as AnalisisIntervenciones;
 
 export function presupuestoDeComuna(comunaId: string) {
 	return presupuesto.filter((p) => p.comuna_id === comunaId);

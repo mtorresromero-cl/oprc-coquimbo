@@ -306,3 +306,19 @@ CREATE TABLE IF NOT EXISTS intervencion_sala (
 );
 CREATE UNIQUE INDEX IF NOT EXISTS ux_intervencion_sala
     ON intervencion_sala(sesion_id, autoridad_id, tipo, detalle);
+
+CREATE TABLE IF NOT EXISTS intervencion_sala_senado (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    sesion_id       TEXT NOT NULL,           -- ID_SESION de senado.cl
+    numero_sesion   INTEGER,                 -- NRO_SESION (puede venir NULL en sesiones especiales)
+    etiqueta_sesion TEXT NOT NULL,           -- "NRO_SESION / NRO_LEGISLATURA", ej. "1 / 374"
+    fecha           TEXT,                    -- FECHA tal como la publica senado.cl, dd/mm/aaaa
+    tag             INTEGER NOT NULL,        -- posición de la intervención dentro de la sesión (.../{sesion_id}/{tag})
+    autoridad_id    TEXT,                    -- NULL = sesion revisada, ningun senador de la region intervino
+    tema            TEXT,                    -- TEMA de la intervencion
+    boletin         TEXT,                    -- BOLETIN del proyecto de ley, si aplica
+    texto           TEXT,                    -- TEXTO completo de la intervencion, tal como lo publica senado.cl
+    FOREIGN KEY (autoridad_id) REFERENCES autoridad(id)
+);
+CREATE UNIQUE INDEX IF NOT EXISTS ux_intervencion_sala_senado
+    ON intervencion_sala_senado(sesion_id, tag);

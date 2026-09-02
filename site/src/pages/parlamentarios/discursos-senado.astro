@@ -1,0 +1,727 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { autoridades, analisisIntervencionesSenado, fotoAutoridad, nombreMes } from '../../lib/datos';
+
+const senadores = autoridades
+	.filter((a) => a.cargo === 'senador')
+	.map((a) => ({ id: a.id, nombre: a.nombre_completo, foto: fotoAutoridad(a.id) }))
+	.sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+const { participacion, top_palabras_por_autoridad, top_palabras_total, tendencia, coocurrencia } =
+	analisisIntervencionesSenado;
+
+const participacionOrdenada = senadores
+	.map((d) => ({ ...d, ...(participacion[d.id] ?? { intervenciones: 0, segundos: 0, con_texto: 0 }) }))
+	.sort((a, b) => b.intervenciones - a.intervenciones);
+
+const mesesEtiquetas = tendencia.meses.map((m) => {
+	const [anno, mes] = m.split('-').map(Number);
+	return `${nombreMes(mes).slice(0, 3)} ${anno}`;
+});
+---
+
+<Layout
+	title="Intervenciones en sala — Senado — OPRC"
+	description="Análisis de texto de los discursos de los 3 senadores de la Región de Coquimbo en sala: palabras más usadas, tendencia y red de coocurrencia."
+>
+	<section class="relative overflow-hidden bg-slate-900">
+		<div class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"></div>
+		<div class="pointer-events-none absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full bg-brand-800/30 blur-3xl"></div>
+		<div class="relative mx-auto max-w-6xl px-6 py-20">
+			<a href="/parlamentarios/" class="inline-flex items-center gap-1 text-sm font-medium text-slate-300 hover:text-white">
+				← Volver a Parlamentarios
+			</a>
+			<p class="mt-6 text-sm font-semibold tracking-widest text-brand-300 uppercase">Datos · Senado</p>
+			<h1 class="mt-4 max-w-2xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
+				Intervenciones en sala
+			</h1>
+			<p class="mt-5 max-w-2xl text-lg text-slate-300">
+				{analisisIntervencionesSenado.total_con_texto} discursos reales de los 3 senadores de la región,
+				Legislatura 374, vía senado.cl —
+				{analisisIntervencionesSenado.total_palabras_corpus.toLocaleString('es-CL')} palabras analizadas.
+			</p>
+		</div>
+	</section>
+
+	<main class="mx-auto max-w-6xl px-6 py-10">
+		<div class="flex flex-wrap gap-2">
+			{['Uso de la palabra', 'Palabras más usadas', 'Tendencia', 'Red de palabras'].map((label, i) => (
+				<button
+					type="button"
+					data-tab={i}
+					class:list={[
+						'tab-btn cursor-pointer rounded-md px-4 py-2 text-sm font-semibold',
+						i === 0 ? 'bg-topic-discursos text-white' : 'border border-slate-300 text-slate-700 hover:bg-slate-50',
+					]}
+				>
+					{label}
+				</button>
+			))}
+		</div>
+
+		<!-- Uso de la palabra -->
+		<section class="panel mt-8" data-panel="0">
+			<h2 class="text-xl font-semibold text-slate-900">Uso de la palabra</h2>
+			<p class="mt-1 max-w-2xl text-sm text-slate-500">
+				Cantidad de intervenciones registradas por senado.cl con texto real (discursos), por
+				senador/a. senado.cl no publica la duración de cada intervención, a diferencia de
+				camara.cl.
+			</p>
+			<div class="mt-4 flex items-center gap-3 text-xs font-semibold tracking-wide text-slate-400 uppercase">
+				<span class="w-8 shrink-0"></span>
+				<span class="w-24 shrink-0 sm:w-56"></span>
+				<div class="flex-1"></div>
+				<span class="w-20 shrink-0 text-right">Interv.</span>
+			</div>
+			<div class="mt-2 space-y-3 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+				{participacionOrdenada.map((d) => {
+					const max = Math.max(...participacionOrdenada.map((x) => x.intervenciones), 1);
+					const anchoPct = (d.intervenciones / max) * 100;
+					return (
+						<div class="flex items-center gap-3">
+							{d.foto ? (
+								<img src={d.foto} alt="" class="h-8 w-8 shrink-0 rounded-full border-2 border-slate-100 object-cover" />
+							) : (
+								<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-slate-100 bg-brand-50 text-[10px] font-bold text-brand-700">
+									{d.nombre.split(' ').slice(0, 2).map((p) => p[0]).join('')}
+								</span>
+							)}
+							<a href={`/autoridades/${d.id}/`} class="w-24 shrink-0 truncate text-sm font-medium text-slate-800 hover:text-brand-600 hover:underline sm:w-56">
+								{d.nombre}
+							</a>
+							<div class="h-4 flex-1 rounded bg-slate-100">
+								<div class="h-4 rounded bg-topic-discursos" style={`width:${anchoPct}%`}></div>
+							</div>
+							<span class="w-20 shrink-0 text-right text-sm font-semibold text-slate-900 tabular-nums">{d.intervenciones} interv.</span>
+						</div>
+					);
+				})}
+			</div>
+		</section>
+
+		<!-- Palabras más usadas -->
+		<section class="panel mt-8 hidden" data-panel="1">
+			<h2 class="text-xl font-semibold text-slate-900">Palabras más usadas</h2>
+			<p class="mt-1 max-w-2xl text-sm text-slate-500">
+				Sin palabras vacías ni fórmulas protocolares ("señor", "he dicho", etc.) — el vocabulario
+				real de cada quien.
+			</p>
+			<select id="selector-senador" class="mt-4 rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-700">
+				<option value="__total__">Los 3 en conjunto</option>
+				{senadores.map((d) => (
+					<option value={d.id}>{d.nombre}</option>
+				))}
+			</select>
+			<div id="lista-palabras" class="mt-4 grid gap-x-8 gap-y-1.5 rounded-xl border border-slate-200 bg-white p-5 shadow-sm sm:grid-cols-2"></div>
+
+			<h3 class="mt-10 text-base font-semibold text-slate-900">Nube de palabras</h3>
+			<p class="mt-1 max-w-2xl text-sm text-slate-500">
+				Lo mismo, en movimiento — el tamaño es la frecuencia. Pasa el mouse sobre una palabra
+				para ver cuántas veces se usó.
+			</p>
+			<div class="relative mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+				<canvas id="nube-palabras" class="block h-[420px] w-full"></canvas>
+				<div id="tooltip-nube" class="pointer-events-none absolute z-10 hidden max-w-[14rem] rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs shadow-lg"></div>
+			</div>
+		</section>
+
+		<!-- Tendencia -->
+		<section class="panel mt-8 hidden" data-panel="2">
+			<h2 class="text-xl font-semibold text-slate-900">Tendencia mensual</h2>
+			<p class="mt-1 max-w-2xl text-sm text-slate-500">
+				De las palabras más usadas en total, cuántas veces aparece cada una mes a mes. Más
+				oscuro = más menciones ese mes. Pasa el mouse sobre una celda para ver el detalle.
+			</p>
+			<div class="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+				<div id="mapa-tendencia" class="relative inline-block min-w-full"></div>
+			</div>
+		</section>
+
+		<!-- Red de palabras -->
+		<section class="panel mt-8 hidden" data-panel="3">
+			<h2 class="text-xl font-semibold text-slate-900">Red de coocurrencia</h2>
+			<p class="mt-1 max-w-2xl text-sm text-slate-500">
+				Qué palabras aparecen juntas en una misma intervención. El tamaño del punto es la
+				frecuencia total; el grosor de la línea, cuántas veces esas dos palabras coincidieron.
+				Arrastra para mover, rueda o pellizca para acercar.
+			</p>
+			<div class="relative mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+				<canvas id="red-palabras" class="block h-[520px] w-full touch-none"></canvas>
+				<div id="tooltip-red" class="pointer-events-none absolute z-10 hidden max-w-[14rem] rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs shadow-lg"></div>
+				<div class="absolute right-3 bottom-3 flex flex-col gap-1.5">
+					<button id="zoom-in" type="button" aria-label="Acercar" class="flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 bg-white text-lg font-semibold text-slate-600 shadow-sm hover:bg-slate-50">+</button>
+					<button id="zoom-out" type="button" aria-label="Alejar" class="flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 bg-white text-lg font-semibold text-slate-600 shadow-sm hover:bg-slate-50">−</button>
+				</div>
+			</div>
+		</section>
+
+		<p class="mt-6 text-xs text-slate-400">
+			Fuente: senado.cl, texto completo de cada intervención (Legislatura 374). Solo se cuentan
+			intervenciones identificadas como "Senador"/"Senadora" — no las de otros oradores (ministros,
+			la Mesa) ni los votos/mociones, que no traen cita textual.
+		</p>
+	</main>
+
+	<script type="application/json" id="palabras-data" set:html={JSON.stringify({ top_palabras_por_autoridad, top_palabras_total })} />
+	<script type="application/json" id="tendencia-data" set:html={JSON.stringify({ ...tendencia, mesesEtiquetas })} />
+	<script type="application/json" id="coocurrencia-data" set:html={JSON.stringify(coocurrencia)} />
+
+	<script>
+		// --- tabs ---
+		document.querySelectorAll<HTMLButtonElement>('.tab-btn').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const tab = btn.dataset.tab;
+				document.querySelectorAll<HTMLButtonElement>('.tab-btn').forEach((b) => {
+					const activo = b === btn;
+					b.classList.toggle('bg-topic-discursos', activo);
+					b.classList.toggle('text-white', activo);
+					b.classList.toggle('border', !activo);
+					b.classList.toggle('border-slate-300', !activo);
+					b.classList.toggle('text-slate-700', !activo);
+					b.classList.toggle('hover:bg-slate-50', !activo);
+				});
+				document.querySelectorAll<HTMLElement>('.panel').forEach((p) => {
+					p.classList.toggle('hidden', p.dataset.panel !== tab);
+				});
+				// los canvas miden 0x0 mientras su panel está oculto (display:none)
+				// — hay que recalcular el layout recién cuando se hacen visibles,
+				// si no los nodos quedan todos amontonados en (0,0)
+				if (tab === '1') requestAnimationFrame(() => iniciarNubeSiHaceFalta());
+				if (tab === '3') requestAnimationFrame(() => iniciarRedSiHaceFalta());
+			});
+		});
+
+		// --- palabras más usadas ---
+		interface PalabraFrecuencia { palabra: string; n: number }
+		const palabrasData: {
+			top_palabras_por_autoridad: Record<string, PalabraFrecuencia[]>;
+			top_palabras_total: PalabraFrecuencia[];
+		} = JSON.parse(document.getElementById('palabras-data')!.textContent!);
+
+		function renderPalabras(clave: string) {
+			const lista =
+				clave === '__total__'
+					? palabrasData.top_palabras_total
+					: palabrasData.top_palabras_por_autoridad[clave] ?? [];
+			const max = Math.max(...lista.map((p) => p.n), 1);
+			const cont = document.getElementById('lista-palabras')!;
+			cont.innerHTML = lista
+				.slice(0, 30)
+				.map(
+					(p) => `
+					<div class="flex items-center gap-2 py-0.5">
+						<span class="w-24 shrink-0 truncate text-sm text-slate-700">${p.palabra}</span>
+						<div class="h-2.5 flex-1 rounded-full bg-slate-100">
+							<div class="h-2.5 rounded-full bg-topic-discursos" style="width:${(p.n / max) * 100}%"></div>
+						</div>
+						<span class="w-8 shrink-0 text-right text-xs font-semibold text-slate-500 tabular-nums">${p.n}</span>
+					</div>`
+				)
+				.join('');
+		}
+		const selector = document.getElementById('selector-senador') as HTMLSelectElement;
+		selector.addEventListener('change', () => {
+			renderPalabras(selector.value);
+			reconstruirNubeSiHaceFalta(selector.value);
+		});
+		renderPalabras('__total__');
+
+		const COLORES = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300', '#4a3aa7', '#e34948'];
+
+		// --- nube de palabras (canvas, flotando, hover = frecuencia) ---
+		type NodoNube = { palabra: string; n: number; x: number; y: number; vx: number; vy: number; w: number; h: number; fontSize: number; color: string };
+
+		const canvasNube = document.getElementById('nube-palabras') as HTMLCanvasElement;
+		const ctxNube = canvasNube.getContext('2d')!;
+		const tooltipNube = document.getElementById('tooltip-nube')!;
+		const dprNube = Math.min(window.devicePixelRatio || 1, 2);
+		let anchoNube = 0, altoNube = 0;
+		let nodosNube: NodoNube[] = [];
+		let nodoActivoNube: NodoNube | null = null;
+
+		function construirNube(lista: PalabraFrecuencia[]) {
+			const top = lista.slice(0, 35);
+			const max = Math.max(...top.map((p) => p.n), 1);
+			ctxNube.save();
+			nodosNube = top.map((p, i) => {
+				const fontSize = 13 + (p.n / max) * 26;
+				ctxNube.font = `700 ${fontSize}px "Space Grotesk", sans-serif`;
+				const w = ctxNube.measureText(p.palabra).width + 10;
+				const h = fontSize + 8;
+				return {
+					palabra: p.palabra,
+					n: p.n,
+					x: Math.random() * Math.max(anchoNube - w, w) + w / 2,
+					y: Math.random() * Math.max(altoNube - h, h) + h / 2,
+					vx: (Math.random() - 0.5) * 0.3,
+					vy: (Math.random() - 0.5) * 0.3,
+					w, h, fontSize,
+					color: COLORES[i % COLORES.length],
+				};
+			});
+			ctxNube.restore();
+		}
+
+		function redimensionarNube() {
+			const rect = canvasNube.getBoundingClientRect();
+			anchoNube = rect.width;
+			altoNube = rect.height;
+			canvasNube.width = anchoNube * dprNube;
+			canvasNube.height = altoNube * dprNube;
+			ctxNube.setTransform(dprNube, 0, 0, dprNube, 0, 0);
+			construirNube(palabrasData.top_palabras_total);
+		}
+
+		function pasoNube() {
+			// deriva suave + rebote en los bordes
+			for (const n of nodosNube) {
+				if (Math.random() < 0.01) {
+					n.vx += (Math.random() - 0.5) * 0.15;
+					n.vy += (Math.random() - 0.5) * 0.15;
+				}
+				const vel = Math.hypot(n.vx, n.vy);
+				if (vel > 0.4) { n.vx = (n.vx / vel) * 0.4; n.vy = (n.vy / vel) * 0.4; }
+				n.x += n.vx; n.y += n.vy;
+				if (n.x - n.w / 2 < 0 || n.x + n.w / 2 > anchoNube) n.vx *= -1;
+				if (n.y - n.h / 2 < 0 || n.y + n.h / 2 > altoNube) n.vy *= -1;
+				n.x = Math.max(n.w / 2, Math.min(anchoNube - n.w / 2, n.x));
+				n.y = Math.max(n.h / 2, Math.min(altoNube - n.h / 2, n.y));
+			}
+			// separación por colisión de rectángulos — que nunca se tapen
+			for (let iter = 0; iter < 2; iter++) {
+				for (let i = 0; i < nodosNube.length; i++) {
+					for (let j = i + 1; j < nodosNube.length; j++) {
+						const a = nodosNube[i], b = nodosNube[j];
+						const dx = b.x - a.x, dy = b.y - a.y;
+						const solapaX = (a.w + b.w) / 2 + 6 - Math.abs(dx);
+						const solapaY = (a.h + b.h) / 2 + 4 - Math.abs(dy);
+						if (solapaX > 0 && solapaY > 0) {
+							if (solapaX < solapaY) {
+								const push = (solapaX / 2) * Math.sign(dx || 1);
+								a.x -= push; b.x += push;
+							} else {
+								const push = (solapaY / 2) * Math.sign(dy || 1);
+								a.y -= push; b.y += push;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		function dibujarNube() {
+			ctxNube.clearRect(0, 0, anchoNube, altoNube);
+			for (const n of nodosNube) {
+				const atenuado = nodoActivoNube && nodoActivoNube !== n;
+				ctxNube.globalAlpha = atenuado ? 0.35 : 1;
+				ctxNube.font = `700 ${n.fontSize}px "Space Grotesk", sans-serif`;
+				ctxNube.fillStyle = n.color;
+				ctxNube.textAlign = 'center';
+				ctxNube.textBaseline = 'middle';
+				ctxNube.fillText(n.palabra, n.x, n.y);
+			}
+			ctxNube.globalAlpha = 1;
+		}
+
+		function animarNube() {
+			pasoNube();
+			dibujarNube();
+			requestAnimationFrame(animarNube);
+		}
+
+		function nodoEnPosicionNube(px: number, py: number): NodoNube | null {
+			for (let i = nodosNube.length - 1; i >= 0; i--) {
+				const n = nodosNube[i];
+				if (Math.abs(px - n.x) <= n.w / 2 && Math.abs(py - n.y) <= n.h / 2) return n;
+			}
+			return null;
+		}
+
+		canvasNube.addEventListener('mousemove', (ev) => {
+			const rect = canvasNube.getBoundingClientRect();
+			const px = ev.clientX - rect.left, py = ev.clientY - rect.top;
+			const nodo = nodoEnPosicionNube(px, py);
+			nodoActivoNube = nodo;
+			if (nodo) {
+				tooltipNube.classList.remove('hidden');
+				tooltipNube.style.left = `${Math.min(px + 12, anchoNube - 160)}px`;
+				tooltipNube.style.top = `${py + 12}px`;
+				tooltipNube.innerHTML = `<p class="font-semibold text-slate-900">${nodo.palabra}</p><p class="mt-1 text-slate-500">${nodo.n} menciones</p>`;
+			} else {
+				tooltipNube.classList.add('hidden');
+			}
+		});
+		canvasNube.addEventListener('mouseleave', () => { nodoActivoNube = null; tooltipNube.classList.add('hidden'); });
+
+		let nubeIniciada = false;
+		function iniciarNubeSiHaceFalta() {
+			if (nubeIniciada) return;
+			nubeIniciada = true;
+			window.addEventListener('resize', redimensionarNube);
+			redimensionarNube();
+			animarNube();
+		}
+		function reconstruirNubeSiHaceFalta(clave: string) {
+			if (!nubeIniciada) return;
+			const lista = clave === '__total__' ? palabrasData.top_palabras_total : palabrasData.top_palabras_por_autoridad[clave] ?? [];
+			construirNube(lista);
+		}
+
+		// --- tendencia (mapa de calor: palabra x mes) ---
+		const tendenciaData: { meses: string[]; palabras: string[]; serie: Record<string, number[]>; mesesEtiquetas: string[] } =
+			JSON.parse(document.getElementById('tendencia-data')!.textContent!);
+
+		(function renderMapaTendencia() {
+			const cont = document.getElementById('mapa-tendencia')!;
+			const { meses, palabras, serie, mesesEtiquetas } = tendenciaData;
+			if (meses.length < 2) {
+				cont.innerHTML = '<p class="text-sm text-slate-500">No hay suficientes meses con datos todavía.</p>';
+				return;
+			}
+			const palabrasMostradas = palabras.slice(0, 14);
+			const maxGlobal = Math.max(...palabrasMostradas.flatMap((p) => serie[p]), 1);
+
+			let html = `<div class="grid" style="grid-template-columns:7.5rem repeat(${meses.length},minmax(2.75rem,1fr))">`;
+			html += `<div></div>`;
+			mesesEtiquetas.forEach((m) => {
+				html += `<div class="pb-1.5 text-center text-[10px] font-semibold tracking-wide text-slate-400 uppercase">${m}</div>`;
+			});
+			palabrasMostradas.forEach((palabra) => {
+				html += `<div class="flex items-center pr-3 text-sm font-medium text-slate-700">${palabra}</div>`;
+				serie[palabra].forEach((v, i) => {
+					const intensidad = v / maxGlobal;
+					const bg = `color-mix(in srgb, var(--color-topic-discursos) ${Math.round(intensidad * 90)}%, white)`;
+					const claro = intensidad > 0.55;
+					html += `<div class="celda-mapa m-0.5 flex aspect-square cursor-default items-center justify-center rounded-md text-[11px] font-semibold tabular-nums" data-palabra="${palabra}" data-mes="${mesesEtiquetas[i]}" data-n="${v}" style="background:${bg};color:${claro ? '#fff' : v > 0 ? '#312a5c' : '#cbd5e1'}">${v > 0 ? v : ''}</div>`;
+				});
+			});
+			html += `</div>`;
+			cont.innerHTML = html;
+
+			const tooltip = document.createElement('div');
+			tooltip.className = 'pointer-events-none absolute z-10 hidden rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs shadow-lg';
+			cont.appendChild(tooltip);
+
+			cont.querySelectorAll<HTMLElement>('.celda-mapa').forEach((celda) => {
+				celda.addEventListener('mouseenter', () => {
+					const { palabra, mes, n } = celda.dataset;
+					tooltip.innerHTML = `<p class="font-semibold text-slate-900">${palabra}</p><p class="mt-1 text-slate-500">${mes}: ${n} menciones</p>`;
+					tooltip.style.left = `${celda.offsetLeft}px`;
+					tooltip.style.top = `${celda.offsetTop - 8}px`;
+					tooltip.style.transform = 'translateY(-100%)';
+					tooltip.classList.remove('hidden');
+				});
+				celda.addEventListener('mouseleave', () => tooltip.classList.add('hidden'));
+			});
+		})();
+
+		// --- red de coocurrencia (canvas, fuerzas, zoom/pan) ---
+		interface Enlace { a: string; b: string; peso: number }
+		const cooData: { nodos: PalabraFrecuencia[]; enlaces: Enlace[] } =
+			JSON.parse(document.getElementById('coocurrencia-data')!.textContent!);
+
+		type Nodo = { palabra: string; n: number; x: number; y: number; vx: number; vy: number; r: number; rTexto: number };
+
+		const canvas = document.getElementById('red-palabras') as HTMLCanvasElement;
+		const ctx = canvas.getContext('2d')!;
+		const tooltipRed = document.getElementById('tooltip-red')!;
+		const dpr = Math.min(window.devicePixelRatio || 1, 2);
+		let anchoC = 0, altoC = 0;
+		let nodos: Nodo[] = [];
+		const view = { zoom: 1, offsetX: 0, offsetY: 0 };
+
+		function construirNodosRed() {
+			const cx = anchoC / 2, cy = altoC / 2;
+			const maxN = Math.max(...cooData.nodos.map((n) => n.n), 1);
+			nodos = cooData.nodos.map((n, i) => {
+				const angulo = (i / cooData.nodos.length) * Math.PI * 2;
+				const radio = Math.min(anchoC, altoC) * (0.15 + Math.random() * 0.2);
+				const fontSize = 7 + (n.n / maxN) * 13;
+				// el radio del punto representa la frecuencia, pero para
+				// separar nodos hay que considerar el ancho real del texto:
+				// una palabra larga sobresale mucho más que su círculo, y
+				// dos círculos que no se tocan igual pueden quedar con las
+				// etiquetas superpuestas si no se mide esto
+				ctx.font = `700 ${fontSize}px "Space Grotesk", sans-serif`;
+				const anchoTexto = ctx.measureText(n.palabra).width;
+				return {
+					palabra: n.palabra,
+					n: n.n,
+					x: cx + Math.cos(angulo) * radio,
+					y: cy + Math.sin(angulo) * radio,
+					vx: 0,
+					vy: 0,
+					r: 6 + (n.n / maxN) * 22,
+					rTexto: Math.max(6 + (n.n / maxN) * 22, anchoTexto / 2 + 3),
+				};
+			});
+		}
+
+		function redimensionarRed() {
+			const rect = canvas.getBoundingClientRect();
+			anchoC = rect.width;
+			altoC = rect.height;
+			canvas.width = anchoC * dpr;
+			canvas.height = altoC * dpr;
+			ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+			construirNodosRed();
+			asentarRed();
+			// arranca un nivel más cerca (lo mismo que tocar "+" una vez) —
+			// se veía muy chico apenas se abría la pestaña
+			view.zoom = 1; view.offsetX = 0; view.offsetY = 0;
+			aplicarZoomRed(1.3, anchoC / 2, altoC / 2);
+		}
+
+		function pantallaAMundoRed(px: number, py: number) {
+			return { x: (px - view.offsetX) / view.zoom, y: (py - view.offsetY) / view.zoom };
+		}
+		function aplicarZoomRed(factor: number, cx: number, cy: number) {
+			const antes = pantallaAMundoRed(cx, cy);
+			view.zoom = Math.min(4, Math.max(0.4, view.zoom * factor));
+			view.offsetX = cx - antes.x * view.zoom;
+			view.offsetY = cy - antes.y * view.zoom;
+			dibujarRed();
+		}
+
+		const maxPeso = Math.max(...cooData.enlaces.map((e) => e.peso), 1);
+		const maxNodoN = Math.max(...cooData.nodos.map((n) => n.n), 1);
+		let nodoActivoRed: Nodo | null = null;
+
+		function pasoRed() {
+			// centrado muy suave — solo evita que el conjunto se vaya
+			// flotando fuera de pantalla, no debe competir con la repulsión
+			const centroX = anchoC / 2, centroY = altoC / 2;
+			for (const n of nodos) {
+				n.vx += (centroX - n.x) * 0.0005;
+				n.vy += (centroY - n.y) * 0.0005;
+			}
+			// repulsion de largo alcance entre TODOS los pares (no solo los
+			// que ya están cerca) — si solo repele a corta distancia, el
+			// centrado gana siempre y todo termina colapsado en un punto
+			for (let i = 0; i < nodos.length; i++) {
+				for (let j = i + 1; j < nodos.length; j++) {
+					const a = nodos[i], b = nodos[j];
+					const dx = b.x - a.x, dy = b.y - a.y;
+					// piso de distancia alto a propósito: con 1/dist^2 y un
+					// piso de 1px, dos nodos que arrancan casi superpuestos
+					// reciben una fuerza gigante y salen disparados fuera de
+					// pantalla en vez de simplemente separarse
+					const dist = Math.max(Math.hypot(dx, dy), 24);
+					const f = Math.min(2200 / (dist * dist), 8);
+					const fx = (dx / dist) * f, fy = (dy / dist) * f;
+					a.vx -= fx; a.vy -= fy;
+					b.vx += fx; b.vy += fy;
+				}
+			}
+			for (const e of cooData.enlaces) {
+				const a = nodos.find((n) => n.palabra === e.a)!;
+				const b = nodos.find((n) => n.palabra === e.b)!;
+				const dx = b.x - a.x, dy = b.y - a.y;
+				const dist = Math.max(Math.hypot(dx, dy), 1);
+				const objetivo = 160;
+				const f = (dist - objetivo) * 0.004 * Math.min(e.peso / maxPeso + 0.2, 1);
+				a.vx += dx * f; a.vy += dy * f;
+				b.vx -= dx * f; b.vy -= dy * f;
+			}
+			for (const n of nodos) {
+				if (
+					!Number.isFinite(n.x) || !Number.isFinite(n.y) ||
+					!Number.isFinite(n.vx) || !Number.isFinite(n.vy)
+				) {
+					// red de seguridad: si un nodo se corrompe (NaN), no dejar
+					// que su distancia infinita/NaN contamine al resto via la
+					// repulsion/resorte del proximo frame
+					n.x = anchoC / 2 + (Math.random() - 0.5) * 40;
+					n.y = altoC / 2 + (Math.random() - 0.5) * 40;
+					n.vx = 0; n.vy = 0;
+				}
+				n.vx *= 0.85; n.vy *= 0.85;
+				const velocidad = Math.hypot(n.vx, n.vy);
+				const VELOCIDAD_MAX = 15;
+				if (velocidad > VELOCIDAD_MAX) {
+					n.vx = (n.vx / velocidad) * VELOCIDAD_MAX;
+					n.vy = (n.vy / velocidad) * VELOCIDAD_MAX;
+				}
+				n.x += n.vx; n.y += n.vy;
+			}
+			// resolución de colisiones: restricción dura sobre la posición
+			// (no solo fuerza) para que dos círculos nunca queden superpuestos
+			// tapándose la etiqueta, pase lo que pase con los resortes/repulsión
+			const PADDING_ETIQUETA = 12;
+			for (let iter = 0; iter < 3; iter++) {
+				for (let i = 0; i < nodos.length; i++) {
+					for (let j = i + 1; j < nodos.length; j++) {
+						const a = nodos[i], b = nodos[j];
+						const dx = b.x - a.x, dy = b.y - a.y;
+						const dist = Math.hypot(dx, dy) || 0.01;
+						const minDist = a.rTexto + b.rTexto + PADDING_ETIQUETA;
+						if (dist < minDist) {
+							const solape = (minDist - dist) / 2;
+							const nx = dx / dist, ny = dy / dist;
+							a.x -= nx * solape; a.y -= ny * solape;
+							b.x += nx * solape; b.y += ny * solape;
+						}
+					}
+				}
+			}
+			// recentrado duro del conjunto: la fuerza de centrado por nodo no
+			// evita que el grupo entero derive hacia una esquina (la dinámica
+			// de repulsión + resortes no es perfectamente simétrica) — esto
+			// sí lo garantiza, corrigiendo cada frame el centroide real
+			let cx = 0, cy = 0;
+			for (const n of nodos) { cx += n.x; cy += n.y; }
+			cx /= nodos.length; cy /= nodos.length;
+			const dCx = centroX - cx, dCy = centroY - cy;
+			for (const n of nodos) {
+				n.x += dCx; n.y += dCy;
+				n.x = Math.max(n.r, Math.min(anchoC - n.r, n.x));
+				n.y = Math.max(n.r, Math.min(altoC - n.r, n.y));
+			}
+		}
+
+		function dibujarRed() {
+			ctx.clearRect(0, 0, anchoC, altoC);
+			ctx.save();
+			ctx.translate(view.offsetX, view.offsetY);
+			ctx.scale(view.zoom, view.zoom);
+
+			for (const e of cooData.enlaces) {
+				const a = nodos.find((n) => n.palabra === e.a)!;
+				const b = nodos.find((n) => n.palabra === e.b)!;
+				const atenuado = nodoActivoRed && nodoActivoRed.palabra !== e.a && nodoActivoRed.palabra !== e.b;
+				ctx.beginPath();
+				ctx.moveTo(a.x, a.y);
+				ctx.lineTo(b.x, b.y);
+				ctx.strokeStyle = `rgba(74,58,167,${atenuado ? 0.04 : 0.1 + (e.peso / maxPeso) * 0.3})`;
+				ctx.lineWidth = (0.5 + (e.peso / maxPeso) * 2.5) / view.zoom;
+				ctx.stroke();
+			}
+			for (const n of nodos) {
+				const atenuado = nodoActivoRed && !cooData.enlaces.some(
+					(e) => (e.a === nodoActivoRed!.palabra && e.b === n.palabra) || (e.b === nodoActivoRed!.palabra && e.a === n.palabra)
+				) && nodoActivoRed.palabra !== n.palabra;
+				ctx.globalAlpha = atenuado ? 0.25 : 1;
+				ctx.beginPath();
+				ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+				ctx.fillStyle = '#4a3aa7cc';
+				ctx.fill();
+
+				// tamaño de fuente proporcional a la frecuencia real (no al
+				// radio, que estaba tan comprimido que casi todas las
+				// palabras terminaban con el mismo tamaño tope) — y un halo
+				// oscuro detrás del texto blanco: sin él, la parte de la
+				// palabra que sobresale del círculo (texto blanco) se pierde
+				// contra el fondo blanco del canvas
+				const fontSize = 7 + (n.n / maxNodoN) * 13;
+				ctx.font = `700 ${fontSize}px "Space Grotesk", sans-serif`;
+				ctx.textAlign = 'center';
+				ctx.textBaseline = 'middle';
+				ctx.lineJoin = 'round';
+				ctx.lineWidth = Math.max(3, fontSize * 0.22);
+				ctx.strokeStyle = 'rgba(42,35,88,0.85)';
+				ctx.strokeText(n.palabra, n.x, n.y);
+				ctx.fillStyle = '#fff';
+				ctx.fillText(n.palabra, n.x, n.y);
+				ctx.globalAlpha = 1;
+			}
+			ctx.restore();
+		}
+
+		// a diferencia de la red de asesores (nodos anclados a una posición
+		// fija por diputado, así que el sistema converge solo), acá los
+		// nodos solo se empujan entre sí — sin un ancla fija esa dinámica
+		// nunca termina de asentarse del todo y en un loop perpetuo se ve
+		// como un temblor constante. Se resuelve simulando muchos pasos de
+		// una vez al iniciar (o al cambiar de tamaño) y dejando el layout
+		// fijo después — dinámico solo por el hover/zoom/pan, no solo.
+		function asentarRed(iteraciones = 600) {
+			for (let i = 0; i < iteraciones; i++) pasoRed();
+			dibujarRed();
+		}
+
+		function nodoEnPosicionRed(px: number, py: number): Nodo | null {
+			const m = pantallaAMundoRed(px, py);
+			for (let i = nodos.length - 1; i >= 0; i--) {
+				if (Math.hypot(nodos[i].x - m.x, nodos[i].y - m.y) <= nodos[i].r + 2) return nodos[i];
+			}
+			return null;
+		}
+
+		let arrastrandoRed = false;
+		let inicioArrastreRed = { px: 0, py: 0, offsetX: 0, offsetY: 0 };
+
+		canvas.addEventListener('mousedown', (ev) => {
+			arrastrandoRed = true;
+			const rect = canvas.getBoundingClientRect();
+			inicioArrastreRed = { px: ev.clientX - rect.left, py: ev.clientY - rect.top, offsetX: view.offsetX, offsetY: view.offsetY };
+			tooltipRed.classList.add('hidden');
+		});
+		window.addEventListener('mouseup', () => { arrastrandoRed = false; });
+		canvas.addEventListener('mousemove', (ev) => {
+			const rect = canvas.getBoundingClientRect();
+			const px = ev.clientX - rect.left, py = ev.clientY - rect.top;
+			if (arrastrandoRed) {
+				view.offsetX = inicioArrastreRed.offsetX + (px - inicioArrastreRed.px);
+				view.offsetY = inicioArrastreRed.offsetY + (py - inicioArrastreRed.py);
+				nodoActivoRed = null;
+				tooltipRed.classList.add('hidden');
+				canvas.style.cursor = 'grabbing';
+				dibujarRed();
+				return;
+			}
+			const nodo = nodoEnPosicionRed(px, py);
+			const cambioActivo = nodo !== nodoActivoRed;
+			nodoActivoRed = nodo;
+			canvas.style.cursor = nodo ? 'pointer' : 'grab';
+			if (nodo) {
+				tooltipRed.classList.remove('hidden');
+				tooltipRed.style.left = `${Math.min(px + 12, anchoC - 200)}px`;
+				tooltipRed.style.top = `${py + 12}px`;
+				tooltipRed.innerHTML = `<p class="font-semibold text-slate-900">${nodo.palabra}</p><p class="mt-1 text-slate-500">${nodo.n} menciones</p>`;
+			} else {
+				tooltipRed.classList.add('hidden');
+			}
+			if (cambioActivo) dibujarRed();
+		});
+		canvas.addEventListener('mouseleave', () => {
+			arrastrandoRed = false;
+			nodoActivoRed = null;
+			tooltipRed.classList.add('hidden');
+			dibujarRed();
+		});
+		canvas.addEventListener('wheel', (ev) => {
+			ev.preventDefault();
+			const rect = canvas.getBoundingClientRect();
+			aplicarZoomRed(ev.deltaY < 0 ? 1.12 : 1 / 1.12, ev.clientX - rect.left, ev.clientY - rect.top);
+		}, { passive: false });
+		canvas.addEventListener('touchstart', (ev) => {
+			if (ev.touches.length !== 1) return;
+			const rect = canvas.getBoundingClientRect();
+			arrastrandoRed = true;
+			inicioArrastreRed = { px: ev.touches[0].clientX - rect.left, py: ev.touches[0].clientY - rect.top, offsetX: view.offsetX, offsetY: view.offsetY };
+		}, { passive: true });
+		canvas.addEventListener('touchmove', (ev) => {
+			if (!arrastrandoRed || ev.touches.length !== 1) return;
+			ev.preventDefault();
+			const rect = canvas.getBoundingClientRect();
+			const px = ev.touches[0].clientX - rect.left, py = ev.touches[0].clientY - rect.top;
+			view.offsetX = inicioArrastreRed.offsetX + (px - inicioArrastreRed.px);
+			view.offsetY = inicioArrastreRed.offsetY + (py - inicioArrastreRed.py);
+			dibujarRed();
+		}, { passive: false });
+		canvas.addEventListener('touchend', () => { arrastrandoRed = false; });
+		document.getElementById('zoom-in')!.addEventListener('click', () => aplicarZoomRed(1.3, anchoC / 2, altoC / 2));
+		document.getElementById('zoom-out')!.addEventListener('click', () => aplicarZoomRed(1 / 1.3, anchoC / 2, altoC / 2));
+
+		// el panel de la red empieza oculto (display:none) — iniciar la
+		// simulación ahí mismo mide un canvas de 0x0 y arma todo el grafo
+		// en el origen; se posterga hasta que el panel se muestra de verdad
+		let redIniciada = false;
+		function iniciarRedSiHaceFalta() {
+			if (redIniciada) return;
+			redIniciada = true;
+			window.addEventListener('resize', redimensionarRed);
+			redimensionarRed(); // ya asienta el layout y dibuja
+		}
+	</script>
+</Layout>
