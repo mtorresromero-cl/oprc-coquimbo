@@ -108,7 +108,7 @@ const xFor = (i: number) => PAD_L + (i / (ORDEN_JORNADA.length - 1)) * PLOT_W;
 const yFor = (pct: number) => PAD_T + (1 - pct / 100) * PLOT_H;
 const EJE_Y = [0, 50, 100];
 
-const SELECCION_INICIAL = ['la-serena', 'ovalle', 'illapel'];
+const SELECCION_INICIAL: string[] = [];
 ---
 
 <Layout
@@ -153,6 +153,12 @@ const SELECCION_INICIAL = ['la-serena', 'ovalle', 'illapel'];
 			</div>
 			<p id="aviso-max" class="mt-2 hidden text-xs text-amber-600">Solo puedes comparar hasta 3 comunas a la vez.</p>
 		</div>
+
+		<p id="sin-seleccion" class="mt-6 hidden rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+			Elige al menos una comuna arriba para comparar.
+		</p>
+
+		<div id="bloque-comparativa" class="hidden">
 
 		<div class="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
 			<table class="w-full min-w-[560px] text-left text-sm">
@@ -203,6 +209,7 @@ const SELECCION_INICIAL = ['la-serena', 'ovalle', 'illapel'];
 				</svg>
 			</div>
 		</section>
+		</div>
 	</main>
 
 	<script type="application/json" id="comparativa-data" set:html={JSON.stringify(comparativa)} />
@@ -229,11 +236,19 @@ const SELECCION_INICIAL = ['la-serena', 'ovalle', 'illapel'];
 		const chips = document.querySelectorAll<HTMLButtonElement>('.chip-comuna');
 		const avisoMax = document.getElementById('aviso-max')!;
 		const tabla = document.getElementById('tabla-comparativa')!;
+		const sinSeleccion = document.getElementById('sin-seleccion')!;
+		const bloqueComparativa = document.getElementById('bloque-comparativa')!;
 
 		function seleccionActual(): string[] {
 			return Array.from(chips)
 				.filter((c) => c.dataset.activo === 'true')
 				.map((c) => c.dataset.comuna!);
+		}
+
+		function actualizaVisibilidad() {
+			const hay = seleccionActual().length > 0;
+			sinSeleccion.classList.toggle('hidden', hay);
+			bloqueComparativa.classList.toggle('hidden', !hay);
 		}
 
 		function celdaVacia(valor: string | number | null | undefined): string {
@@ -328,10 +343,12 @@ const SELECCION_INICIAL = ['la-serena', 'ovalle', 'illapel'];
 				chip.style.color = activo ? '#334155' : color;
 				renderTabla();
 				actualizaGrafico();
+				actualizaVisibilidad();
 			});
 		});
 
 		renderTabla();
 		actualizaGrafico();
+		actualizaVisibilidad();
 	</script>
 </Layout>
