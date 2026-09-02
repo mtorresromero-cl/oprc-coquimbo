@@ -2,6 +2,17 @@
 camara.cl — resultado oficial completo de la Cámara (155 integrantes),
 no solo el voto individual de cada diputado regional.
 
+Corregido el 2026-09-02: la ficha `votaciones_sala.aspx?prmId=` no lista
+todo el historial en una sola carga — filtra por año (`ddlAnnos`, un
+`<select>` que dispara `__doPostBack`, año actual seleccionado por
+defecto) y pagina el resto (`div.paginacion`, también por
+`__doPostBack`). La versión anterior solo leía la página 1 del año por
+defecto sin recorrer esas páginas, así que únicamente traía las
+votaciones más recientes (en la práctica, solo agosto 2026) en vez de
+todo el período desde que comenzó la legislatura el 11 de marzo de
+2026. Ahora recorre explícitamente el/los año(s) de la legislatura
+actual y todas sus páginas antes de extraer los `prmIdVotacion`.
+
 Investigado y verificado manualmente el 2026-08-25:
 - La ficha personal de cada diputado (`votaciones_sala.aspx?prmId=`) solo
   trae su voto propio, sin el resultado de la sesión — insuficiente para
@@ -31,6 +42,7 @@ import re
 import sqlite3
 import time
 import unicodedata
+from datetime import date
 from pathlib import Path
 
 from base import BaseScraper
@@ -39,6 +51,11 @@ from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
 PROCESSED_DIR = ROOT / "data" / "processed"
+
+# la legislatura actual comenzó el 2026-03-11; se recorren todos los años
+# desde entonces (no solo el actual) para no perder votaciones si algún
+# año corre incompleto por una falla de red a mitad de recorrido
+LEGISLATURA_INICIO_ANNO = 2026
 
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -168,27 +185,76 @@ class ScraperCamaraVotaciones(BaseScraper):
             "votos_nombres": votos_nombres,
         }
 
+    def _seleccionar_anno(self, page, anno: int) -> None:
+        # el filtro "Ver por año" (ddlAnnos) es un <select> que dispara un
+        # postback AJAX (UpdatePanel, no navegación real) — cambiarlo
+        # actualiza la tabla y el paginador en el mismo DOM
+        select = page.locator("select[id$='ddlAnnos']")
+        if select.count() == 0:
+            return
+        opciones = select.locator("option").evaluate_all("els => els.map(e => e.value)")
+        if str(anno) not in opciones or select.input_value() == str(anno):
+            return
+        select.select_option(str(anno))
+        page.wait_for_timeout(1500)
+
+    def _recolectar_ids_de_pagina(self, page, votacion_ids: set[str]) -> None:
+        hrefs = page.locator("table.tabla a").evaluate_all(
+            "els => els.map(e => e.getAttribute('href'))"
+        )
+        for href in hrefs:
+            if href and "prmIdVotacion" in href:
+                m = re.search(r"prmIdVotacion=(\d+)", href)
+                if m:
+                    votacion_ids.add(m.group(1))
+
+    def _pagina_actual(self, page) -> int:
+        span = page.locator("div.paginacion span.actual")
+        if span.count() == 0:
+            return 1
+        return int(span.first.inner_text().strip())
+
+    def _avanzar_pagina(self, page) -> bool:
+        # el paginador (también un postback AJAX vía UpdatePanel) muestra
+        # como mucho 10 números de página a la vez más un link "..." para
+        # cargar la siguiente ventana — probar ambos hasta que no quede
+        # ninguno es lo que permite recorrer el historial completo del año
+        actual = self._pagina_actual(page)
+        siguiente = page.locator("div.paginacion a", has_text=re.compile(rf"^{actual + 1}$"))
+        if siguiente.count() == 0:
+            siguiente = page.locator("div.paginacion a", has_text="...")
+        if siguiente.count() == 0:
+            return False
+        siguiente.first.click()
+        page.wait_for_timeout(1500)
+        return True
+
     def recolectar(self) -> list[dict]:
         votacion_ids: set[str] = set()
+        annos = list(range(LEGISLATURA_INICIO_ANNO, date.today().year + 1))
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
 
             for _autoridad_id, dip_id in DIPUTADOS_COQUIMBO.items():
-                context = browser.new_context(user_agent=USER_AGENT)
-                page = context.new_page()
-                url = f"https://camara.cl/diputados/detalle/votaciones_sala.aspx?prmId={dip_id}"
-                page.goto(url, timeout=45000, wait_until="domcontentloaded")
-                page.wait_for_timeout(1500)
-                hrefs = page.locator("table.tabla a").evaluate_all(
-                    "els => els.map(e => e.getAttribute('href'))"
-                )
-                for href in hrefs:
-                    if href and "prmIdVotacion" in href:
-                        m = re.search(r"prmIdVotacion=(\d+)", href)
-                        if m:
-                            votacion_ids.add(m.group(1))
-                context.close()
-                time.sleep(5)
+                for anno in annos:
+                    context = browser.new_context(user_agent=USER_AGENT)
+                    page = context.new_page()
+                    url = f"https://camara.cl/diputados/detalle/votaciones_sala.aspx?prmId={dip_id}"
+                    page.goto(url, timeout=45000, wait_until="domcontentloaded")
+                    page.wait_for_timeout(1500)
+                    self._seleccionar_anno(page, anno)
+                    self._recolectar_ids_de_pagina(page, votacion_ids)
+                    paginas = 1
+                    while self._avanzar_pagina(page):
+                        self._recolectar_ids_de_pagina(page, votacion_ids)
+                        paginas += 1
+                    print(
+                        f"  diputado {dip_id}, año {anno}: {paginas} página(s), "
+                        f"{len(votacion_ids)} votaciones acumuladas",
+                        flush=True,
+                    )
+                    context.close()
+                    time.sleep(5)
 
             registros = []
             for vid in sorted(votacion_ids):

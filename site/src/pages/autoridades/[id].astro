@@ -491,10 +491,7 @@ const TEMA = {
 							Historial de votaciones
 						</h2>
 						{autoridad.cargo === 'diputado' && (
-							<p class="mt-1 text-xs text-slate-500">
-								Vía camara.cl. Se muestran solo las votaciones más recientes, no el historial completo
-								del período — la fuente no permite navegar hacia atrás.
-							</p>
+							<p class="mt-1 text-xs text-slate-500">Vía camara.cl.</p>
 						)}
 						<ul class="mt-4 space-y-3">
 							{historialVotos.map(({ sesion, voto }) => (

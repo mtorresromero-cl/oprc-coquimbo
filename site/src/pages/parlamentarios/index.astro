@@ -59,8 +59,15 @@ const grupos = {
 	})),
 };
 
-const votacionesSenado = [...votaciones].sort((a, b) => b.fecha.localeCompare(a.fecha));
-const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeCompare(a.fecha));
+// el ranking de arriba (indiceSenado/indiceDiputados) sí usa el período
+// completo — esta lista solo muestra las últimas por espacio
+const VOTACIONES_RECIENTES_MAX = 10;
+const votacionesSenado = [...votaciones]
+	.sort((a, b) => b.fecha.localeCompare(a.fecha))
+	.slice(0, VOTACIONES_RECIENTES_MAX);
+const votacionesDiputados = [...votacionesCamara]
+	.sort((a, b) => b.fecha.localeCompare(a.fecha))
+	.slice(0, VOTACIONES_RECIENTES_MAX);
 ---
 
 <Layout
@@ -103,6 +110,23 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 			</a>
 		</div>
 
+		<div id="submenu-senado" class="mt-3 flex flex-wrap gap-2 border-l-2 border-slate-200 pl-3">
+			<span
+				class="group relative rounded-md border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-400 select-none"
+			>
+				Gasto parlamentario
+				<span class="pointer-events-none absolute left-1/2 top-full z-10 mt-2 w-48 -translate-x-1/2 rounded-md bg-slate-900 px-3 py-2 text-center text-xs font-normal text-white opacity-0 shadow-lg transition-opacity group-hover:opacity-100">
+					Estamos trabajando en eso
+				</span>
+			</span>
+			<a
+				href="/parlamentarios/discursos-senado/"
+				class="rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+			>
+				Intervenciones en sala
+			</a>
+		</div>
+
 		<div id="submenu-diputados" class="mt-3 hidden flex-wrap gap-2 border-l-2 border-slate-200 pl-3">
 			<a
 				href="/parlamentarios/gastos/"
@@ -142,7 +166,8 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 		<section class="recientes mt-14" data-recientes="senado">
 			<h2 class="text-xl font-semibold text-slate-900">Votaciones recientes — Senado</h2>
 			<p class="mt-1 max-w-2xl text-base text-slate-500">
-				Votaciones del Senado en las que participó alguno de los 3 senadores de la región.
+				Últimas {VOTACIONES_RECIENTES_MAX} votaciones del Senado en las que participó alguno de
+				los 3 senadores de la región. El ranking de arriba sí considera el período completo.
 			</p>
 			{votacionesSenado.length === 0 && (
 				<p class="mt-6 text-base text-slate-500">Todavía no hay votaciones registradas.</p>
@@ -182,8 +207,8 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 		<section class="recientes mt-14 hidden" data-recientes="diputados">
 			<h2 class="text-xl font-semibold text-slate-900">Votaciones recientes — Diputados</h2>
 			<p class="mt-1 max-w-2xl text-base text-slate-500">
-				Votaciones de los diputados de la región, vía camara.cl. Solo se muestran las más
-				recientes — no el historial completo del período.
+				Últimas {VOTACIONES_RECIENTES_MAX} votaciones de los diputados de la región, vía
+				camara.cl. El ranking de arriba sí considera el período completo.
 			</p>
 			{votacionesDiputados.length === 0 && (
 				<p class="mt-6 text-base text-slate-500">Todavía no hay votaciones registradas.</p>
@@ -378,6 +403,10 @@ const votacionesDiputados = [...votacionesCamara].sort((a, b) => b.fecha.localeC
 				const submenu = document.getElementById('submenu-diputados')!;
 				submenu.classList.toggle('hidden', grupoActivo !== 'diputados');
 				submenu.classList.toggle('flex', grupoActivo === 'diputados');
+
+				const submenuSenado = document.getElementById('submenu-senado')!;
+				submenuSenado.classList.toggle('hidden', grupoActivo !== 'senado');
+				submenuSenado.classList.toggle('flex', grupoActivo === 'senado');
 			});
 		});
 
