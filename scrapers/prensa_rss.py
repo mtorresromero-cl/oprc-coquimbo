@@ -51,10 +51,14 @@ FUENTES: list[tuple[str, str | None, str]] = [
     ("Miradio", None, "https://miradiols.cl/feed/"),
     ("Radio Guayacán", None, "https://radioguayacan.cl/feed/"),
     ("Radio Monte Carlo", None, "https://radiomontecarlo.cl/feed/"),
-    ("Diario El Día — Política", None, "https://diarioeldia.cl/rss/politica/"),
-    ("Diario El Día — Región", None, "https://diarioeldia.cl/rss/region/"),
-    ("Diario El Día — País", None, "https://diarioeldia.cl/rss/pais/"),
-    ("Diario El Día — Opinión", None, "https://diarioeldia.cl/rss/opinion/"),
+    # 4 feeds temáticos del mismo diario — mismo nombre de fuente a
+    # propósito, para que cuenten como un solo medio en el análisis (no
+    # 4 medios distintos); es normal que termine con más artículos que
+    # el resto, porque le leemos 4 feeds en vez de 1
+    ("Diario El Día", None, "https://diarioeldia.cl/rss/politica/"),
+    ("Diario El Día", None, "https://diarioeldia.cl/rss/region/"),
+    ("Diario El Día", None, "https://diarioeldia.cl/rss/pais/"),
+    ("Diario El Día", None, "https://diarioeldia.cl/rss/opinion/"),
     ("Diario La Región", None, "https://diariolaregion.cl/feed/"),
     ("El Ovallino", None, "https://elovallino.cl/feed/"),
     ("David Noticias", None, "https://davidnoticias.cl/feed/"),

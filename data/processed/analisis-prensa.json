@@ -2916,187 +2916,61 @@
         "n": 7
       }
     ],
-    "Diario El Día — Política": [
-      {
-        "palabra": "política",
-        "n": 44
-      },
-      {
-        "palabra": "septiembre",
-        "n": 36
-      },
-      {
-        "palabra": "kast",
-        "n": 36
-      },
-      {
-        "palabra": "gobierno",
-        "n": 17
-      },
-      {
-        "palabra": "indultos",
-        "n": 13
-      },
-      {
-        "palabra": "bloqueo",
-        "n": 13
-      },
-      {
-        "palabra": "comparte",
-        "n": 12
-      },
-      {
-        "palabra": "nota",
-        "n": 12
-      },
-      {
-        "palabra": "pino",
-        "n": 12
-      },
-      {
-        "palabra": "proyecto",
-        "n": 11
-      },
-      {
-        "palabra": "moneda",
-        "n": 11
-      },
-      {
-        "palabra": "ficha",
-        "n": 11
-      },
-      {
-        "palabra": "feriado",
-        "n": 10
-      },
-      {
-        "palabra": "debate",
-        "n": 10
-      },
-      {
-        "palabra": "subtel",
-        "n": 10
-      },
-      {
-        "palabra": "sitios",
-        "n": 10
-      },
-      {
-        "palabra": "delegado",
-        "n": 10
-      },
+    "Diario El Día": [
       {
         "palabra": "ovalle",
-        "n": 10
-      },
-      {
-        "palabra": "presidente",
-        "n": 10
-      },
-      {
-        "palabra": "nacional",
-        "n": 9
-      },
-      {
-        "palabra": "apuestas",
-        "n": 9
-      },
-      {
-        "palabra": "fibe",
-        "n": 9
-      },
-      {
-        "palabra": "víctor",
-        "n": 9
-      },
-      {
-        "palabra": "genera",
-        "n": 8
-      },
-      {
-        "palabra": "plazos",
-        "n": 8
-      },
-      {
-        "palabra": "ilegales",
-        "n": 8
-      },
-      {
-        "palabra": "horas",
-        "n": 8
-      },
-      {
-        "palabra": "acto",
-        "n": 8
-      },
-      {
-        "palabra": "nuevos",
-        "n": 8
-      },
-      {
-        "palabra": "antecedentes",
-        "n": 8
-      },
-      {
-        "palabra": "complican",
-        "n": 8
-      },
-      {
-        "palabra": "aprobación",
-        "n": 8
-      },
-      {
-        "palabra": "gestión",
-        "n": 8
-      },
-      {
-        "palabra": "descarta",
-        "n": 7
-      },
-      {
-        "palabra": "derecha",
-        "n": 7
-      },
-      {
-        "palabra": "encuesta",
-        "n": 7
-      },
-      {
-        "palabra": "pulso",
-        "n": 7
-      },
-      {
-        "palabra": "ciudadano",
-        "n": 7
-      },
-      {
-        "palabra": "arrau",
-        "n": 7
-      },
-      {
-        "palabra": "alta",
-        "n": 7
-      }
-    ],
-    "Diario El Día — Región": [
-      {
-        "palabra": "ovalle",
-        "n": 179
+        "n": 197
       },
       {
         "palabra": "coquimbo",
-        "n": 130
+        "n": 135
       },
       {
-        "palabra": "proceso",
-        "n": 102
+        "palabra": "comparte",
+        "n": 112
+      },
+      {
+        "palabra": "nota",
+        "n": 110
       },
       {
         "palabra": "estudiantes",
-        "n": 95
+        "n": 104
       },
       {
         "palabra": "fortalecer",
+        "n": 104
+      },
+      {
+        "palabra": "proceso",
+        "n": 104
+      },
+      {
+        "palabra": "alta",
+        "n": 102
+      },
+      {
+        "palabra": "computadores",
+        "n": 98
+      },
+      {
+        "palabra": "aprendizajes",
+        "n": 98
+      },
+      {
+        "palabra": "reciben",
+        "n": 97
+      },
+      {
+        "palabra": "atención",
+        "n": 96
+      },
+      {
+        "palabra": "salud",
+        "n": 95
+      },
+      {
+        "palabra": "vecinos",
         "n": 95
       },
       {
@@ -3104,63 +2978,43 @@
         "n": 94
       },
       {
-        "palabra": "alta",
-        "n": 92
-      },
-      {
-        "palabra": "comparte",
-        "n": 92
-      },
-      {
-        "palabra": "nota",
-        "n": 90
-      },
-      {
-        "palabra": "computadores",
-        "n": 89
-      },
-      {
-        "palabra": "aprendizajes",
-        "n": 89
-      },
-      {
-        "palabra": "atención",
-        "n": 87
-      },
-      {
-        "palabra": "vecinos",
-        "n": 87
-      },
-      {
-        "palabra": "reciben",
-        "n": 86
-      },
-      {
-        "palabra": "salud",
-        "n": 85
+        "palabra": "septiembre",
+        "n": 91
       },
       {
         "palabra": "marco",
-        "n": 81
+        "n": 90
       },
       {
         "palabra": "procedimientos",
-        "n": 81
+        "n": 90
       },
       {
         "palabra": "avance",
-        "n": 80
+        "n": 89
       },
       {
         "palabra": "corazón",
-        "n": 78
+        "n": 87
       },
       {
         "palabra": "complejidad",
-        "n": 78
+        "n": 87
+      },
+      {
+        "palabra": "marcan",
+        "n": 83
       },
       {
         "palabra": "mayor",
+        "n": 82
+      },
+      {
+        "palabra": "serena",
+        "n": 80
+      },
+      {
+        "palabra": "puede",
         "n": 78
       },
       {
@@ -3168,238 +3022,60 @@
         "n": 76
       },
       {
-        "palabra": "marcan",
-        "n": 74
-      },
-      {
-        "palabra": "serena",
-        "n": 74
-      },
-      {
         "palabra": "limarí",
         "n": 67
       },
       {
-        "palabra": "puede",
-        "n": 66
+        "palabra": "últimas",
+        "n": 59
+      },
+      {
+        "palabra": "herramientas",
+        "n": 59
+      },
+      {
+        "palabra": "parte",
+        "n": 56
+      },
+      {
+        "palabra": "política",
+        "n": 55
+      },
+      {
+        "palabra": "interesar",
+        "n": 55
+      },
+      {
+        "palabra": "noticias",
+        "n": 55
+      },
+      {
+        "palabra": "martes",
+        "n": 55
       },
       {
         "palabra": "evento",
         "n": 55
       },
       {
+        "palabra": "robo",
+        "n": 54
+      },
+      {
+        "palabra": "millón",
+        "n": 54
+      },
+      {
         "palabra": "temporal",
         "n": 54
       },
       {
-        "palabra": "difusión",
-        "n": 52
+        "palabra": "gobierno",
+        "n": 53
       },
       {
-        "palabra": "sector",
-        "n": 52
-      },
-      {
-        "palabra": "parte",
-        "n": 51
-      },
-      {
-        "palabra": "financiamiento",
-        "n": 51
-      },
-      {
-        "palabra": "mirada",
-        "n": 51
-      },
-      {
-        "palabra": "además",
-        "n": 51
-      },
-      {
-        "palabra": "evaluación",
-        "n": 50
-      },
-      {
-        "palabra": "plazo",
-        "n": 50
-      },
-      {
-        "palabra": "promocionar",
-        "n": 50
-      },
-      {
-        "palabra": "santiago",
-        "n": 50
-      },
-      {
-        "palabra": "herramientas",
-        "n": 50
-      },
-      {
-        "palabra": "casi",
-        "n": 49
-      }
-    ],
-    "Diario El Día — País": [
-      {
-        "palabra": "alerta",
-        "n": 23
-      },
-      {
-        "palabra": "seguridad",
-        "n": 18
-      },
-      {
-        "palabra": "martes",
-        "n": 11
-      },
-      {
-        "palabra": "septiembre",
-        "n": 9
-      },
-      {
-        "palabra": "personas",
-        "n": 9
-      },
-      {
-        "palabra": "nueva",
-        "n": 9
-      },
-      {
-        "palabra": "cambio",
-        "n": 9
-      },
-      {
-        "palabra": "comparte",
-        "n": 8
-      },
-      {
-        "palabra": "nota",
-        "n": 8
-      },
-      {
-        "palabra": "estafa",
-        "n": 8
-      },
-      {
-        "palabra": "cuenta",
-        "n": 8
-      },
-      {
-        "palabra": "hora",
-        "n": 8
-      },
-      {
-        "palabra": "ovalle",
-        "n": 8
-      },
-      {
-        "palabra": "sernac",
-        "n": 7
-      },
-      {
-        "palabra": "nacional",
-        "n": 7
-      },
-      {
-        "palabra": "delincuentes",
-        "n": 7
-      },
-      {
-        "palabra": "nuevo",
-        "n": 7
-      },
-      {
-        "palabra": "horario",
-        "n": 7
-      },
-      {
-        "palabra": "vehículos",
-        "n": 6
-      },
-      {
-        "palabra": "país",
-        "n": 6
-      },
-      {
-        "palabra": "podrían",
-        "n": 6
-      },
-      {
-        "palabra": "puede",
-        "n": 6
-      },
-      {
-        "palabra": "aumento",
-        "n": 6
-      },
-      {
-        "palabra": "bancaria",
-        "n": 6
-      },
-      {
-        "palabra": "claves",
-        "n": 6
-      },
-      {
-        "palabra": "semana",
-        "n": 6
-      },
-      {
-        "palabra": "reciben",
-        "n": 6
-      },
-      {
-        "palabra": "falla",
-        "n": 5
-      },
-      {
-        "palabra": "chile",
-        "n": 5
-      },
-      {
-        "palabra": "afectará",
-        "n": 5
-      },
-      {
-        "palabra": "regiones",
-        "n": 5
-      },
-      {
-        "palabra": "llegar",
-        "n": 5
-      },
-      {
-        "palabra": "reforma",
-        "n": 5
-      },
-      {
-        "palabra": "millón",
-        "n": 5
-      },
-      {
-        "palabra": "datos",
-        "n": 5
-      },
-      {
-        "palabra": "cinturón",
-        "n": 4
-      },
-      {
-        "palabra": "cinturones",
-        "n": 4
-      },
-      {
-        "palabra": "interesar",
-        "n": 4
-      },
-      {
-        "palabra": "economía",
-        "n": 4
-      },
-      {
-        "palabra": "recibirán",
-        "n": 4
+        "palabra": "avaluadas",
+        "n": 53
       }
     ],
     "Diario La Región": [
@@ -5504,9 +5180,7 @@
     "coquimbo": {
       "medios": [
         "David Noticias",
-        "Diario El Día — País",
-        "Diario El Día — Política",
-        "Diario El Día — Región",
+        "Diario El Día",
         "Diario La Región",
         "El Andacollino",
         "El Canelino",
@@ -5540,29 +5214,13 @@
           13,
           4
         ],
-        "Diario El Día — País": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          1
-        ],
-        "Diario El Día — Política": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          4
-        ],
-        "Diario El Día — Región": [
+        "Diario El Día": [
           0,
           0,
           0,
           0,
           27,
-          103
+          108
         ],
         "Diario La Región": [
           0,
@@ -5753,9 +5411,7 @@
     "salud": {
       "medios": [
         "David Noticias",
-        "Diario El Día — País",
-        "Diario El Día — Política",
-        "Diario El Día — Región",
+        "Diario El Día",
         "Diario La Región",
         "El Canelino",
         "El Combarbalino",
@@ -5785,29 +5441,13 @@
           1,
           0
         ],
-        "Diario El Día — País": [
+        "Diario El Día": [
           0,
           0,
           0,
           0,
-          0,
-          4
-        ],
-        "Diario El Día — Política": [
-          0,
-          0,
-          0,
-          0,
-          1,
-          5
-        ],
-        "Diario El Día — Región": [
-          0,
-          0,
-          0,
-          0,
-          21,
-          64
+          22,
+          73
         ],
         "Diario La Región": [
           0,
@@ -5965,9 +5605,7 @@
     },
     "ovalle": {
       "medios": [
-        "Diario El Día — País",
-        "Diario El Día — Política",
-        "Diario El Día — Región",
+        "Diario El Día",
         "Diario La Región",
         "El Combarbalino",
         "El Comunal",
@@ -5984,29 +5622,13 @@
         "Radio Monte Carlo"
       ],
       "serie": {
-        "Diario El Día — País": [
+        "Diario El Día": [
           0,
           0,
           0,
           0,
-          0,
-          8
-        ],
-        "Diario El Día — Política": [
-          0,
-          0,
-          0,
-          0,
-          1,
-          9
-        ],
-        "Diario El Día — Región": [
-          0,
-          0,
-          0,
-          0,
-          53,
-          126
+          54,
+          143
         ],
         "Diario La Región": [
           0,
@@ -6125,9 +5747,7 @@
     "personas": {
       "medios": [
         "David Noticias",
-        "Diario El Día — País",
-        "Diario El Día — Política",
-        "Diario El Día — Región",
+        "Diario El Día",
         "Diario La Región",
         "El Andacollino",
         "El Canelino",
@@ -6161,29 +5781,13 @@
           13,
           3
         ],
-        "Diario El Día — País": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          9
-        ],
-        "Diario El Día — Política": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          1
-        ],
-        "Diario El Día — Región": [
+        "Diario El Día": [
           0,
           0,
           0,
           0,
           5,
-          22
+          32
         ],
         "Diario La Región": [
           0,
@@ -6374,9 +5978,7 @@
     "parte": {
       "medios": [
         "David Noticias",
-        "Diario El Día — País",
-        "Diario El Día — Política",
-        "Diario El Día — Región",
+        "Diario El Día",
         "Diario La Región",
         "El Andacollino",
         "El Canelino",
@@ -6410,29 +6012,13 @@
           3,
           3
         ],
-        "Diario El Día — País": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          2
-        ],
-        "Diario El Día — Política": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          3
-        ],
-        "Diario El Día — Región": [
+        "Diario El Día": [
           0,
           0,
           0,
           0,
           12,
-          39
+          44
         ],
         "Diario La Región": [
           0,
@@ -6623,7 +6209,7 @@
     "regional": {
       "medios": [
         "David Noticias",
-        "Diario El Día — Región",
+        "Diario El Día",
         "Diario La Región",
         "El Andacollino",
         "El Canelino",
@@ -6657,7 +6243,7 @@
           10,
           14
         ],
-        "Diario El Día — Región": [
+        "Diario El Día": [
           0,
           0,
           0,
@@ -6853,9 +6439,7 @@
     },
     "serena": {
       "medios": [
-        "Diario El Día — País",
-        "Diario El Día — Política",
-        "Diario El Día — Región",
+        "Diario El Día",
         "Diario La Región",
         "El Andacollino",
         "El Combarbalino",
@@ -6880,29 +6464,13 @@
         "Radio Monte Carlo"
       ],
       "serie": {
-        "Diario El Día — País": [
+        "Diario El Día": [
           0,
           0,
           0,
           0,
-          0,
-          2
-        ],
-        "Diario El Día — Política": [
-          0,
-          0,
-          0,
-          0,
-          1,
-          3
-        ],
-        "Diario El Día — Región": [
-          0,
-          0,
-          0,
-          0,
-          21,
-          53
+          22,
+          58
         ],
         "Diario La Región": [
           0,
@@ -7085,7 +6653,7 @@
     "trabajo": {
       "medios": [
         "David Noticias",
-        "Diario El Día — Región",
+        "Diario El Día",
         "Diario La Región",
         "El Andacollino",
         "El Canelino",
@@ -7119,7 +6687,7 @@
           16,
           4
         ],
-        "Diario El Día — Región": [
+        "Diario El Día": [
           0,
           0,
           0,
@@ -7316,9 +6884,7 @@
     "además": {
       "medios": [
         "David Noticias",
-        "Diario El Día — País",
-        "Diario El Día — Política",
-        "Diario El Día — Región",
+        "Diario El Día",
         "Diario La Región",
         "El Andacollino",
         "El Canelino",
@@ -7352,29 +6918,13 @@
           5,
           1
         ],
-        "Diario El Día — País": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          1
-        ],
-        "Diario El Día — Política": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          1
-        ],
-        "Diario El Día — Región": [
+        "Diario El Día": [
           0,
           0,
           0,
           0,
           10,
-          41
+          43
         ],
         "Diario La Región": [
           0,
@@ -7565,9 +7115,7 @@
     "vecinos": {
       "medios": [
         "David Noticias",
-        "Diario El Día — País",
-        "Diario El Día — Política",
-        "Diario El Día — Región",
+        "Diario El Día",
         "Diario La Región",
         "El Andacollino",
         "El Canelino",
@@ -7599,29 +7147,13 @@
           2,
           0
         ],
-        "Diario El Día — País": [
+        "Diario El Día": [
           0,
           0,
           0,
           0,
-          0,
-          3
-        ],
-        "Diario El Día — Política": [
-          0,
-          0,
-          0,
-          0,
-          1,
-          4
-        ],
-        "Diario El Día — Región": [
-          0,
-          0,
-          0,
-          0,
-          29,
-          58
+          30,
+          65
         ],
         "Diario La Región": [
           0,
@@ -7795,9 +7327,7 @@
     },
     "septiembre": {
       "medios": [
-        "Diario El Día — País",
-        "Diario El Día — Política",
-        "Diario El Día — Región",
+        "Diario El Día",
         "Diario La Región",
         "El Andacollino",
         "El Combarbalino",
@@ -7821,29 +7351,13 @@
         "Radio Monte Carlo"
       ],
       "serie": {
-        "Diario El Día — País": [
+        "Diario El Día": [
           0,
           0,
           0,
           0,
-          0,
-          9
-        ],
-        "Diario El Día — Política": [
-          0,
-          0,
-          0,
-          0,
-          3,
-          33
-        ],
-        "Diario El Día — Región": [
-          0,
-          0,
-          0,
-          0,
-          6,
-          40
+          9,
+          82
         ],
         "Diario La Región": [
           0,
@@ -8018,7 +7532,7 @@
     "comunidad": {
       "medios": [
         "David Noticias",
-        "Diario El Día — Región",
+        "Diario El Día",
         "Diario La Región",
         "El Andacollino",
         "El Canelino",
@@ -8051,7 +7565,7 @@
           7,
           1
         ],
-        "Diario El Día — Región": [
+        "Diario El Día": [
           0,
           0,
           0,
@@ -8240,8 +7754,7 @@
     "sector": {
       "medios": [
         "David Noticias",
-        "Diario El Día — Política",
-        "Diario El Día — Región",
+        "Diario El Día",
         "Diario La Región",
         "El Andacollino",
         "El Canelino",
@@ -8275,21 +7788,13 @@
           1,
           1
         ],
-        "Diario El Día — Política": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          1
-        ],
-        "Diario El Día — Región": [
+        "Diario El Día": [
           0,
           0,
           0,
           0,
           18,
-          34
+          35
         ],
         "Diario La Región": [
           0,
@@ -8480,9 +7985,7 @@
     "proceso": {
       "medios": [
         "David Noticias",
-        "Diario El Día — País",
-        "Diario El Día — Política",
-        "Diario El Día — Región",
+        "Diario El Día",
         "Diario La Región",
         "El Andacollino",
         "El Canelino",
@@ -8515,29 +8018,13 @@
           1,
           2
         ],
-        "Diario El Día — País": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          1
-        ],
-        "Diario El Día — Política": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          1
-        ],
-        "Diario El Día — Región": [
+        "Diario El Día": [
           0,
           0,
           0,
           0,
           25,
-          77
+          79
         ],
         "Diario La Región": [
           0,
@@ -8719,9 +8206,7 @@
     },
     "atención": {
       "medios": [
-        "Diario El Día — País",
-        "Diario El Día — Política",
-        "Diario El Día — Región",
+        "Diario El Día",
         "El Canelino",
         "El Coquimbano",
         "El Illapelino",
@@ -8742,29 +8227,13 @@
         "Radio Monte Carlo"
       ],
       "serie": {
-        "Diario El Día — País": [
+        "Diario El Día": [
           0,
           0,
           0,
           0,
-          0,
-          3
-        ],
-        "Diario El Día — Política": [
-          0,
-          0,
-          0,
-          0,
-          1,
-          5
-        ],
-        "Diario El Día — Región": [
-          0,
-          0,
-          0,
-          0,
-          18,
-          69
+          19,
+          77
         ],
         "El Canelino": [
           0,
@@ -8916,68 +8385,48 @@
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "relacionados",
-        "n": 164
-      },
-      {
-        "palabra": "actividad",
-        "n": 199
-      },
-      {
-        "palabra": "comunidad",
-        "n": 215
-      },
-      {
-        "palabra": "proceso",
-        "n": 204
-      },
-      {
-        "palabra": "septiembre",
-        "n": 215
-      },
-      {
-        "palabra": "mayor",
-        "n": 196
-      },
-      {
-        "palabra": "sectores",
-        "n": 167
+        "palabra": "ovalle",
+        "n": 297
       },
       {
         "palabra": "último",
         "n": 172
       },
       {
-        "palabra": "salud",
-        "n": 347
+        "palabra": "tras",
+        "n": 189
       },
       {
         "palabra": "además",
         "n": 230
       },
       {
-        "palabra": "trabajo",
-        "n": 246
+        "palabra": "salud",
+        "n": 347
       },
       {
-        "palabra": "parte",
-        "n": 280
+        "palabra": "atención",
+        "n": 200
       },
       {
-        "palabra": "tras",
-        "n": 189
+        "palabra": "regional",
+        "n": 267
       },
       {
-        "palabra": "jornada",
-        "n": 168
+        "palabra": "fortalecer",
+        "n": 177
       },
       {
-        "palabra": "señaló",
-        "n": 168
+        "palabra": "mayor",
+        "n": 196
       },
       {
-        "palabra": "serena",
-        "n": 250
+        "palabra": "septiembre",
+        "n": 215
+      },
+      {
+        "palabra": "actividad",
+        "n": 199
       },
       {
         "palabra": "personas",
@@ -8988,32 +8437,52 @@
         "n": 172
       },
       {
-        "palabra": "fortalecer",
-        "n": 177
+        "palabra": "señaló",
+        "n": 168
       },
       {
-        "palabra": "ovalle",
-        "n": 297
+        "palabra": "comunidad",
+        "n": 215
       },
       {
-        "palabra": "regional",
-        "n": 267
-      },
-      {
-        "palabra": "sector",
-        "n": 208
-      },
-      {
-        "palabra": "vecinos",
-        "n": 228
+        "palabra": "parte",
+        "n": 280
       },
       {
         "palabra": "coquimbo",
         "n": 434
       },
       {
-        "palabra": "atención",
-        "n": 200
+        "palabra": "sectores",
+        "n": 167
+      },
+      {
+        "palabra": "trabajo",
+        "n": 246
+      },
+      {
+        "palabra": "sector",
+        "n": 208
+      },
+      {
+        "palabra": "proceso",
+        "n": 204
+      },
+      {
+        "palabra": "relacionados",
+        "n": 164
+      },
+      {
+        "palabra": "jornada",
+        "n": 168
+      },
+      {
+        "palabra": "vecinos",
+        "n": 228
+      },
+      {
+        "palabra": "serena",
+        "n": 250
       }
     ],
     "enlaces": [
@@ -10529,6 +9998,10 @@
       "n": 15
     },
     {
+      "autoridad_id": "jose-antonio-cortes-portilla-concejal",
+      "n": 14
+    },
+    {
       "autoridad_id": "christian-frank-gross-hidalgo-alcalde",
       "n": 10
     },
@@ -10537,8 +10010,24 @@
       "n": 9
     },
     {
+      "autoridad_id": "carmen-juana-olivares-de-la-rivera-alcalde",
+      "n": 9
+    },
+    {
       "autoridad_id": "hernan-ahumada-ahumada-alcalde",
       "n": 8
+    },
+    {
+      "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+      "n": 8
+    },
+    {
+      "autoridad_id": "ali-manouchehri-moghadam-kashan-lobos-alcalde",
+      "n": 5
+    },
+    {
+      "autoridad_id": "jose-luis-nunez-nunez-concejal",
+      "n": 5
     },
     {
       "autoridad_id": "waldo-enrique-contreras-cortes-alcalde",
@@ -10547,6 +10036,10 @@
     {
       "autoridad_id": "eduardo-antonio-cortes-manquez-concejal",
       "n": 4
+    },
+    {
+      "autoridad_id": "marta-angelica-carvajal-cortes-alcalde",
+      "n": 3
     },
     {
       "autoridad_id": "pedro-humberto-araya-zepeda-alcalde",
@@ -10589,7 +10082,7 @@
       "n": 2
     },
     {
-      "autoridad_id": "marta-angelica-carvajal-cortes-alcalde",
+      "autoridad_id": "juan-carlos-alfaro-aravena-alcalde",
       "n": 1
     },
     {
@@ -10674,6 +10167,10 @@
     },
     {
       "autoridad_id": "angel-gonzalez-aguilera-core",
+      "n": 1
+    },
+    {
+      "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
       "n": 1
     },
     {

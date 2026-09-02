@@ -209,7 +209,7 @@ const porMedioPorPalabra = Object.fromEntries(
 				Prensa regional
 			</h1>
 			<p class="mt-5 max-w-2xl text-lg text-slate-300">
-				{total_articulos} noticias reales de 28 medios de la Región de Coquimbo —
+				{total_articulos} noticias reales de {medios.length} medios de la Región de Coquimbo —
 				{total_palabras_corpus.toLocaleString('es-CL')} palabras analizadas. Solo se analiza el
 				texto (nubes de palabras, tendencias, menciones); nunca se republican los artículos.
 			</p>
@@ -303,7 +303,7 @@ const porMedioPorPalabra = Object.fromEntries(
 			<div class="mt-4 sm:flex sm:items-start sm:gap-6">
 				<div class="flex gap-1.5 overflow-x-auto pb-2 sm:block sm:w-56 sm:shrink-0 sm:space-y-1 sm:overflow-visible sm:pb-0">
 					<button type="button" data-medio="__total__" class="medio-btn shrink-0 whitespace-nowrap rounded-md bg-topic-discursos px-3 py-2 text-left text-sm font-medium text-white sm:w-full">
-						Los 28 medios en conjunto
+						Los {medios.length} medios en conjunto
 					</button>
 					{medios.map((m) => (
 						<button type="button" data-medio={m} class="medio-btn shrink-0 whitespace-nowrap rounded-md px-3 py-2 text-left text-sm font-medium text-slate-600 hover:bg-slate-100 sm:w-full">

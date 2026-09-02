@@ -13,6 +13,57 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-02 — Prensa regional: menciones seguían fallando para nombres compuestos + El Día contaba como 3-4 medios
+
+**Segunda vuelta del bug de menciones:** después del primer fix (nombre
+corto = primer nombre + segundo-a-último token), el usuario notó que el
+alcalde de Coquimbo no aparecía pese a que Coquimbo es por lejos la
+comuna más mencionada (173 noticias). Investigado: su nombre completo es
+"Alí Manouchehri Moghadam Kashan Lobos" (5 tokens) — la prensa lo llama
+"Alí Manouchehri" (confirmado buscando en el texto crudo), pero el
+heurístico A (primer nombre + segundo-a-último token) daba "Alí Kashan",
+que no aparece nunca. Mismo problema con el gobernador regional,
+"Cristóbal Juliá De La Vega" -> prensa dice "Cristóbal Juliá", el
+heurístico A daba "Cristóbal La". En ambos casos el apellido paterno
+real es el token justo después del (único) nombre de pila, no el
+segundo-a-último — pero eso solo se puede saber con apellidos
+compuestos de 3+ palabras, que el heurístico A no contempla.
+
+**Fix:** se agregó un segundo candidato de nombre corto ("B" = primer
+nombre + segundo token), verificado por separado contra colisiones
+(solo 2 de 142: "Denis Cortés Aguilera/Vargas", "Sergio Alfredo Pérez
+Pacheco/Gahona Salazar" — ambos casos raros donde dos personas
+distintas comparten primer nombre + segundo nombre). Una autoridad
+cuenta como mencionada si aparece su nombre completo, O el candidato A
+(si es único), O el candidato B (si es único). Resultado: 43 → 50
+autoridades con mención, y ahora sí aparecen el alcalde de Coquimbo (5)
+y el gobernador regional (8). Ver `_nombre_corto_a`/`_nombre_corto_b` en
+`scrapers/analisis_prensa.py`. **Lección:** con apellidos compuestos o
+de origen no español, ningún heurístico posicional único cubre todos
+los casos — conviene probar varios candidatos independientes en vez de
+afinar uno solo.
+
+**"Diario El Día" contaba como 3-4 medios distintos:** el usuario notó
+que aparecía repetido ("País", "Política", "Región") y preguntó por qué
+tenía tantas más palabras que el resto — no es que publique más noticias
+como medio, es que le leemos 4 feeds RSS temáticos (política/región/
+país/opinión) mientras que a cada uno de los otros 24 medios solo se le
+lee 1 feed general. Eso le da automáticamente ~4x más artículos en la
+muestra (55 vs ~10 de los demás). Se renombraron los 4 feeds a un mismo
+nombre de fuente ("Diario El Día") en `scrapers/prensa_rss.py`, se
+actualizaron las 55 filas ya guardadas en la base con un `UPDATE`
+directo (no hizo falta re-scrapear, el texto ya estaba), y se
+recalculó el análisis. La asimetría de volumen se mantiene (es real,
+no un bug) pero ahora es 1 medio contando como 1, no como 3-4. Los
+textos con el número hardcodeado "28 medios" (portada de herramientas,
+encabezado y botón de la página de prensa) se corrigieron a
+`{medios.length}` o a texto sin número, para que no quede desactualizado
+la próxima vez que cambie la lista de fuentes.
+
+Verificado con Playwright en las 7 pestañas, cero errores de consola.
+
+---
+
 ## 2026-09-02 — Prensa regional: bug real en menciones + retoques de UI pedidos por el usuario
 
 **Bug de fondo encontrado y corregido:** `menciones_por_autoridad` buscaba

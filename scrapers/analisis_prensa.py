@@ -204,15 +204,28 @@ def main():
     # completo de 4 partes que usamos como identificador ("Juan Carlos
     # Alfaro Aravena") — escribe "el alcalde Juan Alfaro" o solo
     # "Alfaro". Buscar solo el nombre completo exacto dejaba a solo 6 de
-    # 142 autoridades activas con alguna mención en 291 artículos
-    # (bug real, detectado por el usuario al ver conteos de 1). Se
-    # agrega un "nombre corto" (primer nombre + apellido paterno, el
-    # segundo-a-último token del nombre completo) como alternativa de
-    # búsqueda — pero solo cuando ese nombre corto identifica a una sola
-    # autoridad activa; si dos autoridades comparten primer nombre +
-    # apellido paterno (2 casos de 142: "Denis Cortés", "Juan
-    # Castillo"), esas quedan con el nombre completo exacto nomás, para
-    # no confundir personas ---
+    # 142 autoridades activas con alguna mención en 291 artículos (bug
+    # real, detectado por el usuario al ver conteos de 1).
+    #
+    # Se agregan DOS candidatos de "nombre corto", porque un solo patrón
+    # posicional no cubre los apellidos compuestos:
+    #   A) primer nombre + segundo-a-último token — cubre el caso
+    #      estándar de 1-2 nombres + 2 apellidos ("Juan Carlos Alfaro
+    #      Aravena" -> "Juan Alfaro").
+    #   B) primer nombre + segundo token — cubre nombres con un solo
+    #      nombre de pila seguido de un apellido paterno compuesto de
+    #      varias palabras, donde A falla porque el segundo-a-último
+    #      token cae dentro del apellido materno, no del paterno. Caso
+    #      real que motivó esto: el alcalde de Coquimbo, "Alí
+    #      Manouchehri Moghadam Kashan Lobos" — la prensa lo llama "Alí
+    #      Manouchehri" (candidato B), pero A daba "Alí Kashan" (nunca
+    #      aparece). Mismo problema con el gobernador regional,
+    #      "Cristóbal Juliá De La Vega" -> prensa dice "Cristóbal
+    #      Juliá", no "Cristóbal Vega".
+    # Cada candidato se usa solo cuando identifica a una única autoridad
+    # activa (se verifica por separado); si dos autoridades comparten un
+    # mismo candidato, esas quedan con el nombre completo exacto nomás,
+    # para no confundir personas ---
     with open(PROCESSED_DIR / "autoridades.json", encoding="utf-8") as f:
         autoridades = json.load(f)
 
@@ -220,29 +233,43 @@ def main():
         (r, _normalizar(f"{r['titulo']} {r['texto_completo']}")) for r in con_texto
     ]
 
-    def _nombre_corto(nombre_completo: str) -> str | None:
-        tokens = nombre_completo.split()
+    def _nombre_corto_a(tokens: list[str]) -> str | None:
         if len(tokens) < 2:
             return None
         apellido_paterno = tokens[-2] if len(tokens) >= 3 else tokens[-1]
         return _normalizar(f"{tokens[0]} {apellido_paterno}")
 
+    def _nombre_corto_b(tokens: list[str]) -> str | None:
+        if len(tokens) < 3:
+            return None
+        return _normalizar(f"{tokens[0]} {tokens[1]}")
+
     activas = [
         a for a in autoridades if a.get("activo") and a.get("nombre_completo")
     ]
-    conteo_nombres_cortos: Counter = Counter(
-        c for a in activas if (c := _nombre_corto(a["nombre_completo"]))
+    tokens_por_autoridad = {a["id"]: a["nombre_completo"].split() for a in activas}
+    conteo_a: Counter = Counter(
+        c for tk in tokens_por_autoridad.values() if (c := _nombre_corto_a(tk))
+    )
+    conteo_b: Counter = Counter(
+        c for tk in tokens_por_autoridad.values() if (c := _nombre_corto_b(tk))
     )
 
     menciones_autoridad: Counter = Counter()
     for a in activas:
+        tokens = tokens_por_autoridad[a["id"]]
         nombre_norm = _normalizar(a["nombre_completo"])
-        if len(nombre_norm.split()) < 2:
+        if len(tokens) < 2:
             continue
-        corto = _nombre_corto(a["nombre_completo"])
-        usa_corto = corto is not None and conteo_nombres_cortos[corto] == 1
+        candidatos = {nombre_norm}
+        corto_a = _nombre_corto_a(tokens)
+        if corto_a is not None and conteo_a[corto_a] == 1:
+            candidatos.add(corto_a)
+        corto_b = _nombre_corto_b(tokens)
+        if corto_b is not None and conteo_b[corto_b] == 1:
+            candidatos.add(corto_b)
         for _r, texto_norm in textos_normalizados:
-            if nombre_norm in texto_norm or (usa_corto and corto in texto_norm):
+            if any(c in texto_norm for c in candidatos):
                 menciones_autoridad[a["id"]] += 1
 
     menciones_por_autoridad = [
