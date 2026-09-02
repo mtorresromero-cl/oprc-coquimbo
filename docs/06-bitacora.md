@@ -13,6 +13,50 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-02 — El fix de www.camara.cl SÍ funcionó, pero el commit se perdió por un choque de pushes
+
+Cierre (parcial) de la saga de camara.cl de hoy. El run `33640782889`
+(el que iba a validar en producción el fix de `www.camara.cl` de
+`camara_votaciones.py`) terminó con `conclusion: failure` — pero
+**no por el scraper**: los 15 pasos de scraping, incluido
+`camara_votaciones.py`, terminaron en `success` real (no enmascarado
+por `continue-on-error`, se confirmó con el log completo). El único
+paso que falló fue el último, "Commit datos actualizados":
+
+```
+[main 3159b88] datos: actualización automática 2026-09-02
+ 5 files changed, 652 insertions(+), 204 deletions(-)
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs...
+```
+
+**Causa raíz:** el workflow arrancó a las 14:14 con un checkout viejo de
+`main`. Mientras corría (tardó ~5 horas por los otros scrapers, no por
+camara_votaciones.py que terminó a las 17:06), esta misma sesión hizo
+varios commits y pushes a `main` (todo el trabajo de prensa regional y
+densidad poblacional). Al llegar al commit final, git rechazó el push
+porque el remoto ya había avanzado — el commit local `3159b88` con los
+datos reales (652 inserciones, consistente con un historial completo,
+no solo agosto) quedó atrapado en el runner efímero y se perdió para
+siempre cuando terminó, sin forma de recuperarlo.
+
+**Lección para la próxima vez que se dispare manualmente un workflow
+largo:** si se va a seguir trabajando y comiteando en `main` mientras un
+workflow de varias horas corre en paralelo, hay riesgo real de choque
+en el push final — no es solo teórico, pasó. Si se sabe que se van a
+hacer más commits durante la espera, considerar disparar el workflow
+al final de la sesión, no al principio.
+
+**Acción tomada:** se volvió a disparar el workflow manualmente
+(`gh workflow run actualizar-datos.yml`, run `33679386782`, empezó
+20:27) después de confirmar que no quedaban pushes pendientes de esta
+sesión. Debería tardar otras ~4-5 horas por los mismos scrapers lentos
+de siempre (no por camara.cl). **Pendiente real:** confirmar que este
+segundo intento sí complete el commit y verificar entonces
+`votaciones-camara.json` (registros y meses desde marzo 2026).
+
+---
+
 ## 2026-09-02 — Densidad poblacional: nueva herramienta + contexto en Delincuencia
 
 **Auditoría de datos pedida por el usuario ("¿gasto parlamentario e
