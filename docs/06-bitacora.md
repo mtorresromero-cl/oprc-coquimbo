@@ -13,6 +13,48 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-02 — El fix de curl_cffi NO resolvió el bloqueo (corrección importante)
+
+Tras horas de espera, se re-disparó `actualizar-datos.yml` (run
+`33622660812`). **`camara_mociones.py`, `camara_asistencia.py` Y
+`camara_votaciones.py` (curl_cffi) fallaron los tres, con el mismo error
+TLS (`ERR_SSL_VERSION_OR_CIPHER_MISMATCH`), casi al mismo segundo.**
+`mociones.aspx` y `asistencia_sala.aspx` son GET simples, sin ninguna
+interacción/postback — y fallaron igual que `votaciones_sala.aspx`. Esto
+descarta las dos hipótesis anteriores (patrón de interacción específico,
+huella TLS de Playwright vs curl_cffi): el bloqueo es contra camara.cl
+completo, a nivel de red/TLS, desde la IP de GitHub Actions — curl_cffi
+con `impersonate="chrome"` NO lo esquiva.
+
+**Error propio al reportar esto (correguido en la conversación, no
+solo acá):** al revisar `gh run view --json jobs -q '.conclusion'` los
+tres pasos mostraban `"success"` — se interpretó erróneamente como que
+sí habían funcionado. La razón real es que `continue-on-error: true`
+(agregado hoy mismo, ver entrada del workflow) hace que GitHub reporte
+`conclusion: success` en el step aunque el script haya fallado de
+verdad — el log crudo (`gh run view --log`) sí mostraba el traceback y
+`Process completed with exit code 1` en los tres. Lección: con
+`continue-on-error`, `conclusion` no basta para saber si un paso
+realmente funcionó — hay que mirar el log o el campo `outcome`.
+
+**Implicación seria:** dado que ni Playwright (mociones/asistencia,
+scrapers que llevaban semanas funcionando) ni curl_cffi con huella TLS
+de navegador real lograron pasar, y que esto pasa igual muchas horas
+después del primer bloqueo, es probable que Cloudflare esté bloqueando
+directamente el rango de IPs de los runners de GitHub Actions (no una
+huella de cliente ni un patrón de interacción) — algo que ningún cambio
+de scraper por sí solo puede resolver. La única vía real sería correr el
+scraper desde una IP no bloqueada (ej. el VPS propio que ya se usa para
+otros proyectos, ver `reference_vps_infra` en la memoria) en vez de
+GitHub Actions.
+
+**Pendiente:** decidir con el usuario si vale la pena investigar mover
+la ejecución de los scrapers de camara.cl fuera de GitHub Actions, o
+seguir esperando/reintentando periódicamente por si el bloqueo se
+levanta solo.
+
+---
+
 ## 2026-09-02 — camara_votaciones.py reescrito con curl_cffi (sin Playwright)
 
 Aplicada la técnica de `gasto_parlamentario.py` (ver entrada anterior):
