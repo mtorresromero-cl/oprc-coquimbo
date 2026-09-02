@@ -59,21 +59,12 @@ function iniciales(nombre: string): string {
 
 const diputados = autoridades.filter((a) => a.cargo === 'diputado');
 
-// las 4 tarjetas se eligen en orden, cada una excluyendo a quien ya haya
-// salido en una tarjeta anterior — si no, casi siempre gana la misma
-// persona en varias categorías a la vez (quien más habla también suele
-// gastar más, etc.) y la sección pierde variedad.
-const yaDestacados = new Set<string>();
-function primerDisponible<T>(ordenados: T[], idDe: (item: T) => string): T | undefined {
-	const elegido = ordenados.find((item) => !yaDestacados.has(idDe(item)));
-	if (elegido) yaDestacados.add(idDe(elegido));
-	return elegido;
-}
-
-const rankingSala = diputados
+// cada tarjeta muestra a quien realmente lidera esa categoría — aunque se
+// repita la misma persona en varias a la vez. Es un dato real y así debe
+// mostrarse (por transparencia), no forzar variedad artificial.
+const masTiempoSala = diputados
 	.map((a) => ({ id: a.id, segundos: analisisIntervenciones.participacion[a.id]?.segundos ?? 0 }))
-	.sort((x, y) => y.segundos - x.segundos);
-const masTiempoSala = primerDisponible(rankingSala, (x) => x.id);
+	.sort((x, y) => y.segundos - x.segundos)[0];
 
 const gastoPorAutoridad = new Map<string, number>();
 for (const g of gastoParlamentario) {
@@ -81,8 +72,7 @@ for (const g of gastoParlamentario) {
 		gastoPorAutoridad.set(g.autoridad_id, (gastoPorAutoridad.get(g.autoridad_id) ?? 0) + g.monto);
 	}
 }
-const rankingGasto = [...gastoPorAutoridad.entries()].sort((a, b) => b[1] - a[1]);
-const masGastoId = primerDisponible(rankingGasto, (x) => x[0]);
+const masGastoId = [...gastoPorAutoridad.entries()].sort((a, b) => b[1] - a[1])[0];
 
 // sin filtrar por rol: el scraper de diputados nunca marca "autor" (todo
 // queda como "coautor"), a diferencia del de senadores — filtrar por rol
@@ -93,8 +83,7 @@ const mocionesPorAutoridad = new Map<string, number>();
 for (const m of mociones) {
 	mocionesPorAutoridad.set(m.autoridad_id, (mocionesPorAutoridad.get(m.autoridad_id) ?? 0) + 1);
 }
-const rankingMociones = [...mocionesPorAutoridad.entries()].sort((a, b) => b[1] - a[1]);
-const masMocionesId = primerDisponible(rankingMociones, (x) => x[0]);
+const masMocionesId = [...mocionesPorAutoridad.entries()].sort((a, b) => b[1] - a[1])[0];
 
 const coreIds = new Set(autoridades.filter((a) => a.cargo === 'core').map((a) => a.id));
 const ausenciasPorConsejero = new Map<string, number>();
@@ -105,11 +94,7 @@ for (const v of votacionesCore) {
 		}
 	}
 }
-// el CORE no comparte personas con diputados/senadores, así que acá el
-// descarte de yaDestacados nunca aplica en la práctica — se deja igual
-// por consistencia con las otras 3 tarjetas.
-const rankingCore = [...ausenciasPorConsejero.entries()].sort((a, b) => b[1] - a[1]);
-const masAusenteId = primerDisponible(rankingCore, (x) => x[0]);
+const masAusenteId = [...ausenciasPorConsejero.entries()].sort((a, b) => b[1] - a[1])[0];
 
 function tarjetaDe(autoridadId: string) {
 	const a = autoridades.find((x) => x.id === autoridadId)!;
