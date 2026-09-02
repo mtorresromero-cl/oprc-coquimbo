@@ -57,11 +57,21 @@ Confirmado que no es específico de este entorno: GitHub Actions tiene red
 real y falló igual. Tampoco es un problema general de red (google.com y
 otro sitio .cl cargan bien) — es específico de camara.cl.
 
-**Conclusión:** probablemente una caída o cambio de política TLS/WAF
-temporal del lado de camara.cl, no algo para arreglar en nuestro código.
+**Corrección:** el usuario confirmó que el sitio carga bien normalmente
+(no está caído) — la conclusión original de "caída/outage" era incorrecta
+y quedó escrita sin haberlo verificado con el usuario primero. Hipótesis
+correcta: Cloudflare está bloqueando a nivel TLS específicamente las IPs
+de infraestructura en la nube (este sandbox y los runners de GitHub
+Actions), no a navegadores normales — muchos WAF bloquean por reputación
+de rango de IP (datacenter/cloud) independiente del user-agent o
+comportamiento. Esto es más grave que un problema temporal: si Cloudflare
+bloquea el rango de IPs de GitHub Actions específicamente, el scraper NO
+podría volver a funcionar solo "esperando" — necesitaría correr desde una
+IP no bloqueada (ej. un servidor propio/VPS en vez de runners de GitHub).
 
-**Siguiente paso:** reintentar más tarde (manualmente o esperar el cron
-semanal de los lunes). No seguir insistiendo en loop contra un sitio caído.
+**Pendiente:** confirmar si es realmente un bloqueo por rango de IP
+(no un problema de TLS/cipher del cliente) y, si lo es, evaluar mover la
+ejecución del scraper fuera de GitHub Actions.
 
 ---
 
