@@ -106,4 +106,43 @@ que se perdiera). Investigado de nuevo:
   investigado todavía si cubre votaciones de diputados con el detalle que
   necesitamos** — pendiente de decisión con el usuario sobre si migrar.
 
+El usuario recordaba haber encontrado antes, buscando en GitHub, "la
+solución para scrapear la cámara, que no bloquea nada". Se probó
+`https://github.com/GTamayo` (perfil que el usuario creyó recordar): son
+9 repos de ejercicios de data science, ninguno relacionado — no es la
+fuente. Búsqueda más amplia en GitHub (código + repos) encontró dos
+proyectos reales relacionados, ninguno es "la" solución exacta:
+
+- **`fguinez/quevotaron`** (viejo, inactivo): en vez de recorrer la ficha
+  de cada diputado, lee el listado general
+  `https://www.camara.cl/legislacion/sala_sesiones/votaciones.aspx` con
+  `requests.get()` simple — sin Playwright, sin clicks/postback. Pero solo
+  trae "las últimas 20 votaciones" (`get_votaciones_recientes`), sin
+  manejo de historial completo ni paginación de esa página. Vale la pena
+  probar ese endpoint central como mecanismo de descubrimiento más simple
+  y sin interacción — pero no resuelve el historial completo por sí solo,
+  y al ser un proyecto abandonado no hay garantía de que ese endpoint siga
+  respondiendo igual hoy.
+- **`faal2026/observatorio-diputados`** (activo, actualizado 2026-08-31,
+  propósito casi idéntico al nuestro): no cubre votaciones individuales en
+  absoluto — solo sesiones/mociones/acuerdos/resoluciones/asistencia vía
+  el servicio SOAP oficial (`WSSala.asmx`, `WSLegislativo.asmx`, no
+  `wscamaradiputados.asmx`). Consistente con lo que ya documentamos:
+  `getVotaciones_Boletin`/`getVotacion_Detalle` no publican datos para
+  2026 en el servicio que sí probamos.
+
+**No se encontró la solución exacta que el usuario recordaba.**
+
+**Relevante para el fix de hoy:** revisando `docs/05-scrapers.md` se
+confirmó que la decisión original (2026-08-25) de leer solo la página 1
+de `votaciones_sala.aspx` **fue deliberada, no un descuido** — para no
+repetir el patrón de interacción (clicks/postback en selectores y
+paginador) que gatilló un bloqueo de Cloudflare en el formulario de
+búsqueda del sitio. El fix de hoy (commit `3eae5c2`) sí interactúa con el
+selector de año y el paginador — repite exactamente el patrón que se
+había evitado a propósito. No se ha podido probar porque camara.cl sigue
+caído (ver entrada anterior). **Pendiente: cuando el sitio vuelva, probar
+con un solo diputado primero (no los 7 de una) y confirmar que no
+dispara bloqueo antes de asumir que el fix es seguro en producción.**
+
 ---
