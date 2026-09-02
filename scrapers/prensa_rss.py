@@ -50,7 +50,7 @@ FUENTES: list[tuple[str, str | None, str]] = [
     # Externos — medios regionales fuera de la Red Comunales, sin comuna fija
     ("Miradio", None, "https://miradiols.cl/feed/"),
     ("Radio Guayacán", None, "https://radioguayacan.cl/feed/"),
-    ("Radio Monte Carlo", None, "https://radiomontecarlo.cl/feed/"),
+    ("Radio Montecarlo", None, "https://radiomontecarlo.cl/feed/"),
     # 4 feeds temáticos del mismo diario — mismo nombre de fuente a
     # propósito, para que cuenten como un solo medio en el análisis (no
     # 4 medios distintos); es normal que termine con más artículos que

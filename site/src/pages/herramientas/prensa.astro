@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { autoridades, analisisPrensa, fotoAutoridad, nombreComuna } from '../../lib/datos';
+import { analisisPrensa, nombreComuna } from '../../lib/datos';
 
 const {
 	top_palabras_por_medio,
@@ -9,24 +9,12 @@ const {
 	tendencia,
 	tendencia_por_medio,
 	coocurrencia,
-	menciones_por_autoridad,
 	menciones_por_comuna,
 	total_articulos,
 	total_palabras_corpus,
 } = analisisPrensa;
 
 const medios = Object.keys(top_palabras_por_medio).sort((a, b) => a.localeCompare(b, 'es'));
-
-const NOMBRE_AUTORIDAD: Record<string, string> = Object.fromEntries(
-	autoridades.map((a) => [a.id, a.nombre_completo])
-);
-
-const menciones = menciones_por_autoridad.map((m) => ({
-	id: m.autoridad_id,
-	nombre: NOMBRE_AUTORIDAD[m.autoridad_id] ?? m.autoridad_id,
-	foto: fotoAutoridad(m.autoridad_id),
-	n: m.n,
-}));
 
 const menCom = menciones_por_comuna.map((m) => ({
 	id: m.comuna_id,
@@ -197,7 +185,7 @@ const porMedioPorPalabra = Object.fromEntries(
 
 <Layout
 	title="Prensa regional — OPRC"
-	description="Análisis de texto de la prensa regional de Coquimbo: palabras más usadas, tendencia, red de coocurrencia y qué autoridades y comunas aparecen más en las noticias."
+	description="Análisis de texto de la prensa regional de Coquimbo: palabras más usadas, tendencia, red de coocurrencia y qué comunas aparecen más en las noticias."
 >
 	<section class="relative overflow-hidden bg-slate-900">
 		<div class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"></div>
@@ -218,7 +206,7 @@ const porMedioPorPalabra = Object.fromEntries(
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
 		<div class="flex flex-wrap gap-2">
-			{['Menciones', 'Palabras más usadas', 'Tendencia', 'Comparar palabras', 'Nube por semana', 'Por medio', 'Red de palabras'].map((label, i) => (
+			{['Comunas', 'Palabras más usadas', 'Tendencia', 'Comparar palabras', 'Nube por semana', 'Por medio', 'Red de palabras'].map((label, i) => (
 				<button
 					type="button"
 					data-tab={i}
@@ -234,44 +222,10 @@ const porMedioPorPalabra = Object.fromEntries(
 
 		<!-- Menciones -->
 		<section class="panel mt-8" data-panel="0">
-			<h2 class="text-xl font-semibold text-slate-900">Menciones</h2>
+			<h2 class="text-xl font-semibold text-slate-900">Comunas más mencionadas</h2>
 			<p class="mt-1 max-w-2xl text-sm text-slate-500">
-				Cuántas noticias mencionan a cada autoridad o comuna — por nombre completo, o por nombre
-				y apellido paterno cuando esa combinación identifica a una sola persona (para no
-				confundir a dos autoridades que comparten nombre y apellido). {rangoTotalTexto}
+				Cuántas noticias mencionan a cada comuna, por nombre. {rangoTotalTexto}
 			</p>
-
-			<h3 class="mt-8 text-base font-semibold text-slate-900">Autoridades más mencionadas</h3>
-			{menciones.length === 0 ? (
-				<p class="mt-2 text-sm text-slate-500">Todavía no hay menciones detectadas.</p>
-			) : (
-				<div class="mt-3 space-y-3 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-					{menciones.slice(0, 15).map((m) => {
-						const max = Math.max(...menciones.map((x) => x.n), 1);
-						const anchoPct = (m.n / max) * 100;
-						return (
-							<div class="flex items-center gap-3">
-								{m.foto ? (
-									<img src={m.foto} alt="" class="h-8 w-8 shrink-0 rounded-full border-2 border-slate-100 object-cover" />
-								) : (
-									<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-slate-100 bg-brand-50 text-[10px] font-bold text-brand-700">
-										{m.nombre.split(' ').slice(0, 2).map((p) => p[0]).join('')}
-									</span>
-								)}
-								<a href={`/autoridades/${m.id}/`} class="w-40 shrink-0 truncate text-sm font-medium text-slate-800 hover:text-brand-600 hover:underline sm:w-64">
-									{m.nombre}
-								</a>
-								<div class="h-4 flex-1 rounded bg-slate-100">
-									<div class="h-4 rounded bg-topic-discursos" style={`width:${anchoPct}%`}></div>
-								</div>
-								<span class="w-24 shrink-0 whitespace-nowrap text-right text-sm font-semibold text-slate-900 tabular-nums">{m.n} noticias</span>
-							</div>
-						);
-					})}
-				</div>
-			)}
-
-			<h3 class="mt-10 text-base font-semibold text-slate-900">Comunas más mencionadas</h3>
 			{menCom.length === 0 ? (
 				<p class="mt-2 text-sm text-slate-500">Todavía no hay menciones detectadas.</p>
 			) : (

@@ -13,6 +13,48 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-02 — Prensa regional: se saca "Autoridades más mencionadas" (decisión del usuario) + duplicados de El Día
+
+**"Autoridades más mencionadas" se eliminó del sitio.** Tras dos rondas
+de arreglos al emparejamiento de nombres (nombre completo exacto, luego
+2 candidatos de nombre corto), el usuario seguía viendo números bajos
+poco creíbles para un período de 6 semanas y decidió sacar el bloque en
+vez de seguir parchando: "la idea era buena, pero no funciona". Motivo
+de fondo (no solo de nombres): mucha prensa local nombra a una
+autoridad una sola vez al principio de la nota y después dice solo "el
+alcalde" o "la autoridad" — ningún heurístico de coincidencia de texto
+puede resolver esa correferencia sin NLP real (que está fuera de
+alcance acá). Se sacó por completo: el bloque de la UI, el cálculo de
+`menciones_por_autoridad` en `scrapers/analisis_prensa.py` (con los 2
+candidatos de nombre corto que se habían agregado hoy mismo), y las
+menciones a "autoridades" en las descripciones de la página. Queda
+`menciones_por_comuna` nomás (nombre de comuna es un match mucho más
+estable, sin este problema). La pestaña "Menciones" pasó a llamarse
+"Comunas".
+
+**Duplicados reales en Diario El Día:** el usuario preguntó si una
+noticia que aparece en más de uno de los 4 feeds de El Día se cuenta
+doble. Investigado: no es por compartir feeds (eso ya dedupea por URL),
+pero se encontraron 2 casos reales de la MISMA noticia republicada al
+día siguiente con una URL nueva (ID numérico distinto, mismo título) —
+esas sí quedaban como dos filas separadas y duplicaban su conteo de
+palabras. Se agregó deduplicación por (medio, título normalizado) en
+`analisis_prensa.py` antes de tokenizar, quedándose con la fecha más
+antigua. 291 → 289 artículos. La explicación principal de por qué El
+Día tiene tantas palabras sigue siendo la real: se le leen 4 feeds RSS
+temáticos (política/región/país/opinión) mientras que a cada uno de los
+otros 24 medios se le lee 1 solo feed general, así que naturalmente
+junta ~4x más artículos en la muestra — eso no es un bug, es la
+estructura de la fuente.
+
+**"Radio Monte Carlo" → "Radio Montecarlo"** (junto, como el dominio
+`radiomontecarlo.cl` y el nombre real de la radio) — corregido en
+`scrapers/prensa_rss.py` y en las 10 filas ya guardadas en la base.
+
+Verificado con Playwright en las 7 pestañas, cero errores de consola.
+
+---
+
 ## 2026-09-02 — Prensa regional: menciones seguían fallando para nombres compuestos + El Día contaba como 3-4 medios
 
 **Segunda vuelta del bug de menciones:** después del primer fix (nombre

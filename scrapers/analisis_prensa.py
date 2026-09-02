@@ -98,12 +98,29 @@ def _normalizar(s: str) -> str:
 def main():
     db = sqlite3.connect(DB_PATH)
     db.row_factory = sqlite3.Row
-    con_texto = db.execute(
+    con_texto_bruto = db.execute(
         """
         SELECT fuente, comuna_id, titulo, fecha, texto_completo
         FROM prensa_articulo WHERE texto_completo IS NOT NULL
+        ORDER BY fecha ASC
         """
     ).fetchall()
+
+    # Diario El Día republica algunas notas con una URL nueva (mismo
+    # título, mismo medio, ID numérico distinto) al día siguiente — como
+    # el scraper de RSS deduplica por URL, esas quedan como dos filas y
+    # duplican su conteo de palabras. Se descarta la repetición acá
+    # (título + medio normalizado, se queda con la primera fecha) en vez
+    # de en el scraper, porque es un problema de contenido duplicado, no
+    # de descubrimiento de artículos nuevos ---
+    vistos: set[tuple[str, str]] = set()
+    con_texto = []
+    for r in con_texto_bruto:
+        clave = (r["fuente"], _normalizar(r["titulo"]))
+        if clave in vistos:
+            continue
+        vistos.add(clave)
+        con_texto.append(r)
 
     # --- palabras más usadas: por medio y agregado ---
     conteo_por_medio: dict[str, Counter] = defaultdict(Counter)
@@ -200,87 +217,18 @@ def main():
             },
         }
 
-    # --- menciones por autoridad: la prensa casi nunca escribe el nombre
-    # completo de 4 partes que usamos como identificador ("Juan Carlos
-    # Alfaro Aravena") — escribe "el alcalde Juan Alfaro" o solo
-    # "Alfaro". Buscar solo el nombre completo exacto dejaba a solo 6 de
-    # 142 autoridades activas con alguna mención en 291 artículos (bug
-    # real, detectado por el usuario al ver conteos de 1).
-    #
-    # Se agregan DOS candidatos de "nombre corto", porque un solo patrón
-    # posicional no cubre los apellidos compuestos:
-    #   A) primer nombre + segundo-a-último token — cubre el caso
-    #      estándar de 1-2 nombres + 2 apellidos ("Juan Carlos Alfaro
-    #      Aravena" -> "Juan Alfaro").
-    #   B) primer nombre + segundo token — cubre nombres con un solo
-    #      nombre de pila seguido de un apellido paterno compuesto de
-    #      varias palabras, donde A falla porque el segundo-a-último
-    #      token cae dentro del apellido materno, no del paterno. Caso
-    #      real que motivó esto: el alcalde de Coquimbo, "Alí
-    #      Manouchehri Moghadam Kashan Lobos" — la prensa lo llama "Alí
-    #      Manouchehri" (candidato B), pero A daba "Alí Kashan" (nunca
-    #      aparece). Mismo problema con el gobernador regional,
-    #      "Cristóbal Juliá De La Vega" -> prensa dice "Cristóbal
-    #      Juliá", no "Cristóbal Vega".
-    # Cada candidato se usa solo cuando identifica a una única autoridad
-    # activa (se verifica por separado); si dos autoridades comparten un
-    # mismo candidato, esas quedan con el nombre completo exacto nomás,
-    # para no confundir personas ---
-    with open(PROCESSED_DIR / "autoridades.json", encoding="utf-8") as f:
-        autoridades = json.load(f)
-
+    # --- menciones por comuna: nombre de la comuna como substring, sobre
+    # TODOS los artículos (no solo los de medios comunales con comuna_id
+    # asignado) — así los medios regionales externos también aportan.
+    # (Se probó lo mismo por autoridad, pero mucha prensa local nombra
+    # al alcalde una sola vez al principio y después dice solo "el
+    # alcalde" — ninguna variante de nombre corto captura eso, así que
+    # ese bloque se sacó del sitio en vez de seguir parchando un
+    # enfoque que no puede cerrar del todo con solo coincidencia de
+    # texto; nombres de comuna sí son estables y sin ese problema) ---
     textos_normalizados = [
         (r, _normalizar(f"{r['titulo']} {r['texto_completo']}")) for r in con_texto
     ]
-
-    def _nombre_corto_a(tokens: list[str]) -> str | None:
-        if len(tokens) < 2:
-            return None
-        apellido_paterno = tokens[-2] if len(tokens) >= 3 else tokens[-1]
-        return _normalizar(f"{tokens[0]} {apellido_paterno}")
-
-    def _nombre_corto_b(tokens: list[str]) -> str | None:
-        if len(tokens) < 3:
-            return None
-        return _normalizar(f"{tokens[0]} {tokens[1]}")
-
-    activas = [
-        a for a in autoridades if a.get("activo") and a.get("nombre_completo")
-    ]
-    tokens_por_autoridad = {a["id"]: a["nombre_completo"].split() for a in activas}
-    conteo_a: Counter = Counter(
-        c for tk in tokens_por_autoridad.values() if (c := _nombre_corto_a(tk))
-    )
-    conteo_b: Counter = Counter(
-        c for tk in tokens_por_autoridad.values() if (c := _nombre_corto_b(tk))
-    )
-
-    menciones_autoridad: Counter = Counter()
-    for a in activas:
-        tokens = tokens_por_autoridad[a["id"]]
-        nombre_norm = _normalizar(a["nombre_completo"])
-        if len(tokens) < 2:
-            continue
-        candidatos = {nombre_norm}
-        corto_a = _nombre_corto_a(tokens)
-        if corto_a is not None and conteo_a[corto_a] == 1:
-            candidatos.add(corto_a)
-        corto_b = _nombre_corto_b(tokens)
-        if corto_b is not None and conteo_b[corto_b] == 1:
-            candidatos.add(corto_b)
-        for _r, texto_norm in textos_normalizados:
-            if any(c in texto_norm for c in candidatos):
-                menciones_autoridad[a["id"]] += 1
-
-    menciones_por_autoridad = [
-        {"autoridad_id": aid, "n": n}
-        for aid, n in menciones_autoridad.most_common()
-        if n > 0
-    ]
-
-    # --- menciones por comuna: nombre de la comuna como substring, sobre
-    # TODOS los artículos (no solo los de medios comunales con comuna_id
-    # asignado) — así los medios regionales externos también aportan ---
     with open(PROCESSED_DIR / "comunas.json", encoding="utf-8") as f:
         comunas = json.load(f)
 
@@ -302,7 +250,6 @@ def main():
         "tendencia": tendencia,
         "tendencia_por_medio": tendencia_por_medio,
         "coocurrencia": coocurrencia,
-        "menciones_por_autoridad": menciones_por_autoridad,
         "menciones_por_comuna": menciones_por_comuna,
         "total_articulos": len(con_texto),
         "total_palabras_corpus": sum(len(tokenizar(r["texto_completo"])) for r in con_texto),
