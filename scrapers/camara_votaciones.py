@@ -2,18 +2,33 @@
 camara.cl — resultado oficial completo de la Cámara (155 integrantes),
 no solo el voto individual de cada diputado regional.
 
-Corregido el 2026-09-02: la ficha `votaciones_sala.aspx?prmId=` no lista
-todo el historial en una sola carga — filtra por año (`ddlAnnos`, un
-`<select>` que dispara `__doPostBack`, año actual seleccionado por
-defecto) y pagina el resto (`div.paginacion`, también por
-`__doPostBack`). La versión anterior solo leía la página 1 del año por
-defecto sin recorrer esas páginas, así que únicamente traía las
-votaciones más recientes (en la práctica, solo agosto 2026) en vez de
-todo el período desde que comenzó la legislatura el 11 de marzo de
-2026. Ahora recorre explícitamente el/los año(s) de la legislatura
-actual y todas sus páginas antes de extraer los `prmIdVotacion`.
+Reescrito el 2026-09-02 para dejar de usar Playwright por completo. La
+misma técnica que se documentó y probó en `gasto_parlamentario.py`
+(commit `68f22d8`, 2026-08-31) aplica acá: Playwright dispara un bloqueo
+por IP en camara.cl con suficiente uso — confirmado esa vez y de nuevo
+hoy. La solución (confirmada contra un scraper público real que hace
+esto mismo: github.com/jahadd/Analisis_congreso_Chile) es no usar
+navegador en absoluto: `curl_cffi` con `impersonate="chrome"` da una
+huella TLS de navegador real, y los selectores de año/paginador de
+camara.cl son controles ASP.NET (`__doPostBack`) que se pueden simular
+con un POST de formulario clásico (VIEWSTATE + EVENTTARGET), sin
+necesidad de ejecutar JS. Mismo ritmo conservador que gasto_parlamentario.py
+(SLEEP + backoff), porque el sitio también aplica rate-limiting real por
+IP aparte del bloqueo por huella TLS.
 
-Investigado y verificado manualmente el 2026-08-25:
+Corregido el 2026-09-02 (antes de este reescrito, ver docs/06-bitacora.md):
+la ficha `votaciones_sala.aspx?prmId=` no lista todo el historial en una
+sola carga — filtra por año (`ddlAnnos`) y pagina el resto
+(`div.paginacion`), ambos vía `__doPostBack`. La versión original solo
+leía la página 1 del año por defecto, así que únicamente traía las
+votaciones más recientes (en la práctica, solo agosto 2026) en vez de
+todo el período desde que comenzó la legislatura el 11 de marzo de 2026.
+Ahora recorre explícitamente el/los año(s) de la legislatura actual y
+todas sus páginas antes de extraer los `prmIdVotacion`.
+
+Investigado y verificado manualmente el 2026-08-25 (con Playwright, antes
+del reescrito a curl_cffi — la estructura del DOM que describen estos
+hallazgos no cambia por el cambio de técnica HTTP):
 - La ficha personal de cada diputado (`votaciones_sala.aspx?prmId=`) solo
   trae su voto propio, sin el resultado de la sesión — insuficiente para
   calcular participación/alineamiento como se hace con Senado/CORE (que sí
@@ -27,40 +42,58 @@ Investigado y verificado manualmente el 2026-08-25:
   historial personal sin resultado agregado): ahora se guarda igual que
   Senado/CORE, en `votacion_sesion`/`voto`, habilitando el mismo índice de
   participación/alineamiento para diputados.
-- Confirmado con pruebas directas que reutilizar la misma sesión de
-  navegador entre distintas páginas `votacion_detalle.aspx` (para IDs de
-  votación distintos) SÍ dispara el mismo bloqueo de Cloudflare que
-  combinar mociones/votaciones/asistencia de un mismo diputado — y que
-  abrir un contexto de navegador nuevo por cada ID de votación (igual
-  patrón que en el resto de este scraper y en camara_mociones.py) lo
-  evita por completo. Confirmado con 5 IDs consecutivos sin bloqueo.
-- Ver docs/05-scrapers.md para el detalle completo de esta investigación.
+- Ver docs/05-scrapers.md y docs/06-bitacora.md para el detalle completo.
 """
 
 import json
 import re
 import sqlite3
+import sys
 import time
 import unicodedata
 from datetime import date
 from pathlib import Path
 
 from base import BaseScraper
+from bs4 import BeautifulSoup
 from camara_mociones import DIPUTADOS_COQUIMBO
-from playwright.sync_api import sync_playwright
+
+try:
+    from curl_cffi import requests as cffi_requests
+except ImportError:  # pragma: no cover
+    print("Falta curl_cffi: pip install curl_cffi", file=sys.stderr)
+    raise
 
 ROOT = Path(__file__).resolve().parent.parent
 PROCESSED_DIR = ROOT / "data" / "processed"
+
+BASE_URL = "https://camara.cl"
 
 # la legislatura actual comenzó el 2026-03-11; se recorren todos los años
 # desde entonces (no solo el actual) para no perder votaciones si algún
 # año corre incompleto por una falla de red a mitad de recorrido
 LEGISLATURA_INICIO_ANNO = 2026
 
-USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-)
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+    ),
+    "Accept": (
+        "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"
+    ),
+    "Accept-Language": "es-CL,es;q=0.9,en;q=0.8",
+    "Cache-Control": "no-cache",
+    "Pragma": "no-cache",
+    "Upgrade-Insecure-Requests": "1",
+}
+
+# ritmo conservador: una petición cada varios segundos, con reintentos que
+# esperan cada vez más si el sitio empieza a devolver 403/429 — mismo
+# criterio que gasto_parlamentario.py, que confirmó rate-limiting real
+# por IP en este sitio
+SLEEP_ENTRE_PETICIONES = 4.0
+REINTENTOS = 4
 
 MES_A_NUM = {
     "enero": "01", "febrero": "02", "marzo": "03", "abril": "04", "mayo": "05", "junio": "06",
@@ -68,18 +101,143 @@ MES_A_NUM = {
     "diciembre": "12",
 }
 
-SECCIONES_JS = """
-el => {
-    const secs = Array.from(el.querySelectorAll('section.section.group'));
-    return secs.map(s => {
-        const h3 = s.querySelector('h3.colTitle');
-        const div = h3 ? h3.nextElementSibling : null;
-        const lis = div ? Array.from(div.querySelectorAll('li')) : [];
-        const titulo = h3 ? h3.textContent.trim() : '';
-        return { titulo, nombres: lis.map(li => li.textContent.trim()) };
-    });
-}
-"""
+
+def make_session():
+    session = cffi_requests.Session(impersonate="chrome")
+    session.headers.update(HEADERS)
+    return session
+
+
+def _request_con_backoff(session, metodo: str, url: str, **kwargs):
+    ultimo_error = None
+    for intento in range(1, REINTENTOS + 1):
+        try:
+            resp = session.request(metodo, url, timeout=kwargs.pop("timeout", 30), **kwargs)
+            if resp.status_code in (403, 429):
+                raise RuntimeError(f"bloqueado (status {resp.status_code})")
+            resp.raise_for_status()
+            return resp
+        except Exception as e:  # noqa: BLE001 - re-lanzamos tras agotar reintentos
+            ultimo_error = e
+            if intento >= REINTENTOS:
+                raise
+            espera = SLEEP_ENTRE_PETICIONES * (intento + 2) * 3
+            print(
+                f"  {metodo} {url[-80:]} falló (intento {intento}/{REINTENTOS}): {e}; "
+                f"reintentando en {espera:.0f}s",
+                flush=True,
+            )
+            time.sleep(espera)
+    raise ultimo_error  # pragma: no cover
+
+
+def _estado_formulario(soup: BeautifulSoup) -> dict:
+    # replica lo que un navegador real reenviaría en un postback ASP.NET:
+    # los tokens VIEWSTATE más el valor actual de cada <select> — sin esto
+    # el servidor puede resetear controles que no se tocan en este POST
+    # (ej. el selector de año, si el postback es del paginador)
+    data = {}
+    for name in ("__VIEWSTATE", "__VIEWSTATEGENERATOR", "__EVENTVALIDATION"):
+        el = soup.find("input", {"name": name})
+        if el:
+            data[name] = el.get("value", "")
+    for select in soup.find_all("select"):
+        name = select.get("name")
+        if not name:
+            continue
+        seleccionada = select.find("option", selected=True)
+        opcion = seleccionada or select.find("option")
+        data[name] = opcion.get("value", "") if opcion else ""
+    return data
+
+
+def _postback(
+    session, url: str, soup: BeautifulSoup, target: str, argument: str = ""
+) -> BeautifulSoup:
+    data = _estado_formulario(soup)
+    data["__EVENTTARGET"] = target
+    data["__EVENTARGUMENT"] = argument
+    resp = _request_con_backoff(
+        session, "POST", url, data=data,
+        headers={"Content-Type": "application/x-www-form-urlencoded"},
+    )
+    time.sleep(SLEEP_ENTRE_PETICIONES)
+    return BeautifulSoup(resp.text, "html.parser")
+
+
+def _seleccionar_anno(session, url: str, soup: BeautifulSoup, anno: int) -> BeautifulSoup:
+    # el filtro "Ver por año" (ddlAnnos) es un <select> que dispara un
+    # postback ASP.NET — cambiarlo actualiza la tabla y el paginador
+    select = soup.find("select", id=re.compile(r"ddlAnnos$"))
+    if select is None:
+        return soup
+    opciones = [o.get("value") for o in select.find_all("option")]
+    if str(anno) not in opciones:
+        return soup
+    seleccionada = select.find("option", selected=True)
+    valor_actual = (
+        seleccionada.get("value") if seleccionada else (opciones[-1] if opciones else None)
+    )
+    if valor_actual == str(anno):
+        return soup
+    data = _estado_formulario(soup)
+    data[select.get("name")] = str(anno)
+    data["__EVENTTARGET"] = select.get("name")
+    data["__EVENTARGUMENT"] = ""
+    resp = _request_con_backoff(
+        session, "POST", url, data=data,
+        headers={"Content-Type": "application/x-www-form-urlencoded"},
+    )
+    time.sleep(SLEEP_ENTRE_PETICIONES)
+    return BeautifulSoup(resp.text, "html.parser")
+
+
+def _pagina_actual(soup: BeautifulSoup) -> int:
+    span = soup.select_one("div.paginacion span.actual")
+    if span is None:
+        return 1
+    try:
+        return int(span.get_text(strip=True))
+    except ValueError:
+        return 1
+
+
+def _avanzar_pagina(session, url: str, soup: BeautifulSoup) -> BeautifulSoup | None:
+    # el paginador (también un postback ASP.NET) muestra como mucho 10
+    # números de página a la vez más un link "..." para cargar la
+    # siguiente ventana — probar ambos hasta que no quede ninguno es lo
+    # que permite recorrer el historial completo del año
+    pager = soup.select_one("div.paginacion")
+    if pager is None:
+        return None
+    actual = _pagina_actual(soup)
+    siguiente_link = None
+    for a in pager.find_all("a"):
+        if a.get_text(strip=True) == str(actual + 1):
+            siguiente_link = a
+            break
+    if siguiente_link is None:
+        for a in pager.find_all("a"):
+            if a.get_text(strip=True) == "...":
+                siguiente_link = a
+                break
+    if siguiente_link is None:
+        return None
+    m = re.search(r"__doPostBack\('([^']+)','([^']*)'\)", siguiente_link.get("href", ""))
+    if not m:
+        return None
+    target, argument = m.groups()
+    return _postback(session, url, soup, target, argument)
+
+
+def _recolectar_ids_de_pagina(soup: BeautifulSoup, votacion_ids: set[str]) -> None:
+    tabla = soup.select_one("table.tabla")
+    if tabla is None:
+        return
+    for a in tabla.find_all("a", href=True):
+        m = re.search(r"prmIdVotacion=(\d+)", a["href"])
+        if m:
+            votacion_ids.add(m.group(1))
 
 
 def _normalizar(texto: str) -> str:
@@ -125,9 +283,95 @@ def _etiqueta_seccion(titulo: str) -> str:
     return "dispensado"  # el título real es el artículo legal que lo justifica
 
 
+def _texto(soup: BeautifulSoup) -> str:
+    # get_text("\n", ...) inserta un salto de línea entre bloques, igual
+    # que hacía innerText() del navegador con Playwright — las mismas
+    # expresiones regulares que se validaron manualmente el 2026-08-25
+    # siguen aplicando sobre este texto
+    return soup.get_text("\n", strip=True)
+
+
+def _tally(soup: BeautifulSoup) -> tuple[int, int, int] | None:
+    # tabla con las columnas "A Favor / En Contra / Abstención /
+    # Dispensados" en la fila de encabezado y los conteos en la fila
+    # siguiente — se lee por celda (td), no por texto plano, porque el
+    # separador entre celdas no está garantizado al parsear HTML crudo
+    for th in soup.find_all(["th", "td"]):
+        if _normalizar(th.get_text(strip=True)) == "a favor":
+            fila = th.find_parent("tr")
+            fila_datos = fila.find_next_sibling("tr") if fila else None
+            if fila_datos is None:
+                return None
+            celdas = fila_datos.find_all("td")
+            if len(celdas) < 3:
+                return None
+            try:
+                favor, contra, abstencion = (int(c.get_text(strip=True)) for c in celdas[:3])
+            except ValueError:
+                return None
+            return favor, contra, abstencion
+    return None
+
+
+def _secciones(soup: BeautifulSoup) -> list[dict]:
+    secciones = []
+    for sec in soup.select("section.section.group"):
+        h3 = sec.select_one("h3.colTitle")
+        titulo = h3.get_text(strip=True) if h3 else ""
+        div = h3.find_next_sibling("div") if h3 else None
+        nombres = [li.get_text(strip=True) for li in div.find_all("li")] if div else []
+        secciones.append({"titulo": titulo, "nombres": nombres})
+    return secciones
+
+
+def _parsear_detalle(soup: BeautifulSoup, url: str) -> dict | None:
+    txt = _texto(soup)
+
+    boletin_m = re.search(r"Proyecto De Ley:\n([\d]{4,6}-\d{1,2})", txt)
+    fecha_m = re.search(r"Fecha:\n(.+)", txt)
+    materia_m = re.search(r"Materia:\n(.+?)\nArtículo:", txt, re.DOTALL)
+    sesion_m = re.search(r"Sesión:\n.*?Sesión n[°º](\d+)", txt, re.DOTALL)
+    resultado_m = re.search(r"Resultado\n(Aprobado|Rechazado)", txt)
+    tally = _tally(soup)
+
+    if not (boletin_m and fecha_m and resultado_m and tally):
+        return None
+    fecha = _fecha_iso(fecha_m.group(1))
+    if not fecha:
+        return None
+
+    votos_favor, votos_contra, abstenciones = tally
+
+    votos_nombres: list[tuple[frozenset[str], str]] = []
+    for sec in _secciones(soup):
+        etiqueta = _etiqueta_seccion(sec["titulo"])
+        for nombre_bruto in sec["nombres"]:
+            if etiqueta == "pareo":
+                for parte in re.split(r"\s+con\s+", _normalizar(nombre_bruto)):
+                    votos_nombres.append((_tokens(parte), etiqueta))
+            else:
+                votos_nombres.append((_tokens(nombre_bruto), etiqueta))
+
+    id_votacion = re.search(r"prmIdVotacion=(\d+)", url).group(1)
+    return {
+        "id": f"camara-{id_votacion}",
+        "boletin": boletin_m.group(1),
+        "titulo": materia_m.group(1).strip() if materia_m else "",
+        "fecha": fecha,
+        "numero_sesion": sesion_m.group(1) if sesion_m else None,
+        "resultado": resultado_m.group(1).lower(),
+        "votos_favor": votos_favor,
+        "votos_contra": votos_contra,
+        "abstenciones": abstenciones,
+        "fuente_url": url,
+        "votos_nombres": votos_nombres,
+    }
+
+
 class ScraperCamaraVotaciones(BaseScraper):
-    """Descubre IDs de votación recientes desde la ficha de cada diputado
-    regional y trae el resultado oficial completo de cada una."""
+    """Descubre IDs de votación desde la ficha de cada diputado regional
+    (todo el período de la legislatura actual) y trae el resultado
+    oficial completo de cada una."""
 
     nombre = "camara_votaciones"
     frecuencia = "semanal"
@@ -140,151 +384,69 @@ class ScraperCamaraVotaciones(BaseScraper):
         ).fetchall()
         return {fila[0]: _tokens(fila[1]) for fila in filas}
 
-    def _parsear_detalle(self, page, url: str) -> dict | None:
-        txt = page.locator("body").inner_text()
-
-        boletin_m = re.search(r"Proyecto De Ley:\n([\d]{4,6}-\d{1,2})", txt)
-        fecha_m = re.search(r"Fecha:\n(.+)", txt)
-        materia_m = re.search(r"Materia:\n(.+?)\nArtículo:", txt, re.DOTALL)
-        sesion_m = re.search(r"Sesión:\n.*?Sesión n[°º](\d+)", txt, re.DOTALL)
-        resultado_m = re.search(r"Resultado\n(Aprobado|Rechazado)", txt)
-        tally_m = re.search(
-            r"A Favor\tEn Contra\tAbstenci[oó]n\tDispensados\n(\d+)\t(\d+)\t(\d+)\t(\d+)", txt
-        )
-        if not (boletin_m and fecha_m and resultado_m and tally_m):
-            return None
-        fecha = _fecha_iso(fecha_m.group(1))
-        if not fecha:
-            return None
-
-        votos_favor, votos_contra, abstenciones, _dispensados = (int(x) for x in tally_m.groups())
-
-        secciones = page.locator("body").evaluate(SECCIONES_JS)
-        votos_nombres: list[tuple[frozenset[str], str]] = []
-        for sec in secciones:
-            etiqueta = _etiqueta_seccion(sec["titulo"])
-            for nombre_bruto in sec["nombres"]:
-                if etiqueta == "pareo":
-                    for parte in re.split(r"\s+con\s+", _normalizar(nombre_bruto)):
-                        votos_nombres.append((_tokens(parte), etiqueta))
-                else:
-                    votos_nombres.append((_tokens(nombre_bruto), etiqueta))
-
-        id_votacion = re.search(r"prmIdVotacion=(\d+)", url).group(1)
-        return {
-            "id": f"camara-{id_votacion}",
-            "boletin": boletin_m.group(1),
-            "titulo": materia_m.group(1).strip() if materia_m else "",
-            "fecha": fecha,
-            "numero_sesion": sesion_m.group(1) if sesion_m else None,
-            "resultado": resultado_m.group(1).lower(),
-            "votos_favor": votos_favor,
-            "votos_contra": votos_contra,
-            "abstenciones": abstenciones,
-            "fuente_url": url,
-            "votos_nombres": votos_nombres,
-        }
-
-    def _seleccionar_anno(self, page, anno: int) -> None:
-        # el filtro "Ver por año" (ddlAnnos) es un <select> que dispara un
-        # postback AJAX (UpdatePanel, no navegación real) — cambiarlo
-        # actualiza la tabla y el paginador en el mismo DOM
-        select = page.locator("select[id$='ddlAnnos']")
-        if select.count() == 0:
-            return
-        opciones = select.locator("option").evaluate_all("els => els.map(e => e.value)")
-        if str(anno) not in opciones or select.input_value() == str(anno):
-            return
-        select.select_option(str(anno))
-        page.wait_for_timeout(1500)
-
-    def _recolectar_ids_de_pagina(self, page, votacion_ids: set[str]) -> None:
-        hrefs = page.locator("table.tabla a").evaluate_all(
-            "els => els.map(e => e.getAttribute('href'))"
-        )
-        for href in hrefs:
-            if href and "prmIdVotacion" in href:
-                m = re.search(r"prmIdVotacion=(\d+)", href)
-                if m:
-                    votacion_ids.add(m.group(1))
-
-    def _pagina_actual(self, page) -> int:
-        span = page.locator("div.paginacion span.actual")
-        if span.count() == 0:
-            return 1
-        return int(span.first.inner_text().strip())
-
-    def _avanzar_pagina(self, page) -> bool:
-        # el paginador (también un postback AJAX vía UpdatePanel) muestra
-        # como mucho 10 números de página a la vez más un link "..." para
-        # cargar la siguiente ventana — probar ambos hasta que no quede
-        # ninguno es lo que permite recorrer el historial completo del año
-        actual = self._pagina_actual(page)
-        siguiente = page.locator("div.paginacion a", has_text=re.compile(rf"^{actual + 1}$"))
-        if siguiente.count() == 0:
-            siguiente = page.locator("div.paginacion a", has_text="...")
-        if siguiente.count() == 0:
-            return False
-        siguiente.first.click()
-        page.wait_for_timeout(1500)
-        return True
-
     def recolectar(self) -> list[dict]:
         votacion_ids: set[str] = set()
         annos = list(range(LEGISLATURA_INICIO_ANNO, date.today().year + 1))
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
+        session = make_session()
 
-            for _autoridad_id, dip_id in DIPUTADOS_COQUIMBO.items():
-                for anno in annos:
-                    context = browser.new_context(user_agent=USER_AGENT)
-                    page = context.new_page()
-                    url = f"https://camara.cl/diputados/detalle/votaciones_sala.aspx?prmId={dip_id}"
-                    page.goto(url, timeout=45000, wait_until="domcontentloaded")
-                    page.wait_for_timeout(1500)
-                    self._seleccionar_anno(page, anno)
-                    self._recolectar_ids_de_pagina(page, votacion_ids)
-                    paginas = 1
-                    while self._avanzar_pagina(page):
-                        self._recolectar_ids_de_pagina(page, votacion_ids)
-                        paginas += 1
+        for _autoridad_id, dip_id in DIPUTADOS_COQUIMBO.items():
+            for anno in annos:
+                url = f"{BASE_URL}/diputados/detalle/votaciones_sala.aspx?prmId={dip_id}"
+                try:
+                    resp = _request_con_backoff(session, "GET", url)
+                    time.sleep(SLEEP_ENTRE_PETICIONES)
+                    soup = BeautifulSoup(resp.text, "html.parser")
+                    soup = _seleccionar_anno(session, url, soup, anno)
+                except Exception as e:
                     print(
-                        f"  diputado {dip_id}, año {anno}: {paginas} página(s), "
-                        f"{len(votacion_ids)} votaciones acumuladas",
+                        f"  diputado {dip_id}, año {anno}: ERROR cargando página: {e}",
                         flush=True,
                     )
-                    context.close()
-                    time.sleep(5)
-
-            registros = []
-            for vid in sorted(votacion_ids):
-                context = browser.new_context(user_agent=USER_AGENT)
-                page = context.new_page()
-                url = f"https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion={vid}"
-                page.goto(url, timeout=45000, wait_until="domcontentloaded")
-                page.wait_for_timeout(1200)
-
-                # además de proyectos de ley, camara.cl vota resoluciones,
-                # proyectos de acuerdo y otros tipos sin boletín — no
-                # encajan en nuestro modelo (proyecto_ley/voto asume un
-                # boletín) y se omiten sin contar como error: es un tipo de
-                # votación que deliberadamente no intentamos modelar, no
-                # una falla de scraping.
-                tipo_m = re.search(r"Tipo de Votación\n(.+)", page.locator("body").inner_text())
-                if not tipo_m or tipo_m.group(1).strip() != "Proyecto De Ley":
-                    context.close()
-                    time.sleep(5)
+                    self.stats["errores"] += 1
                     continue
 
-                registro = self._parsear_detalle(page, url)
-                if registro:
-                    registros.append(registro)
-                else:
-                    self.stats["errores"] += 1
-                context.close()
-                time.sleep(5)
+                _recolectar_ids_de_pagina(soup, votacion_ids)
+                paginas = 1
+                while True:
+                    siguiente = _avanzar_pagina(session, url, soup)
+                    if siguiente is None:
+                        break
+                    soup = siguiente
+                    _recolectar_ids_de_pagina(soup, votacion_ids)
+                    paginas += 1
+                print(
+                    f"  diputado {dip_id}, año {anno}: {paginas} página(s), "
+                    f"{len(votacion_ids)} votaciones acumuladas",
+                    flush=True,
+                )
 
-            browser.close()
+        registros = []
+        for vid in sorted(votacion_ids):
+            url = f"{BASE_URL}/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion={vid}"
+            try:
+                resp = _request_con_backoff(session, "GET", url)
+                time.sleep(SLEEP_ENTRE_PETICIONES)
+            except Exception as e:
+                print(f"  votación {vid}: ERROR cargando página: {e}", flush=True)
+                self.stats["errores"] += 1
+                continue
+            soup = BeautifulSoup(resp.text, "html.parser")
+
+            # además de proyectos de ley, camara.cl vota resoluciones,
+            # proyectos de acuerdo y otros tipos sin boletín — no encajan
+            # en nuestro modelo (proyecto_ley/voto asume un boletín) y se
+            # omiten sin contar como error: es un tipo de votación que
+            # deliberadamente no intentamos modelar, no una falla de
+            # scraping.
+            tipo_m = re.search(r"Tipo de Votación\n(.+)", _texto(soup))
+            if not tipo_m or tipo_m.group(1).strip() != "Proyecto De Ley":
+                continue
+
+            registro = _parsear_detalle(soup, url)
+            if registro:
+                registros.append(registro)
+            else:
+                self.stats["errores"] += 1
         return registros
 
     def procesar(self, registros: list[dict]) -> list[dict]:

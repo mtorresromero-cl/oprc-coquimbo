@@ -13,6 +13,44 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-02 — camara_votaciones.py reescrito con curl_cffi (sin Playwright)
+
+Aplicada la técnica de `gasto_parlamentario.py` (ver entrada anterior):
+`recolectar()` ya no usa Playwright — usa `curl_cffi` (`impersonate=
+"chrome"`) para GET/POST directos, con el mismo ritmo conservador
+(`SLEEP_ENTRE_PETICIONES=4.0` + backoff en 403/429). Los postbacks
+ASP.NET (selector de año, paginador) se simulan armando el POST de
+formulario a mano (VIEWSTATE + EVENTTARGET + valores actuales de cada
+`<select>`), sin ejecutar JS.
+
+El parseo de `votacion_detalle.aspx` se tradujo de Playwright
+(`page.locator("body").inner_text()` + una función JS para las
+secciones) a BeautifulSoup (`get_text("\n", strip=True)` + selectores
+CSS) **manteniendo las mismas expresiones regulares ya validadas
+manualmente el 2026-08-25** — el conteo de A Favor/En Contra/Abstención
+se cambió a lectura directa de celdas `<td>` en vez de un regex sobre
+texto con tabs (más robusto, no depende de que `get_text` reproduzca
+tabs entre celdas igual que `innerText()`).
+
+**Verificado sin tocar camara.cl** (el sitio sigue en enfriamiento):
+todas las funciones nuevas (`_estado_formulario`, `_seleccionar_anno`,
+`_avanzar_pagina`, `_recolectar_ids_de_pagina`, `_tally`, `_secciones`,
+`_parsear_detalle`) se probaron con HTML sintético que replica la
+estructura real confirmada antes vía Wayback Machine (selects
+`ddlAnnos`, paginador `div.paginacion` con postback, tabla `table.tabla`,
+secciones `section.section.group`). `ruff check` y `pytest` pasan.
+
+**Pendiente real:** esto NO reemplaza una prueba contra el sitio real.
+Falta correrlo contra camara.cl de verdad — cuando el bloqueo se enfríe,
+probar primero con un solo diputado y un solo año antes del recorrido
+completo de los 7, y confirmar que el HTML sintético usado para probar
+coincide con el real (los campos de fecha en particular: la regex
+original asume formato "DD MES AAAA" sin la palabra "de" en medio — no
+confirmado contra el sitio real todavía, solo heredado del código
+anterior).
+
+---
+
 ## 2026-09-02 — Votaciones de diputados: solo traía el mes más reciente
 
 **Problema:** el usuario notó que la ficha de diputados mostraba solo ~10-13
