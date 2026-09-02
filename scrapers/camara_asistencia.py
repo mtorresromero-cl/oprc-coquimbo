@@ -75,7 +75,7 @@ class ScraperCamaraAsistencia(BaseScraper):
             for autoridad_id, dip_id in DIPUTADOS_COQUIMBO.items():
                 context = browser.new_context(user_agent=USER_AGENT)
                 page = context.new_page()
-                url = f"https://camara.cl/diputados/detalle/asistencia_sala.aspx?prmId={dip_id}"
+                url = f"https://www.camara.cl/diputados/detalle/asistencia_sala.aspx?prmId={dip_id}"
                 page.goto(url, timeout=45000, wait_until="domcontentloaded")
                 page.wait_for_timeout(1500)
 

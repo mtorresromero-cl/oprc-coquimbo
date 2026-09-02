@@ -1,12 +1,14 @@
-"""Diagnóstico manual: ¿camara.cl responde desde esta red o no?
+"""Diagnóstico manual: ¿camara.cl responde bien desde esta máquina?
 
-Corre esto desde una máquina/servidor DISTINTO a este sandbox y a GitHub
-Actions (ej. el VPS propio, o tu computador) para saber si el bloqueo es
-específico de esas IPs o del sitio en general. Ver docs/06-bitacora.md
-(entradas del 2026-09-02) para todo el contexto: desde el 25 de agosto
-camara.cl falla con error TLS (ERR_SSL_VERSION_OR_CIPHER_MISMATCH) tanto
-con Playwright como con curl_cffi, desde este sandbox y desde GitHub
-Actions — nunca desde un navegador normal.
+Causa raíz encontrada el 2026-09-02 (ver docs/06-bitacora.md): el
+dominio "pelado" `camara.cl` (sin `www`) tiene una configuración TLS
+rota en Cloudflare — el handshake falla siempre, desde cualquier red y
+con cualquier cliente (hasta un Chromium real vía Playwright). El sitio
+real funciona perfecto en `www.camara.cl`. Todos los scrapers de
+camara.cl ya se corrigieron para usar `www.camara.cl`. Este script sigue
+sirviendo como chequeo rápido de salud y como comparación permanente
+entre ambos dominios, por si la configuración de Cloudflare vuelve a
+cambiar.
 
 Uso:
     pip install curl_cffi httpx playwright
@@ -14,21 +16,15 @@ Uso:
     python3 test_camara_conectividad.py
 
 No requiere el resto del proyecto (sin imports de scrapers/, sin BD).
-Playwright es opcional (~300MB, descarga un Chromium real) — es la
-prueba más importante de las cuatro: si un navegador real automatizado
-SÍ pasa donde las librerías HTTP no, confirma que el problema es la
-huella TLS/HTTP2 de esas librerías, no la red de origen.
+Playwright es opcional (~300MB, descarga un Chromium real).
 """
 
 URLS = [
-    ("Portada", "https://camara.cl/"),
+    ("Portada — SIN www (dominio roto)", "https://camara.cl/"),
+    ("Portada — CON www (dominio correcto)", "https://www.camara.cl/"),
     (
-        "Ficha diputado (mociones, GET simple)",
-        "https://camara.cl/diputados/detalle/mociones.aspx?prmID=1142",
-    ),
-    (
-        "Ficha diputado (votaciones, la que falla siempre)",
-        "https://camara.cl/diputados/detalle/votaciones_sala.aspx?prmId=1142",
+        "Ficha diputado (votaciones) — CON www",
+        "https://www.camara.cl/diputados/detalle/votaciones_sala.aspx?prmId=1142",
     ),
 ]
 
@@ -91,7 +87,7 @@ def probar_con_curl_binario():
 
 
 def probar_con_playwright():
-    print("\n=== 4) Playwright (Chromium real, headless — la prueba definitiva) ===")
+    print("\n=== 4) Playwright (Chromium real, headless) ===")
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
@@ -122,9 +118,8 @@ if __name__ == "__main__":
     probar_con_curl_binario()
     probar_con_playwright()
     print(
-        "\nSi todo lo anterior falló con errores tipo SSL/TLS (handshake, "
-        "cipher mismatch), esta red también está bloqueada — probar desde "
-        "otra (otro VPS, otra nube, casa) para seguir acotando el problema.\n"
-        "Si algo funcionó (status 200 y bytes > 0), esta red SÍ puede "
-        "usarse para correr los scrapers de camara.cl."
+        "\nLo esperado: todo lo que dice 'SIN www' falla (dominio roto en "
+        "Cloudflare) y todo lo que dice 'CON www' funciona (status 200). "
+        "Si CON www también falla en todos los métodos, es un problema "
+        "nuevo — revisar docs/06-bitacora.md."
     )

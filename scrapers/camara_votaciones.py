@@ -67,7 +67,7 @@ except ImportError:  # pragma: no cover
 ROOT = Path(__file__).resolve().parent.parent
 PROCESSED_DIR = ROOT / "data" / "processed"
 
-BASE_URL = "https://camara.cl"
+BASE_URL = "https://www.camara.cl"
 
 # la legislatura actual comenzó el 2026-03-11; se recorren todos los años
 # desde entonces (no solo el actual) para no perder votaciones si algún

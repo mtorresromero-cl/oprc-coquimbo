@@ -13,6 +13,51 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-02 — CAUSA RAÍZ REAL: `camara.cl` sin `www` está roto en Cloudflare
+
+Después de todo lo de las entradas anteriores (bloqueo por IP, huella
+TLS, JA3/JA4, HTTP/3 — todas descartadas una a una con evidencia), la
+causa real resultó mucho más simple: **el dominio "pelado" `camara.cl`
+(sin `www`) tiene una configuración TLS rota en Cloudflare** —
+`dig camara.cl TYPE65` no tiene registro HTTPS/SVCB, mientras que
+`www.camara.cl` sí lo tiene (ALPN `h2`, hints de IP normales). Probado
+directo:
+
+```
+curl https://camara.cl/       -> 000 (falla el handshake TLS)
+curl https://www.camara.cl/   -> 403 (TLS ok, solo un WAF normal)
+```
+
+Y con curl_cffi (impersonate=chrome) contra `www.camara.cl`, las tres
+URLs que fallaban todo el día devuelven 200 con contenido real (tabla,
+`ddlAnnos`, paginador, IDs de votación reales) — desde el mismo sandbox
+que llevaba fallando desde la mañana. **Nunca fue un bloqueo de IP, de
+huella TLS, ni de comportamiento — todos los scrapers apuntaban al
+dominio equivocado.**
+
+Todos los scrapers de camara.cl usaban `https://camara.cl/...` menos
+`gasto_parlamentario.py` (que ya usaba `www.camara.cl` desde su
+creación, commit `68f22d8` — por eso su docstring hablaba de la técnica
+correcta sin saber que además tenía la URL correcta). Corregido en
+`camara_votaciones.py`, `camara_mociones.py` y `camara_asistencia.py`
+(ahora los tres usan `www.camara.cl`).
+
+**Por qué el navegador del usuario sí funcionaba:** casi seguro porque
+al escribir "camara.cl" en la barra de direcciones, o desde un
+bookmark/historial viejo, el navegador ya tenía cacheado un redirect a
+`www.camara.cl` de una visita anterior, o Chrome/Safari simplemente
+agregan `www.` automáticamente en algunos casos — nunca llegaba a
+intentar conectarse al dominio roto.
+
+**Lección para la próxima vez:** cuando algo falla igual desde todo
+entorno posible (sandbox, CI, red residencial) pero funciona en el
+navegador, antes de sospechar de fingerprinting/bloqueos exóticos,
+comparar directamente `curl` contra las dos variantes obvias del
+dominio (con y sin `www`, http y https) — habría ahorrado casi un día
+completo de investigación.
+
+---
+
 ## 2026-09-02 — Descartada la hipótesis de IP/red: falla hasta desde el Mac del usuario
 
 El usuario corrió `scrapers/test_camara_conectividad.py` desde su propio
