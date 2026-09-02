@@ -13,6 +13,43 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-02 — Nueva herramienta: Delincuencia (CEAD), bloqueado el scraping en vivo
+
+A partir de una idea del catálogo de apps de Bastián Olea Herrera
+(bastianolea.github.io/shiny_apps), se agregó `/herramientas/delincuencia/`:
+tasa de casos policiales por cada 10.000 habitantes, por comuna y tipo de
+delito, 2010-2025.
+
+**CEAD en vivo está bloqueado, causa desconocida — distinto al caso de
+camara.cl de más arriba.** `cead.minsegpublica.gob.cl` devuelve 403
+"Maximum request file upload" para TODO (hasta un GET a la portada, hasta
+con Playwright/Chromium real) — no es el mismo patrón que camara.cl (que
+resultó ser un dominio roto): acá ni siquiera hay un dominio alternativo
+obvio que probar (se intentó `cead.spd.gov.cl`, no existe). No se investigó
+más a fondo — ya se gastó gran parte del día en el problema de camara.cl y
+no vale la pena repetir ese patrón. Queda documentada la técnica exacta de
+scraping (POST a `get_estadisticas_delictuales.php`, con los parámetros de
+familia/grupo/subgrupo de delito) por si se retoma más adelante desde otra
+red.
+
+**Mientras tanto, los datos se importan desde un snapshot público de
+terceros**, no un scraping propio: `scrapers/delincuencia_cead.py` descarga
+el parquet ya limpio de `bastianolea/delincuencia_chile` (mismo dato
+oficial de CEAD, él sí logró scrapearlo) y lo filtra a las 15 comunas de la
+Región de Coquimbo. Es una fuente pública con atribución clara en la propia
+página, pero vale tenerlo presente: no es scraping propio verificable línea
+por línea como el resto del proyecto — es confiar en el trabajo de otro
+sobre la misma fuente oficial.
+
+**De paso, se agregó población real a `comunas.csv`** (Censo 2024, INE,
+sumada desde el dataset tabulado de `bastianolea/censo_poblacion_consultar`)
+— el campo `poblacion` existía en el schema desde antes pero nunca se había
+poblado. Ver nota en `data/catalogo/NOTAS.md` sobre el error de doble
+conteo que se cometió y corrigió al calcularla (las filas "Total" de sexo y
+edad se sumaban junto con el desglose real, inflando ~4x).
+
+---
+
 ## 2026-09-02 — CAUSA RAÍZ REAL: `camara.cl` sin `www` está roto en Cloudflare
 
 Después de todo lo de las entradas anteriores (bloqueo por IP, huella

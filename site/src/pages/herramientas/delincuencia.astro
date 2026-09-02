@@ -1,0 +1,485 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { comunas, delincuencia } from '../../lib/datos';
+import { COLOR_COMUNA } from '../../lib/colores-comunas';
+
+// Mismo orden geográfico real (provincias de Elqui, Limarí y Choapa, de
+// norte a sur) usado en /autoridades/ y en las otras herramientas.
+const COMUNA_ORDEN = [
+	'la-higuera', 'la-serena', 'coquimbo', 'vicuna', 'paihuano', 'andacollo',
+	'rio-hurtado', 'monte-patria', 'ovalle', 'punitaqui', 'combarbala',
+	'canela', 'illapel', 'salamanca', 'los-vilos',
+];
+const ORDEN_COMUNA_IDX = Object.fromEntries(COMUNA_ORDEN.map((id, i) => [id, i]));
+const comunasOrdenadas = [...comunas].sort(
+	(a, b) => (ORDEN_COMUNA_IDX[a.id] ?? 99) - (ORDEN_COMUNA_IDX[b.id] ?? 99)
+);
+const POBLACION: Record<string, number | null> = Object.fromEntries(
+	comunas.map((c) => [c.id, c.poblacion])
+);
+
+// Sin comunas seleccionadas por defecto (mismo criterio que participación
+// electoral: partir en blanco evita sugerir una comparación no pedida).
+const SELECCION_INICIAL = new Set<string>();
+
+const ANNOS = Array.from({ length: 16 }, (_, i) => 2010 + i); // 2010..2025
+const DELITO_TOTAL = '__total__';
+
+const delitosReales = [...new Set(delincuencia.map((d) => d.delito))].sort((a, b) =>
+	a.localeCompare(b, 'es')
+);
+const delitosDisponibles = [
+	{ id: DELITO_TOTAL, etiqueta: 'Todos los delitos (total)' },
+	...delitosReales.map((d) => ({ id: d, etiqueta: d })),
+];
+
+// suma[comuna|anno|delito] = casos policiales; delito === DELITO_TOTAL agrega
+// los ~29 tipos en una sola cifra por comuna y año.
+const suma = new Map<string, number>();
+function sumar(comunaId: string, anno: number, delito: string, cantidad: number) {
+	const clave = `${comunaId}|${anno}|${delito}`;
+	suma.set(clave, (suma.get(clave) ?? 0) + cantidad);
+}
+for (const r of delincuencia) {
+	sumar(r.comuna_id, r.anno, r.delito, r.cantidad);
+	sumar(r.comuna_id, r.anno, DELITO_TOTAL, r.cantidad);
+}
+
+// tasa por 10.000 habitantes — más significativa que el número crudo para
+// comparar comunas de tamaños muy distintos (Coquimbo tiene ~57 veces la
+// población de La Higuera). Si no hay población para la comuna, no hay tasa.
+function tasa(comunaId: string, cantidad: number): number | null {
+	const poblacion = POBLACION[comunaId];
+	if (!poblacion) return null;
+	return Math.round((cantidad / poblacion) * 10000 * 10) / 10;
+}
+
+// Datos compactos para el cliente: por delito, por comuna, la serie de 16
+// años (cantidad + tasa). Se manda una sola vez y el gráfico se redibuja en
+// el navegador al cambiar el selector de delito — evita pre-renderizar los
+// ~30 gráficos completos en el HTML (eso pesaba más de 2MB por página).
+type PuntoDatos = { anno: number; cantidad: number; tasa: number | null };
+const datosPorDelito: Record<string, Record<string, PuntoDatos[]>> = {};
+for (const { id: delitoId } of delitosDisponibles) {
+	datosPorDelito[delitoId] = {};
+	for (const c of comunasOrdenadas) {
+		datosPorDelito[delitoId][c.id] = ANNOS.map((anno) => {
+			const cantidad = suma.get(`${c.id}|${anno}|${delitoId}`) ?? 0;
+			return { anno, cantidad, tasa: tasa(c.id, cantidad) };
+		});
+	}
+}
+
+const ANNO_COMPARADOR = 2025;
+const comparadorPorDelito: Record<
+	string,
+	{ comuna_id: string; nombre: string; cantidad: number; tasa: number | null }[]
+> = {};
+for (const { id: delitoId } of delitosDisponibles) {
+	comparadorPorDelito[delitoId] = comunasOrdenadas
+		.map((c) => {
+			const cantidad = suma.get(`${c.id}|${ANNO_COMPARADOR}|${delitoId}`) ?? 0;
+			return { comuna_id: c.id, nombre: c.nombre, cantidad, tasa: tasa(c.id, cantidad) };
+		})
+		.filter((f) => f.tasa !== null)
+		.sort((a, b) => (b.tasa as number) - (a.tasa as number));
+}
+
+// --- Geometría inicial del gráfico de líneas (el delito "total" al cargar;
+// el resto de las recalcula el cliente con los mismos datos ya mandados) ---
+const CHART_W = 900;
+const CHART_H = 340;
+const PAD_L = 46;
+const PAD_R = 16;
+const PAD_T = 20;
+const PAD_B = 34;
+const PLOT_W = CHART_W - PAD_L - PAD_R;
+const PLOT_H = CHART_H - PAD_T - PAD_B;
+const xFor = (i: number) => PAD_L + (i / (ANNOS.length - 1)) * PLOT_W;
+
+let maxTasaInicial = 0;
+for (const c of comunasOrdenadas) {
+	for (const p of datosPorDelito[DELITO_TOTAL][c.id]) {
+		if (p.tasa !== null && p.tasa > maxTasaInicial) maxTasaInicial = p.tasa;
+	}
+}
+maxTasaInicial = maxTasaInicial === 0 ? 1 : maxTasaInicial * 1.08;
+const yForInicial = (t: number) => PAD_T + (1 - t / maxTasaInicial) * PLOT_H;
+const EJE_Y_INICIAL = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTasaInicial * f * 10) / 10);
+---
+
+<Layout
+	title="Delincuencia — OPRC"
+	description="Casos policiales por comuna y tipo de delito en la Región de Coquimbo, 2010-2025, según datos oficiales del CEAD."
+>
+	<section class="relative overflow-hidden bg-slate-900">
+		<div class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] rounded-full bg-brand-600/30 blur-3xl"></div>
+		<div class="pointer-events-none absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full bg-brand-800/30 blur-3xl"></div>
+		<div class="relative mx-auto max-w-6xl px-6 py-20">
+			<a href="/herramientas/" class="inline-flex items-center gap-1 text-sm font-medium text-slate-300 hover:text-white">&larr; Herramientas</a>
+			<p class="mt-4 text-sm font-semibold tracking-widest text-brand-300 uppercase">Herramientas</p>
+			<h1 class="mt-4 max-w-2xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
+				Delincuencia
+			</h1>
+			<p class="mt-5 max-w-2xl text-lg text-slate-300">
+				Casos policiales por comuna, año a año desde 2010, en la Región de Coquimbo.
+			</p>
+		</div>
+	</section>
+
+	<main class="mx-auto max-w-6xl px-6 py-10">
+		<details class="group rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
+			<summary class="cursor-pointer text-sm font-semibold text-slate-700 marker:content-none">
+				<span class="inline-block transition group-open:rotate-90">&#9656;</span>
+				¿Qué es un "caso policial" y por qué se muestra una tasa, no el número crudo?
+			</summary>
+			<div class="mt-3 space-y-3 text-sm text-slate-600">
+				<p>
+					Cada cifra suma las <strong>denuncias formales</strong> que la ciudadanía hace ante
+					Carabineros o la PDI más las <strong>detenciones en flagrancia</strong> (cuando la
+					policía sorprende el delito ocurriendo). No mide cuánta delincuencia "existe" —mide
+					cuánta llegó a conocimiento policial—, y depende de la fuente:
+					<a
+						href="https://cead.minsegpublica.gob.cl/estadisticas-delictuales/"
+						target="_blank"
+						rel="noopener"
+						class="font-medium text-brand-600 hover:underline"
+					>
+						CEAD, Centro de Estudio y Análisis del Delito
+					</a>
+					del Ministerio del Interior y Seguridad Pública.
+				</p>
+				<p>
+					Por defecto el gráfico muestra la <strong>tasa por cada 10.000 habitantes</strong>, no
+					el número de casos: Coquimbo y La Serena tienen decenas de veces la población de
+					comunas como La Higuera o Paihuano, así que compararlas por número crudo haría parecer
+					mucho más peligrosas a las comunas grandes solo por tener más gente. La población usada
+					es la del Censo 2024 (INE).
+				</p>
+				<p>
+					<strong>De dónde salen estos datos:</strong> el sitio en vivo del CEAD no respondió al
+					intentar obtenerlos directamente (bloqueo técnico sin resolver a la fecha). Mientras
+					tanto, se usa el mismo conjunto de datos oficiales ya recopilado y publicado
+					abiertamente por
+					<a
+						href="https://github.com/bastianolea/delincuencia_chile"
+						target="_blank"
+						rel="noopener"
+						class="font-medium text-brand-600 hover:underline"
+					>
+						Bastián Olea Herrera
+					</a>, filtrado a las 15 comunas de la Región de Coquimbo.
+				</p>
+			</div>
+		</details>
+
+		<div class="mt-8 flex flex-col gap-8 lg:flex-row lg:items-start">
+			<!-- Sidebar: filtro de comunas (también hace de leyenda de color) -->
+			<aside class="lg:sticky lg:top-6 lg:w-64 lg:shrink-0">
+				<div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+					<div class="flex items-center justify-between">
+						<h2 class="text-sm font-bold text-slate-900">Comunas</h2>
+						<button type="button" id="btn-todas" class="text-xs font-semibold text-brand-600 hover:underline">
+							Marcar todas
+						</button>
+					</div>
+					<p class="mt-1 text-xs text-slate-400">Elige cuáles comparar. El color marca su línea en el gráfico.</p>
+					<ul class="mt-3 space-y-0.5">
+						{comunasOrdenadas.map((c) => (
+							<li>
+								<label class="flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm hover:bg-slate-50">
+									<input
+										type="checkbox"
+										class="check-comuna h-4 w-4 rounded border-slate-300"
+										style={`accent-color:${COLOR_COMUNA[c.id]}`}
+										data-comuna={c.id}
+										checked={SELECCION_INICIAL.has(c.id)}
+									/>
+									<span class="text-slate-700">{c.nombre}</span>
+								</label>
+							</li>
+						))}
+					</ul>
+				</div>
+			</aside>
+
+			<div class="min-w-0 flex-1">
+				<div class="flex flex-wrap items-end justify-between gap-4">
+					<div class="flex gap-2" role="tablist">
+						<button type="button" id="tab-tiempo" data-vista="tiempo" class="boton-vista rounded-md px-4 py-2 text-sm font-semibold" aria-pressed="true">
+							Evolución en el tiempo
+						</button>
+						<button type="button" id="tab-comparar" data-vista="comparar" class="boton-vista rounded-md px-4 py-2 text-sm font-semibold" aria-pressed="false">
+							Comparar comunas ({ANNO_COMPARADOR})
+						</button>
+					</div>
+					<div>
+						<label for="selector-delito" class="sr-only">Tipo de delito</label>
+						<select
+							id="selector-delito"
+							class="w-full max-w-xs rounded-md border border-slate-300 px-3 py-2.5 text-sm focus:border-brand-500 focus:outline-none"
+						>
+							{delitosDisponibles.map((d) => (
+								<option value={d.id} selected={d.id === DELITO_TOTAL}>{d.etiqueta}</option>
+							))}
+						</select>
+					</div>
+				</div>
+
+				<p
+					id="sin-seleccion"
+					class={`mt-4 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 ${SELECCION_INICIAL.size > 0 ? 'hidden' : ''}`}
+				>
+					No hay comunas marcadas — elige al menos una en el panel de la izquierda.
+				</p>
+
+				<!-- Vista: evolución en el tiempo -->
+				<div id="vista-tiempo">
+					<div class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+						<p class="text-sm text-slate-500">
+							Tasa de casos policiales por cada 10.000 habitantes, por año, de las comunas
+							marcadas en el panel.
+						</p>
+
+						<div class="relative mt-4 overflow-x-auto">
+							<svg viewBox={`0 0 ${CHART_W} ${CHART_H}`} class="w-full min-w-[560px]" id="grafico-lineas">
+								<g id="eje-y">
+									{EJE_Y_INICIAL.map((v) => (
+										<g class="tick-y">
+											<line x1={PAD_L} x2={CHART_W - PAD_R} y1={yForInicial(v)} y2={yForInicial(v)} stroke="#e2e8f0" stroke-width="1" />
+											<text x={PAD_L - 8} y={yForInicial(v) + 4} text-anchor="end" font-size="11" fill="#64748b">{v}</text>
+										</g>
+									))}
+								</g>
+								{ANNOS.map((anno, i) => ({ anno, i }))
+									.filter(({ i }) => i % 2 === 0 || i === ANNOS.length - 1)
+									.map(({ anno, i }) => (
+										<text x={xFor(i)} y={CHART_H - PAD_B + 18} text-anchor="middle" font-size="11" fill="#64748b">
+											{anno}
+										</text>
+									))}
+								{comunasOrdenadas.map((c) => (
+									<g class="serie-comuna" data-comuna={c.id} style={SELECCION_INICIAL.has(c.id) ? '' : 'display:none'}>
+										<polyline
+											class="linea-comuna"
+											points={datosPorDelito[DELITO_TOTAL][c.id]
+												.map((p, i) => `${xFor(i)},${p.tasa === null ? '' : yForInicial(p.tasa)}`)
+												.join(' ')}
+											fill="none"
+											stroke={COLOR_COMUNA[c.id]}
+											stroke-width="2.5"
+										/>
+										{datosPorDelito[DELITO_TOTAL][c.id].map((p, i) => (
+											<circle
+												class="punto-dato"
+												cx={xFor(i)}
+												cy={p.tasa === null ? -100 : yForInicial(p.tasa)}
+												r="4"
+												fill={COLOR_COMUNA[c.id]}
+												stroke="white"
+												stroke-width="1.5"
+												data-nombre={c.nombre}
+												data-anno={p.anno}
+												data-tasa={p.tasa}
+												data-cantidad={p.cantidad}
+											/>
+										))}
+									</g>
+								))}
+							</svg>
+
+							<div
+								id="tooltip-chart"
+								class="pointer-events-none absolute z-10 hidden max-w-[220px] rounded-md bg-slate-900 px-3 py-2 text-xs text-white shadow-lg"
+							></div>
+						</div>
+						<p class="mt-2 text-xs text-slate-400">Casos por cada 10.000 habitantes (población Censo 2024).</p>
+					</div>
+				</div>
+
+				<!-- Vista: comparar comunas en un año -->
+				<div id="vista-comparar" class="hidden">
+					<div class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+						<p class="text-sm text-slate-500">
+							Tasa de casos policiales por cada 10.000 habitantes en {ANNO_COMPARADOR}, comunas
+							marcadas en el panel, ordenadas de mayor a menor.
+						</p>
+						<div id="contenedor-comparador" class="mt-4 space-y-3"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script type="application/json" id="datos-delincuencia" set:html={JSON.stringify({ datosPorDelito, comparadorPorDelito })} />
+
+	<style>
+		.boton-vista {
+			background-color: #f1f5f9;
+			color: #475569;
+		}
+		.boton-vista[aria-pressed='true'] {
+			background-color: var(--color-brand-600);
+			color: #fff;
+		}
+		.punto-dato {
+			cursor: pointer;
+		}
+	</style>
+
+	<script define:vars={{ CHART_W, CHART_H, PAD_L, PAD_R, PAD_T, PLOT_H, DELITO_TOTAL, ANNOS, COLOR_COMUNA }}>
+		const datos = JSON.parse(document.getElementById('datos-delincuencia').textContent);
+		const xFor = (i) => PAD_L + (i / (ANNOS.length - 1)) * (CHART_W - PAD_L - PAD_R);
+
+		// --- Toggle entre las dos vistas ---
+		const botonesVista = document.querySelectorAll('.boton-vista');
+		const vistaTiempo = document.getElementById('vista-tiempo');
+		const vistaComparar = document.getElementById('vista-comparar');
+
+		botonesVista.forEach((boton) => {
+			boton.addEventListener('click', () => {
+				botonesVista.forEach((b) => b.setAttribute('aria-pressed', String(b === boton)));
+				vistaTiempo.classList.toggle('hidden', boton.dataset.vista !== 'tiempo');
+				vistaComparar.classList.toggle('hidden', boton.dataset.vista !== 'comparar');
+			});
+		});
+
+		// --- Sidebar: filtro de comunas, comparte estado entre las dos vistas ---
+		const checks = document.querySelectorAll('.check-comuna');
+		const btnTodas = document.getElementById('btn-todas');
+		const sinSeleccion = document.getElementById('sin-seleccion');
+
+		function aplicaFiltro(chk) {
+			const comunaId = chk.dataset.comuna;
+			document
+				.querySelectorAll(`.serie-comuna[data-comuna="${comunaId}"]`)
+				.forEach((el) => (el.style.display = chk.checked ? '' : 'none'));
+			document
+				.querySelectorAll(`.fila-comuna[data-comuna="${comunaId}"]`)
+				.forEach((el) => (el.style.display = chk.checked ? '' : 'none'));
+			sinSeleccion.classList.toggle('hidden', Array.from(checks).some((c) => c.checked));
+			actualizaBotonTodas();
+		}
+
+		function actualizaBotonTodas() {
+			const todasMarcadas = Array.from(checks).every((c) => c.checked);
+			btnTodas.textContent = todasMarcadas ? 'Desmarcar todas' : 'Marcar todas';
+		}
+
+		checks.forEach((chk) => chk.addEventListener('change', () => aplicaFiltro(chk)));
+		btnTodas.addEventListener('click', () => {
+			const marcarTodas = btnTodas.textContent.trim() === 'Marcar todas';
+			checks.forEach((chk) => {
+				chk.checked = marcarTodas;
+				aplicaFiltro(chk);
+			});
+		});
+		actualizaBotonTodas();
+
+		// --- Redibuja el gráfico de líneas para el delito elegido ---
+		const ejeY = document.getElementById('eje-y');
+
+		function redibujaGrafico(delitoId) {
+			const porComuna = datos.datosPorDelito[delitoId];
+			let maxTasa = 0;
+			for (const comunaId in porComuna) {
+				for (const p of porComuna[comunaId]) {
+					if (p.tasa !== null && p.tasa > maxTasa) maxTasa = p.tasa;
+				}
+			}
+			maxTasa = maxTasa === 0 ? 1 : maxTasa * 1.08;
+			const yFor = (t) => PAD_T + (1 - t / maxTasa) * PLOT_H;
+
+			ejeY.innerHTML = [0, 0.25, 0.5, 0.75, 1]
+				.map((f) => Math.round(maxTasa * f * 10) / 10)
+				.map(
+					(v) => `<g class="tick-y">
+						<line x1="${PAD_L}" x2="${CHART_W - PAD_R}" y1="${yFor(v)}" y2="${yFor(v)}" stroke="#e2e8f0" stroke-width="1" />
+						<text x="${PAD_L - 8}" y="${yFor(v) + 4}" text-anchor="end" font-size="11" fill="#64748b">${v}</text>
+					</g>`
+				)
+				.join('');
+
+			document.querySelectorAll('.serie-comuna').forEach((grupo) => {
+				const comunaId = grupo.dataset.comuna;
+				const puntos = porComuna[comunaId];
+				const linea = grupo.querySelector('.linea-comuna');
+				linea.setAttribute(
+					'points',
+					puntos.map((p, i) => `${xFor(i)},${p.tasa === null ? '' : yFor(p.tasa)}`).join(' ')
+				);
+				grupo.querySelectorAll('.punto-dato').forEach((circulo, i) => {
+					const p = puntos[i];
+					circulo.setAttribute('cy', p.tasa === null ? -100 : yFor(p.tasa));
+					circulo.dataset.anno = p.anno;
+					circulo.dataset.tasa = p.tasa;
+					circulo.dataset.cantidad = p.cantidad;
+				});
+			});
+		}
+
+		// --- Redibuja el comparador (ranking de barras) para el delito elegido ---
+		const contenedorComparador = document.getElementById('contenedor-comparador');
+		const comunasMarcadas = () => new Set(Array.from(checks).filter((c) => c.checked).map((c) => c.dataset.comuna));
+
+		function redibujaComparador(delitoId) {
+			const filas = datos.comparadorPorDelito[delitoId];
+			const maxTasa = filas.length ? filas[0].tasa : 1;
+			const marcadas = comunasMarcadas();
+			contenedorComparador.innerHTML = filas
+				.map((f) => {
+					const color = COLOR_COMUNA[f.comuna_id];
+					const ancho = maxTasa ? (f.tasa / maxTasa) * 100 : 0;
+					const oculto = marcadas.has(f.comuna_id) ? '' : 'style="display:none"';
+					return `<div class="fila-comuna" data-comuna="${f.comuna_id}" ${oculto}>
+						<div class="flex items-baseline justify-between gap-3">
+							<span class="text-sm font-medium text-slate-700">
+								<span class="mr-2 inline-block h-2.5 w-2.5 rounded-full align-middle" style="background-color:${color}"></span>
+								${f.nombre}
+							</span>
+							<span class="text-sm font-semibold text-slate-900">${f.tasa} / 10.000 hab.</span>
+						</div>
+						<div class="mt-1 h-5 rounded bg-slate-200">
+							<div class="h-5 rounded" style="width:${ancho}%;background-color:${color}"></div>
+						</div>
+						<p class="mt-1 text-xs text-slate-400">${f.cantidad.toLocaleString('es-CL')} casos</p>
+					</div>`;
+				})
+				.join('');
+		}
+
+		// --- Selector de delito: comparte estado entre las dos vistas ---
+		const selectorDelito = document.getElementById('selector-delito');
+		function aplicaDelito() {
+			redibujaGrafico(selectorDelito.value);
+			redibujaComparador(selectorDelito.value);
+		}
+		selectorDelito.addEventListener('change', aplicaDelito);
+		redibujaComparador(DELITO_TOTAL);
+
+		// --- Gráfico de líneas: tooltip al pasar el mouse o tocar un punto ---
+		const tooltip = document.getElementById('tooltip-chart');
+		const wrapper = tooltip.parentElement;
+
+		function muestraTooltip(punto, clientX, clientY) {
+			const { nombre, anno, tasa, cantidad } = punto.dataset;
+			tooltip.innerHTML = `
+				<strong>${nombre}</strong><br>
+				${anno}<br>
+				${tasa} casos / 10.000 hab.<br>
+				${Number(cantidad).toLocaleString('es-CL')} casos totales
+			`;
+			const rect = wrapper.getBoundingClientRect();
+			tooltip.style.left = `${clientX - rect.left + 12}px`;
+			tooltip.style.top = `${clientY - rect.top + 12}px`;
+			tooltip.classList.remove('hidden');
+		}
+
+		// delegación de eventos: los puntos se re-crean al redibujar, así que se
+		// escucha en el contenedor en vez de en cada <circle>
+		document.getElementById('grafico-lineas').addEventListener('pointermove', (e) => {
+			if (e.target.classList.contains('punto-dato')) muestraTooltip(e.target, e.clientX, e.clientY);
+		});
+		document.getElementById('grafico-lineas').addEventListener('pointerleave', () => tooltip.classList.add('hidden'));
+	</script>
+</Layout>

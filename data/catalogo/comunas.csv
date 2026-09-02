@@ -1,16 +1,16 @@
-id,nombre,provincia
-la-serena,La Serena,Elqui
-coquimbo,Coquimbo,Elqui
-andacollo,Andacollo,Elqui
-la-higuera,La Higuera,Elqui
-paihuano,Paihuano,Elqui
-vicuna,Vicuña,Elqui
-ovalle,Ovalle,Limarí
-combarbala,Combarbalá,Limarí
-monte-patria,Monte Patria,Limarí
-punitaqui,Punitaqui,Limarí
-rio-hurtado,Río Hurtado,Limarí
-illapel,Illapel,Choapa
-canela,Canela,Choapa
-los-vilos,Los Vilos,Choapa
-salamanca,Salamanca,Choapa
+id,nombre,provincia,poblacion
+la-serena,La Serena,Elqui,250141
+coquimbo,Coquimbo,Elqui,263719
+andacollo,Andacollo,Elqui,11566
+la-higuera,La Higuera,Elqui,4335
+paihuano,Paihuano,Elqui,4649
+vicuna,Vicuña,Elqui,28047
+ovalle,Ovalle,Limarí,118696
+combarbala,Combarbalá,Limarí,12954
+monte-patria,Monte Patria,Limarí,29997
+punitaqui,Punitaqui,Limarí,12076
+rio-hurtado,Río Hurtado,Limarí,4334
+illapel,Illapel,Choapa,32009
+canela,Canela,Choapa,9639
+los-vilos,Los Vilos,Choapa,22879
+salamanca,Salamanca,Choapa,27823

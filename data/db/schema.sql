@@ -151,6 +151,19 @@ CREATE TABLE IF NOT EXISTS presupuesto_municipal (
     FOREIGN KEY (comuna_id) REFERENCES comuna(id)
 );
 
+CREATE TABLE IF NOT EXISTS delincuencia_cead (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    comuna_id       TEXT NOT NULL,
+    anno            INTEGER NOT NULL,
+    mes             INTEGER NOT NULL,       -- 1-12
+    delito          TEXT NOT NULL,           -- nombre del delito según CEAD
+    cantidad        INTEGER NOT NULL,        -- casos policiales (denuncias + detenciones en flagrancia)
+    fuente_url      TEXT,
+    actualizado_en  DATETIME,
+    UNIQUE (comuna_id, anno, mes, delito),
+    FOREIGN KEY (comuna_id) REFERENCES comuna(id)
+);
+
 CREATE TABLE IF NOT EXISTS personal_municipal (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     comuna_id       TEXT NOT NULL,

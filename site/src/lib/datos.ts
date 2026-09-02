@@ -71,6 +71,14 @@ export interface PresupuestoItem {
 	fuente_url: string;
 }
 
+export interface DelincuenciaItem {
+	comuna_id: string;
+	anno: number;
+	mes: number;
+	delito: string;
+	cantidad: number;
+}
+
 export interface PersonalItem {
 	comuna_id: string;
 	anno: number;
@@ -177,6 +185,7 @@ import votacionesCamaraRaw from '../../../data/processed/votaciones-camara.json'
 import mocionesRaw from '../../../data/processed/mociones.json';
 import mocionesSenadoresRaw from '../../../data/processed/mociones-senadores.json';
 import presupuestoRaw from '../../../data/processed/presupuesto-municipal.json';
+import delincuenciaRaw from '../../../data/processed/delincuencia.json';
 import personalRaw from '../../../data/processed/personal-municipal.json';
 import remuneracionAutoridadRaw from '../../../data/processed/remuneracion-autoridad.json';
 import declaracionesPatrimonioRaw from '../../../data/processed/declaracion-patrimonio.json';
@@ -201,6 +210,7 @@ export const mociones: Mocion[] = [
 	...(mocionesSenadoresRaw as Mocion[]),
 ];
 export const presupuesto: PresupuestoItem[] = presupuestoRaw as PresupuestoItem[];
+export const delincuencia: DelincuenciaItem[] = delincuenciaRaw as DelincuenciaItem[];
 export const personal: PersonalItem[] = personalRaw as PersonalItem[];
 export const remuneracionAutoridad: RemuneracionAutoridad[] = remuneracionAutoridadRaw as RemuneracionAutoridad[];
 export const declaracionesPatrimonio: DeclaracionPatrimonio[] =

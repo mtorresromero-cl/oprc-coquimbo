@@ -39,3 +39,15 @@ mayoría de los casos).
 Reconfirmar contra servel.cl directamente (no se pudo acceder en varias búsquedas)
 para subir a confianza alta los registros marcados como "media" o "baja" en
 `autoridades_fuentes.csv`.
+
+## Población de `comunas.csv` (agregada el 2026-09-02)
+
+Población total por comuna, Censo 2024 (INE), calculada sumando la fila
+`sexo=Total, edad=Total` por comuna desde el dataset ya tabulado de
+[bastianolea/censo_poblacion_consultar](https://github.com/bastianolea/censo_poblacion_consultar)
+(`datos/censo_2024_tidy.csv`, rama `master`). Ojo con ese archivo: tiene filas
+de totales intermedios por sexo y por edad además del desglose real — sumar
+todas las filas sin filtrar por `Total` infla el resultado ~4x (error que se
+cometió y corrigió en el momento de agregar estos datos). Verificado que la
+suma de las 15 comunas (832.864) coincide con el total regional que trae el
+mismo archivo.
