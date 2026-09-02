@@ -39,6 +39,8 @@ CREATE TABLE IF NOT EXISTS votacion_sesion (
     tipo            TEXT,                    -- ordinaria | extraordinaria | especial
     proyecto_ley_id TEXT,
     descripcion     TEXT,
+    etapa           TEXT,                    -- general | particular (solo camara.cl la expone; NULL en senado/core)
+    articulo        TEXT,                    -- texto del artículo/indicación votado, solo si etapa = particular
     resultado       TEXT,                    -- aprobado | rechazado
     votos_favor     INTEGER,
     votos_contra    INTEGER,

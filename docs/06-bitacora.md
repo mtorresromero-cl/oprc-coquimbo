@@ -81,6 +81,49 @@ tocó la corrida que ya estaba en curso en background — el fix aplica
 recién a partir de la próxima ejecución (la semanal por cron, o
 cualquier corrida manual futura).
 
+**Dos hallazgos más, esta vez sí obligaron a parar la corrida en curso
+(que igual no había guardado nada todavía, cero costo hundido real):**
+
+1. **Falta distinguir voto "general" de voto "particular".** El usuario
+   preguntó cómo lo muestra quieneseljefe.cl — se pudo fetchear ese
+   sitio con `curl_cffi impersonate="chrome"` (el mismo truco de
+   camara.cl; con `WebFetch` normal da 403). Confirmado comparando el
+   boletín 18189-14 en ambos sitios: cada proyecto tiene UN voto
+   general (campo "Artículo:" vacío en camara.cl) y CERO o más votos
+   particulares (uno por artículo/indicación con "votación separada"
+   solicitada, campo "Artículo:" con el texto de qué se vota).
+   quieneseljefe.cl los muestra como registros separados pero con una
+   etiqueta clara "General"/"Particular" + el texto del artículo en los
+   particulares. Se agregaron las columnas `etapa` y `articulo` a
+   `votacion_sesion` (`ALTER TABLE` a la base ya existente + actualizado
+   `schema.sql`) y se captura ese campo en `_parsear_detalle()`.
+
+2. **Bug real preexistente, no relacionado con lo anterior:** al probar
+   el parseo contra páginas reales para verificar el punto 1, `_tally()`
+   (la función que lee "A Favor / En Contra / Abstención") fallaba en
+   el 100% de las páginas probadas — tanto en el voto general (89863)
+   como en los particulares (89864, 89865). Causa: camara.cl entrega
+   los `<th>` de encabezado como hijos directos de `<table>`, SIN
+   envolverlos en un `<tr>` (HTML inválido pero es lo que el sitio
+   manda) — `th.find_parent("tr")` nunca encontraba nada, así que
+   `_parsear_detalle()` devolvía `None` y esa votación se contaba como
+   error sin guardar nada, en silencio. Esto significa que **la corrida
+   de ~2h45min de esta tarde probablemente no guardó ninguna votación
+   real** (o casi ninguna) pese al `stats: success` — el commit perdido
+   de antes (652 inserciones) probablemente venía sobre todo de otros
+   scrapers del mismo run, no de `camara_votaciones.py`. No se pudo
+   confirmar porque ese commit nunca llegó a pushearse. Corregido:
+   ahora se busca el `<table>` contenedor completo y se leen sus `<td>`
+   en orden de documento, sin depender de si están agrupados en `<tr>`
+   o no. Verificado con las 3 páginas reales (general + 2 particulares)
+   antes de relanzar — las 3 ahora parsean bien.
+
+Se limpiaron las 13 filas viejas de `votacion_sesion` (eran del bug
+original, sin `etapa`/`articulo`) para que la corrida completa las
+vuelva a traer con los campos nuevos, en vez de saltárselas por el
+filtro de "ya conocidas" del punto anterior. Relanzado el backfill
+completo en background con ambos fixes aplicados.
+
 ---
 
 ## 2026-09-02 — Densidad poblacional: nueva herramienta + contexto en Delincuencia

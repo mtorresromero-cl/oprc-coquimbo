@@ -293,16 +293,21 @@ def _texto(soup: BeautifulSoup) -> str:
 
 def _tally(soup: BeautifulSoup) -> tuple[int, int, int] | None:
     # tabla con las columnas "A Favor / En Contra / Abstención /
-    # Dispensados" en la fila de encabezado y los conteos en la fila
-    # siguiente — se lee por celda (td), no por texto plano, porque el
-    # separador entre celdas no está garantizado al parsear HTML crudo
+    # Dispensados": el HTML real de camara.cl NO envuelve esos <th> en un
+    # <tr> (son hijos directos de <table>, HTML inválido pero es lo que
+    # el sitio entrega) — buscar un <tr> hermano de los encabezados
+    # nunca encuentra nada y esto fallaba en el 100% de las páginas
+    # probadas manualmente el 2026-09-02 (tanto votos generales como
+    # particulares), silenciosamente contadas como error sin guardar
+    # nada. Se toma el <table> contenedor completo y se leen sus <td> en
+    # orden de documento — los <th> nunca son <td>, así que esto no
+    # depende de cómo estén (o no) agrupados en filas.
     for th in soup.find_all(["th", "td"]):
         if _normalizar(th.get_text(strip=True)) == "a favor":
-            fila = th.find_parent("tr")
-            fila_datos = fila.find_next_sibling("tr") if fila else None
-            if fila_datos is None:
+            tabla = th.find_parent("table")
+            if tabla is None:
                 return None
-            celdas = fila_datos.find_all("td")
+            celdas = tabla.find_all("td")
             if len(celdas) < 3:
                 return None
             try:
@@ -330,6 +335,17 @@ def _parsear_detalle(soup: BeautifulSoup, url: str) -> dict | None:
     boletin_m = re.search(r"Proyecto De Ley:\n([\d]{4,6}-\d{1,2})", txt)
     fecha_m = re.search(r"Fecha:\n(.+)", txt)
     materia_m = re.search(r"Materia:\n(.+?)\nArtículo:", txt, re.DOTALL)
+    # camara.cl vota cada proyecto "en general" (una vez) y después "en
+    # particular" (una vez por cada artículo/indicación con votación
+    # separada solicitada) — todas quedan como votaciones independientes
+    # bajo el mismo boletín. El campo "Artículo:" viene vacío en la
+    # general y con el texto del artículo/indicación en las particulares;
+    # es la única forma de distinguirlas (quieneseljefe.cl usa el mismo
+    # campo para su etiqueta "General"/"Particular", confirmado
+    # comparando boletín 18189-14 en ambos sitios el 2026-09-02).
+    articulo_m = re.search(r"Artículo:\n(.*?)\nSesión:", txt, re.DOTALL)
+    articulo = articulo_m.group(1).strip() if articulo_m else ""
+    etapa = "particular" if articulo else "general"
     sesion_m = re.search(r"Sesión:\n.*?Sesión n[°º](\d+)", txt, re.DOTALL)
     resultado_m = re.search(r"Resultado\n(Aprobado|Rechazado)", txt)
     tally = _tally(soup)
@@ -359,6 +375,8 @@ def _parsear_detalle(soup: BeautifulSoup, url: str) -> dict | None:
         "titulo": materia_m.group(1).strip() if materia_m else "",
         "fecha": fecha,
         "numero_sesion": sesion_m.group(1) if sesion_m else None,
+        "etapa": etapa,
+        "articulo": articulo or None,
         "resultado": resultado_m.group(1).lower(),
         "votos_favor": votos_favor,
         "votos_contra": votos_contra,
@@ -503,9 +521,9 @@ class ScraperCamaraVotaciones(BaseScraper):
             self.db.execute(
                 """
                 INSERT INTO votacion_sesion
-                    (id, camara, fecha, numero_sesion, proyecto_ley_id, descripcion, resultado,
-                     votos_favor, votos_contra, abstenciones, fuente_url)
-                VALUES (?, 'camara', ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    (id, camara, fecha, numero_sesion, proyecto_ley_id, descripcion, etapa,
+                     articulo, resultado, votos_favor, votos_contra, abstenciones, fuente_url)
+                VALUES (?, 'camara', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(id) DO UPDATE SET
                     resultado = excluded.resultado,
                     votos_favor = excluded.votos_favor,
@@ -515,6 +533,7 @@ class ScraperCamaraVotaciones(BaseScraper):
                 """,
                 (
                     r["id"], r["fecha"], r["numero_sesion"], r["boletin"], r["titulo"],
+                    r["etapa"], r["articulo"],
                     r["resultado"], r["votos_favor"], r["votos_contra"],
                     r["abstenciones"], r["fuente_url"],
                 ),
