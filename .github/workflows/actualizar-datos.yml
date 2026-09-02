@@ -17,16 +17,29 @@ jobs:
           python-version: '3.11'
       - run: pip install -r scrapers/requirements.txt
       - run: python -m playwright install --with-deps chromium
+      # continue-on-error en cada scraper: una fuente bloqueada (ej.
+      # camara.cl) no debe impedir que las demás, sin relación entre sí,
+      # sigan actualizándose — antes un solo fallo abortaba todo el job
       - run: python scrapers/senado.py
+        continue-on-error: true
       - run: python scrapers/senado_asistencia.py
+        continue-on-error: true
       - run: python scrapers/senado_mociones.py
+        continue-on-error: true
       - run: python scrapers/camara_mociones.py
+        continue-on-error: true
       - run: python scrapers/camara_asistencia.py
+        continue-on-error: true
       - run: python scrapers/camara_votaciones.py
+        continue-on-error: true
       - run: python scrapers/transparencia_municipal.py
+        continue-on-error: true
       - run: python scrapers/personal_municipal.py
+        continue-on-error: true
       - run: python scrapers/infoprobidad.py
+        continue-on-error: true
       - run: python scrapers/core_coquimbo.py
+        continue-on-error: true
       - name: Commit datos actualizados
         run: |
           git config user.name "OPRC Bot"
