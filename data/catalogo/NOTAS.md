@@ -51,3 +51,15 @@ todas las filas sin filtrar por `Total` infla el resultado ~4x (error que se
 cometió y corrigió en el momento de agregar estos datos). Verificado que la
 suma de las 15 comunas (832.864) coincide con el total regional que trae el
 mismo archivo.
+
+## Superficie de `comunas.csv` (agregada el 2026-09-02)
+
+Superficie en km² por comuna, División Político Administrativa 2023
+(SUBDERE), tomada de `datos/superficies_dpa_2023.csv` en
+[bastianolea/densidad_poblacional_comunas](https://github.com/bastianolea/densidad_poblacional_comunas)
+(el repo detrás de https://bastianoleah.shinyapps.io/densidad_comunas/, que
+el usuario pasó como fuente). Filtrado por nombre de comuna (CUT región 4).
+Verificado que la suma de las 15 comunas (40.587,79 km²) coincide con la
+superficie oficial conocida de la Región de Coquimbo (~40.580 km²).
+Usada para calcular densidad (población / superficie) en
+`/herramientas/densidad/` y como dato de contexto en `/herramientas/delincuencia/`.

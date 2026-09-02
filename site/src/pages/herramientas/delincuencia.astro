@@ -17,6 +17,16 @@ const comunasOrdenadas = [...comunas].sort(
 const POBLACION: Record<string, number | null> = Object.fromEntries(
 	comunas.map((c) => [c.id, c.poblacion])
 );
+// densidad como dato de contexto junto a la tasa: una comuna rural con pocos
+// casos puede tener una tasa que salta mucho de un año a otro solo porque el
+// denominador (población) es chico — la densidad ayuda a distinguir "poca
+// gente, dispersa" de "poca gente, concentrada".
+const DENSIDAD: Record<string, number | null> = Object.fromEntries(
+	comunas.map((c) => [
+		c.id,
+		c.poblacion && c.superficie_km2 ? Math.round((c.poblacion / c.superficie_km2) * 10) / 10 : null,
+	])
+);
 
 // Sin comunas seleccionadas por defecto (mismo criterio que participación
 // electoral: partir en blanco evita sugerir una comparación no pedida).
@@ -79,7 +89,13 @@ for (const { id: delitoId } of delitosDisponibles) {
 	comparadorPorDelito[delitoId] = comunasOrdenadas
 		.map((c) => {
 			const cantidad = suma.get(`${c.id}|${ANNO_COMPARADOR}|${delitoId}`) ?? 0;
-			return { comuna_id: c.id, nombre: c.nombre, cantidad, tasa: tasa(c.id, cantidad) };
+			return {
+				comuna_id: c.id,
+				nombre: c.nombre,
+				cantidad,
+				tasa: tasa(c.id, cantidad),
+				densidad: DENSIDAD[c.id],
+			};
 		})
 		.filter((f) => f.tasa !== null)
 		.sort((a, b) => (b.tasa as number) - (a.tasa as number));
@@ -155,6 +171,15 @@ const EJE_Y_INICIAL = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTasaInici
 					comunas como La Higuera o Paihuano, así que compararlas por número crudo haría parecer
 					mucho más peligrosas a las comunas grandes solo por tener más gente. La población usada
 					es la del Censo 2024 (INE).
+				</p>
+				<p>
+					La <strong>densidad</strong> (habitantes por km²) que aparece junto a la tasa es solo
+					contexto, no corrige nada: una comuna rural con pocos casos puede tener una tasa que
+					salta mucho de un año a otro simplemente porque tiene poca gente repartida en un
+					territorio enorme —{' '}
+					<a href="/herramientas/densidad/" class="font-medium text-brand-600 hover:underline">
+						compara la densidad de las 15 comunas acá
+					</a>.
 				</p>
 				<p>
 					<strong>De dónde salen estos datos:</strong> el sitio en vivo del CEAD no respondió al
@@ -282,6 +307,7 @@ const EJE_Y_INICIAL = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTasaInici
 												data-anno={p.anno}
 												data-tasa={p.tasa}
 												data-cantidad={p.cantidad}
+												data-densidad={DENSIDAD[c.id]}
 											/>
 										))}
 									</g>
@@ -442,7 +468,9 @@ const EJE_Y_INICIAL = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTasaInici
 						<div class="mt-1 h-5 rounded bg-slate-200">
 							<div class="h-5 rounded" style="width:${ancho}%;background-color:${color}"></div>
 						</div>
-						<p class="mt-1 text-xs text-slate-400">${f.cantidad.toLocaleString('es-CL')} casos</p>
+						<p class="mt-1 text-xs text-slate-400">
+							${f.cantidad.toLocaleString('es-CL')} casos${f.densidad ? ` · ${f.densidad} hab/km²` : ''}
+						</p>
 					</div>`;
 				})
 				.join('');
@@ -462,12 +490,13 @@ const EJE_Y_INICIAL = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTasaInici
 		const wrapper = tooltip.parentElement;
 
 		function muestraTooltip(punto, clientX, clientY) {
-			const { nombre, anno, tasa, cantidad } = punto.dataset;
+			const { nombre, anno, tasa, cantidad, densidad } = punto.dataset;
 			tooltip.innerHTML = `
 				<strong>${nombre}</strong><br>
 				${anno}<br>
 				${tasa} casos / 10.000 hab.<br>
-				${Number(cantidad).toLocaleString('es-CL')} casos totales
+				${Number(cantidad).toLocaleString('es-CL')} casos totales<br>
+				${densidad && densidad !== 'null' ? `${densidad} hab/km²` : 'densidad no disponible'}
 			`;
 			const rect = wrapper.getBoundingClientRect();
 			tooltip.style.left = `${clientX - rect.left + 12}px`;

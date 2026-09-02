@@ -31,17 +31,19 @@ def cargar_comunas(con: sqlite3.Connection) -> None:
         for fila in csv.DictReader(f):
             con.execute(
                 """
-                INSERT INTO comuna (id, nombre, provincia, poblacion, actualizado_en)
-                VALUES (?, ?, ?, ?, ?)
+                INSERT INTO comuna (id, nombre, provincia, poblacion, superficie_km2, actualizado_en)
+                VALUES (?, ?, ?, ?, ?, ?)
                 ON CONFLICT(id) DO UPDATE SET
                     nombre = excluded.nombre,
                     provincia = excluded.provincia,
                     poblacion = excluded.poblacion,
+                    superficie_km2 = excluded.superficie_km2,
                     actualizado_en = excluded.actualizado_en
                 """,
                 (
                     fila["id"], fila["nombre"], fila["provincia"],
                     int(fila["poblacion"]) if fila.get("poblacion") else None,
+                    float(fila["superficie_km2"]) if fila.get("superficie_km2") else None,
                     ahora,
                 ),
             )

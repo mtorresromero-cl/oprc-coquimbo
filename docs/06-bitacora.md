@@ -13,6 +13,60 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-02 — Densidad poblacional: nueva herramienta + contexto en Delincuencia
+
+**Auditoría de datos pedida por el usuario ("¿gasto parlamentario e
+intervenciones en sala están correctos?"):** se revisó con consultas
+reales (no solo conteo de filas) — 0 duplicados exactos, los nulos de
+`gasto-parlamentario.json` son exactamente `pasajes_aereos` y
+`asesorias_externas` (categorías que camara.cl no publica con monto,
+documentado en el propio scraper), los 3 senadores sin gasto es porque
+el scraper está scopeado a los 7 diputados a propósito (dice "gasto de
+los 7 diputados" en su docstring). `intervenciones-sala.json` cubre los
+7 diputados y 3 senadores completos, sesiones desde el inicio real de
+la legislatura (18 de marzo 2026); los pocos registros sin texto son
+todos "Homenaje"/"Acuerdos y Resoluciones" (sin discurso propio por
+diseño). **Importante:** no hay tests reales en `scrapers/` (cero
+funciones `def test_`) — el CI en verde solo valida lint + build del
+sitio, no la corrección de los datos. La única forma real de verificar
+es consultar los JSON/DB directamente, como se hizo acá.
+
+**Nueva fuente de datos — densidad poblacional:** el usuario pasó
+`https://bastianoleah.shinyapps.io/densidad_comunas/` (una app Shiny,
+no fetcheable directo — solo muestra un spinner de carga). Se encontró
+el repo real detrás, `bastianolea/densidad_poblacional_comunas`, con
+`datos/superficies_dpa_2023.csv` (superficie real por comuna, DPA 2023
+de SUBDERE). Documentado en `data/catalogo/NOTAS.md`. La suma de las 15
+comunas (40.587,79 km²) coincide con la superficie oficial conocida de
+la región (~40.580 km²) — dato verificado, no solo copiado.
+
+El campo `superficie_km2` en el schema de `comuna` **ya existía** (se
+había anticipado antes de esta sesión) pero estaba sin llenar (`null`
+en todas las filas) — se llenó ahora. `scrapers/poblar_catalogo.py`
+actualizado para leerlo desde `comunas.csv`.
+
+**Nueva herramienta `/herramientas/densidad/`:** ranking de las 15
+comunas por densidad (hab/km²), mismo patrón visual que el comparador
+de Delincuencia (barras + `COLOR_COMUNA`). Y se agregó la densidad como
+**dato de contexto** (no reemplaza la tasa) en `/herramientas/delincuencia/`
+— tanto en el tooltip del gráfico de líneas como en el ranking de
+"Comparar comunas": ayuda a explicar por qué una comuna rural con pocos
+casos puede tener una tasa que salta mucho de un año a otro (denominador
+poblacional chico), caso real visible con Paihuano (tasa muy alta, 3.1
+hab/km² — territorio disperso).
+
+**Trampa evitada al correr `poblar_catalogo.py`:** el script reexporta
+TODOS los JSON individuales de las 142 autoridades (con `actualizado_en`
+recién generado) cada vez que corre, aunque solo se haya tocado
+`comunas.csv` — eso generó ~143 archivos "modificados" que en realidad
+solo cambiaban de timestamp, cero contenido real. Se revirtieron con
+`git checkout` antes de comitear, dejando solo los cambios reales
+(comunas.csv/json, la DB, y el código).
+
+Verificado con Playwright, cero errores de consola.
+
+---
+
 ## 2026-09-02 — Prensa regional: nota sobre Coquimbo, fix Mi Radio, y banner en portada
 
 **"Coquimbo" domina "Comunas más mencionadas" — investigado y es real,

@@ -1,16 +1,16 @@
-id,nombre,provincia,poblacion
-la-serena,La Serena,Elqui,250141
-coquimbo,Coquimbo,Elqui,263719
-andacollo,Andacollo,Elqui,11566
-la-higuera,La Higuera,Elqui,4335
-paihuano,Paihuano,Elqui,4649
-vicuna,Vicuña,Elqui,28047
-ovalle,Ovalle,Limarí,118696
-combarbala,Combarbalá,Limarí,12954
-monte-patria,Monte Patria,Limarí,29997
-punitaqui,Punitaqui,Limarí,12076
-rio-hurtado,Río Hurtado,Limarí,4334
-illapel,Illapel,Choapa,32009
-canela,Canela,Choapa,9639
-los-vilos,Los Vilos,Choapa,22879
-salamanca,Salamanca,Choapa,27823
+id,nombre,provincia,poblacion,superficie_km2
+la-serena,La Serena,Elqui,250141,1900.87
+coquimbo,Coquimbo,Elqui,263719,1426.34
+andacollo,Andacollo,Elqui,11566,514.25
+la-higuera,La Higuera,Elqui,4335,4165.53
+paihuano,Paihuano,Elqui,4649,1514.19
+vicuna,Vicuña,Elqui,28047,7581.82
+ovalle,Ovalle,Limarí,118696,3549.11
+combarbala,Combarbalá,Limarí,12954,2295.87
+monte-patria,Monte Patria,Limarí,29997,4212.32
+punitaqui,Punitaqui,Limarí,12076,1091.95
+rio-hurtado,Río Hurtado,Limarí,4334,2205.05
+illapel,Illapel,Choapa,32009,2629.14
+canela,Canela,Choapa,9639,2195.75
+los-vilos,Los Vilos,Choapa,22879,1858.80
+salamanca,Salamanca,Choapa,27823,3446.80
