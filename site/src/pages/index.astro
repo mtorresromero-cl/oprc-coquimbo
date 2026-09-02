@@ -114,28 +114,28 @@ const COLOR_CLASES: Record<string, { pill: string; texto: string }> = {
 const destacados = [
 	masTiempoSala.segundos > 0 && {
 		...tarjetaDe(masTiempoSala.a.id),
-		etiqueta: 'Sala',
+		etiqueta: '¿Quién más habla en sala?',
 		colorKey: 'discursos',
 		valor: formatoDuracionMin(masTiempoSala.segundos),
 		href: '/parlamentarios/discursos/',
 	},
 	masGastoId && {
 		...tarjetaDe(masGastoId[0]),
-		etiqueta: 'Gasto',
+		etiqueta: '¿Quién más gasta?',
 		colorKey: 'gasto',
 		valor: `$${Math.round(masGastoId[1] / 1_000_000)}M gastados`,
 		href: '/parlamentarios/gastos/',
 	},
 	masMocionesId && {
 		...tarjetaDe(masMocionesId[0]),
-		etiqueta: 'Mociones',
+		etiqueta: '¿Quién presenta más mociones?',
 		colorKey: 'mociones',
 		valor: `${masMocionesId[1]} mociones presentadas`,
 		href: '/parlamentarios/',
 	},
 	masAusenteId && {
 		...tarjetaDe(masAusenteId[0]),
-		etiqueta: 'Core',
+		etiqueta: '¿Quién más falta al Core?',
 		colorKey: 'votaciones',
 		valor: `${masAusenteId[1]} ausencias en acuerdos`,
 		href: '/consejo-regional/',
