@@ -61,6 +61,28 @@ queda con `frecuencia = "diaria"` como intención, pero
 `actualizar-datos.yml` solo corre semanal — falta decidir si se agrega
 un workflow nuevo diario o se deja semanal por ahora).
 
+**Fase 2 (hecha, `scrapers/prensa_texto.py`):** 293/295 con texto
+extraído, 2 fallos transitorios de red (quedan `texto_completo IS NULL`,
+se reintentan solos la próxima corrida). El extractor genérico
+(selectores en cascada + `<article>` + heurística de último recurso)
+funcionó en los 5 sitios probados a mano.
+
+**Bug real encontrado y corregido — mismo patrón que Núñez en el
+Senado:** la primera corrida dejaba un bloque de metadatos de plantilla
+incrustado en medio del cuerpo del artículo ("Agregar `<Medio>` / Por
+`<Medio>`"), presente en 15 de las 18 fuentes con este problema (todas
+las de la Red Comunales comparten plantilla). Sin limpiarlo, el nombre
+del propio medio se repite en cada una de sus noticias e infla
+artificialmente su frecuencia de palabras — el mismo tipo de sesgo por
+auto-mención ya encontrado y corregido antes en las intervenciones del
+Senado (ver más arriba). El primer intento de regex era demasiado
+rígido (asumía un solo formato de fecha, "Mes Día, Año"); algunas
+fuentes usan el orden inverso ("Día Mes Año"). Corregido con un patrón
+más flexible sobre la estructura completa del bloque, no el formato de
+fecha exacto — se aplicó primero contra el texto ya guardado (sin
+volver a bajar nada de la red) para confirmar cobertura completa antes
+de dejarlo en el scraper para las próximas corridas.
+
 ---
 
 ## 2026-09-02 — Nueva herramienta: Delincuencia (CEAD), bloqueado el scraping en vivo
