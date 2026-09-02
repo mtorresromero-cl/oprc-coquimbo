@@ -199,6 +199,7 @@ import padronDemograficoRaw from '../../../data/processed/padron-demografico.jso
 import gastoParlamentarioRaw from '../../../data/processed/gasto-parlamentario.json';
 import analisisIntervencionesRaw from '../../../data/processed/analisis-intervenciones.json';
 import analisisIntervencionesSenadoRaw from '../../../data/processed/analisis-intervenciones-senado.json';
+import analisisPrensaRaw from '../../../data/processed/analisis-prensa.json';
 
 export const autoridades: Autoridad[] = autoridadesRaw as Autoridad[];
 export const comunas: Comuna[] = comunasRaw as Comuna[];
@@ -263,6 +264,21 @@ export const analisisIntervenciones: AnalisisIntervenciones =
 	analisisIntervencionesRaw as AnalisisIntervenciones;
 export const analisisIntervencionesSenado: AnalisisIntervenciones =
 	analisisIntervencionesSenadoRaw as AnalisisIntervenciones;
+
+export interface AnalisisPrensa {
+	top_palabras_por_medio: Record<string, PalabraFrecuencia[]>;
+	top_palabras_total: PalabraFrecuencia[];
+	tendencia: { semanas: string[]; palabras: string[]; serie: Record<string, number[]> };
+	coocurrencia: {
+		nodos: PalabraFrecuencia[];
+		enlaces: { a: string; b: string; peso: number }[];
+	};
+	menciones_por_autoridad: { autoridad_id: string; n: number }[];
+	menciones_por_comuna: { comuna_id: string; n: number }[];
+	total_articulos: number;
+	total_palabras_corpus: number;
+}
+export const analisisPrensa: AnalisisPrensa = analisisPrensaRaw as AnalisisPrensa;
 
 export function presupuestoDeComuna(comunaId: string) {
 	return presupuesto.filter((p) => p.comuna_id === comunaId);

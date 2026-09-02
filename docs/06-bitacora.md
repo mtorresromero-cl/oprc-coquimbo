@@ -107,6 +107,22 @@ señal más clara de que queda ruido de extracción — vale la pena mirar
 el ranking de palabras más usadas como chequeo de calidad después de
 cada extracción nueva, no solo revisar una muestra de texto a mano.
 
+**Fase 4 (hecha, `/herramientas/prensa/`):** página nueva, clon casi
+exacto del layout de `/parlamentarios/discursos/` (misma nube de
+palabras y red de coocurrencia en canvas, ambas genéricas — no dependían
+del concepto de "diputado" así que se reutilizaron sin cambios de
+lógica, solo de datos de entrada). La única pestaña realmente nueva es
+"Menciones" (autoridades y comunas más mencionadas), que no existe en
+`prensa_chile` de Bastián — es la parte propia de un observatorio
+regional. Verificado con Playwright en las 4 pestañas, sin errores de
+consola. Página de 80KB.
+
+**Proyecto de prensa regional completo (4 fases) por ahora.** Pendiente
+real para más adelante: decidir la cadencia de actualización (¿diaria
+vía un workflow nuevo, o semanal junto con el resto?), y si vale la pena
+scrapear el archivo histórico de cada medio en vez de depender solo de
+lo que cada RSS trae disponible (~10 noticias recientes por fuente).
+
 ---
 
 ## 2026-09-02 — Nueva herramienta: Delincuencia (CEAD), bloqueado el scraping en vivo
