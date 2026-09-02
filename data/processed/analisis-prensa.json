@@ -4617,6 +4617,740 @@
       "n": 126
     }
   ],
+  "top_palabras_por_semana": {
+    "2026-W36": [
+      {
+        "palabra": "coquimbo",
+        "n": 299
+      },
+      {
+        "palabra": "salud",
+        "n": 241
+      },
+      {
+        "palabra": "ovalle",
+        "n": 204
+      },
+      {
+        "palabra": "serena",
+        "n": 191
+      },
+      {
+        "palabra": "personas",
+        "n": 190
+      },
+      {
+        "palabra": "septiembre",
+        "n": 188
+      },
+      {
+        "palabra": "parte",
+        "n": 174
+      },
+      {
+        "palabra": "actividad",
+        "n": 157
+      },
+      {
+        "palabra": "regional",
+        "n": 149
+      },
+      {
+        "palabra": "atención",
+        "n": 145
+      },
+      {
+        "palabra": "además",
+        "n": 143
+      },
+      {
+        "palabra": "proceso",
+        "n": 139
+      },
+      {
+        "palabra": "vecinos",
+        "n": 131
+      },
+      {
+        "palabra": "trabajo",
+        "n": 126
+      },
+      {
+        "palabra": "comunidad",
+        "n": 121
+      },
+      {
+        "palabra": "mayor",
+        "n": 115
+      },
+      {
+        "palabra": "fortalecer",
+        "n": 114
+      },
+      {
+        "palabra": "sector",
+        "n": 114
+      },
+      {
+        "palabra": "puede",
+        "n": 113
+      },
+      {
+        "palabra": "jornada",
+        "n": 110
+      },
+      {
+        "palabra": "actividades",
+        "n": 107
+      },
+      {
+        "palabra": "señaló",
+        "n": 105
+      },
+      {
+        "palabra": "iniciativa",
+        "n": 105
+      },
+      {
+        "palabra": "corazón",
+        "n": 104
+      },
+      {
+        "palabra": "chile",
+        "n": 103
+      },
+      {
+        "palabra": "tras",
+        "n": 101
+      },
+      {
+        "palabra": "estudiantes",
+        "n": 98
+      },
+      {
+        "palabra": "alta",
+        "n": 96
+      },
+      {
+        "palabra": "manera",
+        "n": 95
+      },
+      {
+        "palabra": "horas",
+        "n": 90
+      }
+    ],
+    "2026-W35": [
+      {
+        "palabra": "coquimbo",
+        "n": 97
+      },
+      {
+        "palabra": "regional",
+        "n": 90
+      },
+      {
+        "palabra": "trabajo",
+        "n": 85
+      },
+      {
+        "palabra": "vilos",
+        "n": 78
+      },
+      {
+        "palabra": "ovalle",
+        "n": 74
+      },
+      {
+        "palabra": "estudiantes",
+        "n": 63
+      },
+      {
+        "palabra": "salud",
+        "n": 63
+      },
+      {
+        "palabra": "mayor",
+        "n": 61
+      },
+      {
+        "palabra": "temas",
+        "n": 61
+      },
+      {
+        "palabra": "anterior",
+        "n": 61
+      },
+      {
+        "palabra": "relacionados",
+        "n": 59
+      },
+      {
+        "palabra": "comunidad",
+        "n": 59
+      },
+      {
+        "palabra": "sector",
+        "n": 59
+      },
+      {
+        "palabra": "personas",
+        "n": 59
+      },
+      {
+        "palabra": "último",
+        "n": 58
+      },
+      {
+        "palabra": "además",
+        "n": 57
+      },
+      {
+        "palabra": "error",
+        "n": 57
+      },
+      {
+        "palabra": "recibe",
+        "n": 57
+      },
+      {
+        "palabra": "correo",
+        "n": 56
+      },
+      {
+        "palabra": "parte",
+        "n": 56
+      },
+      {
+        "palabra": "avísanos",
+        "n": 55
+      },
+      {
+        "palabra": "enviar",
+        "n": 55
+      },
+      {
+        "palabra": "suscríbete",
+        "n": 55
+      },
+      {
+        "palabra": "enviaremos",
+        "n": 55
+      },
+      {
+        "palabra": "newsletter",
+        "n": 55
+      },
+      {
+        "palabra": "suscribirme",
+        "n": 55
+      },
+      {
+        "palabra": "seguridad",
+        "n": 53
+      },
+      {
+        "palabra": "comunales",
+        "n": 52
+      },
+      {
+        "palabra": "millones",
+        "n": 52
+      },
+      {
+        "palabra": "vecinos",
+        "n": 52
+      }
+    ],
+    "2026-W34": [
+      {
+        "palabra": "agua",
+        "n": 35
+      },
+      {
+        "palabra": "hurtado",
+        "n": 32
+      },
+      {
+        "palabra": "sistema",
+        "n": 30
+      },
+      {
+        "palabra": "salud",
+        "n": 25
+      },
+      {
+        "palabra": "parte",
+        "n": 25
+      },
+      {
+        "palabra": "recibe",
+        "n": 24
+      },
+      {
+        "palabra": "último",
+        "n": 24
+      },
+      {
+        "palabra": "correo",
+        "n": 24
+      },
+      {
+        "palabra": "relacionados",
+        "n": 24
+      },
+      {
+        "palabra": "error",
+        "n": 23
+      },
+      {
+        "palabra": "avísanos",
+        "n": 23
+      },
+      {
+        "palabra": "enviar",
+        "n": 23
+      },
+      {
+        "palabra": "suscríbete",
+        "n": 23
+      },
+      {
+        "palabra": "enviaremos",
+        "n": 23
+      },
+      {
+        "palabra": "newsletter",
+        "n": 23
+      },
+      {
+        "palabra": "suscribirme",
+        "n": 23
+      },
+      {
+        "palabra": "temas",
+        "n": 23
+      },
+      {
+        "palabra": "tras",
+        "n": 23
+      },
+      {
+        "palabra": "anterior",
+        "n": 21
+      },
+      {
+        "palabra": "salamanca",
+        "n": 21
+      },
+      {
+        "palabra": "comunales",
+        "n": 20
+      },
+      {
+        "palabra": "emergencia",
+        "n": 20
+      },
+      {
+        "palabra": "apoyo",
+        "n": 20
+      },
+      {
+        "palabra": "proyecto",
+        "n": 20
+      },
+      {
+        "palabra": "rural",
+        "n": 18
+      },
+      {
+        "palabra": "coquimbo",
+        "n": 17
+      },
+      {
+        "palabra": "nueva",
+        "n": 17
+      },
+      {
+        "palabra": "tres",
+        "n": 17
+      },
+      {
+        "palabra": "monte",
+        "n": 17
+      },
+      {
+        "palabra": "patria",
+        "n": 17
+      }
+    ],
+    "2026-W33": [
+      {
+        "palabra": "paihuano",
+        "n": 24
+      },
+      {
+        "palabra": "colegio",
+        "n": 22
+      },
+      {
+        "palabra": "director",
+        "n": 18
+      },
+      {
+        "palabra": "escuela",
+        "n": 17
+      },
+      {
+        "palabra": "combarbalá",
+        "n": 15
+      },
+      {
+        "palabra": "coquimbo",
+        "n": 13
+      },
+      {
+        "palabra": "regional",
+        "n": 13
+      },
+      {
+        "palabra": "sector",
+        "n": 13
+      },
+      {
+        "palabra": "gestión",
+        "n": 12
+      },
+      {
+        "palabra": "universidad",
+        "n": 12
+      },
+      {
+        "palabra": "sistema",
+        "n": 11
+      },
+      {
+        "palabra": "emergencia",
+        "n": 11
+      },
+      {
+        "palabra": "serena",
+        "n": 11
+      },
+      {
+        "palabra": "educación",
+        "n": 11
+      },
+      {
+        "palabra": "frontal",
+        "n": 10
+      },
+      {
+        "palabra": "ovalle",
+        "n": 10
+      },
+      {
+        "palabra": "punitaqui",
+        "n": 10
+      },
+      {
+        "palabra": "relacionados",
+        "n": 9
+      },
+      {
+        "palabra": "respuesta",
+        "n": 9
+      },
+      {
+        "palabra": "temas",
+        "n": 9
+      },
+      {
+        "palabra": "anterior",
+        "n": 9
+      },
+      {
+        "palabra": "parte",
+        "n": 8
+      },
+      {
+        "palabra": "alcalde",
+        "n": 8
+      },
+      {
+        "palabra": "elqui",
+        "n": 8
+      },
+      {
+        "palabra": "coordinación",
+        "n": 8
+      },
+      {
+        "palabra": "sectores",
+        "n": 8
+      },
+      {
+        "palabra": "error",
+        "n": 8
+      },
+      {
+        "palabra": "avísanos",
+        "n": 8
+      },
+      {
+        "palabra": "enviar",
+        "n": 8
+      },
+      {
+        "palabra": "recibe",
+        "n": 8
+      }
+    ],
+    "2026-W32": [
+      {
+        "palabra": "emergencia",
+        "n": 24
+      },
+      {
+        "palabra": "familias",
+        "n": 22
+      },
+      {
+        "palabra": "vecinos",
+        "n": 18
+      },
+      {
+        "palabra": "trabajo",
+        "n": 17
+      },
+      {
+        "palabra": "salud",
+        "n": 17
+      },
+      {
+        "palabra": "recuperación",
+        "n": 17
+      },
+      {
+        "palabra": "agua",
+        "n": 16
+      },
+      {
+        "palabra": "manera",
+        "n": 15
+      },
+      {
+        "palabra": "sectores",
+        "n": 15
+      },
+      {
+        "palabra": "parte",
+        "n": 14
+      },
+      {
+        "palabra": "combarbalá",
+        "n": 14
+      },
+      {
+        "palabra": "personas",
+        "n": 14
+      },
+      {
+        "palabra": "millones",
+        "n": 14
+      },
+      {
+        "palabra": "paihuano",
+        "n": 13
+      },
+      {
+        "palabra": "importante",
+        "n": 12
+      },
+      {
+        "palabra": "comunidad",
+        "n": 12
+      },
+      {
+        "palabra": "lluvias",
+        "n": 12
+      },
+      {
+        "palabra": "precipitaciones",
+        "n": 12
+      },
+      {
+        "palabra": "condiciones",
+        "n": 12
+      },
+      {
+        "palabra": "alcalde",
+        "n": 11
+      },
+      {
+        "palabra": "atención",
+        "n": 10
+      },
+      {
+        "palabra": "señaló",
+        "n": 10
+      },
+      {
+        "palabra": "tras",
+        "n": 10
+      },
+      {
+        "palabra": "sistema",
+        "n": 10
+      },
+      {
+        "palabra": "frontal",
+        "n": 10
+      },
+      {
+        "palabra": "provincia",
+        "n": 10
+      },
+      {
+        "palabra": "limarí",
+        "n": 10
+      },
+      {
+        "palabra": "comunal",
+        "n": 9
+      },
+      {
+        "palabra": "semanas",
+        "n": 9
+      },
+      {
+        "palabra": "servicio",
+        "n": 8
+      }
+    ],
+    "2026-W31": [
+      {
+        "palabra": "combarbalá",
+        "n": 14
+      },
+      {
+        "palabra": "vecinos",
+        "n": 6
+      },
+      {
+        "palabra": "badén",
+        "n": 5
+      },
+      {
+        "palabra": "antofagasta",
+        "n": 5
+      },
+      {
+        "palabra": "ayuda",
+        "n": 5
+      },
+      {
+        "palabra": "familias",
+        "n": 4
+      },
+      {
+        "palabra": "aisladas",
+        "n": 4
+      },
+      {
+        "palabra": "sector",
+        "n": 4
+      },
+      {
+        "palabra": "sistema",
+        "n": 4
+      },
+      {
+        "palabra": "frontal",
+        "n": 4
+      },
+      {
+        "palabra": "conectividad",
+        "n": 4
+      },
+      {
+        "palabra": "emergencia",
+        "n": 4
+      },
+      {
+        "palabra": "comunidad",
+        "n": 4
+      },
+      {
+        "palabra": "camión",
+        "n": 4
+      },
+      {
+        "palabra": "localidades",
+        "n": 3
+      },
+      {
+        "palabra": "matancilla",
+        "n": 3
+      },
+      {
+        "palabra": "valle",
+        "n": 3
+      },
+      {
+        "palabra": "hermoso",
+        "n": 3
+      },
+      {
+        "palabra": "puente",
+        "n": 3
+      },
+      {
+        "palabra": "afectadas",
+        "n": 3
+      },
+      {
+        "palabra": "parte",
+        "n": 3
+      },
+      {
+        "palabra": "personas",
+        "n": 3
+      },
+      {
+        "palabra": "tras",
+        "n": 3
+      },
+      {
+        "palabra": "partió",
+        "n": 3
+      },
+      {
+        "palabra": "campaña",
+        "n": 3
+      },
+      {
+        "palabra": "pama",
+        "n": 2
+      },
+      {
+        "palabra": "arriba",
+        "n": 2
+      },
+      {
+        "palabra": "destrucción",
+        "n": 2
+      },
+      {
+        "palabra": "situación",
+        "n": 2
+      },
+      {
+        "palabra": "terreno",
+        "n": 2
+      }
+    ]
+  },
   "tendencia": {
     "semanas": [
       "2026-W31",
@@ -4766,28 +5500,3421 @@
       ]
     }
   },
+  "tendencia_por_medio": {
+    "coquimbo": {
+      "medios": [
+        "David Noticias",
+        "Diario El Día — País",
+        "Diario El Día — Política",
+        "Diario El Día — Región",
+        "Diario La Región",
+        "El Andacollino",
+        "El Canelino",
+        "El Combarbalino",
+        "El Comunal",
+        "El Coquimbano",
+        "El Hurtadino",
+        "El Illapelino",
+        "El Montepatrino",
+        "El Observatodo",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Punitaquino",
+        "El Salamanquino",
+        "El Serenense",
+        "El Vicuñense",
+        "El Vileño",
+        "Elqui Global",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "David Noticias": [
+          0,
+          0,
+          0,
+          0,
+          13,
+          4
+        ],
+        "Diario El Día — País": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Diario El Día — Política": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          27,
+          103
+        ],
+        "Diario La Región": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          18
+        ],
+        "El Andacollino": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          1
+        ],
+        "El Canelino": [
+          0,
+          0,
+          3,
+          5,
+          11,
+          2
+        ],
+        "El Combarbalino": [
+          1,
+          0,
+          1,
+          0,
+          5,
+          0
+        ],
+        "El Comunal": [
+          0,
+          0,
+          0,
+          0,
+          6,
+          9
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          4,
+          42
+        ],
+        "El Hurtadino": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        "El Illapelino": [
+          0,
+          0,
+          0,
+          1,
+          7,
+          7
+        ],
+        "El Montepatrino": [
+          0,
+          0,
+          0,
+          1,
+          2,
+          2
+        ],
+        "El Observatodo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "El Ovallino": [
+          0,
+          3,
+          0,
+          5,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          4,
+          6,
+          0,
+          1,
+          2
+        ],
+        "El Punitaquino": [
+          0,
+          0,
+          3,
+          2,
+          2,
+          4
+        ],
+        "El Salamanquino": [
+          0,
+          0,
+          0,
+          0,
+          7,
+          0
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          15
+        ],
+        "El Vicuñense": [
+          0,
+          0,
+          0,
+          3,
+          2,
+          4
+        ],
+        "El Vileño": [
+          0,
+          0,
+          0,
+          0,
+          5,
+          4
+        ],
+        "Elqui Global": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          15
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          2
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          9
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          13
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          28
+        ]
+      }
+    },
+    "salud": {
+      "medios": [
+        "David Noticias",
+        "Diario El Día — País",
+        "Diario El Día — Política",
+        "Diario El Día — Región",
+        "Diario La Región",
+        "El Canelino",
+        "El Combarbalino",
+        "El Coquimbano",
+        "El Illapelino",
+        "El Observatodo",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Punitaquino",
+        "El Salamanquino",
+        "El Serenense",
+        "El Vicuñense",
+        "El Vileño",
+        "Elqui Global",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "David Noticias": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "Diario El Día — País": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ],
+        "Diario El Día — Política": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          5
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          21,
+          64
+        ],
+        "Diario La Región": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          5
+        ],
+        "El Canelino": [
+          0,
+          0,
+          0,
+          5,
+          0,
+          0
+        ],
+        "El Combarbalino": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          25
+        ],
+        "El Illapelino": [
+          0,
+          0,
+          0,
+          0,
+          5,
+          1
+        ],
+        "El Observatodo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "El Ovallino": [
+          0,
+          7,
+          0,
+          0,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          10,
+          0,
+          0,
+          2,
+          0
+        ],
+        "El Punitaquino": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "El Salamanquino": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          3
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          5
+        ],
+        "El Vicuñense": [
+          0,
+          0,
+          0,
+          18,
+          14,
+          34
+        ],
+        "El Vileño": [
+          0,
+          0,
+          0,
+          0,
+          17,
+          2
+        ],
+        "Elqui Global": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          39
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          21
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          8
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          18
+        ]
+      }
+    },
+    "ovalle": {
+      "medios": [
+        "Diario El Día — País",
+        "Diario El Día — Política",
+        "Diario El Día — Región",
+        "Diario La Región",
+        "El Combarbalino",
+        "El Comunal",
+        "El Coquimbano",
+        "El Montepatrino",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Punitaquino",
+        "El Serenense",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "Diario El Día — País": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          8
+        ],
+        "Diario El Día — Política": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          9
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          53,
+          126
+        ],
+        "Diario La Región": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "El Combarbalino": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          0
+        ],
+        "El Comunal": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "El Montepatrino": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "El Ovallino": [
+          0,
+          7,
+          0,
+          0,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "El Punitaquino": [
+          0,
+          0,
+          8,
+          1,
+          0,
+          4
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          17,
+          30
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          10
+        ]
+      }
+    },
+    "personas": {
+      "medios": [
+        "David Noticias",
+        "Diario El Día — País",
+        "Diario El Día — Política",
+        "Diario El Día — Región",
+        "Diario La Región",
+        "El Andacollino",
+        "El Canelino",
+        "El Combarbalino",
+        "El Comunal",
+        "El Coquimbano",
+        "El Hurtadino",
+        "El Illapelino",
+        "El Montepatrino",
+        "El Observatodo",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Punitaquino",
+        "El Salamanquino",
+        "El Serenense",
+        "El Vicuñense",
+        "El Vileño",
+        "Elqui Global",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "David Noticias": [
+          0,
+          0,
+          0,
+          0,
+          13,
+          3
+        ],
+        "Diario El Día — País": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          9
+        ],
+        "Diario El Día — Política": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          5,
+          22
+        ],
+        "Diario La Región": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          18
+        ],
+        "El Andacollino": [
+          0,
+          0,
+          0,
+          1,
+          2,
+          3
+        ],
+        "El Canelino": [
+          0,
+          0,
+          0,
+          1,
+          10,
+          0
+        ],
+        "El Combarbalino": [
+          3,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "El Comunal": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          18
+        ],
+        "El Hurtadino": [
+          0,
+          0,
+          0,
+          2,
+          3,
+          1
+        ],
+        "El Illapelino": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          2
+        ],
+        "El Montepatrino": [
+          0,
+          0,
+          0,
+          0,
+          13,
+          2
+        ],
+        "El Observatodo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "El Ovallino": [
+          0,
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          0,
+          2,
+          0,
+          2,
+          0
+        ],
+        "El Punitaquino": [
+          0,
+          0,
+          2,
+          1,
+          0,
+          0
+        ],
+        "El Salamanquino": [
+          0,
+          0,
+          0,
+          3,
+          1,
+          3
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          14
+        ],
+        "El Vicuñense": [
+          0,
+          0,
+          0,
+          8,
+          2,
+          4
+        ],
+        "El Vileño": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          3
+        ],
+        "Elqui Global": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          25
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          6
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          32
+        ]
+      }
+    },
+    "parte": {
+      "medios": [
+        "David Noticias",
+        "Diario El Día — País",
+        "Diario El Día — Política",
+        "Diario El Día — Región",
+        "Diario La Región",
+        "El Andacollino",
+        "El Canelino",
+        "El Combarbalino",
+        "El Comunal",
+        "El Coquimbano",
+        "El Hurtadino",
+        "El Illapelino",
+        "El Montepatrino",
+        "El Observatodo",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Punitaquino",
+        "El Salamanquino",
+        "El Serenense",
+        "El Vicuñense",
+        "El Vileño",
+        "Elqui Global",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "David Noticias": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          3
+        ],
+        "Diario El Día — País": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "Diario El Día — Política": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          12,
+          39
+        ],
+        "Diario La Región": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7
+        ],
+        "El Andacollino": [
+          0,
+          0,
+          0,
+          2,
+          3,
+          3
+        ],
+        "El Canelino": [
+          0,
+          0,
+          0,
+          1,
+          5,
+          2
+        ],
+        "El Combarbalino": [
+          3,
+          1,
+          0,
+          0,
+          6,
+          0
+        ],
+        "El Comunal": [
+          0,
+          0,
+          0,
+          0,
+          4,
+          6
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          11
+        ],
+        "El Hurtadino": [
+          0,
+          0,
+          0,
+          3,
+          0,
+          3
+        ],
+        "El Illapelino": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0
+        ],
+        "El Montepatrino": [
+          0,
+          0,
+          0,
+          2,
+          3,
+          4
+        ],
+        "El Observatodo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ],
+        "El Ovallino": [
+          0,
+          9,
+          0,
+          4,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          4,
+          8,
+          1,
+          1,
+          4
+        ],
+        "El Punitaquino": [
+          0,
+          0,
+          0,
+          2,
+          3,
+          0
+        ],
+        "El Salamanquino": [
+          0,
+          0,
+          0,
+          4,
+          1,
+          5
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          10
+        ],
+        "El Vicuñense": [
+          0,
+          0,
+          0,
+          4,
+          3,
+          5
+        ],
+        "El Vileño": [
+          0,
+          0,
+          0,
+          1,
+          5,
+          3
+        ],
+        "Elqui Global": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          10
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          4,
+          7
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          9
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          20
+        ]
+      }
+    },
+    "regional": {
+      "medios": [
+        "David Noticias",
+        "Diario El Día — Región",
+        "Diario La Región",
+        "El Andacollino",
+        "El Canelino",
+        "El Combarbalino",
+        "El Comunal",
+        "El Coquimbano",
+        "El Hurtadino",
+        "El Illapelino",
+        "El Montepatrino",
+        "El Observatodo",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Punitaquino",
+        "El Salamanquino",
+        "El Serenense",
+        "El Vicuñense",
+        "El Vileño",
+        "Elqui Global",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "David Noticias": [
+          0,
+          0,
+          0,
+          0,
+          10,
+          14
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          37,
+          57
+        ],
+        "Diario La Región": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          12
+        ],
+        "El Andacollino": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "El Canelino": [
+          0,
+          0,
+          0,
+          4,
+          0,
+          0
+        ],
+        "El Combarbalino": [
+          0,
+          1,
+          0,
+          0,
+          4,
+          0
+        ],
+        "El Comunal": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          2
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          5
+        ],
+        "El Hurtadino": [
+          0,
+          0,
+          0,
+          0,
+          4,
+          1
+        ],
+        "El Illapelino": [
+          0,
+          0,
+          0,
+          2,
+          2,
+          0
+        ],
+        "El Montepatrino": [
+          0,
+          0,
+          0,
+          2,
+          0,
+          4
+        ],
+        "El Observatodo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7
+        ],
+        "El Ovallino": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          0,
+          8,
+          2,
+          3,
+          1
+        ],
+        "El Punitaquino": [
+          0,
+          0,
+          5,
+          2,
+          0,
+          1
+        ],
+        "El Salamanquino": [
+          0,
+          0,
+          0,
+          0,
+          11,
+          0
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          15
+        ],
+        "El Vicuñense": [
+          0,
+          0,
+          0,
+          1,
+          7,
+          2
+        ],
+        "El Vileño": [
+          0,
+          0,
+          0,
+          0,
+          8,
+          3
+        ],
+        "Elqui Global": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          8
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          2
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ]
+      }
+    },
+    "serena": {
+      "medios": [
+        "Diario El Día — País",
+        "Diario El Día — Política",
+        "Diario El Día — Región",
+        "Diario La Región",
+        "El Andacollino",
+        "El Combarbalino",
+        "El Comunal",
+        "El Coquimbano",
+        "El Hurtadino",
+        "El Illapelino",
+        "El Montepatrino",
+        "El Observatodo",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Punitaquino",
+        "El Salamanquino",
+        "El Serenense",
+        "El Vicuñense",
+        "El Vileño",
+        "Elqui Global",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "Diario El Día — País": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "Diario El Día — Política": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          3
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          21,
+          53
+        ],
+        "Diario La Región": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ],
+        "El Andacollino": [
+          0,
+          0,
+          0,
+          0,
+          5,
+          0
+        ],
+        "El Combarbalino": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "El Comunal": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          1
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          0
+        ],
+        "El Hurtadino": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          2
+        ],
+        "El Illapelino": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "El Montepatrino": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "El Observatodo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7
+        ],
+        "El Ovallino": [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          0,
+          11,
+          1,
+          0,
+          1
+        ],
+        "El Punitaquino": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          3
+        ],
+        "El Salamanquino": [
+          0,
+          0,
+          0,
+          1,
+          2,
+          0
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          38
+        ],
+        "El Vicuñense": [
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        "El Vileño": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "Elqui Global": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          10
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          25
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          9
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          20
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ]
+      }
+    },
+    "trabajo": {
+      "medios": [
+        "David Noticias",
+        "Diario El Día — Región",
+        "Diario La Región",
+        "El Andacollino",
+        "El Canelino",
+        "El Combarbalino",
+        "El Comunal",
+        "El Coquimbano",
+        "El Hurtadino",
+        "El Illapelino",
+        "El Montepatrino",
+        "El Observatodo",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Punitaquino",
+        "El Salamanquino",
+        "El Serenense",
+        "El Vicuñense",
+        "El Vileño",
+        "Elqui Global",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "David Noticias": [
+          0,
+          0,
+          0,
+          0,
+          16,
+          4
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          7,
+          13
+        ],
+        "Diario La Región": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          8
+        ],
+        "El Andacollino": [
+          0,
+          0,
+          0,
+          0,
+          6,
+          0
+        ],
+        "El Canelino": [
+          0,
+          0,
+          1,
+          0,
+          7,
+          2
+        ],
+        "El Combarbalino": [
+          0,
+          3,
+          0,
+          0,
+          1,
+          0
+        ],
+        "El Comunal": [
+          0,
+          0,
+          0,
+          0,
+          13,
+          4
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          15
+        ],
+        "El Hurtadino": [
+          0,
+          0,
+          0,
+          6,
+          5,
+          2
+        ],
+        "El Illapelino": [
+          0,
+          0,
+          0,
+          2,
+          5,
+          1
+        ],
+        "El Montepatrino": [
+          0,
+          0,
+          0,
+          2,
+          2,
+          2
+        ],
+        "El Observatodo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          10
+        ],
+        "El Ovallino": [
+          0,
+          5,
+          0,
+          0,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          9,
+          4,
+          0,
+          3,
+          2
+        ],
+        "El Punitaquino": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          2
+        ],
+        "El Salamanquino": [
+          0,
+          0,
+          0,
+          3,
+          0,
+          5
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          9
+        ],
+        "El Vicuñense": [
+          0,
+          0,
+          0,
+          0,
+          4,
+          4
+        ],
+        "El Vileño": [
+          0,
+          0,
+          0,
+          0,
+          8,
+          2
+        ],
+        "Elqui Global": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          8
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          6,
+          4
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          9
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          13
+        ]
+      }
+    },
+    "además": {
+      "medios": [
+        "David Noticias",
+        "Diario El Día — País",
+        "Diario El Día — Política",
+        "Diario El Día — Región",
+        "Diario La Región",
+        "El Andacollino",
+        "El Canelino",
+        "El Combarbalino",
+        "El Comunal",
+        "El Coquimbano",
+        "El Hurtadino",
+        "El Illapelino",
+        "El Montepatrino",
+        "El Observatodo",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Punitaquino",
+        "El Salamanquino",
+        "El Serenense",
+        "El Vicuñense",
+        "El Vileño",
+        "Elqui Global",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "David Noticias": [
+          0,
+          0,
+          0,
+          0,
+          5,
+          1
+        ],
+        "Diario El Día — País": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Diario El Día — Política": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          10,
+          41
+        ],
+        "Diario La Región": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7
+        ],
+        "El Andacollino": [
+          0,
+          0,
+          0,
+          0,
+          6,
+          2
+        ],
+        "El Canelino": [
+          0,
+          0,
+          1,
+          1,
+          4,
+          0
+        ],
+        "El Combarbalino": [
+          2,
+          2,
+          1,
+          0,
+          2,
+          0
+        ],
+        "El Comunal": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          5
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          9
+        ],
+        "El Hurtadino": [
+          0,
+          0,
+          0,
+          2,
+          2,
+          2
+        ],
+        "El Illapelino": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          1
+        ],
+        "El Montepatrino": [
+          0,
+          0,
+          0,
+          1,
+          3,
+          3
+        ],
+        "El Observatodo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ],
+        "El Ovallino": [
+          0,
+          5,
+          0,
+          0,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          0,
+          3,
+          0,
+          2,
+          0
+        ],
+        "El Punitaquino": [
+          0,
+          0,
+          2,
+          1,
+          1,
+          1
+        ],
+        "El Salamanquino": [
+          0,
+          0,
+          0,
+          3,
+          1,
+          3
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          8
+        ],
+        "El Vicuñense": [
+          0,
+          0,
+          0,
+          3,
+          3,
+          4
+        ],
+        "El Vileño": [
+          0,
+          0,
+          0,
+          1,
+          5,
+          3
+        ],
+        "Elqui Global": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          7,
+          6
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          12
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          9
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          8
+        ]
+      }
+    },
+    "vecinos": {
+      "medios": [
+        "David Noticias",
+        "Diario El Día — País",
+        "Diario El Día — Política",
+        "Diario El Día — Región",
+        "Diario La Región",
+        "El Andacollino",
+        "El Canelino",
+        "El Combarbalino",
+        "El Comunal",
+        "El Coquimbano",
+        "El Hurtadino",
+        "El Illapelino",
+        "El Montepatrino",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Salamanquino",
+        "El Serenense",
+        "El Vicuñense",
+        "El Vileño",
+        "Elqui Global",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "David Noticias": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        "Diario El Día — País": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "Diario El Día — Política": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          4
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          29,
+          58
+        ],
+        "Diario La Región": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "El Andacollino": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          5
+        ],
+        "El Canelino": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "El Combarbalino": [
+          6,
+          1,
+          5,
+          0,
+          3,
+          0
+        ],
+        "El Comunal": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          5
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          4
+        ],
+        "El Hurtadino": [
+          0,
+          0,
+          0,
+          5,
+          2,
+          1
+        ],
+        "El Illapelino": [
+          0,
+          0,
+          0,
+          0,
+          7,
+          3
+        ],
+        "El Montepatrino": [
+          0,
+          0,
+          0,
+          4,
+          0,
+          9
+        ],
+        "El Ovallino": [
+          0,
+          12,
+          0,
+          0,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          5,
+          0,
+          0,
+          1,
+          2
+        ],
+        "El Salamanquino": [
+          0,
+          0,
+          0,
+          4,
+          0,
+          4
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "El Vicuñense": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          1
+        ],
+        "El Vileño": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          2
+        ],
+        "Elqui Global": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          5
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7
+        ]
+      }
+    },
+    "septiembre": {
+      "medios": [
+        "Diario El Día — País",
+        "Diario El Día — Política",
+        "Diario El Día — Región",
+        "Diario La Región",
+        "El Andacollino",
+        "El Combarbalino",
+        "El Comunal",
+        "El Coquimbano",
+        "El Hurtadino",
+        "El Montepatrino",
+        "El Observatodo",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Punitaquino",
+        "El Salamanquino",
+        "El Serenense",
+        "El Vicuñense",
+        "El Vileño",
+        "Elqui Global",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "Diario El Día — País": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          9
+        ],
+        "Diario El Día — Política": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          33
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          6,
+          40
+        ],
+        "Diario La Región": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          11
+        ],
+        "El Andacollino": [
+          0,
+          0,
+          0,
+          2,
+          3,
+          2
+        ],
+        "El Combarbalino": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "El Comunal": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          2
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "El Hurtadino": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "El Montepatrino": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          2
+        ],
+        "El Observatodo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          16
+        ],
+        "El Ovallino": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "El Punitaquino": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "El Salamanquino": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "El Vicuñense": [
+          0,
+          0,
+          0,
+          0,
+          7,
+          0
+        ],
+        "El Vileño": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          9
+        ],
+        "Elqui Global": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          9
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          9
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          10
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          20
+        ]
+      }
+    },
+    "comunidad": {
+      "medios": [
+        "David Noticias",
+        "Diario El Día — Región",
+        "Diario La Región",
+        "El Andacollino",
+        "El Canelino",
+        "El Combarbalino",
+        "El Comunal",
+        "El Coquimbano",
+        "El Hurtadino",
+        "El Illapelino",
+        "El Montepatrino",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Punitaquino",
+        "El Salamanquino",
+        "El Serenense",
+        "El Vicuñense",
+        "El Vileño",
+        "Elqui Global",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "David Noticias": [
+          0,
+          0,
+          0,
+          0,
+          7,
+          1
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          5,
+          20
+        ],
+        "Diario La Región": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "El Andacollino": [
+          0,
+          0,
+          0,
+          1,
+          10,
+          2
+        ],
+        "El Canelino": [
+          0,
+          0,
+          1,
+          0,
+          6,
+          1
+        ],
+        "El Combarbalino": [
+          4,
+          1,
+          3,
+          0,
+          3,
+          0
+        ],
+        "El Comunal": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          7
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          7
+        ],
+        "El Hurtadino": [
+          0,
+          0,
+          0,
+          2,
+          2,
+          4
+        ],
+        "El Illapelino": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          2
+        ],
+        "El Montepatrino": [
+          0,
+          0,
+          0,
+          5,
+          7,
+          4
+        ],
+        "El Ovallino": [
+          0,
+          6,
+          0,
+          0,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          5,
+          1,
+          0,
+          0,
+          0
+        ],
+        "El Punitaquino": [
+          0,
+          0,
+          0,
+          1,
+          3,
+          1
+        ],
+        "El Salamanquino": [
+          0,
+          0,
+          0,
+          3,
+          1,
+          3
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          11
+        ],
+        "El Vicuñense": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          11
+        ],
+        "El Vileño": [
+          0,
+          0,
+          0,
+          1,
+          6,
+          7
+        ],
+        "Elqui Global": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          16
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          1
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          13
+        ]
+      }
+    },
+    "sector": {
+      "medios": [
+        "David Noticias",
+        "Diario El Día — Política",
+        "Diario El Día — Región",
+        "Diario La Región",
+        "El Andacollino",
+        "El Canelino",
+        "El Combarbalino",
+        "El Comunal",
+        "El Coquimbano",
+        "El Hurtadino",
+        "El Illapelino",
+        "El Montepatrino",
+        "El Observatodo",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Punitaquino",
+        "El Salamanquino",
+        "El Serenense",
+        "El Vicuñense",
+        "El Vileño",
+        "Elqui Global",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "David Noticias": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        "Diario El Día — Política": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          18,
+          34
+        ],
+        "Diario La Región": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "El Andacollino": [
+          0,
+          0,
+          0,
+          0,
+          5,
+          7
+        ],
+        "El Canelino": [
+          0,
+          0,
+          0,
+          1,
+          5,
+          1
+        ],
+        "El Combarbalino": [
+          4,
+          3,
+          11,
+          0,
+          1,
+          0
+        ],
+        "El Comunal": [
+          0,
+          0,
+          0,
+          0,
+          5,
+          1
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          1
+        ],
+        "El Hurtadino": [
+          0,
+          0,
+          0,
+          5,
+          2,
+          3
+        ],
+        "El Illapelino": [
+          0,
+          0,
+          0,
+          0,
+          5,
+          0
+        ],
+        "El Montepatrino": [
+          0,
+          0,
+          0,
+          3,
+          2,
+          2
+        ],
+        "El Observatodo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "El Ovallino": [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          2,
+          2,
+          0,
+          0,
+          0
+        ],
+        "El Punitaquino": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ],
+        "El Salamanquino": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7
+        ],
+        "El Vicuñense": [
+          0,
+          0,
+          0,
+          0,
+          5,
+          1
+        ],
+        "El Vileño": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "Elqui Global": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          11
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          5,
+          1
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          10
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          10
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          8
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ]
+      }
+    },
+    "proceso": {
+      "medios": [
+        "David Noticias",
+        "Diario El Día — País",
+        "Diario El Día — Política",
+        "Diario El Día — Región",
+        "Diario La Región",
+        "El Andacollino",
+        "El Canelino",
+        "El Combarbalino",
+        "El Comunal",
+        "El Coquimbano",
+        "El Illapelino",
+        "El Montepatrino",
+        "El Observatodo",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Punitaquino",
+        "El Salamanquino",
+        "El Serenense",
+        "El Vicuñense",
+        "El Vileño",
+        "Elqui Global",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "David Noticias": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          2
+        ],
+        "Diario El Día — País": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Diario El Día — Política": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          25,
+          77
+        ],
+        "Diario La Región": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ],
+        "El Andacollino": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        "El Canelino": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          0
+        ],
+        "El Combarbalino": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "El Comunal": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          1
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "El Illapelino": [
+          0,
+          0,
+          0,
+          0,
+          4,
+          0
+        ],
+        "El Montepatrino": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          5
+        ],
+        "El Observatodo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ],
+        "El Ovallino": [
+          0,
+          7,
+          0,
+          0,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          0,
+          4,
+          0,
+          0,
+          0
+        ],
+        "El Punitaquino": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        "El Salamanquino": [
+          0,
+          0,
+          0,
+          3,
+          1,
+          2
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          8
+        ],
+        "El Vicuñense": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          3
+        ],
+        "El Vileño": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          0
+        ],
+        "Elqui Global": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          10
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      }
+    },
+    "atención": {
+      "medios": [
+        "Diario El Día — País",
+        "Diario El Día — Política",
+        "Diario El Día — Región",
+        "El Canelino",
+        "El Coquimbano",
+        "El Illapelino",
+        "El Montepatrino",
+        "El Observatodo",
+        "El Ovallino",
+        "El Paihuanino",
+        "El Punitaquino",
+        "El Salamanquino",
+        "El Serenense",
+        "El Vicuñense",
+        "El Vileño",
+        "Elqui Global",
+        "La Perla del Limarí",
+        "La Serena Online",
+        "Miradio",
+        "Radio Guayacán",
+        "Radio Monte Carlo"
+      ],
+      "serie": {
+        "Diario El Día — País": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "Diario El Día — Política": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          5
+        ],
+        "Diario El Día — Región": [
+          0,
+          0,
+          0,
+          0,
+          18,
+          69
+        ],
+        "El Canelino": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "El Coquimbano": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          6
+        ],
+        "El Illapelino": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          3
+        ],
+        "El Montepatrino": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "El Observatodo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          9
+        ],
+        "El Ovallino": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "El Paihuanino": [
+          0,
+          9,
+          0,
+          0,
+          0,
+          1
+        ],
+        "El Punitaquino": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        "El Salamanquino": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          4
+        ],
+        "El Serenense": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "El Vicuñense": [
+          0,
+          0,
+          0,
+          8,
+          2,
+          1
+        ],
+        "El Vileño": [
+          0,
+          0,
+          0,
+          0,
+          10,
+          1
+        ],
+        "Elqui Global": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ],
+        "La Perla del Limarí": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "La Serena Online": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          11
+        ],
+        "Miradio": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          11
+        ],
+        "Radio Guayacán": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          5
+        ],
+        "Radio Monte Carlo": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          5
+        ]
+      }
+    }
+  },
   "coocurrencia": {
     "nodos": [
-      {
-        "palabra": "último",
-        "n": 172
-      },
-      {
-        "palabra": "parte",
-        "n": 280
-      },
-      {
-        "palabra": "fortalecer",
-        "n": 177
-      },
-      {
-        "palabra": "vecinos",
-        "n": 228
-      },
-      {
-        "palabra": "señaló",
-        "n": 168
-      },
       {
         "palabra": "sector",
         "n": 208
@@ -4797,52 +8924,36 @@
         "n": 200
       },
       {
-        "palabra": "trabajo",
-        "n": 246
-      },
-      {
-        "palabra": "relacionados",
-        "n": 164
-      },
-      {
-        "palabra": "septiembre",
-        "n": 215
-      },
-      {
-        "palabra": "además",
-        "n": 230
-      },
-      {
-        "palabra": "regional",
-        "n": 267
-      },
-      {
-        "palabra": "tras",
-        "n": 189
-      },
-      {
-        "palabra": "actividad",
-        "n": 199
-      },
-      {
-        "palabra": "ovalle",
-        "n": 297
+        "palabra": "último",
+        "n": 172
       },
       {
         "palabra": "sectores",
         "n": 167
       },
       {
-        "palabra": "estudiantes",
-        "n": 172
+        "palabra": "además",
+        "n": 230
       },
       {
-        "palabra": "jornada",
+        "palabra": "señaló",
         "n": 168
+      },
+      {
+        "palabra": "septiembre",
+        "n": 215
       },
       {
         "palabra": "proceso",
         "n": 204
+      },
+      {
+        "palabra": "tras",
+        "n": 189
+      },
+      {
+        "palabra": "comunidad",
+        "n": 215
       },
       {
         "palabra": "personas",
@@ -4853,20 +8964,56 @@
         "n": 434
       },
       {
-        "palabra": "serena",
-        "n": 250
+        "palabra": "regional",
+        "n": 267
+      },
+      {
+        "palabra": "jornada",
+        "n": 168
+      },
+      {
+        "palabra": "relacionados",
+        "n": 164
+      },
+      {
+        "palabra": "fortalecer",
+        "n": 177
+      },
+      {
+        "palabra": "parte",
+        "n": 280
+      },
+      {
+        "palabra": "vecinos",
+        "n": 228
+      },
+      {
+        "palabra": "ovalle",
+        "n": 297
+      },
+      {
+        "palabra": "estudiantes",
+        "n": 172
+      },
+      {
+        "palabra": "actividad",
+        "n": 199
       },
       {
         "palabra": "mayor",
         "n": 196
       },
       {
+        "palabra": "trabajo",
+        "n": 246
+      },
+      {
         "palabra": "salud",
         "n": 347
       },
       {
-        "palabra": "comunidad",
-        "n": 215
+        "palabra": "serena",
+        "n": 250
       }
     ],
     "enlaces": [

@@ -155,6 +155,51 @@ def main():
         ],
     }
 
+    # --- nube por semana: no reutiliza las 15 "palabras seguidas" de la
+    # tendencia — cada semana tiene su propio top, para que la nube
+    # muestre lo que realmente dominó esa semana en particular ---
+    conteo_por_semana_todas: dict[str, Counter] = defaultdict(Counter)
+    for r in con_texto:
+        semana = _semana_iso(r["fecha"])
+        conteo_por_semana_todas[semana].update(tokenizar(r["texto_completo"]))
+
+    top_palabras_por_semana = {
+        s: [{"palabra": p, "n": n} for p, n in c.most_common(30)]
+        for s, c in conteo_por_semana_todas.items()
+    }
+
+    # --- tendencia por medio: de las mismas 15 palabras seguidas de la
+    # tendencia, su frecuencia semana a semana separada por medio —
+    # alimenta tanto el desglose por medio de una semana (barras
+    # apiladas) como el seguimiento de un concepto elegido comparando
+    # medios (ambos se pueden recortar de la misma matriz semana×medio) ---
+    conteo_semana_medio: dict[tuple[str, str], Counter] = defaultdict(Counter)
+    for r in con_texto:
+        semana = _semana_iso(r["fecha"])
+        tokens = tokenizar(r["texto_completo"])
+        clave = (semana, r["fuente"])
+        conteo_semana_medio[clave].update(t for t in tokens if t in palabras_seguidas)
+
+    tendencia_por_medio = {}
+    for palabra in palabras_seguidas:
+        medios_con_palabra = sorted(
+            {
+                medio
+                for (_s, medio), c in conteo_semana_medio.items()
+                if c.get(palabra, 0) > 0
+            }
+        )
+        tendencia_por_medio[palabra] = {
+            "medios": medios_con_palabra,
+            "serie": {
+                medio: [
+                    conteo_semana_medio.get((s, medio), Counter()).get(palabra, 0)
+                    for s in semanas_ordenadas
+                ]
+                for medio in medios_con_palabra
+            },
+        }
+
     # --- menciones por autoridad: nombre completo exacto (normalizado)
     # como substring del título+cuerpo — estricto a propósito, para no
     # repetir el problema ya conocido de nombres compuestos mal
@@ -204,7 +249,9 @@ def main():
     salida = {
         "top_palabras_por_medio": top_palabras_por_medio,
         "top_palabras_total": top_palabras_total,
+        "top_palabras_por_semana": top_palabras_por_semana,
         "tendencia": tendencia,
+        "tendencia_por_medio": tendencia_por_medio,
         "coocurrencia": coocurrencia,
         "menciones_por_autoridad": menciones_por_autoridad,
         "menciones_por_comuna": menciones_por_comuna,

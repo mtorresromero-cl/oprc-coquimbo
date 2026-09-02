@@ -5,7 +5,9 @@ import { autoridades, analisisPrensa, fotoAutoridad, nombreComuna } from '../../
 const {
 	top_palabras_por_medio,
 	top_palabras_total,
+	top_palabras_por_semana,
 	tendencia,
+	tendencia_por_medio,
 	coocurrencia,
 	menciones_por_autoridad,
 	menciones_por_comuna,
@@ -88,6 +90,93 @@ const lineasTendencia = palabrasGrafico.map((palabra, i) => {
 		puntos: valores.map((v, j) => ({ x: xForTendencia(j), y: yForTendencia(v), v })),
 	};
 });
+
+// --- "Comparar palabras": las 15 palabras seguidas, todas pre-dibujadas
+// y ocultas con checkboxes (mismo patrón que el filtro de comunas de
+// /herramientas/delincuencia/) — el usuario elige cuáles ver ---
+const SELECCION_COMPARAR_INICIAL = new Set(tendencia.palabras.slice(0, 3));
+const maxComparar = Math.max(1, ...tendencia.palabras.flatMap((p) => tendencia.serie[p] ?? []));
+const yForComparar = (v: number) => PAD_T + (1 - v / maxComparar) * PLOT_H;
+const EJE_Y_COMPARAR = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxComparar * f));
+const lineasComparar = tendencia.palabras.map((palabra, i) => {
+	const valores = tendencia.serie[palabra] ?? [];
+	return {
+		palabra,
+		color: COLORES_TENDENCIA[i % COLORES_TENDENCIA.length],
+		polyline: valores.map((v, j) => `${xForTendencia(j)},${yForComparar(v)}`).join(' '),
+		puntos: valores.map((v, j) => ({ x: xForTendencia(j), y: yForComparar(v), v })),
+	};
+});
+
+// --- "Por medio": agrupa cada palabra seguida en sus 5 medios más
+// activos + "Otros" (el resto sumado) — sin esto un gráfico con hasta
+// 27 medios por palabra sería ilegible, y no hay 27 colores distintos
+// que además se puedan reconocer de un vistazo ---
+const TOP_MEDIOS_N = 5;
+const COLOR_OTROS = '#94a3b8';
+function agruparPorMedio(palabra: string) {
+	const datos = tendencia_por_medio[palabra];
+	if (!datos) return { medios: [] as string[], serie: {} as Record<string, number[]> };
+	const totales = datos.medios
+		.map((m) => ({ medio: m, total: datos.serie[m].reduce((s, v) => s + v, 0) }))
+		.sort((a, b) => b.total - a.total);
+	const top = totales.slice(0, TOP_MEDIOS_N).map((x) => x.medio);
+	const resto = totales.slice(TOP_MEDIOS_N).map((x) => x.medio);
+	const serie: Record<string, number[]> = {};
+	for (const m of top) serie[m] = datos.serie[m];
+	if (resto.length > 0) {
+		serie['Otros'] = tendencia.semanas.map((_s, i) => resto.reduce((s, m) => s + datos.serie[m][i], 0));
+	}
+	return { medios: resto.length > 0 ? [...top, 'Otros'] : top, serie };
+}
+const porMedioAgrupado: Record<string, { medios: string[]; serie: Record<string, number[]> }> =
+	Object.fromEntries(tendencia.palabras.map((p) => [p, agruparPorMedio(p)]));
+
+// --- "Por medio" — vista A: barras apiladas de una semana elegida,
+// una barra por cada una de las 8 palabras del gráfico de tendencia ---
+const SEMANA_INICIAL = tendencia.semanas.length - 1; // la más reciente
+const barrasPorSemana = tendencia.semanas.map((_s, semanaIdx) =>
+	palabrasGrafico.map((palabra) => {
+		const { medios, serie } = porMedioAgrupado[palabra];
+		const total = medios.reduce((s, m) => s + (serie[m]?.[semanaIdx] ?? 0), 0);
+		return {
+			palabra,
+			total,
+			segmentos: medios.map((medio, i) => ({
+				medio,
+				n: serie[medio]?.[semanaIdx] ?? 0,
+				color: medio === 'Otros' ? COLOR_OTROS : COLORES_TENDENCIA[i % COLORES_TENDENCIA.length],
+			})),
+		};
+	})
+);
+const maxBarraPorSemana = Math.max(1, ...barrasPorSemana.flatMap((sem) => sem.map((b) => b.total)));
+
+// --- "Por medio" — vista B: un concepto elegido, una línea por medio
+// (top 5 + Otros) a través del tiempo. Cada palabra tiene su propia
+// escala Y (según su medio más activo) — se precomputan las 15 acá
+// mismo, junto con sus propios ticks del eje, y el cliente solo cambia
+// cuál grupo mostrar (sin recalcular nada) ---
+const porMedioPorPalabra = Object.fromEntries(
+	tendencia.palabras.map((palabra) => {
+		const { medios, serie } = porMedioAgrupado[palabra];
+		const maxLocal = Math.max(1, ...medios.flatMap((m) => serie[m] ?? []));
+		const yForLocal = (v: number) => PAD_T + (1 - v / maxLocal) * PLOT_H;
+		const ejeY = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxLocal * f));
+		return [
+			palabra,
+			{
+				ejeY: ejeY.map((v) => ({ v, y: yForLocal(v) })),
+				lineas: medios.map((medio, i) => ({
+					medio,
+					color: medio === 'Otros' ? COLOR_OTROS : COLORES_TENDENCIA[i % COLORES_TENDENCIA.length],
+					polyline: (serie[medio] ?? []).map((v, j) => `${xForTendencia(j)},${yForLocal(v)}`).join(' '),
+					puntos: (serie[medio] ?? []).map((v, j) => ({ x: xForTendencia(j), y: yForLocal(v), v })),
+				})),
+			},
+		];
+	})
+);
 ---
 
 <Layout
@@ -113,7 +202,7 @@ const lineasTendencia = palabrasGrafico.map((palabra, i) => {
 
 	<main class="mx-auto max-w-6xl px-6 py-10">
 		<div class="flex flex-wrap gap-2">
-			{['Menciones', 'Palabras más usadas', 'Tendencia', 'Red de palabras'].map((label, i) => (
+			{['Menciones', 'Palabras más usadas', 'Tendencia', 'Comparar palabras', 'Nube por semana', 'Por medio', 'Red de palabras'].map((label, i) => (
 				<button
 					type="button"
 					data-tab={i}
@@ -267,8 +356,162 @@ const lineasTendencia = palabrasGrafico.map((palabra, i) => {
 			</div>
 		</section>
 
-		<!-- Red de palabras -->
+		<!-- Comparar palabras -->
 		<section class="panel mt-8 hidden" data-panel="3">
+			<h2 class="text-xl font-semibold text-slate-900">Comparar palabras</h2>
+			<p class="mt-1 max-w-2xl text-sm text-slate-500">
+				Elige cuáles de las 15 palabras más usadas comparar — su frecuencia semana a semana, una
+				sobre la otra.
+			</p>
+			<div class="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+				{lineasComparar.map(({ palabra, color }) => (
+					<label class="flex cursor-pointer items-center gap-1.5 text-sm text-slate-700">
+						<input
+							type="checkbox"
+							class="check-comparar h-4 w-4 rounded border-slate-300"
+							style={`accent-color:${color}`}
+							data-palabra={palabra}
+							checked={SELECCION_COMPARAR_INICIAL.has(palabra)}
+						/>
+						{palabra}
+					</label>
+				))}
+			</div>
+			<div class="relative mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+				<svg viewBox={`0 0 ${CHART_W} ${CHART_H}`} class="w-full min-w-[560px]" id="grafico-comparar">
+					{EJE_Y_COMPARAR.map((v) => (
+						<g>
+							<line x1={PAD_L} x2={CHART_W - PAD_R} y1={yForComparar(v)} y2={yForComparar(v)} stroke="#e2e8f0" stroke-width="1" />
+							<text x={PAD_L - 8} y={yForComparar(v) + 4} text-anchor="end" font-size="11" fill="#64748b">{v}</text>
+						</g>
+					))}
+					{rangosSemana.map((r, i) => (
+						<text x={xForTendencia(i)} y={CHART_H - PAD_B + 18} text-anchor="middle" font-size="11" fill="#64748b">
+							{r.etiqueta}
+						</text>
+					))}
+					{lineasComparar.map(({ palabra, color, polyline, puntos }) => (
+						<g class="serie-comparar" data-palabra={palabra} style={SELECCION_COMPARAR_INICIAL.has(palabra) ? '' : 'display:none'}>
+							<polyline points={polyline} fill="none" stroke={color} stroke-width="2.5" />
+							{puntos.map((p) => (
+								<circle
+									class="punto-comparar"
+									cx={p.x}
+									cy={p.y}
+									r="4"
+									fill={color}
+									stroke="white"
+									stroke-width="1.5"
+									data-palabra={palabra}
+									data-valor={p.v}
+								/>
+							))}
+						</g>
+					))}
+				</svg>
+				<div
+					id="tooltip-comparar"
+					class="pointer-events-none absolute z-10 hidden max-w-[180px] rounded-md bg-slate-900 px-3 py-2 text-xs text-white shadow-lg"
+				></div>
+			</div>
+		</section>
+
+		<!-- Nube por semana -->
+		<section class="panel mt-8 hidden" data-panel="4">
+			<h2 class="text-xl font-semibold text-slate-900">Nube por semana</h2>
+			<p class="mt-1 max-w-2xl text-sm text-slate-500">
+				Las palabras más usadas de una semana específica — a diferencia de la pestaña anterior,
+				acá cada semana muestra sus propias palabras principales, no solo las 15 más usadas en
+				todo el período.
+			</p>
+			<select id="selector-semana-nube" class="mt-4 rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-700">
+				{rangosSemana.map((r, i) => (
+					<option value={tendencia.semanas[i]} selected={i === SEMANA_INICIAL}>
+						Semana del {r.etiqueta}
+					</option>
+				))}
+			</select>
+			<div class="relative mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+				<canvas id="nube-semana" class="block h-[420px] w-full"></canvas>
+				<div id="tooltip-nube-semana" class="pointer-events-none absolute z-10 hidden max-w-[14rem] rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs shadow-lg"></div>
+			</div>
+		</section>
+
+		<!-- Por medio -->
+		<section class="panel mt-8 hidden" data-panel="5">
+			<h2 class="text-xl font-semibold text-slate-900">Por medio</h2>
+			<p class="mt-1 max-w-2xl text-sm text-slate-500">
+				Qué medios usan más cada palabra — para ver diferencias de enfoque editorial entre ellos.
+				Se muestran los 5 medios más activos en cada palabra; el resto se agrupa en "Otros".
+			</p>
+
+			<h3 class="mt-8 text-base font-semibold text-slate-900">Top palabras de una semana, por medio</h3>
+			<select id="selector-semana-barras" class="mt-3 rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-700">
+				{rangosSemana.map((r, i) => (
+					<option value={i} selected={i === SEMANA_INICIAL}>
+						Semana del {r.etiqueta}
+					</option>
+				))}
+			</select>
+			<div class="mt-3 space-y-3 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+				{barrasPorSemana.map((barras, semanaIdx) => (
+					<div class="grupo-barras-semana" data-semana-idx={semanaIdx} style={semanaIdx === SEMANA_INICIAL ? '' : 'display:none'}>
+						<div class="space-y-3">
+							{barras.map((b) => (
+								<div>
+									<div class="flex items-baseline justify-between gap-3">
+										<span class="text-sm font-medium text-slate-700">{b.palabra}</span>
+										<span class="text-xs text-slate-400">{b.total} menciones</span>
+									</div>
+									<div class="mt-1 flex h-5 overflow-hidden rounded bg-slate-100">
+										{b.segmentos.filter((s) => s.n > 0).map((s) => (
+											<div
+												class="barra-segmento"
+												style={`width:${maxBarraPorSemana ? (s.n / maxBarraPorSemana) * 100 : 0}%;background-color:${s.color}`}
+												title={`${s.medio}: ${s.n}`}
+											></div>
+										))}
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
+
+			<h3 class="mt-10 text-base font-semibold text-slate-900">Un concepto, comparado entre medios</h3>
+			<select id="selector-palabra-medio" class="mt-3 rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-700">
+				{tendencia.palabras.map((p) => (
+					<option value={p}>{p}</option>
+				))}
+			</select>
+			<div class="relative mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+				<svg viewBox={`0 0 ${CHART_W} ${CHART_H}`} class="w-full min-w-[560px]" id="grafico-por-medio">
+					<g id="eje-y-por-medio">
+						{porMedioPorPalabra[tendencia.palabras[0]]?.ejeY.map(({ v, y }) => (
+							<g class="tick-y">
+								<line x1={PAD_L} x2={CHART_W - PAD_R} y1={y} y2={y} stroke="#e2e8f0" stroke-width="1" />
+								<text x={PAD_L - 8} y={y + 4} text-anchor="end" font-size="11" fill="#64748b">{v}</text>
+							</g>
+						))}
+					</g>
+					{rangosSemana.map((r, i) => (
+						<text x={xForTendencia(i)} y={CHART_H - PAD_B + 18} text-anchor="middle" font-size="11" fill="#64748b">
+							{r.etiqueta}
+						</text>
+					))}
+					<g id="lineas-por-medio"></g>
+				</svg>
+				<div
+					id="tooltip-por-medio"
+					class="pointer-events-none absolute z-10 hidden max-w-[180px] rounded-md bg-slate-900 px-3 py-2 text-xs text-white shadow-lg"
+				></div>
+			</div>
+			<div id="leyenda-por-medio" class="mt-3 flex flex-wrap gap-x-4 gap-y-1.5"></div>
+		</section>
+
+		<!-- Red de palabras -->
+		<section class="panel mt-8 hidden" data-panel="6">
 			<h2 class="text-xl font-semibold text-slate-900">Red de coocurrencia</h2>
 			<p class="mt-1 max-w-2xl text-sm text-slate-500">
 				Qué palabras aparecen juntas en una misma noticia. El tamaño del punto es la frecuencia
@@ -289,6 +532,8 @@ const lineasTendencia = palabrasGrafico.map((palabra, i) => {
 	</main>
 
 	<script type="application/json" id="palabras-data" set:html={JSON.stringify({ top_palabras_por_medio, top_palabras_total })} />
+	<script type="application/json" id="nube-semana-data" set:html={JSON.stringify(top_palabras_por_semana)} />
+	<script type="application/json" id="por-medio-data" set:html={JSON.stringify(porMedioPorPalabra)} />
 	<script type="application/json" id="coocurrencia-data" set:html={JSON.stringify(coocurrencia)} />
 
 	<script>
@@ -312,7 +557,8 @@ const lineasTendencia = palabrasGrafico.map((palabra, i) => {
 				// — hay que recalcular el layout recién cuando se hacen visibles,
 				// si no los nodos quedan todos amontonados en (0,0)
 				if (tab === '1') requestAnimationFrame(() => iniciarNubeSiHaceFalta());
-				if (tab === '3') requestAnimationFrame(() => iniciarRedSiHaceFalta());
+				if (tab === '4') requestAnimationFrame(() => iniciarNubeSemanaSiHaceFalta());
+				if (tab === '6') requestAnimationFrame(() => iniciarRedSiHaceFalta());
 			});
 		});
 
@@ -511,6 +757,265 @@ const lineasTendencia = palabrasGrafico.map((palabra, i) => {
 				punto.addEventListener('pointerleave', () => tooltipTendencia!.classList.add('hidden'));
 			});
 		}
+
+		// --- comparar palabras: checkboxes que muestran/ocultan las líneas
+		// ya pre-dibujadas (mismo patrón que el filtro de comunas de
+		// /herramientas/delincuencia/) + el mismo tipo de tooltip que arriba ---
+		document.querySelectorAll<HTMLInputElement>('.check-comparar').forEach((chk) => {
+			chk.addEventListener('change', () => {
+				document
+					.querySelectorAll<HTMLElement>(`.serie-comparar[data-palabra="${chk.dataset.palabra}"]`)
+					.forEach((el) => (el.style.display = chk.checked ? '' : 'none'));
+			});
+		});
+		const tooltipComparar = document.getElementById('tooltip-comparar');
+		const wrapperComparar = tooltipComparar?.parentElement;
+		if (tooltipComparar && wrapperComparar) {
+			function muestraTooltipComparar(punto: SVGCircleElement, clientX: number, clientY: number) {
+				const { palabra, valor } = punto.dataset;
+				tooltipComparar!.innerHTML = `<strong>${palabra}</strong><br>${valor} menciones esa semana`;
+				const rect = wrapperComparar!.getBoundingClientRect();
+				tooltipComparar!.style.left = `${clientX - rect.left + 12}px`;
+				tooltipComparar!.style.top = `${clientY - rect.top + 12}px`;
+				tooltipComparar!.classList.remove('hidden');
+			}
+			document.querySelectorAll<SVGCircleElement>('.punto-comparar').forEach((punto) => {
+				punto.addEventListener('pointerenter', (e) => muestraTooltipComparar(punto, e.clientX, e.clientY));
+				punto.addEventListener('pointermove', (e) => muestraTooltipComparar(punto, e.clientX, e.clientY));
+				punto.addEventListener('pointerleave', () => tooltipComparar!.classList.add('hidden'));
+			});
+		}
+
+		// --- nube por semana: misma mecánica que la nube de "Palabras más
+		// usadas", con su propio canvas y su propia data (top de cada
+		// semana, no las 15 palabras seguidas) ---
+		const nubeSemanaData: Record<string, PalabraFrecuencia[]> =
+			JSON.parse(document.getElementById('nube-semana-data')!.textContent!);
+
+		const canvasNubeSemana = document.getElementById('nube-semana') as HTMLCanvasElement;
+		const ctxNubeSemana = canvasNubeSemana.getContext('2d')!;
+		const tooltipNubeSemana = document.getElementById('tooltip-nube-semana')!;
+		const dprNubeSemana = Math.min(window.devicePixelRatio || 1, 2);
+		let anchoNubeSemana = 0, altoNubeSemana = 0;
+		let nodosNubeSemana: NodoNube[] = [];
+		let nodoActivoNubeSemana: NodoNube | null = null;
+
+		function construirNubeSemana(lista: PalabraFrecuencia[]) {
+			const top = lista.slice(0, 35);
+			const max = Math.max(...top.map((p) => p.n), 1);
+			ctxNubeSemana.save();
+			nodosNubeSemana = top.map((p, i) => {
+				const fontSize = 13 + (p.n / max) * 26;
+				ctxNubeSemana.font = `700 ${fontSize}px "Space Grotesk", sans-serif`;
+				const w = ctxNubeSemana.measureText(p.palabra).width + 10;
+				const h = fontSize + 8;
+				return {
+					palabra: p.palabra,
+					n: p.n,
+					x: Math.random() * Math.max(anchoNubeSemana - w, w) + w / 2,
+					y: Math.random() * Math.max(altoNubeSemana - h, h) + h / 2,
+					vx: (Math.random() - 0.5) * 0.3,
+					vy: (Math.random() - 0.5) * 0.3,
+					w, h, fontSize,
+					color: COLORES[i % COLORES.length],
+				};
+			});
+			ctxNubeSemana.restore();
+		}
+
+		function redimensionarNubeSemana() {
+			const rect = canvasNubeSemana.getBoundingClientRect();
+			anchoNubeSemana = rect.width;
+			altoNubeSemana = rect.height;
+			canvasNubeSemana.width = anchoNubeSemana * dprNubeSemana;
+			canvasNubeSemana.height = altoNubeSemana * dprNubeSemana;
+			ctxNubeSemana.setTransform(dprNubeSemana, 0, 0, dprNubeSemana, 0, 0);
+			const selectorSemana = document.getElementById('selector-semana-nube') as HTMLSelectElement;
+			construirNubeSemana(nubeSemanaData[selectorSemana.value] ?? []);
+		}
+
+		function pasoNubeSemana() {
+			for (const n of nodosNubeSemana) {
+				if (Math.random() < 0.01) {
+					n.vx += (Math.random() - 0.5) * 0.15;
+					n.vy += (Math.random() - 0.5) * 0.15;
+				}
+				const vel = Math.hypot(n.vx, n.vy);
+				if (vel > 0.4) { n.vx = (n.vx / vel) * 0.4; n.vy = (n.vy / vel) * 0.4; }
+				n.x += n.vx; n.y += n.vy;
+				if (n.x - n.w / 2 < 0 || n.x + n.w / 2 > anchoNubeSemana) n.vx *= -1;
+				if (n.y - n.h / 2 < 0 || n.y + n.h / 2 > altoNubeSemana) n.vy *= -1;
+				n.x = Math.max(n.w / 2, Math.min(anchoNubeSemana - n.w / 2, n.x));
+				n.y = Math.max(n.h / 2, Math.min(altoNubeSemana - n.h / 2, n.y));
+			}
+			for (let iter = 0; iter < 2; iter++) {
+				for (let i = 0; i < nodosNubeSemana.length; i++) {
+					for (let j = i + 1; j < nodosNubeSemana.length; j++) {
+						const a = nodosNubeSemana[i], b = nodosNubeSemana[j];
+						const dx = b.x - a.x, dy = b.y - a.y;
+						const solapaX = (a.w + b.w) / 2 + 6 - Math.abs(dx);
+						const solapaY = (a.h + b.h) / 2 + 4 - Math.abs(dy);
+						if (solapaX > 0 && solapaY > 0) {
+							if (solapaX < solapaY) {
+								const push = (solapaX / 2) * Math.sign(dx || 1);
+								a.x -= push; b.x += push;
+							} else {
+								const push = (solapaY / 2) * Math.sign(dy || 1);
+								a.y -= push; b.y += push;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		function dibujarNubeSemana() {
+			ctxNubeSemana.clearRect(0, 0, anchoNubeSemana, altoNubeSemana);
+			for (const n of nodosNubeSemana) {
+				const atenuado = nodoActivoNubeSemana && nodoActivoNubeSemana !== n;
+				ctxNubeSemana.globalAlpha = atenuado ? 0.35 : 1;
+				ctxNubeSemana.font = `700 ${n.fontSize}px "Space Grotesk", sans-serif`;
+				ctxNubeSemana.fillStyle = n.color;
+				ctxNubeSemana.textAlign = 'center';
+				ctxNubeSemana.textBaseline = 'middle';
+				ctxNubeSemana.fillText(n.palabra, n.x, n.y);
+			}
+			ctxNubeSemana.globalAlpha = 1;
+		}
+
+		function animarNubeSemana() {
+			pasoNubeSemana();
+			dibujarNubeSemana();
+			requestAnimationFrame(animarNubeSemana);
+		}
+
+		function nodoEnPosicionNubeSemana(px: number, py: number): NodoNube | null {
+			for (let i = nodosNubeSemana.length - 1; i >= 0; i--) {
+				const n = nodosNubeSemana[i];
+				if (Math.abs(px - n.x) <= n.w / 2 && Math.abs(py - n.y) <= n.h / 2) return n;
+			}
+			return null;
+		}
+
+		canvasNubeSemana.addEventListener('mousemove', (ev) => {
+			const rect = canvasNubeSemana.getBoundingClientRect();
+			const px = ev.clientX - rect.left, py = ev.clientY - rect.top;
+			const nodo = nodoEnPosicionNubeSemana(px, py);
+			nodoActivoNubeSemana = nodo;
+			if (nodo) {
+				tooltipNubeSemana.classList.remove('hidden');
+				tooltipNubeSemana.style.left = `${Math.min(px + 12, anchoNubeSemana - 160)}px`;
+				tooltipNubeSemana.style.top = `${py + 12}px`;
+				tooltipNubeSemana.innerHTML = `<p class="font-semibold text-slate-900">${nodo.palabra}</p><p class="mt-1 text-slate-500">${nodo.n} menciones</p>`;
+			} else {
+				tooltipNubeSemana.classList.add('hidden');
+			}
+		});
+		canvasNubeSemana.addEventListener('mouseleave', () => { nodoActivoNubeSemana = null; tooltipNubeSemana.classList.add('hidden'); });
+
+		let nubeSemanaIniciada = false;
+		function iniciarNubeSemanaSiHaceFalta() {
+			if (nubeSemanaIniciada) return;
+			nubeSemanaIniciada = true;
+			window.addEventListener('resize', redimensionarNubeSemana);
+			redimensionarNubeSemana();
+			animarNubeSemana();
+		}
+		document.getElementById('selector-semana-nube')!.addEventListener('change', (e) => {
+			construirNubeSemana(nubeSemanaData[(e.target as HTMLSelectElement).value] ?? []);
+		});
+
+		// --- por medio: vista A (barras apiladas por semana) — el
+		// selector solo muestra/oculta los grupos ya pre-dibujados ---
+		document.getElementById('selector-semana-barras')!.addEventListener('change', (e) => {
+			const idx = (e.target as HTMLSelectElement).value;
+			document.querySelectorAll<HTMLElement>('.grupo-barras-semana').forEach((el) => {
+				el.style.display = el.dataset.semanaIdx === idx ? '' : 'none';
+			});
+		});
+
+		// --- por medio: vista B (una palabra, una línea por medio) — acá
+		// sí se redibuja en el cliente porque cada palabra trae su propia
+		// escala Y (ver porMedioPorPalabra en el servidor) ---
+		const porMedioData: Record<
+			string,
+			{ ejeY: { v: number; y: number }[]; lineas: { medio: string; color: string; polyline: string; puntos: { x: number; y: number; v: number }[] }[] }
+		> = JSON.parse(document.getElementById('por-medio-data')!.textContent!);
+
+		const ejeYPorMedio = document.getElementById('eje-y-por-medio')!;
+		const gLineasPorMedio = document.getElementById('lineas-por-medio')!;
+		const leyendaPorMedio = document.getElementById('leyenda-por-medio')!;
+		const tooltipPorMedio = document.getElementById('tooltip-por-medio')!;
+		const wrapperPorMedio = tooltipPorMedio.parentElement!;
+
+		function muestraTooltipPorMedio(medio: string, valor: number, clientX: number, clientY: number) {
+			tooltipPorMedio.innerHTML = `<strong>${medio}</strong><br>${valor} menciones esa semana`;
+			const rect = wrapperPorMedio.getBoundingClientRect();
+			tooltipPorMedio.style.left = `${clientX - rect.left + 12}px`;
+			tooltipPorMedio.style.top = `${clientY - rect.top + 12}px`;
+			tooltipPorMedio.classList.remove('hidden');
+		}
+
+		// mismas medidas que el SVG del servidor (CHART_W/PAD_L/PAD_R en el
+		// frontmatter) — duplicadas acá porque este bloque sí redibuja en
+		// el cliente al cambiar de palabra, a diferencia del resto de los
+		// gráficos de esta página
+		const CHART_W_CLIENTE = 900;
+		const PAD_L_CLIENTE = 40;
+		const PAD_R_CLIENTE = 16;
+
+		function renderPorMedio(palabra: string) {
+			const datos = porMedioData[palabra];
+			if (!datos) return;
+
+			ejeYPorMedio.innerHTML = datos.ejeY
+				.map(
+					({ v, y }) => `<g class="tick-y">
+						<line x1="${PAD_L_CLIENTE}" x2="${CHART_W_CLIENTE - PAD_R_CLIENTE}" y1="${y}" y2="${y}" stroke="#e2e8f0" stroke-width="1" />
+						<text x="${PAD_L_CLIENTE - 8}" y="${y + 4}" text-anchor="end" font-size="11" fill="#64748b">${v}</text>
+					</g>`
+				)
+				.join('');
+
+			gLineasPorMedio.innerHTML = datos.lineas
+				.map(
+					({ medio, color, polyline, puntos }) => `
+					<g>
+						<polyline points="${polyline}" fill="none" stroke="${color}" stroke-width="2.5" />
+						${puntos
+							.map(
+								(p) =>
+									`<circle class="punto-por-medio" cx="${p.x}" cy="${p.y}" r="4" fill="${color}" stroke="white" stroke-width="1.5" data-medio="${medio}" data-valor="${p.v}" />`
+							)
+							.join('')}
+					</g>`
+				)
+				.join('');
+
+			leyendaPorMedio.innerHTML = datos.lineas
+				.map(
+					({ medio, color }) =>
+						`<span class="flex items-center gap-1.5 text-xs font-medium text-slate-600">
+							<span class="inline-block h-2.5 w-2.5 rounded-full" style="background-color:${color}"></span>
+							${medio}
+						</span>`
+				)
+				.join('');
+
+			gLineasPorMedio.querySelectorAll<SVGCircleElement>('.punto-por-medio').forEach((punto) => {
+				punto.addEventListener('pointerenter', (e) =>
+					muestraTooltipPorMedio(punto.dataset.medio!, Number(punto.dataset.valor), e.clientX, e.clientY)
+				);
+				punto.addEventListener('pointermove', (e) =>
+					muestraTooltipPorMedio(punto.dataset.medio!, Number(punto.dataset.valor), e.clientX, e.clientY)
+				);
+				punto.addEventListener('pointerleave', () => tooltipPorMedio.classList.add('hidden'));
+			});
+		}
+
+		const selectorPalabraMedio = document.getElementById('selector-palabra-medio') as HTMLSelectElement;
+		selectorPalabraMedio.addEventListener('change', () => renderPorMedio(selectorPalabraMedio.value));
+		renderPorMedio(selectorPalabraMedio.value);
 
 		// --- red de coocurrencia (canvas, fuerzas, zoom/pan) ---
 		interface Enlace { a: string; b: string; peso: number }

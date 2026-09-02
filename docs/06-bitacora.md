@@ -123,6 +123,32 @@ vía un workflow nuevo, o semanal junto con el resto?), y si vale la pena
 scrapear el archivo histórico de cada medio en vez de depender solo de
 lo que cada RSS trae disponible (~10 noticias recientes por fuente).
 
+**Corrección (mismo día): la Fase 4 NO estaba completa.** El usuario
+había propuesto 6 módulos concretos (tendencia en gráfico de líneas,
+comparar palabras elegidas, nube por semana, top palabras por semana
+por medio en barras apiladas, un concepto elegido en el tiempo por
+medio, co-ocurrencia) más "Menciones" como aporte propio del
+observatorio — 8 en total. La primera versión de `/herramientas/prensa/`
+solo tenía 4 pestañas y la de "Tendencia" era una matriz tipo
+heat-map, no el gráfico de líneas pedido. El usuario lo notó
+("no es lo que me habías propuesto... no muestra la tendencia de
+palabras en gráfico"). Se corrigió la tendencia a un SVG de líneas real
+(top-8 palabras, paleta fija de 8 colores, `lunesDeSemanaISO()` para
+mostrar rango de fechas real en vez de "Sem 31"). Más tarde el usuario
+volvió a pegar la lista completa de 6 módulos y preguntó directo "¿esto
+es lo propuesto, esta todo?" — autoevaluación honesta: faltaban 4 de 6
+(comparar palabras, nube por semana, barras por medio, concepto por
+medio en el tiempo). Se construyeron los 4 en `scrapers/analisis_prensa.py`
+(nuevos campos `top_palabras_por_semana` y `tendencia_por_medio`) y en
+`prensa.astro` (7 pestañas final: Menciones, Palabras más usadas,
+Tendencia, Comparar palabras, Nube por semana, Por medio, Red de
+palabras). "Por medio" tiene dos vistas: barras apiladas por semana
+(top-5 medios + "Otros" en gris, no un color por cada uno de los ~27
+medios) y el concepto elegido en el tiempo separado por medio (redibujo
+client-side porque cada palabra tiene su propia escala Y). Build
+verificado (210 páginas) y Playwright en las 7 pestañas sin errores de
+consola. **Ahora sí, completo: los 6 módulos de Bastián + Menciones.**
+
 ---
 
 ## 2026-09-02 — Nueva herramienta: Delincuencia (CEAD), bloqueado el scraping en vivo
