@@ -83,6 +83,30 @@ fecha exacto — se aplicó primero contra el texto ya guardado (sin
 volver a bajar nada de la red) para confirmar cobertura completa antes
 de dejarlo en el scraper para las próximas corridas.
 
+**Segundo bug de extracción, encontrado recién al correr la Fase 3
+(análisis):** "comunales" salía como la palabra #1 del corpus completo
+(2194 veces) y "interesar"/"hace"/"semanas" también aparecían con
+conteos absurdos. Causa: el selector genérico `<article>` de las 15
+fuentes de la Red Comunales incluye el widget "Te puede/podría
+interesar" (enlaces a otras noticias) Y el breadcrumb de categoría
+("Comunales"), repetidos varias veces dentro del mismo `<article>` —
+no es ruido de plantilla en una franja fija como el bug anterior, sino
+contenido de navegación mezclado con el cuerpo real. Se investigó el
+HTML crudo con el inspector (no adivinando) y se encontró que las 15
+fuentes comparten tema WordPress "MH Magazine / MVP", con el cuerpo
+real aislado en `id="mvp-content-body"` — mucho más preciso que
+`<article>`. Se agregó ese id como selector de máxima prioridad y se
+volvió a extraer las 150 filas de la Red Comunales (146 con éxito, 4
+fallos transitorios). Resultado: 130.324 → 84.071 palabras útiles en el
+corpus (~35% era ruido) y las palabras más frecuentes ahora son
+contenido real ("coquimbo", "salud", "vecinos", "comunidad"), no
+artefactos de plantilla.
+
+**Lección:** un conteo de palabras "demasiado alto para ser real" es la
+señal más clara de que queda ruido de extracción — vale la pena mirar
+el ranking de palabras más usadas como chequeo de calidad después de
+cada extracción nueva, no solo revisar una muestra de texto a mano.
+
 ---
 
 ## 2026-09-02 — Nueva herramienta: Delincuencia (CEAD), bloqueado el scraping en vivo

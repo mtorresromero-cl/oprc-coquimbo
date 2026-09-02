@@ -30,6 +30,12 @@ from bs4 import BeautifulSoup
 SLEEP_ENTRE_PETICIONES = 1.5
 LOTE_MAXIMO = 300  # por corrida, para no demorar horas de una sola vez
 
+# ids conocidos, en orden de precisión — se prueban antes que las clases
+# porque son más específicos (un id no se repite en la página)
+IDS_PRECISOS = [
+    "mvp-content-body",  # tema "MH Magazine/MVP" — las 15 fuentes de la Red Comunales
+]
+
 # clases conocidas, en orden de precisión — la primera que exista y
 # tenga contenido real gana, antes de caer al <article> genérico
 CLASES_PRECISAS = [
@@ -53,6 +59,9 @@ RUIDO = [
     re.compile(r"\nel\n.+?\n\|\n.+?\n\|\nAgregar [^\n]+\nPor\n[^\n]+\n"),
     re.compile(r"^Compartir$", re.IGNORECASE | re.MULTILINE),
     re.compile(r"^Agregar$", re.IGNORECASE | re.MULTILINE),
+    # widget "Te puede/podría interesar" (tema MH/MVP) — un enlace a otra
+    # noticia embebido dentro del propio cuerpo del artículo
+    re.compile(r"^Te (puede|podr[ií]a) interesar\n[^\n]+\n?", re.IGNORECASE | re.MULTILINE),
 ]
 
 
@@ -74,11 +83,18 @@ def extraer_texto(html: str) -> str | None:
     soup = BeautifulSoup(html, "html.parser")
     texto = None
 
-    for clase in CLASES_PRECISAS:
-        el = soup.find(class_=clase)
+    for id_ in IDS_PRECISOS:
+        el = soup.find(id=id_)
         if el and len(el.get_text(strip=True)) > 200:
             texto = el.get_text("\n", strip=True)
             break
+
+    if texto is None:
+        for clase in CLASES_PRECISAS:
+            el = soup.find(class_=clase)
+            if el and len(el.get_text(strip=True)) > 200:
+                texto = el.get_text("\n", strip=True)
+                break
 
     if texto is None:
         article = soup.find("article")
