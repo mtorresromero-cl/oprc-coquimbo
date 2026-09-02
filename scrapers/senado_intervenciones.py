@@ -93,11 +93,22 @@ def _fetch_intervencion(client, sesion_id: int, tag: int) -> dict | None:
         return None
 
 
+_PATRON_ORADOR = re.compile(
+    r"(El señor|La señora)\s+[A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ.\s]*?(?:\([^)]*\))?\s*\.-\s*"
+)
+
+
 def _limpiar_texto(texto: str | None) -> str | None:
     if not texto:
         return None
     texto = re.sub(r"<br\s*/?>", " ", texto)
     texto = re.sub(r"<[^>]+>", " ", texto)
+    # el texto crudo de senado.cl trae la etiqueta del orador incrustada
+    # ("El señor NÚÑEZ.- ..."), a veces repetida cuando hay intercambios
+    # dentro de la misma intervención — sin esto, el apellido del propio
+    # senador termina inflando su propio conteo de palabras más usadas,
+    # como si se nombrara a sí mismo en cada intervención
+    texto = _PATRON_ORADOR.sub("", texto)
     texto = re.sub(r"\s+", " ", texto).strip()
     return texto or None
 

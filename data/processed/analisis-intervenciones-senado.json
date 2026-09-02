@@ -2,10 +2,6 @@
   "top_palabras_por_autoridad": {
     "daniel-ignacio-nunez-arancibia-senador": [
       {
-        "palabra": "núñez",
-        "n": 96
-      },
-      {
         "palabra": "proyecto",
         "n": 67
       },
@@ -160,16 +156,16 @@
       {
         "palabra": "norma",
         "n": 24
+      },
+      {
+        "palabra": "pido",
+        "n": 23
       }
     ],
     "matias-walker-prieto-senador": [
       {
         "palabra": "proyecto",
         "n": 112
-      },
-      {
-        "palabra": "walker",
-        "n": 63
       },
       {
         "palabra": "gobierno",
@@ -322,6 +318,10 @@
       {
         "palabra": "ejecutivo",
         "n": 20
+      },
+      {
+        "palabra": "tener",
+        "n": 20
       }
     ],
     "sergio-alfredo-gahona-salazar-senador": [
@@ -332,10 +332,6 @@
       {
         "palabra": "ambiental",
         "n": 54
-      },
-      {
-        "palabra": "gahona",
-        "n": 36
       },
       {
         "palabra": "evaluación",
@@ -484,6 +480,10 @@
       {
         "palabra": "ambientales",
         "n": 10
+      },
+      {
+        "palabra": "manera",
+        "n": 9
       }
     ]
   },
@@ -499,10 +499,6 @@
     {
       "palabra": "gobierno",
       "n": 114
-    },
-    {
-      "palabra": "núñez",
-      "n": 113
     },
     {
       "palabra": "quiero",
@@ -547,10 +543,6 @@
     {
       "palabra": "país",
       "n": 68
-    },
-    {
-      "palabra": "walker",
-      "n": 67
     },
     {
       "palabra": "ejecutivo",
@@ -649,10 +641,6 @@
       "n": 46
     },
     {
-      "palabra": "gahona",
-      "n": 46
-    },
-    {
       "palabra": "trabajo",
       "n": 46
     },
@@ -727,6 +715,18 @@
     {
       "palabra": "informe",
       "n": 37
+    },
+    {
+      "palabra": "tiempo",
+      "n": 37
+    },
+    {
+      "palabra": "además",
+      "n": 36
+    },
+    {
+      "palabra": "tres",
+      "n": 36
     }
   ],
   "tendencia": {
@@ -742,7 +742,6 @@
       "proyecto",
       "comisión",
       "gobierno",
-      "núñez",
       "quiero",
       "entonces",
       "chile",
@@ -753,7 +752,8 @@
       "sistema",
       "decir",
       "ciento",
-      "país"
+      "país",
+      "ejecutivo"
     ],
     "serie": {
       "proyecto": [
@@ -779,14 +779,6 @@
         44,
         26,
         11
-      ],
-      "núñez": [
-        13,
-        17,
-        21,
-        31,
-        26,
-        5
       ],
       "quiero": [
         5,
@@ -875,122 +867,130 @@
         21,
         6,
         2
+      ],
+      "ejecutivo": [
+        3,
+        17,
+        15,
+        11,
+        15,
+        5
       ]
     }
   },
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "decir",
-        "n": 72
-      },
-      {
-        "palabra": "ambiental",
-        "n": 57
-      },
-      {
-        "palabra": "acuerdo",
-        "n": 64
-      },
-      {
-        "palabra": "ciento",
-        "n": 70
+        "palabra": "sino",
+        "n": 82
       },
       {
         "palabra": "gobierno",
         "n": 114
       },
       {
-        "palabra": "seguridad",
-        "n": 60
-      },
-      {
-        "palabra": "sino",
-        "n": 82
-      },
-      {
-        "palabra": "walker",
-        "n": 67
-      },
-      {
-        "palabra": "país",
-        "n": 68
-      },
-      {
-        "palabra": "quiero",
-        "n": 108
-      },
-      {
-        "palabra": "sistema",
-        "n": 75
+        "palabra": "vamos",
+        "n": 61
       },
       {
         "palabra": "importante",
         "n": 57
       },
       {
-        "palabra": "coquimbo",
-        "n": 79
+        "palabra": "quiero",
+        "n": 108
       },
       {
-        "palabra": "ahora",
-        "n": 56
+        "palabra": "puede",
+        "n": 87
       },
       {
-        "palabra": "entonces",
-        "n": 105
-      },
-      {
-        "palabra": "comisión",
-        "n": 133
-      },
-      {
-        "palabra": "ejecutivo",
-        "n": 66
-      },
-      {
-        "palabra": "materia",
-        "n": 56
-      },
-      {
-        "palabra": "proyecto",
-        "n": 234
-      },
-      {
-        "palabra": "vamos",
-        "n": 61
-      },
-      {
-        "palabra": "región",
-        "n": 91
-      },
-      {
-        "palabra": "chile",
-        "n": 105
-      },
-      {
-        "palabra": "núñez",
-        "n": 113
+        "palabra": "sistema",
+        "n": 75
       },
       {
         "palabra": "forma",
         "n": 58
       },
       {
-        "palabra": "puede",
-        "n": 87
+        "palabra": "creo",
+        "n": 55
+      },
+      {
+        "palabra": "proyecto",
+        "n": 234
+      },
+      {
+        "palabra": "chile",
+        "n": 105
+      },
+      {
+        "palabra": "ambiental",
+        "n": 57
+      },
+      {
+        "palabra": "país",
+        "n": 68
+      },
+      {
+        "palabra": "materia",
+        "n": 56
+      },
+      {
+        "palabra": "decir",
+        "n": 72
+      },
+      {
+        "palabra": "ahora",
+        "n": 56
+      },
+      {
+        "palabra": "nacional",
+        "n": 56
+      },
+      {
+        "palabra": "ejecutivo",
+        "n": 66
+      },
+      {
+        "palabra": "acuerdo",
+        "n": 64
+      },
+      {
+        "palabra": "región",
+        "n": 91
+      },
+      {
+        "palabra": "coquimbo",
+        "n": 79
+      },
+      {
+        "palabra": "entonces",
+        "n": 105
+      },
+      {
+        "palabra": "ciento",
+        "n": 70
+      },
+      {
+        "palabra": "seguridad",
+        "n": 60
+      },
+      {
+        "palabra": "comisión",
+        "n": 133
       }
     ],
     "enlaces": [
       {
         "a": "ahora",
-        "b": "materia",
+        "b": "creo",
         "peso": 15
       },
       {
         "a": "ahora",
-        "b": "núñez",
-        "peso": 23
+        "b": "materia",
+        "peso": 15
       },
       {
         "a": "ahora",
@@ -1013,9 +1013,29 @@
         "peso": 17
       },
       {
-        "a": "materia",
-        "b": "núñez",
+        "a": "creo",
+        "b": "materia",
         "peso": 15
+      },
+      {
+        "a": "creo",
+        "b": "proyecto",
+        "peso": 29
+      },
+      {
+        "a": "creo",
+        "b": "puede",
+        "peso": 21
+      },
+      {
+        "a": "creo",
+        "b": "quiero",
+        "peso": 23
+      },
+      {
+        "a": "creo",
+        "b": "sino",
+        "peso": 20
       },
       {
         "a": "materia",
@@ -1036,26 +1056,6 @@
         "a": "materia",
         "b": "sino",
         "peso": 23
-      },
-      {
-        "a": "núñez",
-        "b": "proyecto",
-        "peso": 38
-      },
-      {
-        "a": "núñez",
-        "b": "puede",
-        "peso": 35
-      },
-      {
-        "a": "núñez",
-        "b": "quiero",
-        "peso": 33
-      },
-      {
-        "a": "núñez",
-        "b": "sino",
-        "peso": 19
       },
       {
         "a": "proyecto",
@@ -1094,11 +1094,6 @@
       },
       {
         "a": "comisión",
-        "b": "núñez",
-        "peso": 34
-      },
-      {
-        "a": "comisión",
         "b": "país",
         "peso": 20
       },
@@ -1126,16 +1121,6 @@
         "a": "comisión",
         "b": "sistema",
         "peso": 19
-      },
-      {
-        "a": "comisión",
-        "b": "walker",
-        "peso": 21
-      },
-      {
-        "a": "coquimbo",
-        "b": "núñez",
-        "peso": 22
       },
       {
         "a": "coquimbo",
@@ -1168,26 +1153,6 @@
         "peso": 9
       },
       {
-        "a": "coquimbo",
-        "b": "walker",
-        "peso": 16
-      },
-      {
-        "a": "núñez",
-        "b": "país",
-        "peso": 16
-      },
-      {
-        "a": "núñez",
-        "b": "sistema",
-        "peso": 14
-      },
-      {
-        "a": "núñez",
-        "b": "walker",
-        "peso": 12
-      },
-      {
         "a": "país",
         "b": "proyecto",
         "peso": 31
@@ -1213,19 +1178,9 @@
         "peso": 16
       },
       {
-        "a": "país",
-        "b": "walker",
-        "peso": 20
-      },
-      {
         "a": "proyecto",
         "b": "sistema",
         "peso": 32
-      },
-      {
-        "a": "proyecto",
-        "b": "walker",
-        "peso": 36
       },
       {
         "a": "puede",
@@ -1233,34 +1188,14 @@
         "peso": 19
       },
       {
-        "a": "puede",
-        "b": "walker",
-        "peso": 16
-      },
-      {
         "a": "quiero",
         "b": "sistema",
         "peso": 16
-      },
-      {
-        "a": "quiero",
-        "b": "walker",
-        "peso": 31
       },
       {
         "a": "sino",
         "b": "sistema",
         "peso": 18
-      },
-      {
-        "a": "sino",
-        "b": "walker",
-        "peso": 23
-      },
-      {
-        "a": "sistema",
-        "b": "walker",
-        "peso": 14
       },
       {
         "a": "ahora",
@@ -1276,11 +1211,6 @@
         "a": "comisión",
         "b": "vamos",
         "peso": 21
-      },
-      {
-        "a": "núñez",
-        "b": "vamos",
-        "peso": 20
       },
       {
         "a": "proyecto",
@@ -1323,9 +1253,9 @@
         "peso": 7
       },
       {
-        "a": "ahora",
-        "b": "walker",
-        "peso": 13
+        "a": "comisión",
+        "b": "creo",
+        "peso": 21
       },
       {
         "a": "comisión",
@@ -1351,6 +1281,36 @@
         "a": "comisión",
         "b": "seguridad",
         "peso": 16
+      },
+      {
+        "a": "creo",
+        "b": "ejecutivo",
+        "peso": 15
+      },
+      {
+        "a": "creo",
+        "b": "forma",
+        "peso": 17
+      },
+      {
+        "a": "creo",
+        "b": "gobierno",
+        "peso": 16
+      },
+      {
+        "a": "creo",
+        "b": "país",
+        "peso": 13
+      },
+      {
+        "a": "creo",
+        "b": "región",
+        "peso": 12
+      },
+      {
+        "a": "creo",
+        "b": "seguridad",
+        "peso": 10
       },
       {
         "a": "ejecutivo",
@@ -1388,11 +1348,6 @@
         "peso": 16
       },
       {
-        "a": "ejecutivo",
-        "b": "walker",
-        "peso": 11
-      },
-      {
         "a": "forma",
         "b": "gobierno",
         "peso": 16
@@ -1421,11 +1376,6 @@
         "a": "forma",
         "b": "sino",
         "peso": 19
-      },
-      {
-        "a": "forma",
-        "b": "walker",
-        "peso": 7
       },
       {
         "a": "gobierno",
@@ -1451,11 +1401,6 @@
         "a": "gobierno",
         "b": "sino",
         "peso": 27
-      },
-      {
-        "a": "gobierno",
-        "b": "walker",
-        "peso": 26
       },
       {
         "a": "país",
@@ -1488,19 +1433,14 @@
         "peso": 18
       },
       {
-        "a": "región",
-        "b": "walker",
-        "peso": 18
-      },
-      {
         "a": "seguridad",
         "b": "sino",
         "peso": 13
       },
       {
-        "a": "seguridad",
-        "b": "walker",
-        "peso": 13
+        "a": "coquimbo",
+        "b": "creo",
+        "peso": 12
       },
       {
         "a": "coquimbo",
@@ -1518,14 +1458,19 @@
         "peso": 27
       },
       {
-        "a": "entonces",
+        "a": "creo",
+        "b": "entonces",
+        "peso": 27
+      },
+      {
+        "a": "creo",
         "b": "importante",
-        "peso": 28
+        "peso": 20
       },
       {
         "a": "entonces",
-        "b": "núñez",
-        "peso": 46
+        "b": "importante",
+        "peso": 28
       },
       {
         "a": "entonces",
@@ -1548,16 +1493,6 @@
         "peso": 22
       },
       {
-        "a": "entonces",
-        "b": "walker",
-        "peso": 20
-      },
-      {
-        "a": "importante",
-        "b": "núñez",
-        "peso": 22
-      },
-      {
         "a": "importante",
         "b": "proyecto",
         "peso": 33
@@ -1576,16 +1511,6 @@
         "a": "importante",
         "b": "región",
         "peso": 15
-      },
-      {
-        "a": "importante",
-        "b": "walker",
-        "peso": 17
-      },
-      {
-        "a": "núñez",
-        "b": "región",
-        "peso": 17
       },
       {
         "a": "puede",
@@ -1649,6 +1574,11 @@
       },
       {
         "a": "chile",
+        "b": "creo",
+        "peso": 12
+      },
+      {
+        "a": "chile",
         "b": "decir",
         "peso": 25
       },
@@ -1676,11 +1606,6 @@
         "a": "chile",
         "b": "importante",
         "peso": 18
-      },
-      {
-        "a": "chile",
-        "b": "núñez",
-        "peso": 26
       },
       {
         "a": "chile",
@@ -1729,6 +1654,11 @@
       },
       {
         "a": "ciento",
+        "b": "creo",
+        "peso": 8
+      },
+      {
+        "a": "ciento",
         "b": "decir",
         "peso": 15
       },
@@ -1756,11 +1686,6 @@
         "a": "ciento",
         "b": "importante",
         "peso": 10
-      },
-      {
-        "a": "ciento",
-        "b": "núñez",
-        "peso": 14
       },
       {
         "a": "ciento",
@@ -1838,6 +1763,21 @@
         "peso": 11
       },
       {
+        "a": "creo",
+        "b": "decir",
+        "peso": 18
+      },
+      {
+        "a": "creo",
+        "b": "sistema",
+        "peso": 10
+      },
+      {
+        "a": "creo",
+        "b": "vamos",
+        "peso": 13
+      },
+      {
         "a": "decir",
         "b": "ejecutivo",
         "peso": 12
@@ -1861,11 +1801,6 @@
         "a": "decir",
         "b": "importante",
         "peso": 17
-      },
-      {
-        "a": "decir",
-        "b": "núñez",
-        "peso": 27
       },
       {
         "a": "decir",
@@ -1911,11 +1846,6 @@
         "a": "ejecutivo",
         "b": "importante",
         "peso": 16
-      },
-      {
-        "a": "ejecutivo",
-        "b": "núñez",
-        "peso": 20
       },
       {
         "a": "ejecutivo",
@@ -1969,11 +1899,6 @@
       },
       {
         "a": "forma",
-        "b": "núñez",
-        "peso": 19
-      },
-      {
-        "a": "forma",
         "b": "puede",
         "peso": 18
       },
@@ -1996,11 +1921,6 @@
         "a": "gobierno",
         "b": "importante",
         "peso": 21
-      },
-      {
-        "a": "gobierno",
-        "b": "núñez",
-        "peso": 25
       },
       {
         "a": "gobierno",
@@ -2084,6 +2004,11 @@
       },
       {
         "a": "ambiental",
+        "b": "nacional",
+        "peso": 3
+      },
+      {
+        "a": "ambiental",
         "b": "país",
         "peso": 4
       },
@@ -2114,13 +2039,58 @@
       },
       {
         "a": "chile",
+        "b": "nacional",
+        "peso": 11
+      },
+      {
+        "a": "chile",
         "b": "sino",
         "peso": 21
       },
       {
-        "a": "chile",
-        "b": "walker",
-        "peso": 17
+        "a": "coquimbo",
+        "b": "nacional",
+        "peso": 10
+      },
+      {
+        "a": "gobierno",
+        "b": "nacional",
+        "peso": 16
+      },
+      {
+        "a": "nacional",
+        "b": "país",
+        "peso": 18
+      },
+      {
+        "a": "nacional",
+        "b": "proyecto",
+        "peso": 27
+      },
+      {
+        "a": "nacional",
+        "b": "quiero",
+        "peso": 20
+      },
+      {
+        "a": "nacional",
+        "b": "región",
+        "peso": 11
+      },
+      {
+        "a": "nacional",
+        "b": "sino",
+        "peso": 19
+      },
+      {
+        "a": "nacional",
+        "b": "sistema",
+        "peso": 12
+      },
+      {
+        "a": "entonces",
+        "b": "nacional",
+        "peso": 15
       },
       {
         "a": "entonces",
@@ -2131,6 +2101,11 @@
         "a": "ahora",
         "b": "ambiental",
         "peso": 2
+      },
+      {
+        "a": "ahora",
+        "b": "nacional",
+        "peso": 11
       },
       {
         "a": "ambiental",
@@ -2163,14 +2138,29 @@
         "peso": 7
       },
       {
+        "a": "ejecutivo",
+        "b": "nacional",
+        "peso": 9
+      },
+      {
         "a": "importante",
         "b": "materia",
         "peso": 15
       },
       {
         "a": "importante",
+        "b": "nacional",
+        "peso": 14
+      },
+      {
+        "a": "importante",
         "b": "sino",
         "peso": 23
+      },
+      {
+        "a": "materia",
+        "b": "nacional",
+        "peso": 16
       },
       {
         "a": "materia",
@@ -2188,6 +2178,11 @@
         "peso": 11
       },
       {
+        "a": "nacional",
+        "b": "puede",
+        "peso": 14
+      },
+      {
         "a": "acuerdo",
         "b": "ahora",
         "peso": 13
@@ -2199,8 +2194,8 @@
       },
       {
         "a": "acuerdo",
-        "b": "núñez",
-        "peso": 17
+        "b": "nacional",
+        "peso": 12
       },
       {
         "a": "acuerdo",
@@ -2223,9 +2218,19 @@
         "peso": 13
       },
       {
-        "a": "núñez",
+        "a": "comisión",
+        "b": "nacional",
+        "peso": 17
+      },
+      {
+        "a": "nacional",
         "b": "seguridad",
-        "peso": 6
+        "peso": 11
+      },
+      {
+        "a": "nacional",
+        "b": "vamos",
+        "peso": 10
       },
       {
         "a": "puede",
@@ -2339,13 +2344,13 @@
       },
       {
         "a": "ciento",
-        "b": "sino",
-        "peso": 12
+        "b": "nacional",
+        "peso": 8
       },
       {
         "a": "ciento",
-        "b": "walker",
-        "peso": 11
+        "b": "sino",
+        "peso": 12
       },
       {
         "a": "decir",
@@ -2354,17 +2359,12 @@
       },
       {
         "a": "decir",
-        "b": "sino",
-        "peso": 19
+        "b": "nacional",
+        "peso": 10
       },
       {
         "a": "decir",
-        "b": "walker",
-        "peso": 15
-      },
-      {
-        "a": "materia",
-        "b": "walker",
+        "b": "sino",
         "peso": 19
       },
       {
@@ -2381,11 +2381,6 @@
         "a": "acuerdo",
         "b": "país",
         "peso": 11
-      },
-      {
-        "a": "acuerdo",
-        "b": "walker",
-        "peso": 20
       },
       {
         "a": "gobierno",
@@ -2413,11 +2408,6 @@
         "peso": 12
       },
       {
-        "a": "vamos",
-        "b": "walker",
-        "peso": 14
-      },
-      {
         "a": "acuerdo",
         "b": "decir",
         "peso": 12
@@ -2428,8 +2418,23 @@
         "peso": 12
       },
       {
+        "a": "creo",
+        "b": "nacional",
+        "peso": 9
+      },
+      {
+        "a": "forma",
+        "b": "nacional",
+        "peso": 6
+      },
+      {
         "a": "chile",
         "b": "seguridad",
+        "peso": 7
+      },
+      {
+        "a": "acuerdo",
+        "b": "creo",
         "peso": 7
       },
       {
@@ -2483,5 +2488,5 @@
   },
   "total_intervenciones": 126,
   "total_con_texto": 126,
-  "total_palabras_corpus": 24288
+  "total_palabras_corpus": 24029
 }
