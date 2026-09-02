@@ -49,6 +49,15 @@ bookmark/historial viejo, el navegador ya tenía cacheado un redirect a
 agregan `www.` automáticamente en algunos casos — nunca llegaba a
 intentar conectarse al dominio roto.
 
+**Corrección importante — esto ya se lo habían dicho a Claude antes:**
+el usuario ya había indicado en una sesión anterior que había que usar
+`www.camara.cl`, y esa indicación se perdió (mismo patrón que
+quieneseljefe.cl y la solución de curl_cffi de `gasto_parlamentario.py`
+— información real que el usuario ya había dado, no recordada por no
+estar escrita en ningún lado). No fue un hallazgo nuevo de esta sesión:
+fue redescubrir, con casi un día completo de investigación de más, algo
+que ya se sabía. Motivo de más para el hábito de esta bitácora.
+
 **Lección para la próxima vez:** cuando algo falla igual desde todo
 entorno posible (sandbox, CI, red residencial) pero funciona en el
 navegador, antes de sospechar de fingerprinting/bloqueos exóticos,
