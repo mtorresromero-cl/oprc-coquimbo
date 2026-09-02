@@ -1,12 +1,19 @@
-"""Análisis de texto de las intervenciones en sala de los 7 diputados de la
-región: palabras más usadas, tendencia mensual, coocurrencia. Consume
-data/processed/intervenciones-sala.json (scrapers/intervenciones_sala.py) y
-genera data/processed/analisis-intervenciones.json — no vuelve a tocar la
-red, es puro procesamiento de texto sobre lo ya guardado.
+"""Análisis de texto de las intervenciones en sala de los parlamentarios de
+la región: palabras más usadas, tendencia mensual, coocurrencia. Mismo
+análisis para diputados (data/processed/intervenciones-sala.json, de
+scrapers/intervenciones_sala.py) y para senadores
+(data/processed/intervenciones-sala-senado.json, de
+scrapers/senado_intervenciones.py) — no vuelve a tocar la red, es puro
+procesamiento de texto sobre lo ya guardado.
+
+Uso:
+    python scrapers/analisis_intervenciones.py                    # diputados (por defecto)
+    python scrapers/analisis_intervenciones.py --senado            # senadores
 """
 
 import json
 import re
+import sys
 import unicodedata
 from collections import Counter, defaultdict
 from itertools import combinations
@@ -51,9 +58,9 @@ segun bajo cabe hacia mediante durante mientras aunque pues pese vez veces respe
 # aquí serían solo ruido protocolar en cada intervención sin excepción
 STOPWORDS_SALA = set("""
 señor señora señorita presidente presidenta diputado diputada diputados diputadas
-honorable camara gracias aplausos favor votos abstenciones colegas colega ministro
-ministra secretario general votar votacion sala tiene palabra ofrezco muchas gran
-dicho
+senador senadora senadores senadoras honorable camara senado gracias aplausos favor
+votos abstenciones colegas colega ministro ministra secretario general votar
+votacion sala tiene palabra ofrezco muchas gran dicho
 """.split())
 
 TODAS_STOPWORDS = STOPWORDS | STOPWORDS_SALA
@@ -77,7 +84,7 @@ def tokenizar(texto: str) -> list[str]:
 
 
 def parsear_fecha(etiqueta: str) -> tuple[int, int] | None:
-    """'31ª, martes 9 junio 2026' -> (2026, 6)"""
+    """'31ª, martes 9 junio 2026' -> (2026, 6) — formato de camara.cl."""
     m = re.search(r"(\d{1,2})\s+(\w+)\s+(\d{4})", etiqueta)
     if not m:
         return None
@@ -87,8 +94,26 @@ def parsear_fecha(etiqueta: str) -> tuple[int, int] | None:
     return int(m.group(3)), mes
 
 
+def _fecha_del_registro(r: dict) -> tuple[int, int] | None:
+    """senado.cl guarda una fecha dd/mm/aaaa aparte (más simple y sin
+    ambigüedad); camara.cl solo trae la etiqueta de sesión en texto."""
+    if r.get("fecha"):
+        try:
+            d, m, a = (int(x) for x in r["fecha"].split("/"))
+            return a, m
+        except ValueError:
+            pass
+    return parsear_fecha(r.get("etiqueta_sesion") or "")
+
+
 def main():
-    with open(PROCESSED_DIR / "intervenciones-sala.json") as f:
+    senado = "--senado" in sys.argv
+    archivo_entrada = "intervenciones-sala-senado.json" if senado else "intervenciones-sala.json"
+    archivo_salida = (
+        "analisis-intervenciones-senado.json" if senado else "analisis-intervenciones.json"
+    )
+
+    with open(PROCESSED_DIR / archivo_entrada) as f:
         registros = json.load(f)
 
     con_texto = [r for r in registros if r.get("texto")]
@@ -112,7 +137,7 @@ def main():
     palabras_seguidas = [p for p, _ in conteo_total.most_common(15)]
     conteo_por_mes: dict[str, Counter] = defaultdict(Counter)
     for r in con_texto:
-        fecha = parsear_fecha(r["etiqueta_sesion"])
+        fecha = _fecha_del_registro(r)
         if not fecha:
             continue
         clave_mes = f"{fecha[0]}-{fecha[1]:02d}"
@@ -175,9 +200,9 @@ def main():
         "total_palabras_corpus": sum(len(tokenizar(r["texto"])) for r in con_texto),
     }
 
-    with open(PROCESSED_DIR / "analisis-intervenciones.json", "w") as f:
+    with open(PROCESSED_DIR / archivo_salida, "w") as f:
         json.dump(salida, f, ensure_ascii=False, indent=2)
-    print(f"Análisis exportado a {PROCESSED_DIR / 'analisis-intervenciones.json'}")
+    print(f"Análisis exportado a {PROCESSED_DIR / archivo_salida}")
     print(f"  {len(con_texto)} intervenciones con texto, "
           f"{salida['total_palabras_corpus']} palabras útiles")
 

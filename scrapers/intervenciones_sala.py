@@ -288,9 +288,23 @@ class ScraperIntervencionesSala(BaseScraper):
         sesiones = listar_sesiones(session)
         print(f"{len(sesiones)} sesiones encontradas en la legislatura actual", flush=True)
 
+        # una sesión solo se considera "ya guardada" (y se salta) si NINGUNA
+        # de sus filas quedó con texto=NULL en un tipo que sí debería
+        # traerlo — "Acuerdos y Resoluciones" es la única excepción real
+        # (se registra sin cita textual aunque el diputado haya hablado, ver
+        # docstring del módulo). Si el boletín PDF no estaba listo todavía
+        # al momento del scraping, antes la sesión igual quedaba marcada
+        # como resuelta para siempre con el texto vacío — ahora se
+        # reintenta en la próxima corrida hasta conseguirlo.
         ya_guardadas = {
             row[0] for row in self.db.execute(
-                "SELECT DISTINCT sesion_id FROM intervencion_sala"
+                """
+                SELECT sesion_id FROM intervencion_sala
+                GROUP BY sesion_id
+                HAVING SUM(
+                    CASE WHEN texto IS NULL AND tipo != 'Acuerdos y Resoluciones' THEN 1 ELSE 0 END
+                ) = 0
+                """
             ).fetchall()
         }
 
