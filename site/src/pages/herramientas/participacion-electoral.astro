@@ -16,9 +16,8 @@ const comunasOrdenadas = [...comunas].sort(
 );
 const NOMBRE_COMUNA = Object.fromEntries(comunas.map((c) => [c.id, c.nombre]));
 
-// Comunas seleccionadas por defecto al cargar: la capital regional y una
-// comuna representativa de cada una de las otras dos provincias.
-const SELECCION_INICIAL = new Set(['la-serena', 'ovalle', 'illapel']);
+// Sin comunas seleccionadas por defecto al cargar.
+const SELECCION_INICIAL = new Set<string>();
 
 // Orden cronológico real de las jornadas de votación (una jornada puede
 // agrupar varias elecciones simultáneas, ej. municipales + gobernador +
@@ -265,7 +264,10 @@ const polylinePromedio = ORDEN_JORNADA.map((j, i) => `${xFor(i)},${yFor(promedio
 					</button>
 				</div>
 
-				<p id="sin-seleccion" class="mt-4 hidden rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+				<p
+					id="sin-seleccion"
+					class={`mt-4 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 ${SELECCION_INICIAL.size > 0 ? 'hidden' : ''}`}
+				>
 					No hay comunas marcadas — elige al menos una en el panel de la izquierda.
 				</p>
 
@@ -416,7 +418,11 @@ const polylinePromedio = ORDEN_JORNADA.map((j, i) => `${xFor(i)},${yFor(promedio
 								<div class="grupo-jornada hidden" data-jornada={g.jornada} data-etiqueta={g.etiqueta}>
 									<div class="space-y-3">
 										{g.registros.map((r) => (
-											<div class="fila-comuna" data-comuna={r.comuna_id}>
+											<div
+												class="fila-comuna"
+												data-comuna={r.comuna_id}
+												style={SELECCION_INICIAL.has(r.comuna_id) ? '' : 'display:none'}
+											>
 												<div class="flex items-baseline justify-between gap-3">
 													<span class="text-sm font-medium text-slate-700">
 														<span
