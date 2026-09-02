@@ -1,5 +1,33 @@
 [
   {
+    "id": "senado-18401-53-374-2026-09-01",
+    "camara": "senado",
+    "fecha": "2026-09-01",
+    "numero_sesion": "53/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "- En votación el reemplazo del artículo 9, que establece que todo aquel que percibiere indebidamente el bono, deberá restituir dichas sumas, reajustadas, y será sancionado conforme al artículo 494, número 19, del Código Penal (enmienda de mayoría de la Comisión de Familia, Infancia y Adolescencia), que consta en la página 7 del comparado.",
+    "resultado": "aprobado",
+    "votos_favor": 37,
+    "votos_contra": 0,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18401",
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-18256-52-374-2026-08-19",
     "camara": "senado",
     "fecha": "2026-08-19",
@@ -216,6 +244,26 @@
     ]
   },
   {
+    "id": "senado-18420-49-374-2026-08-11",
+    "camara": "senado",
+    "fecha": "2026-08-11",
+    "numero_sesion": "49/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que modifica diversos cuerpos legales, con el objeto de fortalecer la seguridad portuaria ante acciones promovidas por el crimen organizado.",
+    "resultado": "aprobado",
+    "votos_favor": 32,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18420",
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "pareo"
+      }
+    ]
+  },
+  {
     "id": "senado-17451-48-374-2026-08-05",
     "camara": "senado",
     "fecha": "2026-08-05",
@@ -231,6 +279,34 @@
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "pareo"
+      }
+    ]
+  },
+  {
+    "id": "senado-13665-48-374-2026-08-05",
+    "camara": "senado",
+    "fecha": "2026-08-05",
+    "numero_sesion": "48/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que modifica el Código Penal, con el objeto de sancionar el delito de trata de personas con fines de adopción ilegal e incorporar su imprescriptibilidad.",
+    "resultado": "aprobado",
+    "votos_favor": 34,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=13665",
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
         "voto": "favor"
       },
       {
@@ -424,6 +500,34 @@
     ]
   },
   {
+    "id": "senado-17880-42-374-2026-07-14",
+    "camara": "senado",
+    "fecha": "2026-07-14",
+    "numero_sesion": "42/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en particular, el artículo 2, permanente, en los términos propuestos por la Comisión de Hacienda, que consta en la página 4 del comparado.",
+    "resultado": "aprobado",
+    "votos_favor": 30,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17880",
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-16836-41-374-2026-07-08",
     "camara": "senado",
     "fecha": "2026-07-08",
@@ -443,6 +547,30 @@
       },
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18029-41-374-2026-07-08",
+    "camara": "senado",
+    "fecha": "2026-07-08",
+    "numero_sesion": "41/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el artículo 9 del proyecto de ley, en primer trámite constitucional, que establece el reconocimiento, calificación y reparación, cuando corresponda, de víctimas de violencia del conflicto intercultural y territorial en las regiones del Biobío, La Araucanía, Los Ríos y Los Lagos (Boletín N° 18.029-17)",
+    "resultado": "aprobado",
+    "votos_favor": 29,
+    "votos_contra": 0,
+    "abstenciones": 8,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18029",
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
         "voto": "favor"
       }
     ]
@@ -617,6 +745,34 @@
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17877",
     "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-17880-15-374-2026-05-12",
+    "camara": "senado",
+    "fecha": "2026-05-12",
+    "numero_sesion": "15/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Proyecto de ley, en segundo trámite constitucional, que crea un nuevo Juzgado de Letras del Trabajo en Santiago y fortalece los juzgados de letras del trabajo que indica, con informe de la Comisión de Constitución, Legislación, Justicia y Reglamento. (discusión en general) (Boletín N° 17.880-13)",
+    "resultado": "aprobado",
+    "votos_favor": 43,
+    "votos_contra": 1,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17880",
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
         "voto": "favor"
@@ -860,6 +1016,30 @@
     ]
   },
   {
+    "id": "senado-15346-65-373-2025-11-05",
+    "camara": "senado",
+    "fecha": "2025-11-05",
+    "numero_sesion": "65/373",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Solicitud de informe complementario de la Comisión de Defensa Nacional del proyecto de ley que modifica el Decreto Ley N° 1.939, de 1977, sobre normas de adquisición, administración y disposición de bienes del Estado, con el objeto de que se informe sobre la situación de los bienes destinados que se indican, (proyecto de artículo único). (Boletín N° 15.346-12)",
+    "resultado": "aprobado",
+    "votos_favor": 22,
+    "votos_contra": 3,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15346",
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-16553-57-373-2025-09-30",
     "camara": "senado",
     "fecha": "2025-09-30",
@@ -1001,6 +1181,26 @@
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
         "voto": "favor"
       },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-16709-100-372-2025-01-29",
+    "camara": "senado",
+    "fecha": "2025-01-29",
+    "numero_sesion": "100/372",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Proyecto de ley, iniciado en Moción de los Honorables Senadores señoras Núñez y Órdenes, y señores Castro González, Gahona y Macaya, en primer trámite constitucional, que modifica la ley N° 20.418, que fija normas sobre información, orientación y prestaciones en materia de regulación de la fertilidad, para promover la información y educación sobre la infertilidad, (Boletín N° 16.709-11). APROBADO.",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16709",
+    "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
         "voto": "favor"
@@ -1175,6 +1375,26 @@
       },
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-14773-42-371-2023-07-18",
+    "camara": "senado",
+    "fecha": "2023-07-18",
+    "numero_sesion": "42/371",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Proyecto de ley, iniciado en Mensaje del ex Presidente de la República, señor Sebastián Piñera Echenique, en primer trámite constitucional, que crea la Comisión de Comercio Estratégico y regula la exportación de material de uso dual y de defensa y otras materias que indica(Boletín N° 14.773-02).APROBADO.",
+    "resultado": "aprobado",
+    "votos_favor": 37,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=14773",
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
         "voto": "favor"
       }
     ]
