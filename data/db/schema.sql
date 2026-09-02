@@ -164,6 +164,22 @@ CREATE TABLE IF NOT EXISTS delincuencia_cead (
     FOREIGN KEY (comuna_id) REFERENCES comuna(id)
 );
 
+CREATE TABLE IF NOT EXISTS prensa_articulo (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    fuente          TEXT NOT NULL,           -- nombre del medio
+    comuna_id       TEXT,                    -- NULL si el medio no es comunal (ej. externos)
+    titulo          TEXT NOT NULL,
+    url             TEXT NOT NULL UNIQUE,
+    fecha           DATETIME NOT NULL,
+    extracto        TEXT,                    -- bajada/resumen que trae el propio RSS
+    categorias      TEXT,                    -- categorías del RSS, separadas por coma
+    texto_completo  TEXT,                    -- se llena en la fase 2 (prensa_texto.py)
+    actualizado_en  DATETIME,
+    FOREIGN KEY (comuna_id) REFERENCES comuna(id)
+);
+CREATE INDEX IF NOT EXISTS idx_prensa_fuente_fecha ON prensa_articulo(fuente, fecha);
+CREATE INDEX IF NOT EXISTS idx_prensa_pendientes ON prensa_articulo(texto_completo) WHERE texto_completo IS NULL;
+
 CREATE TABLE IF NOT EXISTS personal_municipal (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     comuna_id       TEXT NOT NULL,

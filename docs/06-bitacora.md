@@ -13,6 +13,56 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-02 — Análisis de prensa regional: plan y Fase 1 (descubrimiento RSS)
+
+Nuevo proyecto grande, inspirado en `prensa_chile` de Bastián Olea pero
+para la Región de Coquimbo. Decisión explícita del usuario: **se analiza
+el texto completo de cada noticia, pero nunca se republica** — solo
+estadísticas derivadas (nube de palabras, tendencias, co-ocurrencia),
+igual que ya se hace con los discursos de diputados/senadores. Eso
+resuelve de entrada el problema de derechos de autor que sí tendría
+guardar y mostrar el texto crudo.
+
+**28 fuentes**, provistas directamente por el usuario (las usa en Clave
+Política, otro proyecto suyo) — confirmadas funcionando el 2026-09-02:
+15 de la "Red Comunales" (un medio por comuna, ver el mapeo completo en
+`scrapers/prensa_rss.py`) + 13 medios regionales externos (Diario El Día
+con 4 feeds temáticos, El Ovallino, radios, etc.). Dos dominios usan "ñ"
+(elvicuñense.cl, elvileño.cl) — se codifican a punycode a mano en la
+config, Python no lo hace solo vía httpx.
+
+**Plan en 4 fases:**
+1. **Descubrimiento (hecho, `scrapers/prensa_rss.py`)** — recorre los 28
+   RSS, guarda título/url/fecha/fuente/comuna/extracto en
+   `prensa_articulo`. 295 noticias reales en la primera corrida, 0
+   errores. No baja el texto completo todavía (`texto_completo` queda
+   NULL).
+2. **Texto completo (pendiente)** — por cada fila con `texto_completo
+   IS NULL`, visitar la página real y extraer el cuerpo. Probado
+   manualmente contra El Coquimbano: el texto está en una etiqueta
+   `<article>` sin clase específica, con algo de ruido de plantilla
+   ("Compartir", "X minutos de lectura") que hay que limpiar. Como
+   todos son WordPress, un extractor genérico + limpieza de ruido
+   común debería cubrir la mayoría; puede necesitar ajustes por sitio.
+3. **Análisis (pendiente)** — reutilizar el tokenizador/stopwords de
+   `analisis_intervenciones.py` (ya sirve para esto, es genérico). Los
+   módulos que tiene Bastián en `prensa_chile` (todos vistos en vivo el
+   2026-09-02): palabras más frecuentes por semana (tendencia), nube de
+   palabras por semana, frecuencia de un término elegido en el tiempo,
+   desglose de palabras/menciones por medio, y correlación entre
+   términos (co-ocurrencia) — los dos últimos (nube y co-ocurrencia) ya
+   tenemos el código hecho para discursos, se puede adaptar. Además,
+   propio de un observatorio regional y que Bastián no hace: menciones
+   por autoridad y por comuna.
+4. **Página nueva en el sitio** — pendiente hasta tener fases 2 y 3.
+
+**Pendiente de decisión:** frecuencia de corrida real (`prensa_rss.py`
+queda con `frecuencia = "diaria"` como intención, pero
+`actualizar-datos.yml` solo corre semanal — falta decidir si se agrega
+un workflow nuevo diario o se deja semanal por ahora).
+
+---
+
 ## 2026-09-02 — Nueva herramienta: Delincuencia (CEAD), bloqueado el scraping en vivo
 
 A partir de una idea del catálogo de apps de Bastián Olea Herrera
