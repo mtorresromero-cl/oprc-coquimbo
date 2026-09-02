@@ -80,6 +80,15 @@ const dotacionTotal = personal.reduce((s, p) => s + p.dotacion, 0);
 const remuneracionTotalPersonal = personal.reduce((s, p) => s + p.remuneracion_total, 0);
 const periodosPersonal = [...new Set(personal.map((p) => `${nombreMes(p.mes)}/${p.anno}`))];
 const periodoPersonal = periodosPersonal.length === 1 ? periodosPersonal[0] : null;
+// algunas comunas publican personal a honorarios solo para ciertas áreas
+// (ej. Paihuano: tiene planta y contrata del área municipal, pero no
+// honorarios de esa misma área — sí honorarios de salud) — se avisa en
+// vez de dejarlo como un vacío silencioso.
+const areasConPlantaOContrata = new Set(
+	personal.filter((p) => p.tipo_contrato === 'planta' || p.tipo_contrato === 'contrata').map((p) => p.area)
+);
+const areasConHonorarios = new Set(personal.filter((p) => p.tipo_contrato === 'honorarios').map((p) => p.area));
+const areasSinHonorarios = [...areasConPlantaOContrata].filter((a) => !areasConHonorarios.has(a));
 // "SECRETARIA ALCALDE" es un cargo real, pero no es el/la alcalde/sa —
 // hay que excluirlo explícitamente para no mostrar el sueldo equivocado
 const remuneracionAlcalde = remuneracionAutoridad.find(
@@ -337,6 +346,12 @@ function formatoCLP(monto: number) {
 							</tbody>
 						</table>
 					</div>
+					{areasSinHonorarios.length > 0 && (
+						<p class="mt-2 text-xs text-slate-400">
+							Personal a honorarios de {areasSinHonorarios.map((a) => AREA_LABEL[a] ?? a).join(' y ')} no
+							publicado por la comuna.
+						</p>
+					)}
 				</section>
 			)}
 		</div>
