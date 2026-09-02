@@ -420,8 +420,30 @@ class ScraperCamaraVotaciones(BaseScraper):
                     flush=True,
                 )
 
+        # el resultado de una votación de sala es definitivo una vez
+        # cerrada — no hace falta volver a pedir su página de detalle en
+        # cada corrida futura. Sin este filtro, cada corrida semanal
+        # reconstruye desde cero TODO el historial de la legislatura
+        # (cientos de páginas, ~4s cada una por el rate-limiting real del
+        # sitio) en vez de solo las votaciones nuevas desde la corrida
+        # anterior — el motivo real de que el primer backfill completo
+        # tome ~2h45min, y por qué sin este filtro seguiría tomando lo
+        # mismo cada semana para siempre en vez de solo unos minutos
+        ids_conocidos = {
+            row[0].removeprefix("camara-")
+            for row in self.db.execute(
+                "SELECT id FROM votacion_sesion WHERE camara = 'camara'"
+            ).fetchall()
+        }
+        vids_nuevos = [v for v in sorted(votacion_ids) if v not in ids_conocidos]
+        print(
+            f"  {len(votacion_ids)} votaciones descubiertas, {len(vids_nuevos)} nuevas "
+            f"(ya había {len(ids_conocidos)} de corridas anteriores)",
+            flush=True,
+        )
+
         registros = []
-        for vid in sorted(votacion_ids):
+        for vid in vids_nuevos:
             url = f"{BASE_URL}/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion={vid}"
             try:
                 resp = _request_con_backoff(session, "GET", url)

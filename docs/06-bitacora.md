@@ -47,13 +47,39 @@ en el push final — no es solo teórico, pasó. Si se sabe que se van a
 hacer más commits durante la espera, considerar disparar el workflow
 al final de la sesión, no al principio.
 
-**Acción tomada:** se volvió a disparar el workflow manualmente
-(`gh workflow run actualizar-datos.yml`, run `33679386782`, empezó
-20:27) después de confirmar que no quedaban pushes pendientes de esta
-sesión. Debería tardar otras ~4-5 horas por los mismos scrapers lentos
-de siempre (no por camara.cl). **Pendiente real:** confirmar que este
-segundo intento sí complete el commit y verificar entonces
-`votaciones-camara.json` (registros y meses desde marzo 2026).
+**Corrección de la acción tomada:** se disparó el workflow completo
+(`33679386782`) pero el usuario preguntó, con razón, si hacía falta
+repetir TODO el paquete (~5h) solo para confirmar el fix de camara.cl,
+cuando ese fix solo toca 3 de los 8 scrapers del workflow — el resto
+(transparencia_municipal, personal_municipal, infoprobidad,
+core_coquimbo, delincuencia_cead) no tiene nada que ver y sumó ~2h
+extra en el intento anterior. Se canceló ese run
+(`gh run cancel 33679386782`) y en su lugar se corrieron
+`camara_mociones.py` y `camara_asistencia.py` directo en este entorno
+(rápidos, ~1 min cada uno — 77 filas nuevas de asistencia, 0 mociones
+nuevas) y `camara_votaciones.py` en segundo plano (el lento, ~2h45min
+por el sitio de la Cámara, no por el runner). Al terminar se comitea y
+pushea todo junto manualmente, sin pasar por GitHub Actions.
+**Pendiente real:** confirmar que `camara_votaciones.py` complete y
+verificar `votaciones-camara.json` (registros y meses desde marzo
+2026).
+
+**Bug de fondo encontrado y corregido (el usuario preguntó "llevamos 9
+horas en esto, es excesivo para 7 diputados"):** el scraper no tenía
+forma de saber qué votaciones ya había traído en corridas anteriores —
+`recolectar()` volvía a pedir la página de detalle de CADA votación
+descubierta, todas las veces, sin importar si ya estaba guardada en la
+base. Eso no es solo el costo del backfill de hoy (~6 meses de
+historial perdido por el bug original): **sin este fix, cada corrida
+semanal futura iba a repetir el mismo recorrido completo desde marzo
+2026 para siempre**, cada vez más lento a medida que se acumula
+historial, en vez de traer solo lo nuevo de esa semana. Se agregó un
+filtro que consulta `votacion_sesion` al empezar y salta el fetch de
+detalle para cualquier `vid` ya guardado (el resultado de una votación
+de sala es definitivo una vez cerrada, no hace falta re-pedirlo). No se
+tocó la corrida que ya estaba en curso en background — el fix aplica
+recién a partir de la próxima ejecución (la semanal por cron, o
+cualquier corrida manual futura).
 
 ---
 
