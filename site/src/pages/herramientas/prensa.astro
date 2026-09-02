@@ -32,9 +32,61 @@ const menCom = menciones_por_comuna.map((m) => ({
 	n: m.n,
 }));
 
-const semanasEtiquetas = tendencia.semanas.map((s) => {
-	const [anno, semana] = s.split('-W');
-	return `Sem ${semana} ${anno}`;
+// convierte "2026-W31" a la fecha del lunes de esa semana ISO, para
+// mostrar rangos de fecha reales en vez de solo un número de semana que
+// no dice nada por sí solo
+function lunesDeSemanaISO(anno: number, semana: number): Date {
+	const enero4 = new Date(Date.UTC(anno, 0, 4));
+	const diaSemana = enero4.getUTCDay() || 7; // lunes=1 .. domingo=7
+	const lunesSemana1 = new Date(enero4);
+	lunesSemana1.setUTCDate(enero4.getUTCDate() - diaSemana + 1);
+	const resultado = new Date(lunesSemana1);
+	resultado.setUTCDate(lunesSemana1.getUTCDate() + (semana - 1) * 7);
+	return resultado;
+}
+const FORMATO_CORTO = new Intl.DateTimeFormat('es-CL', { day: 'numeric', month: 'short' });
+const rangosSemana = tendencia.semanas.map((s) => {
+	const [anno, semana] = s.split('-W').map(Number);
+	const lunes = lunesDeSemanaISO(anno, semana);
+	const domingo = new Date(lunes);
+	domingo.setUTCDate(lunes.getUTCDate() + 6);
+	return { lunes, domingo, etiqueta: FORMATO_CORTO.format(lunes) };
+});
+const FORMATO_LARGO = new Intl.DateTimeFormat('es-CL', { day: 'numeric', month: 'long', year: 'numeric' });
+const rangoTotalTexto =
+	rangosSemana.length > 0
+		? `Datos desde el ${FORMATO_LARGO.format(rangosSemana[0].lunes)} hasta el ${FORMATO_LARGO.format(rangosSemana[rangosSemana.length - 1].domingo)}.`
+		: '';
+
+// --- gráfico de tendencia: línea por palabra, no una matriz — las 8
+// palabras más usadas en total (una por cada color disponible; el resto
+// de las 15 seguidas solo aparece en "Palabras más usadas") ---
+const COLORES_TENDENCIA = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300', '#4a3aa7', '#e34948'];
+const palabrasGrafico = tendencia.palabras.slice(0, 8);
+const CHART_W = 900;
+const CHART_H = 320;
+const PAD_L = 40;
+const PAD_R = 16;
+const PAD_T = 20;
+const PAD_B = 34;
+const PLOT_W = CHART_W - PAD_L - PAD_R;
+const PLOT_H = CHART_H - PAD_T - PAD_B;
+const maxTendencia = Math.max(
+	1,
+	...palabrasGrafico.flatMap((p) => tendencia.serie[p] ?? [])
+);
+const xForTendencia = (i: number) =>
+	tendencia.semanas.length > 1 ? PAD_L + (i / (tendencia.semanas.length - 1)) * PLOT_W : PAD_L + PLOT_W / 2;
+const yForTendencia = (v: number) => PAD_T + (1 - v / maxTendencia) * PLOT_H;
+const EJE_Y_TENDENCIA = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTendencia * f));
+const lineasTendencia = palabrasGrafico.map((palabra, i) => {
+	const valores = tendencia.serie[palabra] ?? [];
+	return {
+		palabra,
+		color: COLORES_TENDENCIA[i % COLORES_TENDENCIA.length],
+		polyline: valores.map((v, j) => `${xForTendencia(j)},${yForTendencia(v)}`).join(' '),
+		puntos: valores.map((v, j) => ({ x: xForTendencia(j), y: yForTendencia(v), v })),
+	};
 });
 ---
 
@@ -166,12 +218,52 @@ const semanasEtiquetas = tendencia.semanas.map((s) => {
 		<section class="panel mt-8 hidden" data-panel="2">
 			<h2 class="text-xl font-semibold text-slate-900">Tendencia semanal</h2>
 			<p class="mt-1 max-w-2xl text-sm text-slate-500">
-				De las palabras más usadas en total, cuántas veces aparece cada una semana a semana. La
-				prensa cambia más rápido que las sesiones parlamentarias, por eso semanal y no mensual.
-				Más oscuro = más menciones esa semana.
+				De las 8 palabras más usadas en total, cuántas veces aparece cada una por semana. {rangoTotalTexto}
 			</p>
-			<div class="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-				<div id="mapa-tendencia" class="relative inline-block min-w-full"></div>
+			<div class="relative mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+				<svg viewBox={`0 0 ${CHART_W} ${CHART_H}`} class="w-full min-w-[560px]" id="grafico-tendencia">
+					{EJE_Y_TENDENCIA.map((v) => (
+						<g>
+							<line x1={PAD_L} x2={CHART_W - PAD_R} y1={yForTendencia(v)} y2={yForTendencia(v)} stroke="#e2e8f0" stroke-width="1" />
+							<text x={PAD_L - 8} y={yForTendencia(v) + 4} text-anchor="end" font-size="11" fill="#64748b">{v}</text>
+						</g>
+					))}
+					{rangosSemana.map((r, i) => (
+						<text x={xForTendencia(i)} y={CHART_H - PAD_B + 18} text-anchor="middle" font-size="11" fill="#64748b">
+							{r.etiqueta}
+						</text>
+					))}
+					{lineasTendencia.map(({ palabra, color, polyline, puntos }) => (
+						<g>
+							<polyline points={polyline} fill="none" stroke={color} stroke-width="2.5" />
+							{puntos.map((p) => (
+								<circle
+									class="punto-tendencia"
+									cx={p.x}
+									cy={p.y}
+									r="4"
+									fill={color}
+									stroke="white"
+									stroke-width="1.5"
+									data-palabra={palabra}
+									data-valor={p.v}
+								/>
+							))}
+						</g>
+					))}
+				</svg>
+				<div
+					id="tooltip-tendencia"
+					class="pointer-events-none absolute z-10 hidden max-w-[180px] rounded-md bg-slate-900 px-3 py-2 text-xs text-white shadow-lg"
+				></div>
+			</div>
+			<div class="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
+				{lineasTendencia.map(({ palabra, color }) => (
+					<span class="flex items-center gap-1.5 text-xs font-medium text-slate-600">
+						<span class="inline-block h-2.5 w-2.5 rounded-full" style={`background-color:${color}`}></span>
+						{palabra}
+					</span>
+				))}
 			</div>
 		</section>
 
@@ -193,15 +285,10 @@ const semanasEtiquetas = tendencia.semanas.map((s) => {
 			</div>
 		</section>
 
-		<p class="mt-6 text-xs text-slate-400">
-			Fuentes: 15 medios de la Red Comunales (uno por comuna) más 13 medios regionales externos,
-			vía RSS. Solo cubre las noticias recientes que cada feed publica — no es un archivo
-			histórico completo de cada medio.
-		</p>
+		<p class="mt-6 text-xs text-slate-400">Fuentes: Medios de la Región de Coquimbo.</p>
 	</main>
 
 	<script type="application/json" id="palabras-data" set:html={JSON.stringify({ top_palabras_por_medio, top_palabras_total })} />
-	<script type="application/json" id="tendencia-data" set:html={JSON.stringify({ ...tendencia, semanasEtiquetas })} />
 	<script type="application/json" id="coocurrencia-data" set:html={JSON.stringify(coocurrencia)} />
 
 	<script>
@@ -405,53 +492,25 @@ const semanasEtiquetas = tendencia.semanas.map((s) => {
 			construirNube(lista);
 		}
 
-		// --- tendencia (mapa de calor: palabra x semana) ---
-		const tendenciaData: { semanas: string[]; palabras: string[]; serie: Record<string, number[]>; semanasEtiquetas: string[] } =
-			JSON.parse(document.getElementById('tendencia-data')!.textContent!);
-
-		(function renderMapaTendencia() {
-			const cont = document.getElementById('mapa-tendencia')!;
-			const { semanas, palabras, serie, semanasEtiquetas } = tendenciaData;
-			if (semanas.length < 2) {
-				cont.innerHTML = '<p class="text-sm text-slate-500">No hay suficientes semanas con datos todavía.</p>';
-				return;
+		// --- tendencia (gráfico de líneas, ya calculado en el servidor —
+		// solo falta el tooltip al pasar el mouse por un punto) ---
+		const tooltipTendencia = document.getElementById('tooltip-tendencia');
+		const wrapperTendencia = tooltipTendencia?.parentElement;
+		if (tooltipTendencia && wrapperTendencia) {
+			function muestraTooltipTendencia(punto: SVGCircleElement, clientX: number, clientY: number) {
+				const { palabra, valor } = punto.dataset;
+				tooltipTendencia!.innerHTML = `<strong>${palabra}</strong><br>${valor} menciones esa semana`;
+				const rect = wrapperTendencia!.getBoundingClientRect();
+				tooltipTendencia!.style.left = `${clientX - rect.left + 12}px`;
+				tooltipTendencia!.style.top = `${clientY - rect.top + 12}px`;
+				tooltipTendencia!.classList.remove('hidden');
 			}
-			const palabrasMostradas = palabras.slice(0, 14);
-			const maxGlobal = Math.max(...palabrasMostradas.flatMap((p) => serie[p]), 1);
-
-			let html = `<div class="grid" style="grid-template-columns:7.5rem repeat(${semanas.length},minmax(2.75rem,1fr))">`;
-			html += `<div></div>`;
-			semanasEtiquetas.forEach((s) => {
-				html += `<div class="pb-1.5 text-center text-[10px] font-semibold tracking-wide text-slate-400 uppercase">${s}</div>`;
+			document.querySelectorAll<SVGCircleElement>('.punto-tendencia').forEach((punto) => {
+				punto.addEventListener('pointerenter', (e) => muestraTooltipTendencia(punto, e.clientX, e.clientY));
+				punto.addEventListener('pointermove', (e) => muestraTooltipTendencia(punto, e.clientX, e.clientY));
+				punto.addEventListener('pointerleave', () => tooltipTendencia!.classList.add('hidden'));
 			});
-			palabrasMostradas.forEach((palabra) => {
-				html += `<div class="flex items-center pr-3 text-sm font-medium text-slate-700">${palabra}</div>`;
-				serie[palabra].forEach((v, i) => {
-					const intensidad = v / maxGlobal;
-					const bg = `color-mix(in srgb, var(--color-topic-discursos) ${Math.round(intensidad * 90)}%, white)`;
-					const claro = intensidad > 0.55;
-					html += `<div class="celda-mapa m-0.5 flex aspect-square cursor-default items-center justify-center rounded-md text-[11px] font-semibold tabular-nums" data-palabra="${palabra}" data-semana="${semanasEtiquetas[i]}" data-n="${v}" style="background:${bg};color:${claro ? '#fff' : v > 0 ? '#312a5c' : '#cbd5e1'}">${v > 0 ? v : ''}</div>`;
-				});
-			});
-			html += `</div>`;
-			cont.innerHTML = html;
-
-			const tooltip = document.createElement('div');
-			tooltip.className = 'pointer-events-none absolute z-10 hidden rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs shadow-lg';
-			cont.appendChild(tooltip);
-
-			cont.querySelectorAll<HTMLElement>('.celda-mapa').forEach((celda) => {
-				celda.addEventListener('mouseenter', () => {
-					const { palabra, semana, n } = celda.dataset;
-					tooltip.innerHTML = `<p class="font-semibold text-slate-900">${palabra}</p><p class="mt-1 text-slate-500">${semana}: ${n} menciones</p>`;
-					tooltip.style.left = `${celda.offsetLeft}px`;
-					tooltip.style.top = `${celda.offsetTop - 8}px`;
-					tooltip.style.transform = 'translateY(-100%)';
-					tooltip.classList.remove('hidden');
-				});
-				celda.addEventListener('mouseleave', () => tooltip.classList.add('hidden'));
-			});
-		})();
+		}
 
 		// --- red de coocurrencia (canvas, fuerzas, zoom/pan) ---
 		interface Enlace { a: string; b: string; peso: number }
