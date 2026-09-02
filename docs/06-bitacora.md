@@ -13,6 +13,38 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-02 — Descartada la hipótesis de IP/red: falla hasta desde el Mac del usuario
+
+El usuario corrió `scrapers/test_camara_conectividad.py` desde su propio
+Mac (misma red donde su navegador SÍ carga camara.cl sin problema).
+**httpx, curl_cffi (impersonate=chrome) y curl del sistema fallaron los
+tres, con el mismo `SSLV3_ALERT_HANDSHAKE_FAILURE`** — idéntico al error
+visto desde este sandbox y desde GitHub Actions.
+
+Esto descarta por completo la hipótesis anterior (bloqueo por reputación
+de IP de nube/CI): si fuera un tema de IP, la red doméstica del usuario
+—que su navegador usa sin problema— no debería fallar. La variable que
+sí distingue "funciona" de "no funciona" es el **cliente**: un navegador
+real (Chrome/Safari interactivo) pasa, pero CUALQUIER herramienta
+automatizada probada hasta ahora falla — incluida curl_cffi, que
+específicamente imita la huella TLS de Chrome y aun así no basta.
+
+**Hipótesis actual (más fuerte que las anteriores, pero no confirmada):**
+camara.cl/Cloudflare aplica fingerprinting TLS (JA3/JA4) lo bastante
+estricto como para detectar incluso herramientas que imitan la huella de
+Chrome — algo conocido en la práctica (curl_cffi es una herramienta
+pública, sus firmas eventualmente se agregan a listas de detección).
+Motores de navegador reales (no solo la huella TLS, sino el stack HTTP/2
+completo) sí pasarían; ningún cliente HTTP de librería lo ha logrado
+hasta ahora, ni siquiera desde una IP residencial limpia.
+
+**Pendiente:** probar Playwright (Chromium real, no una librería HTTP)
+desde una red que no sea sandbox/GitHub Actions — sería la prueba
+definitiva de si el problema es "cualquier automatización" o
+específicamente "huella TLS insuficiente en clientes no-navegador".
+
+---
+
 ## 2026-09-02 — El fix de curl_cffi NO resolvió el bloqueo (corrección importante)
 
 Tras horas de espera, se re-disparó `actualizar-datos.yml` (run
