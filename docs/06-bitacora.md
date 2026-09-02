@@ -13,6 +13,61 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-02 — Prensa regional: bug real en menciones + retoques de UI pedidos por el usuario
+
+**Bug de fondo encontrado y corregido:** `menciones_por_autoridad` buscaba
+solo el nombre completo de 4 partes ("Juan Carlos Alfaro Aravena") como
+substring del texto — pero la prensa casi nunca escribe así, escribe "el
+alcalde Juan Alfaro" o solo "Alfaro". Resultado: apenas 6 de 142
+autoridades activas tenían alguna mención en 291 artículos, la mayoría
+con 1 sola. El usuario lo notó al ver conteos de 1 y preguntar cómo se
+calculaba. Se agregó un "nombre corto" (primer nombre + apellido
+paterno) como alternativa de búsqueda, pero **solo cuando ese nombre
+corto identifica a una única autoridad activa** — se verificó
+programáticamente: de 142 activas, solo 2 pares colisionan ("Denis
+Cortés", "Juan Castillo"), esos quedan con el nombre completo exacto
+nomás para no confundir personas. Resultado: 6 → 43 autoridades con
+mención, con nombres que tienen sentido (alcaldes de comunas grandes
+arriba del ranking). Ver `scrapers/analisis_prensa.py`.
+
+**Retoques de UI (los otros 4 puntos del feedback):**
+- Menciones y Palabras más usadas ahora muestran el rango de fechas
+  analizado (ya existía `rangoTotalTexto`, solo faltaba usarlo ahí).
+- El número de menciones de comuna se veía partido en dos líneas cuando
+  llegaba a 3 dígitos (Coquimbo, 173) — el `<span>` no tenía
+  `whitespace-nowrap` y era muy angosto (`w-20`); ahora `w-24` +
+  `whitespace-nowrap`.
+- "Palabras más usadas": el `<select>` de medio se reemplazó por una
+  barra lateral de botones (columna izquierda en desktop, chips con
+  scroll horizontal en mobile) — pedido explícito del usuario.
+- "Comparar palabras": ya no viene nada marcado por defecto (antes se
+  pre-seleccionaban 3) — ahora se muestra un mensaje ("elige al menos
+  una palabra") hasta que el usuario marca algo.
+- "Top palabras de una semana, por medio" (barras apiladas): el hover
+  usaba el `title` nativo del navegador (lento, feo, sin estilo); ahora
+  tiene el mismo tooltip custom que el resto de los gráficos de la
+  página (medio + cantidad).
+
+**Decisión de diseño — Tendencia semanal pasó a ser un bump chart real:**
+el usuario pidió ideas para que el gráfico de líneas (que mostraba
+frecuencia cruda) se viera menos "aburrido". Se le presentaron 3
+opciones (bump chart de ranking, mismo gráfico pulido con curvas, o
+tarjetas con mini-sparklines) y eligió el bump chart — que además es
+literalmente lo que había pedido desde el principio del proyecto
+("gráfico de tendencia (bump chart)"), solo que la primera
+implementación terminó siendo un gráfico de magnitud por error de
+interpretación. Ahora el eje Y es el lugar (1° a 8°) que ocupa cada
+palabra esa semana entre las 8 seguidas, no su frecuencia — las líneas
+se cruzan cuando una palabra le gana el lugar a otra. La frecuencia real
+se conserva en el tooltip. Empates de frecuencia se resuelven
+alfabéticamente para que el ranking 1..8 quede siempre completo sin
+lugares repetidos (verificado, sin efecto visible raro en las 9 semanas
+de datos actuales).
+
+Verificado con Playwright en las 7 pestañas, cero errores de consola.
+
+---
+
 ## 2026-09-02 — Análisis de prensa regional: plan y Fase 1 (descubrimiento RSS)
 
 Nuevo proyecto grande, inspirado en `prensa_chile` de Bastián Olea pero

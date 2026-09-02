@@ -8916,31 +8916,15 @@
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "sector",
-        "n": 208
+        "palabra": "relacionados",
+        "n": 164
       },
       {
-        "palabra": "atención",
-        "n": 200
+        "palabra": "actividad",
+        "n": 199
       },
       {
-        "palabra": "último",
-        "n": 172
-      },
-      {
-        "palabra": "sectores",
-        "n": 167
-      },
-      {
-        "palabra": "además",
-        "n": 230
-      },
-      {
-        "palabra": "señaló",
-        "n": 168
-      },
-      {
-        "palabra": "septiembre",
+        "palabra": "comunidad",
         "n": 215
       },
       {
@@ -8948,72 +8932,88 @@
         "n": 204
       },
       {
-        "palabra": "tras",
-        "n": 189
-      },
-      {
-        "palabra": "comunidad",
+        "palabra": "septiembre",
         "n": 215
-      },
-      {
-        "palabra": "personas",
-        "n": 287
-      },
-      {
-        "palabra": "coquimbo",
-        "n": 434
-      },
-      {
-        "palabra": "regional",
-        "n": 267
-      },
-      {
-        "palabra": "jornada",
-        "n": 168
-      },
-      {
-        "palabra": "relacionados",
-        "n": 164
-      },
-      {
-        "palabra": "fortalecer",
-        "n": 177
-      },
-      {
-        "palabra": "parte",
-        "n": 280
-      },
-      {
-        "palabra": "vecinos",
-        "n": 228
-      },
-      {
-        "palabra": "ovalle",
-        "n": 297
-      },
-      {
-        "palabra": "estudiantes",
-        "n": 172
-      },
-      {
-        "palabra": "actividad",
-        "n": 199
       },
       {
         "palabra": "mayor",
         "n": 196
       },
       {
-        "palabra": "trabajo",
-        "n": 246
+        "palabra": "sectores",
+        "n": 167
+      },
+      {
+        "palabra": "último",
+        "n": 172
       },
       {
         "palabra": "salud",
         "n": 347
       },
       {
+        "palabra": "además",
+        "n": 230
+      },
+      {
+        "palabra": "trabajo",
+        "n": 246
+      },
+      {
+        "palabra": "parte",
+        "n": 280
+      },
+      {
+        "palabra": "tras",
+        "n": 189
+      },
+      {
+        "palabra": "jornada",
+        "n": 168
+      },
+      {
+        "palabra": "señaló",
+        "n": 168
+      },
+      {
         "palabra": "serena",
         "n": 250
+      },
+      {
+        "palabra": "personas",
+        "n": 287
+      },
+      {
+        "palabra": "estudiantes",
+        "n": 172
+      },
+      {
+        "palabra": "fortalecer",
+        "n": 177
+      },
+      {
+        "palabra": "ovalle",
+        "n": 297
+      },
+      {
+        "palabra": "regional",
+        "n": 267
+      },
+      {
+        "palabra": "sector",
+        "n": 208
+      },
+      {
+        "palabra": "vecinos",
+        "n": 228
+      },
+      {
+        "palabra": "coquimbo",
+        "n": 434
+      },
+      {
+        "palabra": "atención",
+        "n": 200
       }
     ],
     "enlaces": [
@@ -10521,27 +10521,175 @@
   },
   "menciones_por_autoridad": [
     {
+      "autoridad_id": "daniela-norambuena-borgheresi-alcalde",
+      "n": 16
+    },
+    {
       "autoridad_id": "hector-vega-campusano-alcalde",
-      "n": 13
+      "n": 15
+    },
+    {
+      "autoridad_id": "christian-frank-gross-hidalgo-alcalde",
+      "n": 10
     },
     {
       "autoridad_id": "cristian-herrera-pena-alcalde",
-      "n": 5
+      "n": 9
+    },
+    {
+      "autoridad_id": "hernan-ahumada-ahumada-alcalde",
+      "n": 8
+    },
+    {
+      "autoridad_id": "waldo-enrique-contreras-cortes-alcalde",
+      "n": 4
+    },
+    {
+      "autoridad_id": "eduardo-antonio-cortes-manquez-concejal",
+      "n": 4
+    },
+    {
+      "autoridad_id": "pedro-humberto-araya-zepeda-alcalde",
+      "n": 3
     },
     {
       "autoridad_id": "mario-aros-carvajal-alcalde",
+      "n": 3
+    },
+    {
+      "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+      "n": 3
+    },
+    {
+      "autoridad_id": "matias-walker-prieto-senador",
+      "n": 3
+    },
+    {
+      "autoridad_id": "uberlinda-aquea-barraza-alcalde",
       "n": 2
+    },
+    {
+      "autoridad_id": "carlos-lillo-alamos-alcalde",
+      "n": 2
+    },
+    {
+      "autoridad_id": "janet-araya-rocco-concejal",
+      "n": 2
+    },
+    {
+      "autoridad_id": "margarita-catalina-gonzalez-avalos-concejal",
+      "n": 2
+    },
+    {
+      "autoridad_id": "juan-manuel-barraza-astorga-core",
+      "n": 2
+    },
+    {
+      "autoridad_id": "lombardo-toledo-escorza-core",
+      "n": 2
+    },
+    {
+      "autoridad_id": "marta-angelica-carvajal-cortes-alcalde",
+      "n": 1
     },
     {
       "autoridad_id": "denis-cortes-aguilera-alcalde",
       "n": 1
     },
     {
-      "autoridad_id": "uberlinda-aquea-barraza-alcalde",
+      "autoridad_id": "bernardo-leyton-lemus-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "cristian-esteban-vasquez-suazo-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "maximiliano-javier-bravo-leyton-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "ricardo-del-transito-castillo-castillo-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "luisa-jinete-carcamo-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "fabian-arturo-carvajal-veneciano-concejal",
       "n": 1
     },
     {
       "autoridad_id": "matthias-eyzaguirre-mendez-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "cristian-lazo-lazo-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "mery-mora-araya-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "cristian-alejandro-rojas-molina-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "victor-andres-venegas-aracena-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "fanny-elizabeth-vega-araya-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "david-rodrigo-alvarez-lara-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "carlos-cepeda-ramirez-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "fernando-alejandro-alvarez-rojas-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "cristian-amador-pinto-torres-concejal",
+      "n": 1
+    },
+    {
+      "autoridad_id": "francisco-corral-macias-core",
+      "n": 1
+    },
+    {
+      "autoridad_id": "paola-cortes-vega-core",
+      "n": 1
+    },
+    {
+      "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+      "n": 1
+    },
+    {
+      "autoridad_id": "angel-gonzalez-aguilera-core",
+      "n": 1
+    },
+    {
+      "autoridad_id": "nathalie-castillo-rojas-diputado",
+      "n": 1
+    },
+    {
+      "autoridad_id": "daniel-manouchehri-lobos-diputado",
+      "n": 1
+    },
+    {
+      "autoridad_id": "carolina-tello-rojas-diputado",
+      "n": 1
+    },
+    {
+      "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
       "n": 1
     }
   ],

@@ -200,11 +200,19 @@ def main():
             },
         }
 
-    # --- menciones por autoridad: nombre completo exacto (normalizado)
-    # como substring del título+cuerpo — estricto a propósito, para no
-    # repetir el problema ya conocido de nombres compuestos mal
-    # separados (ver nombre/apellido en autoridades.csv); prefiere
-    # perderse menciones por solo apellido antes que confundir personas ---
+    # --- menciones por autoridad: la prensa casi nunca escribe el nombre
+    # completo de 4 partes que usamos como identificador ("Juan Carlos
+    # Alfaro Aravena") — escribe "el alcalde Juan Alfaro" o solo
+    # "Alfaro". Buscar solo el nombre completo exacto dejaba a solo 6 de
+    # 142 autoridades activas con alguna mención en 291 artículos
+    # (bug real, detectado por el usuario al ver conteos de 1). Se
+    # agrega un "nombre corto" (primer nombre + apellido paterno, el
+    # segundo-a-último token del nombre completo) como alternativa de
+    # búsqueda — pero solo cuando ese nombre corto identifica a una sola
+    # autoridad activa; si dos autoridades comparten primer nombre +
+    # apellido paterno (2 casos de 142: "Denis Cortés", "Juan
+    # Castillo"), esas quedan con el nombre completo exacto nomás, para
+    # no confundir personas ---
     with open(PROCESSED_DIR / "autoridades.json", encoding="utf-8") as f:
         autoridades = json.load(f)
 
@@ -212,15 +220,29 @@ def main():
         (r, _normalizar(f"{r['titulo']} {r['texto_completo']}")) for r in con_texto
     ]
 
+    def _nombre_corto(nombre_completo: str) -> str | None:
+        tokens = nombre_completo.split()
+        if len(tokens) < 2:
+            return None
+        apellido_paterno = tokens[-2] if len(tokens) >= 3 else tokens[-1]
+        return _normalizar(f"{tokens[0]} {apellido_paterno}")
+
+    activas = [
+        a for a in autoridades if a.get("activo") and a.get("nombre_completo")
+    ]
+    conteo_nombres_cortos: Counter = Counter(
+        c for a in activas if (c := _nombre_corto(a["nombre_completo"]))
+    )
+
     menciones_autoridad: Counter = Counter()
-    for a in autoridades:
-        if not a.get("activo") or not a.get("nombre_completo"):
-            continue
+    for a in activas:
         nombre_norm = _normalizar(a["nombre_completo"])
         if len(nombre_norm.split()) < 2:
             continue
+        corto = _nombre_corto(a["nombre_completo"])
+        usa_corto = corto is not None and conteo_nombres_cortos[corto] == 1
         for _r, texto_norm in textos_normalizados:
-            if nombre_norm in texto_norm:
+            if nombre_norm in texto_norm or (usa_corto and corto in texto_norm):
                 menciones_autoridad[a["id"]] += 1
 
     menciones_por_autoridad = [
