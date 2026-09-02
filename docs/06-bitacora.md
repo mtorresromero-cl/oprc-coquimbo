@@ -73,6 +73,37 @@ IP no bloqueada (ej. un servidor propio/VPS en vez de runners de GitHub).
 (no un problema de TLS/cipher del cliente) y, si lo es, evaluar mover la
 ejecución del scraper fuera de GitHub Actions.
 
+**Corrección 2 — la solución ya existía en este mismo repo y se perdió
+otra vez:** el usuario ya había pasado esta misma situación el
+2026-08-31 (ver commit `68f22d8`, `scrapers/gasto_parlamentario.py`) y
+dio la solución en esa sesión — pero, igual que con quieneseljefe.cl, no
+quedó registrada en la bitácora (no existía todavía) y se perdió al
+compactarse la conversación. El usuario tuvo que repetirla molesto.
+
+Lo que dice ese commit, textual: **Playwright dispara un bloqueo por IP
+con suficiente uso** ("hoy ya se gatilló un bloqueo por IP a fuerza de
+las pruebas con Playwright"). La solución probada y funcionando es
+**dejar de usar Playwright por completo y usar `curl_cffi` con
+`impersonate="chrome"`** (huella TLS de navegador real, sin llamadas
+AJAX con headers `XMLHttpRequest`/`X-MicrosoftAjax` que Cloudflare
+detecta) — confirmada contra un scraper público real,
+`github.com/jahadd/Analisis_congreso_Chile`. Ya está implementada y
+funcionando en `gasto_parlamentario.py`; `camara_votaciones.py`,
+`camara_mociones.py` y `camara_asistencia.py` **siguen en Playwright**,
+expuestos al mismo riesgo.
+
+Es muy probable que el bloqueo de hoy sea el mismo tipo (IP, por
+rate-limit), posiblemente reforzado por mis propias pruebas repetidas
+hoy contra camara.cl (curl, WebFetch, Playwright x2, más el job de
+GitHub Actions) — sin necesariamente ser un bloqueo distinto al de
+Cloudflare por reputación de IP en la nube.
+
+**Pendiente:** reescribir `camara_votaciones.py` con la misma técnica de
+`gasto_parlamentario.py` (curl_cffi + impersonate chrome, sin
+Playwright) en vez de seguir usando Playwright para el fix de
+paginación. No volver a golpear camara.cl hoy — dejar enfriar el
+bloqueo actual antes de probar de nuevo (mismo criterio que el 08-31).
+
 ---
 
 ## 2026-09-02 — Regresión: link roto a `/parlamentarios/discursos-senado/`
