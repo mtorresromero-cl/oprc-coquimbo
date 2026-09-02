@@ -268,12 +268,13 @@ export const analisisIntervencionesSenado: AnalisisIntervenciones =
 export interface AnalisisPrensa {
 	top_palabras_por_medio: Record<string, PalabraFrecuencia[]>;
 	top_palabras_total: PalabraFrecuencia[];
+	top_palabras_por_semana: Record<string, PalabraFrecuencia[]>;
 	tendencia: { semanas: string[]; palabras: string[]; serie: Record<string, number[]> };
+	tendencia_por_medio: Record<string, { medios: string[]; serie: Record<string, number[]> }>;
 	coocurrencia: {
 		nodos: PalabraFrecuencia[];
 		enlaces: { a: string; b: string; peso: number }[];
 	};
-	menciones_por_autoridad: { autoridad_id: string; n: number }[];
 	menciones_por_comuna: { comuna_id: string; n: number }[];
 	total_articulos: number;
 	total_palabras_corpus: number;

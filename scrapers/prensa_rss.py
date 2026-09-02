@@ -48,7 +48,7 @@ FUENTES: list[tuple[str, str | None, str]] = [
     ("El Salamanquino", "salamanca", "https://elsalamanquino.cl/feed/"),
     ("El Vileño", "los-vilos", "https://xn--elvileo-9za.cl/feed/"),
     # Externos — medios regionales fuera de la Red Comunales, sin comuna fija
-    ("Miradio", None, "https://miradiols.cl/feed/"),
+    ("Mi Radio", None, "https://miradiols.cl/feed/"),
     ("Radio Guayacán", None, "https://radioguayacan.cl/feed/"),
     ("Radio Montecarlo", None, "https://radiomontecarlo.cl/feed/"),
     # 4 feeds temáticos del mismo diario — mismo nombre de fuente a

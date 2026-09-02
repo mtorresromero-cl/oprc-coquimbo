@@ -13,6 +13,48 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-02 — Prensa regional: nota sobre Coquimbo, fix Mi Radio, y banner en portada
+
+**"Coquimbo" domina "Comunas más mencionadas" — investigado y es real,
+no un bug:** de las 460 apariciones de la palabra "coquimbo" en el
+corpus, 224 (49%) están en contexto "Región de Coquimbo" / "Gobierno
+Regional de Coquimbo", no la comuna. A nivel de artículo: de los 173
+artículos que mencionan "coquimbo", 58 (un tercio) SOLO la mencionan
+como nombre de la región, nunca como comuna. Es ambigüedad real del
+lenguaje (la comuna capital comparte nombre con la región) — no se
+intentó desambiguar automáticamente (es un problema de NLP real, no de
+substring), se dejó una nota explicando esto bajo el gráfico en
+`prensa.astro`.
+
+**"Miradio" → "Mi Radio"** (con espacio, nombre real de la radio) —
+mismo patrón que el fix de "Radio Montecarlo": renombrado en
+`scrapers/prensa_rss.py` y en las 10 filas ya guardadas en la base.
+
+**Banner de Prensa regional en la portada** (`site/src/pages/index.astro`,
+entre "Destacados" y "Explorar los datos"): a diferencia del banner de
+Delincuencia (ícono + texto), el usuario pidió explícitamente **sin
+ícono** — una ilustración HTML que sugiera "palabras, un gráfico, un
+diario". Se armó una mini maqueta de diario (tarjeta blanca rotada, con
+líneas de texto simuladas y un mini-gráfico de barras) más 3 palabras
+reales (las 3 más usadas del corpus, no decorativas) flotando alrededor
+en distintos tamaños/rotaciones. Bug encontrado y corregido antes de
+comitear: las palabras flotantes quedaban parcialmente tapadas por la
+tarjeta blanca (que se dibuja después en el DOM, con más z-index
+implícito) porque el contenedor era muy angosto para la tarjeta que
+tenía adentro — se agrandó el contenedor y se movieron las palabras a
+las esquinas exteriores; verificado sin superposición con
+`bounding_box()` de Playwright, no solo a ojo.
+
+**Limpieza de tipos:** `AnalisisPrensa` en `site/src/lib/datos.ts`
+todavía declaraba `menciones_por_autoridad` (ya no existe en el JSON
+desde el commit anterior) y no declaraba `top_palabras_por_semana` ni
+`tendencia_por_medio` (que sí se usan hace rato en `prensa.astro`) —
+corregido de paso.
+
+Verificado con Playwright (desktop y mobile), cero errores de consola.
+
+---
+
 ## 2026-09-02 — Prensa regional: se saca "Autoridades más mencionadas" (decisión del usuario) + duplicados de El Día
 
 **"Autoridades más mencionadas" se eliminó del sitio.** Tras dos rondas
