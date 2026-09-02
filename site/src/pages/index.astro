@@ -114,14 +114,14 @@ const COLOR_CLASES: Record<string, { pill: string; texto: string }> = {
 const destacados = [
 	masTiempoSala.segundos > 0 && {
 		...tarjetaDe(masTiempoSala.a.id),
-		etiqueta: '¿Quién más habla en sala?',
+		etiqueta: '¿Quién habla más en sala?',
 		colorKey: 'discursos',
 		valor: formatoDuracionMin(masTiempoSala.segundos),
 		href: '/parlamentarios/discursos/',
 	},
 	masGastoId && {
 		...tarjetaDe(masGastoId[0]),
-		etiqueta: '¿Quién más gasta?',
+		etiqueta: '¿Quién gasta más?',
 		colorKey: 'gasto',
 		valor: `$${Math.round(masGastoId[1] / 1_000_000)}M gastados`,
 		href: '/parlamentarios/gastos/',
@@ -135,7 +135,7 @@ const destacados = [
 	},
 	masAusenteId && {
 		...tarjetaDe(masAusenteId[0]),
-		etiqueta: '¿Quién más falta al Core?',
+		etiqueta: '¿Quién falta más al Core?',
 		colorKey: 'votaciones',
 		valor: `${masAusenteId[1]} ausencias en acuerdos`,
 		href: '/consejo-regional/',
@@ -379,7 +379,7 @@ const ICONOS: Record<string, string> = {
 					<div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 						{destacados.map((d) => (
 							<div class="flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-								<span class={`inline-block w-fit rounded-full ${COLOR_CLASES[d.colorKey].pill} px-2.5 py-1 text-[11px] font-bold tracking-wide text-white uppercase`}>
+								<span class={`inline-block w-fit rounded-full ${COLOR_CLASES[d.colorKey].pill} px-2.5 py-1 text-[13px] font-bold tracking-wide text-white uppercase`}>
 									{d.etiqueta}
 								</span>
 								<div class="mt-4 flex items-center gap-3">
