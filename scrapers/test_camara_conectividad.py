@@ -9,10 +9,15 @@ con Playwright como con curl_cffi, desde este sandbox y desde GitHub
 Actions — nunca desde un navegador normal.
 
 Uso:
-    pip install curl_cffi httpx
+    pip install curl_cffi httpx playwright
+    playwright install chromium
     python3 test_camara_conectividad.py
 
 No requiere el resto del proyecto (sin imports de scrapers/, sin BD).
+Playwright es opcional (~300MB, descarga un Chromium real) — es la
+prueba más importante de las cuatro: si un navegador real automatizado
+SÍ pasa donde las librerías HTTP no, confirma que el problema es la
+huella TLS/HTTP2 de esas librerías, no la red de origen.
 """
 
 URLS = [
@@ -85,11 +90,37 @@ def probar_con_curl_binario():
             print(f"  [{nombre}] ERROR — {type(e).__name__}: {e}")
 
 
+def probar_con_playwright():
+    print("\n=== 4) Playwright (Chromium real, headless — la prueba definitiva) ===")
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        print(
+            "  playwright no está instalado "
+            "(pip install playwright && playwright install chromium) — se salta"
+        )
+        return
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context(user_agent=USER_AGENT)
+        page = context.new_page()
+        for nombre, url in URLS:
+            try:
+                resp = page.goto(url, timeout=20000, wait_until="domcontentloaded")
+                largo = len(page.content())
+                print(f"  [{nombre}] OK — status {resp.status if resp else '?'}, {largo} bytes")
+            except Exception as e:
+                print(f"  [{nombre}] ERROR — {type(e).__name__}: {e}")
+        browser.close()
+
+
 if __name__ == "__main__":
     print("Probando conectividad a camara.cl desde esta máquina...")
     probar_con_httpx()
     probar_con_curl_cffi()
     probar_con_curl_binario()
+    probar_con_playwright()
     print(
         "\nSi todo lo anterior falló con errores tipo SSL/TLS (handshake, "
         "cipher mismatch), esta red también está bloqueada — probar desde "
