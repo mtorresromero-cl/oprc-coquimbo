@@ -40,6 +40,8 @@ jobs:
         continue-on-error: true
       - run: python scrapers/core_coquimbo.py
         continue-on-error: true
+      - run: python scrapers/delincuencia_cead.py
+        continue-on-error: true
       - name: Commit datos actualizados
         run: |
           git config user.name "OPRC Bot"
