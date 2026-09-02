@@ -373,8 +373,14 @@ export function comparativaMunicipal(): ComparativaMunicipal[] {
 			? Math.max(...suPresupuesto.map((p) => p.anno))
 			: null;
 		const delAnno = suPresupuesto.filter((p) => p.anno === annoPresupuesto);
-		const ingresosDelAnno = delAnno.filter((p) => p.tipo === 'ingreso');
-		const gastosDelAnno = delAnno.filter((p) => p.tipo === 'gasto');
+		// solo se muestran ingresos/gastos verificados a mano contra el BEP
+		// oficial: la extracción automática del PDF (usada para Coquimbo y
+		// La Serena) puede confundir el monto del mes con el acumulado del
+		// año según cómo esté armado el documento de cada comuna, y ya dio
+		// una cifra incorrecta para Coquimbo.
+		const verificado = (p: PresupuestoItem) => p.categoria.toLowerCase().includes('verificado');
+		const ingresosDelAnno = delAnno.filter((p) => p.tipo === 'ingreso' && verificado(p));
+		const gastosDelAnno = delAnno.filter((p) => p.tipo === 'gasto' && verificado(p));
 
 		const porTipo = (tipo: string) =>
 			suPersonal.filter((p) => p.tipo_contrato === tipo).reduce((s, p) => s + p.dotacion, 0);

@@ -89,20 +89,9 @@ function pctDe(parte: number, total: number) {
 		{comparativa.length > 0 && (
 			<section class="mb-14">
 				<h2 class="text-xl font-semibold text-slate-900">Comparativa entre comunas</h2>
-				<p class="mt-1 max-w-2xl text-base text-slate-500">
-					Totales absolutos, no per cápita: todavía no tenemos población oficial cargada por
-					comuna, así que una comuna más grande va a aparecer arriba en dotación o gasto
-					simplemente por tener más habitantes, no porque gestione peor que una comuna chica.
-					Cada comuna en su período más reciente informado — los períodos no son iguales entre
-					comunas.
-				</p>
-				<p class="mt-2 max-w-2xl text-base text-slate-500">
-					Ingresos y Gastos son lo <strong>efectivamente percibido/ejecutado</strong> en lo que va
-					del año, no el presupuesto anual completo. Por eso una comuna chica puede mostrar más
-					ingresos que una grande: las transferencias importantes (Fondo Común Municipal, fondos
-					regionales, etc.) no llegan parejo mes a mes, así que el orden de esta tabla cambia
-					según qué comuna ya recibió sus transferencias grandes a la fecha de su informe y cuál
-					todavía las está esperando.
+				<p class="mt-1 text-base text-slate-500">
+					Totales absolutos, no per cápita, cada comuna en su período más reciente informado.
+					Ingresos y Gastos solo se muestran una vez verificados a mano contra el balance oficial.
 				</p>
 				<div class="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
 					<table class="w-full min-w-[720px] text-sm">
@@ -151,11 +140,8 @@ function pctDe(parte: number, total: number) {
 					</table>
 				</div>
 				<p class="mt-3 text-sm text-slate-500">
-					Las comunas con "—" en Ingresos o Gastos sí publican esa información, pero de una forma
-					que no podemos leer automáticamente todavía: algunas la publican como una imagen
-					escaneada en vez de texto, otras usan un formato contable distinto al del resto, y en
-					un par de casos el sitio del municipio bloquea el acceso automatizado. No es que falte
-					el dato en la fuente — es que por ahora no logramos extraerlo de ahí.
+					Las comunas con "—" en Ingresos o Gastos sí publican esa información, pero todavía no
+					logramos extraerla automáticamente o no la hemos verificado a mano.
 				</p>
 			</section>
 		)}

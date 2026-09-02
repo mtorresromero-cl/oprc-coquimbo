@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import TarjetaAutoridad from '../../components/TarjetaAutoridad.astro';
 import {
+	type PresupuestoItem,
 	comunas,
 	autoridades,
 	presupuestoDeComuna,
@@ -38,8 +39,11 @@ const { comuna } = Astro.props;
 const items = presupuestoDeComuna(comuna.id);
 const anno = items.length ? Math.max(...items.map((i) => i.anno)) : null;
 const delAnno = items.filter((i) => i.anno === anno);
-const ingresos = delAnno.filter((i) => i.tipo === 'ingreso').sort((a, b) => b.monto - a.monto);
-const gastos = delAnno.filter((i) => i.tipo === 'gasto').sort((a, b) => b.monto - a.monto);
+// solo se muestran ingresos/gastos verificados a mano contra el BEP oficial
+// (ver comparativaMunicipal() en datos.ts para el porqué)
+const verificado = (i: PresupuestoItem) => i.categoria.toLowerCase().includes('verificado');
+const ingresos = delAnno.filter((i) => i.tipo === 'ingreso' && verificado(i)).sort((a, b) => b.monto - a.monto);
+const gastos = delAnno.filter((i) => i.tipo === 'gasto' && verificado(i)).sort((a, b) => b.monto - a.monto);
 const totalIngresos = ingresos.reduce((s, i) => s + i.monto, 0);
 const totalGastos = gastos.reduce((s, i) => s + i.monto, 0);
 const fuenteUrl = delAnno[0]?.fuente_url;
