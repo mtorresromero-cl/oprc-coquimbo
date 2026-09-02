@@ -2,7 +2,10 @@ name: Informe mensual
 
 on:
   schedule:
-    - cron: '0 13 1 * *' # el día 1 de cada mes, 10am Chile (UTC-3)
+    # corre todos los días del 1 al 6 de cada mes, 10am Chile (UTC-3) — el
+    # paso "Verificar primer día hábil" decide en cuál de esos días
+    # realmente le toca generar el informe (ver ese paso para el porqué)
+    - cron: '0 13 1-6 * *'
   workflow_dispatch:
     inputs:
       enviar:
@@ -25,7 +28,23 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -r scrapers/requirements.txt
+      - name: Verificar primer día hábil
+        id: dia_habil
+        run: |
+          # el disparo automático (schedule) corre todos los días 1-6, pero
+          # solo debe generarse una vez: el primer día hábil real del mes
+          # (si el 1 cae sábado, domingo o feriado, nadie lee el correo ese
+          # día). Un disparo manual (workflow_dispatch) siempre procede,
+          # sin importar la fecha.
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "ejecutar=true" >> "$GITHUB_OUTPUT"
+          elif python scrapers/primer_dia_habil.py; then
+            echo "ejecutar=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ejecutar=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Generar informe (y enviar solo si se pide explícitamente)
+        if: steps.dia_habil.outputs.ejecutar == 'true'
         env:
           MAILRELAY_API_KEY: ${{ secrets.MAILRELAY_API_KEY }}
         run: |
@@ -38,6 +57,7 @@ jobs:
           fi
           python scrapers/informe_mensual.py $ARGS
       - name: Guardar el HTML del informe
+        if: steps.dia_habil.outputs.ejecutar == 'true'
         run: |
           git config user.name "OPRC Bot"
           git config user.email "bot@oprcoquimbo.cl"

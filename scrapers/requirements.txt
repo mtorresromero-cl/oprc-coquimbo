@@ -8,3 +8,4 @@ playwright>=1.40
 curl_cffi>=0.7
 sqlmodel>=0.0.16
 python-dotenv>=1.0
+holidays>=0.55
