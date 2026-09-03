@@ -75,6 +75,19 @@ contra camara.cl directo (verificado el 2026-09-02), y quieneseljefe.cl
 no expone los montos de gasto como texto plano (se cargan por JS/API
 aparte, no vale la pena migrarlo).
 
+**⚠️ PENDIENTE (no resuelto, usado quieneseljefe.cl "por urgencia"):**
+el usuario fue explícito en que esto es un parche, no la solución
+definitiva — hay que retomar y resolver el scraping directo a camara.cl
+para votaciones y asistencia de diputados cuando haya tiempo para
+hacerlo bien (más lento no debería ser sinónimo de "no funciona": la
+fase de descubrimiento paginada se puede optimizar, por ejemplo
+recorriendo un solo diputado para descubrir IDs en vez de los 7 — ver
+la nota de eficiencia ya agregada más abajo, en la entrada del mismo
+día, que quedó sin probarse). Mientras tanto: no se cita
+quieneseljefe.cl en ningún texto público del sitio — el link "Fuente
+oficial" en la UI apunta a la URL reconstruida de camara.cl (mismo id
+numérico en ambos sitios), nunca a quieneseljefe.cl directamente.
+
 ---
 
 ## 2026-09-02 — El fix de www.camara.cl SÍ funcionó, pero el commit se perdió por un choque de pushes

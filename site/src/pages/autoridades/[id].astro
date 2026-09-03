@@ -254,7 +254,7 @@ const TEMA = {
 							</span>
 							Declaración de patrimonio e intereses
 						</h2>
-						<p class="mt-1 text-xs text-slate-500">
+						<p class="mt-1 text-sm text-slate-500">
 							Resumen de la declaración vigente ({patrimonio.tipo_declaracion}, {patrimonio.fecha_declaracion}),
 							como {patrimonio.cargo_declarado} de {patrimonio.organismo}. Vía infoprobidad.cl (Consejo para
 							la Transparencia / Contraloría General de la República).
@@ -298,7 +298,7 @@ const TEMA = {
 							</span>
 							Asistencia a sala ({etiquetaPeriodoAsistencia(resumenAsistencia)})
 						</h2>
-						<p class="mt-1 text-xs text-slate-500">
+						<p class="mt-1 text-sm text-slate-500">
 							Resumen del período tal como lo calcula la fuente oficial ({resumenAsistencia.camara === 'senado' ? 'senado.cl' : 'camara.cl'}).
 							{resumenAsistencia.asistencias > resumenAsistencia.sesiones_computables && (
 								<span class="block text-amber-600">
@@ -364,7 +364,7 @@ const TEMA = {
 							</span>
 							Gasto parlamentario
 						</h2>
-						<p class="mt-1 text-xs text-slate-500">
+						<p class="mt-1 text-sm text-slate-500">
 							Último mes publicado por categoría, según camara.cl. Historial completo mes a mes en{' '}
 							<a href="/parlamentarios/gastos/" class="text-brand-600 hover:underline">la matriz de gasto parlamentario</a>.
 						</p>
@@ -415,7 +415,7 @@ const TEMA = {
 							</span>
 							Intervenciones en sala
 						</h2>
-						<p class="mt-1 text-xs text-slate-500">
+						<p class="mt-1 text-sm text-slate-500">
 							Análisis de texto de sus discursos en sala, vía el boletín de sesiones de camara.cl.
 							Detalle completo en{' '}
 							<a href="/parlamentarios/discursos/" class="text-brand-600 hover:underline">intervenciones en sala</a>.
@@ -461,7 +461,7 @@ const TEMA = {
 							</span>
 							Mociones presentadas ({historialMociones.length})
 						</h2>
-						<p class="mt-1 text-xs text-slate-500">
+						<p class="mt-1 text-sm text-slate-500">
 							Como autor o coautor este año, vía {autoridad.cargo === 'senador' ? 'el buscador de tramitación del Senado' : 'la ficha del diputado/a en camara.cl'}.
 						</p>
 						<ul class="mt-4 space-y-3">
@@ -491,7 +491,7 @@ const TEMA = {
 							Historial de votaciones
 						</h2>
 						{autoridad.cargo === 'diputado' && (
-							<p class="mt-1 text-xs text-slate-500">Vía camara.cl.</p>
+							<p class="mt-1 text-sm text-slate-500">Vía camara.cl.</p>
 						)}
 						<ul class="mt-4 space-y-3">
 							{historialVotos.map(({ sesion, voto }) => (

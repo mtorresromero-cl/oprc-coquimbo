@@ -157,7 +157,15 @@ class ScraperCamaraVotaciones(BaseScraper):
                         "fecha": fecha,
                         "etapa": "general" if es_general else "particular",
                         "articulo": None if es_general else resumen_txt,
-                        "fuente_url": f"{BASE_URL}{link['href']}",
+                        # se pide el detalle a quieneseljefe.cl (más
+                        # liviano), pero lo que se guarda y se muestra en
+                        # el sitio es la URL oficial de camara.cl — mismo
+                        # id de votación en ambos sitios
+                        "_url_fetch": f"{BASE_URL}{link['href']}",
+                        "fuente_url": (
+                            "https://www.camara.cl/legislacion/sala_sesiones/"
+                            f"votacion_detalle.aspx?prmIdVotacion={id_votacion}"
+                        ),
                     },
                 )
             print(f"  {autoridad_id}: {len(items)} votos", flush=True)
@@ -181,7 +189,7 @@ class ScraperCamaraVotaciones(BaseScraper):
         for vid in ids_nuevos:
             info = votaciones_vistas[vid]
             try:
-                resp = session.get(info["fuente_url"], timeout=30)
+                resp = session.get(info["_url_fetch"], timeout=30)
                 resp.raise_for_status()
             except Exception as e:  # noqa: BLE001
                 print(f"  votación {vid}: ERROR cargando detalle: {e}", flush=True)

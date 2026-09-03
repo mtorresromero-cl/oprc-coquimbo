@@ -79,6 +79,10 @@ class ScraperCamaraAsistencia(BaseScraper):
             # sin uno la página igual redirige/resuelve bien — se prueba
             # con un slug vacío para no depender de tenerlo bien escrito
             url = f"{BASE_URL}/diputado/{dip_id}/x"
+            # se pide a quieneseljefe.cl (más liviano), pero lo que se
+            # guarda y se muestra en el sitio es la URL oficial de
+            # camara.cl — mismo id de diputado en ambos sitios
+            url_oficial = f"https://www.camara.cl/diputados/detalle/asistencia_sala.aspx?prmId={dip_id}"
             try:
                 resp = session.get(url, timeout=30)
                 resp.raise_for_status()
@@ -113,7 +117,7 @@ class ScraperCamaraAsistencia(BaseScraper):
                         "numero_sesion": numero_sesion,
                         "presente": any("present" in c for c in clases),
                         "justificacion": "",
-                        "fuente_url": url,
+                        "fuente_url": url_oficial,
                     }
                 )
             print(f"  {autoridad_id}: {len(filas)} filas ({len(registros)} acumuladas)", flush=True)

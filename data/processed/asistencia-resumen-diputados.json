@@ -8,7 +8,7 @@
     "asistencias": 46,
     "ausencias_justificadas": 0,
     "ausencias_sin_justificar": 17,
-    "fuente_url": "https://quieneseljefe.cl/diputado/1117/x"
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asistencia_sala.aspx?prmId=1117"
   },
   {
     "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
@@ -19,7 +19,7 @@
     "asistencias": 62,
     "ausencias_justificadas": 0,
     "ausencias_sin_justificar": 1,
-    "fuente_url": "https://quieneseljefe.cl/diputado/1174/x"
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asistencia_sala.aspx?prmId=1174"
   },
   {
     "autoridad_id": "erich-christ-grohs-marin-diputado",
@@ -30,7 +30,7 @@
     "asistencias": 57,
     "ausencias_justificadas": 0,
     "ausencias_sin_justificar": 6,
-    "fuente_url": "https://quieneseljefe.cl/diputado/1212/x"
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asistencia_sala.aspx?prmId=1212"
   },
   {
     "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
@@ -41,7 +41,7 @@
     "asistencias": 62,
     "ausencias_justificadas": 0,
     "ausencias_sin_justificar": 1,
-    "fuente_url": "https://quieneseljefe.cl/diputado/1255/x"
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asistencia_sala.aspx?prmId=1255"
   },
   {
     "autoridad_id": "daniel-manouchehri-lobos-diputado",
@@ -52,7 +52,7 @@
     "asistencias": 60,
     "ausencias_justificadas": 0,
     "ausencias_sin_justificar": 3,
-    "fuente_url": "https://quieneseljefe.cl/diputado/1142/x"
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asistencia_sala.aspx?prmId=1142"
   },
   {
     "autoridad_id": "carolina-tello-rojas-diputado",
@@ -63,7 +63,7 @@
     "asistencias": 63,
     "ausencias_justificadas": 0,
     "ausencias_sin_justificar": 0,
-    "fuente_url": "https://quieneseljefe.cl/diputado/1177/x"
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asistencia_sala.aspx?prmId=1177"
   },
   {
     "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
@@ -74,6 +74,6 @@
     "asistencias": 56,
     "ausencias_justificadas": 0,
     "ausencias_sin_justificar": 7,
-    "fuente_url": "https://quieneseljefe.cl/diputado/1250/x"
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asistencia_sala.aspx?prmId=1250"
   }
 ]

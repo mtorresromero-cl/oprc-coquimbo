@@ -78,6 +78,7 @@ function formatoValor(unidad: string, valor: number | null): string {
 								{meses.map((mes) => (
 									<th class="px-4 py-2 text-right whitespace-nowrap">{nombreMes(mes)}</th>
 								))}
+								<th class="px-4 py-2 text-right whitespace-nowrap border-l border-slate-200">Total período</th>
 							</tr>
 						</thead>
 						<tbody class="divide-y divide-slate-100">
@@ -108,6 +109,9 @@ function formatoValor(unidad: string, valor: number | null): string {
 											)}
 										</td>
 									))}
+									<td class="px-4 py-2.5 text-right whitespace-nowrap tabular-nums font-semibold text-slate-900 border-l border-slate-200">
+										{formatoValor(m.unidad, fila.celdas.reduce((n, c) => n + (c.valor ?? 0), 0))}
+									</td>
 								</tr>
 							))}
 						</tbody>
