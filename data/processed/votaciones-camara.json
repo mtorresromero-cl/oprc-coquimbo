@@ -1,20 +1,22 @@
 [
   {
-    "id": "camara-89862",
+    "id": "camara-89867",
     "camara": "camara",
     "fecha": "2026-08-19",
-    "numero_sesion": "60",
+    "numero_sesion": null,
     "tipo": null,
-    "proyecto_ley_id": "18429-10",
-    "descripcion": "Aprueba el Tratado entre la República de Chile y la República Federativa de Brasil sobre Asistencia Jurídica Mutua en Materia Penal, hecho en Brasilia, el 22 de abril de 2025",
+    "proyecto_ley_id": "17324-33",
+    "descripcion": "Modifica el Código de Aguas para garantizar la participación de comités y cooperativas de agua potable rural, prestadoras de servicios sanitarios rurales, en los directorios de las comunidades de agua",
     "resultado": "aprobado",
-    "votos_favor": 124,
-    "votos_contra": 0,
-    "abstenciones": 0,
-    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89862",
+    "votos_favor": 62,
+    "votos_contra": 18,
+    "abstenciones": 31,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89867/modifica-el-codigo-de-aguas-para-garantizar-la-participacion-de-comites-y-cooperativas-de-agua-p",
+    "etapa": "general",
+    "articulo": null,
     "votos": [
       {
-        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
         "voto": "favor"
       },
       {
@@ -22,7 +24,11 @@
         "voto": "favor"
       },
       {
-        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
         "voto": "favor"
       },
       {
@@ -31,131 +37,11 @@
       },
       {
         "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
-        "voto": "favor"
+        "voto": "abstencion"
       },
       {
-        "autoridad_id": "nathalie-castillo-rojas-diputado",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "camara-89863",
-    "camara": "camara",
-    "fecha": "2026-08-19",
-    "numero_sesion": "60",
-    "tipo": null,
-    "proyecto_ley_id": "18189-14",
-    "descripcion": "Modifica la ley N° 20.898, con el objeto de ampliar el régimen excepcional de regularización de viviendas y actualizar la fecha de su aplicación",
-    "resultado": "aprobado",
-    "votos_favor": 124,
-    "votos_contra": 0,
-    "abstenciones": 0,
-    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89863",
-    "votos": [
-      {
-        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "carolina-tello-rojas-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "daniel-manouchehri-lobos-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "nathalie-castillo-rojas-diputado",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "camara-89864",
-    "camara": "camara",
-    "fecha": "2026-08-19",
-    "numero_sesion": "60",
-    "tipo": null,
-    "proyecto_ley_id": "18189-14",
-    "descripcion": "Modifica la ley N° 20.898, con el objeto de ampliar el régimen excepcional de regularización de viviendas y actualizar la fecha de su aplicación",
-    "resultado": "aprobado",
-    "votos_favor": 64,
-    "votos_contra": 57,
-    "abstenciones": 3,
-    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89864",
-    "votos": [
-      {
-        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
-        "voto": "contra"
-      },
-      {
-        "autoridad_id": "carolina-tello-rojas-diputado",
-        "voto": "contra"
-      },
-      {
-        "autoridad_id": "daniel-manouchehri-lobos-diputado",
-        "voto": "contra"
-      },
-      {
-        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
-        "voto": "contra"
-      },
-      {
-        "autoridad_id": "nathalie-castillo-rojas-diputado",
-        "voto": "contra"
-      }
-    ]
-  },
-  {
-    "id": "camara-89865",
-    "camara": "camara",
-    "fecha": "2026-08-19",
-    "numero_sesion": "60",
-    "tipo": null,
-    "proyecto_ley_id": "18189-14",
-    "descripcion": "Modifica la ley N° 20.898, con el objeto de ampliar el régimen excepcional de regularización de viviendas y actualizar la fecha de su aplicación",
-    "resultado": "aprobado",
-    "votos_favor": 67,
-    "votos_contra": 49,
-    "abstenciones": 8,
-    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89865",
-    "votos": [
-      {
-        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "carolina-tello-rojas-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "daniel-manouchehri-lobos-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
-        "voto": "contra"
-      },
-      {
-        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
-        "voto": "contra"
-      },
-      {
-        "autoridad_id": "nathalie-castillo-rojas-diputado",
-        "voto": "favor"
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "ausente"
       }
     ]
   },
@@ -163,18 +49,20 @@
     "id": "camara-89866",
     "camara": "camara",
     "fecha": "2026-08-19",
-    "numero_sesion": "60",
+    "numero_sesion": null,
     "tipo": null,
     "proyecto_ley_id": "16397-15",
     "descripcion": "Modifica la ley N° 18.290, de Tránsito, para aumentar las sanciones por no usar sistemas de retención infantil y por trasladar menores de 12 años en asientos delanteros",
     "resultado": "aprobado",
     "votos_favor": 123,
     "votos_contra": 0,
-    "abstenciones": 1,
-    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89866",
+    "abstenciones": 31,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89866/modifica-la-ley-n-18-290-de-transito-para-aumentar-las-sanciones-por-no-usar-sistemas-de-retenci",
+    "etapa": "general",
+    "articulo": null,
     "votos": [
       {
-        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
         "voto": "favor"
       },
       {
@@ -182,7 +70,11 @@
         "voto": "favor"
       },
       {
-        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
         "voto": "favor"
       },
       {
@@ -194,27 +86,29 @@
         "voto": "favor"
       },
       {
-        "autoridad_id": "nathalie-castillo-rojas-diputado",
-        "voto": "favor"
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "ausente"
       }
     ]
   },
   {
-    "id": "camara-89867",
+    "id": "camara-89862",
     "camara": "camara",
     "fecha": "2026-08-19",
-    "numero_sesion": "60",
+    "numero_sesion": null,
     "tipo": null,
-    "proyecto_ley_id": "17324-33",
-    "descripcion": "Modifica el Código de Aguas para garantizar la participación de comités y cooperativas de agua potable rural, prestadoras de servicios sanitarios rurales, en los directorios de las comunidades de agua",
+    "proyecto_ley_id": "18429-10",
+    "descripcion": "Aprueba el Tratado entre la República de Chile y la República Federativa de Brasil sobre Asistencia Jurídica Mutua en Materia Penal, hecho en Brasilia, el 22 de abril de 2025",
     "resultado": "aprobado",
-    "votos_favor": 62,
-    "votos_contra": 18,
-    "abstenciones": 42,
-    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89867",
+    "votos_favor": 124,
+    "votos_contra": 0,
+    "abstenciones": 31,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89862/aprueba-el-tratado-entre-la-republica-de-chile-y-la-republica-federativa-de-brasil-sobre-asisten",
+    "etapa": "general",
+    "articulo": null,
     "votos": [
       {
-        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
         "voto": "favor"
       },
       {
@@ -222,7 +116,11 @@
         "voto": "favor"
       },
       {
-        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
         "voto": "favor"
       },
       {
@@ -231,187 +129,11 @@
       },
       {
         "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
-        "voto": "abstencion"
-      },
-      {
-        "autoridad_id": "nathalie-castillo-rojas-diputado",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "camara-89814",
-    "camara": "camara",
-    "fecha": "2026-08-18",
-    "numero_sesion": "58",
-    "tipo": null,
-    "proyecto_ley_id": "18525-06",
-    "descripcion": "Modifica la ley N° 21.802, que fortalece la institucionalidad municipal en materia de seguridad pública y prevención del delito",
-    "resultado": "aprobado",
-    "votos_favor": 134,
-    "votos_contra": 1,
-    "abstenciones": 0,
-    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89814",
-    "votos": [
-      {
-        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "carolina-tello-rojas-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "daniel-manouchehri-lobos-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
         "voto": "favor"
       },
       {
         "autoridad_id": "erich-christ-grohs-marin-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "nathalie-castillo-rojas-diputado",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "camara-89815",
-    "camara": "camara",
-    "fecha": "2026-08-18",
-    "numero_sesion": "58",
-    "tipo": null,
-    "proyecto_ley_id": "18525-06",
-    "descripcion": "Modifica la ley N° 21.802, que fortalece la institucionalidad municipal en materia de seguridad pública y prevención del delito",
-    "resultado": "aprobado",
-    "votos_favor": 132,
-    "votos_contra": 1,
-    "abstenciones": 2,
-    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89815",
-    "votos": [
-      {
-        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "carolina-tello-rojas-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "daniel-manouchehri-lobos-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "erich-christ-grohs-marin-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "nathalie-castillo-rojas-diputado",
-        "voto": "abstencion"
-      }
-    ]
-  },
-  {
-    "id": "camara-89816",
-    "camara": "camara",
-    "fecha": "2026-08-18",
-    "numero_sesion": "58",
-    "tipo": null,
-    "proyecto_ley_id": "18525-06",
-    "descripcion": "Modifica la ley N° 21.802, que fortalece la institucionalidad municipal en materia de seguridad pública y prevención del delito",
-    "resultado": "aprobado",
-    "votos_favor": 118,
-    "votos_contra": 15,
-    "abstenciones": 2,
-    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89816",
-    "votos": [
-      {
-        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "carolina-tello-rojas-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "daniel-manouchehri-lobos-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
-        "voto": "contra"
-      },
-      {
-        "autoridad_id": "erich-christ-grohs-marin-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "nathalie-castillo-rojas-diputado",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "camara-89817",
-    "camara": "camara",
-    "fecha": "2026-08-18",
-    "numero_sesion": "58",
-    "tipo": null,
-    "proyecto_ley_id": "18525-06",
-    "descripcion": "Modifica la ley N° 21.802, que fortalece la institucionalidad municipal en materia de seguridad pública y prevención del delito",
-    "resultado": "rechazado",
-    "votos_favor": 77,
-    "votos_contra": 51,
-    "abstenciones": 7,
-    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89817",
-    "votos": [
-      {
-        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "carolina-tello-rojas-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "daniel-manouchehri-lobos-diputado",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
-        "voto": "contra"
-      },
-      {
-        "autoridad_id": "erich-christ-grohs-marin-diputado",
-        "voto": "contra"
-      },
-      {
-        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
-        "voto": "abstencion"
-      },
-      {
-        "autoridad_id": "nathalie-castillo-rojas-diputado",
-        "voto": "favor"
+        "voto": "ausente"
       }
     ]
   },
@@ -419,18 +141,20 @@
     "id": "camara-89842",
     "camara": "camara",
     "fecha": "2026-08-18",
-    "numero_sesion": "59",
+    "numero_sesion": null,
     "tipo": null,
     "proyecto_ley_id": "15387-12",
     "descripcion": "Modifica la ley N°21.020, sobre tenencia responsable de mascotas y animales de compañía, para prohibir y sancionar las carreras de perros",
     "resultado": "aprobado",
     "votos_favor": 80,
     "votos_contra": 41,
-    "abstenciones": 7,
-    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89842",
+    "abstenciones": 27,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89842/modifica-la-ley-n21-020-sobre-tenencia-responsable-de-mascotas-y-animales-de-compania-para-prohi",
+    "etapa": "general",
+    "articulo": null,
     "votos": [
       {
-        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
         "voto": "favor"
       },
       {
@@ -438,59 +162,383 @@
         "voto": "favor"
       },
       {
-        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
         "voto": "favor"
       },
       {
         "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
         "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "contra"
       },
       {
         "autoridad_id": "erich-christ-grohs-marin-diputado",
         "voto": "abstencion"
+      }
+    ]
+  },
+  {
+    "id": "camara-89784",
+    "camara": "camara",
+    "fecha": "2026-08-17",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17837-13",
+    "descripcion": "Modifica el Código del Trabajo y otros cuerpos legales para fortalecer la protección de la salud y seguridad de las personas trabajadoras",
+    "resultado": "aprobado",
+    "votos_favor": 79,
+    "votos_contra": 45,
+    "abstenciones": 23,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89784/modifica-el-codigo-del-trabajo-y-otros-cuerpos-legales-para-fortalecer-la-proteccion-de-la-salud",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
       },
       {
-        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
-        "voto": "contra"
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
       },
       {
         "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "contra"
+      }
+    ]
+  },
+  {
+    "id": "camara-89783",
+    "camara": "camara",
+    "fecha": "2026-08-17",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17451-15",
+    "descripcion": "Autoriza la circulación en el país de vehículos que participen en competiciones de carácter internacional o federadas, en las formas y condiciones que señala",
+    "resultado": "aprobado",
+    "votos_favor": 127,
+    "votos_contra": 0,
+    "abstenciones": 25,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89783/autoriza-la-circulacion-en-el-pais-de-vehiculos-que-participen-en-competiciones-de-caracter-inte",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
         "voto": "favor"
       }
     ]
   },
   {
-    "id": "camara-89843",
+    "id": "camara-89750",
     "camara": "camara",
-    "fecha": "2026-08-18",
-    "numero_sesion": "59",
+    "fecha": "2026-08-12",
+    "numero_sesion": null,
     "tipo": null,
-    "proyecto_ley_id": "12786-12",
-    "descripcion": "Modifica la ley N°20.380, sobre Protección de los animales, para regular las carreras de perros",
-    "resultado": "rechazado",
-    "votos_favor": 50,
-    "votos_contra": 68,
-    "abstenciones": 10,
-    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89843",
+    "proyecto_ley_id": "16777-07",
+    "descripcion": "Modifica el Código Penal, en materia de internación al territorio nacional de enfermedades animales o plagas vegetales",
+    "resultado": "aprobado",
+    "votos_favor": 134,
+    "votos_contra": 0,
+    "abstenciones": 21,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89750/modifica-el-codigo-penal-en-materia-de-internacion-al-territorio-nacional-de-enfermedades-animal",
+    "etapa": "general",
+    "articulo": null,
     "votos": [
       {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
         "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
-        "voto": "contra"
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89749",
+    "camara": "camara",
+    "fecha": "2026-08-12",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18210-06",
+    "descripcion": "Concede la nacionalidad chilena por gracia al ciudadano uruguayo Pablo Lemoine",
+    "resultado": "aprobado",
+    "votos_favor": 133,
+    "votos_contra": 0,
+    "abstenciones": 21,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89749/concede-la-nacionalidad-chilena-por-gracia-al-ciudadano-uruguayo-pablo-lemoine",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89630",
+    "camara": "camara",
+    "fecha": "2026-08-05",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18524-05",
+    "descripcion": "Extiende vigencia y aumenta cobertura de la ley N° 21.748 y modifica normas que indica",
+    "resultado": "aprobado",
+    "votos_favor": 139,
+    "votos_contra": 0,
+    "abstenciones": 16,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89630/extiende-vigencia-y-aumenta-cobertura-de-la-ley-n-21-748-y-modifica-normas-que-indica",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89524",
+    "camara": "camara",
+    "fecha": "2026-07-22",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17795-19",
+    "descripcion": "Regula la creación y difusión de imitaciones digitales realistas de la imagen, cuerpo o voz de las personas, generadas mediante inteligencia artificial",
+    "resultado": "aprobado",
+    "votos_favor": 128,
+    "votos_contra": 2,
+    "abstenciones": 20,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89524/regula-la-creacion-y-difusion-de-imitaciones-digitales-realistas-de-la-imagen-cuerpo-o-voz-de-la",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "camara-89521",
+    "camara": "camara",
+    "fecha": "2026-07-22",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18301-10",
+    "descripcion": "Aprueba el Convenio de Transporte Aéreo entre el Gobierno de la República de Chile y el Gobierno de la República de Costa Rica, suscrito en Lima, Perú, el 13 de diciembre de 2023",
+    "resultado": "aprobado",
+    "votos_favor": 135,
+    "votos_contra": 0,
+    "abstenciones": 20,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89521/aprueba-el-convenio-de-transporte-aereo-entre-el-gobierno-de-la-republica-de-chile-y-el-gobierno",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "camara-89242",
+    "camara": "camara",
+    "fecha": "2026-06-24",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18211-25",
+    "descripcion": "Modifica el código penal, con el objeto de tipificar el delito de ocultamiento de identidad en el contexto de eventos masivos y desórdenes públicos",
+    "resultado": "aprobado",
+    "votos_favor": 100,
+    "votos_contra": 36,
+    "abstenciones": 17,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89242/modifica-el-codigo-penal-con-el-objeto-de-tipificar-el-delito-de-ocultamiento-de-identidad-en-el",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "ausente"
       },
       {
         "autoridad_id": "carolina-tello-rojas-diputado",
         "voto": "contra"
       },
       {
-        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
         "voto": "contra"
       },
       {
         "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
-        "voto": "contra"
-      },
-      {
-        "autoridad_id": "erich-christ-grohs-marin-diputado",
         "voto": "favor"
       },
       {
@@ -498,27 +546,719 @@
         "voto": "favor"
       },
       {
-        "autoridad_id": "nathalie-castillo-rojas-diputado",
-        "voto": "contra"
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "ausente"
       }
     ]
   },
   {
-    "id": "camara-89844",
+    "id": "camara-89241",
     "camara": "camara",
-    "fecha": "2026-08-18",
-    "numero_sesion": "59",
+    "fecha": "2026-06-24",
+    "numero_sesion": null,
     "tipo": null,
-    "proyecto_ley_id": "12786-12",
-    "descripcion": "Modifica la ley N°20.380, sobre Protección de los animales, para regular las carreras de perros",
+    "proyecto_ley_id": "18257-10",
+    "descripcion": "Aprueba el Acuerdo general sobre los privilegios e inmunidades de la Organización Internacional de Policía Criminal-INTERPOL, aprobado en Marrakech, Marruecos, el 24 de noviembre de 2025",
+    "resultado": "aprobado",
+    "votos_favor": 138,
+    "votos_contra": 0,
+    "abstenciones": 17,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89241/aprueba-el-acuerdo-general-sobre-los-privilegios-e-inmunidades-de-la-organizacion-internacional",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "camara-89210",
+    "camara": "camara",
+    "fecha": "2026-06-22",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "10986-24",
+    "descripcion": "Autoriza erigir un monumento, en la comuna de Lota, en memoria del escritor chileno Baldomero Lillo Figueroa",
+    "resultado": "aprobado",
+    "votos_favor": 130,
+    "votos_contra": 0,
+    "abstenciones": 25,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89210/autoriza-erigir-un-monumento-en-la-comuna-de-lota-en-memoria-del-escritor-chileno-baldomero-lill",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "camara-89162",
+    "camara": "camara",
+    "fecha": "2026-06-16",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17222-07",
+    "descripcion": "Modifica la ley N° 18.918, orgánica constitucional del Congreso Nacional, para permitir la votación dividida de las acusaciones constitucionales, en los casos que indica",
+    "resultado": "aprobado",
+    "votos_favor": 146,
+    "votos_contra": 1,
+    "abstenciones": 8,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89162/modifica-la-ley-n-18-918-organica-constitucional-del-congreso-nacional-para-permitir-la-votacion",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89106",
+    "camara": "camara",
+    "fecha": "2026-06-10",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18256-10",
+    "descripcion": "Aprueba el Acuerdo entre la República de Chile y la República Helénica sobre el empleo remunerado de dependientes de miembros de una misión diplomática o representación consular, suscrito en Santiago, el 24 de abril de 2024",
+    "resultado": "aprobado",
+    "votos_favor": 143,
+    "votos_contra": 0,
+    "abstenciones": 12,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89106/aprueba-el-acuerdo-entre-la-republica-de-chile-y-la-republica-helenica-sobre-el-empleo-remunerad",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "camara-89105",
+    "camara": "camara",
+    "fecha": "2026-06-10",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17630-10",
+    "descripcion": "Aprueba el &quot;Acuerdo entre la República de Chile y la República Federativa de Brasil para el reconocimiento recíproco de licencias de conductor&quot;, hecho en Santiago, República de Chile, el 5 de agosto de 2024.",
+    "resultado": "aprobado",
+    "votos_favor": 143,
+    "votos_contra": 0,
+    "abstenciones": 12,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89105/aprueba-el-quot-acuerdo-entre-la-republica-de-chile-y-la-republica-federativa-de-brasil-para-el",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "camara-89104",
+    "camara": "camara",
+    "fecha": "2026-06-10",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18048-06",
+    "descripcion": "Concede, por especial gracia, la nacionalidad chilena a la destacada deportista juvenil colombiana María Camila Valencia Mosquera",
+    "resultado": "aprobado",
+    "votos_favor": 142,
+    "votos_contra": 0,
+    "abstenciones": 12,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89104/concede-por-especial-gracia-la-nacionalidad-chilena-a-la-destacada-deportista-juvenil-colombiana",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "camara-89072",
+    "camara": "camara",
+    "fecha": "2026-06-08",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18157-33",
+    "descripcion": "Prorroga el plazo para la regularización e inscripción de derechos de aprovechamiento de aguas hasta el año 2030",
+    "resultado": "aprobado",
+    "votos_favor": 127,
+    "votos_contra": 0,
+    "abstenciones": 25,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89072/prorroga-el-plazo-para-la-regularizacion-e-inscripcion-de-derechos-de-aprovechamiento-de-aguas-h",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89070",
+    "camara": "camara",
+    "fecha": "2026-06-08",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18178-10",
+    "descripcion": "Aprueba el Acuerdo entre el Gobierno de la República de Chile y el Gobierno de la República de Tayikistán sobre la exención mutua del requisito de visa para titulares de pasaportes diplomáticos oficiales y de servicio, suscrito en Dushanbe, República de Tayikistán, el 9 de marzo de 2023",
+    "resultado": "aprobado",
+    "votos_favor": 129,
+    "votos_contra": 0,
+    "abstenciones": 26,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89070/aprueba-el-acuerdo-entre-el-gobierno-de-la-republica-de-chile-y-el-gobierno-de-la-republica-de-t",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89069",
+    "camara": "camara",
+    "fecha": "2026-06-08",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17958-10",
+    "descripcion": "Aprueba el &quot;Acuerdo de servicios aéreos entre el Reino de los Países Bajos y la República de Chile&quot;, suscrito en Santiago, Chile, el 24 de mayo de 2021",
+    "resultado": "aprobado",
+    "votos_favor": 127,
+    "votos_contra": 1,
+    "abstenciones": 27,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89069/aprueba-el-quot-acuerdo-de-servicios-aereos-entre-el-reino-de-los-paises-bajos-y-la-republica-de",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89068",
+    "camara": "camara",
+    "fecha": "2026-06-08",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17957-10",
+    "descripcion": "Aprueba el &quot;Acuerdo entre el Gobierno de la República de Chile y el Gobierno de la República Helénica en materia de servicios aéreos&quot;, suscrito en Atenas, Grecia, el 27 de mayo de 2021",
+    "resultado": "aprobado",
+    "votos_favor": 127,
+    "votos_contra": 0,
+    "abstenciones": 28,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89068/aprueba-el-quot-acuerdo-entre-el-gobierno-de-la-republica-de-chile-y-el-gobierno-de-la-republica",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89067",
+    "camara": "camara",
+    "fecha": "2026-06-08",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17956-10",
+    "descripcion": "Aprueba el &quot;Acuerdo sobre transporte aéreo entre la República de Chile y el Reino de España&quot;, suscrito en Montreal, Canadá, el 1 de octubre de 2022",
+    "resultado": "aprobado",
+    "votos_favor": 128,
+    "votos_contra": 0,
+    "abstenciones": 27,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89067/aprueba-el-quot-acuerdo-sobre-transporte-aereo-entre-la-republica-de-chile-y-el-reino-de-espana",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89003",
+    "camara": "camara",
+    "fecha": "2026-06-02",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17287-14",
+    "descripcion": "Modifica textos legales que indica para agilizar la obtención de permisos de urbanización y edificación",
+    "resultado": "aprobado",
+    "votos_favor": 126,
+    "votos_contra": 15,
+    "abstenciones": 5,
+    "fuente_url": "https://quieneseljefe.cl/votacion/89003/modifica-textos-legales-que-indica-para-agilizar-la-obtencion-de-permisos-de-urbanizacion-y-edif",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88881",
+    "camara": "camara",
+    "fecha": "2026-05-18",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18232-25",
+    "descripcion": "Modifica la ley N° 21.659, sobre seguridad privada, para aumentar el plazo de presentación y pronunciamiento sobre los estudios de seguridad que dispone, y extiende la prórroga de vigencia de la última autorización del personal de seguridad privada que indica",
+    "resultado": "aprobado",
+    "votos_favor": 143,
+    "votos_contra": 0,
+    "abstenciones": 12,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88881/modifica-la-ley-n-21-659-sobre-seguridad-privada-para-aumentar-el-plazo-de-presentacion-y-pronun",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88869",
+    "camara": "camara",
+    "fecha": "2026-05-13",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18215-10",
+    "descripcion": "Acuerdo de mutua exención del requisito de visa para los titulares de pasaportes diplomáticos, especiales y oficiales entre el Gobierno de la República de Chile y el Gobierno del Estado de Catar",
+    "resultado": "aprobado",
+    "votos_favor": 139,
+    "votos_contra": 2,
+    "abstenciones": 13,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88869/acuerdo-de-mutua-exencion-del-requisito-de-visa-para-los-titulares-de-pasaportes-diplomaticos-es",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88826",
+    "camara": "camara",
+    "fecha": "2026-05-12",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17112-19",
+    "descripcion": "Establece límites al desarrollo de la inteligencia artificial, en resguardo de los derechos humanos fundamentales",
     "resultado": "rechazado",
-    "votos_favor": 54,
-    "votos_contra": 65,
+    "votos_favor": 22,
+    "votos_contra": 59,
     "abstenciones": 7,
-    "fuente_url": "https://camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89844",
+    "fuente_url": "https://quieneseljefe.cl/votacion/88826/establece-limites-al-desarrollo-de-la-inteligencia-artificial-en-resguardo-de-los-derechos-human",
+    "etapa": "general",
+    "articulo": null,
     "votos": [
       {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "contra"
+      },
+      {
         "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88794",
+    "camara": "camara",
+    "fecha": "2026-05-06",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18107-07",
+    "descripcion": "Modifica la ley N° 18.918, orgánica constitucional del Congreso Nacional, en materia de quórum necesario para revertir la declaración de inadmisibilidad recaída en proyectos de ley e indicaciones",
+    "resultado": "rechazado",
+    "votos_favor": 73,
+    "votos_contra": 73,
+    "abstenciones": 8,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88794/modifica-la-ley-n-18-918-organica-constitucional-del-congreso-nacional-en-materia-de-quorum-nece",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
         "voto": "contra"
       },
       {
@@ -526,7 +1266,11 @@
         "voto": "contra"
       },
       {
-        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
         "voto": "contra"
       },
       {
@@ -534,7 +1278,187 @@
         "voto": "contra"
       },
       {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
         "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88761",
+    "camara": "camara",
+    "fecha": "2026-05-05",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17405-07",
+    "descripcion": "Regula la prestación de servicios de cuidado de vehículos y limpieza de parabrisas en la vía pública, y sanciona el ejercicio no autorizado de dichas actividades",
+    "resultado": "aprobado",
+    "votos_favor": 82,
+    "votos_contra": 46,
+    "abstenciones": 10,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88761/regula-la-prestacion-de-servicios-de-cuidado-de-vehiculos-y-limpieza-de-parabrisas-en-la-via-pub",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88758",
+    "camara": "camara",
+    "fecha": "2026-05-05",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17471-07",
+    "descripcion": "Modifica la ley N° 18.119 para tipificar los delitos de robo y receptación de medidores de agua potable",
+    "resultado": "rechazado",
+    "votos_favor": 27,
+    "votos_contra": 105,
+    "abstenciones": 7,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88758/modifica-la-ley-n-18-119-para-tipificar-los-delitos-de-robo-y-receptacion-de-medidores-de-agua-p",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "contra"
+      }
+    ]
+  },
+  {
+    "id": "camara-88755",
+    "camara": "camara",
+    "fecha": "2026-05-05",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18016-13",
+    "descripcion": "Modifica el Código del Trabajo en lo tocante a la jornada laboral de los trabajadores del cine y el audiovisual que indica",
+    "resultado": "aprobado",
+    "votos_favor": 91,
+    "votos_contra": 43,
+    "abstenciones": 7,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88755/modifica-el-codigo-del-trabajo-en-lo-tocante-a-la-jornada-laboral-de-los-trabajadores-del-cine-y",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "contra"
+      }
+    ]
+  },
+  {
+    "id": "camara-88754",
+    "camara": "camara",
+    "fecha": "2026-05-05",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17724-34",
+    "descripcion": "Reemplaza el artículo 5 bis del decreto ley N° 3.500, de 1980",
+    "resultado": "aprobado",
+    "votos_favor": 147,
+    "votos_contra": 0,
+    "abstenciones": 8,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88754/reemplaza-el-articulo-5-bis-del-decreto-ley-n-3-500-de-1980",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
         "voto": "favor"
       },
       {
@@ -542,8 +1466,652 @@
         "voto": "favor"
       },
       {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88718",
+    "camara": "camara",
+    "fecha": "2026-04-22",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17235-07",
+    "descripcion": "Modifica el Código Penal para crear el tipo especial de robo cometido por tumulto o multitud",
+    "resultado": "aprobado",
+    "votos_favor": 149,
+    "votos_contra": 0,
+    "abstenciones": 5,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88718/modifica-el-codigo-penal-para-crear-el-tipo-especial-de-robo-cometido-por-tumulto-o-multitud",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88679",
+    "camara": "camara",
+    "fecha": "2026-04-21",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18043-06",
+    "descripcion": "Concede, por especial gracia, la nacionalidad chilena al sacerdote alemán Wolter Josef Tilmann Dütting",
+    "resultado": "aprobado",
+    "votos_favor": 116,
+    "votos_contra": 1,
+    "abstenciones": 6,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88679/concede-por-especial-gracia-la-nacionalidad-chilena-al-sacerdote-aleman-wolter-josef-tilmann-dut",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
         "autoridad_id": "nathalie-castillo-rojas-diputado",
         "voto": "contra"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88646",
+    "camara": "camara",
+    "fecha": "2026-04-15",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17757-29",
+    "descripcion": "Modifica la ley N° 19.327 para imponer nuevas obligaciones a los organizadores de espectáculos de fútbol profesional",
+    "resultado": "aprobado",
+    "votos_favor": 104,
+    "votos_contra": 37,
+    "abstenciones": 13,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88646/modifica-la-ley-n-19-327-para-imponer-nuevas-obligaciones-a-los-organizadores-de-espectaculos-de",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "contra"
+      }
+    ]
+  },
+  {
+    "id": "camara-88634",
+    "camara": "camara",
+    "fecha": "2026-04-14",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17690-07",
+    "descripcion": "Modifica el Código Penal para disponer la intervención de la fiscalía militar en la investigación del delito de espionaje",
+    "resultado": "rechazado",
+    "votos_favor": 76,
+    "votos_contra": 63,
+    "abstenciones": 11,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88634/modifica-el-codigo-penal-para-disponer-la-intervencion-de-la-fiscalia-militar-en-la-investigacio",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88633",
+    "camara": "camara",
+    "fecha": "2026-04-14",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17354-37",
+    "descripcion": "Autoriza erigir un monumento en memoria del ex Presidente de la República, señor Sebastián Piñera Echenique",
+    "resultado": "aprobado",
+    "votos_favor": 113,
+    "votos_contra": 22,
+    "abstenciones": 11,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88633/autoriza-erigir-un-monumento-en-memoria-del-ex-presidente-de-la-republica-senor-sebastian-pinera",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88611",
+    "camara": "camara",
+    "fecha": "2026-04-13",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17880-13",
+    "descripcion": "Crea un nuevo Juzgado de Letras del Trabajo en Santiago y fortalece los juzgados de letras del trabajo que indica",
+    "resultado": "aprobado",
+    "votos_favor": 140,
+    "votos_contra": 0,
+    "abstenciones": 15,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88611/crea-un-nuevo-juzgado-de-letras-del-trabajo-en-santiago-y-fortalece-los-juzgados-de-letras-del-t",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88594",
+    "camara": "camara",
+    "fecha": "2026-04-08",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17246-15",
+    "descripcion": "Modifica las leyes que indica para mejorar la fiscalización y aumentar las sanciones por evasión del pago de tarifas en el transporte público remunerado de pasajeros",
+    "resultado": "aprobado",
+    "votos_favor": 145,
+    "votos_contra": 0,
+    "abstenciones": 8,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88594/modifica-las-leyes-que-indica-para-mejorar-la-fiscalizacion-y-aumentar-las-sanciones-por-evasion",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88564",
+    "camara": "camara",
+    "fecha": "2026-04-07",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17504-22",
+    "descripcion": "Fortalece la transparencia y probidad en la entrega de recursos por parte del Estado",
+    "resultado": "aprobado",
+    "votos_favor": 144,
+    "votos_contra": 0,
+    "abstenciones": 11,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88564/fortalece-la-transparencia-y-probidad-en-la-entrega-de-recursos-por-parte-del-estado",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88545",
+    "camara": "camara",
+    "fecha": "2026-04-06",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17234-15",
+    "descripcion": "Modifica el decreto ley N° 3.063, de 1979, para exigir la emisión de un permiso de circulación estandarizado en todas las comunas del país",
+    "resultado": "aprobado",
+    "votos_favor": 140,
+    "votos_contra": 0,
+    "abstenciones": 10,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88545/modifica-el-decreto-ley-n-3-063-de-1979-para-exigir-la-emision-de-un-permiso-de-circulacion-esta",
+    "etapa": "particular",
+    "articulo": "Artículo único del proyecto, en los términos propuestos por la Comisión de Obras Públicas, Transportes y Telecomunicaciones, en su segundo informe.",
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88500",
+    "camara": "camara",
+    "fecha": "2026-03-25",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18003-35",
+    "descripcion": "Modifica la ley N° 18.700, orgánica constitucional sobre Votaciones Populares y Escrutinios, para eximir al Servicio Electoral del deber de denunciar a personas postradas y electrodependientes, por incumplimiento de la obligación de sufragar",
+    "resultado": "aprobado",
+    "votos_favor": 149,
+    "votos_contra": 0,
+    "abstenciones": 6,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88500/modifica-la-ley-n-18-700-organica-constitucional-sobre-votaciones-populares-y-escrutinios-para-e",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88477",
+    "camara": "camara",
+    "fecha": "2026-03-24",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "16487-12",
+    "descripcion": "Modifica la ley N° 20.920, que establece marco para la gestión de residuos, la responsabilidad extendida del productor y fomento al reciclaje, para prohibir temporalmente la importación de plásticos que indica, que sean destinados a la elaboración de productos de un solo uso",
+    "resultado": "rechazado",
+    "votos_favor": 75,
+    "votos_contra": 71,
+    "abstenciones": 5,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88477/modifica-la-ley-n-20-920-que-establece-marco-para-la-gestion-de-residuos-la-responsabilidad-exte",
+    "etapa": "particular",
+    "articulo": "Artículo único del proyecto, en los términos propuestos por la Comisión de Medio Ambiente y Recursos Naturales, tanto en su primer como en su segun...",
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "contra"
+      }
+    ]
+  },
+  {
+    "id": "camara-88476",
+    "camara": "camara",
+    "fecha": "2026-03-24",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "16985-06",
+    "descripcion": "Establece, para el personal de Gendarmería de Chile, la obligación de efectuar declaraciones de intereses y patrimonio, en conformidad con lo dispuesto en la ley N° 20.880, sobre probidad en la función pública y prevención de los conflictos de intereses",
+    "resultado": "aprobado",
+    "votos_favor": 150,
+    "votos_contra": 0,
+    "abstenciones": 5,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88476/establece-para-el-personal-de-gendarmeria-de-chile-la-obligacion-de-efectuar-declaraciones-de-in",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88472",
+    "camara": "camara",
+    "fecha": "2026-03-24",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17737-14",
+    "descripcion": "Modifica la ley N° 21.442, que aprueba nueva Ley de Copropiedad Inmobiliaria, a fin de facultar a los administradores de condominios para emitir certificados de residencia",
+    "resultado": "aprobado",
+    "votos_favor": 149,
+    "votos_contra": 0,
+    "abstenciones": 5,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88472/modifica-la-ley-n-21-442-que-aprueba-nueva-ley-de-copropiedad-inmobiliaria-a-fin-de-facultar-a-l",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-88442",
+    "camara": "camara",
+    "fecha": "2026-03-18",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "16944-25",
+    "descripcion": "Crea el tipo penal especial de daños en infraestructura penitenciaria",
+    "resultado": "aprobado",
+    "votos_favor": 142,
+    "votos_contra": 0,
+    "abstenciones": 12,
+    "fuente_url": "https://quieneseljefe.cl/votacion/88442/crea-el-tipo-penal-especial-de-danos-en-infraestructura-penitenciaria",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
       }
     ]
   }

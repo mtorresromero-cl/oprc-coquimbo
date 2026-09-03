@@ -1,136 +1,122 @@
 """Asistencia a sala de los diputados de la Región de Coquimbo, vía
-camara.cl (ficha personal de cada diputado).
+quieneseljefe.cl (no camara.cl directo).
 
-Investigado y verificado manualmente el 2026-08-25:
-- La ficha de asistencia (`/diputados/detalle/asistencia_sala.aspx?prmId=`)
-  responde sin bloqueo con GET simple, igual que la de mociones.
-- La página trae dos cosas: (1) un resumen del período ya calculado por
-  camara.cl (total de sesiones, asistencias, ausencias justificadas y sin
-  justificar) — esto SÍ es el dato completo y oficial; y (2) un detalle de
-  sesiones recientes paginado por controles __doPostBack (10 sesiones por
-  página, hasta 7+ páginas). No navegamos esa paginación — mismo criterio
-  que con mociones: no repetir el patrón de interacción que gatilló el
-  bloqueo del formulario de búsqueda. El detalle que guardamos es entonces
-  parcial (las sesiones más recientes de cada corrida semanal), pero el
-  resumen del período sí es completo y se guarda tal cual lo publica la
-  fuente.
-- Ver docs/05-scrapers.md para el detalle completo de esta investigación.
+Reescrito el 2026-09-03. camara.cl directo se abandonó para esto: la
+página de asistencia paginaba por controles __doPostBack (mismo patrón
+que gatilló bloqueos en otros scrapers) y solo traíamos "sesiones
+recientes", no el período completo. quieneseljefe.cl (ver
+docs/06-bitacora.md, entrada del 2026-09-03) publica el registro
+completo de sesiones de cada diputado en una sola página HTML estática
+(`/diputado/{id}/{slug}`), fetcheable con curl_cffi impersonate="chrome"
+sin necesidad de navegador — mismo ID numérico que camara.cl usa
+internamente (`prmId`), así que `DIPUTADOS_COQUIMBO` no cambia.
+
+El resumen del período (total, asistencias, ausencias) YA NO lo publica
+la fuente calculado — camara.cl sí lo hacía. Se calcula acá mismo a
+partir de las filas de sesión, filtrando desde el inicio real de la
+legislatura (2026-03-11): quieneseljefe.cl incluye sesiones de enero
+2026 (cola de la legislatura anterior) que no corresponden al período
+que mostramos.
+
+Pérdida real frente a la versión anterior: no hay detalle de si una
+ausencia fue justificada o no (camara.cl sí lo publicaba) — se guarda
+todo como "sin justificar" por defecto, columna `ausencias_justificadas`
+queda en 0. Se documenta acá para no repetir la investigación.
 """
 
 import json
 import re
 import sqlite3
-import time
 from datetime import date
 from pathlib import Path
 
 from base import BaseScraper
 from camara_mociones import DIPUTADOS_COQUIMBO
-from playwright.sync_api import sync_playwright
+
+try:
+    from curl_cffi import requests as cffi_requests
+except ImportError:  # pragma: no cover
+    import sys
+
+    print("Falta curl_cffi: pip install curl_cffi", file=sys.stderr)
+    raise
 
 ROOT = Path(__file__).resolve().parent.parent
 PROCESSED_DIR = ROOT / "data" / "processed"
 
-USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-)
+BASE_URL = "https://quieneseljefe.cl"
+LEGISLATURA_INICIO = "2026-03-11"
 
-MES_A_NUM = {
-    "enero": "01", "febrero": "02", "marzo": "03", "abril": "04", "mayo": "05", "junio": "06",
-    "julio": "07", "agosto": "08", "septiembre": "09", "octubre": "10", "noviembre": "11",
-    "diciembre": "12",
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+    ),
 }
 
 
-def _sesion_a_partes(texto: str) -> dict | None:
-    # "Sesión 60ª, Legislatura 374ª, 19 Agosto 2026 - de 10:04 a 14:06"
-    m = re.match(
-        r"Sesión\s+(\d+)ª,\s+Legislatura\s+(\d+)ª,\s+(\d{1,2})\s+([A-Za-zÁ-ú]+)\s+(\d{4})",
-        texto.strip(),
-    )
-    if not m:
-        return None
-    numero_sesion, _legislatura, dia, mes_nombre, anno = m.groups()
-    mes = MES_A_NUM.get(mes_nombre.lower())
-    if not mes:
-        return None
-    return {
-        "numero_sesion": numero_sesion,
-        "fecha": f"{anno}-{mes}-{int(dia):02d}",
-    }
+def _session():
+    s = cffi_requests.Session(impersonate="chrome")
+    s.headers.update(HEADERS)
+    return s
 
 
 class ScraperCamaraAsistencia(BaseScraper):
-    """Recolecta el resumen de asistencia del período y el detalle de
-    sesiones recientes de cada diputado de la Región de Coquimbo."""
+    """Recolecta el registro de sesiones de cada diputado regional desde
+    quieneseljefe.cl y calcula el resumen del período (desde el inicio
+    real de la legislatura, 2026-03-11) nosotros mismos."""
 
     nombre = "camara_asistencia"
     frecuencia = "semanal"
 
     def recolectar(self) -> list[dict]:
+        from bs4 import BeautifulSoup
+
         registros = []
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            for autoridad_id, dip_id in DIPUTADOS_COQUIMBO.items():
-                context = browser.new_context(user_agent=USER_AGENT)
-                page = context.new_page()
-                url = f"https://www.camara.cl/diputados/detalle/asistencia_sala.aspx?prmId={dip_id}"
-                page.goto(url, timeout=45000, wait_until="domcontentloaded")
-                page.wait_for_timeout(1500)
+        session = _session()
+        for autoridad_id, dip_id in DIPUTADOS_COQUIMBO.items():
+            # el slug del nombre no importa para el ruteo del sitio, pero
+            # sin uno la página igual redirige/resuelve bien — se prueba
+            # con un slug vacío para no depender de tenerlo bien escrito
+            url = f"{BASE_URL}/diputado/{dip_id}/x"
+            try:
+                resp = session.get(url, timeout=30)
+                resp.raise_for_status()
+            except Exception as e:  # noqa: BLE001
+                print(f"  {autoridad_id}: ERROR cargando página: {e}", flush=True)
+                self.stats["errores"] += 1
+                continue
 
-                tablas = page.locator("table.tabla").all()
-                if len(tablas) < 2:
-                    self.stats["errores"] += 1
-                    context.close()
-                    time.sleep(5)
+            soup = BeautifulSoup(resp.text, "html.parser")
+            filas = soup.select("#asi-view-list .dp-asi-row")
+            if not filas:
+                self.stats["errores"] += 1
+                continue
+
+            for fila in filas:
+                estado_el = fila.select_one(".dp-asi-row-estado")
+                clases = estado_el.get("class", []) if estado_el else []
+                if any("upcoming" in c for c in clases):
+                    continue  # sesión futura, todavía no ocurre
+                fecha_el = fila.select_one(".dp-asi-row-date")
+                num_el = fila.select_one(".dp-asi-row-num")
+                if not (fecha_el and num_el):
                     continue
-
-                resumen_celdas = tablas[0].locator("tbody tr td").all()
-                if len(resumen_celdas) >= 6:
-                    # camara.cl distingue justificadas que afectan o no el %;
-                    # ese detalle no se usa en ningún cálculo nuestro, se
-                    # suman en un solo total (igual a lo que ya se mostraba
-                    # en la UI).
-                    justif_no_afecta = int(resumen_celdas[3].inner_text().strip())
-                    justif_si_afecta = int(resumen_celdas[4].inner_text().strip())
-                    resumen = {
-                        "tipo": "resumen",
+                fecha = fecha_el.get_text(strip=True)
+                if fecha < LEGISLATURA_INICIO:
+                    continue
+                numero_sesion = re.sub(r"\D", "", num_el.get_text(strip=True))
+                registros.append(
+                    {
                         "autoridad_id": autoridad_id,
-                        "total_sesiones": int(resumen_celdas[0].inner_text().strip()),
-                        "sesiones_computables": int(resumen_celdas[1].inner_text().strip()),
-                        "asistencias": int(resumen_celdas[2].inner_text().strip()),
-                        "ausencias_justificadas": justif_no_afecta + justif_si_afecta,
-                        "ausencias_sin_justificar": int(resumen_celdas[5].inner_text().strip()),
+                        "fecha": fecha,
+                        "numero_sesion": numero_sesion,
+                        "presente": any("present" in c for c in clases),
+                        "justificacion": "",
                         "fuente_url": url,
                     }
-                    registros.append(resumen)
-
-                filas = tablas[1].locator("tbody tr").all()
-                for fila in filas:
-                    celdas = fila.locator("td").all()
-                    if len(celdas) < 3:
-                        continue
-                    partes = _sesion_a_partes(celdas[0].inner_text())
-                    if not partes:
-                        continue
-                    registros.append(
-                        {
-                            "tipo": "sesion",
-                            "autoridad_id": autoridad_id,
-                            "numero_sesion": partes["numero_sesion"],
-                            "fecha": partes["fecha"],
-                            "presente": celdas[2].inner_text().strip().lower() == "asiste",
-                            "justificacion": (
-                                celdas[3].inner_text().strip() if len(celdas) > 3 else ""
-                            ),
-                            "fuente_url": url,
-                        }
-                    )
-
-                context.close()
-                time.sleep(5)
-            browser.close()
+                )
+            print(f"  {autoridad_id}: {len(filas)} filas ({len(registros)} acumuladas)", flush=True)
         return registros
 
     def procesar(self, registros: list[dict]) -> list[dict]:
@@ -138,55 +124,49 @@ class ScraperCamaraAsistencia(BaseScraper):
 
     def guardar(self, registros: list[dict]) -> None:
         anno_actual = date.today().year
+        por_autoridad: dict[str, list[dict]] = {}
         for r in registros:
-            if r["tipo"] == "resumen":
-                self.db.execute(
-                    """
-                    INSERT INTO asistencia_resumen
-                        (autoridad_id, camara, anno, total_sesiones, sesiones_computables,
-                         asistencias, ausencias_justificadas, ausencias_sin_justificar, fuente_url)
-                    VALUES (?, 'camara', ?, ?, ?, ?, ?, ?, ?)
-                    ON CONFLICT(autoridad_id, camara, anno) DO UPDATE SET
-                        total_sesiones = excluded.total_sesiones,
-                        sesiones_computables = excluded.sesiones_computables,
-                        asistencias = excluded.asistencias,
-                        ausencias_justificadas = excluded.ausencias_justificadas,
-                        ausencias_sin_justificar = excluded.ausencias_sin_justificar,
-                        fuente_url = excluded.fuente_url
-                    """,
-                    (
-                        r["autoridad_id"],
-                        anno_actual,
-                        r["total_sesiones"],
-                        r["sesiones_computables"],
-                        r["asistencias"],
-                        r["ausencias_justificadas"],
-                        r["ausencias_sin_justificar"],
-                        r["fuente_url"],
-                    ),
-                )
-            else:
-                self.db.execute(
-                    """
-                    INSERT INTO asistencia
-                        (autoridad_id, camara, fecha, numero_sesion, presente, justificacion,
-                         fuente_url)
-                    VALUES (?, 'camara', ?, ?, ?, ?, ?)
-                    ON CONFLICT(autoridad_id, camara, fecha, numero_sesion) DO UPDATE SET
-                        presente = excluded.presente,
-                        justificacion = excluded.justificacion,
-                        fuente_url = excluded.fuente_url
-                    """,
-                    (
-                        r["autoridad_id"],
-                        r["fecha"],
-                        r["numero_sesion"],
-                        r["presente"],
-                        r["justificacion"],
-                        r["fuente_url"],
-                    ),
-                )
+            por_autoridad.setdefault(r["autoridad_id"], []).append(r)
+            self.db.execute(
+                """
+                INSERT INTO asistencia
+                    (autoridad_id, camara, fecha, numero_sesion, presente, justificacion,
+                     fuente_url)
+                VALUES (?, 'camara', ?, ?, ?, ?, ?)
+                ON CONFLICT(autoridad_id, camara, fecha, numero_sesion) DO UPDATE SET
+                    presente = excluded.presente,
+                    justificacion = excluded.justificacion,
+                    fuente_url = excluded.fuente_url
+                """,
+                (
+                    r["autoridad_id"], r["fecha"], r["numero_sesion"], r["presente"],
+                    r["justificacion"], r["fuente_url"],
+                ),
+            )
             self.stats["nuevos"] += 1
+
+        for autoridad_id, filas in por_autoridad.items():
+            total = len(filas)
+            asistencias = sum(1 for f in filas if f["presente"])
+            self.db.execute(
+                """
+                INSERT INTO asistencia_resumen
+                    (autoridad_id, camara, anno, total_sesiones, sesiones_computables,
+                     asistencias, ausencias_justificadas, ausencias_sin_justificar, fuente_url)
+                VALUES (?, 'camara', ?, ?, ?, ?, 0, ?, ?)
+                ON CONFLICT(autoridad_id, camara, anno) DO UPDATE SET
+                    total_sesiones = excluded.total_sesiones,
+                    sesiones_computables = excluded.sesiones_computables,
+                    asistencias = excluded.asistencias,
+                    ausencias_justificadas = excluded.ausencias_justificadas,
+                    ausencias_sin_justificar = excluded.ausencias_sin_justificar,
+                    fuente_url = excluded.fuente_url
+                """,
+                (
+                    autoridad_id, anno_actual, total, total, asistencias,
+                    total - asistencias, filas[0]["fuente_url"],
+                ),
+            )
         self.db.commit()
 
     def exportar_json(self) -> None:

@@ -13,6 +13,70 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-03 — Cierre real de la saga camara.cl: se abandona camara.cl directo, se pasa a quieneseljefe.cl
+
+Cierre definitivo de todo lo registrado abajo (2026-09-02, "El fix de
+www.camara.cl..." y sus entradas siguientes). Tercer intento de la
+noche/madrugada: el segundo run de GitHub Actions (`33708344824`)
+tampoco terminó — `camara_votaciones.py` superó las 6 horas y lo cortó
+el timeout por defecto del job (no hubo error de código, simplemente no
+alcanzó a terminar; se perdió también lo que sí había funcionado antes
+en esa corrida — senado, mociones, asistencia — porque el commit final
+es uno solo al terminar todo el workflow).
+
+**Se abandona camara.cl como fuente directa para votaciones y
+asistencia de diputados.** El usuario propuso usar
+[quieneseljefe.cl](https://quieneseljefe.cl) en su lugar, señalando qué
+datos muestra (asistencia con detalle de sesiones, votaciones con
+boletín/fecha/resultado, gastos). Investigado y confirmado viable:
+
+- Fetchable con `curl_cffi impersonate="chrome"` igual que camara.cl
+  (`WebFetch` normal da 403, pero eso no bloquea el scraper).
+- Usa el MISMO id numérico interno que camara.cl (`prmId`/`/diputado/{id}`),
+  así que `DIPUTADOS_COQUIMBO` no cambió.
+- Cada diputado tiene una sola página HTML estática con su historial
+  COMPLETO de votos (`#dp-vote-list .dp-vote-item`, boletín + fecha +
+  voto + resumen que distingue general/particular) y de asistencia
+  (`#asi-view-list .dp-asi-row`, con estado presente/ausente/próxima).
+  7 peticiones en vez de la fase de descubrimiento paginada completa
+  que exigía camara.cl.
+- El detalle agregado de cada votación (resultado + tally) sigue
+  necesitando una petición por votación única
+  (`/votacion/{id}/{slug}`, clases `.vdt-outcome-title` y
+  `.vdt-dch-count`/`.vdt-dch-label`) — eso no cambió, pero ya no hay
+  paginación de descubrimiento por delante.
+
+**Resultado real:** `camara_asistencia.py` y `camara_votaciones.py`
+reescritos completos. Corridos localmente: **asistencia en ~10
+segundos** (7 páginas), **votaciones en unos minutos** (7 páginas +
+71 detalles de votación únicos, 0 errores) — contra las +6 horas sin
+terminar de antes.
+
+**Bug encontrado en el camino (mismo patrón que el usuario ya había
+notado en asistencia):** quieneseljefe.cl incluye sesiones/votos desde
+enero 2026 (cola de la legislatura anterior), antes del inicio real de
+la legislatura actual (11 de marzo 2026). Se agregó el filtro
+`fecha < LEGISLATURA_INICIO` en ambos scrapers — asistencia quedó en 63
+sesiones computables por diputado (antes incluía ~84, de enero), y
+votaciones quedó en 46 votaciones reales (antes 71, de las cuales 25
+eran de enero-febrero).
+
+**Pérdidas reales de calidad frente a camara.cl directo, documentadas
+en el docstring de cada scraper:**
+- Asistencia: ya no se distingue ausencia justificada de injustificada
+  (quieneseljefe.cl no lo publica) — todo queda como "sin justificar".
+- Votaciones: la categoría "Abstención" ahora es la "No vota" de
+  quieneseljefe.cl (probablemente mezcla abstención + inhabilitado +
+  dispensado). No se guarda `numero_sesion` (esa fuente no lo expone en
+  el detalle de la votación).
+
+Se mantiene `gasto_parlamentario.py` sin cambios — ya funciona bien
+contra camara.cl directo (verificado el 2026-09-02), y quieneseljefe.cl
+no expone los montos de gasto como texto plano (se cargan por JS/API
+aparte, no vale la pena migrarlo).
+
+---
+
 ## 2026-09-02 — El fix de www.camara.cl SÍ funcionó, pero el commit se perdió por un choque de pushes
 
 Cierre (parcial) de la saga de camara.cl de hoy. El run `33640782889`
