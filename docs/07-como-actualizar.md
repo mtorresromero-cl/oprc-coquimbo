@@ -106,7 +106,38 @@ un concejal renuncia, etc., se edita ese CSV directamente y después se corre
 
 ---
 
-## 3. Cómo llega un cambio a producción (para todo: blog, datos, diseño, código)
+## 3. Subir una página nueva (no un artículo de blog)
+
+Una "página" es algo como `/herramientas/densidad/` o
+`/parlamentarios/gastos/` — a diferencia de un artículo de blog, **no es
+solo texto**: hay que escribir el código de la página (HTML/Astro +
+Tailwind, a veces con datos y gráficos). Por eso, a diferencia del blog,
+esto normalmente no se escribe a mano — se le pide a Claude que la
+construya, y Claude edita los archivos y los sube.
+
+Igual, para que quede claro qué pasa por detrás:
+
+1. **Dónde vive:** `site/src/pages/`. Astro convierte automáticamente cada
+   archivo en una URL — `site/src/pages/herramientas/densidad.astro` se
+   convierte en `oprcoquimbo.cl/herramientas/densidad/`, sin configurar
+   rutas a mano en ningún otro lado.
+2. **Que lea datos reales** (no solo texto fijo): la página importa las
+   funciones ya armadas en `site/src/lib/datos.ts` (por ejemplo,
+   `import { comunas } from '../../lib/datos'`), que a su vez leen los
+   JSON de `data/processed/`. No hay que escribir SQL ni tocar la base
+   directamente desde una página.
+3. **Que aparezca en el menú de arriba** (si corresponde): el menú de
+   navegación está escrito directo en `site/src/layouts/Layout.astro`, no
+   se genera solo — hay que agregar el link ahí también.
+4. **Que aparezca como tarjeta en `/herramientas/`:** esa página lee una
+   lista fija dentro de `site/src/pages/herramientas.astro` (título,
+   descripción, ícono, URL) — hay que agregar una entrada ahí.
+5. Igual que todo lo demás: se sube a `main` (sección 4) y se despliega
+   solo.
+
+---
+
+## 4. Cómo llega un cambio a producción (para todo: blog, datos, diseño, código)
 
 El sitio se despliega solo — no hay un botón de "publicar" aparte.
 
@@ -119,9 +150,10 @@ El sitio se despliega solo — no hay un botón de "publicar" aparte.
 
 ---
 
-## 4. Resumen ultra-corto
+## 5. Resumen ultra-corto
 
 - **¿Quiero publicar una noticia?** → archivo nuevo en `site/src/content/blog/`, subirlo a `main`.
 - **¿Quiero traer datos nuevos ya?** → Actions → "Actualizar datos" → Run workflow. Esperar unas horas.
+- **¿Quiero una página/herramienta nueva?** → pedírselo a Claude (requiere código, no es solo texto).
 - **¿Cambió un alcalde/concejal?** → editar `data/catalogo/autoridades.csv`, correr `poblar_catalogo.py`, subir a `main`.
 - **¿Cómo veo si ya se publicó?** → https://github.com/mtorresromero-cl/oprc-coquimbo/actions (verde = listo, unos 1-2 min después de subir a `main`).
