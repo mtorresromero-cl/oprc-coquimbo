@@ -13,6 +13,41 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-07 — Prensa regional nunca se actualizaba sola: faltaba en el workflow
+
+El usuario notó que en la herramienta de prensa solo veía noticias de la semana
+anterior pese a que `07-como-actualizar.md` dice que todo se actualiza solo los
+lunes. Investigado:
+
+**Causa raíz real:** `prensa_rss.py` / `prensa_texto.py` / `analisis_prensa.py`
+nunca se agregaron a `.github/workflows/actualizar-datos.yml` — quedó como
+pendiente explícito sin resolver desde que se construyó la funcionalidad
+(2026-09-02, ver entrada "Análisis de prensa regional: plan y Fase 1" más abajo:
+"falta decidir si se agrega un workflow nuevo diario o se deja semanal"). Esa
+decisión nunca se tomó, así que esos tres scrapers solo corrían cuando alguien
+los ejecutaba a mano en una sesión — de ahí que `prensa-recientes.json` y
+`analisis-prensa.json` quedaran congelados en la fecha de la última sesión
+manual (2026-09-02) mientras el resto de los datos sí avanzaba. **Fix:** se
+agregaron los tres al workflow semanal existente (con `continue-on-error`,
+mismo patrón que el resto), en vez de crear un workflow nuevo — más simple y
+consistente con que ya se decidió tratarlos igual que los demás scrapers.
+
+**Segundo hallazgo, independiente:** revisando `gh run list` con el campo
+`event` real (no solo la lista de corridas), se confirmó que el cron semanal
+casi nunca dispara solo — de ~12 corridas en el historial, **solo una fue
+`schedule`** (2026-08-31, todas las demás `workflow_dispatch` manual), y esa
+única corrida automática **falló** (el bug viejo de `camara.cl` sin `www`,
+sin `continue-on-error` todavía en ese momento — un solo scraper roto abortó
+todo el job sin comitear nada). Ambas causas de esa falla específica ya están
+corregidas desde el 2026-09-02. Pero el patrón de fondo (el `schedule` de
+GitHub Actions no tiene hora garantizada, puede demorarse horas o saltarse una
+semana bajo carga) es una limitación conocida de la plataforma, no algo que se
+pueda arreglar desde el repo — se documentó en `07-como-actualizar.md` como
+algo a vigilar (mirar el campo `event` en Actions, no asumir que "corrió sola"
+solo porque hay una corrida reciente).
+
+---
+
 ## 2026-09-03 — Cierre real de la saga camara.cl: se abandona camara.cl directo, se pasa a quieneseljefe.cl
 
 Cierre definitivo de todo lo registrado abajo (2026-09-02, "El fix de

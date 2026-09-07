@@ -93,6 +93,15 @@ en GitHub para ver el historial de corridas.
 | `infoprobidad.py` | Declaraciones de patrimonio e intereses |
 | `core_coquimbo.py` | Votos y asistencia del Consejo Regional |
 | `delincuencia_cead.py` | Casos policiales por comuna |
+| `prensa_rss.py` / `prensa_texto.py` / `analisis_prensa.py` | Noticias de los 28 medios regionales (descubrimiento RSS, texto completo, análisis) |
+
+**Ojo con el cron semanal:** GitHub no garantiza que un `schedule` corra exactamente
+a la hora fijada — puede demorarse horas o, más raro, saltarse una semana bajo carga
+alta. Si notás datos desactualizados (por ejemplo noticias que no avanzan), lo primero
+es mirar el historial real en
+[Actions → Actualizar datos](https://github.com/mtorresromero-cl/oprc-coquimbo/actions/workflows/actualizar-datos.yml)
+y fijarse si la corrida fue disparada por `schedule` (automática) o `workflow_dispatch`
+(manual) — no asumir que "corrió sola" solo porque hay una corrida reciente.
 
 Detalle técnico de cada uno (de dónde saca el dato, por qué está hecho así) en `docs/05-scrapers.md`.
 
