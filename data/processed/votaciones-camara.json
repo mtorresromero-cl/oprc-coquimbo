@@ -1,5 +1,97 @@
 [
   {
+    "id": "camara-89955",
+    "camara": "camara",
+    "fecha": "2026-09-02",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18464-14",
+    "descripcion": "Modifica el decreto ley N° 2.695, de 1979, estableciendo un nuevo procedimiento para la regularización de la posesión de la pequeña propiedad raíz y la constitución del dominio sobre ella, en situaciones de emergencia",
+    "resultado": "aprobado",
+    "votos_favor": 139,
+    "votos_contra": 0,
+    "abstenciones": 16,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89955",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-89937",
+    "camara": "camara",
+    "fecha": "2026-09-01",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "15295-07",
+    "descripcion": "Modifica el decreto ley N°321, de 1925, a fin de restringir los requisitos necesarios para acceder al beneficio de libertad condicional",
+    "resultado": "aprobado",
+    "votos_favor": 102,
+    "votos_contra": 12,
+    "abstenciones": 11,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=89937",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "camara-89867",
     "camara": "camara",
     "fecha": "2026-08-19",

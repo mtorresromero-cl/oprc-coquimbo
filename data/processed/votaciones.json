@@ -1,5 +1,31 @@
 [
   {
+    "id": "senado-17702-54-374-2026-09-02",
+    "camara": "senado",
+    "fecha": "2026-09-02",
+    "numero_sesion": "54/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que modifica la ley N° 18.290, de Tránsito, para tipificar y sancionar la conducción temeraria de vehículos",
+    "resultado": "aprobado",
+    "votos_favor": 24,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17702",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "pareo"
+      }
+    ]
+  },
+  {
     "id": "senado-18401-53-374-2026-09-01",
     "camara": "senado",
     "fecha": "2026-09-01",
@@ -12,6 +38,8 @@
     "votos_contra": 0,
     "abstenciones": 1,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18401",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -28,6 +56,36 @@
     ]
   },
   {
+    "id": "senado-14782-53-374-2026-09-01",
+    "camara": "senado",
+    "fecha": "2026-09-01",
+    "numero_sesion": "53/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "- Solicitud de declaración de admisibilidad efectuada por la Honorable Senadora señora Provoste: Indicación N° 1H, de las Honorables Senadoras señoras Provoste, Cariola y Sánchez, para sustituir la frase ¿autorización de funcionamiento o reconocimiento oficial del Estado¿ por ¿reconocimiento oficial del Estado¿ todas las veces que aparece en el proyecto de ley.",
+    "resultado": "rechazado",
+    "votos_favor": 16,
+    "votos_contra": 22,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=14782",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "contra"
+      }
+    ]
+  },
+  {
     "id": "senado-18256-52-374-2026-08-19",
     "camara": "senado",
     "fecha": "2026-08-19",
@@ -40,6 +98,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18256",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -64,6 +124,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18257",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -84,6 +146,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18279",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -108,6 +172,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18302",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -132,6 +198,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18334",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -152,6 +220,8 @@
     "votos_contra": 0,
     "abstenciones": 1,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18337",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -180,6 +250,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18157",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -208,6 +280,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18401",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -228,6 +302,8 @@
     "votos_contra": 17,
     "abstenciones": 4,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18216",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
@@ -256,6 +332,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18420",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -276,6 +354,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17451",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -300,6 +380,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=13665",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -328,6 +410,8 @@
     "votos_contra": 22,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18216",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -356,6 +440,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=10986",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -380,6 +466,8 @@
     "votos_contra": 26,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17012",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -404,6 +492,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15850",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -428,6 +518,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18216",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -456,6 +548,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18216",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -484,6 +578,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17163",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -512,6 +608,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17880",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -540,6 +638,8 @@
     "votos_contra": 13,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16836",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -564,6 +664,8 @@
     "votos_contra": 0,
     "abstenciones": 8,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18029",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -588,6 +690,8 @@
     "votos_contra": 3,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15589",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -612,6 +716,8 @@
     "votos_contra": 23,
     "abstenciones": 1,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18216",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -623,6 +729,28 @@
       },
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-16741-30-374-2026-06-16",
+    "camara": "senado",
+    "fecha": "2026-06-16",
+    "numero_sesion": "30/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Aprobación en general y en particular del proyecto de ley, en primer trámite constitucional, que modifica la Ley del Tránsito, para establecer la reserva de los datos registrales de los vehículos pertenecientes a las Fuerzas de Orden y Seguridad Pública (Boletín N° 16.741-15).",
+    "resultado": "aprobado",
+    "votos_favor": 39,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16741",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
         "voto": "favor"
       }
     ]
@@ -640,6 +768,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17981",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
@@ -660,6 +790,8 @@
     "votos_contra": 16,
     "abstenciones": 2,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18239",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
@@ -688,6 +820,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17012",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -716,6 +850,8 @@
     "votos_contra": 0,
     "abstenciones": 2,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18232",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -744,6 +880,8 @@
     "votos_contra": 3,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17877",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
@@ -752,6 +890,32 @@
       {
         "autoridad_id": "matias-walker-prieto-senador",
         "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-16686-16-374-2026-05-13",
+    "camara": "senado",
+    "fecha": "2026-05-13",
+    "numero_sesion": "16/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Sustitución de la letra c) del inciso segundo del artículo 6",
+    "resultado": "aprobado",
+    "votos_favor": 27,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16686",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "pareo"
       }
     ]
   },
@@ -768,6 +932,8 @@
     "votos_contra": 1,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17880",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -796,6 +962,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16433",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -816,6 +984,8 @@
     "votos_contra": 20,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15261",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -844,6 +1014,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17012",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -872,6 +1044,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17355",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -900,6 +1074,8 @@
     "votos_contra": 4,
     "abstenciones": 2,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16552",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -928,6 +1104,8 @@
     "votos_contra": 15,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16552",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -956,6 +1134,8 @@
     "votos_contra": 1,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16836",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -976,6 +1156,8 @@
     "votos_contra": 9,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16743",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -984,6 +1166,32 @@
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
         "voto": "contra"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-16686-80-373-2025-12-09",
+    "camara": "senado",
+    "fecha": "2025-12-09",
+    "numero_sesion": "80/373",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Disposiciones que deben darse por aprobadas y con enmiendas unánimes del proyecto de ley, en segundo trámite constitucional, que dicta normas sobre transferencia de tecnología y conocimiento (discusión en particular)(Boletín N° 16.686-19)",
+    "resultado": "aprobado",
+    "votos_favor": 34,
+    "votos_contra": 0,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16686",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
       },
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -1004,6 +1212,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17371",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
@@ -1028,6 +1238,8 @@
     "votos_contra": 3,
     "abstenciones": 1,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15346",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -1052,6 +1264,8 @@
     "votos_contra": 6,
     "abstenciones": 8,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16553",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -1076,6 +1290,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17535",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
@@ -1100,6 +1316,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16481",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -1124,6 +1342,8 @@
     "votos_contra": 0,
     "abstenciones": 5,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16743",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -1140,6 +1360,36 @@
     ]
   },
   {
+    "id": "senado-16686-16-373-2025-05-06",
+    "camara": "senado",
+    "fecha": "2025-05-06",
+    "numero_sesion": "16/373",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Proyecto de ley, en segundo trámite constitucional, que dicta normas sobre transferencia de tecnología y conocimiento, (Boletín N° 16.686-19). APROBADO EN GENERAL.",
+    "resultado": "aprobado",
+    "votos_favor": 29,
+    "votos_contra": 0,
+    "abstenciones": 2,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16686",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-15805-15-373-2025-04-23",
     "camara": "senado",
     "fecha": "2025-04-23",
@@ -1152,6 +1402,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15805",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
@@ -1172,6 +1424,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15805",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
@@ -1200,6 +1454,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16709",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -1220,6 +1476,8 @@
     "votos_contra": 1,
     "abstenciones": 1,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15627",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -1240,6 +1498,8 @@
     "votos_contra": 1,
     "abstenciones": 4,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=14309",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -1260,6 +1520,8 @@
     "votos_contra": 0,
     "abstenciones": 3,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16143",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -1284,6 +1546,8 @@
     "votos_contra": 0,
     "abstenciones": 3,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15805",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -1312,6 +1576,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16552",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -1340,6 +1606,8 @@
     "votos_contra": 16,
     "abstenciones": 2,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=14782",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
@@ -1364,6 +1632,8 @@
     "votos_contra": 12,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16481",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
@@ -1392,6 +1662,8 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=14773",
+    "etapa": null,
+    "articulo": null,
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",

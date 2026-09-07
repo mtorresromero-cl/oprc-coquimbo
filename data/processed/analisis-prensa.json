@@ -1947,15 +1947,19 @@
     "El Comunal": [
       {
         "palabra": "higuera",
-        "n": 95
+        "n": 98
       },
       {
         "palabra": "trabajo",
-        "n": 28
+        "n": 29
       },
       {
         "palabra": "dominga",
         "n": 28
+      },
+      {
+        "palabra": "comunal",
+        "n": 27
       },
       {
         "palabra": "funcionarios",
@@ -1966,32 +1970,32 @@
         "n": 26
       },
       {
-        "palabra": "comunal",
+        "palabra": "pescadores",
         "n": 26
       },
       {
-        "palabra": "pescadores",
-        "n": 26
+        "palabra": "coquimbo",
+        "n": 24
+      },
+      {
+        "palabra": "proyecto",
+        "n": 24
       },
       {
         "palabra": "familias",
         "n": 23
       },
       {
-        "palabra": "coquimbo",
-        "n": 23
-      },
-      {
-        "palabra": "proyecto",
-        "n": 23
-      },
-      {
         "palabra": "norte",
-        "n": 21
+        "n": 22
       },
       {
         "palabra": "chile",
-        "n": 21
+        "n": 22
+      },
+      {
+        "palabra": "desarrollo",
+        "n": 20
       },
       {
         "palabra": "oportunidades",
@@ -2006,16 +2010,24 @@
         "n": 20
       },
       {
-        "palabra": "desarrollo",
+        "palabra": "reconocimiento",
         "n": 19
       },
       {
-        "palabra": "reconocimiento",
+        "palabra": "humboldt",
         "n": 18
       },
       {
         "palabra": "educación",
         "n": 17
+      },
+      {
+        "palabra": "relacionados",
+        "n": 16
+      },
+      {
+        "palabra": "anterior",
+        "n": 16
       },
       {
         "palabra": "agrupación",
@@ -2030,11 +2042,51 @@
         "n": 15
       },
       {
-        "palabra": "relacionados",
+        "palabra": "error",
         "n": 15
       },
       {
-        "palabra": "anterior",
+        "palabra": "avísanos",
+        "n": 15
+      },
+      {
+        "palabra": "enviar",
+        "n": 15
+      },
+      {
+        "palabra": "recibe",
+        "n": 15
+      },
+      {
+        "palabra": "último",
+        "n": 15
+      },
+      {
+        "palabra": "suscríbete",
+        "n": 15
+      },
+      {
+        "palabra": "enviaremos",
+        "n": 15
+      },
+      {
+        "palabra": "correo",
+        "n": 15
+      },
+      {
+        "palabra": "newsletter",
+        "n": 15
+      },
+      {
+        "palabra": "suscribirme",
+        "n": 15
+      },
+      {
+        "palabra": "temas",
+        "n": 15
+      },
+      {
+        "palabra": "sistema",
         "n": 15
       },
       {
@@ -2042,68 +2094,16 @@
         "n": 15
       },
       {
+        "palabra": "territorio",
+        "n": 15
+      },
+      {
+        "palabra": "archipiélago",
+        "n": 15
+      },
+      {
         "palabra": "ruta",
         "n": 14
-      },
-      {
-        "palabra": "error",
-        "n": 14
-      },
-      {
-        "palabra": "avísanos",
-        "n": 14
-      },
-      {
-        "palabra": "enviar",
-        "n": 14
-      },
-      {
-        "palabra": "recibe",
-        "n": 14
-      },
-      {
-        "palabra": "último",
-        "n": 14
-      },
-      {
-        "palabra": "suscríbete",
-        "n": 14
-      },
-      {
-        "palabra": "enviaremos",
-        "n": 14
-      },
-      {
-        "palabra": "correo",
-        "n": 14
-      },
-      {
-        "palabra": "newsletter",
-        "n": 14
-      },
-      {
-        "palabra": "suscribirme",
-        "n": 14
-      },
-      {
-        "palabra": "temas",
-        "n": 14
-      },
-      {
-        "palabra": "yerba",
-        "n": 14
-      },
-      {
-        "palabra": "comunales",
-        "n": 13
-      },
-      {
-        "palabra": "elqui",
-        "n": 13
-      },
-      {
-        "palabra": "docente",
-        "n": 13
       }
     ],
     "David Noticias": [
@@ -2433,11 +2433,11 @@
     "El Coquimbano": [
       {
         "palabra": "coquimbo",
-        "n": 91
+        "n": 108
       },
       {
         "palabra": "personas",
-        "n": 35
+        "n": 37
       },
       {
         "palabra": "salud",
@@ -2445,86 +2445,102 @@
       },
       {
         "palabra": "seguridad",
-        "n": 25
+        "n": 27
       },
       {
         "palabra": "parte",
-        "n": 23
+        "n": 25
       },
       {
         "palabra": "además",
-        "n": 23
+        "n": 25
       },
       {
         "palabra": "último",
-        "n": 22
+        "n": 24
+      },
+      {
+        "palabra": "unido",
+        "n": 24
+      },
+      {
+        "palabra": "chile",
+        "n": 23
       },
       {
         "palabra": "atención",
-        "n": 22
+        "n": 23
       },
       {
         "palabra": "anterior",
-        "n": 19
+        "n": 21
+      },
+      {
+        "palabra": "error",
+        "n": 20
+      },
+      {
+        "palabra": "avísanos",
+        "n": 20
+      },
+      {
+        "palabra": "enviar",
+        "n": 20
+      },
+      {
+        "palabra": "recibe",
+        "n": 20
+      },
+      {
+        "palabra": "coquimbano",
+        "n": 20
+      },
+      {
+        "palabra": "suscríbete",
+        "n": 20
+      },
+      {
+        "palabra": "enviaremos",
+        "n": 20
+      },
+      {
+        "palabra": "correo",
+        "n": 20
+      },
+      {
+        "palabra": "newsletter",
+        "n": 20
+      },
+      {
+        "palabra": "suscribirme",
+        "n": 20
+      },
+      {
+        "palabra": "temas",
+        "n": 20
+      },
+      {
+        "palabra": "relacionados",
+        "n": 20
       },
       {
         "palabra": "fonasa",
         "n": 19
       },
       {
-        "palabra": "error",
-        "n": 18
-      },
-      {
-        "palabra": "avísanos",
-        "n": 18
-      },
-      {
-        "palabra": "enviar",
-        "n": 18
-      },
-      {
-        "palabra": "recibe",
-        "n": 18
-      },
-      {
-        "palabra": "coquimbano",
-        "n": 18
-      },
-      {
-        "palabra": "suscríbete",
-        "n": 18
-      },
-      {
-        "palabra": "enviaremos",
-        "n": 18
-      },
-      {
-        "palabra": "correo",
-        "n": 18
-      },
-      {
-        "palabra": "newsletter",
-        "n": 18
-      },
-      {
-        "palabra": "suscribirme",
-        "n": 18
-      },
-      {
-        "palabra": "temas",
-        "n": 18
-      },
-      {
-        "palabra": "relacionados",
-        "n": 18
-      },
-      {
         "palabra": "recinto",
         "n": 18
       },
       {
+        "palabra": "tras",
+        "n": 18
+      },
+      {
         "palabra": "trabajo",
+        "n": 18
+      },
+      {
+        "palabra": "lugar",
         "n": 18
       },
       {
@@ -2536,15 +2552,15 @@
         "n": 17
       },
       {
+        "palabra": "pampilla",
+        "n": 16
+      },
+      {
         "palabra": "nuevo",
         "n": 16
       },
       {
-        "palabra": "unido",
-        "n": 16
-      },
-      {
-        "palabra": "lugar",
+        "palabra": "nacional",
         "n": 16
       },
       {
@@ -2552,11 +2568,11 @@
         "n": 16
       },
       {
-        "palabra": "pampilla",
+        "palabra": "patrias",
         "n": 15
       },
       {
-        "palabra": "tras",
+        "palabra": "sudamericano",
         "n": 15
       },
       {
@@ -2564,46 +2580,30 @@
         "n": 14
       },
       {
-        "palabra": "chile",
-        "n": 14
-      },
-      {
-        "palabra": "nacional",
-        "n": 14
-      },
-      {
-        "palabra": "patrias",
-        "n": 14
-      },
-      {
         "palabra": "comunales",
-        "n": 13
+        "n": 14
       },
       {
-        "palabra": "fiestas",
-        "n": 13
+        "palabra": "familia",
+        "n": 14
       },
       {
-        "palabra": "sudamericano",
-        "n": 13
-      },
-      {
-        "palabra": "centro",
-        "n": 12
+        "palabra": "horas",
+        "n": 14
       }
     ],
     "Diario El Día": [
       {
         "palabra": "regional",
-        "n": 272
-      },
-      {
-        "palabra": "coquimbo",
-        "n": 253
+        "n": 282
       },
       {
         "palabra": "serena",
-        "n": 248
+        "n": 260
+      },
+      {
+        "palabra": "coquimbo",
+        "n": 260
       },
       {
         "palabra": "ovalle",
@@ -2611,15 +2611,15 @@
       },
       {
         "palabra": "comparte",
-        "n": 205
+        "n": 209
       },
       {
         "palabra": "nota",
-        "n": 204
+        "n": 208
       },
       {
         "palabra": "septiembre",
-        "n": 187
+        "n": 189
       },
       {
         "palabra": "marco",
@@ -2627,26 +2627,42 @@
       },
       {
         "palabra": "pampilla",
-        "n": 130
+        "n": 132
       },
       {
-        "palabra": "fortalecer",
-        "n": 116
+        "palabra": "equipo",
+        "n": 125
+      },
+      {
+        "palabra": "estudiantes",
+        "n": 118
       },
       {
         "palabra": "recuperación",
-        "n": 115
+        "n": 117
+      },
+      {
+        "palabra": "fortalecer",
+        "n": 117
+      },
+      {
+        "palabra": "parte",
+        "n": 116
       },
       {
         "palabra": "sector",
         "n": 115
       },
       {
-        "palabra": "parte",
+        "palabra": "salud",
         "n": 114
       },
       {
-        "palabra": "estudiantes",
+        "palabra": "política",
+        "n": 113
+      },
+      {
+        "palabra": "agua",
         "n": 113
       },
       {
@@ -2654,24 +2670,12 @@
         "n": 113
       },
       {
-        "palabra": "salud",
-        "n": 112
-      },
-      {
-        "palabra": "equipo",
-        "n": 112
-      },
-      {
-        "palabra": "agua",
+        "palabra": "últimas",
         "n": 111
       },
       {
         "palabra": "mayor",
         "n": 110
-      },
-      {
-        "palabra": "últimas",
-        "n": 109
       },
       {
         "palabra": "alta",
@@ -2683,19 +2687,15 @@
       },
       {
         "palabra": "proceso",
-        "n": 106
-      },
-      {
-        "palabra": "política",
-        "n": 105
+        "n": 107
       },
       {
         "palabra": "familias",
-        "n": 103
+        "n": 105
       },
       {
         "palabra": "noticias",
-        "n": 101
+        "n": 103
       },
       {
         "palabra": "atención",
@@ -2703,7 +2703,7 @@
       },
       {
         "palabra": "además",
-        "n": 99
+        "n": 100
       },
       {
         "palabra": "avance",
@@ -2722,19 +2722,19 @@
         "n": 94
       },
       {
+        "palabra": "reconstrucción",
+        "n": 91
+      },
+      {
         "palabra": "procedimientos",
         "n": 90
       },
       {
-        "palabra": "reconstrucción",
+        "palabra": "paso",
         "n": 90
       },
       {
         "palabra": "limarí",
-        "n": 89
-      },
-      {
-        "palabra": "paso",
         "n": 89
       },
       {
@@ -2747,10 +2747,10 @@
       },
       {
         "palabra": "junio",
-        "n": 85
+        "n": 86
       },
       {
-        "palabra": "puede",
+        "palabra": "nacional",
         "n": 81
       }
     ],
@@ -2919,19 +2919,19 @@
     "El Serenense": [
       {
         "palabra": "serena",
-        "n": 90
+        "n": 100
       },
       {
         "palabra": "personas",
-        "n": 40
+        "n": 44
       },
       {
         "palabra": "coquimbo",
-        "n": 38
+        "n": 41
       },
       {
         "palabra": "regional",
-        "n": 31
+        "n": 32
       },
       {
         "palabra": "comunidad",
@@ -2939,67 +2939,67 @@
       },
       {
         "palabra": "serenense",
-        "n": 25
+        "n": 26
       },
       {
         "palabra": "último",
-        "n": 24
+        "n": 25
       },
       {
         "palabra": "relacionados",
-        "n": 22
+        "n": 23
+      },
+      {
+        "palabra": "error",
+        "n": 21
+      },
+      {
+        "palabra": "avísanos",
+        "n": 21
+      },
+      {
+        "palabra": "enviar",
+        "n": 21
+      },
+      {
+        "palabra": "recibe",
+        "n": 21
+      },
+      {
+        "palabra": "suscríbete",
+        "n": 21
+      },
+      {
+        "palabra": "enviaremos",
+        "n": 21
+      },
+      {
+        "palabra": "correo",
+        "n": 21
+      },
+      {
+        "palabra": "newsletter",
+        "n": 21
+      },
+      {
+        "palabra": "suscribirme",
+        "n": 21
+      },
+      {
+        "palabra": "temas",
+        "n": 21
+      },
+      {
+        "palabra": "anterior",
+        "n": 21
+      },
+      {
+        "palabra": "nacional",
+        "n": 21
       },
       {
         "palabra": "universidad",
         "n": 21
-      },
-      {
-        "palabra": "error",
-        "n": 20
-      },
-      {
-        "palabra": "avísanos",
-        "n": 20
-      },
-      {
-        "palabra": "enviar",
-        "n": 20
-      },
-      {
-        "palabra": "recibe",
-        "n": 20
-      },
-      {
-        "palabra": "suscríbete",
-        "n": 20
-      },
-      {
-        "palabra": "enviaremos",
-        "n": 20
-      },
-      {
-        "palabra": "correo",
-        "n": 20
-      },
-      {
-        "palabra": "newsletter",
-        "n": 20
-      },
-      {
-        "palabra": "suscribirme",
-        "n": 20
-      },
-      {
-        "palabra": "temas",
-        "n": 20
-      },
-      {
-        "palabra": "anterior",
-        "n": 20
-      },
-      {
-        "palabra": "nacional",
-        "n": 20
       },
       {
         "palabra": "además",
@@ -3022,6 +3022,10 @@
         "n": 19
       },
       {
+        "palabra": "lugar",
+        "n": 18
+      },
+      {
         "palabra": "parte",
         "n": 18
       },
@@ -3030,7 +3034,23 @@
         "n": 18
       },
       {
+        "palabra": "jóvenes",
+        "n": 17
+      },
+      {
+        "palabra": "espacios",
+        "n": 16
+      },
+      {
+        "palabra": "aniversario",
+        "n": 16
+      },
+      {
         "palabra": "experiencia",
+        "n": 16
+      },
+      {
+        "palabra": "comunales",
         "n": 16
       },
       {
@@ -3050,77 +3070,77 @@
         "n": 16
       },
       {
-        "palabra": "jóvenes",
+        "palabra": "club",
         "n": 16
       },
       {
         "palabra": "tres",
         "n": 15
-      },
-      {
-        "palabra": "siguiente",
-        "n": 15
-      },
-      {
-        "palabra": "aniversario",
-        "n": 15
-      },
-      {
-        "palabra": "apoyo",
-        "n": 15
-      },
-      {
-        "palabra": "actividades",
-        "n": 15
-      },
-      {
-        "palabra": "comunales",
-        "n": 15
       }
     ],
     "Radio Guayacán": [
       {
-        "palabra": "coquimbo",
-        "n": 38
+        "palabra": "serena",
+        "n": 43
       },
       {
-        "palabra": "serena",
-        "n": 35
+        "palabra": "coquimbo",
+        "n": 42
       },
       {
         "palabra": "septiembre",
-        "n": 35
-      },
-      {
-        "palabra": "además",
-        "n": 23
+        "n": 41
       },
       {
         "palabra": "radio",
-        "n": 22
+        "n": 29
       },
       {
         "palabra": "guayacán",
-        "n": 22
+        "n": 29
       },
       {
         "palabra": "seguridad",
-        "n": 22
+        "n": 28
+      },
+      {
+        "palabra": "además",
+        "n": 26
       },
       {
         "palabra": "titulares",
-        "n": 20
+        "n": 24
       },
       {
         "palabra": "prensa",
-        "n": 20
+        "n": 24
+      },
+      {
+        "palabra": "regional",
+        "n": 24
       },
       {
         "palabra": "vistos",
-        "n": 20
+        "n": 24
       },
       {
         "palabra": "noticias",
+        "n": 22
+      },
+      {
+        "palabra": "investigación",
+        "n": 21
+      },
+      {
+        "palabra": "presidencial",
+        "n": 20
+      },
+      {
+        "palabra": "salud",
+        "n": 20
+      },
+      {
+        "palabra": "trabajo",
         "n": 19
       },
       {
@@ -3128,39 +3148,59 @@
         "n": 19
       },
       {
-        "palabra": "trabajo",
+        "palabra": "actualidad",
         "n": 18
       },
       {
-        "palabra": "regional",
-        "n": 17
-      },
-      {
-        "palabra": "presidencial",
-        "n": 16
-      },
-      {
         "palabra": "antecedentes",
-        "n": 15
+        "n": 18
       },
       {
         "palabra": "sector",
-        "n": 15
-      },
-      {
-        "palabra": "actualidad",
-        "n": 14
-      },
-      {
-        "palabra": "investigación",
-        "n": 14
+        "n": 18
       },
       {
         "palabra": "caso",
+        "n": 17
+      },
+      {
+        "palabra": "centro",
+        "n": 16
+      },
+      {
+        "palabra": "parte",
+        "n": 15
+      },
+      {
+        "palabra": "días",
+        "n": 14
+      },
+      {
+        "palabra": "chile",
         "n": 14
       },
       {
         "palabra": "tras",
+        "n": 14
+      },
+      {
+        "palabra": "millones",
+        "n": 13
+      },
+      {
+        "palabra": "gobierno",
+        "n": 13
+      },
+      {
+        "palabra": "ahora",
+        "n": 13
+      },
+      {
+        "palabra": "personas",
+        "n": 13
+      },
+      {
+        "palabra": "pública",
         "n": 13
       },
       {
@@ -3168,19 +3208,11 @@
         "n": 12
       },
       {
-        "palabra": "parte",
-        "n": 12
-      },
-      {
-        "palabra": "chile",
-        "n": 12
-      },
-      {
-        "palabra": "personas",
-        "n": 12
-      },
-      {
         "palabra": "policial",
+        "n": 12
+      },
+      {
+        "palabra": "fiscalía",
         "n": 12
       },
       {
@@ -3188,11 +3220,11 @@
         "n": 12
       },
       {
-        "palabra": "ahora",
+        "palabra": "atención",
         "n": 11
       },
       {
-        "palabra": "pública",
+        "palabra": "servicio",
         "n": 11
       },
       {
@@ -3200,44 +3232,12 @@
         "n": 11
       },
       {
-        "palabra": "delegado",
-        "n": 10
+        "palabra": "primera",
+        "n": 11
       },
       {
-        "palabra": "salud",
-        "n": 10
-      },
-      {
-        "palabra": "principales",
-        "n": 10
-      },
-      {
-        "palabra": "centro",
-        "n": 10
-      },
-      {
-        "palabra": "diligencias",
-        "n": 10
-      },
-      {
-        "palabra": "sábado",
-        "n": 10
-      },
-      {
-        "palabra": "será",
-        "n": 10
-      },
-      {
-        "palabra": "carne",
-        "n": 10
-      },
-      {
-        "palabra": "agosto",
-        "n": 9
-      },
-      {
-        "palabra": "pino",
-        "n": 9
+        "palabra": "manera",
+        "n": 11
       }
     ],
     "Diario La Región": [
@@ -3404,63 +3404,115 @@
     ],
     "La Serena Online": [
       {
+        "palabra": "coquimbo",
+        "n": 50
+      },
+      {
         "palabra": "serena",
-        "n": 38
+        "n": 45
       },
       {
         "palabra": "personas",
-        "n": 38
+        "n": 42
       },
       {
         "palabra": "trabajo",
-        "n": 33
-      },
-      {
-        "palabra": "coquimbo",
-        "n": 31
+        "n": 42
       },
       {
         "palabra": "regional",
-        "n": 25
-      },
-      {
-        "palabra": "oportunidades",
-        "n": 25
+        "n": 38
       },
       {
         "palabra": "puede",
-        "n": 24
+        "n": 29
       },
       {
         "palabra": "comunidad",
-        "n": 20
+        "n": 27
+      },
+      {
+        "palabra": "oportunidades",
+        "n": 26
       },
       {
         "palabra": "interesar",
-        "n": 20
-      },
-      {
-        "palabra": "recursos",
-        "n": 19
-      },
-      {
-        "palabra": "septiembre",
-        "n": 19
-      },
-      {
-        "palabra": "sector",
-        "n": 19
+        "n": 25
       },
       {
         "palabra": "parte",
-        "n": 18
+        "n": 24
+      },
+      {
+        "palabra": "actividad",
+        "n": 23
+      },
+      {
+        "palabra": "recursos",
+        "n": 22
+      },
+      {
+        "palabra": "sector",
+        "n": 22
       },
       {
         "palabra": "proyecto",
-        "n": 17
+        "n": 22
+      },
+      {
+        "palabra": "septiembre",
+        "n": 21
+      },
+      {
+        "palabra": "espacios",
+        "n": 21
       },
       {
         "palabra": "además",
+        "n": 20
+      },
+      {
+        "palabra": "manera",
+        "n": 19
+      },
+      {
+        "palabra": "junto",
+        "n": 18
+      },
+      {
+        "palabra": "tiempo",
+        "n": 17
+      },
+      {
+        "palabra": "reactivación",
+        "n": 17
+      },
+      {
+        "palabra": "jóvenes",
+        "n": 17
+      },
+      {
+        "palabra": "poder",
+        "n": 17
+      },
+      {
+        "palabra": "gobierno",
+        "n": 17
+      },
+      {
+        "palabra": "vecinos",
+        "n": 16
+      },
+      {
+        "palabra": "millones",
+        "n": 16
+      },
+      {
+        "palabra": "importante",
+        "n": 16
+      },
+      {
+        "palabra": "fortalecer",
         "n": 16
       },
       {
@@ -3468,19 +3520,27 @@
         "n": 16
       },
       {
-        "palabra": "jóvenes",
+        "palabra": "seremi",
         "n": 16
       },
       {
-        "palabra": "manera",
+        "palabra": "faro",
         "n": 15
       },
       {
-        "palabra": "tiempo",
+        "palabra": "proceso",
         "n": 15
       },
       {
-        "palabra": "fortalecer",
+        "palabra": "servicio",
+        "n": 15
+      },
+      {
+        "palabra": "turística",
+        "n": 15
+      },
+      {
+        "palabra": "desarrollo",
         "n": 15
       },
       {
@@ -3488,145 +3548,7 @@
         "n": 15
       },
       {
-        "palabra": "actividad",
-        "n": 14
-      },
-      {
-        "palabra": "máxima",
-        "n": 14
-      },
-      {
-        "palabra": "espacios",
-        "n": 14
-      },
-      {
-        "palabra": "experiencias",
-        "n": 14
-      },
-      {
-        "palabra": "junto",
-        "n": 13
-      },
-      {
-        "palabra": "proceso",
-        "n": 13
-      },
-      {
-        "palabra": "cielo",
-        "n": 13
-      },
-      {
-        "palabra": "mujer",
-        "n": 13
-      },
-      {
-        "palabra": "desarrollo",
-        "n": 13
-      },
-      {
-        "palabra": "subsidio",
-        "n": 13
-      },
-      {
-        "palabra": "empleo",
-        "n": 13
-      },
-      {
-        "palabra": "atención",
-        "n": 12
-      },
-      {
-        "palabra": "acuerdo",
-        "n": 12
-      },
-      {
-        "palabra": "pronóstico",
-        "n": 12
-      },
-      {
-        "palabra": "noche",
-        "n": 12
-      },
-      {
-        "palabra": "ovalle",
-        "n": 12
-      },
-      {
-        "palabra": "jornada",
-        "n": 12
-      },
-      {
-        "palabra": "servicio",
-        "n": 12
-      },
-      {
-        "palabra": "nuevas",
-        "n": 12
-      }
-    ],
-    "Mi Radio": [
-      {
-        "palabra": "coquimbo",
-        "n": 32
-      },
-      {
-        "palabra": "antecedentes",
-        "n": 23
-      },
-      {
-        "palabra": "personas",
-        "n": 23
-      },
-      {
-        "palabra": "tags",
-        "n": 20
-      },
-      {
-        "palabra": "destacada",
-        "n": 20
-      },
-      {
-        "palabra": "serena",
-        "n": 20
-      },
-      {
-        "palabra": "además",
-        "n": 19
-      },
-      {
-        "palabra": "parte",
-        "n": 18
-      },
-      {
-        "palabra": "habría",
-        "n": 17
-      },
-      {
-        "palabra": "situación",
-        "n": 15
-      },
-      {
-        "palabra": "trabajo",
-        "n": 15
-      },
-      {
-        "palabra": "investigación",
-        "n": 15
-      },
-      {
-        "palabra": "funcionarios",
-        "n": 15
-      },
-      {
-        "palabra": "sector",
-        "n": 14
-      },
-      {
-        "palabra": "recinto",
-        "n": 14
-      },
-      {
-        "palabra": "tras",
+        "palabra": "familias",
         "n": 14
       },
       {
@@ -3634,31 +3556,161 @@
         "n": 14
       },
       {
-        "palabra": "septiembre",
+        "palabra": "chile",
         "n": 14
+      },
+      {
+        "palabra": "sistema",
+        "n": 14
+      }
+    ],
+    "Mi Radio": [
+      {
+        "palabra": "coquimbo",
+        "n": 44
+      },
+      {
+        "palabra": "antecedentes",
+        "n": 38
+      },
+      {
+        "palabra": "tags",
+        "n": 30
+      },
+      {
+        "palabra": "destacada",
+        "n": 29
+      },
+      {
+        "palabra": "investigación",
+        "n": 29
+      },
+      {
+        "palabra": "habría",
+        "n": 26
+      },
+      {
+        "palabra": "además",
+        "n": 25
+      },
+      {
+        "palabra": "personas",
+        "n": 25
+      },
+      {
+        "palabra": "parte",
+        "n": 25
+      },
+      {
+        "palabra": "horas",
+        "n": 25
+      },
+      {
+        "palabra": "familia",
+        "n": 23
+      },
+      {
+        "palabra": "serena",
+        "n": 22
+      },
+      {
+        "palabra": "situación",
+        "n": 21
+      },
+      {
+        "palabra": "septiembre",
+        "n": 21
+      },
+      {
+        "palabra": "reyes",
+        "n": 20
+      },
+      {
+        "palabra": "vecinos",
+        "n": 19
       },
       {
         "palabra": "fiestas",
-        "n": 14
+        "n": 19
+      },
+      {
+        "palabra": "ovalle",
+        "n": 19
+      },
+      {
+        "palabra": "sector",
+        "n": 18
+      },
+      {
+        "palabra": "patrias",
+        "n": 18
+      },
+      {
+        "palabra": "funcionarios",
+        "n": 18
+      },
+      {
+        "palabra": "procedimiento",
+        "n": 18
+      },
+      {
+        "palabra": "amenazas",
+        "n": 18
+      },
+      {
+        "palabra": "trabajo",
+        "n": 17
+      },
+      {
+        "palabra": "señaló",
+        "n": 17
+      },
+      {
+        "palabra": "información",
+        "n": 17
       },
       {
         "palabra": "carabineros",
-        "n": 14
+        "n": 17
+      },
+      {
+        "palabra": "tras",
+        "n": 16
+      },
+      {
+        "palabra": "recinto",
+        "n": 15
       },
       {
         "palabra": "alcalde",
-        "n": 13
+        "n": 15
+      },
+      {
+        "palabra": "caso",
+        "n": 15
+      },
+      {
+        "palabra": "atención",
+        "n": 14
+      },
+      {
+        "palabra": "comunidad",
+        "n": 14
+      },
+      {
+        "palabra": "municipal",
+        "n": 14
       },
       {
         "palabra": "familias",
         "n": 13
       },
       {
-        "palabra": "atención",
+        "palabra": "público",
         "n": 13
       },
       {
-        "palabra": "patrias",
+        "palabra": "cargo",
         "n": 13
       },
       {
@@ -3666,64 +3718,12 @@
         "n": 13
       },
       {
-        "palabra": "robo",
+        "palabra": "control",
         "n": 13
       },
       {
-        "palabra": "vecinos",
-        "n": 12
-      },
-      {
-        "palabra": "comunidad",
-        "n": 12
-      },
-      {
-        "palabra": "emergencia",
-        "n": 12
-      },
-      {
-        "palabra": "ovalle",
-        "n": 12
-      },
-      {
-        "palabra": "reyes",
-        "n": 12
-      },
-      {
-        "palabra": "actividad",
-        "n": 11
-      },
-      {
-        "palabra": "local",
-        "n": 11
-      },
-      {
-        "palabra": "cargo",
-        "n": 11
-      },
-      {
-        "palabra": "situaciones",
-        "n": 10
-      },
-      {
-        "palabra": "posteriormente",
-        "n": 10
-      },
-      {
-        "palabra": "persona",
-        "n": 10
-      },
-      {
-        "palabra": "espacio",
-        "n": 10
-      },
-      {
-        "palabra": "tres",
-        "n": 10
-      },
-      {
-        "palabra": "ficha",
-        "n": 10
+        "palabra": "robo",
+        "n": 13
       }
     ],
     "Radio Montecarlo": [
@@ -4054,243 +4054,243 @@
   "top_palabras_total": [
     {
       "palabra": "coquimbo",
-      "n": 771
+      "n": 834
     },
     {
       "palabra": "regional",
-      "n": 581
+      "n": 615
     },
     {
       "palabra": "serena",
-      "n": 552
+      "n": 591
     },
     {
       "palabra": "personas",
-      "n": 501
+      "n": 514
     },
     {
       "palabra": "salud",
-      "n": 467
+      "n": 482
     },
     {
       "palabra": "parte",
-      "n": 456
+      "n": 476
     },
     {
       "palabra": "septiembre",
-      "n": 456
+      "n": 474
     },
     {
       "palabra": "trabajo",
-      "n": 443
+      "n": 461
     },
     {
       "palabra": "ovalle",
-      "n": 411
+      "n": 418
     },
     {
       "palabra": "además",
-      "n": 398
+      "n": 416
     },
     {
       "palabra": "comunidad",
-      "n": 364
+      "n": 381
     },
     {
       "palabra": "sector",
-      "n": 340
+      "n": 350
     },
     {
       "palabra": "familias",
-      "n": 326
+      "n": 332
     },
     {
       "palabra": "vecinos",
-      "n": 298
-    },
-    {
-      "palabra": "actividad",
-      "n": 296
+      "n": 317
     },
     {
       "palabra": "tras",
-      "n": 291
+      "n": 306
+    },
+    {
+      "palabra": "actividad",
+      "n": 306
     },
     {
       "palabra": "jornada",
-      "n": 287
-    },
-    {
-      "palabra": "agua",
-      "n": 276
-    },
-    {
-      "palabra": "estudiantes",
-      "n": 270
-    },
-    {
-      "palabra": "mayor",
-      "n": 267
+      "n": 295
     },
     {
       "palabra": "nacional",
-      "n": 266
+      "n": 283
     },
     {
-      "palabra": "señaló",
-      "n": 261
-    },
-    {
-      "palabra": "proyecto",
-      "n": 261
+      "palabra": "agua",
+      "n": 279
     },
     {
       "palabra": "chile",
-      "n": 259
+      "n": 278
     },
     {
-      "palabra": "atención",
-      "n": 257
+      "palabra": "estudiantes",
+      "n": 275
     },
     {
-      "palabra": "último",
-      "n": 256
+      "palabra": "mayor",
+      "n": 273
     },
     {
       "palabra": "seguridad",
-      "n": 256
+      "n": 272
+    },
+    {
+      "palabra": "proyecto",
+      "n": 272
+    },
+    {
+      "palabra": "señaló",
+      "n": 270
+    },
+    {
+      "palabra": "último",
+      "n": 263
+    },
+    {
+      "palabra": "atención",
+      "n": 263
     },
     {
       "palabra": "iniciativa",
-      "n": 251
+      "n": 259
     },
     {
       "palabra": "proceso",
-      "n": 247
-    },
-    {
-      "palabra": "sectores",
-      "n": 242
-    },
-    {
-      "palabra": "fortalecer",
-      "n": 242
+      "n": 253
     },
     {
       "palabra": "manera",
-      "n": 237
+      "n": 246
     },
     {
-      "palabra": "relacionados",
-      "n": 232
+      "palabra": "fortalecer",
+      "n": 246
     },
     {
-      "palabra": "puede",
-      "n": 224
-    },
-    {
-      "palabra": "actividades",
-      "n": 221
-    },
-    {
-      "palabra": "temas",
-      "n": 220
+      "palabra": "sectores",
+      "n": 244
     },
     {
       "palabra": "horas",
-      "n": 219
+      "n": 239
+    },
+    {
+      "palabra": "relacionados",
+      "n": 239
     },
     {
       "palabra": "equipo",
-      "n": 218
+      "n": 238
     },
     {
-      "palabra": "recibe",
-      "n": 215
+      "palabra": "puede",
+      "n": 231
     },
     {
-      "palabra": "anterior",
-      "n": 212
+      "palabra": "temas",
+      "n": 226
     },
     {
-      "palabra": "correo",
-      "n": 211
-    },
-    {
-      "palabra": "condiciones",
-      "n": 210
+      "palabra": "actividades",
+      "n": 226
     },
     {
       "palabra": "importante",
-      "n": 210
+      "n": 222
+    },
+    {
+      "palabra": "recibe",
+      "n": 219
     },
     {
       "palabra": "junto",
-      "n": 208
+      "n": 216
+    },
+    {
+      "palabra": "anterior",
+      "n": 216
+    },
+    {
+      "palabra": "condiciones",
+      "n": 216
+    },
+    {
+      "palabra": "correo",
+      "n": 215
     },
     {
       "palabra": "error",
-      "n": 208
+      "n": 213
+    },
+    {
+      "palabra": "gobierno",
+      "n": 213
     },
     {
       "palabra": "enviar",
-      "n": 207
-    },
-    {
-      "palabra": "emergencia",
-      "n": 207
-    },
-    {
-      "palabra": "newsletter",
-      "n": 206
-    },
-    {
-      "palabra": "comunales",
-      "n": 206
-    },
-    {
-      "palabra": "comparte",
-      "n": 206
-    },
-    {
-      "palabra": "nota",
-      "n": 206
-    },
-    {
-      "palabra": "avísanos",
-      "n": 205
-    },
-    {
-      "palabra": "suscríbete",
-      "n": 205
-    },
-    {
-      "palabra": "enviaremos",
-      "n": 205
-    },
-    {
-      "palabra": "suscribirme",
-      "n": 205
-    },
-    {
-      "palabra": "recuperación",
-      "n": 202
-    },
-    {
-      "palabra": "distintos",
-      "n": 199
+      "n": 211
     },
     {
       "palabra": "pampilla",
-      "n": 199
+      "n": 211
     },
     {
-      "palabra": "servicio",
-      "n": 198
+      "palabra": "newsletter",
+      "n": 210
     },
     {
-      "palabra": "recursos",
-      "n": 196
+      "palabra": "comparte",
+      "n": 210
+    },
+    {
+      "palabra": "nota",
+      "n": 210
+    },
+    {
+      "palabra": "avísanos",
+      "n": 209
+    },
+    {
+      "palabra": "suscríbete",
+      "n": 209
+    },
+    {
+      "palabra": "enviaremos",
+      "n": 209
+    },
+    {
+      "palabra": "suscribirme",
+      "n": 209
+    },
+    {
+      "palabra": "comunales",
+      "n": 209
+    },
+    {
+      "palabra": "emergencia",
+      "n": 209
+    },
+    {
+      "palabra": "recuperación",
+      "n": 209
+    },
+    {
+      "palabra": "sistema",
+      "n": 205
+    },
+    {
+      "palabra": "distintos",
+      "n": 205
     }
   ],
   "top_palabras_por_semana": {
@@ -4907,7 +4907,7 @@
     "2026-W36": [
       {
         "palabra": "coquimbo",
-        "n": 541
+        "n": 552
       },
       {
         "palabra": "serena",
@@ -4931,7 +4931,7 @@
       },
       {
         "palabra": "parte",
-        "n": 300
+        "n": 302
       },
       {
         "palabra": "ovalle",
@@ -4939,7 +4939,7 @@
       },
       {
         "palabra": "además",
-        "n": 276
+        "n": 278
       },
       {
         "palabra": "trabajo",
@@ -4963,11 +4963,19 @@
       },
       {
         "palabra": "jornada",
-        "n": 193
+        "n": 194
       },
       {
         "palabra": "tras",
-        "n": 185
+        "n": 188
+      },
+      {
+        "palabra": "chile",
+        "n": 183
+      },
+      {
+        "palabra": "nacional",
+        "n": 182
       },
       {
         "palabra": "comparte",
@@ -4976,10 +4984,6 @@
       {
         "palabra": "nota",
         "n": 181
-      },
-      {
-        "palabra": "nacional",
-        "n": 180
       },
       {
         "palabra": "actividades",
@@ -5002,10 +5006,6 @@
         "n": 175
       },
       {
-        "palabra": "chile",
-        "n": 175
-      },
-      {
         "palabra": "iniciativa",
         "n": 173
       },
@@ -5014,11 +5014,11 @@
         "n": 172
       },
       {
-        "palabra": "mayor",
-        "n": 168
+        "palabra": "pampilla",
+        "n": 169
       },
       {
-        "palabra": "pampilla",
+        "palabra": "mayor",
         "n": 168
       },
       {
@@ -5029,123 +5029,123 @@
     "2026-W37": [
       {
         "palabra": "coquimbo",
-        "n": 92
-      },
-      {
-        "palabra": "personas",
-        "n": 71
+        "n": 144
       },
       {
         "palabra": "serena",
-        "n": 66
+        "n": 105
       },
       {
-        "palabra": "septiembre",
-        "n": 56
-      },
-      {
-        "palabra": "trabajo",
-        "n": 51
-      },
-      {
-        "palabra": "parte",
-        "n": 48
-      },
-      {
-        "palabra": "salud",
-        "n": 48
-      },
-      {
-        "palabra": "puede",
-        "n": 45
+        "palabra": "personas",
+        "n": 84
       },
       {
         "palabra": "regional",
-        "n": 43
+        "n": 77
       },
       {
-        "palabra": "chile",
-        "n": 41
+        "palabra": "septiembre",
+        "n": 74
+      },
+      {
+        "palabra": "trabajo",
+        "n": 69
+      },
+      {
+        "palabra": "parte",
+        "n": 66
+      },
+      {
+        "palabra": "salud",
+        "n": 63
       },
       {
         "palabra": "comunidad",
-        "n": 38
+        "n": 55
       },
       {
-        "palabra": "lugar",
-        "n": 35
+        "palabra": "chile",
+        "n": 52
       },
       {
-        "palabra": "nacional",
-        "n": 33
-      },
-      {
-        "palabra": "proyecto",
-        "n": 33
-      },
-      {
-        "palabra": "familias",
-        "n": 32
+        "palabra": "puede",
+        "n": 52
       },
       {
         "palabra": "además",
-        "n": 32
+        "n": 48
       },
       {
-        "palabra": "jornada",
-        "n": 32
+        "palabra": "nacional",
+        "n": 48
       },
       {
-        "palabra": "vicuña",
-        "n": 30
-      },
-      {
-        "palabra": "fiestas",
-        "n": 29
-      },
-      {
-        "palabra": "patrias",
-        "n": 29
-      },
-      {
-        "palabra": "estudiantes",
-        "n": 29
-      },
-      {
-        "palabra": "junto",
-        "n": 27
-      },
-      {
-        "palabra": "importante",
-        "n": 27
+        "palabra": "gobierno",
+        "n": 46
       },
       {
         "palabra": "vecinos",
-        "n": 25
+        "n": 44
+      },
+      {
+        "palabra": "proyecto",
+        "n": 44
+      },
+      {
+        "palabra": "lugar",
+        "n": 42
+      },
+      {
+        "palabra": "equipo",
+        "n": 42
+      },
+      {
+        "palabra": "familia",
+        "n": 41
       },
       {
         "palabra": "seguridad",
-        "n": 25
+        "n": 41
       },
       {
-        "palabra": "atención",
-        "n": 25
+        "palabra": "jornada",
+        "n": 39
+      },
+      {
+        "palabra": "importante",
+        "n": 39
+      },
+      {
+        "palabra": "familias",
+        "n": 38
+      },
+      {
+        "palabra": "horas",
+        "n": 38
+      },
+      {
+        "palabra": "fiestas",
+        "n": 37
+      },
+      {
+        "palabra": "patrias",
+        "n": 36
+      },
+      {
+        "palabra": "millones",
+        "n": 36
+      },
+      {
+        "palabra": "junto",
+        "n": 35
       },
       {
         "palabra": "pampilla",
-        "n": 24
+        "n": 35
       },
       {
-        "palabra": "tiempo",
-        "n": 24
-      },
-      {
-        "palabra": "primera",
-        "n": 24
-      },
-      {
-        "palabra": "participación",
-        "n": 23
+        "palabra": "universidad",
+        "n": 35
       }
     ]
   },
@@ -5174,7 +5174,7 @@
       "sector",
       "familias",
       "vecinos",
-      "actividad"
+      "tras"
     ],
     "serie": {
       "coquimbo": [
@@ -5183,8 +5183,8 @@
         13,
         19,
         98,
-        541,
-        92
+        552,
+        144
       ],
       "regional": [
         0,
@@ -5193,7 +5193,7 @@
         17,
         90,
         416,
-        43
+        77
       ],
       "serena": [
         0,
@@ -5202,7 +5202,7 @@
         7,
         39,
         426,
-        66
+        105
       ],
       "personas": [
         3,
@@ -5211,7 +5211,7 @@
         16,
         63,
         329,
-        71
+        84
       ],
       "salud": [
         1,
@@ -5220,7 +5220,7 @@
         25,
         63,
         313,
-        48
+        63
       ],
       "parte": [
         3,
@@ -5228,8 +5228,8 @@
         8,
         26,
         57,
-        300,
-        48
+        302,
+        66
       ],
       "septiembre": [
         0,
@@ -5238,7 +5238,7 @@
         4,
         23,
         372,
-        56
+        74
       ],
       "trabajo": [
         0,
@@ -5247,7 +5247,7 @@
         16,
         87,
         267,
-        51
+        69
       ],
       "ovalle": [
         0,
@@ -5256,7 +5256,7 @@
         1,
         74,
         295,
-        23
+        30
       ],
       "además": [
         2,
@@ -5264,8 +5264,8 @@
         7,
         16,
         58,
-        276,
-        32
+        278,
+        48
       ],
       "comunidad": [
         4,
@@ -5274,7 +5274,7 @@
         15,
         62,
         228,
-        38
+        55
       ],
       "sector": [
         4,
@@ -5283,7 +5283,7 @@
         11,
         60,
         230,
-        15
+        25
       ],
       "familias": [
         4,
@@ -5292,7 +5292,7 @@
         15,
         37,
         211,
-        32
+        38
       ],
       "vecinos": [
         6,
@@ -5301,16 +5301,16 @@
         15,
         52,
         176,
-        25
+        44
       ],
-      "actividad": [
-        0,
-        4,
-        0,
+      "tras": [
+        3,
         10,
-        30,
-        232,
-        20
+        6,
+        24,
+        47,
+        188,
+        28
       ]
     }
   },
@@ -5360,7 +5360,7 @@
           0,
           27,
           226,
-          0
+          7
         ],
         "Diario La Región": [
           0,
@@ -5405,7 +5405,7 @@
           0,
           6,
           17,
-          0
+          1
         ],
         "El Coquimbano": [
           0,
@@ -5413,8 +5413,8 @@
           0,
           0,
           4,
-          75,
-          12
+          86,
+          18
         ],
         "El Hurtadino": [
           0,
@@ -5495,7 +5495,7 @@
           0,
           0,
           32,
-          6
+          9
         ],
         "El Vicuñense": [
           0,
@@ -5540,7 +5540,7 @@
           0,
           0,
           19,
-          12
+          31
         ],
         "Mi Radio": [
           0,
@@ -5549,7 +5549,7 @@
           0,
           0,
           10,
-          22
+          34
         ],
         "Radio Guayacán": [
           0,
@@ -5558,7 +5558,7 @@
           0,
           0,
           33,
-          5
+          9
         ],
         "Radio Montecarlo": [
           0,
@@ -5616,7 +5616,7 @@
           0,
           37,
           235,
-          0
+          10
         ],
         "Diario La Región": [
           0,
@@ -5751,7 +5751,7 @@
           0,
           0,
           30,
-          1
+          2
         ],
         "El Vicuñense": [
           0,
@@ -5796,7 +5796,7 @@
           0,
           0,
           16,
-          9
+          22
         ],
         "Mi Radio": [
           0,
@@ -5805,7 +5805,7 @@
           0,
           0,
           3,
-          2
+          5
         ],
         "Radio Guayacán": [
           0,
@@ -5814,7 +5814,7 @@
           0,
           0,
           17,
-          0
+          7
         ],
         "Radio Montecarlo": [
           0,
@@ -5861,7 +5861,7 @@
           0,
           22,
           226,
-          0
+          12
         ],
         "Diario La Región": [
           0,
@@ -5987,7 +5987,7 @@
           0,
           0,
           75,
-          15
+          25
         ],
         "El Vicuñense": [
           0,
@@ -6032,7 +6032,7 @@
           0,
           0,
           27,
-          11
+          18
         ],
         "Mi Radio": [
           0,
@@ -6041,7 +6041,7 @@
           0,
           0,
           9,
-          11
+          13
         ],
         "Radio Guayacán": [
           0,
@@ -6050,7 +6050,7 @@
           0,
           0,
           33,
-          2
+          10
         ],
         "Radio Montecarlo": [
           0,
@@ -6162,7 +6162,7 @@
           0,
           3,
           31,
-          1
+          3
         ],
         "El Hurtadino": [
           0,
@@ -6243,7 +6243,7 @@
           0,
           0,
           27,
-          13
+          17
         ],
         "El Vicuñense": [
           0,
@@ -6288,7 +6288,7 @@
           0,
           0,
           29,
-          9
+          13
         ],
         "Mi Radio": [
           0,
@@ -6297,7 +6297,7 @@
           0,
           0,
           15,
-          8
+          10
         ],
         "Radio Guayacán": [
           0,
@@ -6306,7 +6306,7 @@
           0,
           0,
           12,
-          0
+          1
         ],
         "Radio Montecarlo": [
           0,
@@ -6361,7 +6361,7 @@
           0,
           22,
           90,
-          0
+          2
         ],
         "Diario La Región": [
           0,
@@ -6514,7 +6514,7 @@
           0,
           0,
           9,
-          0
+          3
         ],
         "Mi Radio": [
           0,
@@ -6532,7 +6532,7 @@
           0,
           0,
           10,
-          0
+          10
         ],
         "Radio Montecarlo": [
           0,
@@ -6590,7 +6590,7 @@
           0,
           12,
           101,
-          1
+          3
         ],
         "Diario La Región": [
           0,
@@ -6643,7 +6643,7 @@
           0,
           0,
           2,
-          19,
+          21,
           2
         ],
         "El Hurtadino": [
@@ -6770,7 +6770,7 @@
           0,
           0,
           11,
-          7
+          13
         ],
         "Mi Radio": [
           0,
@@ -6779,7 +6779,7 @@
           0,
           0,
           9,
-          9
+          16
         ],
         "Radio Guayacán": [
           0,
@@ -6788,7 +6788,7 @@
           0,
           0,
           12,
-          0
+          3
         ],
         "Radio Montecarlo": [
           0,
@@ -6835,7 +6835,7 @@
           0,
           9,
           177,
-          1
+          3
         ],
         "Diario La Región": [
           0,
@@ -6880,7 +6880,7 @@
           0,
           0,
           5,
-          5
+          6
         ],
         "El Hurtadino": [
           0,
@@ -7006,7 +7006,7 @@
           0,
           0,
           10,
-          9
+          11
         ],
         "Mi Radio": [
           0,
@@ -7015,7 +7015,7 @@
           0,
           0,
           10,
-          4
+          11
         ],
         "Radio Guayacán": [
           0,
@@ -7024,7 +7024,7 @@
           0,
           0,
           30,
-          5
+          11
         ],
         "Radio Montecarlo": [
           0,
@@ -7082,7 +7082,7 @@
           0,
           7,
           59,
-          0
+          5
         ],
         "Diario La Región": [
           0,
@@ -7127,7 +7127,7 @@
           0,
           14,
           14,
-          0
+          1
         ],
         "El Coquimbano": [
           0,
@@ -7262,7 +7262,7 @@
           0,
           0,
           19,
-          14
+          23
         ],
         "Mi Radio": [
           0,
@@ -7271,7 +7271,7 @@
           0,
           0,
           9,
-          6
+          8
         ],
         "Radio Guayacán": [
           0,
@@ -7280,7 +7280,7 @@
           0,
           0,
           18,
-          0
+          1
         ],
         "Radio Montecarlo": [
           0,
@@ -7437,7 +7437,7 @@
           0,
           0,
           3,
-          9
+          16
         ],
         "Radio Guayacán": [
           0,
@@ -7504,7 +7504,7 @@
           0,
           10,
           89,
-          0
+          1
         ],
         "Diario La Región": [
           0,
@@ -7549,7 +7549,7 @@
           0,
           3,
           6,
-          0
+          2
         ],
         "El Coquimbano": [
           0,
@@ -7557,7 +7557,7 @@
           0,
           0,
           3,
-          19,
+          21,
           1
         ],
         "El Hurtadino": [
@@ -7684,7 +7684,7 @@
           0,
           0,
           11,
-          5
+          9
         ],
         "Mi Radio": [
           0,
@@ -7693,7 +7693,7 @@
           0,
           0,
           13,
-          6
+          12
         ],
         "Radio Guayacán": [
           0,
@@ -7702,7 +7702,7 @@
           0,
           0,
           22,
-          1
+          4
         ],
         "Radio Montecarlo": [
           0,
@@ -7759,7 +7759,7 @@
           0,
           5,
           54,
-          0
+          1
         ],
         "Diario La Región": [
           0,
@@ -7804,7 +7804,7 @@
           0,
           3,
           7,
-          0
+          3
         ],
         "El Coquimbano": [
           0,
@@ -7813,7 +7813,7 @@
           0,
           1,
           8,
-          1
+          2
         ],
         "El Hurtadino": [
           0,
@@ -7930,7 +7930,7 @@
           0,
           0,
           9,
-          11
+          18
         ],
         "Mi Radio": [
           0,
@@ -7939,7 +7939,7 @@
           0,
           0,
           3,
-          9
+          11
         ],
         "Radio Guayacán": [
           0,
@@ -7948,7 +7948,7 @@
           0,
           0,
           5,
-          0
+          3
         ],
         "Radio Montecarlo": [
           0,
@@ -8186,7 +8186,7 @@
           0,
           0,
           17,
-          2
+          5
         ],
         "Mi Radio": [
           0,
@@ -8195,7 +8195,7 @@
           0,
           0,
           10,
-          4
+          8
         ],
         "Radio Guayacán": [
           0,
@@ -8204,7 +8204,7 @@
           0,
           0,
           14,
-          1
+          4
         ],
         "Radio Montecarlo": [
           0,
@@ -8262,7 +8262,7 @@
           0,
           7,
           96,
-          0
+          2
         ],
         "Diario La Región": [
           0,
@@ -8442,7 +8442,7 @@
           0,
           0,
           8,
-          2
+          6
         ],
         "Mi Radio": [
           0,
@@ -8678,7 +8678,7 @@
           0,
           0,
           4,
-          3
+          12
         ],
         "Mi Radio": [
           0,
@@ -8687,7 +8687,7 @@
           0,
           0,
           10,
-          2
+          9
         ],
         "Radio Guayacán": [
           0,
@@ -8696,7 +8696,7 @@
           0,
           0,
           2,
-          0
+          3
         ],
         "Radio Montecarlo": [
           0,
@@ -8709,7 +8709,7 @@
         ]
       }
     },
-    "actividad": {
+    "tras": {
       "medios": [
         "David Noticias",
         "Diario El Día",
@@ -8743,8 +8743,8 @@
           0,
           0,
           0,
-          2,
-          1,
+          4,
+          0,
           0
         ],
         "Diario El Día": [
@@ -8752,9 +8752,9 @@
           0,
           0,
           0,
-          1,
-          78,
-          0
+          5,
+          59,
+          8
         ],
         "Diario La Región": [
           0,
@@ -8762,37 +8762,10 @@
           0,
           0,
           0,
-          10,
+          11,
           0
         ],
         "El Andacollino": [
-          0,
-          0,
-          0,
-          2,
-          5,
-          6,
-          0
-        ],
-        "El Canelino": [
-          0,
-          0,
-          0,
-          1,
-          0,
-          2,
-          0
-        ],
-        "El Combarbalino": [
-          0,
-          1,
-          0,
-          0,
-          2,
-          0,
-          0
-        ],
-        "El Comunal": [
           0,
           0,
           0,
@@ -8801,40 +8774,67 @@
           6,
           0
         ],
+        "El Canelino": [
+          0,
+          0,
+          0,
+          0,
+          6,
+          1,
+          0
+        ],
+        "El Combarbalino": [
+          3,
+          6,
+          2,
+          0,
+          5,
+          2,
+          0
+        ],
+        "El Comunal": [
+          0,
+          0,
+          0,
+          0,
+          4,
+          1,
+          0
+        ],
         "El Coquimbano": [
           0,
           0,
           0,
           0,
-          0,
-          17,
-          0
+          1,
+          14,
+          3
         ],
         "El Hurtadino": [
           0,
           0,
           0,
-          0,
-          1,
-          4,
+          10,
+          5,
+          7,
           0
         ],
         "El Illapelino": [
           0,
           0,
           0,
-          0,
-          2,
-          0,
+          1,
+          4,
+          5,
           0
         ],
         "El Montepatrino": [
           0,
           0,
           0,
-          2,
+          4,
+          0,
           5,
-          14,
           0
         ],
         "El Observatodo": [
@@ -8843,44 +8843,44 @@
           0,
           0,
           0,
-          1,
-          3
+          5,
+          1
         ],
         "El Ovallino": [
           0,
           3,
           0,
+          2,
           0,
-          0,
-          4,
+          2,
           0
         ],
         "El Paihuanino": [
           0,
-          0,
+          1,
+          4,
           0,
           1,
-          1,
-          0,
+          2,
           0
         ],
         "El Punitaquino": [
           0,
           0,
           0,
-          1,
-          0,
-          0,
+          4,
+          4,
+          6,
           0
         ],
         "El Salamanquino": [
           0,
           0,
           0,
+          2,
           0,
-          0,
-          3,
-          0
+          1,
+          1
         ],
         "El Serenense": [
           0,
@@ -8888,7 +8888,7 @@
           0,
           0,
           0,
-          7,
+          11,
           3
         ],
         "El Vicuñense": [
@@ -8896,17 +8896,17 @@
           0,
           0,
           0,
-          3,
-          15,
-          1
+          1,
+          1,
+          0
         ],
         "El Vileño": [
           0,
           0,
           0,
-          3,
           1,
-          3,
+          1,
+          2,
           0
         ],
         "Elqui Global": [
@@ -8915,7 +8915,7 @@
           0,
           0,
           0,
-          13,
+          4,
           1
         ],
         "La Perla del Limarí": [
@@ -8923,8 +8923,8 @@
           0,
           0,
           0,
-          4,
-          19,
+          3,
+          14,
           0
         ],
         "La Serena Online": [
@@ -8933,8 +8933,8 @@
           0,
           0,
           0,
-          7,
-          7
+          5,
+          3
         ],
         "Mi Radio": [
           0,
@@ -8943,7 +8943,7 @@
           0,
           0,
           9,
-          2
+          7
         ],
         "Radio Guayacán": [
           0,
@@ -8951,8 +8951,8 @@
           0,
           0,
           0,
-          1,
-          0
+          13,
+          1
         ],
         "Radio Montecarlo": [
           0,
@@ -8960,8 +8960,8 @@
           0,
           0,
           0,
-          12,
-          3
+          2,
+          0
         ]
       }
     }
@@ -8969,176 +8969,176 @@
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "coquimbo",
-        "n": 771
-      },
-      {
-        "palabra": "septiembre",
-        "n": 456
-      },
-      {
-        "palabra": "comunidad",
-        "n": 364
-      },
-      {
-        "palabra": "proyecto",
-        "n": 261
-      },
-      {
-        "palabra": "sector",
-        "n": 340
-      },
-      {
-        "palabra": "estudiantes",
-        "n": 270
-      },
-      {
-        "palabra": "familias",
-        "n": 326
-      },
-      {
-        "palabra": "nacional",
-        "n": 266
-      },
-      {
-        "palabra": "salud",
-        "n": 467
-      },
-      {
-        "palabra": "agua",
-        "n": 276
-      },
-      {
-        "palabra": "tras",
-        "n": 291
-      },
-      {
-        "palabra": "atención",
-        "n": 257
-      },
-      {
-        "palabra": "personas",
-        "n": 501
-      },
-      {
-        "palabra": "trabajo",
-        "n": 443
-      },
-      {
-        "palabra": "ovalle",
-        "n": 411
-      },
-      {
-        "palabra": "señaló",
-        "n": 261
+        "palabra": "jornada",
+        "n": 295
       },
       {
         "palabra": "serena",
-        "n": 552
+        "n": 591
       },
       {
-        "palabra": "chile",
-        "n": 259
+        "palabra": "familias",
+        "n": 332
+      },
+      {
+        "palabra": "coquimbo",
+        "n": 834
+      },
+      {
+        "palabra": "ovalle",
+        "n": 418
+      },
+      {
+        "palabra": "sector",
+        "n": 350
       },
       {
         "palabra": "regional",
-        "n": 581
+        "n": 615
+      },
+      {
+        "palabra": "nacional",
+        "n": 283
+      },
+      {
+        "palabra": "comunidad",
+        "n": 381
+      },
+      {
+        "palabra": "proyecto",
+        "n": 272
+      },
+      {
+        "palabra": "personas",
+        "n": 514
+      },
+      {
+        "palabra": "estudiantes",
+        "n": 275
+      },
+      {
+        "palabra": "septiembre",
+        "n": 474
       },
       {
         "palabra": "mayor",
-        "n": 267
-      },
-      {
-        "palabra": "jornada",
-        "n": 287
-      },
-      {
-        "palabra": "vecinos",
-        "n": 298
-      },
-      {
-        "palabra": "además",
-        "n": 398
+        "n": 273
       },
       {
         "palabra": "parte",
-        "n": 456
+        "n": 476
+      },
+      {
+        "palabra": "tras",
+        "n": 306
+      },
+      {
+        "palabra": "agua",
+        "n": 279
+      },
+      {
+        "palabra": "chile",
+        "n": 278
+      },
+      {
+        "palabra": "vecinos",
+        "n": 317
       },
       {
         "palabra": "actividad",
-        "n": 296
+        "n": 306
+      },
+      {
+        "palabra": "salud",
+        "n": 482
+      },
+      {
+        "palabra": "señaló",
+        "n": 270
+      },
+      {
+        "palabra": "además",
+        "n": 416
+      },
+      {
+        "palabra": "seguridad",
+        "n": 272
+      },
+      {
+        "palabra": "trabajo",
+        "n": 461
       }
     ],
     "enlaces": [
       {
         "a": "además",
         "b": "agua",
-        "peso": 63
+        "peso": 64
       },
       {
         "a": "además",
         "b": "comunidad",
-        "peso": 106
+        "peso": 112
       },
       {
         "a": "además",
         "b": "coquimbo",
-        "peso": 171
+        "peso": 179
       },
       {
         "a": "además",
         "b": "estudiantes",
-        "peso": 61
+        "peso": 62
       },
       {
         "a": "además",
         "b": "familias",
-        "peso": 108
+        "peso": 112
       },
       {
         "a": "además",
         "b": "parte",
-        "peso": 161
+        "peso": 167
       },
       {
         "a": "además",
         "b": "sector",
-        "peso": 111
+        "peso": 114
       },
       {
         "a": "además",
         "b": "tras",
-        "peso": 122
+        "peso": 129
       },
       {
         "a": "además",
         "b": "vecinos",
-        "peso": 93
+        "peso": 98
       },
       {
         "a": "agua",
         "b": "comunidad",
-        "peso": 54
+        "peso": 56
       },
       {
         "a": "agua",
         "b": "coquimbo",
-        "peso": 82
+        "peso": 84
       },
       {
         "a": "agua",
         "b": "estudiantes",
-        "peso": 14
+        "peso": 15
       },
       {
         "a": "agua",
         "b": "familias",
-        "peso": 66
+        "peso": 67
       },
       {
         "a": "agua",
         "b": "parte",
-        "peso": 74
+        "peso": 75
       },
       {
         "a": "agua",
@@ -9148,7 +9148,7 @@
       {
         "a": "agua",
         "b": "tras",
-        "peso": 58
+        "peso": 59
       },
       {
         "a": "agua",
@@ -9158,77 +9158,77 @@
       {
         "a": "comunidad",
         "b": "coquimbo",
-        "peso": 111
+        "peso": 117
       },
       {
         "a": "comunidad",
         "b": "estudiantes",
+        "peso": 41
+      },
+      {
+        "a": "comunidad",
+        "b": "familias",
+        "peso": 94
+      },
+      {
+        "a": "comunidad",
+        "b": "parte",
+        "peso": 131
+      },
+      {
+        "a": "comunidad",
+        "b": "sector",
+        "peso": 75
+      },
+      {
+        "a": "comunidad",
+        "b": "tras",
+        "peso": 77
+      },
+      {
+        "a": "comunidad",
+        "b": "vecinos",
+        "peso": 91
+      },
+      {
+        "a": "coquimbo",
+        "b": "estudiantes",
+        "peso": 80
+      },
+      {
+        "a": "coquimbo",
+        "b": "familias",
+        "peso": 121
+      },
+      {
+        "a": "coquimbo",
+        "b": "parte",
+        "peso": 193
+      },
+      {
+        "a": "coquimbo",
+        "b": "sector",
+        "peso": 117
+      },
+      {
+        "a": "coquimbo",
+        "b": "tras",
+        "peso": 121
+      },
+      {
+        "a": "coquimbo",
+        "b": "vecinos",
+        "peso": 100
+      },
+      {
+        "a": "estudiantes",
+        "b": "familias",
         "peso": 40
       },
       {
-        "a": "comunidad",
-        "b": "familias",
-        "peso": 90
-      },
-      {
-        "a": "comunidad",
-        "b": "parte",
-        "peso": 127
-      },
-      {
-        "a": "comunidad",
-        "b": "sector",
-        "peso": 72
-      },
-      {
-        "a": "comunidad",
-        "b": "tras",
-        "peso": 73
-      },
-      {
-        "a": "comunidad",
-        "b": "vecinos",
-        "peso": 86
-      },
-      {
-        "a": "coquimbo",
-        "b": "estudiantes",
-        "peso": 79
-      },
-      {
-        "a": "coquimbo",
-        "b": "familias",
-        "peso": 118
-      },
-      {
-        "a": "coquimbo",
-        "b": "parte",
-        "peso": 183
-      },
-      {
-        "a": "coquimbo",
-        "b": "sector",
-        "peso": 114
-      },
-      {
-        "a": "coquimbo",
-        "b": "tras",
-        "peso": 113
-      },
-      {
-        "a": "coquimbo",
-        "b": "vecinos",
-        "peso": 97
-      },
-      {
-        "a": "estudiantes",
-        "b": "familias",
-        "peso": 39
-      },
-      {
         "a": "estudiantes",
         "b": "parte",
-        "peso": 68
+        "peso": 69
       },
       {
         "a": "estudiantes",
@@ -9238,7 +9238,7 @@
       {
         "a": "estudiantes",
         "b": "tras",
-        "peso": 36
+        "peso": 37
       },
       {
         "a": "estudiantes",
@@ -9248,127 +9248,127 @@
       {
         "a": "familias",
         "b": "parte",
+        "peso": 128
+      },
+      {
+        "a": "familias",
+        "b": "sector",
+        "peso": 82
+      },
+      {
+        "a": "familias",
+        "b": "tras",
+        "peso": 82
+      },
+      {
+        "a": "familias",
+        "b": "vecinos",
+        "peso": 76
+      },
+      {
+        "a": "parte",
+        "b": "sector",
+        "peso": 103
+      },
+      {
+        "a": "parte",
+        "b": "tras",
         "peso": 125
       },
       {
-        "a": "familias",
-        "b": "sector",
-        "peso": 81
-      },
-      {
-        "a": "familias",
-        "b": "tras",
-        "peso": 79
-      },
-      {
-        "a": "familias",
-        "b": "vecinos",
-        "peso": 73
-      },
-      {
-        "a": "parte",
-        "b": "sector",
-        "peso": 100
-      },
-      {
-        "a": "parte",
-        "b": "tras",
-        "peso": 119
-      },
-      {
         "a": "parte",
         "b": "vecinos",
-        "peso": 99
+        "peso": 103
       },
       {
         "a": "sector",
         "b": "tras",
-        "peso": 87
+        "peso": 88
       },
       {
         "a": "sector",
         "b": "vecinos",
-        "peso": 73
+        "peso": 76
       },
       {
         "a": "tras",
         "b": "vecinos",
-        "peso": 60
+        "peso": 63
       },
       {
         "a": "además",
         "b": "personas",
-        "peso": 126
+        "peso": 130
       },
       {
         "a": "además",
         "b": "salud",
-        "peso": 76
+        "peso": 79
       },
       {
         "a": "comunidad",
         "b": "personas",
-        "peso": 75
+        "peso": 78
       },
       {
         "a": "comunidad",
         "b": "salud",
-        "peso": 39
+        "peso": 43
       },
       {
         "a": "familias",
         "b": "personas",
-        "peso": 81
+        "peso": 83
       },
       {
         "a": "familias",
         "b": "salud",
-        "peso": 42
+        "peso": 45
       },
       {
         "a": "parte",
         "b": "personas",
-        "peso": 113
+        "peso": 118
       },
       {
         "a": "parte",
         "b": "salud",
+        "peso": 83
+      },
+      {
+        "a": "personas",
+        "b": "salud",
+        "peso": 63
+      },
+      {
+        "a": "personas",
+        "b": "sector",
         "peso": 78
       },
       {
         "a": "personas",
-        "b": "salud",
-        "peso": 61
-      },
-      {
-        "a": "personas",
-        "b": "sector",
-        "peso": 77
-      },
-      {
-        "a": "personas",
         "b": "tras",
-        "peso": 75
+        "peso": 78
       },
       {
         "a": "personas",
         "b": "vecinos",
-        "peso": 70
+        "peso": 73
       },
       {
         "a": "salud",
         "b": "sector",
-        "peso": 46
+        "peso": 47
       },
       {
         "a": "salud",
         "b": "tras",
-        "peso": 40
+        "peso": 44
       },
       {
         "a": "salud",
         "b": "vecinos",
-        "peso": 69
+        "peso": 72
       },
       {
         "a": "agua",
@@ -9383,17 +9383,17 @@
       {
         "a": "agua",
         "b": "señaló",
-        "peso": 65
+        "peso": 66
       },
       {
         "a": "agua",
         "b": "trabajo",
-        "peso": 57
+        "peso": 58
       },
       {
         "a": "familias",
         "b": "mayor",
-        "peso": 65
+        "peso": 67
       },
       {
         "a": "familias",
@@ -9403,12 +9403,12 @@
       {
         "a": "familias",
         "b": "señaló",
-        "peso": 96
+        "peso": 99
       },
       {
         "a": "familias",
         "b": "trabajo",
-        "peso": 93
+        "peso": 96
       },
       {
         "a": "mayor",
@@ -9418,22 +9418,22 @@
       {
         "a": "mayor",
         "b": "parte",
-        "peso": 97
+        "peso": 99
       },
       {
         "a": "mayor",
         "b": "señaló",
-        "peso": 87
+        "peso": 90
       },
       {
         "a": "mayor",
         "b": "trabajo",
-        "peso": 76
+        "peso": 79
       },
       {
         "a": "mayor",
         "b": "vecinos",
-        "peso": 79
+        "peso": 81
       },
       {
         "a": "ovalle",
@@ -9453,32 +9453,32 @@
       {
         "a": "ovalle",
         "b": "vecinos",
-        "peso": 59
+        "peso": 60
       },
       {
         "a": "parte",
         "b": "señaló",
-        "peso": 137
+        "peso": 142
       },
       {
         "a": "parte",
         "b": "trabajo",
-        "peso": 130
+        "peso": 137
       },
       {
         "a": "señaló",
         "b": "trabajo",
-        "peso": 109
+        "peso": 113
       },
       {
         "a": "señaló",
         "b": "vecinos",
-        "peso": 81
+        "peso": 84
       },
       {
         "a": "trabajo",
         "b": "vecinos",
-        "peso": 65
+        "peso": 68
       },
       {
         "a": "actividad",
@@ -9488,262 +9488,197 @@
       {
         "a": "actividad",
         "b": "mayor",
-        "peso": 54
+        "peso": 56
       },
       {
         "a": "actividad",
         "b": "septiembre",
-        "peso": 78
+        "peso": 80
       },
       {
         "a": "actividad",
         "b": "serena",
-        "peso": 54
-      },
-      {
-        "a": "actividad",
-        "b": "señaló",
-        "peso": 83
-      },
-      {
-        "a": "actividad",
-        "b": "tras",
-        "peso": 45
-      },
-      {
-        "a": "agua",
-        "b": "septiembre",
-        "peso": 58
-      },
-      {
-        "a": "agua",
-        "b": "serena",
-        "peso": 59
-      },
-      {
-        "a": "mayor",
-        "b": "septiembre",
-        "peso": 84
-      },
-      {
-        "a": "mayor",
-        "b": "serena",
-        "peso": 70
-      },
-      {
-        "a": "mayor",
-        "b": "tras",
-        "peso": 63
-      },
-      {
-        "a": "septiembre",
-        "b": "serena",
-        "peso": 121
-      },
-      {
-        "a": "septiembre",
-        "b": "señaló",
-        "peso": 84
-      },
-      {
-        "a": "septiembre",
-        "b": "tras",
-        "peso": 88
-      },
-      {
-        "a": "serena",
-        "b": "señaló",
-        "peso": 84
-      },
-      {
-        "a": "serena",
-        "b": "tras",
-        "peso": 94
-      },
-      {
-        "a": "señaló",
-        "b": "tras",
-        "peso": 82
-      },
-      {
-        "a": "atención",
-        "b": "comunidad",
-        "peso": 41
-      },
-      {
-        "a": "atención",
-        "b": "coquimbo",
-        "peso": 84
-      },
-      {
-        "a": "atención",
-        "b": "parte",
-        "peso": 71
-      },
-      {
-        "a": "atención",
-        "b": "salud",
-        "peso": 81
-      },
-      {
-        "a": "atención",
-        "b": "sector",
-        "peso": 45
-      },
-      {
-        "a": "atención",
-        "b": "señaló",
         "peso": 57
       },
       {
-        "a": "atención",
-        "b": "trabajo",
+        "a": "actividad",
+        "b": "señaló",
+        "peso": 86
+      },
+      {
+        "a": "actividad",
+        "b": "tras",
         "peso": 47
       },
       {
-        "a": "atención",
-        "b": "tras",
-        "peso": 44
-      },
-      {
-        "a": "atención",
-        "b": "vecinos",
-        "peso": 58
-      },
-      {
-        "a": "comunidad",
-        "b": "señaló",
-        "peso": 93
-      },
-      {
-        "a": "comunidad",
-        "b": "trabajo",
-        "peso": 98
-      },
-      {
-        "a": "coquimbo",
-        "b": "salud",
-        "peso": 82
-      },
-      {
-        "a": "coquimbo",
-        "b": "señaló",
-        "peso": 147
-      },
-      {
-        "a": "coquimbo",
-        "b": "trabajo",
-        "peso": 133
-      },
-      {
-        "a": "salud",
-        "b": "señaló",
-        "peso": 64
-      },
-      {
-        "a": "salud",
-        "b": "trabajo",
-        "peso": 43
-      },
-      {
-        "a": "sector",
-        "b": "señaló",
-        "peso": 90
-      },
-      {
-        "a": "sector",
-        "b": "trabajo",
-        "peso": 93
-      },
-      {
-        "a": "trabajo",
-        "b": "tras",
-        "peso": 85
-      },
-      {
-        "a": "además",
-        "b": "atención",
-        "peso": 79
-      },
-      {
-        "a": "además",
-        "b": "mayor",
-        "peso": 101
-      },
-      {
-        "a": "además",
-        "b": "señaló",
-        "peso": 124
+        "a": "agua",
+        "b": "septiembre",
+        "peso": 60
       },
       {
         "a": "agua",
-        "b": "atención",
-        "peso": 20
-      },
-      {
-        "a": "agua",
-        "b": "personas",
-        "peso": 38
-      },
-      {
-        "a": "agua",
-        "b": "salud",
-        "peso": 22
-      },
-      {
-        "a": "atención",
-        "b": "mayor",
-        "peso": 65
-      },
-      {
-        "a": "atención",
-        "b": "personas",
-        "peso": 59
-      },
-      {
-        "a": "coquimbo",
-        "b": "mayor",
-        "peso": 103
-      },
-      {
-        "a": "coquimbo",
-        "b": "personas",
-        "peso": 111
+        "b": "serena",
+        "peso": 60
       },
       {
         "a": "mayor",
-        "b": "personas",
+        "b": "septiembre",
+        "peso": 86
+      },
+      {
+        "a": "mayor",
+        "b": "serena",
         "peso": 72
       },
       {
         "a": "mayor",
-        "b": "salud",
-        "peso": 67
+        "b": "tras",
+        "peso": 64
       },
       {
-        "a": "personas",
+        "a": "septiembre",
+        "b": "serena",
+        "peso": 125
+      },
+      {
+        "a": "septiembre",
+        "b": "señaló",
+        "peso": 87
+      },
+      {
+        "a": "septiembre",
+        "b": "tras",
+        "peso": 92
+      },
+      {
+        "a": "serena",
         "b": "señaló",
         "peso": 89
       },
       {
+        "a": "serena",
+        "b": "tras",
+        "peso": 98
+      },
+      {
+        "a": "señaló",
+        "b": "tras",
+        "peso": 84
+      },
+      {
+        "a": "comunidad",
+        "b": "señaló",
+        "peso": 96
+      },
+      {
+        "a": "comunidad",
+        "b": "trabajo",
+        "peso": 103
+      },
+      {
+        "a": "coquimbo",
+        "b": "salud",
+        "peso": 86
+      },
+      {
+        "a": "coquimbo",
+        "b": "señaló",
+        "peso": 151
+      },
+      {
+        "a": "coquimbo",
+        "b": "trabajo",
+        "peso": 140
+      },
+      {
+        "a": "salud",
+        "b": "señaló",
+        "peso": 66
+      },
+      {
+        "a": "salud",
+        "b": "trabajo",
+        "peso": 47
+      },
+      {
+        "a": "sector",
+        "b": "señaló",
+        "peso": 92
+      },
+      {
+        "a": "sector",
+        "b": "trabajo",
+        "peso": 96
+      },
+      {
+        "a": "trabajo",
+        "b": "tras",
+        "peso": 89
+      },
+      {
+        "a": "además",
+        "b": "mayor",
+        "peso": 105
+      },
+      {
+        "a": "además",
+        "b": "señaló",
+        "peso": 129
+      },
+      {
+        "a": "agua",
+        "b": "personas",
+        "peso": 39
+      },
+      {
+        "a": "agua",
+        "b": "salud",
+        "peso": 23
+      },
+      {
+        "a": "coquimbo",
+        "b": "mayor",
+        "peso": 106
+      },
+      {
+        "a": "coquimbo",
+        "b": "personas",
+        "peso": 117
+      },
+      {
+        "a": "mayor",
+        "b": "personas",
+        "peso": 74
+      },
+      {
+        "a": "mayor",
+        "b": "salud",
+        "peso": 68
+      },
+      {
+        "a": "personas",
+        "b": "señaló",
+        "peso": 94
+      },
+      {
         "a": "actividad",
         "b": "además",
-        "peso": 85
+        "peso": 87
       },
       {
         "a": "actividad",
         "b": "comunidad",
-        "peso": 64
+        "peso": 66
       },
       {
         "a": "actividad",
         "b": "familias",
-        "peso": 63
+        "peso": 65
       },
       {
         "a": "actividad",
         "b": "jornada",
-        "peso": 68
+        "peso": 69
       },
       {
         "a": "actividad",
@@ -9753,32 +9688,32 @@
       {
         "a": "actividad",
         "b": "parte",
-        "peso": 97
+        "peso": 100
       },
       {
         "a": "actividad",
         "b": "personas",
-        "peso": 75
+        "peso": 77
       },
       {
         "a": "actividad",
         "b": "vecinos",
-        "peso": 55
+        "peso": 57
       },
       {
         "a": "además",
         "b": "jornada",
-        "peso": 84
+        "peso": 88
       },
       {
         "a": "además",
         "b": "ovalle",
-        "peso": 65
+        "peso": 66
       },
       {
         "a": "comunidad",
         "b": "jornada",
-        "peso": 67
+        "peso": 69
       },
       {
         "a": "comunidad",
@@ -9788,7 +9723,7 @@
       {
         "a": "familias",
         "b": "jornada",
-        "peso": 51
+        "peso": 53
       },
       {
         "a": "jornada",
@@ -9798,22 +9733,22 @@
       {
         "a": "jornada",
         "b": "parte",
-        "peso": 83
+        "peso": 86
       },
       {
         "a": "jornada",
         "b": "personas",
-        "peso": 69
+        "peso": 72
       },
       {
         "a": "jornada",
         "b": "tras",
-        "peso": 58
+        "peso": 61
       },
       {
         "a": "jornada",
         "b": "vecinos",
-        "peso": 51
+        "peso": 53
       },
       {
         "a": "ovalle",
@@ -9827,83 +9762,78 @@
       },
       {
         "a": "actividad",
+        "b": "regional",
+        "peso": 71
+      },
+      {
+        "a": "agua",
         "b": "regional",
         "peso": 68
       },
       {
-        "a": "agua",
-        "b": "regional",
-        "peso": 67
-      },
-      {
         "a": "mayor",
         "b": "regional",
-        "peso": 70
+        "peso": 73
       },
       {
         "a": "parte",
         "b": "regional",
-        "peso": 128
+        "peso": 134
       },
       {
         "a": "parte",
         "b": "serena",
-        "peso": 109
+        "peso": 116
       },
       {
         "a": "regional",
         "b": "serena",
-        "peso": 109
+        "peso": 117
       },
       {
         "a": "regional",
         "b": "señaló",
-        "peso": 100
+        "peso": 105
       },
       {
         "a": "además",
         "b": "trabajo",
-        "peso": 123
+        "peso": 128
       },
       {
         "a": "personas",
         "b": "trabajo",
-        "peso": 95
-      },
-      {
-        "a": "atención",
-        "b": "jornada",
-        "peso": 32
+        "peso": 97
       },
       {
         "a": "coquimbo",
         "b": "jornada",
-        "peso": 80
+        "peso": 83
       },
       {
         "a": "jornada",
         "b": "trabajo",
-        "peso": 65
+        "peso": 67
       },
       {
         "a": "además",
         "b": "regional",
-        "peso": 120
+        "peso": 124
       },
       {
         "a": "además",
         "b": "serena",
-        "peso": 110
+        "peso": 115
       },
       {
         "a": "familias",
         "b": "regional",
-        "peso": 92
+        "peso": 95
       },
       {
         "a": "familias",
         "b": "serena",
-        "peso": 84
+        "peso": 88
       },
       {
         "a": "ovalle",
@@ -9918,52 +9848,52 @@
       {
         "a": "personas",
         "b": "regional",
-        "peso": 76
+        "peso": 80
       },
       {
         "a": "personas",
         "b": "serena",
-        "peso": 77
+        "peso": 82
       },
       {
         "a": "regional",
         "b": "trabajo",
-        "peso": 107
+        "peso": 112
       },
       {
         "a": "regional",
         "b": "tras",
-        "peso": 80
+        "peso": 83
       },
       {
         "a": "serena",
         "b": "trabajo",
-        "peso": 76
+        "peso": 82
       },
       {
         "a": "actividad",
         "b": "sector",
-        "peso": 57
+        "peso": 58
       },
       {
         "a": "actividad",
         "b": "trabajo",
-        "peso": 75
+        "peso": 79
       },
       {
         "a": "chile",
         "b": "parte",
-        "peso": 76
+        "peso": 80
       },
       {
         "a": "comunidad",
         "b": "mayor",
-        "peso": 54
+        "peso": 57
       },
       {
         "a": "chile",
         "b": "coquimbo",
-        "peso": 75
+        "peso": 83
       },
       {
         "a": "chile",
@@ -9978,522 +9908,612 @@
       {
         "a": "chile",
         "b": "personas",
-        "peso": 50
-      },
-      {
-        "a": "chile",
-        "b": "regional",
-        "peso": 59
-      },
-      {
-        "a": "chile",
-        "b": "serena",
-        "peso": 47
-      },
-      {
-        "a": "chile",
-        "b": "tras",
-        "peso": 38
-      },
-      {
-        "a": "coquimbo",
-        "b": "ovalle",
-        "peso": 82
-      },
-      {
-        "a": "coquimbo",
-        "b": "regional",
-        "peso": 166
-      },
-      {
-        "a": "coquimbo",
-        "b": "serena",
-        "peso": 131
-      },
-      {
-        "a": "estudiantes",
-        "b": "ovalle",
-        "peso": 55
-      },
-      {
-        "a": "estudiantes",
-        "b": "personas",
-        "peso": 28
-      },
-      {
-        "a": "estudiantes",
-        "b": "regional",
-        "peso": 50
-      },
-      {
-        "a": "estudiantes",
-        "b": "serena",
-        "peso": 50
-      },
-      {
-        "a": "agua",
-        "b": "jornada",
-        "peso": 35
-      },
-      {
-        "a": "jornada",
-        "b": "mayor",
-        "peso": 51
-      },
-      {
-        "a": "jornada",
-        "b": "regional",
-        "peso": 67
-      },
-      {
-        "a": "jornada",
-        "b": "sector",
-        "peso": 54
-      },
-      {
-        "a": "jornada",
-        "b": "serena",
         "peso": 53
       },
       {
-        "a": "jornada",
-        "b": "señaló",
-        "peso": 69
-      },
-      {
-        "a": "mayor",
-        "b": "sector",
-        "peso": 67
-      },
-      {
-        "a": "regional",
-        "b": "sector",
-        "peso": 85
-      },
-      {
-        "a": "sector",
-        "b": "serena",
-        "peso": 87
-      },
-      {
-        "a": "además",
-        "b": "nacional",
-        "peso": 82
-      },
-      {
-        "a": "comunidad",
-        "b": "nacional",
-        "peso": 47
-      },
-      {
-        "a": "coquimbo",
-        "b": "nacional",
-        "peso": 93
-      },
-      {
-        "a": "familias",
-        "b": "nacional",
-        "peso": 51
-      },
-      {
-        "a": "nacional",
-        "b": "sector",
-        "peso": 39
-      },
-      {
-        "a": "nacional",
-        "b": "tras",
-        "peso": 57
-      },
-      {
-        "a": "nacional",
-        "b": "vecinos",
-        "peso": 43
-      },
-      {
-        "a": "jornada",
-        "b": "nacional",
-        "peso": 50
-      },
-      {
-        "a": "nacional",
-        "b": "ovalle",
-        "peso": 44
-      },
-      {
-        "a": "nacional",
-        "b": "personas",
-        "peso": 46
-      },
-      {
-        "a": "nacional",
+        "a": "chile",
         "b": "regional",
-        "peso": 82
-      },
-      {
-        "a": "ovalle",
-        "b": "sector",
-        "peso": 36
-      },
-      {
-        "a": "atención",
-        "b": "familias",
-        "peso": 39
-      },
-      {
-        "a": "actividad",
-        "b": "coquimbo",
-        "peso": 91
-      },
-      {
-        "a": "regional",
-        "b": "vecinos",
-        "peso": 56
-      },
-      {
-        "a": "comunidad",
-        "b": "regional",
-        "peso": 70
-      },
-      {
-        "a": "agua",
-        "b": "chile",
-        "peso": 22
+        "peso": 61
       },
       {
         "a": "chile",
-        "b": "comunidad",
-        "peso": 34
-      },
-      {
-        "a": "chile",
-        "b": "familias",
-        "peso": 38
-      },
-      {
-        "a": "chile",
-        "b": "mayor",
-        "peso": 44
-      },
-      {
-        "a": "chile",
-        "b": "trabajo",
-        "peso": 51
-      },
-      {
-        "a": "comunidad",
-        "b": "serena",
-        "peso": 65
-      },
-      {
-        "a": "actividad",
-        "b": "proyecto",
-        "peso": 27
-      },
-      {
-        "a": "además",
-        "b": "proyecto",
-        "peso": 54
-      },
-      {
-        "a": "además",
-        "b": "septiembre",
-        "peso": 125
-      },
-      {
-        "a": "comunidad",
-        "b": "proyecto",
-        "peso": 44
-      },
-      {
-        "a": "comunidad",
-        "b": "septiembre",
-        "peso": 69
-      },
-      {
-        "a": "mayor",
-        "b": "proyecto",
-        "peso": 33
-      },
-      {
-        "a": "parte",
-        "b": "proyecto",
-        "peso": 53
-      },
-      {
-        "a": "parte",
-        "b": "septiembre",
-        "peso": 137
-      },
-      {
-        "a": "proyecto",
-        "b": "sector",
-        "peso": 34
-      },
-      {
-        "a": "proyecto",
-        "b": "septiembre",
-        "peso": 33
-      },
-      {
-        "a": "proyecto",
-        "b": "tras",
-        "peso": 26
-      },
-      {
-        "a": "sector",
-        "b": "septiembre",
-        "peso": 88
-      },
-      {
-        "a": "chile",
-        "b": "nacional",
-        "peso": 63
-      },
-      {
-        "a": "mayor",
-        "b": "nacional",
-        "peso": 52
-      },
-      {
-        "a": "nacional",
-        "b": "parte",
-        "peso": 81
-      },
-      {
-        "a": "chile",
-        "b": "jornada",
-        "peso": 33
-      },
-      {
-        "a": "chile",
-        "b": "vecinos",
-        "peso": 36
-      },
-      {
-        "a": "serena",
-        "b": "vecinos",
-        "peso": 53
-      },
-      {
-        "a": "familias",
-        "b": "proyecto",
-        "peso": 34
-      },
-      {
-        "a": "proyecto",
-        "b": "señaló",
-        "peso": 52
-      },
-      {
-        "a": "proyecto",
-        "b": "vecinos",
-        "peso": 32
-      },
-      {
-        "a": "atención",
-        "b": "serena",
-        "peso": 50
-      },
-      {
-        "a": "jornada",
-        "b": "salud",
-        "peso": 41
-      },
-      {
-        "a": "salud",
         "b": "serena",
         "peso": 49
       },
       {
-        "a": "estudiantes",
-        "b": "jornada",
-        "peso": 27
-      },
-      {
-        "a": "estudiantes",
-        "b": "señaló",
-        "peso": 50
-      },
-      {
-        "a": "actividad",
-        "b": "chile",
-        "peso": 39
-      },
-      {
         "a": "chile",
-        "b": "proyecto",
-        "peso": 31
-      },
-      {
-        "a": "jornada",
-        "b": "proyecto",
-        "peso": 21
-      },
-      {
-        "a": "proyecto",
-        "b": "regional",
-        "peso": 45
-      },
-      {
-        "a": "proyecto",
-        "b": "serena",
-        "peso": 39
-      },
-      {
-        "a": "chile",
-        "b": "salud",
-        "peso": 36
-      },
-      {
-        "a": "chile",
-        "b": "señaló",
-        "peso": 44
-      },
-      {
-        "a": "estudiantes",
-        "b": "salud",
-        "peso": 55
-      },
-      {
-        "a": "regional",
-        "b": "salud",
-        "peso": 52
-      },
-      {
-        "a": "actividad",
-        "b": "estudiantes",
-        "peso": 31
-      },
-      {
-        "a": "actividad",
-        "b": "nacional",
-        "peso": 52
-      },
-      {
-        "a": "además",
-        "b": "chile",
-        "peso": 66
-      },
-      {
-        "a": "chile",
-        "b": "septiembre",
-        "peso": 64
+        "b": "tras",
+        "peso": 42
       },
       {
         "a": "coquimbo",
-        "b": "septiembre",
+        "b": "ovalle",
+        "peso": 82
+      },
+      {
+        "a": "coquimbo",
+        "b": "regional",
+        "peso": 174
+      },
+      {
+        "a": "coquimbo",
+        "b": "serena",
         "peso": 139
       },
       {
         "a": "estudiantes",
-        "b": "nacional",
-        "peso": 40
+        "b": "ovalle",
+        "peso": 55
       },
       {
         "a": "estudiantes",
-        "b": "septiembre",
-        "peso": 53
+        "b": "personas",
+        "peso": 28
       },
       {
         "a": "estudiantes",
-        "b": "trabajo",
-        "peso": 39
+        "b": "regional",
+        "peso": 51
+      },
+      {
+        "a": "estudiantes",
+        "b": "serena",
+        "peso": 51
+      },
+      {
+        "a": "agua",
+        "b": "jornada",
+        "peso": 36
       },
       {
         "a": "jornada",
-        "b": "septiembre",
-        "peso": 65
+        "b": "mayor",
+        "peso": 53
       },
       {
-        "a": "nacional",
-        "b": "septiembre",
-        "peso": 83
+        "a": "jornada",
+        "b": "regional",
+        "peso": 70
       },
       {
-        "a": "nacional",
-        "b": "trabajo",
-        "peso": 63
+        "a": "jornada",
+        "b": "sector",
+        "peso": 55
+      },
+      {
+        "a": "jornada",
+        "b": "serena",
+        "peso": 56
+      },
+      {
+        "a": "jornada",
+        "b": "señaló",
+        "peso": 73
+      },
+      {
+        "a": "mayor",
+        "b": "sector",
+        "peso": 68
       },
       {
         "a": "regional",
-        "b": "septiembre",
-        "peso": 111
+        "b": "sector",
+        "peso": 88
       },
       {
-        "a": "septiembre",
-        "b": "trabajo",
-        "peso": 93
+        "a": "sector",
+        "b": "serena",
+        "peso": 91
       },
       {
-        "a": "atención",
-        "b": "estudiantes",
+        "a": "además",
+        "b": "nacional",
+        "peso": 86
+      },
+      {
+        "a": "además",
+        "b": "seguridad",
+        "peso": 61
+      },
+      {
+        "a": "comunidad",
+        "b": "nacional",
+        "peso": 50
+      },
+      {
+        "a": "comunidad",
+        "b": "seguridad",
+        "peso": 33
+      },
+      {
+        "a": "coquimbo",
+        "b": "nacional",
+        "peso": 100
+      },
+      {
+        "a": "coquimbo",
+        "b": "seguridad",
+        "peso": 66
+      },
+      {
+        "a": "familias",
+        "b": "nacional",
         "peso": 54
       },
       {
         "a": "familias",
-        "b": "septiembre",
-        "peso": 95
+        "b": "seguridad",
+        "peso": 35
+      },
+      {
+        "a": "nacional",
+        "b": "sector",
+        "peso": 41
+      },
+      {
+        "a": "nacional",
+        "b": "seguridad",
+        "peso": 34
+      },
+      {
+        "a": "nacional",
+        "b": "tras",
+        "peso": 62
+      },
+      {
+        "a": "nacional",
+        "b": "vecinos",
+        "peso": 45
+      },
+      {
+        "a": "sector",
+        "b": "seguridad",
+        "peso": 35
+      },
+      {
+        "a": "seguridad",
+        "b": "tras",
+        "peso": 47
+      },
+      {
+        "a": "seguridad",
+        "b": "vecinos",
+        "peso": 40
+      },
+      {
+        "a": "jornada",
+        "b": "nacional",
+        "peso": 54
+      },
+      {
+        "a": "nacional",
+        "b": "ovalle",
+        "peso": 44
+      },
+      {
+        "a": "nacional",
+        "b": "personas",
+        "peso": 48
+      },
+      {
+        "a": "nacional",
+        "b": "regional",
+        "peso": 87
+      },
+      {
+        "a": "ovalle",
+        "b": "sector",
+        "peso": 36
+      },
+      {
+        "a": "agua",
+        "b": "seguridad",
+        "peso": 32
+      },
+      {
+        "a": "mayor",
+        "b": "seguridad",
+        "peso": 49
       },
       {
         "a": "personas",
+        "b": "seguridad",
+        "peso": 52
+      },
+      {
+        "a": "parte",
+        "b": "seguridad",
+        "peso": 69
+      },
+      {
+        "a": "salud",
+        "b": "seguridad",
+        "peso": 29
+      },
+      {
+        "a": "seguridad",
+        "b": "señaló",
+        "peso": 46
+      },
+      {
+        "a": "actividad",
+        "b": "coquimbo",
+        "peso": 94
+      },
+      {
+        "a": "actividad",
+        "b": "seguridad",
+        "peso": 29
+      },
+      {
+        "a": "jornada",
+        "b": "seguridad",
+        "peso": 29
+      },
+      {
+        "a": "regional",
+        "b": "seguridad",
+        "peso": 50
+      },
+      {
+        "a": "regional",
+        "b": "vecinos",
+        "peso": 58
+      },
+      {
+        "a": "comunidad",
+        "b": "regional",
+        "peso": 73
+      },
+      {
+        "a": "agua",
+        "b": "chile",
+        "peso": 23
+      },
+      {
+        "a": "chile",
+        "b": "comunidad",
+        "peso": 38
+      },
+      {
+        "a": "chile",
+        "b": "familias",
+        "peso": 40
+      },
+      {
+        "a": "chile",
+        "b": "mayor",
+        "peso": 47
+      },
+      {
+        "a": "chile",
+        "b": "seguridad",
+        "peso": 36
+      },
+      {
+        "a": "chile",
+        "b": "trabajo",
+        "peso": 54
+      },
+      {
+        "a": "seguridad",
+        "b": "trabajo",
+        "peso": 54
+      },
+      {
+        "a": "comunidad",
+        "b": "serena",
+        "peso": 70
+      },
+      {
+        "a": "actividad",
+        "b": "proyecto",
+        "peso": 28
+      },
+      {
+        "a": "además",
+        "b": "proyecto",
+        "peso": 58
+      },
+      {
+        "a": "además",
+        "b": "septiembre",
+        "peso": 129
+      },
+      {
+        "a": "comunidad",
+        "b": "proyecto",
+        "peso": 47
+      },
+      {
+        "a": "comunidad",
+        "b": "septiembre",
+        "peso": 73
+      },
+      {
+        "a": "mayor",
+        "b": "proyecto",
+        "peso": 35
+      },
+      {
+        "a": "parte",
+        "b": "proyecto",
+        "peso": 55
+      },
+      {
+        "a": "parte",
+        "b": "septiembre",
+        "peso": 144
+      },
+      {
+        "a": "proyecto",
+        "b": "sector",
+        "peso": 36
+      },
+      {
+        "a": "proyecto",
+        "b": "seguridad",
+        "peso": 13
+      },
+      {
+        "a": "proyecto",
+        "b": "septiembre",
+        "peso": 35
+      },
+      {
+        "a": "proyecto",
+        "b": "tras",
+        "peso": 28
+      },
+      {
+        "a": "sector",
         "b": "septiembre",
         "peso": 90
       },
       {
+        "a": "seguridad",
+        "b": "septiembre",
+        "peso": 62
+      },
+      {
+        "a": "chile",
+        "b": "nacional",
+        "peso": 66
+      },
+      {
+        "a": "mayor",
+        "b": "nacional",
+        "peso": 54
+      },
+      {
+        "a": "nacional",
+        "b": "parte",
+        "peso": 87
+      },
+      {
+        "a": "chile",
+        "b": "jornada",
+        "peso": 34
+      },
+      {
+        "a": "chile",
+        "b": "vecinos",
+        "peso": 38
+      },
+      {
+        "a": "seguridad",
+        "b": "serena",
+        "peso": 35
+      },
+      {
+        "a": "serena",
+        "b": "vecinos",
+        "peso": 57
+      },
+      {
+        "a": "familias",
+        "b": "proyecto",
+        "peso": 36
+      },
+      {
+        "a": "proyecto",
+        "b": "señaló",
+        "peso": 55
+      },
+      {
+        "a": "proyecto",
+        "b": "vecinos",
+        "peso": 33
+      },
+      {
+        "a": "jornada",
+        "b": "salud",
+        "peso": 42
+      },
+      {
+        "a": "salud",
+        "b": "serena",
+        "peso": 53
+      },
+      {
+        "a": "estudiantes",
+        "b": "jornada",
+        "peso": 28
+      },
+      {
+        "a": "estudiantes",
+        "b": "señaló",
+        "peso": 51
+      },
+      {
+        "a": "actividad",
+        "b": "chile",
+        "peso": 40
+      },
+      {
+        "a": "chile",
+        "b": "proyecto",
+        "peso": 32
+      },
+      {
+        "a": "jornada",
+        "b": "proyecto",
+        "peso": 24
+      },
+      {
+        "a": "proyecto",
+        "b": "regional",
+        "peso": 49
+      },
+      {
+        "a": "proyecto",
+        "b": "serena",
+        "peso": 43
+      },
+      {
+        "a": "chile",
+        "b": "salud",
+        "peso": 38
+      },
+      {
+        "a": "chile",
+        "b": "señaló",
+        "peso": 45
+      },
+      {
+        "a": "estudiantes",
+        "b": "salud",
+        "peso": 56
+      },
+      {
+        "a": "regional",
+        "b": "salud",
+        "peso": 54
+      },
+      {
+        "a": "actividad",
+        "b": "estudiantes",
+        "peso": 31
+      },
+      {
+        "a": "actividad",
+        "b": "nacional",
+        "peso": 54
+      },
+      {
+        "a": "además",
+        "b": "chile",
+        "peso": 71
+      },
+      {
+        "a": "chile",
+        "b": "septiembre",
+        "peso": 69
+      },
+      {
+        "a": "coquimbo",
+        "b": "septiembre",
+        "peso": 149
+      },
+      {
+        "a": "estudiantes",
+        "b": "nacional",
+        "peso": 41
+      },
+      {
+        "a": "estudiantes",
+        "b": "septiembre",
+        "peso": 54
+      },
+      {
+        "a": "estudiantes",
+        "b": "trabajo",
+        "peso": 40
+      },
+      {
+        "a": "jornada",
+        "b": "septiembre",
+        "peso": 66
+      },
+      {
+        "a": "nacional",
+        "b": "septiembre",
+        "peso": 86
+      },
+      {
+        "a": "nacional",
+        "b": "trabajo",
+        "peso": 67
+      },
+      {
+        "a": "regional",
+        "b": "septiembre",
+        "peso": 115
+      },
+      {
+        "a": "septiembre",
+        "b": "trabajo",
+        "peso": 98
+      },
+      {
+        "a": "familias",
+        "b": "septiembre",
+        "peso": 97
+      },
+      {
+        "a": "personas",
+        "b": "septiembre",
+        "peso": 93
+      },
+      {
         "a": "septiembre",
         "b": "vecinos",
-        "peso": 76
+        "peso": 78
       },
       {
         "a": "coquimbo",
         "b": "proyecto",
-        "peso": 63
+        "peso": 67
       },
       {
         "a": "nacional",
         "b": "proyecto",
-        "peso": 33
-      },
-      {
-        "a": "nacional",
-        "b": "señaló",
-        "peso": 61
-      },
-      {
-        "a": "proyecto",
-        "b": "trabajo",
-        "peso": 46
-      },
-      {
-        "a": "atención",
-        "b": "proyecto",
-        "peso": 23
-      },
-      {
-        "a": "personas",
-        "b": "proyecto",
-        "peso": 30
-      },
-      {
-        "a": "proyecto",
-        "b": "salud",
-        "peso": 25
-      },
-      {
-        "a": "estudiantes",
-        "b": "proyecto",
-        "peso": 31
-      },
-      {
-        "a": "agua",
-        "b": "nacional",
         "peso": 36
       },
       {
         "a": "nacional",
+        "b": "señaló",
+        "peso": 63
+      },
+      {
+        "a": "proyecto",
+        "b": "trabajo",
+        "peso": 49
+      },
+      {
+        "a": "personas",
+        "b": "proyecto",
+        "peso": 32
+      },
+      {
+        "a": "proyecto",
+        "b": "salud",
+        "peso": 26
+      },
+      {
+        "a": "estudiantes",
+        "b": "proyecto",
+        "peso": 32
+      },
+      {
+        "a": "agua",
+        "b": "nacional",
+        "peso": 37
+      },
+      {
+        "a": "nacional",
         "b": "serena",
-        "peso": 58
+        "peso": 64
       },
       {
         "a": "ovalle",
@@ -10502,33 +10522,18 @@
       },
       {
         "a": "actividad",
-        "b": "atención",
-        "peso": 34
-      },
-      {
-        "a": "actividad",
         "b": "salud",
-        "peso": 49
-      },
-      {
-        "a": "atención",
-        "b": "regional",
-        "peso": 49
-      },
-      {
-        "a": "atención",
-        "b": "septiembre",
-        "peso": 59
+        "peso": 51
       },
       {
         "a": "salud",
         "b": "septiembre",
-        "peso": 61
+        "peso": 65
       },
       {
         "a": "nacional",
         "b": "salud",
-        "peso": 45
+        "peso": 48
       },
       {
         "a": "chile",
@@ -10541,24 +10546,19 @@
         "peso": 45
       },
       {
-        "a": "atención",
-        "b": "chile",
-        "peso": 33
-      },
-      {
-        "a": "atención",
-        "b": "nacional",
-        "peso": 41
-      },
-      {
         "a": "agua",
         "b": "proyecto",
-        "peso": 28
+        "peso": 29
       },
       {
-        "a": "atención",
-        "b": "ovalle",
-        "peso": 60
+        "a": "ovalle",
+        "b": "seguridad",
+        "peso": 21
+      },
+      {
+        "a": "estudiantes",
+        "b": "seguridad",
+        "peso": 16
       },
       {
         "a": "ovalle",
@@ -10575,15 +10575,15 @@
   "menciones_por_comuna": [
     {
       "comuna_id": "coquimbo",
-      "n": 285
+      "n": 303
     },
     {
       "comuna_id": "la-serena",
-      "n": 194
+      "n": 205
     },
     {
       "comuna_id": "ovalle",
-      "n": 116
+      "n": 117
     },
     {
       "comuna_id": "los-vilos",
@@ -10591,30 +10591,34 @@
     },
     {
       "comuna_id": "vicuna",
-      "n": 43
-    },
-    {
-      "comuna_id": "illapel",
-      "n": 35
+      "n": 44
     },
     {
       "comuna_id": "monte-patria",
-      "n": 35
+      "n": 37
+    },
+    {
+      "comuna_id": "illapel",
+      "n": 36
     },
     {
       "comuna_id": "la-higuera",
-      "n": 25
+      "n": 26
+    },
+    {
+      "comuna_id": "paihuano",
+      "n": 24
     },
     {
       "comuna_id": "rio-hurtado",
       "n": 24
     },
     {
-      "comuna_id": "paihuano",
-      "n": 23
+      "comuna_id": "salamanca",
+      "n": 24
     },
     {
-      "comuna_id": "salamanca",
+      "comuna_id": "punitaqui",
       "n": 23
     },
     {
@@ -10628,12 +10632,8 @@
     {
       "comuna_id": "combarbala",
       "n": 21
-    },
-    {
-      "comuna_id": "punitaqui",
-      "n": 21
     }
   ],
-  "total_articulos": 476,
-  "total_palabras_corpus": 140491
+  "total_articulos": 501,
+  "total_palabras_corpus": 146538
 }
