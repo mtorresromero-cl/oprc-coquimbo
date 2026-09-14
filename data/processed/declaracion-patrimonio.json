@@ -295,6 +295,20 @@
   },
   {
     "autoridad_id": "christian-frank-gross-hidalgo-alcalde",
+    "fecha_declaracion": "2026-09-02",
+    "tipo_declaracion": "Actualizacion Periodica (Septiembre)",
+    "cargo_declarado": "ALCALDE",
+    "organismo": "Municipalidad De Los Vilos",
+    "bienes_inmuebles_n": 1,
+    "vehiculos_n": 0,
+    "sociedades_n": 0,
+    "valores_monto": 0.0,
+    "pasivos_tiene": 1,
+    "pasivos_monto": 96145000.0,
+    "fuente_url": "https://www.infoprobidad.cl/Declaracion/Declaracion?ID=1822520"
+  },
+  {
+    "autoridad_id": "christian-frank-gross-hidalgo-alcalde",
     "fecha_declaracion": "2026-03-06",
     "tipo_declaracion": "Actualización Periódica (Marzo)",
     "cargo_declarado": "ALCALDE",

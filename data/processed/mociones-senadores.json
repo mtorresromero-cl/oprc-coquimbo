@@ -1,6 +1,15 @@
 [
   {
     "autoridad_id": "matias-walker-prieto-senador",
+    "fecha": "2026-09-09",
+    "rol": "autor",
+    "boletin": "18642-07",
+    "titulo": "Modifica diversos cuerpos legales para prevenir y sancionar la manipulación digital de la opinión pública y el uso de redes coordinadas de cuentas automatizadas",
+    "estado": "En tramitación",
+    "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
+  },
+  {
+    "autoridad_id": "matias-walker-prieto-senador",
     "fecha": "2026-08-12",
     "rol": "autor",
     "boletin": "18577-03",
@@ -183,6 +192,15 @@
     "autoridad_id": "matias-walker-prieto-senador",
     "fecha": "2026-05-05",
     "rol": "autor",
+    "boletin": "18238-25",
+    "titulo": "Regula el uso de la fuerza por parte de Gendarmería de Chile",
+    "estado": "En tramitación",
+    "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
+  },
+  {
+    "autoridad_id": "matias-walker-prieto-senador",
+    "fecha": "2026-05-05",
+    "rol": "autor",
     "boletin": "18241-03",
     "titulo": "Regula el corretaje de propiedades y su ejercicio mediante plataformas digitales",
     "estado": "En tramitación",
@@ -194,15 +212,6 @@
     "rol": "autor",
     "boletin": "18240-13",
     "titulo": "Modifica el artículo 66 del Código del Trabajo, con el objeto de ampliar el plazo del permiso a que tiene derecho todo trabajador en el caso de muerte de un hijo, cónyuge o conviviente civil",
-    "estado": "En tramitación",
-    "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
-  },
-  {
-    "autoridad_id": "matias-walker-prieto-senador",
-    "fecha": "2026-05-05",
-    "rol": "autor",
-    "boletin": "18238-25",
-    "titulo": "Regula el uso de la fuerza por parte de Gendarmería de Chile",
     "estado": "En tramitación",
     "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
   },
@@ -291,8 +300,8 @@
     "autoridad_id": "matias-walker-prieto-senador",
     "fecha": "2026-01-26",
     "rol": "autor",
-    "boletin": "18084-13",
-    "titulo": "Modifica el Código del Trabajo, en relación al contrato de los trabajadores portuarios eventuales",
+    "boletin": "18081-17",
+    "titulo": "Rehabilita la nacionalidad chilena a la señora Cecilia del Carmen Salgado Alfaro",
     "estado": "En tramitación",
     "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
   },
@@ -300,8 +309,8 @@
     "autoridad_id": "matias-walker-prieto-senador",
     "fecha": "2026-01-26",
     "rol": "autor",
-    "boletin": "18081-17",
-    "titulo": "Rehabilita la nacionalidad chilena a la señora Cecilia del Carmen Salgado Alfaro",
+    "boletin": "18084-13",
+    "titulo": "Modifica el Código del Trabajo, en relación al contrato de los trabajadores portuarios eventuales",
     "estado": "En tramitación",
     "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
   },

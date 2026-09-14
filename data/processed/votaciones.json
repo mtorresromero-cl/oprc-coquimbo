@@ -1,5 +1,143 @@
 [
   {
+    "id": "senado-17535-58-374-2026-09-09",
+    "camara": "senado",
+    "fecha": "2026-09-09",
+    "numero_sesion": "58/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación las enmiendas de mayoría del nuevo segundo informe de la Comisión de Seguridad Pública, cuya votación separada ha sido solicitada por la Honorable Senadora señora Sánchez.",
+    "resultado": "rechazado",
+    "votos_favor": 13,
+    "votos_contra": 18,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17535",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18259-58-374-2026-09-09",
+    "camara": "senado",
+    "fecha": "2026-09-09",
+    "numero_sesion": "58/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que modifica el Código de Minería y las leyes números 21.420 y 21.649, en materia de amparo minero y otras materias que indica.",
+    "resultado": "aprobado",
+    "votos_favor": 29,
+    "votos_contra": 4,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18259",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-14782-56-374-2026-09-08",
+    "camara": "senado",
+    "fecha": "2026-09-08",
+    "numero_sesion": "56/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "- En votación el artículo décimo transitorio (solicitud de votación separada de la Honorable Senadora señora Provoste), que consta en la página 178 del comparado.",
+    "resultado": "aprobado",
+    "votos_favor": 23,
+    "votos_contra": 17,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=14782",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-16481-56-374-2026-09-08",
+    "camara": "senado",
+    "fecha": "2026-09-08",
+    "numero_sesion": "56/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación la propuesta formulada por la Comisión Mixta constituida para resolver las divergencias suscitadas entre ambas Cámaras durante la tramitación del proyecto de ley que modifica el Código Procesal Penal, con el objeto de aumentar el plazo máximo para considerar una situación entre las hipótesis de flagrancia. El número 4) del artículo único contenido en la propuesta es norma de rango orgánico constitucional.",
+    "resultado": "aprobado",
+    "votos_favor": 38,
+    "votos_contra": 0,
+    "abstenciones": 3,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16481",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-17012-56-374-2026-09-08",
+    "camara": "senado",
+    "fecha": "2026-09-08",
+    "numero_sesion": "56/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación la propuesta formulada por la Comisión Mixta constituida para resolver las divergencias suscitadas entre ambas Cámaras durante la tramitación del proyecto de ley que modifica la ley N° 21.442, que aprueba nueva ley de copropiedad inmobiliaria, con el objeto de implementar sistemas de seguridad adicionales para impedir caídas accidentales desde edificaciones en altura, correspondiente a los Boletines Nos 17.012-14, 9.301-14, 17.591-14, 17.594-14 y 18.037-14, refundidos.",
+    "resultado": "aprobado",
+    "votos_favor": 32,
+    "votos_contra": 0,
+    "abstenciones": 6,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17012",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-17702-54-374-2026-09-02",
     "camara": "senado",
     "fecha": "2026-09-02",
@@ -778,6 +916,32 @@
     ]
   },
   {
+    "id": "senado-17640-28-374-2026-06-09",
+    "camara": "senado",
+    "fecha": "2026-06-09",
+    "numero_sesion": "28/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Artículo quinto transitorio, nuevo",
+    "resultado": "aprobado",
+    "votos_favor": 36,
+    "votos_contra": 3,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17640",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-18239-26-374-2026-06-03",
     "camara": "senado",
     "fecha": "2026-06-03",
@@ -804,6 +968,36 @@
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
         "voto": "pareo"
+      }
+    ]
+  },
+  {
+    "id": "senado-15767-26-374-2026-06-03",
+    "camara": "senado",
+    "fecha": "2026-06-03",
+    "numero_sesion": "26/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Proyecto de ley, en segundo trámite constitucional, que deroga la ley N° 18.356, que establece normas sobre el control de las artes marciales y deroga la ley N° 18.039, e incorpora el concepto de artes marciales en la ley N° 19.712 (discusión en general). (Boletines Nos 15.767-29 y 16.248-29, refundidos)",
+    "resultado": "aprobado",
+    "votos_favor": 31,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15767",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "pareo"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
       }
     ]
   },
@@ -1144,6 +1338,36 @@
     ]
   },
   {
+    "id": "senado-16777-3-374-2026-03-24",
+    "camara": "senado",
+    "fecha": "2026-03-24",
+    "numero_sesion": "3/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Aprobado.",
+    "resultado": "aprobado",
+    "votos_favor": 28,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16777",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-16743-92-373-2026-01-21",
     "camara": "senado",
     "fecha": "2026-01-21",
@@ -1169,6 +1393,36 @@
       },
       {
         "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-17640-86-373-2026-01-06",
+    "camara": "senado",
+    "fecha": "2026-01-06",
+    "numero_sesion": "86/373",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Votación en particular de las normas respecto de las cuales no se presentaron indicaciones, ni modificaciones, y de aquellas enmiendas aprobadas en forma unánime del proyecto de ley que modifica diversos cuerpos legales, para promover la gobernabilidad y la representatividad del sistema político (Boletín N° 17.640-06)",
+    "resultado": "aprobado",
+    "votos_favor": 37,
+    "votos_contra": 7,
+    "abstenciones": 3,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17640",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
         "voto": "favor"
       }
     ]
@@ -1299,6 +1553,36 @@
       },
       {
         "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-17640-45-373-2025-08-12",
+    "camara": "senado",
+    "fecha": "2025-08-12",
+    "numero_sesion": "45/373",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Proyecto de ley, iniciado en Mensaje de S.E. el Presidente de la República, en primer trámite constitucional, que modifica diversos cuerpos legales, para promover la gobernabilidad y la representatividad del sistema político, con informe de la Comisión de Gobierno, Descentralización y Regionalización. (discusión en general). (Boletín N° 17.640-06). APROBADO EN GENERAL.",
+    "resultado": "aprobado",
+    "votos_favor": 31,
+    "votos_contra": 4,
+    "abstenciones": 5,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17640",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
         "voto": "favor"
       }
     ]
@@ -1454,6 +1738,28 @@
     "votos_contra": 0,
     "abstenciones": 0,
     "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16709",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-16391-73-372-2024-11-13",
+    "camara": "senado",
+    "fecha": "2024-11-13",
+    "numero_sesion": "73/372",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Proyecto de ley, en segundo trámite constitucional, que establece un Sistema de Incentivos para la Gestión Sostenible de Suelos Agropecuarios (SIGESS), (Boletín N° 16.391-01). APROBADO.",
+    "resultado": "aprobado",
+    "votos_favor": 27,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16391",
     "etapa": null,
     "articulo": null,
     "votos": [
