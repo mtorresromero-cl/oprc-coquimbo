@@ -65,9 +65,9 @@ function tasa(comunaId: string, cantidad: number): number | null {
 }
 
 // Datos compactos para el cliente: por delito, por comuna, la serie de 16
-// años (cantidad + tasa). Se manda una sola vez y el gráfico se redibuja en
-// el navegador al cambiar el selector de delito — evita pre-renderizar los
-// ~30 gráficos completos en el HTML (eso pesaba más de 2MB por página).
+// años (cantidad + tasa). Se manda una sola vez y los gráficos se redibujan
+// en el navegador al cambiar los selectores — evita pre-renderizar decenas
+// de gráficos completos en el HTML.
 type PuntoDatos = { anno: number; cantidad: number; tasa: number | null };
 const datosPorDelito: Record<string, Record<string, PuntoDatos[]>> = {};
 for (const { id: delitoId } of delitosDisponibles) {
@@ -80,26 +80,75 @@ for (const { id: delitoId } of delitosDisponibles) {
 	}
 }
 
-const ANNO_COMPARADOR = 2025;
-const comparadorPorDelito: Record<
-	string,
-	{ comuna_id: string; nombre: string; cantidad: number; tasa: number | null }[]
-> = {};
-for (const { id: delitoId } of delitosDisponibles) {
-	comparadorPorDelito[delitoId] = comunasOrdenadas
-		.map((c) => {
-			const cantidad = suma.get(`${c.id}|${ANNO_COMPARADOR}|${delitoId}`) ?? 0;
-			return {
-				comuna_id: c.id,
-				nombre: c.nombre,
-				cantidad,
-				tasa: tasa(c.id, cantidad),
-				densidad: DENSIDAD[c.id],
-			};
-		})
-		.filter((f) => f.tasa !== null)
-		.sort((a, b) => (b.tasa as number) - (a.tasa as number));
+// comunaInfo: nombre + densidad, una sola vez por comuna — el ranking de
+// "Comparar comunas" y "Comparar años" se arma en el cliente a partir de
+// datosPorDelito, así que no hace falta mandar esto repetido por cada delito.
+const comunaInfo: Record<string, { nombre: string; densidad: number | null }> = Object.fromEntries(
+	comunasOrdenadas.map((c) => [c.id, { nombre: c.nombre, densidad: DENSIDAD[c.id] }])
+);
+
+// --- "Delitos principales por año": ranking regional (suma las 15 comunas)
+// de los tipos de delito reales, para el año elegido ---
+const sumaRegionAnnoDelito = new Map<string, number>();
+for (const r of delincuencia) {
+	const clave = `${r.anno}|${r.delito}`;
+	sumaRegionAnnoDelito.set(clave, (sumaRegionAnnoDelito.get(clave) ?? 0) + r.cantidad);
 }
+const rankingPorAnno: Record<number, { delito: string; cantidad: number }[]> = {};
+for (const anno of ANNOS) {
+	rankingPorAnno[anno] = delitosReales
+		.map((delito) => ({ delito, cantidad: sumaRegionAnnoDelito.get(`${anno}|${delito}`) ?? 0 }))
+		.sort((a, b) => b.cantidad - a.cantidad);
+}
+
+// --- "Promedio de delitos mensuales por periodo de gobierno" ---
+// Periodos presidenciales desde que hay datos (marzo 2010). El mes de
+// cambio de mando (11 de marzo) se asigna completo al presidente entrante.
+// Boric sigue en curso: su promedio es parcial, hasta el último mes con datos.
+const PERIODOS: {
+	nombre: string;
+	desde: { anno: number; mes: number };
+	hasta: { anno: number; mes: number };
+	enCurso?: boolean;
+}[] = [
+	{ nombre: 'Piñera I', desde: { anno: 2010, mes: 3 }, hasta: { anno: 2014, mes: 2 } },
+	{ nombre: 'Bachelet II', desde: { anno: 2014, mes: 3 }, hasta: { anno: 2018, mes: 2 } },
+	{ nombre: 'Piñera II', desde: { anno: 2018, mes: 3 }, hasta: { anno: 2022, mes: 2 } },
+	{ nombre: 'Boric', desde: { anno: 2022, mes: 3 }, hasta: { anno: 2025, mes: 12 }, enCurso: true },
+];
+const totalPorAnnoMes = new Map<string, number>();
+for (const r of delincuencia) {
+	const clave = `${r.anno}|${r.mes}`;
+	totalPorAnnoMes.set(clave, (totalPorAnnoMes.get(clave) ?? 0) + r.cantidad);
+}
+function mesesDelPeriodo(p: (typeof PERIODOS)[number]) {
+	const lista: { anno: number; mes: number }[] = [];
+	for (let anno = p.desde.anno; anno <= p.hasta.anno; anno++) {
+		const mesIni = anno === p.desde.anno ? p.desde.mes : 1;
+		const mesFin = anno === p.hasta.anno ? p.hasta.mes : 12;
+		for (let mes = mesIni; mes <= mesFin; mes++) lista.push({ anno, mes });
+	}
+	return lista;
+}
+const promedioPorPeriodo = PERIODOS.map((p) => {
+	let sumaCasos = 0;
+	let contados = 0;
+	for (const { anno, mes } of mesesDelPeriodo(p)) {
+		const total = totalPorAnnoMes.get(`${anno}|${mes}`);
+		if (total !== undefined) {
+			sumaCasos += total;
+			contados += 1;
+		}
+	}
+	const MES_ABREV = ['', 'ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+	return {
+		nombre: p.nombre,
+		promedio: contados ? Math.round(sumaCasos / contados) : 0,
+		meses: contados,
+		enCurso: p.enCurso ?? false,
+		rango: `${MES_ABREV[p.desde.mes]} ${p.desde.anno} – ${MES_ABREV[p.hasta.mes]} ${p.hasta.anno}`,
+	};
+});
 
 // --- Geometría inicial del gráfico de líneas (el delito "total" al cargar;
 // el resto de las recalcula el cliente con los mismos datos ya mandados) ---
@@ -122,6 +171,9 @@ for (const c of comunasOrdenadas) {
 maxTasaInicial = maxTasaInicial === 0 ? 1 : maxTasaInicial * 1.08;
 const yForInicial = (t: number) => PAD_T + (1 - t / maxTasaInicial) * PLOT_H;
 const EJE_Y_INICIAL = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTasaInicial * f * 10) / 10);
+
+const ANNO_A_DEFECTO = 2019;
+const ANNO_B_DEFECTO = 2024;
 ---
 
 <Layout
@@ -166,8 +218,8 @@ const EJE_Y_INICIAL = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTasaInici
 					del Ministerio del Interior y Seguridad Pública.
 				</p>
 				<p>
-					Por defecto el gráfico muestra la <strong>tasa por cada 10.000 habitantes</strong>, no
-					el número de casos: Coquimbo y La Serena tienen decenas de veces la población de
+					Por defecto los gráficos muestran la <strong>tasa por cada 10.000 habitantes</strong>,
+					no el número de casos: Coquimbo y La Serena tienen decenas de veces la población de
 					comunas como La Higuera o Paihuano, así que compararlas por número crudo haría parecer
 					mucho más peligrosas a las comunas grandes solo por tener más gente. La población usada
 					es la del Censo 2024 (INE).
@@ -184,23 +236,49 @@ const EJE_Y_INICIAL = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTasaInici
 				<p>
 					<strong>De dónde salen estos datos:</strong> el sitio en vivo del CEAD no respondió al
 					intentar obtenerlos directamente (bloqueo técnico sin resolver a la fecha). Mientras
-					tanto, se usa el mismo conjunto de datos oficiales ya recopilado y publicado
-					abiertamente por{' '}
+					tanto, se usa el mismo conjunto de datos oficiales, obtenido mediante scraping en R
+					directo a CEAD —{' '}
 					<a
-						href="https://github.com/bastianolea/delincuencia_chile"
+						href="https://bastianolea.rbind.io/blog/tutorial_delitos_cead/"
+						target="_blank"
+						rel="noopener"
+						class="font-medium text-brand-600 hover:underline"
+					>
+						técnica documentada acá
+					</a>— y publicado abiertamente por{' '}
+					<a
+						href="https://bastianolea.rbind.io"
 						target="_blank"
 						rel="noopener"
 						class="font-medium text-brand-600 hover:underline"
 					>
 						Bastián Olea Herrera
-					</a>, filtrado a las 15 comunas de la Región de Coquimbo.
+					</a>{' '}
+					(<a
+						href="https://github.com/bastianolea/delincuencia_chile"
+						target="_blank"
+						rel="noopener"
+						class="font-medium text-brand-600 hover:underline"
+					>
+						código en GitHub
+					</a>,{' '}
+					<a
+						href="https://bastianolea.github.io/shiny_apps/"
+						target="_blank"
+						rel="noopener"
+						class="font-medium text-brand-600 hover:underline"
+					>
+						más apps suyas acá
+					</a>), filtrado a las 15 comunas de la Región de Coquimbo.
 				</p>
 			</div>
 		</details>
 
 		<div class="mt-8 flex flex-col gap-8 lg:flex-row lg:items-start">
-			<!-- Sidebar: filtro de comunas (también hace de leyenda de color) -->
-			<aside class="lg:sticky lg:top-6 lg:w-64 lg:shrink-0">
+			<!-- Sidebar: filtro de comunas (también hace de leyenda de color) — no
+			     aplica a las vistas regionales (Delitos principales / Periodo de
+			     gobierno), que se ocultan por JS más abajo. -->
+			<aside id="sidebar-comunas" class="lg:sticky lg:top-6 lg:w-64 lg:shrink-0">
 				<div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
 					<div class="flex items-center justify-between">
 						<h2 class="text-sm font-bold text-slate-900">Comunas</h2>
@@ -230,15 +308,24 @@ const EJE_Y_INICIAL = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTasaInici
 
 			<div class="min-w-0 flex-1">
 				<div class="flex flex-wrap items-end justify-between gap-4">
-					<div class="flex gap-2" role="tablist">
+					<div class="flex flex-wrap gap-2" role="tablist">
 						<button type="button" id="tab-tiempo" data-vista="tiempo" class="boton-vista rounded-md px-4 py-2 text-sm font-semibold" aria-pressed="true">
 							Evolución en el tiempo
 						</button>
 						<button type="button" id="tab-comparar" data-vista="comparar" class="boton-vista rounded-md px-4 py-2 text-sm font-semibold" aria-pressed="false">
-							Comparar comunas ({ANNO_COMPARADOR})
+							Comparar comunas
+						</button>
+						<button type="button" id="tab-anios" data-vista="anios" class="boton-vista rounded-md px-4 py-2 text-sm font-semibold" aria-pressed="false">
+							Comparar años
+						</button>
+						<button type="button" id="tab-principales" data-vista="principales" class="boton-vista rounded-md px-4 py-2 text-sm font-semibold" aria-pressed="false">
+							Delitos principales
+						</button>
+						<button type="button" id="tab-periodos" data-vista="periodos" class="boton-vista rounded-md px-4 py-2 text-sm font-semibold" aria-pressed="false">
+							Por periodo de gobierno
 						</button>
 					</div>
-					<div>
+					<div id="contenedor-selector-delito">
 						<label for="selector-delito" class="sr-only">Tipo de delito</label>
 						<select
 							id="selector-delito"
@@ -326,18 +413,108 @@ const EJE_Y_INICIAL = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTasaInici
 				<!-- Vista: comparar comunas en un año -->
 				<div id="vista-comparar" class="hidden">
 					<div class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-						<p class="text-sm text-slate-500">
-							Tasa de casos policiales por cada 10.000 habitantes en {ANNO_COMPARADOR}, comunas
-							marcadas en el panel, ordenadas de mayor a menor.
-						</p>
+						<div class="flex flex-wrap items-center justify-between gap-3">
+							<p class="text-sm text-slate-500">
+								Tasa de casos policiales por cada 10.000 habitantes, comunas marcadas en el
+								panel, ordenadas de mayor a menor.
+							</p>
+							<div>
+								<label for="selector-anno-comparar" class="sr-only">Año</label>
+								<select id="selector-anno-comparar" class="rounded-md border border-slate-300 px-3 py-1.5 text-sm focus:border-brand-500 focus:outline-none">
+									{ANNOS.map((a) => (
+										<option value={a} selected={a === 2025}>{a}</option>
+									))}
+								</select>
+							</div>
+						</div>
 						<div id="contenedor-comparador" class="mt-4 space-y-3"></div>
+					</div>
+				</div>
+
+				<!-- Vista: comparar dos años -->
+				<div id="vista-anios" class="hidden">
+					<div class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+						<div class="flex flex-wrap items-center justify-between gap-3">
+							<p class="max-w-md text-sm text-slate-500">
+								Compara la tasa de delitos entre dos años, comunas marcadas en el panel. Al
+								usar la tasa (casos por 10.000 hab.) el cambio de población entre ambos años ya
+								queda considerado en el cálculo.
+							</p>
+							<div class="flex items-center gap-2 text-sm">
+								<label for="selector-anno-a" class="text-slate-500">Desde</label>
+								<select id="selector-anno-a" class="rounded-md border border-slate-300 px-3 py-1.5 text-sm focus:border-brand-500 focus:outline-none">
+									{ANNOS.map((a) => (
+										<option value={a} selected={a === ANNO_A_DEFECTO}>{a}</option>
+									))}
+								</select>
+								<label for="selector-anno-b" class="text-slate-500">Hasta</label>
+								<select id="selector-anno-b" class="rounded-md border border-slate-300 px-3 py-1.5 text-sm focus:border-brand-500 focus:outline-none">
+									{ANNOS.map((a) => (
+										<option value={a} selected={a === ANNO_B_DEFECTO}>{a}</option>
+									))}
+								</select>
+							</div>
+						</div>
+						<div id="contenedor-anios" class="mt-4 space-y-4"></div>
+						<p class="mt-3 text-xs text-slate-400">
+							Idea original de{' '}
+							<a href="https://x.com/elaval/status/1768858137979740248?s=20" target="_blank" rel="noopener" class="font-medium text-brand-600 hover:underline">
+								Ernesto Laval
+							</a>, quien la implementó en{' '}
+							<a href="https://observablehq.com/@elaval/comparacion-tasa-de-delitos" target="_blank" rel="noopener" class="font-medium text-brand-600 hover:underline">
+								su propio visualizador de datos
+							</a>.
+						</p>
+					</div>
+				</div>
+
+				<!-- Vista: delitos principales por año (regional, no depende de las
+				     comunas marcadas ni del selector de delito) -->
+				<div id="vista-principales" class="hidden">
+					<div class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+						<div class="flex flex-wrap items-center justify-between gap-3">
+							<p class="max-w-md text-sm text-slate-500">
+								Tipos de delito con más casos policiales en la Región de Coquimbo completa
+								(las 15 comunas), en el año elegido.
+							</p>
+							<div>
+								<label for="selector-anno-principales" class="sr-only">Año</label>
+								<select id="selector-anno-principales" class="rounded-md border border-slate-300 px-3 py-1.5 text-sm focus:border-brand-500 focus:outline-none">
+									{ANNOS.map((a) => (
+										<option value={a} selected={a === 2025}>{a}</option>
+									))}
+								</select>
+							</div>
+						</div>
+						<div id="contenedor-principales" class="mt-4 space-y-2"></div>
+					</div>
+				</div>
+
+				<!-- Vista: promedio mensual por periodo de gobierno (regional, fija) -->
+				<div id="vista-periodos" class="hidden">
+					<div class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+						<p class="text-sm text-slate-500">
+							Promedio de delitos mensuales en la Región de Coquimbo completa (todas las
+							comunas, todos los tipos de delito), por periodo presidencial. Permite comparar
+							la frecuencia con la que se registraron delitos en cada gobierno.
+						</p>
+						<div id="contenedor-periodos" class="mt-4 space-y-4"></div>
+						<p class="mt-3 text-xs text-slate-400">
+							El mes del cambio de mando (11 de marzo) se cuenta completo para el presidente
+							entrante. El periodo de Gabriel Boric sigue en curso: su promedio es parcial,
+							calculado solo con los meses ya publicados por el CEAD.
+						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</main>
 
-	<script type="application/json" id="datos-delincuencia" set:html={JSON.stringify({ datosPorDelito, comparadorPorDelito })} />
+	<script
+		type="application/json"
+		id="datos-delincuencia"
+		set:html={JSON.stringify({ datosPorDelito, comunaInfo, rankingPorAnno, promedioPorPeriodo })}
+	/>
 
 	<style>
 		.boton-vista {
@@ -356,24 +533,39 @@ const EJE_Y_INICIAL = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTasaInici
 	<script define:vars={{ CHART_W, CHART_H, PAD_L, PAD_R, PAD_T, PLOT_H, DELITO_TOTAL, ANNOS, COLOR_COMUNA }}>
 		const datos = JSON.parse(document.getElementById('datos-delincuencia').textContent);
 		const xFor = (i) => PAD_L + (i / (ANNOS.length - 1)) * (CHART_W - PAD_L - PAD_R);
+		const PRIMER_ANNO = ANNOS[0];
+		const annoAIdx = (anno) => Number(anno) - PRIMER_ANNO;
 
-		// --- Toggle entre las dos vistas ---
+		// --- Toggle entre las vistas ---
 		const botonesVista = document.querySelectorAll('.boton-vista');
-		const vistaTiempo = document.getElementById('vista-tiempo');
-		const vistaComparar = document.getElementById('vista-comparar');
+		const vistas = {
+			tiempo: document.getElementById('vista-tiempo'),
+			comparar: document.getElementById('vista-comparar'),
+			anios: document.getElementById('vista-anios'),
+			principales: document.getElementById('vista-principales'),
+			periodos: document.getElementById('vista-periodos'),
+		};
+		// El selector de delito y el panel de comunas solo tienen sentido en las
+		// vistas por comuna — "Delitos principales" y "Periodo de gobierno" son
+		// agregados de toda la región, con todos los delitos sumados.
+		const VISTAS_CON_DELITO = new Set(['tiempo', 'comparar', 'anios']);
+		const VISTAS_CON_COMUNAS = new Set(['tiempo', 'comparar', 'anios']);
+		const contenedorSelectorDelito = document.getElementById('contenedor-selector-delito');
+		const sidebarComunas = document.getElementById('sidebar-comunas');
+		const sinSeleccion = document.getElementById('sin-seleccion');
 
-		botonesVista.forEach((boton) => {
-			boton.addEventListener('click', () => {
-				botonesVista.forEach((b) => b.setAttribute('aria-pressed', String(b === boton)));
-				vistaTiempo.classList.toggle('hidden', boton.dataset.vista !== 'tiempo');
-				vistaComparar.classList.toggle('hidden', boton.dataset.vista !== 'comparar');
-			});
-		});
+		function activaVista(vista) {
+			botonesVista.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.vista === vista)));
+			for (const [nombre, el] of Object.entries(vistas)) el.classList.toggle('hidden', nombre !== vista);
+			contenedorSelectorDelito.classList.toggle('hidden', !VISTAS_CON_DELITO.has(vista));
+			sidebarComunas.classList.toggle('hidden', !VISTAS_CON_COMUNAS.has(vista));
+			sinSeleccion.classList.toggle('hidden', !VISTAS_CON_COMUNAS.has(vista) || Array.from(checks).some((c) => c.checked));
+		}
+		botonesVista.forEach((boton) => boton.addEventListener('click', () => activaVista(boton.dataset.vista)));
 
-		// --- Sidebar: filtro de comunas, comparte estado entre las dos vistas ---
+		// --- Sidebar: filtro de comunas, comparte estado entre las vistas por comuna ---
 		const checks = document.querySelectorAll('.check-comuna');
 		const btnTodas = document.getElementById('btn-todas');
-		const sinSeleccion = document.getElementById('sin-seleccion');
 
 		function aplicaFiltro(chk) {
 			const comunaId = chk.dataset.comuna;
@@ -381,9 +573,10 @@ const EJE_Y_INICIAL = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTasaInici
 				.querySelectorAll(`.serie-comuna[data-comuna="${comunaId}"]`)
 				.forEach((el) => (el.style.display = chk.checked ? '' : 'none'));
 			document
-				.querySelectorAll(`.fila-comuna[data-comuna="${comunaId}"]`)
+				.querySelectorAll(`.fila-comuna[data-comuna="${comunaId}"], .fila-anio[data-comuna="${comunaId}"]`)
 				.forEach((el) => (el.style.display = chk.checked ? '' : 'none'));
-			sinSeleccion.classList.toggle('hidden', Array.from(checks).some((c) => c.checked));
+			const vistaActual = document.querySelector('.boton-vista[aria-pressed="true"]').dataset.vista;
+			sinSeleccion.classList.toggle('hidden', !VISTAS_CON_COMUNAS.has(vistaActual) || Array.from(checks).some((c) => c.checked));
 			actualizaBotonTodas();
 		}
 
@@ -444,20 +637,31 @@ const EJE_Y_INICIAL = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTasaInici
 			});
 		}
 
-		// --- Redibuja el comparador (ranking de barras) para el delito elegido ---
+		// --- Redibuja el comparador (ranking de barras) para el delito y año elegidos ---
 		const contenedorComparador = document.getElementById('contenedor-comparador');
+		const selectorAnnoComparar = document.getElementById('selector-anno-comparar');
 		const comunasMarcadas = () => new Set(Array.from(checks).filter((c) => c.checked).map((c) => c.dataset.comuna));
 
-		function redibujaComparador(delitoId) {
-			const filas = datos.comparadorPorDelito[delitoId];
+		function redibujaComparador(delitoId, anno) {
+			const porComuna = datos.datosPorDelito[delitoId];
+			const idx = annoAIdx(anno);
+			const filas = Object.keys(porComuna)
+				.map((comunaId) => {
+					const p = porComuna[comunaId][idx];
+					const info = datos.comunaInfo[comunaId];
+					return { comunaId, nombre: info.nombre, densidad: info.densidad, cantidad: p.cantidad, tasa: p.tasa };
+				})
+				.filter((f) => f.tasa !== null)
+				.sort((a, b) => b.tasa - a.tasa);
+
 			const maxTasa = filas.length ? filas[0].tasa : 1;
 			const marcadas = comunasMarcadas();
 			contenedorComparador.innerHTML = filas
 				.map((f) => {
-					const color = COLOR_COMUNA[f.comuna_id];
+					const color = COLOR_COMUNA[f.comunaId];
 					const ancho = maxTasa ? (f.tasa / maxTasa) * 100 : 0;
-					const oculto = marcadas.has(f.comuna_id) ? '' : 'style="display:none"';
-					return `<div class="fila-comuna" data-comuna="${f.comuna_id}" ${oculto}>
+					const oculto = marcadas.has(f.comunaId) ? '' : 'style="display:none"';
+					return `<div class="fila-comuna" data-comuna="${f.comunaId}" ${oculto}>
 						<div class="flex items-baseline justify-between gap-3">
 							<span class="text-sm font-medium text-slate-700">
 								<span class="mr-2 inline-block h-2.5 w-2.5 rounded-full align-middle" style="background-color:${color}"></span>
@@ -476,14 +680,133 @@ const EJE_Y_INICIAL = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(maxTasaInici
 				.join('');
 		}
 
-		// --- Selector de delito: comparte estado entre las dos vistas ---
-		const selectorDelito = document.getElementById('selector-delito');
-		function aplicaDelito() {
-			redibujaGrafico(selectorDelito.value);
-			redibujaComparador(selectorDelito.value);
+		// --- Redibuja "Comparar años": % de cambio de tasa por comuna entre dos años ---
+		const contenedorAnios = document.getElementById('contenedor-anios');
+		const selectorAnnoA = document.getElementById('selector-anno-a');
+		const selectorAnnoB = document.getElementById('selector-anno-b');
+
+		function redibujaAnios(delitoId, annoA, annoB) {
+			const porComuna = datos.datosPorDelito[delitoId];
+			const idxA = annoAIdx(annoA);
+			const idxB = annoAIdx(annoB);
+			const filas = Object.keys(porComuna)
+				.map((comunaId) => {
+					const pa = porComuna[comunaId][idxA];
+					const pb = porComuna[comunaId][idxB];
+					const info = datos.comunaInfo[comunaId];
+					return { comunaId, nombre: info.nombre, tasaA: pa.tasa, tasaB: pb.tasa, cantA: pa.cantidad, cantB: pb.cantidad };
+				})
+				.filter((f) => f.tasaA !== null && f.tasaB !== null)
+				.sort((a, b) => b.tasaB - a.tasaB);
+
+			const maxTasa = Math.max(1, ...filas.map((f) => Math.max(f.tasaA, f.tasaB)));
+			const marcadas = comunasMarcadas();
+			contenedorAnios.innerHTML = filas
+				.map((f) => {
+					const color = COLOR_COMUNA[f.comunaId];
+					const anchoA = (f.tasaA / maxTasa) * 100;
+					const anchoB = (f.tasaB / maxTasa) * 100;
+					const oculto = marcadas.has(f.comunaId) ? '' : 'style="display:none"';
+					let delta = '—';
+					let colorDelta = 'text-slate-500';
+					if (f.tasaA > 0) {
+						const cambio = Math.round(((f.tasaB - f.tasaA) / f.tasaA) * 1000) / 10;
+						const signo = cambio > 0 ? '+' : '';
+						delta = `${signo}${cambio}%`;
+						colorDelta = cambio > 0 ? 'text-red-600' : cambio < 0 ? 'text-emerald-600' : 'text-slate-500';
+					}
+					return `<div class="fila-anio" data-comuna="${f.comunaId}" ${oculto}>
+						<div class="flex items-baseline justify-between gap-3">
+							<span class="text-sm font-medium text-slate-700">
+								<span class="mr-2 inline-block h-2.5 w-2.5 rounded-full align-middle" style="background-color:${color}"></span>
+								${f.nombre}
+							</span>
+							<span class="text-sm font-semibold ${colorDelta}">${delta}</span>
+						</div>
+						<div class="mt-1 flex items-center gap-2">
+							<span class="w-10 shrink-0 text-right text-[11px] text-slate-400">${annoA}</span>
+							<div class="h-3.5 flex-1 rounded bg-slate-200">
+								<div class="h-3.5 rounded" style="width:${anchoA}%;background-color:${color};opacity:0.5"></div>
+							</div>
+						</div>
+						<div class="mt-1 flex items-center gap-2">
+							<span class="w-10 shrink-0 text-right text-[11px] text-slate-400">${annoB}</span>
+							<div class="h-3.5 flex-1 rounded bg-slate-200">
+								<div class="h-3.5 rounded" style="width:${anchoB}%;background-color:${color}"></div>
+							</div>
+						</div>
+						<p class="mt-1 text-xs text-slate-400">
+							${f.tasaA} → ${f.tasaB} / 10.000 hab. · ${f.cantA.toLocaleString('es-CL')} → ${f.cantB.toLocaleString('es-CL')} casos
+						</p>
+					</div>`;
+				})
+				.join('');
 		}
-		selectorDelito.addEventListener('change', aplicaDelito);
-		redibujaComparador(DELITO_TOTAL);
+
+		// --- Redibuja "Delitos principales por año" (regional, sin filtro de comuna) ---
+		const contenedorPrincipales = document.getElementById('contenedor-principales');
+		const selectorAnnoPrincipales = document.getElementById('selector-anno-principales');
+
+		function redibujaPrincipales(anno) {
+			const filas = datos.rankingPorAnno[anno] ?? [];
+			const maxCantidad = filas.length ? filas[0].cantidad : 1;
+			contenedorPrincipales.innerHTML = filas
+				.map(
+					(f) => `<div>
+						<div class="flex items-baseline justify-between gap-3">
+							<span class="text-sm font-medium text-slate-700">${f.delito}</span>
+							<span class="text-sm font-semibold text-slate-900">${f.cantidad.toLocaleString('es-CL')} casos</span>
+						</div>
+						<div class="mt-1 h-4 rounded bg-slate-200">
+							<div class="h-4 rounded" style="width:${maxCantidad ? (f.cantidad / maxCantidad) * 100 : 0}%;background-color:var(--color-brand-600)"></div>
+						</div>
+					</div>`
+				)
+				.join('');
+		}
+
+		// --- Dibuja "Promedio mensual por periodo de gobierno" (regional, fijo) ---
+		const contenedorPeriodos = document.getElementById('contenedor-periodos');
+		function dibujaPeriodos() {
+			const filas = datos.promedioPorPeriodo;
+			const maxPromedio = Math.max(1, ...filas.map((f) => f.promedio));
+			contenedorPeriodos.innerHTML = filas
+				.map(
+					(f) => `<div>
+						<div class="flex items-baseline justify-between gap-3">
+							<span class="text-sm font-medium text-slate-700">
+								${f.nombre}
+								<span class="text-xs font-normal text-slate-400">(${f.rango}${f.enCurso ? ', en curso' : ''})</span>
+							</span>
+							<span class="text-sm font-semibold text-slate-900">${f.promedio.toLocaleString('es-CL')} delitos/mes</span>
+						</div>
+						<div class="mt-1 h-6 rounded bg-slate-200">
+							<div class="h-6 rounded" style="width:${(f.promedio / maxPromedio) * 100}%;background-color:var(--color-brand-600)"></div>
+						</div>
+						<p class="mt-1 text-xs text-slate-400">Promedio calculado sobre ${f.meses} meses con datos publicados.</p>
+					</div>`
+				)
+				.join('');
+		}
+		dibujaPeriodos();
+
+		// --- Selectores compartidos: delito, año(s) — cada uno redibuja lo que le toca ---
+		const selectorDelito = document.getElementById('selector-delito');
+		function aplicaCambios() {
+			const delitoId = selectorDelito.value;
+			redibujaGrafico(delitoId);
+			redibujaComparador(delitoId, selectorAnnoComparar.value);
+			redibujaAnios(delitoId, selectorAnnoA.value, selectorAnnoB.value);
+		}
+		selectorDelito.addEventListener('change', aplicaCambios);
+		selectorAnnoComparar.addEventListener('change', aplicaCambios);
+		selectorAnnoA.addEventListener('change', aplicaCambios);
+		selectorAnnoB.addEventListener('change', aplicaCambios);
+		selectorAnnoPrincipales.addEventListener('change', () => redibujaPrincipales(selectorAnnoPrincipales.value));
+
+		redibujaComparador(DELITO_TOTAL, selectorAnnoComparar.value);
+		redibujaAnios(DELITO_TOTAL, selectorAnnoA.value, selectorAnnoB.value);
+		redibujaPrincipales(selectorAnnoPrincipales.value);
 
 		// --- Gráfico de líneas: tooltip al pasar el mouse o tocar un punto ---
 		const tooltip = document.getElementById('tooltip-chart');
