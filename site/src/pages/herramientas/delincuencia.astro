@@ -104,17 +104,21 @@ for (const anno of ANNOS) {
 // --- "Promedio de delitos mensuales por periodo de gobierno" ---
 // Periodos presidenciales desde que hay datos (marzo 2010). El mes de
 // cambio de mando (11 de marzo) se asigna completo al presidente entrante.
-// Boric sigue en curso: su promedio es parcial, hasta el último mes con datos.
+// El periodo de Boric ya terminó (11-03-2026), pero la fuente (CEAD, vía el
+// dataset de Bastián Olea) todavía no publica enero-marzo 2026 a la fecha de
+// este build — mesesDelPeriodo/promedioPorPeriodo simplemente cuentan los
+// meses que sí tienen dato, así que el promedio queda parcial sin necesidad
+// de marcarlo como "en curso". El periodo de Kast (desde 11-03-2026) no
+// tiene ningún mes publicado todavía, así que no se agrega como barra.
 const PERIODOS: {
 	nombre: string;
 	desde: { anno: number; mes: number };
 	hasta: { anno: number; mes: number };
-	enCurso?: boolean;
 }[] = [
 	{ nombre: 'Piñera I', desde: { anno: 2010, mes: 3 }, hasta: { anno: 2014, mes: 2 } },
 	{ nombre: 'Bachelet II', desde: { anno: 2014, mes: 3 }, hasta: { anno: 2018, mes: 2 } },
 	{ nombre: 'Piñera II', desde: { anno: 2018, mes: 3 }, hasta: { anno: 2022, mes: 2 } },
-	{ nombre: 'Boric', desde: { anno: 2022, mes: 3 }, hasta: { anno: 2025, mes: 12 }, enCurso: true },
+	{ nombre: 'Boric', desde: { anno: 2022, mes: 3 }, hasta: { anno: 2026, mes: 3 } },
 ];
 const totalPorAnnoMes = new Map<string, number>();
 for (const r of delincuencia) {
@@ -145,7 +149,6 @@ const promedioPorPeriodo = PERIODOS.map((p) => {
 		nombre: p.nombre,
 		promedio: contados ? Math.round(sumaCasos / contados) : 0,
 		meses: contados,
-		enCurso: p.enCurso ?? false,
 		rango: `${MES_ABREV[p.desde.mes]} ${p.desde.anno} – ${MES_ABREV[p.hasta.mes]} ${p.hasta.anno}`,
 	};
 });
@@ -501,8 +504,11 @@ const ANNO_B_DEFECTO = 2024;
 						<div id="contenedor-periodos" class="mt-4 space-y-4"></div>
 						<p class="mt-3 text-xs text-slate-400">
 							El mes del cambio de mando (11 de marzo) se cuenta completo para el presidente
-							entrante. El periodo de Gabriel Boric sigue en curso: su promedio es parcial,
-							calculado solo con los meses ya publicados por el CEAD.
+							entrante. El periodo de Gabriel Boric terminó el 11 de marzo de 2026, pero su
+							promedio queda parcial: a la fecha, el CEAD todavía no publica los meses de
+							enero a marzo de 2026, así que faltan del cálculo. El periodo de José Antonio
+							Kast (desde esa misma fecha) todavía no tiene ningún mes publicado, por eso no
+							aparece como barra.
 						</p>
 					</div>
 				</div>
@@ -776,7 +782,7 @@ const ANNO_B_DEFECTO = 2024;
 						<div class="flex items-baseline justify-between gap-3">
 							<span class="text-sm font-medium text-slate-700">
 								${f.nombre}
-								<span class="text-xs font-normal text-slate-400">(${f.rango}${f.enCurso ? ', en curso' : ''})</span>
+								<span class="text-xs font-normal text-slate-400">(${f.rango})</span>
 							</span>
 							<span class="text-sm font-semibold text-slate-900">${f.promedio.toLocaleString('es-CL')} delitos/mes</span>
 						</div>
