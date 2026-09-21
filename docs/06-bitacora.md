@@ -997,3 +997,102 @@ con un solo diputado primero (no los 7 de una) y confirmar que no
 dispara bloqueo antes de asumir que el fix es seguro en producción.**
 
 ---
+
+## 2026-09-21 — Auditoría de los 3 workflows con cron: dos scrapers llevan ~3 semanas congelados sin que nadie lo notara
+
+El usuario pidió verificar que los cron estuvieran funcionando y los datos
+actualizándose, a raíz de notar que la asistencia de parlamentarios se
+veía desactualizada en el sitio. Se revisaron los tres workflows
+programados (`Actualizar datos`, `Informe mensual`, `Lint y test`) vía
+`gh run list` / `gh run view --log`, no solo el estado verde/rojo del
+job sino el log real de cada scraper — porque `actualizar-datos.yml`
+tiene `continue-on-error: true` en cada paso, así que un scraper puede
+fallar sistemáticamente todas las semanas y el job completo igual queda
+en verde ("success"). Eso es exactamente lo que estaba pasando.
+
+### Hallazgo 1 (el importante): dos scrapers rotos desde fines de agosto, ocultos por `continue-on-error`
+
+**`transparencia_municipal.py`** (presupuesto municipal) y
+**`personal_municipal.py`** (dotación y remuneración de autoridades)
+fallan **cada semana, en las 15 comunas por igual**, con el mismo error:
+
+```
+[la-serena] ERROR: Locator.click: Timeout 30000ms exceeded.
+```
+
+(en `personal_municipal.py` se repite además por cada combinación
+planta/contrata/honorarios × municipal/salud — 90 errores en una sola
+corrida). Resultado: `{'nuevos': 0, 'actualizados': 0, 'errores': 15}` y
+`{'nuevos': 0, 'errores': 90}` respectivamente, semana tras semana.
+
+Confirmado con `git log` sobre los archivos de salida — no es que el dato
+no haya cambiado, es que el scraper no está escribiendo nada nuevo desde:
+
+- `data/processed/presupuesto-municipal.json`: último commit real
+  **2026-08-30**
+- `data/processed/personal-municipal.json` y
+  `data/processed/remuneracion-autoridad.json`: último commit real
+  **2026-08-27/28**
+
+Los dos scrapers interactúan con el mismo Portal de Transparencia
+municipal y fallan con el mismo tipo de error (`Locator.click` timeout) —
+probablemente el portal cambió algo en su interfaz (un selector, un botón,
+un interstitial nuevo) alrededor de esa fecha y afecta a ambos scripts por
+compartir el mismo patrón de interacción. **No investigada la causa raíz
+todavía — es el pendiente más urgente de esta entrada.**
+
+### Hallazgo 2 (menor): `core_coquimbo.py` pierde acuerdos por rate limiting
+
+Sí avanza cada semana (561 acuerdos nuevos en la corrida del 14/09), pero
+con 89 errores `net::ERR_CONNECTION_RESET` contra
+`acuerdos.corecoquimbo.cl` en la misma corrida — probablemente el sitio
+bloqueando por exceso de requests seguidos. No se pierde todo, pero
+quedan huecos que no está claro si se reintentan en corridas futuras o se
+pierden para siempre. No es urgente, pero vale la pena revisar si el
+scraper reintenta los acuerdos fallidos en la próxima corrida o los da
+por perdidos.
+
+### Hallazgo 3 (no es un bug): asistencia de diputados/senadores
+
+`camara_asistencia.py` y `senado_asistencia.py` corren sin errores y
+comitean cada semana. El corte de datos estaba en el 9 de septiembre
+porque el Congreso estuvo en receso por Fiestas Patrias — confirmado
+fetcheando quieneseljefe.cl directamente: sin sesiones registradas entre
+el 10 y el 20 de septiembre, con las próximas partiendo el 21. Debería
+ponerse al día solo con las corridas normales de las próximas semanas,
+sin intervención.
+
+### Hallazgo 4: el informe mensual de agosto nunca se envió
+
+`.github/workflows/informe-mensual.yml` corre todos los días 1-6 de cada
+mes vía cron, pero `scrapers/primer_dia_habil.py` decide cuál de esos
+días es el único en que debe generarse/enviarse el informe (el primer día
+hábil real del mes, para no caer en fin de semana/feriado). Para
+septiembre ese día era el martes 1. El disparo automático (`schedule`) de
+GitHub Actions **no llegó a correr ese día** — solo hay un
+`workflow_dispatch` manual el 1/09, y fue un dry-run de prueba del
+informe de julio, sin envío real. Las 5 corridas automáticas que sí
+ocurrieron (2 al 6 de septiembre) evaluaron correctamente "hoy no es el
+primer día hábil" (porque ya había pasado) y no hicieron nada — el diseño
+funcionó como se esperaba, pero sin red de seguridad para el caso en que
+GitHub simplemente no dispare el `schedule` el día que importa (GitHub no
+garantiza la hora exacta de un `schedule`, y más raro pero posible, puede
+saltárselo — ver `docs/07-como-actualizar.md`).
+
+**Consecuencia:** nadie recibió el informe de agosto por la vía
+automática. **Pendiente antes del 1 de octubre** (según el usuario, esa es
+la fecha que importa, no reenviar agosto): agregarle una red de seguridad
+al workflow — por ejemplo, que si llega el día 6 y no se ha enviado nada
+en el mes, lo fuerce igual, en vez de depender de que el `schedule`
+dispare exactamente el día 1.
+
+### Resumen para retomar
+
+| Qué | Estado | Urgencia |
+|---|---|---|
+| `transparencia_municipal.py` / `personal_municipal.py` | Rotos desde ~27-30 ago, 0 datos nuevos cada semana | 🔴 Alta — investigar el `Locator.click` timeout en el Portal de Transparencia |
+| `core_coquimbo.py` | Funciona pero pierde ~14% de acuerdos por rate limiting | 🟡 Media |
+| Asistencia diputados/senadores | Funciona bien, solo reflejaba el receso legislativo | 🟢 No requiere acción |
+| `informe-mensual.yml` | Sin red de seguridad si el `schedule` del día 1 no dispara | 🔴 Alta — resolver antes del 1 de octubre |
+
+---
