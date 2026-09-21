@@ -74,10 +74,9 @@ jobs:
           cache-dependency-path: site/package-lock.json
       - run: npm ci
       - run: npm run build
-      - uses: cloudflare/pages-action@v1
+      - uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: oprc-coquimbo
-          directory: site/dist
-          branch: main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy site/dist --project-name=oprc-coquimbo --branch=main

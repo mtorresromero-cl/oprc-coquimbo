@@ -54,10 +54,9 @@ jobs:
         with:
           name: site-dist
           path: dist
-      - uses: cloudflare/pages-action@v1
+      - uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: oprc-coquimbo
-          directory: dist
-          branch: main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy dist --project-name=oprc-coquimbo --branch=main
