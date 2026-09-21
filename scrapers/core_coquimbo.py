@@ -87,19 +87,34 @@ class ScraperCoreCoquimbo(BaseScraper):
             print(f"{len(acuerdo_ids)} acuerdos en los últimos {DIAS_ATRAS} días")
 
             for acuerdo_id in acuerdo_ids:
-                try:
-                    registro = self._extraer_acuerdo(browser, acuerdo_id, nombre_a_id)
-                except Exception as e:
-                    print(f"[acuerdo {acuerdo_id}] ERROR: {e}")
+                # acuerdos.corecoquimbo.cl corta la conexión (ERR_CONNECTION_RESET)
+                # con cierta frecuencia bajo la carga de ~200 requests seguidos de
+                # una corrida semanal — no es un 404 real ni un cambio de
+                # estructura, es intermitente: hasta 3 intentos con backoff
+                # creciente antes de darlo por perdido. Confirmado el 2026-09-21:
+                # sin retry, ~14% de los acuerdos se perdían cada semana y, al
+                # salir de la ventana de 45 días, quedaban perdidos para siempre.
+                registro = None
+                ultimo_error = None
+                for intento in range(3):
+                    try:
+                        registro = self._extraer_acuerdo(browser, acuerdo_id, nombre_a_id)
+                        ultimo_error = None
+                        break
+                    except Exception as e:
+                        ultimo_error = e
+                        if intento < 2:
+                            time.sleep(3 * (intento + 1))
+                if ultimo_error is not None:
+                    print(f"[acuerdo {acuerdo_id}] ERROR tras 3 intentos: {ultimo_error}")
                     self.stats["errores"] += 1
-                    continue
-                if registro:
+                elif registro:
                     registros.append(registro)
                     print(
                         f"[acuerdo {acuerdo_id}] {registro['fecha']} "
                         f"{len(registro['votos'])} votos de nuestro catálogo"
                     )
-                time.sleep(1)
+                time.sleep(1.5)  # antes 1s — algo más de margen entre requests
             browser.close()
         return registros
 
