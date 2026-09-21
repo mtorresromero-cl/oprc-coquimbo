@@ -3,10 +3,91 @@
     "comuna_id": "combarbala",
     "anno": 2026,
     "tipo": "gasto",
+    "categoria": "C X P TRANSFERENCIAS CORRIENTES",
+    "subcategoria": "24-00-000-000-000",
+    "monto": 1426460074000.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/l4mjvui0apmy4r2q77cbr/Balance-Ejecuci-n-Presupuestaria-Agosto-2026.pdf?rlkey=nomwghczcsbh6s49bzix577ly&st=mhr2oh56&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P BIENES Y SERVICIOS DE CONSUMO",
+    "subcategoria": "22-00-000-000-000",
+    "monto": 1327859545000.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/l4mjvui0apmy4r2q77cbr/Balance-Ejecuci-n-Presupuestaria-Agosto-2026.pdf?rlkey=nomwghczcsbh6s49bzix577ly&st=mhr2oh56&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P INICIATIVAS DE INVERSIÓN",
+    "subcategoria": "31-00-000-000-000",
+    "monto": 279274623000.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/l4mjvui0apmy4r2q77cbr/Balance-Ejecuci-n-Presupuestaria-Agosto-2026.pdf?rlkey=nomwghczcsbh6s49bzix577ly&st=mhr2oh56&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P GASTOS EN PERSONAL",
+    "subcategoria": "21-00-000-000-000",
+    "monto": 202912254000.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/l4mjvui0apmy4r2q77cbr/Balance-Ejecuci-n-Presupuestaria-Agosto-2026.pdf?rlkey=nomwghczcsbh6s49bzix577ly&st=mhr2oh56&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P ADQUISICIÓN DE ACTIVOS NO",
+    "subcategoria": "29-00-000-000-000",
+    "monto": 111274723000.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/l4mjvui0apmy4r2q77cbr/Balance-Ejecuci-n-Presupuestaria-Agosto-2026.pdf?rlkey=nomwghczcsbh6s49bzix577ly&st=mhr2oh56&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P SERVICIO DE LA DEUDA",
+    "subcategoria": "34-00-000-000-000",
+    "monto": 110870882000.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/l4mjvui0apmy4r2q77cbr/Balance-Ejecuci-n-Presupuestaria-Agosto-2026.pdf?rlkey=nomwghczcsbh6s49bzix577ly&st=mhr2oh56&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P PRESTACIONES DE SEGURIDAD",
+    "subcategoria": "23-00-000-000-000",
+    "monto": 45390796000.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/l4mjvui0apmy4r2q77cbr/Balance-Ejecuci-n-Presupuestaria-Agosto-2026.pdf?rlkey=nomwghczcsbh6s49bzix577ly&st=mhr2oh56&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P OTROS GASTOS CORRIENTES",
+    "subcategoria": "26-00-000-000-000",
+    "monto": 11287033000.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/l4mjvui0apmy4r2q77cbr/Balance-Ejecuci-n-Presupuestaria-Agosto-2026.pdf?rlkey=nomwghczcsbh6s49bzix577ly&st=mhr2oh56&e=1&dl=0"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "gasto",
     "categoria": "Total gastos ejecutados (julio 2026, verificado a mano contra el BEP)",
     "subcategoria": "TOTAL",
     "monto": 4925577203.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU060"
+  },
+  {
+    "comuna_id": "combarbala",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "SALDO INICIAL CAJA",
+    "subcategoria": "15-00-000-000-000",
+    "monto": 263218131000.0,
+    "fuente_url": "https://www.dropbox.com/scl/fi/l4mjvui0apmy4r2q77cbr/Balance-Ejecuci-n-Presupuestaria-Agosto-2026.pdf?rlkey=nomwghczcsbh6s49bzix577ly&st=mhr2oh56&e=1&dl=0"
   },
   {
     "comuna_id": "combarbala",
@@ -21,28 +102,19 @@
     "comuna_id": "coquimbo",
     "anno": 2026,
     "tipo": "gasto",
-    "categoria": "CxP GASTOS EN PERSONAL",
-    "subcategoria": "215-21-00-000-000-000",
-    "monto": 3142366722.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
-  },
-  {
-    "comuna_id": "coquimbo",
-    "anno": 2026,
-    "tipo": "gasto",
     "categoria": "CxP BIENES Y SERVICIO DE CONSUMOS",
     "subcategoria": "215-22-00-000-000-000",
-    "monto": 2592250072.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+    "monto": 2402346698.0,
+    "fuente_url": "https://drive.google.com/file/d/1w7GcMZ3wTsFGP3WkdppmQ9jsM1KI7WZ6/view?usp=sharing"
   },
   {
     "comuna_id": "coquimbo",
     "anno": 2026,
     "tipo": "gasto",
-    "categoria": "CxP INICIATIVAS DE INVERSION",
-    "subcategoria": "215-31-00-000-000-000",
-    "monto": 879533693.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+    "categoria": "CxP GASTOS EN PERSONAL",
+    "subcategoria": "215-21-00-000-000-000",
+    "monto": 2377630204.0,
+    "fuente_url": "https://drive.google.com/file/d/1w7GcMZ3wTsFGP3WkdppmQ9jsM1KI7WZ6/view?usp=sharing"
   },
   {
     "comuna_id": "coquimbo",
@@ -50,17 +122,17 @@
     "tipo": "gasto",
     "categoria": "CxP TRANSFERENCIAS CORRIENTES",
     "subcategoria": "215-24-00-000-000-000",
-    "monto": 455295632.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+    "monto": 829280396.0,
+    "fuente_url": "https://drive.google.com/file/d/1w7GcMZ3wTsFGP3WkdppmQ9jsM1KI7WZ6/view?usp=sharing"
   },
   {
     "comuna_id": "coquimbo",
     "anno": 2026,
     "tipo": "gasto",
-    "categoria": "CxP INTEGROS AL FISCO",
-    "subcategoria": "215-25-00-000-000-000",
-    "monto": 72714714.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+    "categoria": "CxP INICIATIVAS DE INVERSION",
+    "subcategoria": "215-31-00-000-000-000",
+    "monto": 499529943.0,
+    "fuente_url": "https://drive.google.com/file/d/1w7GcMZ3wTsFGP3WkdppmQ9jsM1KI7WZ6/view?usp=sharing"
   },
   {
     "comuna_id": "coquimbo",
@@ -68,17 +140,8 @@
     "tipo": "gasto",
     "categoria": "CxP ADQUISICION DE ACTIVOS NO FINANCIEROS",
     "subcategoria": "215-29-00-000-000-000",
-    "monto": 66763620.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
-  },
-  {
-    "comuna_id": "coquimbo",
-    "anno": 2026,
-    "tipo": "gasto",
-    "categoria": "CxP OTROS GASTOS CORRIENTES",
-    "subcategoria": "215-26-00-000-000-000",
-    "monto": 48502110.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+    "monto": 216007254.0,
+    "fuente_url": "https://drive.google.com/file/d/1w7GcMZ3wTsFGP3WkdppmQ9jsM1KI7WZ6/view?usp=sharing"
   },
   {
     "comuna_id": "coquimbo",
@@ -86,17 +149,26 @@
     "tipo": "gasto",
     "categoria": "CxP PRESTACIONES DE SEGURIDAD SOCIAL",
     "subcategoria": "215-23-00-000-000-000",
-    "monto": 37361835.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+    "monto": 158178700.0,
+    "fuente_url": "https://drive.google.com/file/d/1w7GcMZ3wTsFGP3WkdppmQ9jsM1KI7WZ6/view?usp=sharing"
   },
   {
     "comuna_id": "coquimbo",
     "anno": 2026,
-    "tipo": "ingreso",
-    "categoria": "CxC OTROS INGRESOS CORRIENTES",
-    "subcategoria": "115-08-00-000-000-000",
-    "monto": 3934874601.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+    "tipo": "gasto",
+    "categoria": "CxP OTROS GASTOS CORRIENTES",
+    "subcategoria": "215-26-00-000-000-000",
+    "monto": 134880771.0,
+    "fuente_url": "https://drive.google.com/file/d/1w7GcMZ3wTsFGP3WkdppmQ9jsM1KI7WZ6/view?usp=sharing"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "CxP INTEGROS AL FISCO",
+    "subcategoria": "215-25-00-000-000-000",
+    "monto": 63819848.0,
+    "fuente_url": "https://drive.google.com/file/d/1w7GcMZ3wTsFGP3WkdppmQ9jsM1KI7WZ6/view?usp=sharing"
   },
   {
     "comuna_id": "coquimbo",
@@ -104,8 +176,17 @@
     "tipo": "ingreso",
     "categoria": "CXCTRIBUTO SOBRE EL USO DE BIENES Y LA REALIZACION",
     "subcategoria": "115-03-00-000-000-000",
-    "monto": 3628263047.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+    "monto": 2691568976.0,
+    "fuente_url": "https://drive.google.com/file/d/1w7GcMZ3wTsFGP3WkdppmQ9jsM1KI7WZ6/view?usp=sharing"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "CxC OTROS INGRESOS CORRIENTES",
+    "subcategoria": "115-08-00-000-000-000",
+    "monto": 2037741486.0,
+    "fuente_url": "https://drive.google.com/file/d/1w7GcMZ3wTsFGP3WkdppmQ9jsM1KI7WZ6/view?usp=sharing"
   },
   {
     "comuna_id": "coquimbo",
@@ -122,8 +203,8 @@
     "tipo": "ingreso",
     "categoria": "RENTAS DE LA PROPIEDAD",
     "subcategoria": "115-06-00-000-000-000",
-    "monto": 97378288.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+    "monto": 327812007.0,
+    "fuente_url": "https://drive.google.com/file/d/1w7GcMZ3wTsFGP3WkdppmQ9jsM1KI7WZ6/view?usp=sharing"
   },
   {
     "comuna_id": "coquimbo",
@@ -131,8 +212,8 @@
     "tipo": "ingreso",
     "categoria": "C xC TRANSFERENCIAS CORRIENTES",
     "subcategoria": "115-05-00-000-000-000",
-    "monto": 89066402.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+    "monto": 246286204.0,
+    "fuente_url": "https://drive.google.com/file/d/1w7GcMZ3wTsFGP3WkdppmQ9jsM1KI7WZ6/view?usp=sharing"
   },
   {
     "comuna_id": "coquimbo",
@@ -140,8 +221,8 @@
     "tipo": "ingreso",
     "categoria": "CxC RECUPERACION DE PRESTAMOS",
     "subcategoria": "115-12-00-000-000-000",
-    "monto": 44285156.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+    "monto": 54324330.0,
+    "fuente_url": "https://drive.google.com/file/d/1w7GcMZ3wTsFGP3WkdppmQ9jsM1KI7WZ6/view?usp=sharing"
   },
   {
     "comuna_id": "coquimbo",
@@ -149,8 +230,8 @@
     "tipo": "ingreso",
     "categoria": "CxC INGRESOS DE OPERACION",
     "subcategoria": "115-07-00-000-000-000",
-    "monto": 17189723.0,
-    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/INGRESOS+Y+GASTOS+MUNICPAL+JULIO+2026.pdf/20342c5e-e09f-4092-b076-5ebf5d40523b"
+    "monto": 3579953.0,
+    "fuente_url": "https://drive.google.com/file/d/1w7GcMZ3wTsFGP3WkdppmQ9jsM1KI7WZ6/view?usp=sharing"
   },
   {
     "comuna_id": "illapel",
@@ -171,6 +252,51 @@
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU110"
   },
   {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C OTROS INGRESOS CORRIENTES",
+    "subcategoria": "08-00-000-000-000",
+    "monto": 6353904000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/08.-+BEP+Ingresos.pdf_1789502388502/c25e4644-8d20-4265-9bb3-d5dc740ee30e"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRANSFERENCIAS PARA GASTOS DE CAPITAL",
+    "subcategoria": "13-00-000-000-000",
+    "monto": 281542000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/08.-+BEP+Ingresos.pdf_1789502388502/c25e4644-8d20-4265-9bb3-d5dc740ee30e"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRANSFERENCIAS CORRIENTES",
+    "subcategoria": "05-00-000-000-000",
+    "monto": 145612000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/08.-+BEP+Ingresos.pdf_1789502388502/c25e4644-8d20-4265-9bb3-d5dc740ee30e"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C RENTAS DE LA PROPIEDAD",
+    "subcategoria": "06-00-000-000-000",
+    "monto": 133992000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/08.-+BEP+Ingresos.pdf_1789502388502/c25e4644-8d20-4265-9bb3-d5dc740ee30e"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C RECUPERACIÓN DE PRÉSTAMOS",
+    "subcategoria": "12-00-000-000-000",
+    "monto": 75024000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/08.-+BEP+Ingresos.pdf_1789502388502/c25e4644-8d20-4265-9bb3-d5dc740ee30e"
+  },
+  {
     "comuna_id": "la-higuera",
     "anno": 2026,
     "tipo": "gasto",
@@ -178,6 +304,78 @@
     "subcategoria": "TOTAL",
     "monto": 4578468000.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU122"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P TRANSFERENCIAS CORRIENTES",
+    "subcategoria": "24-00-000-000-000",
+    "monto": 1794989000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P GASTOS EN PERSONAL",
+    "subcategoria": "21-00-000-000-000",
+    "monto": 1383022000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P BIENES Y SERVICIOS DE CONSUMO",
+    "subcategoria": "22-00-000-000-000",
+    "monto": 988907000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P INICIATIVAS DE INVERSIÓN",
+    "subcategoria": "31-00-000-000-000",
+    "monto": 235670000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P SERVICIO DE LA DEUDA",
+    "subcategoria": "34-00-000-000-000",
+    "monto": 69083000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P PRESTACIONES DE SEGURIDAD",
+    "subcategoria": "23-00-000-000-000",
+    "monto": 53041000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P ADQUISICIÓN DE ACTIVOS NO",
+    "subcategoria": "29-00-000-000-000",
+    "monto": 26977000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "tipo": "gasto",
+    "categoria": "C X P OTROS GASTOS CORRIENTES",
+    "subcategoria": "26-00-000-000-000",
+    "monto": 26779000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Balance+Ejec.+Presupuestarias+Muni+Julio+de+2026+%28Gastos%29.pdf_1787150348464/b2775baf-1df9-4d50-94e5-2855b8957b60"
   },
   {
     "comuna_id": "la-higuera",
@@ -396,6 +594,78 @@
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU175"
   },
   {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C OTROS INGRESOS CORRIENTES",
+    "subcategoria": "115-08-00-000-000-000",
+    "monto": 2280417866.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/8/Balance de Ejecucion Presupuestaria Ingresos_97150.pdf"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "DEUDORES PRESUPUESTARIOS",
+    "subcategoria": "115-00-00-000-000-000",
+    "monto": 1650973348.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/8/Balance de Ejecucion Presupuestaria Ingresos_97150.pdf"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRIBUTOS SOBRE EL USO DE BIENES Y LA",
+    "subcategoria": "115-03-00-000-000-000",
+    "monto": 118697650.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/8/Balance de Ejecucion Presupuestaria Ingresos_97150.pdf"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRANSFERENCIAS CORRIENTES",
+    "subcategoria": "115-05-00-000-000-000",
+    "monto": 11032530.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/8/Balance de Ejecucion Presupuestaria Ingresos_97150.pdf"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C INGRESOS DE OPERACIÓN",
+    "subcategoria": "115-07-00-000-000-000",
+    "monto": 4982876.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/8/Balance de Ejecucion Presupuestaria Ingresos_97150.pdf"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C RENTAS DE LA PROPIEDAD",
+    "subcategoria": "115-06-00-000-000-000",
+    "monto": 185115.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/8/Balance de Ejecucion Presupuestaria Ingresos_97150.pdf"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C RECUPERACIÓN DE PRÉSTAMOS",
+    "subcategoria": "115-12-00-000-000-000",
+    "monto": 60870.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/8/Balance de Ejecucion Presupuestaria Ingresos_97150.pdf"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C VENTA DE ACTIVOS NO FINANCIEROS",
+    "subcategoria": "115-10-00-000-000-000",
+    "monto": -1761378029.0,
+    "fuente_url": "http://200.54.71.195:8050/digital/2026/8/Balance de Ejecucion Presupuestaria Ingresos_97150.pdf"
+  },
+  {
     "comuna_id": "paihuano",
     "anno": 2026,
     "tipo": "gasto",
@@ -412,6 +682,69 @@
     "subcategoria": "TOTAL",
     "monto": 4415192000.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU195"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C OTROS INGRESOS CORRIENTES",
+    "subcategoria": "08-00-000-000-000",
+    "monto": 2595643000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/BALANCE+DE+EJECUCION+PRESUPUESTARIA+MES+AGOSTO+-+INGRESOS.pdf/6a6bc224-44e4-4714-8a14-2ae89263a8d8"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRIBUTOS SOBRE EL USO DE BIENES",
+    "subcategoria": "03-00-000-000-000",
+    "monto": 1119210000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/BALANCE+DE+EJECUCION+PRESUPUESTARIA+MES+AGOSTO+-+INGRESOS.pdf/6a6bc224-44e4-4714-8a14-2ae89263a8d8"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRANSFERENCIAS PARA GASTOS DE",
+    "subcategoria": "13-00-000-000-000",
+    "monto": 886681000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/BALANCE+DE+EJECUCION+PRESUPUESTARIA+MES+AGOSTO+-+INGRESOS.pdf/6a6bc224-44e4-4714-8a14-2ae89263a8d8"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C TRANSFERENCIAS CORRIENTES",
+    "subcategoria": "05-00-000-000-000",
+    "monto": 87069000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/BALANCE+DE+EJECUCION+PRESUPUESTARIA+MES+AGOSTO+-+INGRESOS.pdf/6a6bc224-44e4-4714-8a14-2ae89263a8d8"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C RENTAS DE LA PROPIEDAD",
+    "subcategoria": "06-00-000-000-000",
+    "monto": 56953000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/BALANCE+DE+EJECUCION+PRESUPUESTARIA+MES+AGOSTO+-+INGRESOS.pdf/6a6bc224-44e4-4714-8a14-2ae89263a8d8"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "C X C RECUPERACIÓN DE PRÉSTAMOS",
+    "subcategoria": "12-00-000-000-000",
+    "monto": 38278000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/BALANCE+DE+EJECUCION+PRESUPUESTARIA+MES+AGOSTO+-+INGRESOS.pdf/6a6bc224-44e4-4714-8a14-2ae89263a8d8"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "tipo": "ingreso",
+    "categoria": "SALDO INICIAL DE CAJA",
+    "subcategoria": "15-00-000-000-000",
+    "monto": 4610000.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/BALANCE+DE+EJECUCION+PRESUPUESTARIA+MES+AGOSTO+-+INGRESOS.pdf/6a6bc224-44e4-4714-8a14-2ae89263a8d8"
   },
   {
     "comuna_id": "punitaqui",

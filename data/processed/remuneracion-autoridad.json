@@ -2,6 +2,14 @@
   {
     "comuna_id": "andacollo",
     "anno": 2026,
+    "mes": 8,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 7659204.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU007"
+  },
+  {
+    "comuna_id": "andacollo",
+    "anno": 2026,
     "mes": 7,
     "cargo": "ALCALDE",
     "remuneracion_bruta": 9503883.0,
@@ -14,6 +22,14 @@
     "cargo": "ALCALDE",
     "remuneracion_bruta": 6535179.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU007"
+  },
+  {
+    "comuna_id": "canela",
+    "anno": 2026,
+    "mes": 8,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 6053319.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU026"
   },
   {
     "comuna_id": "canela",
@@ -34,6 +50,14 @@
   {
     "comuna_id": "coquimbo",
     "anno": 2026,
+    "mes": 8,
+    "cargo": "ALCALDE DE COQUIMBO",
+    "remuneracion_bruta": 8882921.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU067"
+  },
+  {
+    "comuna_id": "coquimbo",
+    "anno": 2026,
     "mes": 7,
     "cargo": "ALCALDE DE COQUIMBO",
     "remuneracion_bruta": 8882921.0,
@@ -42,10 +66,26 @@
   {
     "comuna_id": "illapel",
     "anno": 2026,
+    "mes": 8,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 7637099.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU110"
+  },
+  {
+    "comuna_id": "illapel",
+    "anno": 2026,
     "mes": 7,
     "cargo": "ALCALDE",
     "remuneracion_bruta": 9530790.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU110"
+  },
+  {
+    "comuna_id": "la-higuera",
+    "anno": 2026,
+    "mes": 8,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 5964775.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU122"
   },
   {
     "comuna_id": "la-higuera",
@@ -66,6 +106,14 @@
   {
     "comuna_id": "la-serena",
     "anno": 2026,
+    "mes": 8,
+    "cargo": "ALCALDESA",
+    "remuneracion_bruta": 8849029.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU126"
+  },
+  {
+    "comuna_id": "la-serena",
+    "anno": 2026,
     "mes": 7,
     "cargo": "ALCALDESA",
     "remuneracion_bruta": 12546542.0,
@@ -74,10 +122,26 @@
   {
     "comuna_id": "los-vilos",
     "anno": 2026,
+    "mes": 8,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 6846797.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU157"
+  },
+  {
+    "comuna_id": "los-vilos",
+    "anno": 2026,
     "mes": 7,
     "cargo": "ALCALDE",
     "remuneracion_bruta": 9591477.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU157"
+  },
+  {
+    "comuna_id": "monte-patria",
+    "anno": 2026,
+    "mes": 8,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 7670861.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU175"
   },
   {
     "comuna_id": "monte-patria",
@@ -98,6 +162,22 @@
   {
     "comuna_id": "paihuano",
     "anno": 2026,
+    "mes": 8,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 6146311.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU195"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
+    "mes": 8,
+    "cargo": "SECRETARIA ALCALDE",
+    "remuneracion_bruta": 1415949.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU195"
+  },
+  {
+    "comuna_id": "paihuano",
+    "anno": 2026,
     "mes": 7,
     "cargo": "ALCALDE",
     "remuneracion_bruta": 7419179.0,
@@ -114,10 +194,26 @@
   {
     "comuna_id": "punitaqui",
     "anno": 2026,
+    "mes": 8,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 5852689.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU238"
+  },
+  {
+    "comuna_id": "punitaqui",
+    "anno": 2026,
     "mes": 7,
     "cargo": "ALCALDE",
     "remuneracion_bruta": 8220467.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU238"
+  },
+  {
+    "comuna_id": "rio-hurtado",
+    "anno": 2026,
+    "mes": 8,
+    "cargo": "ALCALDESA",
+    "remuneracion_bruta": 6083365.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU272"
   },
   {
     "comuna_id": "rio-hurtado",
@@ -142,6 +238,14 @@
     "cargo": "ALCALDE",
     "remuneracion_bruta": 6814945.0,
     "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU279"
+  },
+  {
+    "comuna_id": "vicuna",
+    "anno": 2026,
+    "mes": 8,
+    "cargo": "ALCALDE",
+    "remuneracion_bruta": 7637099.0,
+    "fuente_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU335"
   },
   {
     "comuna_id": "vicuna",
