@@ -209,7 +209,8 @@ class ScraperGastoParlamentario(BaseScraper):
             print(f"[{autoridad_id}] guardado ({len(registros)} filas)", flush=True)
 
     def _extraer(
-        self, categoria: str, soup: BeautifulSoup, autoridad_id: str, anno: int, mes_num: int, url: str
+        self, categoria: str, soup: BeautifulSoup, autoridad_id: str,
+        anno: int, mes_num: int, url: str,
     ) -> dict:
         import json
 
