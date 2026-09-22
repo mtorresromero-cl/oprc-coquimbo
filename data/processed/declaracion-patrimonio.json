@@ -547,6 +547,20 @@
   },
   {
     "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+    "fecha_declaracion": "2026-09-07",
+    "tipo_declaracion": "Rectificación A Requerimiento De Órgano Fiscalizador",
+    "cargo_declarado": "DIPUTADO/DA",
+    "organismo": "Camara De Diputados",
+    "bienes_inmuebles_n": 0,
+    "vehiculos_n": 0,
+    "sociedades_n": 0,
+    "valores_monto": 0.0,
+    "pasivos_tiene": 0,
+    "pasivos_monto": 0.0,
+    "fuente_url": "https://www.infoprobidad.cl/Declaracion/Declaracion?ID=1828893"
+  },
+  {
+    "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
     "fecha_declaracion": "2026-04-24",
     "tipo_declaracion": "Primera Declaración (Por Asunción De Cargo)",
     "cargo_declarado": "DIPUTADO/DA",
@@ -1104,6 +1118,20 @@
     "pasivos_tiene": 0,
     "pasivos_monto": 0.0,
     "fuente_url": "https://www.infoprobidad.cl/Declaracion/Declaracion?ID=1683519"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha_declaracion": "2026-09-08",
+    "tipo_declaracion": "Cese Y Asunción Simultánea De Funciones (Reelectos / Redesignados)",
+    "cargo_declarado": "DIPUTADO/DA",
+    "organismo": "Camara De Diputados",
+    "bienes_inmuebles_n": 0,
+    "vehiculos_n": 1,
+    "sociedades_n": 1,
+    "valores_monto": 0.0,
+    "pasivos_tiene": 1,
+    "pasivos_monto": 9000000.0,
+    "fuente_url": "https://www.infoprobidad.cl/Declaracion/Declaracion?ID=1831407"
   },
   {
     "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
