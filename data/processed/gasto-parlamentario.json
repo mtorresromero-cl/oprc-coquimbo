@@ -57,6 +57,28 @@
   {
     "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
     "anno": 2026,
+    "mes": 8,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1250"
+  },
+  {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1250"
+  },
+  {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "anno": 2026,
     "mes": 3,
     "categoria": "gastos_operacionales",
     "publicado": 1,
@@ -112,6 +134,28 @@
   {
     "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
     "anno": 2026,
+    "mes": 8,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1250"
+  },
+  {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "gastos_operacionales",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1250"
+  },
+  {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "anno": 2026,
     "mes": 3,
     "categoria": "pasajes_aereos",
     "publicado": 1,
@@ -157,6 +201,28 @@
     "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
     "anno": 2026,
     "mes": 7,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1250"
+  },
+  {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1250"
+  },
+  {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "anno": 2026,
+    "mes": 9,
     "categoria": "pasajes_aereos",
     "publicado": 1,
     "monto": null,
@@ -220,6 +286,28 @@
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1250"
   },
   {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "personal_apoyo",
+    "publicado": 1,
+    "monto": 10988000.0,
+    "cantidad": 9,
+    "detalle": "[{\"nombre\": \"BARRAZA CURTEN ANDREA MACARENA\", \"cargo\": \"Profesional\", \"renta\": 1250000.0}, {\"nombre\": \"BARRIA BRITO TAMARA VALEZKA\", \"cargo\": \"Administrativo\", \"renta\": 1000000.0}, {\"nombre\": \"GALAZ MORALES DONY RICARDO\", \"cargo\": \"Profesional\", \"renta\": 2200000.0}, {\"nombre\": \"MUÑOZ ZAPATA BÁRBARA CAMILA\", \"cargo\": \"Asesor\", \"renta\": 1000000.0}, {\"nombre\": \"MURSELL SILVA ENRIQUE\", \"cargo\": \"Profesional\", \"renta\": 1250000.0}, {\"nombre\": \"OSSES CORREA MARCOS ALBERTO\", \"cargo\": \"Asesor\", \"renta\": 1250000.0}, {\"nombre\": \"PÉREZ VALENZUELA ALEJANDRO ALBERTO\", \"cargo\": \"Profesional\", \"renta\": 1250000.0}, {\"nombre\": \"VEGA YAÑEZ MAIRA AMAPOLA\", \"cargo\": \"Asesor\", \"renta\": 538000.0}, {\"nombre\": \"VERGARA MANDIOLA FERNANDO\", \"cargo\": \"Profesional\", \"renta\": 1250000.0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1250"
+  },
+  {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "personal_apoyo",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1250"
+  },
+  {
     "autoridad_id": "carolina-tello-rojas-diputado",
     "anno": 2026,
     "mes": 3,
@@ -267,6 +355,28 @@
     "autoridad_id": "carolina-tello-rojas-diputado",
     "anno": 2026,
     "mes": 7,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1177"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1177"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "anno": 2026,
+    "mes": 9,
     "categoria": "asesorias_externas",
     "publicado": 0,
     "monto": null,
@@ -332,6 +442,28 @@
   {
     "autoridad_id": "carolina-tello-rojas-diputado",
     "anno": 2026,
+    "mes": 8,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1177"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "gastos_operacionales",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1177"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "anno": 2026,
     "mes": 3,
     "categoria": "pasajes_aereos",
     "publicado": 1,
@@ -377,6 +509,28 @@
     "autoridad_id": "carolina-tello-rojas-diputado",
     "anno": 2026,
     "mes": 7,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1177"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1177"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "anno": 2026,
+    "mes": 9,
     "categoria": "pasajes_aereos",
     "publicado": 1,
     "monto": null,
@@ -440,6 +594,28 @@
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1177"
   },
   {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "personal_apoyo",
+    "publicado": 1,
+    "monto": 11800000.0,
+    "cantidad": 11,
+    "detalle": "[{\"nombre\": \"AGUIRRE FLORES ANIBAL MARCIAL\", \"cargo\": \"Profesional\", \"renta\": 1200000.0}, {\"nombre\": \"ASTORGA OLIVARES MACARENA FERNANDA\", \"cargo\": \"Asesor\", \"renta\": 1530000.0}, {\"nombre\": \"CALLEJAS LOZANO JUAN DIEGO\", \"cargo\": \"Profesional\", \"renta\": 1200000.0}, {\"nombre\": \"ELGUETA CASTILLO PAULINA PÍA\", \"cargo\": \"Profesional\", \"renta\": 1200000.0}, {\"nombre\": \"GOMEZ ANTIQUERA ESTEFANÍA DIANA\", \"cargo\": \"Asesor\", \"renta\": 520000.0}, {\"nombre\": \"PÉREZ ROJAS NICOLE FERNANDA\", \"cargo\": \"Profesional\", \"renta\": 2500000.0}, {\"nombre\": \"RIVERA RAMÍREZ DIEGO JAVIER\", \"cargo\": \"Profesional\", \"renta\": 1100000.0}, {\"nombre\": \"RODRIGUEZ MENA JESSICA ANDREA\", \"cargo\": \"Profesional\", \"renta\": 1000000.0}, {\"nombre\": \"ROJAS ERBETTA MARIA JOSÉ\", \"cargo\": \"Profesional\", \"renta\": 520000.0}, {\"nombre\": \"VILCHES ROJAS VERÓNICA CAROLINA\", \"cargo\": \"Profesional\", \"renta\": 550000.0}, {\"nombre\": \"ZUÑIGA FLORES PAKARI FRANCISCA\", \"cargo\": \"Asesor\", \"renta\": 480000.0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1177"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "personal_apoyo",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1177"
+  },
+  {
     "autoridad_id": "daniel-manouchehri-lobos-diputado",
     "anno": 2026,
     "mes": 3,
@@ -487,6 +663,28 @@
     "autoridad_id": "daniel-manouchehri-lobos-diputado",
     "anno": 2026,
     "mes": 7,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1142"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1142"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "anno": 2026,
+    "mes": 9,
     "categoria": "asesorias_externas",
     "publicado": 0,
     "monto": null,
@@ -552,6 +750,28 @@
   {
     "autoridad_id": "daniel-manouchehri-lobos-diputado",
     "anno": 2026,
+    "mes": 8,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1142"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "gastos_operacionales",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1142"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "anno": 2026,
     "mes": 3,
     "categoria": "pasajes_aereos",
     "publicado": 1,
@@ -597,6 +817,28 @@
     "autoridad_id": "daniel-manouchehri-lobos-diputado",
     "anno": 2026,
     "mes": 7,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1142"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1142"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "anno": 2026,
+    "mes": 9,
     "categoria": "pasajes_aereos",
     "publicado": 1,
     "monto": null,
@@ -660,6 +902,28 @@
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1142"
   },
   {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "personal_apoyo",
+    "publicado": 1,
+    "monto": 6780000.0,
+    "cantidad": 5,
+    "detalle": "[{\"nombre\": \"GALLEGUILLOS CASTILLO PABLO ENRIQUE\", \"cargo\": \"Administrativo\", \"renta\": 700000.0}, {\"nombre\": \"GONZALEZ CHAPERON OSCAR IGNACIO\", \"cargo\": \"Profesional\", \"renta\": 2260000.0}, {\"nombre\": \"PALLAMAR URZUA JUAN PABLO\", \"cargo\": \"Profesional\", \"renta\": 1170000.0}, {\"nombre\": \"SILVA VILLANUEVA DANIEL LEOPOLDO\", \"cargo\": \"Profesional\", \"renta\": 1800000.0}, {\"nombre\": \"VALDES ANDRADES MARILUZ EMILIANA\", \"cargo\": \"Administrativo\", \"renta\": 850000.0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1142"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "personal_apoyo",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1142"
+  },
+  {
     "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
     "anno": 2026,
     "mes": 3,
@@ -707,6 +971,28 @@
     "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
     "anno": 2026,
     "mes": 7,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1255"
+  },
+  {
+    "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1255"
+  },
+  {
+    "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+    "anno": 2026,
+    "mes": 9,
     "categoria": "asesorias_externas",
     "publicado": 0,
     "monto": null,
@@ -772,6 +1058,28 @@
   {
     "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
     "anno": 2026,
+    "mes": 8,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1255"
+  },
+  {
+    "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "gastos_operacionales",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1255"
+  },
+  {
+    "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+    "anno": 2026,
     "mes": 3,
     "categoria": "pasajes_aereos",
     "publicado": 1,
@@ -817,6 +1125,28 @@
     "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
     "anno": 2026,
     "mes": 7,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1255"
+  },
+  {
+    "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1255"
+  },
+  {
+    "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+    "anno": 2026,
+    "mes": 9,
     "categoria": "pasajes_aereos",
     "publicado": 1,
     "monto": null,
@@ -880,6 +1210,28 @@
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1255"
   },
   {
+    "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "personal_apoyo",
+    "publicado": 1,
+    "monto": 9470000.0,
+    "cantidad": 7,
+    "detalle": "[{\"nombre\": \"HELBIG ALVAREZ VICTOR HUGO\", \"cargo\": \"Administrativo\", \"renta\": 730000.0}, {\"nombre\": \"KEYER QUIROZ FANNY CAROLINA\", \"cargo\": \"Administrativo\", \"renta\": 730000.0}, {\"nombre\": \"MANQUEZ OLIVARES HERMOSINA DE MERCEDES\", \"cargo\": \"Administrativo\", \"renta\": 730000.0}, {\"nombre\": \"MERA TORREALBA MARCELO ALEJANDRO\", \"cargo\": \"Asesor\", \"renta\": 1870000.0}, {\"nombre\": \"SANCHEZ DELGADO JOSE LUIS\", \"cargo\": \"Administrativo\", \"renta\": 730000.0}, {\"nombre\": \"TAPIA SALGUEIRO MARICEL ANDREA\", \"cargo\": \"Profesional\", \"renta\": 1980000.0}, {\"nombre\": \"URTUBIA TAPIA RICARDO ANDRÉS\", \"cargo\": \"Profesional\", \"renta\": 2700000.0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1255"
+  },
+  {
+    "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "personal_apoyo",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1255"
+  },
+  {
     "autoridad_id": "erich-christ-grohs-marin-diputado",
     "anno": 2026,
     "mes": 3,
@@ -927,6 +1279,28 @@
     "autoridad_id": "erich-christ-grohs-marin-diputado",
     "anno": 2026,
     "mes": 7,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1212"
+  },
+  {
+    "autoridad_id": "erich-christ-grohs-marin-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1212"
+  },
+  {
+    "autoridad_id": "erich-christ-grohs-marin-diputado",
+    "anno": 2026,
+    "mes": 9,
     "categoria": "asesorias_externas",
     "publicado": 0,
     "monto": null,
@@ -992,6 +1366,28 @@
   {
     "autoridad_id": "erich-christ-grohs-marin-diputado",
     "anno": 2026,
+    "mes": 8,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1212"
+  },
+  {
+    "autoridad_id": "erich-christ-grohs-marin-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "gastos_operacionales",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1212"
+  },
+  {
+    "autoridad_id": "erich-christ-grohs-marin-diputado",
+    "anno": 2026,
     "mes": 3,
     "categoria": "pasajes_aereos",
     "publicado": 1,
@@ -1037,6 +1433,28 @@
     "autoridad_id": "erich-christ-grohs-marin-diputado",
     "anno": 2026,
     "mes": 7,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1212"
+  },
+  {
+    "autoridad_id": "erich-christ-grohs-marin-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1212"
+  },
+  {
+    "autoridad_id": "erich-christ-grohs-marin-diputado",
+    "anno": 2026,
+    "mes": 9,
     "categoria": "pasajes_aereos",
     "publicado": 1,
     "monto": null,
@@ -1100,6 +1518,28 @@
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1212"
   },
   {
+    "autoridad_id": "erich-christ-grohs-marin-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "personal_apoyo",
+    "publicado": 1,
+    "monto": 12700000.0,
+    "cantidad": 7,
+    "detalle": "[{\"nombre\": \"ANDRADA MARTINEZ PATRICIA ALEJANDRA\", \"cargo\": \"Profesional\", \"renta\": 3800000.0}, {\"nombre\": \"BAEZA ANDRADA SOFÍA CONSTANZA\", \"cargo\": \"Asesor\", \"renta\": 1200000.0}, {\"nombre\": \"GAJARDO LLANOS MAURA ESTEFANIA\", \"cargo\": \"Asesor\", \"renta\": 1466667.0}, {\"nombre\": \"JULIA VEGA BÁRBARA ANDREA\", \"cargo\": \"Profesional\", \"renta\": 733333.0}, {\"nombre\": \"OLIVARES ROSALES CELESTE PAZ\", \"cargo\": \"Asesor\", \"renta\": 2200000.0}, {\"nombre\": \"OÑATE CORDOVA CAREN ELIZABETH\", \"cargo\": \"Asesor\", \"renta\": 2200000.0}, {\"nombre\": \"LÓPEZ BRAVO EDUARDO PATRICIO\", \"cargo\": \"ASESORIA COMUNICACIONAL EN TRABAJO PARLAMENTARIO\", \"renta\": 1100000.0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1212"
+  },
+  {
+    "autoridad_id": "erich-christ-grohs-marin-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "personal_apoyo",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1212"
+  },
+  {
     "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
     "anno": 2026,
     "mes": 3,
@@ -1147,6 +1587,28 @@
     "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
     "anno": 2026,
     "mes": 7,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1174"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1174"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "anno": 2026,
+    "mes": 9,
     "categoria": "asesorias_externas",
     "publicado": 0,
     "monto": null,
@@ -1212,6 +1674,28 @@
   {
     "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
     "anno": 2026,
+    "mes": 8,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1174"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "gastos_operacionales",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1174"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "anno": 2026,
     "mes": 3,
     "categoria": "pasajes_aereos",
     "publicado": 1,
@@ -1257,6 +1741,28 @@
     "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
     "anno": 2026,
     "mes": 7,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1174"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1174"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "anno": 2026,
+    "mes": 9,
     "categoria": "pasajes_aereos",
     "publicado": 1,
     "monto": null,
@@ -1320,6 +1826,28 @@
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1174"
   },
   {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "personal_apoyo",
+    "publicado": 1,
+    "monto": 6928882.0,
+    "cantidad": 4,
+    "detalle": "[{\"nombre\": \"BOBADILLA  QUIROGA  ALEJANDRA PAOLA\", \"cargo\": \"Administrativo\", \"renta\": 750000.0}, {\"nombre\": \"ESPINOZA CANEPA FRANCISCA ISABEL\", \"cargo\": \"Profesional\", \"renta\": 1300000.0}, {\"nombre\": \"HENRÍQUEZ RIQUELME CLAUDIO ESTEBAN\", \"cargo\": \"Profesional\", \"renta\": 2519000.0}, {\"nombre\": \"MARDONES POBLETE DANIELA IVON\", \"cargo\": \"Asesoria Legislativa\", \"renta\": 2359882.0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1174"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "personal_apoyo",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1174"
+  },
+  {
     "autoridad_id": "nathalie-castillo-rojas-diputado",
     "anno": 2026,
     "mes": 3,
@@ -1367,6 +1895,28 @@
     "autoridad_id": "nathalie-castillo-rojas-diputado",
     "anno": 2026,
     "mes": 7,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1117"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1117"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "anno": 2026,
+    "mes": 9,
     "categoria": "asesorias_externas",
     "publicado": 0,
     "monto": null,
@@ -1432,6 +1982,28 @@
   {
     "autoridad_id": "nathalie-castillo-rojas-diputado",
     "anno": 2026,
+    "mes": 8,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1117"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "gastos_operacionales",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1117"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "anno": 2026,
     "mes": 3,
     "categoria": "pasajes_aereos",
     "publicado": 1,
@@ -1477,6 +2049,28 @@
     "autoridad_id": "nathalie-castillo-rojas-diputado",
     "anno": 2026,
     "mes": 7,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1117"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1117"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "anno": 2026,
+    "mes": 9,
     "categoria": "pasajes_aereos",
     "publicado": 1,
     "monto": null,
@@ -1537,6 +2131,28 @@
     "monto": 10337590.0,
     "cantidad": 11,
     "detalle": "[{\"nombre\": \"ALFARO ORTIZ CRISTIAN\", \"cargo\": \"Profesional\", \"renta\": 1220000.0}, {\"nombre\": \"GÁMEZ ÁLVAREZ ROBERTO FERNANDO\", \"cargo\": \"Administrativo\", \"renta\": 560000.0}, {\"nombre\": \"MUÑOZ MUÑOZ DAVID RODRIGO\", \"cargo\": \"Administrativo\", \"renta\": 550000.0}, {\"nombre\": \"OLIVARES BARRIOS KARINA ISABEL\", \"cargo\": \"Asesor\", \"renta\": 1080000.0}, {\"nombre\": \"OYANADEL CONTRERAS ALFREDO ZACARIAS\", \"cargo\": \"Profesional\", \"renta\": 1098000.0}, {\"nombre\": \"RIVERA ARAYA ALEJANDRO JAVIER\", \"cargo\": \"Profesional\", \"renta\": 1100000.0}, {\"nombre\": \"RODRÍGUEZ GUTIÉRREZ FELIPE DAVID\", \"cargo\": \"Administrativo\", \"renta\": 670000.0}, {\"nombre\": \"RUIZ VALLADARES CAMILO ANDRES\", \"cargo\": \"Profesional\", \"renta\": 1220000.0}, {\"nombre\": \"VALENZUELA TELLO MARTA CAROLINA\", \"cargo\": \"Profesional\", \"renta\": 1270000.0}, {\"nombre\": \"VASQUEZ GALLARDO PABLO RAMÓN\", \"cargo\": \"Profesional\", \"renta\": 1097614.0}, {\"nombre\": \"VEGA ORTIZ JAVIER  ANDRES\", \"cargo\": \"Asesoría para la coordinación entre representantes de la sociedad civil y la gestión parlamentaria t\", \"renta\": 471976.0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1117"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "anno": 2026,
+    "mes": 8,
+    "categoria": "personal_apoyo",
+    "publicado": 1,
+    "monto": 10337590.0,
+    "cantidad": 11,
+    "detalle": "[{\"nombre\": \"ALFARO  ORTIZ CRISTIAN ALEJANDRO\", \"cargo\": \"Profesional\", \"renta\": 1220000.0}, {\"nombre\": \"GÁMEZ ÁLVAREZ ROBERTO FERNANDO\", \"cargo\": \"Administrativo\", \"renta\": 560000.0}, {\"nombre\": \"MUÑOZ MUÑOZ DAVID RODRIGO\", \"cargo\": \"Administrativo\", \"renta\": 550000.0}, {\"nombre\": \"OLIVARES BARRIOS KARINA ISABEL\", \"cargo\": \"Asesor\", \"renta\": 1080000.0}, {\"nombre\": \"OYANADEL CONTRERAS ALFREDO ZACARIAS\", \"cargo\": \"Profesional\", \"renta\": 1098000.0}, {\"nombre\": \"RIVERA ARAYA ALEJANDRO JAVIER\", \"cargo\": \"Profesional\", \"renta\": 1100000.0}, {\"nombre\": \"RODRÍGUEZ GUTIÉRREZ FELIPE DAVID\", \"cargo\": \"Administrativo\", \"renta\": 670000.0}, {\"nombre\": \"RUIZ VALLADARES CAMILO ANDRES\", \"cargo\": \"Profesional\", \"renta\": 1220000.0}, {\"nombre\": \"VALENZUELA TELLO MARTA CAROLINA\", \"cargo\": \"Profesional\", \"renta\": 1270000.0}, {\"nombre\": \"VASQUEZ GALLARDO PABLO RAMÓN\", \"cargo\": \"Profesional\", \"renta\": 1097614.0}, {\"nombre\": \"VEGA ORTIZ JAVIER  ANDRES\", \"cargo\": \"Asesoría para la coordinación entre representantes de la sociedad civil y la gestión parlamentaria t\", \"renta\": 471976.0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1117"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "anno": 2026,
+    "mes": 9,
+    "categoria": "personal_apoyo",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1117"
   }
 ]

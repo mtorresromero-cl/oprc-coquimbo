@@ -36,6 +36,8 @@ jobs:
         continue-on-error: true
       - run: python scrapers/camara_votaciones.py
         continue-on-error: true
+      - run: python scrapers/gasto_parlamentario.py
+        continue-on-error: true
       - run: python scrapers/intervenciones_sala.py
         continue-on-error: true
       - run: python scrapers/analisis_intervenciones.py

@@ -26,6 +26,7 @@ import logging
 import re
 import sys
 import time
+from datetime import date
 from pathlib import Path
 
 from base import BaseScraper
@@ -74,9 +75,29 @@ DIPUTADOS_COQUIMBO = {
     "erich-christ-grohs-marin-diputado": 1212,
 }
 
-MESES = ["marzo", "abril", "mayo", "junio", "julio", "agosto"]
-MES_NUM = {m: i + 3 for i, m in enumerate(MESES)}
-ANNO = 2026
+NOMBRES_MES = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+]
+INICIO_LEGISLATURA = date(2026, 3, 1)
+
+
+def _periodos_hasta_hoy() -> list[tuple[int, int, str]]:
+    """(año, mes, nombre_mes) desde el inicio de la legislatura hasta el mes
+    en curso — antes era una lista fija ("marzo".."agosto") que se quedó sin
+    extender: en vez de "hasta agosto", el scraper llevaba meses devolviendo
+    siempre hasta julio (ver más abajo, el slice [:-1] sobre esa lista).
+    camara.cl ya informa "no han sido publicados" para un mes sin publicar
+    (ver _extraer) — no hace falta adivinar de antemano cuál mes omitir."""
+    hoy = date.today()
+    periodos = []
+    anno, mes = INICIO_LEGISLATURA.year, INICIO_LEGISLATURA.month
+    while (anno, mes) <= (hoy.year, hoy.month):
+        periodos.append((anno, mes, NOMBRES_MES[mes - 1]))
+        mes += 1
+        if mes > 12:
+            mes, anno = 1, anno + 1
+    return periodos
 
 CATEGORIAS = {
     "gastos_operacionales": "gastosoperacionales.aspx",
@@ -171,16 +192,16 @@ class ScraperGastoParlamentario(BaseScraper):
                     self.stats["errores"] += 1
                     continue
 
-                for mes in MESES[:-1]:  # marzo..julio (agosto suele no estar publicado)
+                for anno, mes_num, mes_nombre in _periodos_hasta_hoy():
                     try:
-                        soup_mes = _post_mes(session, url, soup, MES_NUM[mes])
+                        soup_mes = _post_mes(session, url, soup, mes_num)
                     except Exception as e:
-                        print(f"  [{categoria} {mes}] ERROR: {e}", flush=True)
+                        print(f"  [{categoria} {mes_nombre}] ERROR: {e}", flush=True)
                         self.stats["errores"] += 1
                         continue
-                    registro = self._extraer(categoria, soup_mes, autoridad_id, mes, url)
+                    registro = self._extraer(categoria, soup_mes, autoridad_id, anno, mes_num, url)
                     registros.append(registro)
-                    print(f"  [{categoria} {mes}] publicado={registro['publicado']} "
+                    print(f"  [{categoria} {mes_nombre}] publicado={registro['publicado']} "
                           f"monto={registro['monto']} cantidad={registro['cantidad']}", flush=True)
 
             self.guardar(registros)
@@ -188,7 +209,7 @@ class ScraperGastoParlamentario(BaseScraper):
             print(f"[{autoridad_id}] guardado ({len(registros)} filas)", flush=True)
 
     def _extraer(
-        self, categoria: str, soup: BeautifulSoup, autoridad_id: str, mes: str, url: str
+        self, categoria: str, soup: BeautifulSoup, autoridad_id: str, anno: int, mes_num: int, url: str
     ) -> dict:
         import json
 
@@ -196,8 +217,8 @@ class ScraperGastoParlamentario(BaseScraper):
         no_publicado = "no han sido publicados" in txt.lower()
         base = {
             "autoridad_id": autoridad_id,
-            "anno": ANNO,
-            "mes": MES_NUM[mes],
+            "anno": anno,
+            "mes": mes_num,
             "categoria": categoria,
             "fuente_url": url,
         }
