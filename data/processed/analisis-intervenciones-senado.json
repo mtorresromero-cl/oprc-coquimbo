@@ -881,51 +881,19 @@
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "sino",
-        "n": 82
-      },
-      {
-        "palabra": "gobierno",
-        "n": 114
-      },
-      {
-        "palabra": "vamos",
-        "n": 61
-      },
-      {
-        "palabra": "importante",
-        "n": 57
-      },
-      {
-        "palabra": "quiero",
-        "n": 108
-      },
-      {
-        "palabra": "puede",
-        "n": 87
-      },
-      {
-        "palabra": "sistema",
-        "n": 75
+        "palabra": "chile",
+        "n": 105
       },
       {
         "palabra": "forma",
         "n": 58
       },
       {
-        "palabra": "creo",
-        "n": 55
+        "palabra": "sino",
+        "n": 82
       },
       {
-        "palabra": "proyecto",
-        "n": 234
-      },
-      {
-        "palabra": "chile",
-        "n": 105
-      },
-      {
-        "palabra": "ambiental",
+        "palabra": "importante",
         "n": 57
       },
       {
@@ -933,12 +901,52 @@
         "n": 68
       },
       {
-        "palabra": "materia",
-        "n": 56
+        "palabra": "acuerdo",
+        "n": 64
+      },
+      {
+        "palabra": "quiero",
+        "n": 108
+      },
+      {
+        "palabra": "comisión",
+        "n": 133
       },
       {
         "palabra": "decir",
         "n": 72
+      },
+      {
+        "palabra": "seguridad",
+        "n": 60
+      },
+      {
+        "palabra": "región",
+        "n": 91
+      },
+      {
+        "palabra": "materia",
+        "n": 56
+      },
+      {
+        "palabra": "gobierno",
+        "n": 114
+      },
+      {
+        "palabra": "coquimbo",
+        "n": 79
+      },
+      {
+        "palabra": "sistema",
+        "n": 75
+      },
+      {
+        "palabra": "proyecto",
+        "n": 234
+      },
+      {
+        "palabra": "vamos",
+        "n": 61
       },
       {
         "palabra": "ahora",
@@ -949,36 +957,28 @@
         "n": 56
       },
       {
-        "palabra": "ejecutivo",
-        "n": 66
+        "palabra": "ciento",
+        "n": 70
       },
       {
-        "palabra": "acuerdo",
-        "n": 64
+        "palabra": "ambiental",
+        "n": 57
       },
       {
-        "palabra": "región",
-        "n": 91
-      },
-      {
-        "palabra": "coquimbo",
-        "n": 79
+        "palabra": "creo",
+        "n": 55
       },
       {
         "palabra": "entonces",
         "n": 105
       },
       {
-        "palabra": "ciento",
-        "n": 70
+        "palabra": "puede",
+        "n": 87
       },
       {
-        "palabra": "seguridad",
-        "n": 60
-      },
-      {
-        "palabra": "comisión",
-        "n": 133
+        "palabra": "ejecutivo",
+        "n": 66
       }
     ],
     "enlaces": [

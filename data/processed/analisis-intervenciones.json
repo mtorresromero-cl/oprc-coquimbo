@@ -3,19 +3,23 @@
     "bernardo-antonio-salinas-maya-diputado": [
       {
         "palabra": "proyecto",
-        "n": 64
-      },
-      {
-        "palabra": "coquimbo",
-        "n": 43
-      },
-      {
-        "palabra": "seguridad",
-        "n": 43
+        "n": 66
       },
       {
         "palabra": "región",
-        "n": 39
+        "n": 47
+      },
+      {
+        "palabra": "coquimbo",
+        "n": 45
+      },
+      {
+        "palabra": "seguridad",
+        "n": 45
+      },
+      {
+        "palabra": "país",
+        "n": 32
       },
       {
         "palabra": "quiero",
@@ -26,24 +30,40 @@
         "n": 31
       },
       {
-        "palabra": "país",
-        "n": 30
+        "palabra": "comisión",
+        "n": 29
       },
       {
         "palabra": "tema",
         "n": 27
       },
       {
-        "palabra": "comisión",
-        "n": 25
+        "palabra": "derechos",
+        "n": 27
       },
       {
         "palabra": "sino",
         "n": 23
       },
       {
-        "palabra": "derechos",
-        "n": 23
+        "palabra": "ciento",
+        "n": 22
+      },
+      {
+        "palabra": "poder",
+        "n": 21
+      },
+      {
+        "palabra": "chile",
+        "n": 21
+      },
+      {
+        "palabra": "tener",
+        "n": 21
+      },
+      {
+        "palabra": "además",
+        "n": 21
       },
       {
         "palabra": "gobierno",
@@ -54,7 +74,7 @@
         "n": 19
       },
       {
-        "palabra": "poder",
+        "palabra": "parte",
         "n": 19
       },
       {
@@ -62,7 +82,7 @@
         "n": 19
       },
       {
-        "palabra": "chile",
+        "palabra": "nacional",
         "n": 19
       },
       {
@@ -70,16 +90,20 @@
         "n": 18
       },
       {
-        "palabra": "parte",
-        "n": 17
-      },
-      {
         "palabra": "pública",
         "n": 17
       },
       {
-        "palabra": "además",
+        "palabra": "importante",
         "n": 17
+      },
+      {
+        "palabra": "agricultura",
+        "n": 17
+      },
+      {
+        "palabra": "sabemos",
+        "n": 16
       },
       {
         "palabra": "criminales",
@@ -90,7 +114,7 @@
         "n": 16
       },
       {
-        "palabra": "ciento",
+        "palabra": "regional",
         "n": 16
       },
       {
@@ -102,11 +126,19 @@
         "n": 16
       },
       {
+        "palabra": "mayor",
+        "n": 16
+      },
+      {
         "palabra": "viviendas",
         "n": 16
       },
       {
         "palabra": "artículo",
+        "n": 16
+      },
+      {
+        "palabra": "regularizar",
         "n": 16
       },
       {
@@ -122,43 +154,11 @@
         "n": 15
       },
       {
-        "palabra": "tener",
-        "n": 15
-      },
-      {
-        "palabra": "nacional",
-        "n": 15
-      },
-      {
-        "palabra": "sabemos",
-        "n": 14
-      },
-      {
         "palabra": "significa",
         "n": 14
       },
       {
-        "palabra": "regional",
-        "n": 14
-      },
-      {
-        "palabra": "etcétera",
-        "n": 14
-      },
-      {
-        "palabra": "puede",
-        "n": 14
-      },
-      {
-        "palabra": "familias",
-        "n": 14
-      },
-      {
-        "palabra": "forma",
-        "n": 14
-      },
-      {
-        "palabra": "mayor",
+        "palabra": "situación",
         "n": 14
       }
     ],
@@ -327,86 +327,102 @@
     "eileen-patricia-urqueta-rojas-diputado": [
       {
         "palabra": "coquimbo",
-        "n": 100
-      },
-      {
-        "palabra": "región",
-        "n": 87
+        "n": 112
       },
       {
         "palabra": "proyecto",
-        "n": 84
+        "n": 105
+      },
+      {
+        "palabra": "región",
+        "n": 97
       },
       {
         "palabra": "rurales",
-        "n": 69
+        "n": 73
       },
       {
         "palabra": "puede",
-        "n": 69
+        "n": 71
       },
       {
         "palabra": "familias",
-        "n": 68
+        "n": 70
       },
       {
         "palabra": "debe",
-        "n": 58
+        "n": 66
       },
       {
         "palabra": "seguridad",
-        "n": 56
+        "n": 58
       },
       {
         "palabra": "comunas",
-        "n": 51
+        "n": 53
       },
       {
         "palabra": "emergencia",
-        "n": 45
+        "n": 50
       },
       {
         "palabra": "rural",
-        "n": 45
+        "n": 50
       },
       {
         "palabra": "chile",
-        "n": 43
+        "n": 45
       },
       {
         "palabra": "regiones",
-        "n": 40
+        "n": 45
       },
       {
         "palabra": "ministerio",
-        "n": 37
+        "n": 45
       },
       {
         "palabra": "agua",
-        "n": 36
+        "n": 38
+      },
+      {
+        "palabra": "necesita",
+        "n": 33
+      },
+      {
+        "palabra": "deben",
+        "n": 31
       },
       {
         "palabra": "podemos",
         "n": 31
       },
       {
-        "palabra": "necesita",
-        "n": 29
-      },
-      {
         "palabra": "solicito",
-        "n": 29
+        "n": 31
       },
       {
         "palabra": "personas",
-        "n": 28
+        "n": 30
       },
       {
-        "palabra": "deben",
-        "n": 27
+        "palabra": "violencia",
+        "n": 30
       },
       {
         "palabra": "responsabilidad",
+        "n": 29
+      },
+      {
+        "palabra": "realidad",
+        "n": 29
+      },
+      {
+        "palabra": "debemos",
+        "n": 28
+      },
+      {
+        "palabra": "sino",
         "n": 27
       },
       {
@@ -414,27 +430,39 @@
         "n": 27
       },
       {
+        "palabra": "regional",
+        "n": 27
+      },
+      {
         "palabra": "sectores",
         "n": 27
       },
       {
-        "palabra": "sino",
+        "palabra": "recursos",
         "n": 26
       },
       {
-        "palabra": "debemos",
+        "palabra": "quiero",
+        "n": 26
+      },
+      {
+        "palabra": "mujeres",
+        "n": 26
+      },
+      {
+        "palabra": "nacional",
         "n": 25
       },
       {
-        "palabra": "recursos",
-        "n": 24
-      },
-      {
-        "palabra": "realidad",
-        "n": 24
+        "palabra": "sesión",
+        "n": 25
       },
       {
         "palabra": "pueden",
+        "n": 24
+      },
+      {
+        "palabra": "especialmente",
         "n": 24
       },
       {
@@ -442,7 +470,11 @@
         "n": 24
       },
       {
-        "palabra": "especialmente",
+        "palabra": "frente",
+        "n": 24
+      },
+      {
+        "palabra": "proteger",
         "n": 23
       },
       {
@@ -450,40 +482,8 @@
         "n": 23
       },
       {
-        "palabra": "nacional",
+        "palabra": "localidades",
         "n": 23
-      },
-      {
-        "palabra": "sesión",
-        "n": 23
-      },
-      {
-        "palabra": "quiero",
-        "n": 22
-      },
-      {
-        "palabra": "informen",
-        "n": 22
-      },
-      {
-        "palabra": "frente",
-        "n": 22
-      },
-      {
-        "palabra": "proteger",
-        "n": 21
-      },
-      {
-        "palabra": "obras",
-        "n": 21
-      },
-      {
-        "palabra": "regional",
-        "n": 21
-      },
-      {
-        "palabra": "emergencias",
-        "n": 21
       }
     ],
     "nathalie-castillo-rojas-diputado": [
@@ -492,28 +492,28 @@
         "n": 88
       },
       {
+        "palabra": "país",
+        "n": 52
+      },
+      {
         "palabra": "manera",
         "n": 51
       },
       {
-        "palabra": "país",
-        "n": 50
+        "palabra": "personas",
+        "n": 47
       },
       {
         "palabra": "puede",
         "n": 47
       },
       {
-        "palabra": "personas",
-        "n": 46
-      },
-      {
         "palabra": "sino",
-        "n": 43
+        "n": 44
       },
       {
         "palabra": "familias",
-        "n": 38
+        "n": 40
       },
       {
         "palabra": "menos",
@@ -528,6 +528,10 @@
         "n": 34
       },
       {
+        "palabra": "sesión",
+        "n": 33
+      },
+      {
         "palabra": "seguridad",
         "n": 33
       },
@@ -536,7 +540,7 @@
         "n": 33
       },
       {
-        "palabra": "sesión",
+        "palabra": "región",
         "n": 32
       },
       {
@@ -546,10 +550,6 @@
       {
         "palabra": "vamos",
         "n": 31
-      },
-      {
-        "palabra": "región",
-        "n": 29
       },
       {
         "palabra": "entonces",
@@ -576,6 +576,10 @@
         "n": 26
       },
       {
+        "palabra": "quiero",
+        "n": 25
+      },
+      {
         "palabra": "además",
         "n": 25
       },
@@ -592,10 +596,6 @@
         "n": 23
       },
       {
-        "palabra": "quiero",
-        "n": 23
-      },
-      {
         "palabra": "incluso",
         "n": 23
       },
@@ -605,6 +605,10 @@
       },
       {
         "palabra": "hace",
+        "n": 23
+      },
+      {
+        "palabra": "parte",
         "n": 23
       },
       {
@@ -620,8 +624,12 @@
         "n": 22
       },
       {
-        "palabra": "parte",
+        "palabra": "coquimbo",
         "n": 22
+      },
+      {
+        "palabra": "frente",
+        "n": 21
       },
       {
         "palabra": "protección",
@@ -638,14 +646,6 @@
       {
         "palabra": "educación",
         "n": 21
-      },
-      {
-        "palabra": "grandes",
-        "n": 21
-      },
-      {
-        "palabra": "frente",
-        "n": 20
       }
     ],
     "carolina-tello-rojas-diputado": [
@@ -655,7 +655,7 @@
       },
       {
         "palabra": "país",
-        "n": 52
+        "n": 58
       },
       {
         "palabra": "región",
@@ -666,20 +666,20 @@
         "n": 42
       },
       {
+        "palabra": "puede",
+        "n": 37
+      },
+      {
+        "palabra": "derechos",
+        "n": 36
+      },
+      {
         "palabra": "comisión",
         "n": 36
       },
       {
-        "palabra": "puede",
-        "n": 35
-      },
-      {
         "palabra": "agua",
         "n": 35
-      },
-      {
-        "palabra": "derechos",
-        "n": 34
       },
       {
         "palabra": "personas",
@@ -706,11 +706,31 @@
         "n": 28
       },
       {
+        "palabra": "mujeres",
+        "n": 26
+      },
+      {
+        "palabra": "chile",
+        "n": 25
+      },
+      {
+        "palabra": "sesión",
+        "n": 25
+      },
+      {
         "palabra": "realidad",
         "n": 25
       },
       {
+        "palabra": "discusión",
+        "n": 24
+      },
+      {
         "palabra": "cierto",
+        "n": 24
+      },
+      {
+        "palabra": "vida",
         "n": 24
       },
       {
@@ -718,31 +738,19 @@
         "n": 24
       },
       {
-        "palabra": "sesión",
-        "n": 23
-      },
-      {
         "palabra": "recursos",
         "n": 23
-      },
-      {
-        "palabra": "discusión",
-        "n": 22
-      },
-      {
-        "palabra": "vida",
-        "n": 22
       },
       {
         "palabra": "embargo",
         "n": 22
       },
       {
-        "palabra": "gobierno",
+        "palabra": "sistema",
         "n": 21
       },
       {
-        "palabra": "chile",
+        "palabra": "gobierno",
         "n": 21
       },
       {
@@ -751,6 +759,10 @@
       },
       {
         "palabra": "además",
+        "n": 20
+      },
+      {
+        "palabra": "quiero",
         "n": 20
       },
       {
@@ -764,6 +776,10 @@
       {
         "palabra": "rurales",
         "n": 20
+      },
+      {
+        "palabra": "parece",
+        "n": 19
       },
       {
         "palabra": "nacional",
@@ -786,28 +802,12 @@
         "n": 18
       },
       {
-        "palabra": "trabajo",
+        "palabra": "importante",
         "n": 18
       },
       {
-        "palabra": "quiero",
+        "palabra": "simplemente",
         "n": 18
-      },
-      {
-        "palabra": "derecho",
-        "n": 18
-      },
-      {
-        "palabra": "lugar",
-        "n": 18
-      },
-      {
-        "palabra": "parece",
-        "n": 17
-      },
-      {
-        "palabra": "sistema",
-        "n": 17
       }
     ],
     "erich-christ-grohs-marin-diputado": [
@@ -1138,71 +1138,79 @@
   "top_palabras_total": [
     {
       "palabra": "proyecto",
-      "n": 399
-    },
-    {
-      "palabra": "coquimbo",
-      "n": 227
+      "n": 422
     },
     {
       "palabra": "región",
-      "n": 226
+      "n": 247
     },
     {
-      "palabra": "familias",
-      "n": 194
+      "palabra": "coquimbo",
+      "n": 243
     },
     {
       "palabra": "país",
-      "n": 191
+      "n": 201
+    },
+    {
+      "palabra": "familias",
+      "n": 198
     },
     {
       "palabra": "puede",
-      "n": 185
+      "n": 189
     },
     {
       "palabra": "seguridad",
-      "n": 169
+      "n": 173
     },
     {
       "palabra": "sino",
+      "n": 153
+    },
+    {
+      "palabra": "chile",
       "n": 151
     },
     {
       "palabra": "gobierno",
-      "n": 144
-    },
-    {
-      "palabra": "chile",
-      "n": 143
-    },
-    {
-      "palabra": "personas",
-      "n": 131
+      "n": 146
     },
     {
       "palabra": "quiero",
-      "n": 127
+      "n": 135
+    },
+    {
+      "palabra": "personas",
+      "n": 134
     },
     {
       "palabra": "agua",
-      "n": 121
+      "n": 125
     },
     {
       "palabra": "artículo",
-      "n": 111
-    },
-    {
-      "palabra": "rurales",
-      "n": 110
+      "n": 119
     },
     {
       "palabra": "debe",
-      "n": 107
+      "n": 115
+    },
+    {
+      "palabra": "rurales",
+      "n": 114
     },
     {
       "palabra": "sesión",
-      "n": 107
+      "n": 112
+    },
+    {
+      "palabra": "derechos",
+      "n": 108
+    },
+    {
+      "palabra": "comisión",
+      "n": 106
     },
     {
       "palabra": "manera",
@@ -1210,123 +1218,143 @@
     },
     {
       "palabra": "problema",
-      "n": 101
-    },
-    {
-      "palabra": "comisión",
-      "n": 98
-    },
-    {
-      "palabra": "derechos",
-      "n": 96
+      "n": 103
     },
     {
       "palabra": "recursos",
+      "n": 101
+    },
+    {
+      "palabra": "nacional",
       "n": 95
+    },
+    {
+      "palabra": "además",
+      "n": 94
+    },
+    {
+      "palabra": "sistema",
+      "n": 92
     },
     {
       "palabra": "comunidades",
       "n": 90
     },
     {
-      "palabra": "nacional",
-      "n": 89
-    },
-    {
-      "palabra": "además",
+      "palabra": "importante",
       "n": 88
     },
     {
-      "palabra": "sistema",
+      "palabra": "ministerio",
       "n": 86
     },
     {
-      "palabra": "importante",
-      "n": 79
-    },
-    {
       "palabra": "realidad",
-      "n": 77
-    },
-    {
-      "palabra": "años",
-      "n": 76
-    },
-    {
-      "palabra": "vamos",
-      "n": 75
+      "n": 84
     },
     {
       "palabra": "menos",
-      "n": 75
+      "n": 81
+    },
+    {
+      "palabra": "años",
+      "n": 80
     },
     {
       "palabra": "parte",
-      "n": 74
+      "n": 79
+    },
+    {
+      "palabra": "vamos",
+      "n": 79
+    },
+    {
+      "palabra": "tener",
+      "n": 78
+    },
+    {
+      "palabra": "pública",
+      "n": 77
+    },
+    {
+      "palabra": "discusión",
+      "n": 77
+    },
+    {
+      "palabra": "derecho",
+      "n": 77
+    },
+    {
+      "palabra": "vida",
+      "n": 76
+    },
+    {
+      "palabra": "regiones",
+      "n": 76
+    },
+    {
+      "palabra": "comunas",
+      "n": 76
+    },
+    {
+      "palabra": "frente",
+      "n": 75
     },
     {
       "palabra": "mismo",
       "n": 74
     },
     {
-      "palabra": "vida",
-      "n": 74
-    },
-    {
-      "palabra": "comunas",
+      "palabra": "emergencia",
       "n": 74
     },
     {
       "palabra": "podemos",
-      "n": 73
-    },
-    {
-      "palabra": "frente",
-      "n": 72
-    },
-    {
-      "palabra": "pública",
-      "n": 71
-    },
-    {
-      "palabra": "derecho",
-      "n": 71
-    },
-    {
-      "palabra": "regiones",
-      "n": 71
-    },
-    {
-      "palabra": "discusión",
-      "n": 70
-    },
-    {
-      "palabra": "ministerio",
-      "n": 70
+      "n": 74
     },
     {
       "palabra": "hace",
-      "n": 70
+      "n": 72
     },
     {
-      "palabra": "emergencia",
+      "palabra": "desarrollo",
       "n": 69
+    },
+    {
+      "palabra": "entonces",
+      "n": 68
     },
     {
       "palabra": "creo",
       "n": 68
     },
     {
-      "palabra": "entonces",
+      "palabra": "mujeres",
+      "n": 68
+    },
+    {
+      "palabra": "debemos",
+      "n": 67
+    },
+    {
+      "palabra": "tiempo",
       "n": 66
     },
     {
-      "palabra": "tener",
+      "palabra": "situación",
       "n": 66
     },
     {
-      "palabra": "desarrollo",
-      "n": 63
+      "palabra": "aguas",
+      "n": 65
+    },
+    {
+      "palabra": "deben",
+      "n": 64
+    },
+    {
+      "palabra": "rural",
+      "n": 64
     },
     {
       "palabra": "sectores",
@@ -1337,44 +1365,16 @@
       "n": 63
     },
     {
-      "palabra": "situación",
+      "palabra": "solicito",
       "n": 62
     },
     {
-      "palabra": "debemos",
+      "palabra": "hacer",
       "n": 62
     },
     {
       "palabra": "niños",
       "n": 62
-    },
-    {
-      "palabra": "solicito",
-      "n": 60
-    },
-    {
-      "palabra": "hacer",
-      "n": 60
-    },
-    {
-      "palabra": "deben",
-      "n": 60
-    },
-    {
-      "palabra": "embargo",
-      "n": 60
-    },
-    {
-      "palabra": "pueden",
-      "n": 59
-    },
-    {
-      "palabra": "rural",
-      "n": 59
-    },
-    {
-      "palabra": "tiempo",
-      "n": 58
     }
   ],
   "tendencia": {
@@ -1384,24 +1384,25 @@
       "2026-05",
       "2026-06",
       "2026-07",
-      "2026-08"
+      "2026-08",
+      "2026-09"
     ],
     "palabras": [
       "proyecto",
-      "coquimbo",
       "región",
-      "familias",
+      "coquimbo",
       "país",
+      "familias",
       "puede",
       "seguridad",
       "sino",
-      "gobierno",
       "chile",
-      "personas",
+      "gobierno",
       "quiero",
+      "personas",
       "agua",
       "artículo",
-      "rurales"
+      "debe"
     ],
     "serie": {
       "proyecto": [
@@ -1410,15 +1411,8 @@
         117,
         61,
         56,
-        88
-      ],
-      "coquimbo": [
-        13,
-        27,
-        26,
-        34,
-        39,
-        88
+        88,
+        23
       ],
       "región": [
         13,
@@ -1426,15 +1420,17 @@
         24,
         24,
         46,
-        98
+        98,
+        21
       ],
-      "familias": [
-        6,
-        7,
-        45,
-        29,
-        54,
-        53
+      "coquimbo": [
+        13,
+        27,
+        26,
+        34,
+        39,
+        88,
+        16
       ],
       "país": [
         21,
@@ -1442,7 +1438,17 @@
         46,
         50,
         25,
-        21
+        21,
+        10
+      ],
+      "familias": [
+        6,
+        7,
+        45,
+        29,
+        54,
+        53,
+        4
       ],
       "puede": [
         9,
@@ -1450,7 +1456,8 @@
         50,
         35,
         27,
-        41
+        41,
+        4
       ],
       "seguridad": [
         0,
@@ -1458,7 +1465,8 @@
         52,
         34,
         5,
-        45
+        45,
+        4
       ],
       "sino": [
         11,
@@ -1466,15 +1474,8 @@
         36,
         35,
         15,
-        21
-      ],
-      "gobierno": [
-        19,
-        11,
-        36,
-        22,
-        18,
-        38
+        21,
+        2
       ],
       "chile": [
         13,
@@ -1482,15 +1483,17 @@
         54,
         24,
         22,
-        18
+        18,
+        8
       ],
-      "personas": [
-        25,
-        14,
-        15,
-        20,
-        28,
-        29
+      "gobierno": [
+        19,
+        11,
+        36,
+        22,
+        18,
+        38,
+        2
       ],
       "quiero": [
         6,
@@ -1498,7 +1501,17 @@
         21,
         15,
         33,
-        29
+        29,
+        8
+      ],
+      "personas": [
+        25,
+        14,
+        15,
+        20,
+        28,
+        29,
+        3
       ],
       "agua": [
         0,
@@ -1506,7 +1519,8 @@
         17,
         11,
         32,
-        51
+        51,
+        4
       ],
       "artículo": [
         4,
@@ -1514,131 +1528,133 @@
         46,
         14,
         12,
-        22
+        22,
+        8
       ],
-      "rurales": [
+      "debe": [
+        5,
         4,
-        8,
-        17,
-        28,
+        34,
+        27,
         18,
-        35
+        19,
+        8
       ]
     }
   },
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "problema",
-        "n": 101
-      },
-      {
-        "palabra": "proyecto",
-        "n": 399
-      },
-      {
-        "palabra": "debe",
-        "n": 107
-      },
-      {
-        "palabra": "agua",
-        "n": 121
-      },
-      {
-        "palabra": "derechos",
-        "n": 96
-      },
-      {
-        "palabra": "coquimbo",
-        "n": 227
-      },
-      {
-        "palabra": "sino",
-        "n": 151
-      },
-      {
-        "palabra": "artículo",
-        "n": 111
+        "palabra": "personas",
+        "n": 134
       },
       {
         "palabra": "región",
-        "n": 226
+        "n": 247
+      },
+      {
+        "palabra": "puede",
+        "n": 189
+      },
+      {
+        "palabra": "debe",
+        "n": 115
+      },
+      {
+        "palabra": "coquimbo",
+        "n": 243
+      },
+      {
+        "palabra": "familias",
+        "n": 198
+      },
+      {
+        "palabra": "quiero",
+        "n": 135
+      },
+      {
+        "palabra": "artículo",
+        "n": 119
+      },
+      {
+        "palabra": "problema",
+        "n": 103
       },
       {
         "palabra": "nacional",
-        "n": 89
+        "n": 95
+      },
+      {
+        "palabra": "gobierno",
+        "n": 146
+      },
+      {
+        "palabra": "además",
+        "n": 94
+      },
+      {
+        "palabra": "sistema",
+        "n": 92
+      },
+      {
+        "palabra": "comisión",
+        "n": 106
+      },
+      {
+        "palabra": "sino",
+        "n": 153
+      },
+      {
+        "palabra": "país",
+        "n": 201
+      },
+      {
+        "palabra": "recursos",
+        "n": 101
+      },
+      {
+        "palabra": "chile",
+        "n": 151
+      },
+      {
+        "palabra": "sesión",
+        "n": 112
+      },
+      {
+        "palabra": "proyecto",
+        "n": 422
+      },
+      {
+        "palabra": "derechos",
+        "n": 108
+      },
+      {
+        "palabra": "seguridad",
+        "n": 173
+      },
+      {
+        "palabra": "rurales",
+        "n": 114
       },
       {
         "palabra": "manera",
         "n": 103
       },
       {
-        "palabra": "chile",
-        "n": 143
-      },
-      {
-        "palabra": "personas",
-        "n": 131
-      },
-      {
-        "palabra": "comunidades",
-        "n": 90
-      },
-      {
-        "palabra": "gobierno",
-        "n": 144
-      },
-      {
-        "palabra": "además",
-        "n": 88
-      },
-      {
-        "palabra": "país",
-        "n": 191
-      },
-      {
-        "palabra": "rurales",
-        "n": 110
-      },
-      {
-        "palabra": "sesión",
-        "n": 107
-      },
-      {
-        "palabra": "familias",
-        "n": 194
-      },
-      {
-        "palabra": "quiero",
-        "n": 127
-      },
-      {
-        "palabra": "puede",
-        "n": 185
-      },
-      {
-        "palabra": "comisión",
-        "n": 98
-      },
-      {
-        "palabra": "seguridad",
-        "n": 169
-      },
-      {
-        "palabra": "recursos",
-        "n": 95
+        "palabra": "agua",
+        "n": 125
       }
     ],
     "enlaces": [
       {
         "a": "comisión",
         "b": "coquimbo",
-        "peso": 22
+        "peso": 26
       },
       {
         "a": "comisión",
         "b": "debe",
-        "peso": 24
+        "peso": 26
       },
       {
         "a": "comisión",
@@ -1648,107 +1664,122 @@
       {
         "a": "comisión",
         "b": "país",
-        "peso": 33
+        "peso": 35
       },
       {
         "a": "comisión",
         "b": "personas",
-        "peso": 19
+        "peso": 21
       },
       {
         "a": "comisión",
         "b": "proyecto",
-        "peso": 51
+        "peso": 55
       },
       {
         "a": "comisión",
         "b": "quiero",
-        "peso": 24
+        "peso": 26
       },
       {
         "a": "comisión",
         "b": "región",
-        "peso": 25
+        "peso": 27
       },
       {
         "a": "comisión",
         "b": "rurales",
-        "peso": 12
+        "peso": 14
+      },
+      {
+        "a": "comisión",
+        "b": "sistema",
+        "peso": 21
       },
       {
         "a": "coquimbo",
         "b": "debe",
-        "peso": 35
+        "peso": 40
       },
       {
         "a": "coquimbo",
         "b": "gobierno",
-        "peso": 31
+        "peso": 33
       },
       {
         "a": "coquimbo",
         "b": "país",
-        "peso": 41
+        "peso": 44
       },
       {
         "a": "coquimbo",
         "b": "personas",
-        "peso": 38
+        "peso": 41
       },
       {
         "a": "coquimbo",
+        "b": "proyecto",
+        "peso": 74
+      },
+      {
+        "a": "coquimbo",
+        "b": "quiero",
+        "peso": 50
+      },
+      {
+        "a": "coquimbo",
+        "b": "región",
+        "peso": 83
+      },
+      {
+        "a": "coquimbo",
+        "b": "rurales",
+        "peso": 43
+      },
+      {
+        "a": "coquimbo",
+        "b": "sistema",
+        "peso": 36
+      },
+      {
+        "a": "debe",
+        "b": "gobierno",
+        "peso": 23
+      },
+      {
+        "a": "debe",
+        "b": "país",
+        "peso": 33
+      },
+      {
+        "a": "debe",
+        "b": "personas",
+        "peso": 32
+      },
+      {
+        "a": "debe",
         "b": "proyecto",
         "peso": 67
       },
       {
-        "a": "coquimbo",
-        "b": "quiero",
-        "peso": 45
-      },
-      {
-        "a": "coquimbo",
-        "b": "región",
-        "peso": 77
-      },
-      {
-        "a": "coquimbo",
-        "b": "rurales",
-        "peso": 40
-      },
-      {
-        "a": "debe",
-        "b": "gobierno",
-        "peso": 21
-      },
-      {
-        "a": "debe",
-        "b": "país",
-        "peso": 33
-      },
-      {
-        "a": "debe",
-        "b": "personas",
-        "peso": 30
-      },
-      {
-        "a": "debe",
-        "b": "proyecto",
-        "peso": 62
-      },
-      {
         "a": "debe",
         "b": "quiero",
-        "peso": 32
+        "peso": 36
       },
       {
         "a": "debe",
         "b": "región",
-        "peso": 38
+        "peso": 41
       },
       {
         "a": "debe",
         "b": "rurales",
-        "peso": 26
+        "peso": 29
+      },
+      {
+        "a": "debe",
+        "b": "sistema",
+        "peso": 28
       },
       {
         "a": "gobierno",
@@ -1763,17 +1794,17 @@
       {
         "a": "gobierno",
         "b": "proyecto",
-        "peso": 56
+        "peso": 58
       },
       {
         "a": "gobierno",
         "b": "quiero",
-        "peso": 39
+        "peso": 41
       },
       {
         "a": "gobierno",
         "b": "región",
-        "peso": 32
+        "peso": 34
       },
       {
         "a": "gobierno",
@@ -1781,24 +1812,29 @@
         "peso": 19
       },
       {
+        "a": "gobierno",
+        "b": "sistema",
+        "peso": 30
+      },
+      {
         "a": "país",
         "b": "personas",
-        "peso": 41
+        "peso": 42
       },
       {
         "a": "país",
         "b": "proyecto",
-        "peso": 70
+        "peso": 72
       },
       {
         "a": "país",
         "b": "quiero",
-        "peso": 46
+        "peso": 49
       },
       {
         "a": "país",
         "b": "región",
-        "peso": 40
+        "peso": 43
       },
       {
         "a": "país",
@@ -1806,54 +1842,84 @@
         "peso": 21
       },
       {
+        "a": "país",
+        "b": "sistema",
+        "peso": 40
+      },
+      {
         "a": "personas",
         "b": "proyecto",
-        "peso": 55
+        "peso": 57
       },
       {
         "a": "personas",
         "b": "quiero",
-        "peso": 35
+        "peso": 38
       },
       {
         "a": "personas",
         "b": "región",
-        "peso": 39
+        "peso": 40
       },
       {
         "a": "personas",
-        "b": "rurales",
-        "peso": 22
-      },
-      {
-        "a": "proyecto",
-        "b": "quiero",
-        "peso": 65
-      },
-      {
-        "a": "proyecto",
-        "b": "región",
-        "peso": 66
-      },
-      {
-        "a": "proyecto",
-        "b": "rurales",
-        "peso": 41
-      },
-      {
-        "a": "quiero",
-        "b": "región",
-        "peso": 48
-      },
-      {
-        "a": "quiero",
         "b": "rurales",
         "peso": 24
       },
       {
+        "a": "personas",
+        "b": "sistema",
+        "peso": 29
+      },
+      {
+        "a": "proyecto",
+        "b": "quiero",
+        "peso": 69
+      },
+      {
+        "a": "proyecto",
+        "b": "región",
+        "peso": 71
+      },
+      {
+        "a": "proyecto",
+        "b": "rurales",
+        "peso": 44
+      },
+      {
+        "a": "proyecto",
+        "b": "sistema",
+        "peso": 53
+      },
+      {
+        "a": "quiero",
+        "b": "región",
+        "peso": 51
+      },
+      {
+        "a": "quiero",
+        "b": "rurales",
+        "peso": 26
+      },
+      {
+        "a": "quiero",
+        "b": "sistema",
+        "peso": 38
+      },
+      {
         "a": "región",
         "b": "rurales",
-        "peso": 40
+        "peso": 41
+      },
+      {
+        "a": "región",
+        "b": "sistema",
+        "peso": 35
+      },
+      {
+        "a": "rurales",
+        "b": "sistema",
+        "peso": 18
       },
       {
         "a": "manera",
@@ -1863,12 +1929,12 @@
       {
         "a": "chile",
         "b": "comisión",
-        "peso": 21
+        "peso": 23
       },
       {
         "a": "chile",
         "b": "derechos",
-        "peso": 16
+        "peso": 20
       },
       {
         "a": "chile",
@@ -1888,7 +1954,7 @@
       {
         "a": "chile",
         "b": "país",
-        "peso": 44
+        "peso": 48
       },
       {
         "a": "chile",
@@ -1898,22 +1964,22 @@
       {
         "a": "chile",
         "b": "proyecto",
-        "peso": 64
+        "peso": 67
       },
       {
         "a": "chile",
         "b": "puede",
-        "peso": 47
+        "peso": 49
       },
       {
         "a": "chile",
         "b": "sino",
-        "peso": 43
+        "peso": 44
       },
       {
         "a": "comisión",
         "b": "derechos",
-        "peso": 21
+        "peso": 23
       },
       {
         "a": "comisión",
@@ -1928,7 +1994,7 @@
       {
         "a": "comisión",
         "b": "puede",
-        "peso": 25
+        "peso": 27
       },
       {
         "a": "comisión",
@@ -1938,12 +2004,12 @@
       {
         "a": "derechos",
         "b": "familias",
-        "peso": 22
+        "peso": 24
       },
       {
         "a": "derechos",
         "b": "gobierno",
-        "peso": 17
+        "peso": 19
       },
       {
         "a": "derechos",
@@ -1953,7 +2019,7 @@
       {
         "a": "derechos",
         "b": "país",
-        "peso": 23
+        "peso": 27
       },
       {
         "a": "derechos",
@@ -1963,12 +2029,12 @@
       {
         "a": "derechos",
         "b": "proyecto",
-        "peso": 39
+        "peso": 43
       },
       {
         "a": "derechos",
         "b": "puede",
-        "peso": 28
+        "peso": 30
       },
       {
         "a": "derechos",
@@ -1978,7 +2044,7 @@
       {
         "a": "familias",
         "b": "gobierno",
-        "peso": 46
+        "peso": 48
       },
       {
         "a": "familias",
@@ -1988,17 +2054,17 @@
       {
         "a": "familias",
         "b": "país",
-        "peso": 50
+        "peso": 51
       },
       {
         "a": "familias",
         "b": "personas",
-        "peso": 45
+        "peso": 46
       },
       {
         "a": "familias",
         "b": "proyecto",
-        "peso": 80
+        "peso": 82
       },
       {
         "a": "familias",
@@ -2008,7 +2074,7 @@
       {
         "a": "familias",
         "b": "sino",
-        "peso": 49
+        "peso": 50
       },
       {
         "a": "gobierno",
@@ -2048,32 +2114,32 @@
       {
         "a": "país",
         "b": "puede",
-        "peso": 49
+        "peso": 51
       },
       {
         "a": "país",
         "b": "sino",
-        "peso": 53
+        "peso": 54
       },
       {
         "a": "personas",
         "b": "puede",
-        "peso": 48
+        "peso": 50
       },
       {
         "a": "personas",
         "b": "sino",
-        "peso": 36
+        "peso": 37
       },
       {
         "a": "proyecto",
         "b": "puede",
-        "peso": 81
+        "peso": 83
       },
       {
         "a": "proyecto",
         "b": "sino",
-        "peso": 75
+        "peso": 76
       },
       {
         "a": "puede",
@@ -2083,17 +2149,17 @@
       {
         "a": "chile",
         "b": "recursos",
-        "peso": 28
+        "peso": 30
       },
       {
         "a": "familias",
         "b": "recursos",
-        "peso": 31
+        "peso": 33
       },
       {
         "a": "país",
         "b": "recursos",
-        "peso": 29
+        "peso": 31
       },
       {
         "a": "personas",
@@ -2103,7 +2169,7 @@
       {
         "a": "proyecto",
         "b": "recursos",
-        "peso": 49
+        "peso": 53
       },
       {
         "a": "recursos",
@@ -2113,17 +2179,17 @@
       {
         "a": "además",
         "b": "chile",
-        "peso": 29
+        "peso": 31
       },
       {
         "a": "además",
         "b": "debe",
-        "peso": 26
+        "peso": 28
       },
       {
         "a": "además",
         "b": "derechos",
-        "peso": 22
+        "peso": 24
       },
       {
         "a": "además",
@@ -2143,12 +2209,12 @@
       {
         "a": "además",
         "b": "país",
-        "peso": 36
+        "peso": 38
       },
       {
         "a": "además",
         "b": "personas",
-        "peso": 21
+        "peso": 23
       },
       {
         "a": "además",
@@ -2158,22 +2224,22 @@
       {
         "a": "además",
         "b": "proyecto",
-        "peso": 51
+        "peso": 55
       },
       {
         "a": "además",
         "b": "puede",
-        "peso": 40
+        "peso": 42
       },
       {
         "a": "además",
         "b": "quiero",
-        "peso": 34
+        "peso": 36
       },
       {
         "a": "además",
         "b": "sesión",
-        "peso": 31
+        "peso": 33
       },
       {
         "a": "además",
@@ -2181,9 +2247,14 @@
         "peso": 38
       },
       {
+        "a": "además",
+        "b": "sistema",
+        "peso": 28
+      },
+      {
         "a": "chile",
         "b": "debe",
-        "peso": 37
+        "peso": 38
       },
       {
         "a": "chile",
@@ -2193,22 +2264,27 @@
       {
         "a": "chile",
         "b": "quiero",
-        "peso": 39
+        "peso": 41
       },
       {
         "a": "chile",
         "b": "sesión",
-        "peso": 43
+        "peso": 45
+      },
+      {
+        "a": "chile",
+        "b": "sistema",
+        "peso": 29
       },
       {
         "a": "debe",
         "b": "derechos",
-        "peso": 17
+        "peso": 19
       },
       {
         "a": "debe",
         "b": "familias",
-        "peso": 32
+        "peso": 34
       },
       {
         "a": "debe",
@@ -2218,57 +2294,67 @@
       {
         "a": "debe",
         "b": "problema",
-        "peso": 22
+        "peso": 24
       },
       {
         "a": "debe",
         "b": "puede",
-        "peso": 48
+        "peso": 50
       },
       {
         "a": "debe",
         "b": "sesión",
-        "peso": 37
+        "peso": 39
       },
       {
         "a": "debe",
         "b": "sino",
+        "peso": 41
+      },
+      {
+        "a": "derechos",
+        "b": "problema",
+        "peso": 18
+      },
+      {
+        "a": "derechos",
+        "b": "quiero",
+        "peso": 28
+      },
+      {
+        "a": "derechos",
+        "b": "sesión",
+        "peso": 21
+      },
+      {
+        "a": "derechos",
+        "b": "sistema",
+        "peso": 26
+      },
+      {
+        "a": "familias",
+        "b": "problema",
         "peso": 40
       },
       {
-        "a": "derechos",
-        "b": "problema",
-        "peso": 16
-      },
-      {
-        "a": "derechos",
-        "b": "quiero",
-        "peso": 24
-      },
-      {
-        "a": "derechos",
-        "b": "sesión",
-        "peso": 19
-      },
-      {
-        "a": "familias",
-        "b": "problema",
-        "peso": 38
-      },
-      {
         "a": "familias",
         "b": "quiero",
-        "peso": 47
+        "peso": 50
       },
       {
         "a": "familias",
         "b": "sesión",
-        "peso": 49
+        "peso": 50
+      },
+      {
+        "a": "familias",
+        "b": "sistema",
+        "peso": 43
       },
       {
         "a": "gobierno",
         "b": "problema",
-        "peso": 28
+        "peso": 30
       },
       {
         "a": "gobierno",
@@ -2291,6 +2377,11 @@
         "peso": 36
       },
       {
+        "a": "manera",
+        "b": "sistema",
+        "peso": 26
+      },
+      {
         "a": "país",
         "b": "problema",
         "peso": 29
@@ -2298,7 +2389,7 @@
       {
         "a": "país",
         "b": "sesión",
-        "peso": 44
+        "peso": 47
       },
       {
         "a": "personas",
@@ -2308,12 +2399,12 @@
       {
         "a": "personas",
         "b": "sesión",
-        "peso": 33
+        "peso": 36
       },
       {
         "a": "problema",
         "b": "proyecto",
-        "peso": 50
+        "peso": 52
       },
       {
         "a": "problema",
@@ -2323,7 +2414,7 @@
       {
         "a": "problema",
         "b": "quiero",
-        "peso": 33
+        "peso": 35
       },
       {
         "a": "problema",
@@ -2336,89 +2427,104 @@
         "peso": 30
       },
       {
+        "a": "problema",
+        "b": "sistema",
+        "peso": 22
+      },
+      {
         "a": "proyecto",
         "b": "sesión",
-        "peso": 75
+        "peso": 77
       },
       {
         "a": "puede",
         "b": "quiero",
-        "peso": 54
+        "peso": 58
       },
       {
         "a": "puede",
+        "b": "sesión",
+        "peso": 51
+      },
+      {
+        "a": "puede",
+        "b": "sistema",
+        "peso": 34
+      },
+      {
+        "a": "quiero",
         "b": "sesión",
         "peso": 47
       },
       {
         "a": "quiero",
-        "b": "sesión",
-        "peso": 42
-      },
-      {
-        "a": "quiero",
         "b": "sino",
-        "peso": 45
+        "peso": 46
       },
       {
         "a": "sesión",
         "b": "sino",
-        "peso": 48
+        "peso": 49
+      },
+      {
+        "a": "sesión",
+        "b": "sistema",
+        "peso": 38
+      },
+      {
+        "a": "sino",
+        "b": "sistema",
+        "peso": 33
       },
       {
         "a": "chile",
         "b": "coquimbo",
-        "peso": 42
+        "peso": 45
       },
       {
         "a": "chile",
         "b": "región",
-        "peso": 42
+        "peso": 45
       },
       {
         "a": "coquimbo",
         "b": "recursos",
-        "peso": 36
+        "peso": 40
       },
       {
         "a": "gobierno",
         "b": "recursos",
-        "peso": 22
+        "peso": 24
       },
       {
         "a": "recursos",
         "b": "región",
-        "peso": 35
+        "peso": 39
       },
       {
         "a": "además",
         "b": "artículo",
-        "peso": 23
-      },
-      {
-        "a": "además",
-        "b": "comisión",
         "peso": 25
       },
       {
         "a": "además",
-        "b": "comunidades",
-        "peso": 12
+        "b": "comisión",
+        "peso": 29
       },
       {
         "a": "además",
         "b": "coquimbo",
-        "peso": 26
+        "peso": 30
       },
       {
         "a": "además",
         "b": "nacional",
-        "peso": 24
+        "peso": 28
       },
       {
         "a": "además",
         "b": "región",
-        "peso": 26
+        "peso": 28
       },
       {
         "a": "artículo",
@@ -2428,22 +2534,17 @@
       {
         "a": "artículo",
         "b": "comisión",
-        "peso": 22
-      },
-      {
-        "a": "artículo",
-        "b": "comunidades",
-        "peso": 11
+        "peso": 24
       },
       {
         "a": "artículo",
         "b": "coquimbo",
-        "peso": 15
+        "peso": 17
       },
       {
         "a": "artículo",
         "b": "debe",
-        "peso": 10
+        "peso": 12
       },
       {
         "a": "artículo",
@@ -2468,7 +2569,7 @@
       {
         "a": "artículo",
         "b": "nacional",
-        "peso": 14
+        "peso": 16
       },
       {
         "a": "artículo",
@@ -2478,7 +2579,7 @@
       {
         "a": "artículo",
         "b": "personas",
-        "peso": 16
+        "peso": 18
       },
       {
         "a": "artículo",
@@ -2488,12 +2589,12 @@
       {
         "a": "artículo",
         "b": "proyecto",
-        "peso": 36
+        "peso": 38
       },
       {
         "a": "artículo",
         "b": "puede",
-        "peso": 25
+        "peso": 27
       },
       {
         "a": "artículo",
@@ -2503,7 +2604,7 @@
       {
         "a": "artículo",
         "b": "sesión",
-        "peso": 27
+        "peso": 29
       },
       {
         "a": "artículo",
@@ -2511,119 +2612,39 @@
         "peso": 29
       },
       {
-        "a": "chile",
-        "b": "comunidades",
-        "peso": 30
-      },
-      {
-        "a": "chile",
-        "b": "nacional",
-        "peso": 32
-      },
-      {
-        "a": "comisión",
-        "b": "comunidades",
-        "peso": 12
-      },
-      {
-        "a": "comisión",
-        "b": "nacional",
-        "peso": 16
-      },
-      {
-        "a": "comisión",
-        "b": "problema",
-        "peso": 12
-      },
-      {
-        "a": "comisión",
-        "b": "sesión",
-        "peso": 23
-      },
-      {
-        "a": "comunidades",
-        "b": "coquimbo",
-        "peso": 35
-      },
-      {
-        "a": "comunidades",
-        "b": "debe",
-        "peso": 16
-      },
-      {
-        "a": "comunidades",
-        "b": "derechos",
-        "peso": 14
-      },
-      {
-        "a": "comunidades",
-        "b": "familias",
-        "peso": 42
-      },
-      {
-        "a": "comunidades",
-        "b": "gobierno",
-        "peso": 22
-      },
-      {
-        "a": "comunidades",
-        "b": "manera",
-        "peso": 18
-      },
-      {
-        "a": "comunidades",
-        "b": "nacional",
-        "peso": 15
-      },
-      {
-        "a": "comunidades",
-        "b": "país",
+        "a": "artículo",
+        "b": "sistema",
         "peso": 19
       },
       {
-        "a": "comunidades",
-        "b": "personas",
-        "peso": 21
-      },
-      {
-        "a": "comunidades",
-        "b": "problema",
-        "peso": 22
-      },
-      {
-        "a": "comunidades",
-        "b": "proyecto",
-        "peso": 40
-      },
-      {
-        "a": "comunidades",
-        "b": "puede",
+        "a": "chile",
+        "b": "nacional",
         "peso": 34
       },
       {
-        "a": "comunidades",
-        "b": "región",
-        "peso": 35
+        "a": "comisión",
+        "b": "nacional",
+        "peso": 20
       },
       {
-        "a": "comunidades",
+        "a": "comisión",
+        "b": "problema",
+        "peso": 12
+      },
+      {
+        "a": "comisión",
         "b": "sesión",
-        "peso": 21
-      },
-      {
-        "a": "comunidades",
-        "b": "sino",
         "peso": 25
       },
       {
         "a": "coquimbo",
         "b": "derechos",
-        "peso": 18
+        "peso": 22
       },
       {
         "a": "coquimbo",
         "b": "familias",
-        "peso": 59
+        "peso": 62
       },
       {
         "a": "coquimbo",
@@ -2633,42 +2654,42 @@
       {
         "a": "coquimbo",
         "b": "nacional",
-        "peso": 41
+        "peso": 45
       },
       {
         "a": "coquimbo",
         "b": "problema",
-        "peso": 31
+        "peso": 33
       },
       {
         "a": "coquimbo",
         "b": "puede",
-        "peso": 55
+        "peso": 57
       },
       {
         "a": "coquimbo",
         "b": "sesión",
-        "peso": 39
+        "peso": 42
       },
       {
         "a": "coquimbo",
         "b": "sino",
-        "peso": 43
+        "peso": 45
       },
       {
         "a": "debe",
         "b": "nacional",
-        "peso": 25
+        "peso": 27
       },
       {
         "a": "derechos",
         "b": "nacional",
-        "peso": 12
+        "peso": 14
       },
       {
         "a": "derechos",
         "b": "región",
-        "peso": 20
+        "peso": 24
       },
       {
         "a": "familias",
@@ -2678,7 +2699,7 @@
       {
         "a": "familias",
         "b": "región",
-        "peso": 58
+        "peso": 61
       },
       {
         "a": "gobierno",
@@ -2698,12 +2719,12 @@
       {
         "a": "nacional",
         "b": "país",
-        "peso": 33
+        "peso": 35
       },
       {
         "a": "nacional",
         "b": "personas",
-        "peso": 25
+        "peso": 27
       },
       {
         "a": "nacional",
@@ -2713,22 +2734,22 @@
       {
         "a": "nacional",
         "b": "proyecto",
-        "peso": 45
+        "peso": 49
       },
       {
         "a": "nacional",
         "b": "puede",
-        "peso": 37
+        "peso": 39
       },
       {
         "a": "nacional",
         "b": "región",
-        "peso": 43
+        "peso": 45
       },
       {
         "a": "nacional",
         "b": "sesión",
-        "peso": 34
+        "peso": 36
       },
       {
         "a": "nacional",
@@ -2736,9 +2757,14 @@
         "peso": 32
       },
       {
+        "a": "nacional",
+        "b": "sistema",
+        "peso": 25
+      },
+      {
         "a": "problema",
         "b": "región",
-        "peso": 31
+        "peso": 33
       },
       {
         "a": "puede",
@@ -2748,22 +2774,22 @@
       {
         "a": "región",
         "b": "sesión",
-        "peso": 43
+        "peso": 44
       },
       {
         "a": "región",
         "b": "sino",
-        "peso": 43
+        "peso": 45
       },
       {
         "a": "además",
         "b": "recursos",
-        "peso": 24
+        "peso": 26
       },
       {
         "a": "comisión",
         "b": "recursos",
-        "peso": 23
+        "peso": 25
       },
       {
         "a": "recursos",
@@ -2773,12 +2799,12 @@
       {
         "a": "chile",
         "b": "seguridad",
-        "peso": 31
+        "peso": 33
       },
       {
         "a": "comisión",
         "b": "seguridad",
-        "peso": 21
+        "peso": 25
       },
       {
         "a": "gobierno",
@@ -2788,7 +2814,7 @@
       {
         "a": "proyecto",
         "b": "seguridad",
-        "peso": 58
+        "peso": 62
       },
       {
         "a": "seguridad",
@@ -2798,7 +2824,7 @@
       {
         "a": "coquimbo",
         "b": "seguridad",
-        "peso": 31
+        "peso": 35
       },
       {
         "a": "manera",
@@ -2813,57 +2839,67 @@
       {
         "a": "nacional",
         "b": "quiero",
-        "peso": 34
+        "peso": 36
       },
       {
         "a": "nacional",
         "b": "recursos",
-        "peso": 21
+        "peso": 23
       },
       {
         "a": "nacional",
         "b": "seguridad",
-        "peso": 28
+        "peso": 32
       },
       {
         "a": "país",
         "b": "seguridad",
-        "peso": 33
+        "peso": 35
       },
       {
         "a": "personas",
         "b": "seguridad",
-        "peso": 28
+        "peso": 30
       },
       {
         "a": "quiero",
         "b": "recursos",
-        "peso": 28
+        "peso": 30
       },
       {
         "a": "quiero",
         "b": "seguridad",
-        "peso": 33
+        "peso": 35
       },
       {
         "a": "recursos",
         "b": "seguridad",
+        "peso": 30
+      },
+      {
+        "a": "recursos",
+        "b": "sistema",
         "peso": 28
       },
       {
         "a": "región",
         "b": "seguridad",
-        "peso": 32
+        "peso": 34
       },
       {
         "a": "seguridad",
         "b": "sesión",
-        "peso": 31
+        "peso": 33
+      },
+      {
+        "a": "seguridad",
+        "b": "sistema",
+        "peso": 19
       },
       {
         "a": "además",
         "b": "seguridad",
-        "peso": 28
+        "peso": 32
       },
       {
         "a": "familias",
@@ -2873,12 +2909,12 @@
       {
         "a": "problema",
         "b": "recursos",
-        "peso": 15
+        "peso": 17
       },
       {
         "a": "artículo",
         "b": "quiero",
-        "peso": 30
+        "peso": 32
       },
       {
         "a": "problema",
@@ -2893,47 +2929,47 @@
       {
         "a": "puede",
         "b": "seguridad",
-        "peso": 48
+        "peso": 50
       },
       {
         "a": "derechos",
         "b": "recursos",
-        "peso": 20
+        "peso": 24
       },
       {
         "a": "derechos",
         "b": "seguridad",
-        "peso": 18
+        "peso": 20
       },
       {
         "a": "nacional",
         "b": "rurales",
-        "peso": 23
+        "peso": 25
       },
       {
         "a": "rurales",
         "b": "seguridad",
-        "peso": 22
+        "peso": 24
       },
       {
         "a": "rurales",
         "b": "sino",
-        "peso": 22
+        "peso": 23
       },
       {
         "a": "chile",
         "b": "rurales",
-        "peso": 26
+        "peso": 27
       },
       {
         "a": "debe",
         "b": "seguridad",
-        "peso": 36
+        "peso": 38
       },
       {
         "a": "además",
         "b": "rurales",
-        "peso": 13
+        "peso": 15
       },
       {
         "a": "problema",
@@ -2943,37 +2979,32 @@
       {
         "a": "puede",
         "b": "rurales",
-        "peso": 32
+        "peso": 34
       },
       {
         "a": "agua",
         "b": "chile",
-        "peso": 20
-      },
-      {
-        "a": "agua",
-        "b": "comunidades",
-        "peso": 26
+        "peso": 22
       },
       {
         "a": "agua",
         "b": "coquimbo",
-        "peso": 41
+        "peso": 45
       },
       {
         "a": "agua",
         "b": "debe",
-        "peso": 17
+        "peso": 19
       },
       {
         "a": "agua",
         "b": "derechos",
-        "peso": 10
+        "peso": 14
       },
       {
         "a": "agua",
         "b": "familias",
-        "peso": 36
+        "peso": 38
       },
       {
         "a": "agua",
@@ -2983,7 +3014,7 @@
       {
         "a": "agua",
         "b": "proyecto",
-        "peso": 33
+        "peso": 37
       },
       {
         "a": "agua",
@@ -2993,7 +3024,7 @@
       {
         "a": "agua",
         "b": "región",
-        "peso": 41
+        "peso": 45
       },
       {
         "a": "agua",
@@ -3003,17 +3034,7 @@
       {
         "a": "agua",
         "b": "seguridad",
-        "peso": 15
-      },
-      {
-        "a": "comunidades",
-        "b": "rurales",
-        "peso": 22
-      },
-      {
-        "a": "comunidades",
-        "b": "seguridad",
-        "peso": 13
+        "peso": 17
       },
       {
         "a": "derechos",
@@ -3028,36 +3049,31 @@
       {
         "a": "debe",
         "b": "recursos",
-        "peso": 27
+        "peso": 29
       },
       {
         "a": "agua",
         "b": "nacional",
-        "peso": 22
+        "peso": 24
       },
       {
         "a": "agua",
         "b": "país",
-        "peso": 16
+        "peso": 18
       },
       {
         "a": "agua",
         "b": "problema",
-        "peso": 18
+        "peso": 20
       },
       {
         "a": "agua",
         "b": "quiero",
-        "peso": 22
+        "peso": 24
       },
       {
         "a": "agua",
         "b": "sino",
-        "peso": 18
-      },
-      {
-        "a": "comunidades",
-        "b": "quiero",
         "peso": 18
       },
       {
@@ -3068,17 +3084,17 @@
       {
         "a": "rurales",
         "b": "sesión",
-        "peso": 24
+        "peso": 26
       },
       {
         "a": "además",
         "b": "agua",
-        "peso": 11
+        "peso": 13
       },
       {
         "a": "agua",
         "b": "comisión",
-        "peso": 12
+        "peso": 14
       },
       {
         "a": "agua",
@@ -3088,7 +3104,7 @@
       {
         "a": "agua",
         "b": "recursos",
-        "peso": 20
+        "peso": 24
       },
       {
         "a": "agua",
@@ -3096,14 +3112,14 @@
         "peso": 20
       },
       {
-        "a": "comunidades",
-        "b": "recursos",
+        "a": "agua",
+        "b": "sistema",
         "peso": 18
       },
       {
         "a": "artículo",
         "b": "seguridad",
-        "peso": 10
+        "peso": 12
       },
       {
         "a": "artículo",
@@ -3123,20 +3139,20 @@
       {
         "a": "artículo",
         "b": "rurales",
-        "peso": 10
+        "peso": 12
       },
       {
         "a": "agua",
         "b": "gobierno",
-        "peso": 18
+        "peso": 20
       }
     ]
   },
   "participacion": {
     "bernardo-antonio-salinas-maya-diputado": {
-      "intervenciones": 27,
-      "segundos": 4116,
-      "con_texto": 27
+      "intervenciones": 29,
+      "segundos": 4422,
+      "con_texto": 29
     },
     "daniel-manouchehri-lobos-diputado": {
       "intervenciones": 39,
@@ -3144,19 +3160,19 @@
       "con_texto": 38
     },
     "eileen-patricia-urqueta-rojas-diputado": {
-      "intervenciones": 45,
-      "segundos": 4212,
-      "con_texto": 45
+      "intervenciones": 52,
+      "segundos": 5039,
+      "con_texto": 50
     },
     "nathalie-castillo-rojas-diputado": {
-      "intervenciones": 36,
-      "segundos": 5697,
-      "con_texto": 35
+      "intervenciones": 37,
+      "segundos": 5829,
+      "con_texto": 36
     },
     "carolina-tello-rojas-diputado": {
-      "intervenciones": 37,
-      "segundos": 6426,
-      "con_texto": 34
+      "intervenciones": 39,
+      "segundos": 6855,
+      "con_texto": 36
     },
     "marco-antonio-sulantay-olivares-diputado": {
       "intervenciones": 4,
@@ -3164,12 +3180,12 @@
       "con_texto": 3
     },
     "erich-christ-grohs-marin-diputado": {
-      "intervenciones": 8,
-      "segundos": 1000,
+      "intervenciones": 9,
+      "segundos": 1073,
       "con_texto": 8
     }
   },
-  "total_intervenciones": 196,
-  "total_con_texto": 190,
-  "total_palabras_corpus": 39179
+  "total_intervenciones": 209,
+  "total_con_texto": 200,
+  "total_palabras_corpus": 41490
 }

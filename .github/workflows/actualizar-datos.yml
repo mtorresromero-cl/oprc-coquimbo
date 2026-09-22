@@ -26,11 +26,19 @@ jobs:
         continue-on-error: true
       - run: python scrapers/senado_mociones.py
         continue-on-error: true
+      - run: python scrapers/senado_intervenciones.py
+        continue-on-error: true
+      - run: python scrapers/analisis_intervenciones.py --senado
+        continue-on-error: true
       - run: python scrapers/camara_mociones.py
         continue-on-error: true
       - run: python scrapers/camara_asistencia.py
         continue-on-error: true
       - run: python scrapers/camara_votaciones.py
+        continue-on-error: true
+      - run: python scrapers/intervenciones_sala.py
+        continue-on-error: true
+      - run: python scrapers/analisis_intervenciones.py
         continue-on-error: true
       - run: python scrapers/transparencia_municipal.py
         continue-on-error: true
