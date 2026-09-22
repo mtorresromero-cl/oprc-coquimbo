@@ -24,6 +24,19 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 	const [anno, mes] = m.split('-').map(Number);
 	return `${nombreMes(mes).slice(0, 3)} ${anno}`;
 });
+
+// rango de fechas del período cubierto, derivado de los meses con datos
+// reales (no a mano) — si no, queda desactualizado cada vez que avanza
+// la legislatura y nadie se acuerda de venir a corregir el texto.
+function formatoRango(meses: string[]): string {
+	if (meses.length === 0) return '';
+	const [annoIni, mesIni] = meses[0].split('-').map(Number);
+	const [annoFin, mesFin] = meses[meses.length - 1].split('-').map(Number);
+	if (meses.length === 1) return `${nombreMes(mesIni)} ${annoIni}`;
+	const inicio = annoIni === annoFin ? nombreMes(mesIni) : `${nombreMes(mesIni)} ${annoIni}`;
+	return `${inicio}-${nombreMes(mesFin)} ${annoFin}`;
+}
+const rangoFechas = formatoRango(tendencia.meses);
 ---
 
 <Layout
@@ -42,8 +55,8 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 				Intervenciones en sala
 			</h1>
 			<p class="mt-5 max-w-2xl text-lg text-slate-300">
-				{analisisIntervenciones.total_con_texto} discursos reales de los 7 diputados de la región,
-				marzo-agosto 2026, vía el boletín de sesiones de camara.cl —
+				{analisisIntervenciones.total_con_texto} discursos reales de los 7 diputados de la región,{' '}
+				{rangoFechas}, vía el boletín de sesiones de camara.cl —{' '}
 				{analisisIntervenciones.total_palabras_corpus.toLocaleString('es-CL')} palabras analizadas.
 			</p>
 		</div>
