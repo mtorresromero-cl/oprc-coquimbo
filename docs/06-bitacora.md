@@ -13,6 +13,47 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-28 — `senado_asistencia.py` bloqueado por Cloudflare: sin parche disponible (a diferencia de diputados)
+
+El cron semanal del lunes 28-sep no disparó solo (mismo patrón conocido de
+GitHub Actions ya documentado en la entrada 2026-09-07: `schedule` no tiene
+hora garantizada). Se disparó manual (`workflow_dispatch`, run `36448921696`)
+y terminó ok en general, pero `senado_asistencia.py` falló con
+`403 Forbidden` en `web-back.senado.cl/api/legislatures`.
+
+**Investigado a fondo, no es el bug de "falta www" de camara.cl (ver
+entradas de 2026-09-02/03 más abajo) — es un bloqueo distinto:**
+
+- Probado sin éxito: con/sin `www.` en el host, headers `Referer`/`Origin`
+  del sitio real, `curl_cffi impersonate="chrome"` (el mismo truco que
+  desbloqueó camara.cl e intervenciones_sala.py), y un Playwright con Chrome
+  real cargando la página completa — todo devuelve el challenge HTML de
+  Cloudflare ("Attention Required"), nunca el JSON.
+- El header `cf-ray` de la respuesta marca colo `EZE` (Buenos Aires):
+  Cloudflare está bloqueando por reputación de IP (datacenter/cloud), no por
+  User-Agent ni headers — los runners de GitHub Actions son el mismo tipo de
+  IP, así que sufren el mismo bloqueo siempre, no es intermitente.
+- Hallazgo aparte: cargando la página `/actividad-legislativa/sala/asistencia`
+  con Playwright, el navegador **nunca dispara** la petición a
+  `/api/sessions/attendance` — el componente que la referenciaría
+  (`component_api_reference` / `endpointUrl` en el JSON de Drupal) parece
+  configuración de CMS ya sin uso real en el render actual. Puede que
+  senado.cl haya descontinuado esa integración de su lado, además de
+  protegerla.
+
+**Sin parche disponible, a diferencia de diputados:** quieneseljefe.cl (el
+parche usado para `camara_votaciones.py`/`camara_asistencia.py`, ver entrada
+2026-09-03) **no tiene sección de senadores** — confirmado con 404 en
+`/senador/*` y sin ningún link a esa sección en el sitio.
+
+**Queda así:** el scraper sigue con `continue-on-error` (no bloquea el resto
+del workflow ni el deploy), pero `asistencia-resumen-senadores.json` queda
+congelado en la fecha de la última corrida exitosa (21-sep) hasta que se
+resuelva el bloqueo de Cloudflare o aparezca una fuente alternativa con datos
+de senadores. Pendiente, no resuelto.
+
+---
+
 ## 2026-09-07 — Prensa regional nunca se actualizaba sola: faltaba en el workflow
 
 El usuario notó que en la herramienta de prensa solo veía noticias de la semana
