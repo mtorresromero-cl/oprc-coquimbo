@@ -1,5 +1,239 @@
 [
   {
+    "id": "senado-10986-60-374-2026-09-23",
+    "camara": "senado",
+    "fecha": "2026-09-23",
+    "numero_sesion": "60/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "-En votación las enmiendas aprobadas por unanimidad por la Comisión",
+    "resultado": "aprobado",
+    "votos_favor": 21,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=10986",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "pareo"
+      }
+    ]
+  },
+  {
+    "id": "senado-17640-60-374-2026-09-23",
+    "camara": "senado",
+    "fecha": "2026-09-23",
+    "numero_sesion": "60/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Modifica diversos cuerpos legales, para promover la gobernabilidad y la representatividad del sistema político",
+    "resultado": "aprobado",
+    "votos_favor": 28,
+    "votos_contra": 3,
+    "abstenciones": 5,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17640",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "contra"
+      }
+    ]
+  },
+  {
+    "id": "senado-17726-60-374-2026-09-23",
+    "camara": "senado",
+    "fecha": "2026-09-23",
+    "numero_sesion": "60/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general y en particular, el proyecto de acuerdo que aprueba las enmiendas al Convenio Constitutivo de la Organización Marítima Internacional, adoptadas por la Asamblea Ordinaria de dicha Organización, el 8 de diciembre de 2021",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17726",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "pareo"
+      }
+    ]
+  },
+  {
+    "id": "senado-17737-60-374-2026-09-23",
+    "camara": "senado",
+    "fecha": "2026-09-23",
+    "numero_sesion": "60/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que modifica la ley N° 21.442, que aprueba nueva Ley de Copropiedad Inmobiliaria, a fin de facultar a los administradores de condominios para emitir certificados de residencia.",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17737",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "pareo"
+      }
+    ]
+  },
+  {
+    "id": "senado-17786-60-374-2026-09-23",
+    "camara": "senado",
+    "fecha": "2026-09-23",
+    "numero_sesion": "60/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que modifica la ley N° 21.349 para rebajar el monto de las multas que indica y establecer criterios para su graduación. Por la sola aprobación en general del proyecto, se entenderá aprobado en particular el artículo único de la iniciativa, en caso de que no haya sido objeto de indicaciones ni solicitudes de votación separada.",
+    "resultado": "aprobado",
+    "votos_favor": 16,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17786",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "pareo"
+      }
+    ]
+  },
+  {
+    "id": "senado-18208-60-374-2026-09-23",
+    "camara": "senado",
+    "fecha": "2026-09-23",
+    "numero_sesion": "60/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que modifica el Código Procesal Penal, para regular la continuidad del juicio oral y permitir la dictación de sentencia definitiva ante la incomparecencia injustificada del acusado. El artículo único de la iniciativa, que consta de catorce numerales, es una norma de rango orgánico constitucional. - Por la sola aprobación en general del proyecto, se entenderán aprobadas en particular todas las disposiciones que no hayan sido objeto de indicaciones ni so",
+    "resultado": "aprobado",
+    "votos_favor": 29,
+    "votos_contra": 2,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18208",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-15627-59-374-2026-09-22",
+    "camara": "senado",
+    "fecha": "2026-09-22",
+    "numero_sesion": "59/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "- En votación el número 2 que pasa a ser número 1 del artículo único (regula la autorización de exportación de residuos) (mayoría del segundo informe de la Comisión de Medio Ambiente, Cambio Climático y Bienes Nacionales), que consta en la página 4 del comparado.",
+    "resultado": "aprobado",
+    "votos_favor": 27,
+    "votos_contra": 0,
+    "abstenciones": 2,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15627",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-16741-59-374-2026-09-22",
+    "camara": "senado",
+    "fecha": "2026-09-22",
+    "numero_sesion": "59/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "-En votación la enmienda introducida por la Cámara de Diputados al proyecto de ley.",
+    "resultado": "aprobado",
+    "votos_favor": 37,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16741",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18003-59-374-2026-09-22",
+    "camara": "senado",
+    "fecha": "2026-09-22",
+    "numero_sesion": "59/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que modifica la ley N° 18.700, orgánica constitucional sobre Votaciones Populares y Escrutinios, para eximir al Servicio Electoral del deber de denunciar a personas postradas y electrodependientes, por incumplimiento de la obligación de sufragar",
+    "resultado": "aprobado",
+    "votos_favor": 33,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18003",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-17535-58-374-2026-09-09",
     "camara": "senado",
     "fecha": "2026-09-09",
@@ -1062,6 +1296,36 @@
     ]
   },
   {
+    "id": "senado-16577-22-374-2026-05-20",
+    "camara": "senado",
+    "fecha": "2026-05-20",
+    "numero_sesion": "22/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Discusión particular del proyecto de ley, en segundo trámite constitucional, que declara el 7 de enero de cada año como el Día de la Amistad y Solidaridad Chileno-Palestina (Boletín Nº 16.577-24)",
+    "resultado": "aprobado",
+    "votos_favor": 27,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16577",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "pareo"
+      }
+    ]
+  },
+  {
     "id": "senado-17877-16-374-2026-05-13",
     "camara": "senado",
     "fecha": "2026-05-13",
@@ -1079,286 +1343,6 @@
     "votos": [
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-16686-16-374-2026-05-13",
-    "camara": "senado",
-    "fecha": "2026-05-13",
-    "numero_sesion": "16/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Sustitución de la letra c) del inciso segundo del artículo 6",
-    "resultado": "aprobado",
-    "votos_favor": 27,
-    "votos_contra": 0,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16686",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "pareo"
-      }
-    ]
-  },
-  {
-    "id": "senado-17880-15-374-2026-05-12",
-    "camara": "senado",
-    "fecha": "2026-05-12",
-    "numero_sesion": "15/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Proyecto de ley, en segundo trámite constitucional, que crea un nuevo Juzgado de Letras del Trabajo en Santiago y fortalece los juzgados de letras del trabajo que indica, con informe de la Comisión de Constitución, Legislación, Justicia y Reglamento. (discusión en general) (Boletín N° 17.880-13)",
-    "resultado": "aprobado",
-    "votos_favor": 43,
-    "votos_contra": 1,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17880",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-16433-13-374-2026-05-06",
-    "camara": "senado",
-    "fecha": "2026-05-06",
-    "numero_sesion": "13/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Discusión en general del proyecto de ley, en segundo trámite constitucional, que modifica la ley N° 19.831, en materia de responsabilidad del transportista escolar durante el traslado de niños, niñas y adolescentes Boletín N° 16.433-18",
-    "resultado": "aprobado",
-    "votos_favor": 23,
-    "votos_contra": 0,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16433",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "pareo"
-      }
-    ]
-  },
-  {
-    "id": "senado-15261-12-374-2026-05-05",
-    "camara": "senado",
-    "fecha": "2026-05-05",
-    "numero_sesion": "12/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Proyecto de ley, en segundo trámite constitucional, que modifica la ley N° 21.325, de migración y extranjería, para tipificar el delito de ingreso clandestino al territorio nacional, con informe de la Comisión de Gobierno, Descentralización y Regionalización (discusión en general). (Boletín N° 15.261-25).",
-    "resultado": "aprobado",
-    "votos_favor": 24,
-    "votos_contra": 20,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15261",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "contra"
-      },
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-17012-12-374-2026-05-05",
-    "camara": "senado",
-    "fecha": "2026-05-05",
-    "numero_sesion": "12/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Discusión en General del proyecto de ley, en primer trámite constitucional, que modifica la ley N° 21.442, que aprueba Nueva Ley de Copropiedad Inmobiliaria, para establecer la obligatoriedad de implementar un plan de prevención de los accidentes que indica, con informe de la Comisión de Vivienda y Urbanismo. (proyecto de artículo único). (Boletines Nos 17.012-14, 9.301-14, 17.591-14, 17.594-14 y 18.037-14, refundidos).",
-    "resultado": "aprobado",
-    "votos_favor": 43,
-    "votos_contra": 0,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17012",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-17355-11-374-2026-04-22",
-    "camara": "senado",
-    "fecha": "2026-04-22",
-    "numero_sesion": "11/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Proyecto de ley, iniciado en Moción de los Honorables Senadores señor Castro González, señora Núñez, y señores De Urresti y Flores, y de la exsenadora señora Ebensperger, en primer trámite constitucional, que modifica diversos cuerpos legales, con el objeto de establecer la prescripción médica por medio de receta electrónica y sancionar su falsificación (discusión en general). (Boletín Nº 17.355-11).",
-    "resultado": "aprobado",
-    "votos_favor": 22,
-    "votos_contra": 0,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17355",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-16552-7-374-2026-04-14",
-    "camara": "senado",
-    "fecha": "2026-04-14",
-    "numero_sesion": "7/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "El número 7, nuevo, del artículo segundo",
-    "resultado": "aprobado",
-    "votos_favor": 29,
-    "votos_contra": 4,
-    "abstenciones": 2,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16552",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "abstencion"
-      },
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-16552-6-374-2026-04-08",
-    "camara": "senado",
-    "fecha": "2026-04-08",
-    "numero_sesion": "6/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Del artículo primero: -La sustitución de la letra a); la eliminación de la letra d); la incorporación de la letra e), nueva, y la incorporación de la letra g), nueva, del número 9, que pasa a ser 10 (que modifica el artículo 10). -La eliminación de las letras b), c) y d) del número 12, que pasa a ser 13 (que modifica el artículo 12 bis). -La eliminación de la letra d) del número 13, que pasa a ser 14 (que modifica el artículo 15). -La eliminación del número 26 que reemplaza el artículo 25 quinqu",
-    "resultado": "aprobado",
-    "votos_favor": 22,
-    "votos_contra": 15,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16552",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "contra"
-      }
-    ]
-  },
-  {
-    "id": "senado-16836-5-374-2026-04-07",
-    "camara": "senado",
-    "fecha": "2026-04-07",
-    "numero_sesion": "5/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Proyecto de ley, en segundo trámite constitucional, que modifica la ley N° 21.325 para perfeccionar el procedimiento de expulsión administrativa, con informe de la Comisión de Gobierno, Descentralización y Regionalización (discusión en general). (Boletín Nº 16.836-06).",
-    "resultado": "aprobado",
-    "votos_favor": 35,
-    "votos_contra": 1,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16836",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-16777-3-374-2026-03-24",
-    "camara": "senado",
-    "fecha": "2026-03-24",
-    "numero_sesion": "3/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Aprobado.",
-    "resultado": "aprobado",
-    "votos_favor": 28,
-    "votos_contra": 0,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16777",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
         "voto": "favor"
       },
       {

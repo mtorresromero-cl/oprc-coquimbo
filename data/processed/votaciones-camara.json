@@ -1,5 +1,143 @@
 [
   {
+    "id": "camara-90138",
+    "camara": "camara",
+    "fecha": "2026-09-23",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18522-10",
+    "descripcion": "Aprueba el Acuerdo de servicios aéreos entre el Gobierno de la República de Chile y el Gobierno del Sultanato de Omán, suscrito en Kuala Lumpur, Malasia, el 24 de octubre de 2024",
+    "resultado": "aprobado",
+    "votos_favor": 131,
+    "votos_contra": 1,
+    "abstenciones": 22,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=90138",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-90083",
+    "camara": "camara",
+    "fecha": "2026-09-22",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18314-07",
+    "descripcion": "Reforma la Constitución Política en materia de detención para la ejecución de expulsiones administrativas",
+    "resultado": "rechazado",
+    "votos_favor": 88,
+    "votos_contra": 28,
+    "abstenciones": 20,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=90083",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-90082",
+    "camara": "camara",
+    "fecha": "2026-09-22",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "16577-24",
+    "descripcion": "Declara el 7 de enero de cada año como el Día de la Amistad y Solidaridad Chileno-Palestina",
+    "resultado": "aprobado",
+    "votos_favor": 100,
+    "votos_contra": 9,
+    "abstenciones": 26,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=90082",
+    "etapa": "general",
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "abstencion"
+      }
+    ]
+  },
+  {
     "id": "camara-90022",
     "camara": "camara",
     "fecha": "2026-09-09",

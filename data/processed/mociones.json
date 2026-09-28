@@ -1,5 +1,113 @@
 [
   {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2026-09-22",
+    "rol": "coautor",
+    "boletin": "18662-11",
+    "titulo": "Modifica el Código Sanitario a fin de establecer un procedimiento diferenciado de registro sanitario para medicamentos y productos biológicos de alta prioridad terapéutica",
+    "estado": "En tramitación",
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=19345&prmBOLETIN=18662-11"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2026-09-02",
+    "rol": "coautor",
+    "boletin": "18669-06",
+    "titulo": "Establece deberes y prohibiciones aplicables al uso de sistemas de inteligencia artificial y cuentas automatizadas en procesos electorales y plebiscitarios",
+    "estado": "En tramitación",
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=19347&prmBOLETIN=18669-06"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2026-09-01",
+    "rol": "coautor",
+    "boletin": "18666-06",
+    "titulo": "Modifica diversos cuerpos legales en materia de trazabilidad del gasto electoral digital e identificación de cuentas automatizadas",
+    "estado": "En tramitación",
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=19348&prmBOLETIN=18666-06"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2026-09-01",
+    "rol": "coautor",
+    "boletin": "18664-07",
+    "titulo": "Tipifica el delito de traición institucional y sanciona otras conductas que señala",
+    "estado": "En tramitación",
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=19343&prmBOLETIN=18664-07"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2026-09-01",
+    "rol": "coautor",
+    "boletin": "18663-24",
+    "titulo": "Autoriza erigir un monumento, en la ciudad de La Serena, en memoria de la escritora Stella Díaz Varín",
+    "estado": "En tramitación",
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=19344&prmBOLETIN=18663-24"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "fecha": "2026-09-01",
+    "rol": "coautor",
+    "boletin": "18663-24",
+    "titulo": "Autoriza erigir un monumento, en la ciudad de La Serena, en memoria de la escritora Stella Díaz Varín",
+    "estado": "En tramitación",
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=19344&prmBOLETIN=18663-24"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2026-08-24",
+    "rol": "coautor",
+    "boletin": "18656-01",
+    "titulo": "Establece un sistema especial de trazabilidad aplicable a frutos secos, con el propósito de acreditar su origen legal con fines de seguridad",
+    "estado": "En tramitación",
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=19339&prmBOLETIN=18656-01"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "fecha": "2026-08-21",
+    "rol": "coautor",
+    "boletin": "18655-06",
+    "titulo": "Modifica la ley N° 18.695, orgánica constitucional de Municipalidades, con el objeto de facultar a dichas entidades para requerir la clausura temporal de inmuebles que constituyan focos reiterados de incivilidades graves",
+    "estado": "En tramitación",
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=19340&prmBOLETIN=18655-06"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2026-08-19",
+    "rol": "coautor",
+    "boletin": "18653-08",
+    "titulo": "Modifica el decreto ley N° 1.350, de 1976, que crea la Corporación Nacional del Cobre de Chile, con el propósito de suprimir la participación de representantes de los trabajadores en su directorio",
+    "estado": "En tramitación",
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=19336&prmBOLETIN=18653-08"
+  },
+  {
+    "autoridad_id": "erich-christ-grohs-marin-diputado",
+    "fecha": "2026-08-19",
+    "rol": "coautor",
+    "boletin": "18653-08",
+    "titulo": "Modifica el decreto ley N° 1.350, de 1976, que crea la Corporación Nacional del Cobre de Chile, con el propósito de suprimir la participación de representantes de los trabajadores en su directorio",
+    "estado": "En tramitación",
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=19336&prmBOLETIN=18653-08"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "fecha": "2026-08-18",
+    "rol": "coautor",
+    "boletin": "18652-08",
+    "titulo": "Modifica la Ley General de Servicios Eléctricos para fortalecer la trazabilidad e inscripción de personas electrodependientes",
+    "estado": "En tramitación",
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=19332&prmBOLETIN=18652-08"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "fecha": "2026-08-18",
+    "rol": "coautor",
+    "boletin": "18650-01",
+    "titulo": "Modifica la ley Nº 20.283, a fin de establecer un procedimiento simplificado para la aprobación de planes de manejo forestal en los casos que indica",
+    "estado": "En tramitación",
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=19335&prmBOLETIN=18650-01"
+  },
+  {
     "autoridad_id": "nathalie-castillo-rojas-diputado",
     "fecha": "2026-08-14",
     "rol": "coautor",
@@ -588,19 +696,19 @@
     "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
     "fecha": "2026-04-29",
     "rol": "coautor",
-    "boletin": "18229-11",
-    "titulo": "Introduce la obligación de contar con desfibriladores externos automáticos en encuentros de fútbol no profesional",
+    "boletin": "18235-19",
+    "titulo": "Impone a las plataformas de redes sociales la obligación de eliminar contenido que induzca a la realización de conductas extremas que pongan en riesgo la integridad o salud de las personas",
     "estado": "En tramitación",
-    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=18894&prmBOLETIN=18229-11"
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=18897&prmBOLETIN=18235-19"
   },
   {
     "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
     "fecha": "2026-04-29",
     "rol": "coautor",
-    "boletin": "18235-19",
-    "titulo": "Impone a las plataformas de redes sociales la obligación de eliminar contenido que induzca a la realización de conductas extremas que pongan en riesgo la integridad o salud de las personas",
+    "boletin": "18229-11",
+    "titulo": "Introduce la obligación de contar con desfibriladores externos automáticos en encuentros de fútbol no profesional",
     "estado": "En tramitación",
-    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=18897&prmBOLETIN=18235-19"
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=18894&prmBOLETIN=18229-11"
   },
   {
     "autoridad_id": "carolina-tello-rojas-diputado",
@@ -660,19 +768,19 @@
     "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
     "fecha": "2026-04-20",
     "rol": "coautor",
-    "boletin": "18199-12",
-    "titulo": "Modifica la ley N° 20.920, que establece marco para la gestión de residuos, la responsabilidad extendida del productor y fomento al reciclaje, para sancionar las infracciones en la gestión de desechos textiles",
+    "boletin": "18200-06",
+    "titulo": "Modifica la ley N° 19.886, de bases sobre contratos administrativos de suministro y prestación de servicios, con el objeto de establecer una inhabilidad especial respecto de las personas jurídicas que indica",
     "estado": "En tramitación",
-    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=18881&prmBOLETIN=18199-12"
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=18868&prmBOLETIN=18200-06"
   },
   {
     "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
     "fecha": "2026-04-20",
     "rol": "coautor",
-    "boletin": "18200-06",
-    "titulo": "Modifica la ley N° 19.886, de bases sobre contratos administrativos de suministro y prestación de servicios, con el objeto de establecer una inhabilidad especial respecto de las personas jurídicas que indica",
+    "boletin": "18199-12",
+    "titulo": "Modifica la ley N° 20.920, que establece marco para la gestión de residuos, la responsabilidad extendida del productor y fomento al reciclaje, para sancionar las infracciones en la gestión de desechos textiles",
     "estado": "En tramitación",
-    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=18868&prmBOLETIN=18200-06"
+    "url_bcn": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=18881&prmBOLETIN=18199-12"
   },
   {
     "autoridad_id": "carolina-tello-rojas-diputado",

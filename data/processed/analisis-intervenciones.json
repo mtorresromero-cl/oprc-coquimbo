@@ -1545,76 +1545,40 @@
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "personas",
-        "n": 134
-      },
-      {
-        "palabra": "región",
-        "n": 247
-      },
-      {
-        "palabra": "puede",
-        "n": 189
-      },
-      {
-        "palabra": "debe",
-        "n": 115
+        "palabra": "país",
+        "n": 201
       },
       {
         "palabra": "coquimbo",
         "n": 243
       },
       {
-        "palabra": "familias",
-        "n": 198
-      },
-      {
-        "palabra": "quiero",
-        "n": 135
+        "palabra": "nacional",
+        "n": 95
       },
       {
         "palabra": "artículo",
         "n": 119
       },
       {
-        "palabra": "problema",
-        "n": 103
-      },
-      {
-        "palabra": "nacional",
-        "n": 95
-      },
-      {
-        "palabra": "gobierno",
-        "n": 146
-      },
-      {
-        "palabra": "además",
-        "n": 94
-      },
-      {
-        "palabra": "sistema",
-        "n": 92
-      },
-      {
         "palabra": "comisión",
         "n": 106
-      },
-      {
-        "palabra": "sino",
-        "n": 153
-      },
-      {
-        "palabra": "país",
-        "n": 201
       },
       {
         "palabra": "recursos",
         "n": 101
       },
       {
-        "palabra": "chile",
-        "n": 151
+        "palabra": "derechos",
+        "n": 108
+      },
+      {
+        "palabra": "familias",
+        "n": 198
+      },
+      {
+        "palabra": "seguridad",
+        "n": 173
       },
       {
         "palabra": "sesión",
@@ -1625,24 +1589,60 @@
         "n": 422
       },
       {
-        "palabra": "derechos",
-        "n": 108
+        "palabra": "chile",
+        "n": 151
       },
       {
-        "palabra": "seguridad",
-        "n": 173
+        "palabra": "sino",
+        "n": 153
+      },
+      {
+        "palabra": "quiero",
+        "n": 135
+      },
+      {
+        "palabra": "problema",
+        "n": 103
       },
       {
         "palabra": "rurales",
         "n": 114
       },
       {
+        "palabra": "personas",
+        "n": 134
+      },
+      {
+        "palabra": "además",
+        "n": 94
+      },
+      {
+        "palabra": "región",
+        "n": 247
+      },
+      {
         "palabra": "manera",
         "n": 103
       },
       {
+        "palabra": "debe",
+        "n": 115
+      },
+      {
+        "palabra": "puede",
+        "n": 189
+      },
+      {
         "palabra": "agua",
         "n": 125
+      },
+      {
+        "palabra": "gobierno",
+        "n": 146
+      },
+      {
+        "palabra": "sistema",
+        "n": 92
       }
     ],
     "enlaces": [

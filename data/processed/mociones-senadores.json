@@ -1,6 +1,15 @@
 [
   {
     "autoridad_id": "matias-walker-prieto-senador",
+    "fecha": "2026-09-16",
+    "rol": "autor",
+    "boletin": "18647-07",
+    "titulo": "Establece una circunstancia agravante especial para el robo con violencia o intimidación en las personas cuando se encuentren menores de edad en el interior de vehículos motorizados",
+    "estado": "En tramitación",
+    "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
+  },
+  {
+    "autoridad_id": "matias-walker-prieto-senador",
     "fecha": "2026-09-09",
     "rol": "autor",
     "boletin": "18642-07",
@@ -201,8 +210,8 @@
     "autoridad_id": "matias-walker-prieto-senador",
     "fecha": "2026-05-05",
     "rol": "autor",
-    "boletin": "18241-03",
-    "titulo": "Regula el corretaje de propiedades y su ejercicio mediante plataformas digitales",
+    "boletin": "18240-13",
+    "titulo": "Modifica el artículo 66 del Código del Trabajo, con el objeto de ampliar el plazo del permiso a que tiene derecho todo trabajador en el caso de muerte de un hijo, cónyuge o conviviente civil",
     "estado": "En tramitación",
     "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
   },
@@ -210,8 +219,8 @@
     "autoridad_id": "matias-walker-prieto-senador",
     "fecha": "2026-05-05",
     "rol": "autor",
-    "boletin": "18240-13",
-    "titulo": "Modifica el artículo 66 del Código del Trabajo, con el objeto de ampliar el plazo del permiso a que tiene derecho todo trabajador en el caso de muerte de un hijo, cónyuge o conviviente civil",
+    "boletin": "18241-03",
+    "titulo": "Regula el corretaje de propiedades y su ejercicio mediante plataformas digitales",
     "estado": "En tramitación",
     "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
   },

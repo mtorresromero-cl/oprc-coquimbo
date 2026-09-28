@@ -1317,6 +1317,20 @@
   },
   {
     "autoridad_id": "matthias-eyzaguirre-mendez-concejal",
+    "fecha_declaracion": "2026-09-14",
+    "tipo_declaracion": "Actualizacion Periodica (Septiembre)",
+    "cargo_declarado": "CONCEJAL",
+    "organismo": "Municipalidad De Los Vilos",
+    "bienes_inmuebles_n": 0,
+    "vehiculos_n": 0,
+    "sociedades_n": 0,
+    "valores_monto": 0.0,
+    "pasivos_tiene": 0,
+    "pasivos_monto": 0.0,
+    "fuente_url": "https://www.infoprobidad.cl/Declaracion/Declaracion?ID=1840328"
+  },
+  {
+    "autoridad_id": "matthias-eyzaguirre-mendez-concejal",
     "fecha_declaracion": "2026-03-30",
     "tipo_declaracion": "Actualización Periódica (Marzo)",
     "cargo_declarado": "CONCEJAL",
