@@ -1,6 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { autoridades, analisisIntervencionesSenado, fotoAutoridad, nombreMes } from '../../lib/datos';
+import {
+	autoridades,
+	analisisIntervencionesSenado,
+	fotoAutoridad,
+	nombreMes,
+	formatoFechaLarga,
+} from '../../lib/datos';
 
 const senadores = autoridades
 	.filter((a) => a.cargo === 'senador')
@@ -46,6 +52,11 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 				Legislatura 374, vía senado.cl —{' '}
 				{analisisIntervencionesSenado.total_palabras_corpus.toLocaleString('es-CL')} palabras analizadas.
 			</p>
+			{analisisIntervencionesSenado.ultima_fecha_registrada && (
+				<p class="mt-2 text-sm text-slate-400">
+					Datos actualizados hasta el {formatoFechaLarga(analisisIntervencionesSenado.ultima_fecha_registrada)}.
+				</p>
+			)}
 		</div>
 	</section>
 

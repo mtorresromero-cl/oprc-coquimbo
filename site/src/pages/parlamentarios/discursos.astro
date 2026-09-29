@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { autoridades, analisisIntervenciones, fotoAutoridad, nombreMes } from '../../lib/datos';
+import { autoridades, analisisIntervenciones, fotoAutoridad, nombreMes, formatoFechaLarga } from '../../lib/datos';
 
 const diputados = autoridades
 	.filter((a) => a.cargo === 'diputado')
@@ -59,6 +59,11 @@ const rangoFechas = formatoRango(tendencia.meses);
 				{rangoFechas}, vía el boletín de sesiones de camara.cl —{' '}
 				{analisisIntervenciones.total_palabras_corpus.toLocaleString('es-CL')} palabras analizadas.
 			</p>
+			{analisisIntervenciones.ultima_fecha_registrada && (
+				<p class="mt-2 text-sm text-slate-400">
+					Datos actualizados hasta el {formatoFechaLarga(analisisIntervenciones.ultima_fecha_registrada)}.
+				</p>
+			)}
 		</div>
 	</section>
 

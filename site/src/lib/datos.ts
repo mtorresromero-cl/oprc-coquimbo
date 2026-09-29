@@ -256,6 +256,9 @@ export interface AnalisisIntervenciones {
 		enlaces: { a: string; b: string; peso: number }[];
 	};
 	participacion: Record<string, { intervenciones: number; segundos: number; con_texto: number }>;
+	segundos_estimados: boolean;
+	tasa_palabras_por_segundo_calibracion: number | null;
+	ultima_fecha_registrada: string | null;
 	total_intervenciones: number;
 	total_con_texto: number;
 	total_palabras_corpus: number;
@@ -579,6 +582,15 @@ const MES_LABEL = [
 
 export function nombreMes(mes: number): string {
 	return MES_LABEL[mes] ?? String(mes);
+}
+
+// 'YYYY-MM-DD' -> '21 de septiembre de 2026'. Parseo manual (no Date()) para
+// no depender de timezone: un ISO sin hora se interpreta en UTC, y con
+// América/Santiago (UTC-3/-4) el `new Date('2026-09-21').getDate()` local
+// puede devolver el día anterior.
+export function formatoFechaLarga(iso: string): string {
+	const [anno, mes, dia] = iso.split('-').map(Number);
+	return `${dia} de ${nombreMes(mes)} de ${anno}`;
 }
 
 // El campo partido viene de distintas fuentes (SERVEL, BCN, sitios

@@ -125,25 +125,36 @@ def tokenizar(texto: str) -> list[str]:
 
 def parsear_fecha(etiqueta: str) -> tuple[int, int] | None:
     """'31ª, martes 9 junio 2026' -> (2026, 6) — formato de camara.cl."""
+    completa = parsear_fecha_completa(etiqueta)
+    return (completa[0], completa[1]) if completa else None
+
+
+def parsear_fecha_completa(etiqueta: str) -> tuple[int, int, int] | None:
+    """'31ª, martes 9 junio 2026' -> (2026, 6, 9) — formato de camara.cl."""
     m = re.search(r"(\d{1,2})\s+(\w+)\s+(\d{4})", etiqueta)
     if not m:
         return None
     mes = MESES_ES.get(_sin_tildes(m.group(2).lower()))
     if not mes:
         return None
-    return int(m.group(3)), mes
+    return int(m.group(3)), mes, int(m.group(1))
 
 
 def _fecha_del_registro(r: dict) -> tuple[int, int] | None:
     """senado.cl guarda una fecha dd/mm/aaaa aparte (más simple y sin
     ambigüedad); camara.cl solo trae la etiqueta de sesión en texto."""
+    completa = _fecha_completa_del_registro(r)
+    return (completa[0], completa[1]) if completa else None
+
+
+def _fecha_completa_del_registro(r: dict) -> tuple[int, int, int] | None:
     if r.get("fecha"):
         try:
             d, m, a = (int(x) for x in r["fecha"].split("/"))
-            return a, m
+            return a, m, d
         except ValueError:
             pass
-    return parsear_fecha(r.get("etiqueta_sesion") or "")
+    return parsear_fecha_completa(r.get("etiqueta_sesion") or "")
 
 
 def main():
@@ -232,6 +243,17 @@ def main():
         if r.get("texto"):
             p["con_texto"] += 1
 
+    # --- fecha de la sesión más reciente con datos (no la fecha de la
+    # corrida del scraper: el archivo se puede regenerar sin que haya
+    # sesiones nuevas, y viceversa una corrida puede fallar dejando el
+    # último dato real varias semanas atrás — ver bitácora 2026-09-28,
+    # caso senado_asistencia.py) ---
+    fechas = [f for r in registros if (f := _fecha_completa_del_registro(r))]
+    ultima_fecha = max(fechas) if fechas else None
+    ultima_fecha_registrada = (
+        f"{ultima_fecha[0]:04d}-{ultima_fecha[1]:02d}-{ultima_fecha[2]:02d}" if ultima_fecha else None
+    )
+
     salida = {
         "top_palabras_por_autoridad": top_palabras_por_autoridad,
         "top_palabras_total": top_palabras_total,
@@ -240,6 +262,7 @@ def main():
         "participacion": dict(participacion),
         "segundos_estimados": senado,
         "tasa_palabras_por_segundo_calibracion": tasa,
+        "ultima_fecha_registrada": ultima_fecha_registrada,
         "total_intervenciones": len(registros),
         "total_con_texto": len(con_texto),
         "total_palabras_corpus": sum(len(tokenizar(r["texto"])) for r in con_texto),

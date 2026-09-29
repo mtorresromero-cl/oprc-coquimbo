@@ -881,72 +881,44 @@
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "coquimbo",
-        "n": 79
+        "palabra": "ejecutivo",
+        "n": 66
       },
       {
-        "palabra": "acuerdo",
-        "n": 64
-      },
-      {
-        "palabra": "país",
-        "n": 68
-      },
-      {
-        "palabra": "chile",
+        "palabra": "entonces",
         "n": 105
-      },
-      {
-        "palabra": "importante",
-        "n": 57
-      },
-      {
-        "palabra": "gobierno",
-        "n": 114
-      },
-      {
-        "palabra": "materia",
-        "n": 56
-      },
-      {
-        "palabra": "comisión",
-        "n": 133
-      },
-      {
-        "palabra": "ambiental",
-        "n": 57
-      },
-      {
-        "palabra": "forma",
-        "n": 58
       },
       {
         "palabra": "seguridad",
         "n": 60
       },
       {
-        "palabra": "proyecto",
-        "n": 234
+        "palabra": "comisión",
+        "n": 133
       },
       {
         "palabra": "vamos",
         "n": 61
       },
       {
-        "palabra": "región",
-        "n": 91
+        "palabra": "gobierno",
+        "n": 114
       },
       {
-        "palabra": "ciento",
-        "n": 70
+        "palabra": "forma",
+        "n": 58
       },
       {
         "palabra": "quiero",
         "n": 108
       },
       {
-        "palabra": "entonces",
-        "n": 105
+        "palabra": "ambiental",
+        "n": 57
+      },
+      {
+        "palabra": "puede",
+        "n": 87
       },
       {
         "palabra": "creo",
@@ -957,24 +929,52 @@
         "n": 72
       },
       {
-        "palabra": "ejecutivo",
-        "n": 66
+        "palabra": "sistema",
+        "n": 75
       },
       {
-        "palabra": "nacional",
+        "palabra": "proyecto",
+        "n": 234
+      },
+      {
+        "palabra": "acuerdo",
+        "n": 64
+      },
+      {
+        "palabra": "materia",
         "n": 56
       },
       {
-        "palabra": "puede",
-        "n": 87
+        "palabra": "región",
+        "n": 91
+      },
+      {
+        "palabra": "ciento",
+        "n": 70
+      },
+      {
+        "palabra": "chile",
+        "n": 105
       },
       {
         "palabra": "ahora",
         "n": 56
       },
       {
-        "palabra": "sistema",
-        "n": 75
+        "palabra": "importante",
+        "n": 57
+      },
+      {
+        "palabra": "coquimbo",
+        "n": 79
+      },
+      {
+        "palabra": "nacional",
+        "n": 56
+      },
+      {
+        "palabra": "país",
+        "n": 68
       },
       {
         "palabra": "sino",
@@ -2488,6 +2488,7 @@
   },
   "segundos_estimados": true,
   "tasa_palabras_por_segundo_calibracion": 3.548224769359799,
+  "ultima_fecha_registrada": "2026-08-18",
   "total_intervenciones": 126,
   "total_con_texto": 126,
   "total_palabras_corpus": 24029

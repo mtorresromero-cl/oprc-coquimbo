@@ -1545,8 +1545,60 @@
   "coocurrencia": {
     "nodos": [
       {
+        "palabra": "región",
+        "n": 247
+      },
+      {
+        "palabra": "rurales",
+        "n": 114
+      },
+      {
+        "palabra": "proyecto",
+        "n": 422
+      },
+      {
+        "palabra": "manera",
+        "n": 103
+      },
+      {
+        "palabra": "quiero",
+        "n": 135
+      },
+      {
+        "palabra": "sesión",
+        "n": 112
+      },
+      {
+        "palabra": "además",
+        "n": 94
+      },
+      {
         "palabra": "debe",
         "n": 115
+      },
+      {
+        "palabra": "seguridad",
+        "n": 173
+      },
+      {
+        "palabra": "familias",
+        "n": 198
+      },
+      {
+        "palabra": "puede",
+        "n": 189
+      },
+      {
+        "palabra": "personas",
+        "n": 134
+      },
+      {
+        "palabra": "nacional",
+        "n": 95
+      },
+      {
+        "palabra": "gobierno",
+        "n": 146
       },
       {
         "palabra": "recursos",
@@ -1557,92 +1609,40 @@
         "n": 153
       },
       {
-        "palabra": "personas",
-        "n": 134
-      },
-      {
-        "palabra": "sesión",
-        "n": 112
-      },
-      {
-        "palabra": "problema",
-        "n": 103
-      },
-      {
-        "palabra": "puede",
-        "n": 189
-      },
-      {
-        "palabra": "artículo",
-        "n": 119
-      },
-      {
-        "palabra": "región",
-        "n": 247
-      },
-      {
         "palabra": "chile",
         "n": 151
-      },
-      {
-        "palabra": "manera",
-        "n": 103
       },
       {
         "palabra": "coquimbo",
         "n": 243
       },
       {
-        "palabra": "sistema",
-        "n": 92
-      },
-      {
-        "palabra": "agua",
-        "n": 125
-      },
-      {
-        "palabra": "nacional",
-        "n": 95
+        "palabra": "artículo",
+        "n": 119
       },
       {
         "palabra": "derechos",
         "n": 108
       },
       {
-        "palabra": "quiero",
-        "n": 135
-      },
-      {
-        "palabra": "familias",
-        "n": 198
+        "palabra": "sistema",
+        "n": 92
       },
       {
         "palabra": "país",
         "n": 201
       },
       {
+        "palabra": "agua",
+        "n": 125
+      },
+      {
         "palabra": "comisión",
         "n": 106
       },
       {
-        "palabra": "seguridad",
-        "n": 173
-      },
-      {
-        "palabra": "gobierno",
-        "n": 146
-      },
-      {
-        "palabra": "además",
-        "n": 94
-      },
-      {
-        "palabra": "rurales",
-        "n": 114
-      },
-      {
-        "palabra": "proyecto",
-        "n": 422
+        "palabra": "problema",
+        "n": 103
       }
     ],
     "enlaces": [
@@ -3187,6 +3187,7 @@
   },
   "segundos_estimados": false,
   "tasa_palabras_por_segundo_calibracion": null,
+  "ultima_fecha_registrada": "2026-09-21",
   "total_intervenciones": 209,
   "total_con_texto": 200,
   "total_palabras_corpus": 41490
