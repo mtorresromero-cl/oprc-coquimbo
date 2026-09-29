@@ -881,52 +881,52 @@
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "sistema",
-        "n": 75
+        "palabra": "coquimbo",
+        "n": 79
       },
       {
-        "palabra": "decir",
-        "n": 72
-      },
-      {
-        "palabra": "materia",
-        "n": 56
-      },
-      {
-        "palabra": "forma",
-        "n": 58
+        "palabra": "acuerdo",
+        "n": 64
       },
       {
         "palabra": "país",
         "n": 68
       },
       {
-        "palabra": "proyecto",
-        "n": 234
+        "palabra": "chile",
+        "n": 105
       },
       {
-        "palabra": "comisión",
-        "n": 133
+        "palabra": "importante",
+        "n": 57
       },
       {
         "palabra": "gobierno",
         "n": 114
       },
       {
-        "palabra": "puede",
-        "n": 87
+        "palabra": "materia",
+        "n": 56
+      },
+      {
+        "palabra": "comisión",
+        "n": 133
       },
       {
         "palabra": "ambiental",
         "n": 57
       },
       {
-        "palabra": "quiero",
-        "n": 108
+        "palabra": "forma",
+        "n": 58
       },
       {
-        "palabra": "nacional",
-        "n": 56
+        "palabra": "seguridad",
+        "n": 60
+      },
+      {
+        "palabra": "proyecto",
+        "n": 234
       },
       {
         "palabra": "vamos",
@@ -941,40 +941,40 @@
         "n": 70
       },
       {
-        "palabra": "ejecutivo",
-        "n": 66
-      },
-      {
-        "palabra": "importante",
-        "n": 57
-      },
-      {
-        "palabra": "acuerdo",
-        "n": 64
-      },
-      {
-        "palabra": "seguridad",
-        "n": 60
-      },
-      {
-        "palabra": "ahora",
-        "n": 56
+        "palabra": "quiero",
+        "n": 108
       },
       {
         "palabra": "entonces",
         "n": 105
       },
       {
-        "palabra": "coquimbo",
-        "n": 79
-      },
-      {
         "palabra": "creo",
         "n": 55
       },
       {
-        "palabra": "chile",
-        "n": 105
+        "palabra": "decir",
+        "n": 72
+      },
+      {
+        "palabra": "ejecutivo",
+        "n": 66
+      },
+      {
+        "palabra": "nacional",
+        "n": 56
+      },
+      {
+        "palabra": "puede",
+        "n": 87
+      },
+      {
+        "palabra": "ahora",
+        "n": 56
+      },
+      {
+        "palabra": "sistema",
+        "n": 75
       },
       {
         "palabra": "sino",
@@ -2472,20 +2472,22 @@
   "participacion": {
     "daniel-ignacio-nunez-arancibia-senador": {
       "intervenciones": 53,
-      "segundos": 0,
+      "segundos": 6567,
       "con_texto": 53
     },
     "matias-walker-prieto-senador": {
       "intervenciones": 48,
-      "segundos": 0,
+      "segundos": 6525,
       "con_texto": 48
     },
     "sergio-alfredo-gahona-salazar-senador": {
       "intervenciones": 25,
-      "segundos": 0,
+      "segundos": 2800,
       "con_texto": 25
     }
   },
+  "segundos_estimados": true,
+  "tasa_palabras_por_segundo_calibracion": 3.548224769359799,
   "total_intervenciones": 126,
   "total_con_texto": 126,
   "total_palabras_corpus": 24029

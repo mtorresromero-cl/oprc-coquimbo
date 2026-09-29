@@ -9,6 +9,15 @@ procesamiento de texto sobre lo ya guardado.
 Uso:
     python scrapers/analisis_intervenciones.py                    # diputados (por defecto)
     python scrapers/analisis_intervenciones.py --senado            # senadores
+
+Tiempo hablado de senadores (estimado): senado.cl no publica duración por
+intervención (a diferencia de camara.cl, que sí la trae en intervenciones.aspx
+— ver docstring de scrapers/intervenciones_sala.py). Como sí tenemos texto Y
+duración real para los diputados, se calibra una tasa real de palabras/segundo
+sobre ese corpus (docencia/interrupciones propias del Congreso, no una cifra
+genérica de la literatura) y se aplica al conteo de palabras de cada
+intervención de senadores para ESTIMAR su tiempo. Se marca explícitamente
+como estimado en la salida — no es un dato oficial como el de diputados.
 """
 
 import json
@@ -68,6 +77,37 @@ TODAS_STOPWORDS = STOPWORDS | STOPWORDS_SALA
 
 def _sin_tildes(s: str) -> str:
     return unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
+
+
+def _contar_palabras_crudo(texto: str) -> int:
+    """Conteo de palabras sin filtrar stopwords ni largo mínimo — para medir
+    cuánto se habló, no de qué se habló (a diferencia de tokenizar())."""
+    return len(re.findall(r"[a-záéíóúñA-ZÁÉÍÓÚÑ]+", texto))
+
+
+def _duracion_a_segundos(d: str | None) -> int:
+    if not d or ":" not in d:
+        return 0
+    mm, ss = d.split(":")
+    return int(mm) * 60 + int(ss)
+
+
+def _tasa_palabras_por_segundo() -> float:
+    """Calibrada con los registros reales de diputados que tienen texto Y
+    duración (~200 de 209) — ver nota de estimación en el docstring del
+    módulo. Se agregan palabras y segundos totales en vez de promediar por
+    intervención, para no darle igual peso a una interrupción de 5 segundos
+    que a un discurso de 10 minutos."""
+    with open(PROCESSED_DIR / "intervenciones-sala.json") as f:
+        diputados = json.load(f)
+    total_palabras = total_segundos = 0
+    for r in diputados:
+        segundos = _duracion_a_segundos(r.get("duracion"))
+        if not r.get("texto") or not segundos:
+            continue
+        total_palabras += _contar_palabras_crudo(r["texto"])
+        total_segundos += segundos
+    return total_palabras / total_segundos
 
 
 def tokenizar(texto: str) -> list[str]:
@@ -170,22 +210,25 @@ def main():
         ],
     }
 
-    # --- participación: tiempo hablado y cantidad, desde la tabla
-    # estructurada (no depende de si se pudo extraer el texto del PDF) ---
-    def duracion_a_segundos(d: str | None) -> int:
-        if not d or ":" not in d:
-            return 0
-        mm, ss = d.split(":")
-        return int(mm) * 60 + int(ss)
-
+    # --- participación: tiempo hablado y cantidad. Diputados: segundos
+    # reales, de la tabla estructurada de camara.cl (no depende de si se
+    # pudo extraer el texto del PDF). Senadores: senado.cl no publica
+    # duración, así que se ESTIMA desde el conteo de palabras del texto
+    # (único dato disponible) con la tasa calibrada en diputados — ver nota
+    # de estimación en el docstring del módulo. ---
     def _fila_vacia():
         return {"intervenciones": 0, "segundos": 0, "con_texto": 0}
 
     participacion: dict[str, dict] = defaultdict(_fila_vacia)
+    tasa = _tasa_palabras_por_segundo() if senado else None
     for r in registros:
         p = participacion[r["autoridad_id"]]
         p["intervenciones"] += 1
-        p["segundos"] += duracion_a_segundos(r.get("duracion"))
+        if senado:
+            if r.get("texto"):
+                p["segundos"] += round(_contar_palabras_crudo(r["texto"]) / tasa)
+        else:
+            p["segundos"] += _duracion_a_segundos(r.get("duracion"))
         if r.get("texto"):
             p["con_texto"] += 1
 
@@ -195,6 +238,8 @@ def main():
         "tendencia": tendencia,
         "coocurrencia": coocurrencia,
         "participacion": dict(participacion),
+        "segundos_estimados": senado,
+        "tasa_palabras_por_segundo_calibracion": tasa,
         "total_intervenciones": len(registros),
         "total_con_texto": len(con_texto),
         "total_palabras_corpus": sum(len(tokenizar(r["texto"])) for r in con_texto),

@@ -13,6 +13,37 @@ específicamente lo que se perdería si solo quedara en la conversación.
 
 ---
 
+## 2026-09-28 — Tiempo hablado de senadores: estimado por conteo de palabras, calibrado con diputados
+
+Contexto: senado.cl no publica duración por intervención (ver entrada de
+más abajo, mismo día, sobre el bloqueo de `senado_asistencia.py` — no
+relacionado, pero misma fuente). A diferencia de camara.cl, cada
+intervención de senado.cl solo trae texto, no tiempo. El usuario preguntó
+si se podía estimar el tiempo hablado por palabras/minuto para un post de
+redes sociales.
+
+**Decisión: no usar una cifra genérica de la literatura (130-160 ppm en
+español) — calibrar la tasa real con nuestros propios datos.** Los 200 de
+209 registros de diputados que tienen texto Y duración real (de
+camara.cl) dan una tasa observada de **3.548 palabras/segundo (~213
+palabras/minuto)**, agregando palabras y segundos totales en vez de
+promediar por intervención (para no darle el mismo peso a una
+interrupción de 5 segundos que a un discurso de 10 minutos). Esa tasa se
+aplica al conteo de palabras de cada intervención de senadores para
+estimar sus segundos.
+
+Implementado en `scrapers/analisis_intervenciones.py`
+(`_tasa_palabras_por_segundo()` + rama `if senado` en el cálculo de
+`participacion`). La salida (`analisis-intervenciones-senado.json`) queda
+marcada explícitamente con `"segundos_estimados": true` y
+`"tasa_palabras_por_segundo_calibracion"` (el valor calibrado, para que
+quede trazable). En `discursos-senado.astro` se muestra con la etiqueta
+"Min:seg*" y una nota al pie ("Tiempo estimado, no un dato oficial de
+senado.cl") — importante no dejarlo pasar como dato oficial equivalente
+al de diputados, que sí viene de la tabla estructurada de camara.cl.
+
+---
+
 ## 2026-09-28 — `senado_asistencia.py` bloqueado por Cloudflare: sin parche disponible (a diferencia de diputados)
 
 El cron semanal del lunes 28-sep no disparó solo (mismo patrón conocido de

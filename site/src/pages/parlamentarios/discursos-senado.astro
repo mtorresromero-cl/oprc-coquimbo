@@ -12,7 +12,13 @@ const { participacion, top_palabras_por_autoridad, top_palabras_total, tendencia
 
 const participacionOrdenada = senadores
 	.map((d) => ({ ...d, ...(participacion[d.id] ?? { intervenciones: 0, segundos: 0, con_texto: 0 }) }))
-	.sort((a, b) => b.intervenciones - a.intervenciones);
+	.sort((a, b) => b.segundos - a.segundos);
+
+function formatoDuracion(segundos: number): string {
+	const min = Math.floor(segundos / 60);
+	const seg = segundos % 60;
+	return `${min}:${String(seg).padStart(2, '0')}`;
+}
 
 const mesesEtiquetas = tendencia.meses.map((m) => {
 	const [anno, mes] = m.split('-').map(Number);
@@ -63,20 +69,23 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 		<section class="panel mt-8" data-panel="0">
 			<h2 class="text-xl font-semibold text-slate-900">Uso de la palabra</h2>
 			<p class="mt-1 max-w-2xl text-sm text-slate-500">
-				Cantidad de intervenciones registradas por senado.cl con texto real (discursos), por
-				senador/a. senado.cl no publica la duración de cada intervención, a diferencia de
-				camara.cl.
+				Tiempo hablado (estimado) y cantidad de intervenciones registradas por senado.cl con
+				texto real (discursos), por senador/a. senado.cl no publica la duración de cada
+				intervención como sí lo hace camara.cl — el tiempo se estima a partir del conteo de
+				palabras de cada discurso, usando la velocidad de habla real calibrada con los
+				discursos de diputados (que sí tienen duración y texto). No es un dato oficial.
 			</p>
 			<div class="mt-4 flex items-center gap-3 text-xs font-semibold tracking-wide text-slate-400 uppercase">
 				<span class="w-8 shrink-0"></span>
 				<span class="w-24 shrink-0 sm:w-56"></span>
 				<div class="flex-1"></div>
-				<span class="w-20 shrink-0 text-right">Interv.</span>
+				<span class="w-20 shrink-0 text-right">Min:seg*</span>
+				<span class="hidden w-20 shrink-0 text-right sm:inline">Interv.</span>
 			</div>
 			<div class="mt-2 space-y-3 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
 				{participacionOrdenada.map((d) => {
-					const max = Math.max(...participacionOrdenada.map((x) => x.intervenciones), 1);
-					const anchoPct = (d.intervenciones / max) * 100;
+					const max = Math.max(...participacionOrdenada.map((x) => x.segundos), 1);
+					const anchoPct = (d.segundos / max) * 100;
 					return (
 						<div class="flex items-center gap-3">
 							{d.foto ? (
@@ -92,11 +101,13 @@ const mesesEtiquetas = tendencia.meses.map((m) => {
 							<div class="h-4 flex-1 rounded bg-slate-100">
 								<div class="h-4 rounded bg-topic-discursos" style={`width:${anchoPct}%`}></div>
 							</div>
-							<span class="w-20 shrink-0 text-right text-sm font-semibold text-slate-900 tabular-nums">{d.intervenciones} interv.</span>
+							<span class="w-20 shrink-0 text-right text-sm font-semibold text-slate-900 tabular-nums">{formatoDuracion(d.segundos)}</span>
+							<span class="hidden w-20 shrink-0 text-right text-xs text-slate-400 sm:inline">{d.intervenciones} interv.</span>
 						</div>
 					);
 				})}
 			</div>
+			<p class="mt-2 text-xs text-slate-400">* Tiempo estimado, no un dato oficial de senado.cl.</p>
 		</section>
 
 		<!-- Palabras más usadas -->
