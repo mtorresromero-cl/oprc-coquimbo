@@ -1545,8 +1545,64 @@
   "coocurrencia": {
     "nodos": [
       {
+        "palabra": "quiero",
+        "n": 135
+      },
+      {
+        "palabra": "seguridad",
+        "n": 173
+      },
+      {
+        "palabra": "coquimbo",
+        "n": 243
+      },
+      {
+        "palabra": "puede",
+        "n": 189
+      },
+      {
+        "palabra": "debe",
+        "n": 115
+      },
+      {
+        "palabra": "sistema",
+        "n": 92
+      },
+      {
+        "palabra": "sino",
+        "n": 153
+      },
+      {
+        "palabra": "agua",
+        "n": 125
+      },
+      {
         "palabra": "región",
         "n": 247
+      },
+      {
+        "palabra": "familias",
+        "n": 198
+      },
+      {
+        "palabra": "personas",
+        "n": 134
+      },
+      {
+        "palabra": "sesión",
+        "n": 112
+      },
+      {
+        "palabra": "problema",
+        "n": 103
+      },
+      {
+        "palabra": "gobierno",
+        "n": 146
+      },
+      {
+        "palabra": "artículo",
+        "n": 119
       },
       {
         "palabra": "rurales",
@@ -1557,92 +1613,36 @@
         "n": 422
       },
       {
-        "palabra": "manera",
-        "n": 103
-      },
-      {
-        "palabra": "quiero",
-        "n": 135
-      },
-      {
-        "palabra": "sesión",
-        "n": 112
-      },
-      {
-        "palabra": "además",
-        "n": 94
-      },
-      {
-        "palabra": "debe",
-        "n": 115
-      },
-      {
-        "palabra": "seguridad",
-        "n": 173
-      },
-      {
-        "palabra": "familias",
-        "n": 198
-      },
-      {
-        "palabra": "puede",
-        "n": 189
-      },
-      {
-        "palabra": "personas",
-        "n": 134
-      },
-      {
-        "palabra": "nacional",
-        "n": 95
-      },
-      {
-        "palabra": "gobierno",
-        "n": 146
-      },
-      {
         "palabra": "recursos",
         "n": 101
-      },
-      {
-        "palabra": "sino",
-        "n": 153
-      },
-      {
-        "palabra": "chile",
-        "n": 151
-      },
-      {
-        "palabra": "coquimbo",
-        "n": 243
-      },
-      {
-        "palabra": "artículo",
-        "n": 119
       },
       {
         "palabra": "derechos",
         "n": 108
       },
       {
-        "palabra": "sistema",
-        "n": 92
+        "palabra": "además",
+        "n": 94
       },
       {
         "palabra": "país",
         "n": 201
       },
       {
-        "palabra": "agua",
-        "n": 125
+        "palabra": "chile",
+        "n": 151
+      },
+      {
+        "palabra": "manera",
+        "n": 103
       },
       {
         "palabra": "comisión",
         "n": 106
       },
       {
-        "palabra": "problema",
-        "n": 103
+        "palabra": "nacional",
+        "n": 95
       }
     ],
     "enlaces": [
@@ -3155,8 +3155,8 @@
       "con_texto": 29
     },
     "daniel-manouchehri-lobos-diputado": {
-      "intervenciones": 39,
-      "segundos": 2834,
+      "intervenciones": 40,
+      "segundos": 2854,
       "con_texto": 38
     },
     "eileen-patricia-urqueta-rojas-diputado": {
@@ -3165,8 +3165,8 @@
       "con_texto": 50
     },
     "nathalie-castillo-rojas-diputado": {
-      "intervenciones": 37,
-      "segundos": 5829,
+      "intervenciones": 38,
+      "segundos": 6078,
       "con_texto": 36
     },
     "carolina-tello-rojas-diputado": {
@@ -3187,8 +3187,8 @@
   },
   "segundos_estimados": false,
   "tasa_palabras_por_segundo_calibracion": null,
-  "ultima_fecha_registrada": "2026-09-21",
-  "total_intervenciones": 209,
+  "ultima_fecha_registrada": "2026-10-05",
+  "total_intervenciones": 211,
   "total_con_texto": 200,
   "total_palabras_corpus": 41490
 }

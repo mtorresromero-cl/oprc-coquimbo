@@ -1,5 +1,91 @@
 [
   {
+    "id": "senado-18684-63-374-2026-09-30",
+    "camara": "senado",
+    "fecha": "2026-09-30",
+    "numero_sesion": "63/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que extiende la vigencia de los bonos establecidos en la ley N° 21.811, concede bono a pescadores artesanales y modifica el plazo para realizar aportes al Fondo de Garantías para Pequeños Empresarios (FOGAPE). Por la sola aprobación en general del proyecto, se entiende aprobada en particular la iniciativa, dado que no fue objeto de indicaciones ni solicitudes de votación separada.",
+    "resultado": "aprobado",
+    "votos_favor": 33,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18684",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18208-61-374-2026-09-29",
+    "camara": "senado",
+    "fecha": "2026-09-29",
+    "numero_sesion": "61/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Artículo transitorio nuevo -En votación la indicación de los Honorables Senadores señores Flores y Walker, para agregar el siguiente artículo transitorio, nuevo: ¿Artículo transitorio.¿ Las disposiciones de esta ley se aplicarán a los juicios cuya audiencia se inicie después de su entrada en vigencia, sin perjuicio de lo dispuesto en el artículo 11 del Código Procesal Penal. Las notificaciones y advertencias efectuadas con anterioridad sólo podrán fundar una autorización de juzgamiento en ausenc",
+    "resultado": "rechazado",
+    "votos_favor": 12,
+    "votos_contra": 21,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18208",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "contra"
+      }
+    ]
+  },
+  {
+    "id": "senado-18301-61-374-2026-09-29",
+    "camara": "senado",
+    "fecha": "2026-09-29",
+    "numero_sesion": "61/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general y en particular, el proyecto de acuerdo que aprueba el Convenio de Transporte Aéreo entre el Gobierno de la República de Chile y el Gobierno de la República de Costa Rica, suscrito en Lima, Perú, el 13 de diciembre de 2023",
+    "resultado": "aprobado",
+    "votos_favor": 27,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18301",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-10986-60-374-2026-09-23",
     "camara": "senado",
     "fecha": "2026-09-23",
@@ -792,6 +878,32 @@
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
         "voto": "contra"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18231-47-374-2026-08-04",
+    "camara": "senado",
+    "fecha": "2026-08-04",
+    "numero_sesion": "47/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que establece el Día Nacional de la Teletón y el Día Nacional del Encuentro Familiar. Por la sola aprobación en general del proyecto, se entenderán aprobados todos los artículos que no hayan sido objeto de indicaciones ni solicitudes de votación separada.",
+    "resultado": "aprobado",
+    "votos_favor": 40,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18231",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
       },
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",

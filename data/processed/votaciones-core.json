@@ -1,5 +1,3531 @@
 [
   {
+    "id": "core-10755",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Segundo alargue 880",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10755",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10754",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Situación Programa PER Transforma Hídrico",
+    "resultado": "aprobado",
+    "votos_favor": 16,
+    "votos_contra": 0,
+    "abstenciones": 1,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10754",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "abstencion"
+      }
+    ]
+  },
+  {
+    "id": "core-10753",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "informe de cometido OVALLE RECOLETA reunión de la comisión de aguas y recursos hídricos e Hito Lanzamiento Programa GORE-CNR",
+    "resultado": "aprobado",
+    "votos_favor": 14,
+    "votos_contra": 0,
+    "abstenciones": 1,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10753",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "abstencion"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "core-10750",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "INFRAESTRUCTURA DEPORTIVA",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10750",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10749",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Informe mesa CAT",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10749",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10748",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "PANAMERICA VAA 2026 ASIGNACIÓN DIRECTA",
+    "resultado": "aprobado",
+    "votos_favor": 16,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10748",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "inhabilitado"
+      }
+    ]
+  },
+  {
+    "id": "core-10745",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "INFORME COMETIDO Escuela de Asuntos Internacionales Zona Centro Norte ARICA",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10745",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10744",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "INVITACIONES Tricomisión Recursos Hídricos Medio Ambiente y Ordenamiento Territorial identificación y resguardo de ríos vegas y humedales Bienes Nacionales de Uso Público",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10744",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10743",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "EN RELACIÓN CON LA PROPIEDAD FISCAL MBBNN",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10743",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10742",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "CONCESIONES SEPTIEMBRE 2026",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10742",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10739",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "AVANCES PROPIR SEPTIEMBRE 2026",
+    "resultado": "aprobado",
+    "votos_favor": 16,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10739",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "core-10738",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "MODIFICACIÓN PRESUPUESTARIA SUBTITULO 26",
+    "resultado": "aprobado",
+    "votos_favor": 16,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10738",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "core-10737",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "APORTE SUBDERE A CARTERA TERRITORIO REZAGADOS",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10737",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10736",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "RATIFICACIÓN CARTERA PMU PMB",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10736",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10734",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "SANTIAGO DIPRES MOP",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10734",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10733",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Invitación GENERAL CARABINEROS resultados labor policial y corrales municipales",
+    "resultado": "aprobado",
+    "votos_favor": 16,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10733",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "core-10732",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Modifica convenio GORE CARABINEROS ACUERDO 15291",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10732",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10731",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "INVITAR SAG CENTRO PROTECCIÓN FAUNA SILVESTRE ANIMALES NATIVOS HERIDOS",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10731",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10730",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "PARTICIPACIÓN CORE REUNIONES DIPLADE SEA",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10730",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10727",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Invitación experto impactos desaladora",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10727",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10726",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "TRANSFERENCIA DESARROLLO SOSTENIBLE DE LA MINERIA DE MENOR ESCALA DE LA REGIÓN DE COQUIMBO y concursos asociados",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10726",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10725",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "EIA DESALADORA MULTIPROPÓSITO – LA SERENA",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10725",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10724",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "2 receso 880",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10724",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10723",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Invitación a directorio de CRDP",
+    "resultado": "aprobado",
+    "votos_favor": 16,
+    "votos_contra": 0,
+    "abstenciones": 1,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10723",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "abstencion"
+      }
+    ]
+  },
+  {
+    "id": "core-10720",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Informe de visita a terreno a caletas pesqueras rurales de la provincia de Limarí",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10720",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10719",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Invitación VIALIDAD convenio empresa minera LOS PELAMBRES",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10719",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10718",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "ESTADO DE AVANCE FONDO DE APOYO AL TRANSPORTE PÚBLICO Y LA CONECTIVIDAD REGIONAL",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10718",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10717",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "RATIFICACIÓN PRONUNCIAMIENTO CORE POR RUTA 41",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10717",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10716",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Invitar MINVU SERVIU Compra terrenos proyectos habitacionales Vicuña y La Serena y situación Los Vilos",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10716",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10715",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Recuperación fortalecimiento integral de SSR vulnerables de la región de Coquimbo",
+    "resultado": "aprobado",
+    "votos_favor": 16,
+    "votos_contra": 0,
+    "abstenciones": 1,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10715",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "abstencion"
+      }
+    ]
+  },
+  {
+    "id": "core-10714",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Visita iglesias de Ovalle Puesta en valor del Patrimonio",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10714",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10713",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "CONVOCATORIA MESA SITIO EL OLIVAR",
+    "resultado": "aprobado",
+    "votos_favor": 16,
+    "votos_contra": 0,
+    "abstenciones": 1,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10713",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "abstencion"
+      }
+    ]
+  },
+  {
+    "id": "core-10712",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Visita ARCHIVO NACIONAL DE SANTIAGO",
+    "resultado": "aprobado",
+    "votos_favor": 15,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10712",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "core-10711",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "VISITA LICEO POLITÉCNICO ILLAPEL",
+    "resultado": "aprobado",
+    "votos_favor": 15,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10711",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "core-10710",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Receso 880",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10710",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10709",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Participación activa Alcalde y alumno Illapel 880",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10709",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10708",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Suplemento Reposición Liceo Politécnico Illapel",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10708",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10707",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Suplemento construcción Museo Cirujano Videla y Centro Cultural Andacollo",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10707",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10705",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Cometidos 880",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10705",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10704",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Acta 879",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10704",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "core-10703",
+    "camara": "core",
+    "fecha": "2026-09-29",
+    "numero_sesion": "880",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Cambio horario inicio sesión 880",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://acuerdos.corecoquimbo.cl/acuerdos/acuerdo/10703",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "ximena-del-pilar-ampuero-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "valeria-chacana-alarcon-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "lombardo-toledo-escorza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "belen-auger-julien-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "francisco-corral-macias-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "pedro-alejandro-valencia-cortes-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "maria-cristina-concha-wagenknecht-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "paola-cortes-vega-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "denis-cortes-vargas-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-hisi-espinoza-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "angel-gonzalez-aguilera-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "juan-manuel-barraza-astorga-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "tatiana-alejandra-cortes-segovia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-chavez-araya-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carlos-ramos-garcia-core",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "max-aguirre-rojas-core",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "core-10700",
     "camara": "core",
     "fecha": "2026-09-08",

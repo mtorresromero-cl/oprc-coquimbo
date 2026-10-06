@@ -43,6 +43,20 @@
   },
   {
     "autoridad_id": "ana-alejandra-jeraldo-ramos-concejal",
+    "fecha_declaracion": "2026-09-01",
+    "tipo_declaracion": "Actualización Periódica (Marzo)",
+    "cargo_declarado": "CONCEJAL",
+    "organismo": "Municipalidad De Andacollo",
+    "bienes_inmuebles_n": 1,
+    "vehiculos_n": 1,
+    "sociedades_n": 0,
+    "valores_monto": 0.0,
+    "pasivos_tiene": 0,
+    "pasivos_monto": 0.0,
+    "fuente_url": "https://www.infoprobidad.cl/Declaracion/Declaracion?ID=1820454"
+  },
+  {
+    "autoridad_id": "ana-alejandra-jeraldo-ramos-concejal",
     "fecha_declaracion": "2024-12-12",
     "tipo_declaracion": "Primera Declaración (Por Asunción De Cargo)",
     "cargo_declarado": "CONCEJAL",
@@ -432,6 +446,20 @@
     "pasivos_tiene": 0,
     "pasivos_monto": 0.0,
     "fuente_url": "https://www.infoprobidad.cl/Declaracion/Declaracion?ID=1613547"
+  },
+  {
+    "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+    "fecha_declaracion": "2026-09-24",
+    "tipo_declaracion": "Actualizacion Periodica (Septiembre)",
+    "cargo_declarado": "GOBERNADOR REGIONAL",
+    "organismo": "Gobierno Regional De Coquimbo",
+    "bienes_inmuebles_n": 2,
+    "vehiculos_n": 1,
+    "sociedades_n": 1,
+    "valores_monto": 0.0,
+    "pasivos_tiene": 1,
+    "pasivos_monto": 109601001.0,
+    "fuente_url": "https://www.infoprobidad.cl/Declaracion/Declaracion?ID=1858084"
   },
   {
     "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
@@ -1524,6 +1552,20 @@
     "pasivos_tiene": 0,
     "pasivos_monto": 0.0,
     "fuente_url": "https://www.infoprobidad.cl/Declaracion/Declaracion?ID=1587270"
+  },
+  {
+    "autoridad_id": "rene-alex-olivarez-cortes-concejal",
+    "fecha_declaracion": "2026-09-03",
+    "tipo_declaracion": "Actualizacion Periodica (Septiembre)",
+    "cargo_declarado": "CONCEJAL",
+    "organismo": "Municipalidad De Andacollo",
+    "bienes_inmuebles_n": 0,
+    "vehiculos_n": 0,
+    "sociedades_n": 0,
+    "valores_monto": 0.0,
+    "pasivos_tiene": 0,
+    "pasivos_monto": 0.0,
+    "fuente_url": "https://www.infoprobidad.cl/Declaracion/Declaracion?ID=1823927"
   },
   {
     "autoridad_id": "rene-alex-olivarez-cortes-concejal",

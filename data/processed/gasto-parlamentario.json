@@ -79,6 +79,17 @@
   {
     "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
     "anno": 2026,
+    "mes": 10,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1250"
+  },
+  {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "anno": 2026,
     "mes": 3,
     "categoria": "gastos_operacionales",
     "publicado": 1,
@@ -126,9 +137,9 @@
     "mes": 7,
     "categoria": "gastos_operacionales",
     "publicado": 1,
-    "monto": 0.0,
+    "monto": 6756590.0,
     "cantidad": null,
-    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 2383646.0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 1223172.0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 570000.0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 350163.0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 1375000.0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 20800.0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 24990.0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 150000.0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 658819.0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1250"
   },
   {
@@ -146,6 +157,17 @@
     "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1250"
+  },
+  {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "gastos_operacionales",
     "publicado": 0,
     "monto": null,
@@ -233,6 +255,17 @@
   {
     "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
     "anno": 2026,
+    "mes": 10,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1250"
+  },
+  {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "anno": 2026,
     "mes": 3,
     "categoria": "personal_apoyo",
     "publicado": 1,
@@ -308,6 +341,17 @@
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1250"
   },
   {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "anno": 2026,
+    "mes": 10,
+    "categoria": "personal_apoyo",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1250"
+  },
+  {
     "autoridad_id": "carolina-tello-rojas-diputado",
     "anno": 2026,
     "mes": 3,
@@ -377,6 +421,17 @@
     "autoridad_id": "carolina-tello-rojas-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1177"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "asesorias_externas",
     "publicado": 0,
     "monto": null,
@@ -434,9 +489,9 @@
     "mes": 7,
     "categoria": "gastos_operacionales",
     "publicado": 1,
-    "monto": 0.0,
+    "monto": 7587330.0,
     "cantidad": null,
-    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 1490881.0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 25990.0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 3377394.0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 1067966.0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 241858.0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 712000.0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 12422.0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 658819.0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1177"
   },
   {
@@ -454,6 +509,17 @@
     "autoridad_id": "carolina-tello-rojas-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1177"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "gastos_operacionales",
     "publicado": 0,
     "monto": null,
@@ -531,6 +597,17 @@
     "autoridad_id": "carolina-tello-rojas-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1177"
+  },
+  {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "pasajes_aereos",
     "publicado": 1,
     "monto": null,
@@ -616,6 +693,17 @@
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1177"
   },
   {
+    "autoridad_id": "carolina-tello-rojas-diputado",
+    "anno": 2026,
+    "mes": 10,
+    "categoria": "personal_apoyo",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1177"
+  },
+  {
     "autoridad_id": "daniel-manouchehri-lobos-diputado",
     "anno": 2026,
     "mes": 3,
@@ -685,6 +773,17 @@
     "autoridad_id": "daniel-manouchehri-lobos-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1142"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "asesorias_externas",
     "publicado": 0,
     "monto": null,
@@ -742,9 +841,9 @@
     "mes": 7,
     "categoria": "gastos_operacionales",
     "publicado": 1,
-    "monto": 0.0,
+    "monto": 7092691.0,
     "cantidad": null,
-    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 68310.0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 1718551.0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 4647011.0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 658819.0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1142"
   },
   {
@@ -762,6 +861,17 @@
     "autoridad_id": "daniel-manouchehri-lobos-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1142"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "gastos_operacionales",
     "publicado": 0,
     "monto": null,
@@ -849,6 +959,17 @@
   {
     "autoridad_id": "daniel-manouchehri-lobos-diputado",
     "anno": 2026,
+    "mes": 10,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1142"
+  },
+  {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "anno": 2026,
     "mes": 3,
     "categoria": "personal_apoyo",
     "publicado": 1,
@@ -924,6 +1045,17 @@
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1142"
   },
   {
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "anno": 2026,
+    "mes": 10,
+    "categoria": "personal_apoyo",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1142"
+  },
+  {
     "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
     "anno": 2026,
     "mes": 3,
@@ -993,6 +1125,17 @@
     "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1255"
+  },
+  {
+    "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "asesorias_externas",
     "publicado": 0,
     "monto": null,
@@ -1050,9 +1193,9 @@
     "mes": 7,
     "categoria": "gastos_operacionales",
     "publicado": 1,
-    "monto": 0.0,
+    "monto": 5299123.0,
     "cantidad": null,
-    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 2376440.0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 86364.0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 1626227.0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 82110.0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 350163.0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 119000.0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 658819.0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1255"
   },
   {
@@ -1070,6 +1213,17 @@
     "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1255"
+  },
+  {
+    "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "gastos_operacionales",
     "publicado": 0,
     "monto": null,
@@ -1147,6 +1301,17 @@
     "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1255"
+  },
+  {
+    "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "pasajes_aereos",
     "publicado": 1,
     "monto": null,
@@ -1232,6 +1397,17 @@
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1255"
   },
   {
+    "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+    "anno": 2026,
+    "mes": 10,
+    "categoria": "personal_apoyo",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1255"
+  },
+  {
     "autoridad_id": "erich-christ-grohs-marin-diputado",
     "anno": 2026,
     "mes": 3,
@@ -1301,6 +1477,17 @@
     "autoridad_id": "erich-christ-grohs-marin-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1212"
+  },
+  {
+    "autoridad_id": "erich-christ-grohs-marin-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "asesorias_externas",
     "publicado": 0,
     "monto": null,
@@ -1358,9 +1545,9 @@
     "mes": 7,
     "categoria": "gastos_operacionales",
     "publicado": 1,
-    "monto": 0.0,
+    "monto": 7040681.0,
     "cantidad": null,
-    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 2364639.0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 80832.0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 3206727.0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 357000.0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 350163.0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 22501.0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 658819.0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1212"
   },
   {
@@ -1378,6 +1565,17 @@
     "autoridad_id": "erich-christ-grohs-marin-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1212"
+  },
+  {
+    "autoridad_id": "erich-christ-grohs-marin-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "gastos_operacionales",
     "publicado": 0,
     "monto": null,
@@ -1465,6 +1663,17 @@
   {
     "autoridad_id": "erich-christ-grohs-marin-diputado",
     "anno": 2026,
+    "mes": 10,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1212"
+  },
+  {
+    "autoridad_id": "erich-christ-grohs-marin-diputado",
+    "anno": 2026,
     "mes": 3,
     "categoria": "personal_apoyo",
     "publicado": 1,
@@ -1532,6 +1741,17 @@
     "autoridad_id": "erich-christ-grohs-marin-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "personal_apoyo",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1212"
+  },
+  {
+    "autoridad_id": "erich-christ-grohs-marin-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "personal_apoyo",
     "publicado": 0,
     "monto": null,
@@ -1666,9 +1886,9 @@
     "mes": 7,
     "categoria": "gastos_operacionales",
     "publicado": 1,
-    "monto": 0.0,
+    "monto": 6776524.0,
     "cantidad": null,
-    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 33538.0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 3528903.0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 1130000.0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 1200000.0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 172644.0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 12620.0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 40000.0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 658819.0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1174"
   },
   {
@@ -1686,6 +1906,17 @@
     "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1174"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "gastos_operacionales",
     "publicado": 0,
     "monto": null,
@@ -1763,6 +1994,17 @@
     "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1174"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "pasajes_aereos",
     "publicado": 1,
     "monto": null,
@@ -1848,6 +2090,17 @@
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1174"
   },
   {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "anno": 2026,
+    "mes": 10,
+    "categoria": "personal_apoyo",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1174"
+  },
+  {
     "autoridad_id": "nathalie-castillo-rojas-diputado",
     "anno": 2026,
     "mes": 3,
@@ -1917,6 +2170,17 @@
     "autoridad_id": "nathalie-castillo-rojas-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1117"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "asesorias_externas",
     "publicado": 0,
     "monto": null,
@@ -1974,9 +2238,9 @@
     "mes": 7,
     "categoria": "gastos_operacionales",
     "publicado": 1,
-    "monto": 0.0,
+    "monto": 6919480.0,
     "cantidad": null,
-    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 2379073.0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 566835.0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 1376346.0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 1072596.0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 785000.0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 100000.0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 639630.0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1117"
   },
   {
@@ -1994,6 +2258,17 @@
     "autoridad_id": "nathalie-castillo-rojas-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1117"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "gastos_operacionales",
     "publicado": 0,
     "monto": null,
@@ -2081,6 +2356,17 @@
   {
     "autoridad_id": "nathalie-castillo-rojas-diputado",
     "anno": 2026,
+    "mes": 10,
+    "categoria": "pasajes_aereos",
+    "publicado": 1,
+    "monto": null,
+    "cantidad": 0,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1117"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "anno": 2026,
     "mes": 3,
     "categoria": "personal_apoyo",
     "publicado": 1,
@@ -2148,6 +2434,17 @@
     "autoridad_id": "nathalie-castillo-rojas-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "personal_apoyo",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1117"
+  },
+  {
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "personal_apoyo",
     "publicado": 0,
     "monto": null,

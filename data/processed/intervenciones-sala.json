@@ -2088,5 +2088,25 @@
     "detalle": "1° Discurso",
     "duracion": "01:13",
     "texto": null
+  },
+  {
+    "sesion_id": "4834",
+    "numero_sesion": 74,
+    "etiqueta_sesion": "74ª, lunes 5 octubre 2026",
+    "autoridad_id": "daniel-manouchehri-lobos-diputado",
+    "tipo": "Cuenta",
+    "detalle": "Punto Reglamentario",
+    "duracion": "00:20",
+    "texto": null
+  },
+  {
+    "sesion_id": "4834",
+    "numero_sesion": 74,
+    "etiqueta_sesion": "74ª, lunes 5 octubre 2026",
+    "autoridad_id": "nathalie-castillo-rojas-diputado",
+    "tipo": "Orden del Día",
+    "detalle": "1° Discurso",
+    "duracion": "04:09",
+    "texto": null
   }
 ]

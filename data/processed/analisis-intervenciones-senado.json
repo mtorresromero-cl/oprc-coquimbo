@@ -881,104 +881,104 @@
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "ejecutivo",
-        "n": 66
-      },
-      {
-        "palabra": "entonces",
-        "n": 105
-      },
-      {
-        "palabra": "seguridad",
-        "n": 60
-      },
-      {
-        "palabra": "comisión",
-        "n": 133
-      },
-      {
-        "palabra": "vamos",
-        "n": 61
-      },
-      {
-        "palabra": "gobierno",
-        "n": 114
-      },
-      {
-        "palabra": "forma",
-        "n": 58
-      },
-      {
-        "palabra": "quiero",
-        "n": 108
-      },
-      {
-        "palabra": "ambiental",
-        "n": 57
-      },
-      {
-        "palabra": "puede",
-        "n": 87
-      },
-      {
-        "palabra": "creo",
-        "n": 55
-      },
-      {
-        "palabra": "decir",
-        "n": 72
-      },
-      {
-        "palabra": "sistema",
-        "n": 75
-      },
-      {
-        "palabra": "proyecto",
-        "n": 234
-      },
-      {
-        "palabra": "acuerdo",
-        "n": 64
-      },
-      {
-        "palabra": "materia",
-        "n": 56
-      },
-      {
-        "palabra": "región",
-        "n": 91
-      },
-      {
-        "palabra": "ciento",
-        "n": 70
-      },
-      {
-        "palabra": "chile",
-        "n": 105
-      },
-      {
-        "palabra": "ahora",
-        "n": 56
-      },
-      {
-        "palabra": "importante",
-        "n": 57
+        "palabra": "país",
+        "n": 68
       },
       {
         "palabra": "coquimbo",
         "n": 79
       },
       {
-        "palabra": "nacional",
+        "palabra": "quiero",
+        "n": 108
+      },
+      {
+        "palabra": "proyecto",
+        "n": 234
+      },
+      {
+        "palabra": "entonces",
+        "n": 105
+      },
+      {
+        "palabra": "ejecutivo",
+        "n": 66
+      },
+      {
+        "palabra": "ambiental",
+        "n": 57
+      },
+      {
+        "palabra": "comisión",
+        "n": 133
+      },
+      {
+        "palabra": "región",
+        "n": 91
+      },
+      {
+        "palabra": "creo",
+        "n": 55
+      },
+      {
+        "palabra": "ahora",
         "n": 56
       },
       {
-        "palabra": "país",
-        "n": 68
+        "palabra": "gobierno",
+        "n": 114
       },
       {
         "palabra": "sino",
         "n": 82
+      },
+      {
+        "palabra": "ciento",
+        "n": 70
+      },
+      {
+        "palabra": "importante",
+        "n": 57
+      },
+      {
+        "palabra": "materia",
+        "n": 56
+      },
+      {
+        "palabra": "chile",
+        "n": 105
+      },
+      {
+        "palabra": "puede",
+        "n": 87
+      },
+      {
+        "palabra": "sistema",
+        "n": 75
+      },
+      {
+        "palabra": "decir",
+        "n": 72
+      },
+      {
+        "palabra": "vamos",
+        "n": 61
+      },
+      {
+        "palabra": "forma",
+        "n": 58
+      },
+      {
+        "palabra": "nacional",
+        "n": 56
+      },
+      {
+        "palabra": "acuerdo",
+        "n": 64
+      },
+      {
+        "palabra": "seguridad",
+        "n": 60
       }
     ],
     "enlaces": [

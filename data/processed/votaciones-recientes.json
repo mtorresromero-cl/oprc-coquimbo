@@ -1,5 +1,91 @@
 [
   {
+    "id": "senado-18684-63-374-2026-09-30",
+    "camara": "senado",
+    "fecha": "2026-09-30",
+    "numero_sesion": "63/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que extiende la vigencia de los bonos establecidos en la ley N° 21.811, concede bono a pescadores artesanales y modifica el plazo para realizar aportes al Fondo de Garantías para Pequeños Empresarios (FOGAPE). Por la sola aprobación en general del proyecto, se entiende aprobada en particular la iniciativa, dado que no fue objeto de indicaciones ni solicitudes de votación separada.",
+    "resultado": "aprobado",
+    "votos_favor": 33,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18684",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18208-61-374-2026-09-29",
+    "camara": "senado",
+    "fecha": "2026-09-29",
+    "numero_sesion": "61/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Artículo transitorio nuevo -En votación la indicación de los Honorables Senadores señores Flores y Walker, para agregar el siguiente artículo transitorio, nuevo: ¿Artículo transitorio.¿ Las disposiciones de esta ley se aplicarán a los juicios cuya audiencia se inicie después de su entrada en vigencia, sin perjuicio de lo dispuesto en el artículo 11 del Código Procesal Penal. Las notificaciones y advertencias efectuadas con anterioridad sólo podrán fundar una autorización de juzgamiento en ausenc",
+    "resultado": "rechazado",
+    "votos_favor": 12,
+    "votos_contra": 21,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18208",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "contra"
+      }
+    ]
+  },
+  {
+    "id": "senado-18301-61-374-2026-09-29",
+    "camara": "senado",
+    "fecha": "2026-09-29",
+    "numero_sesion": "61/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general y en particular, el proyecto de acuerdo que aprueba el Convenio de Transporte Aéreo entre el Gobierno de la República de Chile y el Gobierno de la República de Costa Rica, suscrito en Lima, Perú, el 13 de diciembre de 2023",
+    "resultado": "aprobado",
+    "votos_favor": 27,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18301",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-10986-60-374-2026-09-23",
     "camara": "senado",
     "fecha": "2026-09-23",
@@ -800,6 +886,32 @@
     ]
   },
   {
+    "id": "senado-18231-47-374-2026-08-04",
+    "camara": "senado",
+    "fecha": "2026-08-04",
+    "numero_sesion": "47/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que establece el Día Nacional de la Teletón y el Día Nacional del Encuentro Familiar. Por la sola aprobación en general del proyecto, se entenderán aprobados todos los artículos que no hayan sido objeto de indicaciones ni solicitudes de votación separada.",
+    "resultado": "aprobado",
+    "votos_favor": 40,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18231",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-10986-45-374-2026-07-22",
     "camara": "senado",
     "fecha": "2026-07-22",
@@ -1228,122 +1340,6 @@
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
         "voto": "pareo"
-      },
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-17012-22-374-2026-05-20",
-    "camara": "senado",
-    "fecha": "2026-05-20",
-    "numero_sesion": "22/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Proyecto de ley, en primer trámite constitucional, que modifica la ley N° 21.442, que aprueba nueva ley de copropiedad inmobiliaria, con el objeto de implementar sistemas de seguridad adicionales para impedir caídas accidentales desde edificaciones en altura (discusión en particular). (Boletines Nos 17.012-14, 9.301-14, 17.591-14, 17.594-14 y 18.037-14, refundidos)",
-    "resultado": "aprobado",
-    "votos_favor": 34,
-    "votos_contra": 0,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17012",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "pareo"
-      },
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-18232-22-374-2026-05-20",
-    "camara": "senado",
-    "fecha": "2026-05-20",
-    "numero_sesion": "22/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Proyecto de ley, en segundo trámite constitucional, que modifica la ley N° 21.659, sobre seguridad privada, para aumentar el plazo de presentación y pronunciamiento sobre los estudios de seguridad que dispone, y extiende la prórroga de vigencia de la última autorización del personal de seguridad privada que indica, con informe de la Comisión de Seguridad Pública (proyecto discutido en general y en particular ). (Boletín N° 18.232-25)",
-    "resultado": "aprobado",
-    "votos_favor": 28,
-    "votos_contra": 0,
-    "abstenciones": 2,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18232",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "abstencion"
-      },
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "pareo"
-      }
-    ]
-  },
-  {
-    "id": "senado-16577-22-374-2026-05-20",
-    "camara": "senado",
-    "fecha": "2026-05-20",
-    "numero_sesion": "22/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Discusión particular del proyecto de ley, en segundo trámite constitucional, que declara el 7 de enero de cada año como el Día de la Amistad y Solidaridad Chileno-Palestina (Boletín Nº 16.577-24)",
-    "resultado": "aprobado",
-    "votos_favor": 27,
-    "votos_contra": 0,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16577",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "pareo"
-      }
-    ]
-  },
-  {
-    "id": "senado-17877-16-374-2026-05-13",
-    "camara": "senado",
-    "fecha": "2026-05-13",
-    "numero_sesion": "16/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Proyecto de ley, iniciado en Mensaje del ex Presidente de la República, señor Gabriel Boric Font, en primer trámite constitucional, que modifica la ley N° 20.998, con el propósito de modernizar y fortalecer el régimen jurídico aplicable a los servicios sanitarios rurales, con informe de la Comisión de Recursos Hídricos, Desertificación y Sequía. (discusión en general). (Boletín N° 17.877-33)",
-    "resultado": "aprobado",
-    "votos_favor": 42,
-    "votos_contra": 3,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17877",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "favor"
       },
       {
         "autoridad_id": "matias-walker-prieto-senador",

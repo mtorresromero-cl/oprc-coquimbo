@@ -1,5 +1,173 @@
 [
   {
+    "id": "camara-90268",
+    "camara": "camara",
+    "fecha": "2026-10-05",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "16858-15",
+    "descripcion": "Modifica la Ley General de Telecomunicaciones en materia de asignación de direcciones IP y deber de información de los proveedores de acceso a Internet",
+    "resultado": "aprobado",
+    "votos_favor": 132,
+    "votos_contra": 0,
+    "abstenciones": 23,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=90268",
+    "etapa": "particular",
+    "articulo": "",
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-90226",
+    "camara": "camara",
+    "fecha": "2026-09-30",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18231-35",
+    "descripcion": "Establece el Día Nacional de la Teletón y el Día Nacional del Encuentro Familiar",
+    "resultado": "aprobado",
+    "votos_favor": 138,
+    "votos_contra": 0,
+    "abstenciones": 17,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=90226",
+    "etapa": "particular",
+    "articulo": "",
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "camara-90224",
+    "camara": "camara",
+    "fecha": "2026-09-30",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18279-10",
+    "descripcion": "Aprueba el Acuerdo que modifica el Convenio entre la República de Chile y el Gobierno de la República de Hungría con el Objeto de Autorizar el Ejercicio de Actividades Remuneradas en el Estado Receptor por los Familiares Dependientes del Personal Diplomático, Consular, Administrativo y Técnico de las Misiones Diplomáticas y Consulares Acreditadas ante los respectivos Gobiernos, y por los Familiares Dependientes de Nacionales Chilenos o Húngaros Acreditados ante Organizaciones Internacionales con Sede en Cualquiera de los Dos Países, adoptado por intercambio de Notas, fechadas en Santiago y Budapest, el 15 de julio de 2024.",
+    "resultado": "aprobado",
+    "votos_favor": 138,
+    "votos_contra": 1,
+    "abstenciones": 15,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=90224",
+    "etapa": "particular",
+    "articulo": "",
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
+    "id": "camara-90225",
+    "camara": "camara",
+    "fecha": "2026-09-30",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17640-06",
+    "descripcion": "Modifica diversos cuerpos legales, para promover la gobernabilidad y la representatividad del sistema político",
+    "resultado": "aprobado",
+    "votos_favor": 125,
+    "votos_contra": 12,
+    "abstenciones": 16,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=90225",
+    "etapa": "particular",
+    "articulo": "",
+    "votos": [
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "ausente"
+      }
+    ]
+  },
+  {
     "id": "camara-90138",
     "camara": "camara",
     "fecha": "2026-09-23",
