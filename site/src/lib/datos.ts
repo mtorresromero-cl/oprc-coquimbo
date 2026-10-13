@@ -952,7 +952,7 @@ export const CATEGORIA_GASTO: Record<string, CategoriaGastoConfig> = {
 		label: 'Gastos operacionales',
 		campo: 'monto',
 		unidad: '$',
-		nota: 'Incluye arriendo de oficina, teléfono, traslación, difusión y otros ítems operacionales, sumados por camara.cl. Julio 2026 aparece en 0 para los 7 diputados porque la Cámara todavía no ha publicado ese mes — no es un gasto real de cero.',
+		nota: 'Incluye arriendo de oficina, teléfono, traslación, difusión y otros ítems operacionales, sumados por camara.cl. El mes más reciente puede aparecer en 0 para los 7 diputados si la Cámara todavía no lo ha publicado — no es necesariamente un gasto real de cero.',
 	},
 	asesorias_externas: {
 		label: 'Asesorías externas',
