@@ -1,11 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { matricesGastoParlamentario, detalleGastosOperacionales, equiposDiputados, fotoAutoridad, nombreMes } from '../../lib/datos';
+import {
+	matricesGastoParlamentario,
+	detalleGastosOperacionales,
+	equiposDiputados,
+	mesEquiposDiputados,
+	fotoAutoridad,
+	nombreMes,
+} from '../../lib/datos';
 
 const matrices = matricesGastoParlamentario();
 const meses = matrices[0]?.meses ?? [];
+const ultimoMes = meses.at(-1);
 const detalleOperacionales = detalleGastosOperacionales();
 const equipos = equiposDiputados();
+const mesEquipo = mesEquiposDiputados();
 const equiposGrafo = equipos.map((e) => ({ ...e, foto: fotoAutoridad(e.id) }));
 const totalAsesores = equipos.reduce((n, e) => n + e.asesores.length, 0);
 
@@ -38,7 +47,8 @@ function formatoValor(unidad: string, valor: number | null): string {
 			</h1>
 			<p class="mt-5 max-w-2xl text-lg text-slate-300">
 				Los 7 diputados de la Región de Coquimbo (Distrito 5), mes a mes, según lo que camara.cl
-				publica por transparencia. Datos hasta julio de 2026.
+				publica por transparencia.
+				{ultimoMes && ` Datos hasta ${nombreMes(ultimoMes)} de 2026.`}
 			</p>
 		</div>
 	</section>
@@ -154,7 +164,7 @@ function formatoValor(unidad: string, valor: number | null): string {
 					<div class="mt-10">
 						<h3 class="text-base font-semibold text-slate-900">Equipo por diputado/a</h3>
 						<p class="mt-1 max-w-2xl text-sm text-slate-500">
-							Nombre, cargo y sueldo de cada persona del equipo, julio 2026 (último mes con datos completos).
+							Nombre, cargo y sueldo de cada persona del equipo, {nombreMes(mesEquipo)} 2026 (último mes con datos completos).
 						</p>
 						<select id="equipo-diputado" class="mt-4 rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-700">
 							{equipos.map((e) => <option value={e.id}>{e.nombre}</option>)}

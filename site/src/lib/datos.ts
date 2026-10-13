@@ -997,9 +997,16 @@ export interface MatrizGasto {
 	filas: FilaGastoParlamentario[];
 }
 
-const MESES_GASTO_PARLAMENTARIO = [3, 4, 5, 6, 7];
+// Calculado desde los propios datos, no fijo a mano: quedó hardcodeado en
+// [3,4,5,6,7] mucho después de que el scraper (gasto_parlamentario.py) ya
+// traía meses más nuevos (mes dinámico, ver ese scraper) — la página
+// seguía mostrando "hasta julio" con datos de octubre ya en la base. Cada
+// categoría/diputado igual puede no tener el mes más nuevo publicado
+// todavía; eso ya lo maneja el `publicado` de cada celda (ver más abajo).
+const MESES_GASTO_PARLAMENTARIO = [...new Set(gastoParlamentario.map((g) => g.mes))].sort(
+	(a, b) => a - b
+);
 
-/** Datos hasta julio de 2026 (agosto todavía no está publicado por camara.cl). */
 export function matricesGastoParlamentario(): MatrizGasto[] {
 	const diputados = autoridades
 		.filter((a) => a.cargo === 'diputado')
@@ -1092,17 +1099,41 @@ function normalizaCargoAsesor(cargo: string): string {
 	return CARGOS_ASESOR_CONOCIDOS.has(cargo) ? cargo : 'Otro';
 }
 
+const DIPUTADOS_COQUIMBO_N = autoridades.filter((a) => a.cargo === 'diputado').length;
+
+/**
+ * Último mes de personal_apoyo publicado para LOS 7 diputados a la vez (no
+ * el último mes con datos de gasto en general — camara.cl suele publicar
+ * personal_apoyo con más rezago que el resto de las categorías, ver
+ * equiposDiputados() más abajo). Si ningún mes está completo para los 7,
+ * cae al mes más reciente de la lista igual (mejor mostrar algo con huecos
+ * que nada).
+ */
+function ultimoMesPersonalCompleto(): number {
+	const completos = MESES_GASTO_PARLAMENTARIO.filter(
+		(mes) =>
+			gastoParlamentario.filter(
+				(g) => g.categoria === 'personal_apoyo' && g.mes === mes && g.publicado
+			).length === DIPUTADOS_COQUIMBO_N
+	);
+	return completos.at(-1) ?? MESES_GASTO_PARLAMENTARIO.at(-1) ?? 0;
+}
+
 /**
  * Personal de apoyo de cada diputado/a de la región, mes más reciente con
- * datos (julio 2026). Insumo real para la red de asesores — no hay ningún
- * asesor que aparezca bajo más de un diputado/a (se revisó cruzando los 7
- * equipos), así que la red son 7 equipos independientes, no un entramado.
+ * datos completos para los 7 (ver ultimoMesPersonalCompleto — quedó
+ * hardcodeado en julio/mes 7 mucho después de que agosto ya estaba
+ * completo, mismo bug que MESES_GASTO_PARLAMENTARIO más arriba). Insumo
+ * real para la red de asesores — no hay ningún asesor que aparezca bajo
+ * más de un diputado/a (se revisó cruzando los 7 equipos), así que la red
+ * son 7 equipos independientes, no un entramado.
  */
 export function equiposDiputados(): EquipoDiputado[] {
+	const mes = ultimoMesPersonalCompleto();
 	const diputados = autoridades.filter((a) => a.cargo === 'diputado');
 	return diputados.map((d) => {
 		const registro = gastoParlamentario.find(
-			(g) => g.autoridad_id === d.id && g.categoria === 'personal_apoyo' && g.mes === 7
+			(g) => g.autoridad_id === d.id && g.categoria === 'personal_apoyo' && g.mes === mes
 		);
 		const detalle: Asesor[] = registro?.detalle ? JSON.parse(registro.detalle) : [];
 		return {
@@ -1111,6 +1142,10 @@ export function equiposDiputados(): EquipoDiputado[] {
 			asesores: detalle.map((a) => ({ ...a, cargo: normalizaCargoAsesor(a.cargo) })),
 		};
 	});
+}
+
+export function mesEquiposDiputados(): number {
+	return ultimoMesPersonalCompleto();
 }
 
 export function autoridadesPorCargoProvincia(): CargoPorProvincia[] {
