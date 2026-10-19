@@ -1,5 +1,139 @@
 [
   {
+    "id": "camara-90329",
+    "camara": "camara",
+    "fecha": "2026-10-07",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18684-05",
+    "descripcion": "Extiende la vigencia de los bonos establecidos en la ley N° 21.811, concede bono a pescadores artesanales y modifica el plazo para realizar aportes al Fondo de Garantías para Pequeños Empresarios (FOGAPE)",
+    "resultado": "aprobado",
+    "votos_favor": 139,
+    "votos_contra": 0,
+    "abstenciones": 16,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=90329",
+    "etapa": "particular",
+    "articulo": "",
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-90328",
+    "camara": "camara",
+    "fecha": "2026-10-07",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "15805-07",
+    "descripcion": "Establece normas generales sobre el uso de la fuerza para el personal de las fuerzas de orden y seguridad pública y de las fuerzas armadas en las circunstancias que se señala",
+    "resultado": "aprobado",
+    "votos_favor": 111,
+    "votos_contra": 23,
+    "abstenciones": 16,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=90328",
+    "etapa": "particular",
+    "articulo": "",
+    "votos": [
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "ausente"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-90283",
+    "camara": "camara",
+    "fecha": "2026-10-06",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18469-15",
+    "descripcion": "Modifica la ley N°18.290, de Tránsito, para ampliar los supuestos de procedencia de la suspensión provisoria de la licencia de conducir",
+    "resultado": "aprobado",
+    "votos_favor": 137,
+    "votos_contra": 0,
+    "abstenciones": 18,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=90283",
+    "etapa": "particular",
+    "articulo": "",
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "camara-90268",
     "camara": "camara",
     "fecha": "2026-10-05",

@@ -1545,12 +1545,76 @@
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "quiero",
-        "n": 135
+        "palabra": "sistema",
+        "n": 92
+      },
+      {
+        "palabra": "gobierno",
+        "n": 146
+      },
+      {
+        "palabra": "proyecto",
+        "n": 422
+      },
+      {
+        "palabra": "chile",
+        "n": 151
+      },
+      {
+        "palabra": "recursos",
+        "n": 101
+      },
+      {
+        "palabra": "nacional",
+        "n": 95
+      },
+      {
+        "palabra": "rurales",
+        "n": 114
+      },
+      {
+        "palabra": "sesión",
+        "n": 112
+      },
+      {
+        "palabra": "sino",
+        "n": 153
+      },
+      {
+        "palabra": "comisión",
+        "n": 106
+      },
+      {
+        "palabra": "país",
+        "n": 201
+      },
+      {
+        "palabra": "personas",
+        "n": 134
       },
       {
         "palabra": "seguridad",
         "n": 173
+      },
+      {
+        "palabra": "región",
+        "n": 247
+      },
+      {
+        "palabra": "manera",
+        "n": 103
+      },
+      {
+        "palabra": "artículo",
+        "n": 119
+      },
+      {
+        "palabra": "además",
+        "n": 94
+      },
+      {
+        "palabra": "agua",
+        "n": 125
       },
       {
         "palabra": "coquimbo",
@@ -1565,84 +1629,20 @@
         "n": 115
       },
       {
-        "palabra": "sistema",
-        "n": 92
-      },
-      {
-        "palabra": "sino",
-        "n": 153
-      },
-      {
-        "palabra": "agua",
-        "n": 125
-      },
-      {
-        "palabra": "región",
-        "n": 247
-      },
-      {
-        "palabra": "familias",
-        "n": 198
-      },
-      {
-        "palabra": "personas",
-        "n": 134
-      },
-      {
-        "palabra": "sesión",
-        "n": 112
-      },
-      {
         "palabra": "problema",
         "n": 103
-      },
-      {
-        "palabra": "gobierno",
-        "n": 146
-      },
-      {
-        "palabra": "artículo",
-        "n": 119
-      },
-      {
-        "palabra": "rurales",
-        "n": 114
-      },
-      {
-        "palabra": "proyecto",
-        "n": 422
-      },
-      {
-        "palabra": "recursos",
-        "n": 101
       },
       {
         "palabra": "derechos",
         "n": 108
       },
       {
-        "palabra": "además",
-        "n": 94
+        "palabra": "familias",
+        "n": 198
       },
       {
-        "palabra": "país",
-        "n": 201
-      },
-      {
-        "palabra": "chile",
-        "n": 151
-      },
-      {
-        "palabra": "manera",
-        "n": 103
-      },
-      {
-        "palabra": "comisión",
-        "n": 106
-      },
-      {
-        "palabra": "nacional",
-        "n": 95
+        "palabra": "quiero",
+        "n": 135
       }
     ],
     "enlaces": [

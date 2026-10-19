@@ -1,6 +1,33 @@
 [
   {
     "autoridad_id": "matias-walker-prieto-senador",
+    "fecha": "2026-10-05",
+    "rol": "autor",
+    "boletin": "18704-19",
+    "titulo": "Establece normas de protección para niños, niñas y adolescentes en materia de plataformas digitales",
+    "estado": "En tramitación",
+    "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
+  },
+  {
+    "autoridad_id": "matias-walker-prieto-senador",
+    "fecha": "2026-10-05",
+    "rol": "autor",
+    "boletin": "18705-15",
+    "titulo": "Modifica la Ley de Tránsito, en materia de conducción de motocicletas y otros vehículos similares",
+    "estado": "En tramitación",
+    "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
+  },
+  {
+    "autoridad_id": "matias-walker-prieto-senador",
+    "fecha": "2026-10-05",
+    "rol": "autor",
+    "boletin": "18706-07",
+    "titulo": "Modifica diversos cuerpos legales, con el objeto de establecer una cautelar especial de suspensión de funciones, en el caso de los delitos que indica, cometidos contra niños, niñas y adolescentes",
+    "estado": "En tramitación",
+    "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
+  },
+  {
+    "autoridad_id": "matias-walker-prieto-senador",
     "fecha": "2026-09-16",
     "rol": "autor",
     "boletin": "18647-07",

@@ -334,10 +334,10 @@
     "anno": 2026,
     "mes": 9,
     "categoria": "personal_apoyo",
-    "publicado": 0,
-    "monto": null,
-    "cantidad": null,
-    "detalle": null,
+    "publicado": 1,
+    "monto": 11238000.0,
+    "cantidad": 9,
+    "detalle": "[{\"nombre\": \"BARRAZA CURTEN ANDREA MACARENA\", \"cargo\": \"Profesional\", \"renta\": 1250000.0}, {\"nombre\": \"BARRIA BRITO TAMARA VALEZKA\", \"cargo\": \"Administrativo\", \"renta\": 1000000.0}, {\"nombre\": \"GALAZ MORALES DONY RICARDO\", \"cargo\": \"Profesional\", \"renta\": 2200000.0}, {\"nombre\": \"MUÑOZ ZAPATA BÁRBARA CAMILA\", \"cargo\": \"Asesor\", \"renta\": 1250000.0}, {\"nombre\": \"MURSELL SILVA ENRIQUE\", \"cargo\": \"Profesional\", \"renta\": 1250000.0}, {\"nombre\": \"OSSES CORREA MARCOS ALBERTO\", \"cargo\": \"Asesor\", \"renta\": 1250000.0}, {\"nombre\": \"PÉREZ VALENZUELA ALEJANDRO ALBERTO\", \"cargo\": \"Profesional\", \"renta\": 1250000.0}, {\"nombre\": \"VEGA YAÑEZ MAIRA AMAPOLA\", \"cargo\": \"Asesor\", \"renta\": 538000.0}, {\"nombre\": \"VERGARA MANDIOLA FERNANDO\", \"cargo\": \"Profesional\", \"renta\": 1250000.0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1250"
   },
   {
@@ -686,10 +686,10 @@
     "anno": 2026,
     "mes": 9,
     "categoria": "personal_apoyo",
-    "publicado": 0,
-    "monto": null,
-    "cantidad": null,
-    "detalle": null,
+    "publicado": 1,
+    "monto": 10280000.0,
+    "cantidad": 8,
+    "detalle": "[{\"nombre\": \"AGUIRRE FLORES ANIBAL MARCIAL\", \"cargo\": \"Profesional\", \"renta\": 1200000.0}, {\"nombre\": \"ASTORGA OLIVARES MACARENA FERNANDA\", \"cargo\": \"Asesor\", \"renta\": 1530000.0}, {\"nombre\": \"CALLEJAS LOZANO JUAN DIEGO\", \"cargo\": \"Profesional\", \"renta\": 1200000.0}, {\"nombre\": \"ELGUETA CASTILLO PAULINA PÍA\", \"cargo\": \"Profesional\", \"renta\": 1200000.0}, {\"nombre\": \"PÉREZ ROJAS NICOLE FERNANDA\", \"cargo\": \"Profesional\", \"renta\": 2500000.0}, {\"nombre\": \"RIVERA RAMÍREZ DIEGO JAVIER\", \"cargo\": \"Profesional\", \"renta\": 1100000.0}, {\"nombre\": \"RODRIGUEZ MENA JESSICA ANDREA\", \"cargo\": \"Profesional\", \"renta\": 1000000.0}, {\"nombre\": \"VILCHES ROJAS VERÓNICA CAROLINA\", \"cargo\": \"Profesional\", \"renta\": 550000.0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1177"
   },
   {
@@ -1038,10 +1038,10 @@
     "anno": 2026,
     "mes": 9,
     "categoria": "personal_apoyo",
-    "publicado": 0,
-    "monto": null,
-    "cantidad": null,
-    "detalle": null,
+    "publicado": 1,
+    "monto": 7880000.0,
+    "cantidad": 6,
+    "detalle": "[{\"nombre\": \"BENÍTEZ CARMONA MARÍA JOSÉ\", \"cargo\": \"Profesional\", \"renta\": 1100000.0}, {\"nombre\": \"GALLEGUILLOS CASTILLO PABLO ENRIQUE\", \"cargo\": \"Administrativo\", \"renta\": 700000.0}, {\"nombre\": \"GONZALEZ CHAPERON OSCAR IGNACIO\", \"cargo\": \"Profesional\", \"renta\": 2260000.0}, {\"nombre\": \"PALLAMAR URZUA JUAN PABLO\", \"cargo\": \"Profesional\", \"renta\": 1170000.0}, {\"nombre\": \"SILVA VILLANUEVA DANIEL LEOPOLDO\", \"cargo\": \"Profesional\", \"renta\": 1800000.0}, {\"nombre\": \"VALDES ANDRADES MARILUZ EMILIANA\", \"cargo\": \"Administrativo\", \"renta\": 850000.0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1142"
   },
   {
@@ -1390,10 +1390,10 @@
     "anno": 2026,
     "mes": 9,
     "categoria": "personal_apoyo",
-    "publicado": 0,
-    "monto": null,
-    "cantidad": null,
-    "detalle": null,
+    "publicado": 1,
+    "monto": 9470000.0,
+    "cantidad": 7,
+    "detalle": "[{\"nombre\": \"HELBIG ALVAREZ VICTOR HUGO\", \"cargo\": \"Administrativo\", \"renta\": 730000.0}, {\"nombre\": \"KEYER QUIROZ FANNY CAROLINA\", \"cargo\": \"Administrativo\", \"renta\": 730000.0}, {\"nombre\": \"MANQUEZ OLIVARES HERMOSINA DE MERCEDES\", \"cargo\": \"Administrativo\", \"renta\": 730000.0}, {\"nombre\": \"MERA TORREALBA MARCELO ALEJANDRO\", \"cargo\": \"Asesor\", \"renta\": 1870000.0}, {\"nombre\": \"SANCHEZ DELGADO JOSE LUIS\", \"cargo\": \"Administrativo\", \"renta\": 730000.0}, {\"nombre\": \"TAPIA SALGUEIRO MARICEL ANDREA\", \"cargo\": \"Profesional\", \"renta\": 1980000.0}, {\"nombre\": \"URTUBIA TAPIA RICARDO ANDRÉS\", \"cargo\": \"Profesional\", \"renta\": 2700000.0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1255"
   },
   {
@@ -1742,10 +1742,10 @@
     "anno": 2026,
     "mes": 9,
     "categoria": "personal_apoyo",
-    "publicado": 0,
-    "monto": null,
-    "cantidad": null,
-    "detalle": null,
+    "publicado": 1,
+    "monto": 10500000.0,
+    "cantidad": 5,
+    "detalle": "[{\"nombre\": \"ANDRADA MARTINEZ PATRICIA ALEJANDRA\", \"cargo\": \"Profesional\", \"renta\": 3800000.0}, {\"nombre\": \"BAEZA ANDRADA SOFÍA CONSTANZA\", \"cargo\": \"Asesor\", \"renta\": 1200000.0}, {\"nombre\": \"OLIVARES ROSALES CELESTE PAZ\", \"cargo\": \"Asesor\", \"renta\": 2200000.0}, {\"nombre\": \"OÑATE CORDOVA CAREN ELIZABETH\", \"cargo\": \"Asesor\", \"renta\": 2200000.0}, {\"nombre\": \"LÓPEZ BRAVO EDUARDO PATRICIO\", \"cargo\": \"ASESORIA COMUNICACIONAL EN TRABAJO PARLAMENTARIO\", \"renta\": 1100000.0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1212"
   },
   {
@@ -2083,10 +2083,10 @@
     "anno": 2026,
     "mes": 9,
     "categoria": "personal_apoyo",
-    "publicado": 0,
-    "monto": null,
-    "cantidad": null,
-    "detalle": null,
+    "publicado": 1,
+    "monto": 6928882.0,
+    "cantidad": 4,
+    "detalle": "[{\"nombre\": \"BOBADILLA  QUIROGA  ALEJANDRA PAOLA\", \"cargo\": \"Administrativo\", \"renta\": 750000.0}, {\"nombre\": \"ESPINOZA CANEPA FRANCISCA ISABEL\", \"cargo\": \"Profesional\", \"renta\": 1300000.0}, {\"nombre\": \"HENRÍQUEZ RIQUELME CLAUDIO ESTEBAN\", \"cargo\": \"Profesional\", \"renta\": 2519000.0}, {\"nombre\": \"MARDONES POBLETE DANIELA IVON\", \"cargo\": \"Asesoria Legislativa\", \"renta\": 2359882.0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1174"
   },
   {
@@ -2435,10 +2435,10 @@
     "anno": 2026,
     "mes": 9,
     "categoria": "personal_apoyo",
-    "publicado": 0,
-    "monto": null,
-    "cantidad": null,
-    "detalle": null,
+    "publicado": 1,
+    "monto": 10337590.0,
+    "cantidad": 11,
+    "detalle": "[{\"nombre\": \"ALFARO  ORTIZ CRISTIAN ALEJANDRO\", \"cargo\": \"Profesional\", \"renta\": 1220000.0}, {\"nombre\": \"GÁMEZ ÁLVAREZ ROBERTO FERNANDO\", \"cargo\": \"Administrativo\", \"renta\": 560000.0}, {\"nombre\": \"MUÑOZ MUÑOZ DAVID RODRIGO\", \"cargo\": \"Administrativo\", \"renta\": 550000.0}, {\"nombre\": \"OLIVARES BARRIOS KARINA ISABEL\", \"cargo\": \"Asesor\", \"renta\": 1080000.0}, {\"nombre\": \"OYANADEL CONTRERAS ALFREDO ZACARIAS\", \"cargo\": \"Profesional\", \"renta\": 1098000.0}, {\"nombre\": \"RIVERA ARAYA ALEJANDRO JAVIER\", \"cargo\": \"Profesional\", \"renta\": 1100000.0}, {\"nombre\": \"RODRÍGUEZ GUTIÉRREZ FELIPE DAVID\", \"cargo\": \"Administrativo\", \"renta\": 670000.0}, {\"nombre\": \"RUIZ VALLADARES CAMILO ANDRES\", \"cargo\": \"Profesional\", \"renta\": 1220000.0}, {\"nombre\": \"VALENZUELA TELLO MARTA CAROLINA\", \"cargo\": \"Profesional\", \"renta\": 1270000.0}, {\"nombre\": \"VASQUEZ GALLARDO PABLO RAMÓN\", \"cargo\": \"Profesional\", \"renta\": 1097614.0}, {\"nombre\": \"VEGA ORTIZ JAVIER  ANDRES\", \"cargo\": \"Asesoría para la coordinación entre representantes de la sociedad civil y la gestión parlamentaria t\", \"renta\": 471976.0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1117"
   },
   {
