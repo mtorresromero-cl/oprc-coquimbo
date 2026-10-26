@@ -1,5 +1,14 @@
 [
   {
+    "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+    "fecha": "2026-10-19",
+    "rol": "autor",
+    "boletin": "18752-08",
+    "titulo": "Modifica la ley N° 18.410, con el objeto de regular el caso fortuito o fuerza mayor en las compensaciones por interrupciones del suministro eléctrico",
+    "estado": "En tramitación",
+    "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
+  },
+  {
     "autoridad_id": "matias-walker-prieto-senador",
     "fecha": "2026-10-05",
     "rol": "autor",
@@ -201,8 +210,8 @@
     "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
     "fecha": "2026-05-19",
     "rol": "autor",
-    "boletin": "18273-21",
-    "titulo": "Modifica la Ley General de Pesca y Acuicultura, con el objeto de reconocer las actividades conexas a la pesca industrial.",
+    "boletin": "18272-37",
+    "titulo": "Declara el trabajo de las mujeres descoladoras en la industria pesquera como patrimonio cultural inmaterial de Chile",
     "estado": "En tramitación",
     "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
   },
@@ -210,8 +219,8 @@
     "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
     "fecha": "2026-05-19",
     "rol": "autor",
-    "boletin": "18272-37",
-    "titulo": "Declara el trabajo de las mujeres descoladoras en la industria pesquera como patrimonio cultural inmaterial de Chile",
+    "boletin": "18273-21",
+    "titulo": "Modifica la Ley General de Pesca y Acuicultura, con el objeto de reconocer las actividades conexas a la pesca industrial.",
     "estado": "En tramitación",
     "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
   },

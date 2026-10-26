@@ -1,5 +1,143 @@
 [
   {
+    "id": "senado-17535-71-374-2026-10-21",
+    "camara": "senado",
+    "fecha": "2026-10-21",
+    "numero_sesion": "71/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "- En votación la enmienda que sustituye el número 13 del artículo 1, por el siguiente: ¿13. Sustitúyese el artículo 40 por el siguiente: ¿Artículo 40.- Serán comprendidos en el retiro temporal los Oficiales y el Personal Civil de Nombramiento Supremo a quienes el Presidente de la República conceda o disponga su retiro, a proposición del General Director.¿.¿. Solicitud de votación separada de la Honorable Senadora señora Pascual. Consta en la página 12 del comparado. Es una norma de rango orgánic",
+    "resultado": "aprobado",
+    "votos_favor": 29,
+    "votos_contra": 7,
+    "abstenciones": 2,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17535",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18525-71-374-2026-10-21",
+    "camara": "senado",
+    "fecha": "2026-10-21",
+    "numero_sesion": "71/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que modifica la ley N° 21.802, que fortalece la institucionalidad municipal en materia de seguridad pública y prevención del delito.",
+    "resultado": "aprobado",
+    "votos_favor": 40,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18525",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-16836-70-374-2026-10-20",
+    "camara": "senado",
+    "fecha": "2026-10-20",
+    "numero_sesion": "70/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación la propuesta formulada por la Comisión Mixta constituida para resolver la divergencia suscitada entre ambas Cámaras durante la tramitación del proyecto de ley que modifica la ley N° 21.325 para perfeccionar el procedimiento de expulsión administrativa.",
+    "resultado": "aprobado",
+    "votos_favor": 37,
+    "votos_contra": 0,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16836",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-15805-67-374-2026-10-07",
+    "camara": "senado",
+    "fecha": "2026-10-07",
+    "numero_sesion": "67/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación la propuesta formulada por la Comisión Mixta constituida para resolver las divergencias suscitadas entre ambas Cámaras durante la tramitación del proyecto de ley que establece normas generales sobre el uso de la fuerza para el personal de las Fuerzas de Orden y Seguridad Pública y de las Fuerzas Armadas en las circunstancias que se señala.",
+    "resultado": "aprobado",
+    "votos_favor": 29,
+    "votos_contra": 15,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15805",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18259-67-374-2026-10-07",
+    "camara": "senado",
+    "fecha": "2026-10-07",
+    "numero_sesion": "67/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En el artículo 1 (modifica el Código de Minería): En votación la indicación de Su Excelencia el Presidente de la República, para incorporar la siguiente modificación: ¿Reempla´zase, en el inciso segundo del arti´culo 142, la expresio´n ¿dos peri´odos¿ por ¿cinco peri´odos¿.¿. (páginas 1 y 2 del comparado) En votación la indicación de Su Excelencia el Presidente de la República para reemplazar el artículo 4 (publicación de información por parte del Sernageomin), por el siguiente: ¿Artículo 4.- El",
+    "resultado": "aprobado",
+    "votos_favor": 37,
+    "votos_contra": 1,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18259",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-18684-63-374-2026-09-30",
     "camara": "senado",
     "fecha": "2026-09-30",
@@ -1288,6 +1426,32 @@
     ]
   },
   {
+    "id": "senado-15975-28-374-2026-06-09",
+    "camara": "senado",
+    "fecha": "2026-06-09",
+    "numero_sesion": "28/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Ordinal iii) de la letra b), nueva, del número 2) del artículo 11 del proyecto, incorporando los párrafos tercero a séptimo, nuevos. Proyecto de ley, en tercer trámite constitucional, que crea el Subsistema de Inteligencia Económica y establece otras medidas para la prevención y alerta de actividades que digan relación con el crimen organizado (Rechazado por aplicación del artículo 182 del Reglamento de la Corporación)",
+    "resultado": "rechazado",
+    "votos_favor": 24,
+    "votos_contra": 24,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15975",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "contra"
+      }
+    ]
+  },
+  {
     "id": "senado-18239-26-374-2026-06-03",
     "camara": "senado",
     "fecha": "2026-06-03",
@@ -1344,6 +1508,36 @@
       {
         "autoridad_id": "matias-walker-prieto-senador",
         "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-15975-26-374-2026-06-03",
+    "camara": "senado",
+    "fecha": "2026-06-03",
+    "numero_sesion": "26/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "La supresión de los números 5 y 6 del artículo 15",
+    "resultado": "rechazado",
+    "votos_favor": 21,
+    "votos_contra": 22,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15975",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "pareo"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "contra"
       }
     ]
   },
@@ -1515,6 +1709,36 @@
       },
       {
         "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-15975-15-374-2026-05-12",
+    "camara": "senado",
+    "fecha": "2026-05-12",
+    "numero_sesion": "15/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Enmiendas de la Cámara de Diputados que la Comisión informante propone aprobar y que no han sido objeto de solicitudes de votación separada. Proyecto de ley, en tercer trámite constitucional, que crea el Subsistema de Inteligencia Económica y establece otras medidas para la prevención y alerta de actividades que digan relación con el crimen organizado, con informe de la Comisión de Seguridad Pública. (discusión de las enmiendas introducidas por la Cámara de Diputados) (Boletín N° 15.975-25)",
+    "resultado": "aprobado",
+    "votos_favor": 38,
+    "votos_contra": 1,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15975",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
         "voto": "favor"
       }
     ]
@@ -1800,6 +2024,32 @@
     ]
   },
   {
+    "id": "senado-16335-96-373-2026-01-27",
+    "camara": "senado",
+    "fecha": "2026-01-27",
+    "numero_sesion": "96/373",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Indicación del Ejecutivo con modificaciones al artículo 47, que pasaría a ser 48",
+    "resultado": "aprobado",
+    "votos_favor": 34,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16335",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-16743-92-373-2026-01-21",
     "camara": "senado",
     "fecha": "2026-01-21",
@@ -1822,6 +2072,32 @@
       {
         "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
         "voto": "contra"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-16335-92-373-2026-01-21",
+    "camara": "senado",
+    "fecha": "2026-01-21",
+    "numero_sesion": "92/373",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Solicitud Comisión de Hacienda para sesionar en forma simultánea a la Sala",
+    "resultado": "aprobado",
+    "votos_favor": 42,
+    "votos_contra": 1,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16335",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
       },
       {
         "autoridad_id": "matias-walker-prieto-senador",
@@ -2188,6 +2464,58 @@
     ]
   },
   {
+    "id": "senado-15975-7-373-2025-03-25",
+    "camara": "senado",
+    "fecha": "2025-03-25",
+    "numero_sesion": "7/373",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Proyecto de ley, iniciado en Mensaje de S.E. el Presidente de la República, en primer trámite constitucional, que crea el Subsistema de Inteligencia Económica y establece otras medidas para la prevención y alerta de actividades que digan relación con el crimen organizado. Cerrada la votación el artículo 5°, eliminación de la letra a) del numeral 6), aprobada por mayoría en la Comisión de Hacienda. Rechazada.",
+    "resultado": "rechazado",
+    "votos_favor": 16,
+    "votos_contra": 18,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15975",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-15975-6-373-2025-03-19",
+    "camara": "senado",
+    "fecha": "2025-03-19",
+    "numero_sesion": "6/373",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Proyecto de ley, iniciado en Mensaje de S.E. el Presidente de la República, en primer trámite constitucional, que crea el Subsistema de Inteligencia Económica y establece otras medidas. Artículo 5°, numeral 1), que reemplaza el inciso primero del artículo 1°, propuesto por la Comisión de Constitución, Legislación, Justicia y Reglamento. APROBADO.",
+    "resultado": "aprobado",
+    "votos_favor": 29,
+    "votos_contra": 0,
+    "abstenciones": 6,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15975",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-15351-2-373-2025-03-12",
     "camara": "senado",
     "fecha": "2025-03-12",
@@ -2205,6 +2533,36 @@
     "votos": [
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-15975-1-373-2025-03-11",
+    "camara": "senado",
+    "fecha": "2025-03-11",
+    "numero_sesion": "1/373",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Proyecto de ley, en primer trámite constitucional, que crea el Subsistema de Inteligencia Económica y establece otras medidas para la prevención y alerta de actividades que digan relación con el crimen organizado, (Boletín N° 15.975- 25). Se aprueban las normas aprobadas por unanimidad y las que no fueron objeto de indicaciones, modificaciones o solicitudes de votaciones separadas.",
+    "resultado": "aprobado",
+    "votos_favor": 35,
+    "votos_contra": 0,
+    "abstenciones": 3,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15975",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
         "voto": "favor"
       },
       {
@@ -2251,6 +2609,36 @@
     "etapa": null,
     "articulo": null,
     "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-16335-62-372-2024-10-09",
+    "camara": "senado",
+    "fecha": "2024-10-09",
+    "numero_sesion": "62/372",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Proyecto de ley, en segundo trámite constitucional, que regula la prevención de incendios forestales y rurales, y otras materias que indica, Boletín N° 16.335-14). APROBADO.",
+    "resultado": "aprobado",
+    "votos_favor": 35,
+    "votos_contra": 0,
+    "abstenciones": 4,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16335",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
       {
         "autoridad_id": "matias-walker-prieto-senador",
         "voto": "favor"
@@ -2470,6 +2858,28 @@
     ]
   },
   {
+    "id": "senado-15975-87-371-2023-12-20",
+    "camara": "senado",
+    "fecha": "2023-12-20",
+    "numero_sesion": "87/371",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Proyecto de ley, iniciado en Mensaje de S.E. el Presidente de la República, en primer trámite constitucional, que crea el Subsistema de Inteligencia Económica y establece otras medidas para la prevención y alerta de actividades que digan relación con el crimen organizado (Boletín N° 15.975-25). APROBADO.",
+    "resultado": "aprobado",
+    "votos_favor": 31,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15975",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-14773-42-371-2023-07-18",
     "camara": "senado",
     "fecha": "2023-07-18",
@@ -2487,6 +2897,28 @@
     "votos": [
       {
         "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-15366-88-370-2022-12-13",
+    "camara": "senado",
+    "fecha": "2022-12-13",
+    "numero_sesion": "88/370",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Aprobación, en general y en particular, del proyecto de ley que modifica la ley N° 18.678 con el objeto de permitir la celebración de determinadas sesiones en la sede del ex Congreso Nacional en la ciudad de Santiago (Boletín Nº 15.366-07).",
+    "resultado": "aprobado",
+    "votos_favor": 23,
+    "votos_contra": 6,
+    "abstenciones": 4,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15366",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
         "voto": "favor"
       }
     ]

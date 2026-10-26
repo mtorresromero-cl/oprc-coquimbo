@@ -881,104 +881,104 @@
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "sistema",
-        "n": 75
-      },
-      {
-        "palabra": "ambiental",
-        "n": 57
-      },
-      {
-        "palabra": "seguridad",
-        "n": 60
-      },
-      {
-        "palabra": "ejecutivo",
-        "n": 66
-      },
-      {
-        "palabra": "quiero",
-        "n": 108
-      },
-      {
-        "palabra": "entonces",
-        "n": 105
-      },
-      {
-        "palabra": "sino",
-        "n": 82
-      },
-      {
-        "palabra": "puede",
-        "n": 87
-      },
-      {
-        "palabra": "vamos",
-        "n": 61
-      },
-      {
-        "palabra": "proyecto",
-        "n": 234
-      },
-      {
-        "palabra": "importante",
-        "n": 57
-      },
-      {
-        "palabra": "nacional",
-        "n": 56
-      },
-      {
-        "palabra": "ahora",
-        "n": 56
-      },
-      {
-        "palabra": "gobierno",
-        "n": 114
-      },
-      {
-        "palabra": "materia",
-        "n": 56
-      },
-      {
-        "palabra": "forma",
-        "n": 58
+        "palabra": "acuerdo",
+        "n": 64
       },
       {
         "palabra": "creo",
         "n": 55
       },
       {
-        "palabra": "acuerdo",
-        "n": 64
+        "palabra": "comisión",
+        "n": 133
       },
       {
-        "palabra": "coquimbo",
-        "n": 79
+        "palabra": "ejecutivo",
+        "n": 66
       },
       {
-        "palabra": "chile",
+        "palabra": "entonces",
         "n": 105
       },
       {
-        "palabra": "ciento",
-        "n": 70
+        "palabra": "sistema",
+        "n": 75
       },
       {
         "palabra": "decir",
         "n": 72
       },
       {
-        "palabra": "comisión",
-        "n": 133
+        "palabra": "ciento",
+        "n": 70
+      },
+      {
+        "palabra": "ambiental",
+        "n": 57
+      },
+      {
+        "palabra": "proyecto",
+        "n": 234
+      },
+      {
+        "palabra": "vamos",
+        "n": 61
+      },
+      {
+        "palabra": "coquimbo",
+        "n": 79
+      },
+      {
+        "palabra": "forma",
+        "n": 58
+      },
+      {
+        "palabra": "materia",
+        "n": 56
+      },
+      {
+        "palabra": "seguridad",
+        "n": 60
+      },
+      {
+        "palabra": "región",
+        "n": 91
+      },
+      {
+        "palabra": "importante",
+        "n": 57
       },
       {
         "palabra": "país",
         "n": 68
       },
       {
-        "palabra": "región",
-        "n": 91
+        "palabra": "sino",
+        "n": 82
+      },
+      {
+        "palabra": "ahora",
+        "n": 56
+      },
+      {
+        "palabra": "quiero",
+        "n": 108
+      },
+      {
+        "palabra": "gobierno",
+        "n": 114
+      },
+      {
+        "palabra": "nacional",
+        "n": 56
+      },
+      {
+        "palabra": "puede",
+        "n": 87
+      },
+      {
+        "palabra": "chile",
+        "n": 105
       }
     ],
     "enlaces": [

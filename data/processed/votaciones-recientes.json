@@ -1,5 +1,143 @@
 [
   {
+    "id": "senado-17535-71-374-2026-10-21",
+    "camara": "senado",
+    "fecha": "2026-10-21",
+    "numero_sesion": "71/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "- En votación la enmienda que sustituye el número 13 del artículo 1, por el siguiente: ¿13. Sustitúyese el artículo 40 por el siguiente: ¿Artículo 40.- Serán comprendidos en el retiro temporal los Oficiales y el Personal Civil de Nombramiento Supremo a quienes el Presidente de la República conceda o disponga su retiro, a proposición del General Director.¿.¿. Solicitud de votación separada de la Honorable Senadora señora Pascual. Consta en la página 12 del comparado. Es una norma de rango orgánic",
+    "resultado": "aprobado",
+    "votos_favor": 29,
+    "votos_contra": 7,
+    "abstenciones": 2,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17535",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18525-71-374-2026-10-21",
+    "camara": "senado",
+    "fecha": "2026-10-21",
+    "numero_sesion": "71/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que modifica la ley N° 21.802, que fortalece la institucionalidad municipal en materia de seguridad pública y prevención del delito.",
+    "resultado": "aprobado",
+    "votos_favor": 40,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18525",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-16836-70-374-2026-10-20",
+    "camara": "senado",
+    "fecha": "2026-10-20",
+    "numero_sesion": "70/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación la propuesta formulada por la Comisión Mixta constituida para resolver la divergencia suscitada entre ambas Cámaras durante la tramitación del proyecto de ley que modifica la ley N° 21.325 para perfeccionar el procedimiento de expulsión administrativa.",
+    "resultado": "aprobado",
+    "votos_favor": 37,
+    "votos_contra": 0,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16836",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-15805-67-374-2026-10-07",
+    "camara": "senado",
+    "fecha": "2026-10-07",
+    "numero_sesion": "67/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación la propuesta formulada por la Comisión Mixta constituida para resolver las divergencias suscitadas entre ambas Cámaras durante la tramitación del proyecto de ley que establece normas generales sobre el uso de la fuerza para el personal de las Fuerzas de Orden y Seguridad Pública y de las Fuerzas Armadas en las circunstancias que se señala.",
+    "resultado": "aprobado",
+    "votos_favor": 29,
+    "votos_contra": 15,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15805",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18259-67-374-2026-10-07",
+    "camara": "senado",
+    "fecha": "2026-10-07",
+    "numero_sesion": "67/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En el artículo 1 (modifica el Código de Minería): En votación la indicación de Su Excelencia el Presidente de la República, para incorporar la siguiente modificación: ¿Reempla´zase, en el inciso segundo del arti´culo 142, la expresio´n ¿dos peri´odos¿ por ¿cinco peri´odos¿.¿. (páginas 1 y 2 del comparado) En votación la indicación de Su Excelencia el Presidente de la República para reemplazar el artículo 4 (publicación de información por parte del Sernageomin), por el siguiente: ¿Artículo 4.- El",
+    "resultado": "aprobado",
+    "votos_favor": 37,
+    "votos_contra": 1,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18259",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-18684-63-374-2026-09-30",
     "camara": "senado",
     "fecha": "2026-09-30",
@@ -1213,136 +1351,6 @@
       },
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-16741-30-374-2026-06-16",
-    "camara": "senado",
-    "fecha": "2026-06-16",
-    "numero_sesion": "30/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Aprobación en general y en particular del proyecto de ley, en primer trámite constitucional, que modifica la Ley del Tránsito, para establecer la reserva de los datos registrales de los vehículos pertenecientes a las Fuerzas de Orden y Seguridad Pública (Boletín N° 16.741-15).",
-    "resultado": "aprobado",
-    "votos_favor": 39,
-    "votos_contra": 0,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16741",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-17981-28-374-2026-06-09",
-    "camara": "senado",
-    "fecha": "2026-06-09",
-    "numero_sesion": "28/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Proyecto de ley, en primer trámite constitucional, que modifica la ley N° 19.712, del Deporte, con el objeto de precisar el alcance del concepto de discapacidad en el ámbito deportivo, con informe de la Comisión del Adulto Mayor y Discapacidad. (proyecto de artículo único). (Boletines Nos 17.981-35 y 18.176-35, refundidos).",
-    "resultado": "aprobado",
-    "votos_favor": 23,
-    "votos_contra": 0,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17981",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-17640-28-374-2026-06-09",
-    "camara": "senado",
-    "fecha": "2026-06-09",
-    "numero_sesion": "28/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Artículo quinto transitorio, nuevo",
-    "resultado": "aprobado",
-    "votos_favor": 36,
-    "votos_contra": 3,
-    "abstenciones": 1,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17640",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-18239-26-374-2026-06-03",
-    "camara": "senado",
-    "fecha": "2026-06-03",
-    "numero_sesion": "26/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Solicitud para que el proyecto de ley que establece sanciones en el caso de acusaciones, denuncias o querellas falsas y regula el procedimiento para su aplicación, sea conocido, además, por la Comisión de la Mujer y Equidad de Género y por la Comisión de Constitución, Legislación, Justicia y Reglamento",
-    "resultado": "aprobado",
-    "votos_favor": 20,
-    "votos_contra": 16,
-    "abstenciones": 2,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18239",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "pareo"
-      }
-    ]
-  },
-  {
-    "id": "senado-15767-26-374-2026-06-03",
-    "camara": "senado",
-    "fecha": "2026-06-03",
-    "numero_sesion": "26/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Proyecto de ley, en segundo trámite constitucional, que deroga la ley N° 18.356, que establece normas sobre el control de las artes marciales y deroga la ley N° 18.039, e incorpora el concepto de artes marciales en la ley N° 19.712 (discusión en general). (Boletines Nos 15.767-29 y 16.248-29, refundidos)",
-    "resultado": "aprobado",
-    "votos_favor": 31,
-    "votos_contra": 0,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15767",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "pareo"
-      },
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
         "voto": "favor"
       }
     ]

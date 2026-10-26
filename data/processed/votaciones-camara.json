@@ -1,5 +1,135 @@
 [
   {
+    "id": "camara-90535",
+    "camara": "camara",
+    "fecha": "2026-10-21",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18709-07",
+    "descripcion": "Modifica la ley N° 21.780, que crea el Servicio Nacional de Acceso a la Justicia y la Defensoría de Víctimas, con el objeto de otorgar mayor eficiencia al proceso de implementación del servicio",
+    "resultado": "aprobado",
+    "votos_favor": 122,
+    "votos_contra": 13,
+    "abstenciones": 20,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=90535",
+    "etapa": "particular",
+    "articulo": "",
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-90536",
+    "camara": "camara",
+    "fecha": "2026-10-21",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "18436-15",
+    "descripcion": "Modifica la Ley Orgánica de la Empresa de los Ferrocarriles del Estado, con el objeto de establecer una exención de derechos y tributos municipales por la ejecución de obras ferroviarias y declarar dichas obras como infraestructura ejecutada por el Estado",
+    "resultado": "aprobado",
+    "votos_favor": 89,
+    "votos_contra": 34,
+    "abstenciones": 16,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=90536",
+    "etapa": "particular",
+    "articulo": "",
+    "votos": [
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "camara-90456",
+    "camara": "camara",
+    "fecha": "2026-10-19",
+    "numero_sesion": null,
+    "tipo": null,
+    "proyecto_ley_id": "17786-01",
+    "descripcion": "Modifica la ley N° 21.349 para rebajar el monto de las multas que indica y establecer criterios para su graduación",
+    "resultado": "aprobado",
+    "votos_favor": 140,
+    "votos_contra": 0,
+    "abstenciones": 15,
+    "fuente_url": "https://www.camara.cl/legislacion/sala_sesiones/votacion_detalle.aspx?prmIdVotacion=90456",
+    "etapa": "particular",
+    "articulo": "",
+    "votos": [
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "eileen-patricia-urqueta-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "erich-christ-grohs-marin-diputado",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "camara-90329",
     "camara": "camara",
     "fecha": "2026-10-07",

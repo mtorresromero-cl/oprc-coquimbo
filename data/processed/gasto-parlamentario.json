@@ -226,8 +226,8 @@
     "categoria": "pasajes_aereos",
     "publicado": 1,
     "monto": null,
-    "cantidad": 0,
-    "detalle": null,
+    "cantidad": 2,
+    "detalle": "[{\"fecha\": \"13 jul. 2026\", \"pasajero\": \"SALINAS/BERNARDO MR\", \"tramo\": \"LA SERENA - SANTIAGO\", \"aerolinea\": \"Latam\"}, {\"fecha\": \"15 jul. 2026\", \"pasajero\": \"Salinas Maya Bernardo Antonio\", \"tramo\": \"SANTIAGO - LA SERENA\", \"aerolinea\": \"Latam\"}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1250"
   },
   {
@@ -930,8 +930,8 @@
     "categoria": "pasajes_aereos",
     "publicado": 1,
     "monto": null,
-    "cantidad": 0,
-    "detalle": null,
+    "cantidad": 6,
+    "detalle": "[{\"fecha\": \"05 jul. 2026\", \"pasajero\": \"Manouchehri L., Daniel\", \"tramo\": \"LA SERENA - SANTIAGO\", \"aerolinea\": \"Latam\"}, {\"fecha\": \"10 jul. 2026\", \"pasajero\": \"Manouchehri L., Daniel\", \"tramo\": \"SANTIAGO - LA SERENA\", \"aerolinea\": \"Latam\"}, {\"fecha\": \"12 jul. 2026\", \"pasajero\": \"Manouchehri L., Daniel\", \"tramo\": \"LA SERENA - SANTIAGO\", \"aerolinea\": \"Latam\"}, {\"fecha\": \"16 jul. 2026\", \"pasajero\": \"Manouchehri L., Daniel\", \"tramo\": \"SANTIAGO - LA SERENA\", \"aerolinea\": \"Latam\"}, {\"fecha\": \"23 jul. 2026\", \"pasajero\": \"Manouchehri L., Daniel\", \"tramo\": \"SANTIAGO - LA SERENA\", \"aerolinea\": \"Latam\"}, {\"fecha\": \"30 jul. 2026\", \"pasajero\": \"Manouchehri L., Daniel\", \"tramo\": \"LA SERENA - SANTIAGO\", \"aerolinea\": \"Latam\"}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/pasajesaereos.aspx?prmId=1142"
   },
   {
@@ -1829,6 +1829,17 @@
     "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
     "anno": 2026,
     "mes": 9,
+    "categoria": "asesorias_externas",
+    "publicado": 0,
+    "monto": null,
+    "cantidad": null,
+    "detalle": null,
+    "fuente_url": "https://www.camara.cl/diputados/detalle/asesoriaexterna.aspx?prmId=1174"
+  },
+  {
+    "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+    "anno": 2026,
+    "mes": 10,
     "categoria": "asesorias_externas",
     "publicado": 0,
     "monto": null,
