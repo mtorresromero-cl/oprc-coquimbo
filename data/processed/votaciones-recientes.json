@@ -1,5 +1,57 @@
 [
   {
+    "id": "senado-18551-75-374-2026-10-28",
+    "camara": "senado",
+    "fecha": "2026-10-28",
+    "numero_sesion": "75/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "- En votación el artículo segundo transitorio, cuya votación separada ha sido solicitada por la Honorable Senadora señora Cariola, que consta en la página 18 del comparado.",
+    "resultado": "aprobado",
+    "votos_favor": 32,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18551",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18623-75-374-2026-10-28",
+    "camara": "senado",
+    "fecha": "2026-10-28",
+    "numero_sesion": "75/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "Modifica la ley N° 21.719, que regula la protección y el tratamiento de los datos personales y crea la Agencia de Protección de Datos Personales, en el sentido que indica",
+    "resultado": "aprobado",
+    "votos_favor": 33,
+    "votos_contra": 6,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18623",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-17535-71-374-2026-10-21",
     "camara": "senado",
     "fecha": "2026-10-21",
@@ -133,6 +185,28 @@
       },
       {
         "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-15610-65-374-2026-10-06",
+    "camara": "senado",
+    "fecha": "2026-10-06",
+    "numero_sesion": "65/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que modifica la ley N°19.496, que establece normas sobre protección de los derechos de los consumidores, para prohibir llamadas telefónicas publicitarias de proveedores sin consentimiento del consumidor.",
+    "resultado": "aprobado",
+    "votos_favor": 30,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15610",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
         "voto": "favor"
       }
     ]
@@ -1266,88 +1340,6 @@
       {
         "autoridad_id": "matias-walker-prieto-senador",
         "voto": "favor"
-      },
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-18029-41-374-2026-07-08",
-    "camara": "senado",
-    "fecha": "2026-07-08",
-    "numero_sesion": "41/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "En votación, en general, el artículo 9 del proyecto de ley, en primer trámite constitucional, que establece el reconocimiento, calificación y reparación, cuando corresponda, de víctimas de violencia del conflicto intercultural y territorial en las regiones del Biobío, La Araucanía, Los Ríos y Los Lagos (Boletín N° 18.029-17)",
-    "resultado": "aprobado",
-    "votos_favor": 29,
-    "votos_contra": 0,
-    "abstenciones": 8,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18029",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-15589-40-374-2026-07-07",
-    "camara": "senado",
-    "fecha": "2026-07-07",
-    "numero_sesion": "40/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "En votación, en general, el proyecto de ley, en segundo trámite constitucional, que modifica la ley N° 20.084, que establece un sistema de responsabilidad de los adolescentes por infracciones a la ley penal, para fortalecer la respuesta sancionatoria frente a conductas consideradas de especial gravedad (Boletín Nº 15.589-07)",
-    "resultado": "aprobado",
-    "votos_favor": 37,
-    "votos_contra": 3,
-    "abstenciones": 0,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=15589",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "sergio-alfredo-gahona-salazar-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      }
-    ]
-  },
-  {
-    "id": "senado-18216-37-374-2026-06-24",
-    "camara": "senado",
-    "fecha": "2026-06-24",
-    "numero_sesion": "37/374",
-    "tipo": null,
-    "proyecto_ley_id": null,
-    "descripcion": "Aprobación en general del proyecto de ley, en segundo trámite constitucional, para la reconstrucción nacional y el desarrollo económico y social (Boletín N° 18.216-05).",
-    "resultado": "aprobado",
-    "votos_favor": 26,
-    "votos_contra": 23,
-    "abstenciones": 1,
-    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18216",
-    "etapa": null,
-    "articulo": null,
-    "votos": [
-      {
-        "autoridad_id": "matias-walker-prieto-senador",
-        "voto": "favor"
-      },
-      {
-        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
-        "voto": "contra"
       },
       {
         "autoridad_id": "sergio-alfredo-gahona-salazar-senador",

@@ -1,6 +1,51 @@
 [
   {
     "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+    "fecha": "2026-10-28",
+    "rol": "autor",
+    "boletin": "18821-08",
+    "titulo": "Modifica la Ley General de Servicios Eléctricos para facilitar la conexión de infraestructura de recarga de vehículos eléctricos y su acceso al régimen de precios libres",
+    "estado": "En tramitación",
+    "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
+  },
+  {
+    "autoridad_id": "matias-walker-prieto-senador",
+    "fecha": "2026-10-28",
+    "rol": "autor",
+    "boletin": "18820-19",
+    "titulo": "Modifica la ley N° 21.663, marco de ciberseguridad, con el objeto de establecer nuevas obligaciones para las instituciones privadas que operen agentes de inteligencia artificial",
+    "estado": "En tramitación",
+    "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
+  },
+  {
+    "autoridad_id": "matias-walker-prieto-senador",
+    "fecha": "2026-10-27",
+    "rol": "autor",
+    "boletin": "18805-07",
+    "titulo": "Proyecto de ley que modifica la ley N° 19.856, con el objeto de precisar los requisitos y las condiciones para acceder al beneficio de reducción de condena",
+    "estado": "En tramitación",
+    "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
+  },
+  {
+    "autoridad_id": "matias-walker-prieto-senador",
+    "fecha": "2026-10-23",
+    "rol": "autor",
+    "boletin": "18777-07",
+    "titulo": "Proyecto de reforma constitucional que establece el Comando Conjunto de las Fuerzas Armadas",
+    "estado": "En tramitación",
+    "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
+  },
+  {
+    "autoridad_id": "matias-walker-prieto-senador",
+    "fecha": "2026-10-23",
+    "rol": "autor",
+    "boletin": "18778-07",
+    "titulo": "Proyecto de reforma constitucional que fortalece la conducción estratégica del Estado en materia de seguridad nacional",
+    "estado": "En tramitación",
+    "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
+  },
+  {
+    "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
     "fecha": "2026-10-19",
     "rol": "autor",
     "boletin": "18752-08",

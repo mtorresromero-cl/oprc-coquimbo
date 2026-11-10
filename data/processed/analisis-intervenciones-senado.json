@@ -881,52 +881,12 @@
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "acuerdo",
-        "n": 64
-      },
-      {
-        "palabra": "creo",
-        "n": 55
-      },
-      {
-        "palabra": "comisión",
-        "n": 133
-      },
-      {
-        "palabra": "ejecutivo",
-        "n": 66
-      },
-      {
-        "palabra": "entonces",
-        "n": 105
-      },
-      {
-        "palabra": "sistema",
-        "n": 75
-      },
-      {
-        "palabra": "decir",
-        "n": 72
+        "palabra": "seguridad",
+        "n": 60
       },
       {
         "palabra": "ciento",
         "n": 70
-      },
-      {
-        "palabra": "ambiental",
-        "n": 57
-      },
-      {
-        "palabra": "proyecto",
-        "n": 234
-      },
-      {
-        "palabra": "vamos",
-        "n": 61
-      },
-      {
-        "palabra": "coquimbo",
-        "n": 79
       },
       {
         "palabra": "forma",
@@ -937,48 +897,88 @@
         "n": 56
       },
       {
-        "palabra": "seguridad",
-        "n": 60
+        "palabra": "gobierno",
+        "n": 114
       },
       {
-        "palabra": "región",
-        "n": 91
+        "palabra": "chile",
+        "n": 105
       },
       {
-        "palabra": "importante",
+        "palabra": "ambiental",
         "n": 57
-      },
-      {
-        "palabra": "país",
-        "n": 68
-      },
-      {
-        "palabra": "sino",
-        "n": 82
-      },
-      {
-        "palabra": "ahora",
-        "n": 56
       },
       {
         "palabra": "quiero",
         "n": 108
       },
       {
-        "palabra": "gobierno",
-        "n": 114
+        "palabra": "región",
+        "n": 91
+      },
+      {
+        "palabra": "vamos",
+        "n": 61
+      },
+      {
+        "palabra": "país",
+        "n": 68
+      },
+      {
+        "palabra": "proyecto",
+        "n": 234
+      },
+      {
+        "palabra": "entonces",
+        "n": 105
+      },
+      {
+        "palabra": "comisión",
+        "n": 133
+      },
+      {
+        "palabra": "sistema",
+        "n": 75
       },
       {
         "palabra": "nacional",
         "n": 56
       },
       {
+        "palabra": "creo",
+        "n": 55
+      },
+      {
+        "palabra": "decir",
+        "n": 72
+      },
+      {
+        "palabra": "coquimbo",
+        "n": 79
+      },
+      {
+        "palabra": "ahora",
+        "n": 56
+      },
+      {
+        "palabra": "importante",
+        "n": 57
+      },
+      {
+        "palabra": "acuerdo",
+        "n": 64
+      },
+      {
         "palabra": "puede",
         "n": 87
       },
       {
-        "palabra": "chile",
-        "n": 105
+        "palabra": "ejecutivo",
+        "n": 66
+      },
+      {
+        "palabra": "sino",
+        "n": 82
       }
     ],
     "enlaces": [
