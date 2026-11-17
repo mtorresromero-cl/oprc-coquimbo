@@ -1545,24 +1545,76 @@
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "rurales",
-        "n": 114
+        "palabra": "región",
+        "n": 247
       },
       {
-        "palabra": "coquimbo",
-        "n": 243
+        "palabra": "sino",
+        "n": 153
       },
       {
-        "palabra": "artículo",
-        "n": 119
+        "palabra": "seguridad",
+        "n": 173
+      },
+      {
+        "palabra": "nacional",
+        "n": 95
+      },
+      {
+        "palabra": "gobierno",
+        "n": 146
+      },
+      {
+        "palabra": "personas",
+        "n": 134
+      },
+      {
+        "palabra": "proyecto",
+        "n": 422
+      },
+      {
+        "palabra": "chile",
+        "n": 151
+      },
+      {
+        "palabra": "país",
+        "n": 201
       },
       {
         "palabra": "quiero",
         "n": 135
       },
       {
-        "palabra": "proyecto",
-        "n": 422
+        "palabra": "puede",
+        "n": 189
+      },
+      {
+        "palabra": "manera",
+        "n": 103
+      },
+      {
+        "palabra": "artículo",
+        "n": 119
+      },
+      {
+        "palabra": "problema",
+        "n": 103
+      },
+      {
+        "palabra": "familias",
+        "n": 198
+      },
+      {
+        "palabra": "rurales",
+        "n": 114
+      },
+      {
+        "palabra": "agua",
+        "n": 125
+      },
+      {
+        "palabra": "derechos",
+        "n": 108
       },
       {
         "palabra": "comisión",
@@ -1573,76 +1625,24 @@
         "n": 101
       },
       {
-        "palabra": "sino",
-        "n": 153
-      },
-      {
-        "palabra": "sesión",
-        "n": 112
-      },
-      {
-        "palabra": "seguridad",
-        "n": 173
-      },
-      {
-        "palabra": "derechos",
-        "n": 108
-      },
-      {
-        "palabra": "personas",
-        "n": 134
-      },
-      {
-        "palabra": "gobierno",
-        "n": 146
-      },
-      {
-        "palabra": "agua",
-        "n": 125
-      },
-      {
-        "palabra": "nacional",
-        "n": 95
+        "palabra": "sistema",
+        "n": 92
       },
       {
         "palabra": "debe",
         "n": 115
       },
       {
+        "palabra": "sesión",
+        "n": 112
+      },
+      {
+        "palabra": "coquimbo",
+        "n": 243
+      },
+      {
         "palabra": "además",
         "n": 94
-      },
-      {
-        "palabra": "región",
-        "n": 247
-      },
-      {
-        "palabra": "manera",
-        "n": 103
-      },
-      {
-        "palabra": "sistema",
-        "n": 92
-      },
-      {
-        "palabra": "chile",
-        "n": 151
-      },
-      {
-        "palabra": "puede",
-        "n": 189
-      },
-      {
-        "palabra": "familias",
-        "n": 198
-      },
-      {
-        "palabra": "país",
-        "n": 201
-      },
-      {
-        "palabra": "problema",
-        "n": 103
       }
     ],
     "enlaces": [

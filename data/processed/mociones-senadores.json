@@ -1,5 +1,14 @@
 [
   {
+    "autoridad_id": "matias-walker-prieto-senador",
+    "fecha": "2026-11-04",
+    "rol": "autor",
+    "boletin": "18853-12",
+    "titulo": "Modifica diversos cuerpos legales, con el objeto de regular el cuidado, la protección y la responsabilidad respecto de los animales de compañía",
+    "estado": "En tramitación",
+    "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
+  },
+  {
     "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
     "fecha": "2026-10-28",
     "rol": "autor",
@@ -203,7 +212,7 @@
     "rol": "autor",
     "boletin": "18337-12",
     "titulo": "Modifica la ley N° 21.368, con el objeto de prorrogar la entrada en vigencia de su reglamento y flexibilizar la aplicación de las disposiciones que indica",
-    "estado": "En tramitación",
+    "estado": "Publicado",
     "url_bcn": "https://tramitacion.senado.cl/appsenado/templates/tramitacion/"
   },
   {

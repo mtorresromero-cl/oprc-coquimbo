@@ -428,6 +428,22 @@
       {
         "autoridad_id": "erich-christ-grohs-marin-diputado",
         "voto": "ausente"
+      },
+      {
+        "autoridad_id": "daniel-manouchehri-lobos-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "carolina-tello-rojas-diputado",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "nathalie-castillo-rojas-diputado",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "marco-antonio-sulantay-olivares-diputado",
+        "voto": "favor"
       }
     ]
   },

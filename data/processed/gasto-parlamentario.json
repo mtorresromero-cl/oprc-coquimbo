@@ -159,9 +159,9 @@
     "mes": 8,
     "categoria": "gastos_operacionales",
     "publicado": 1,
-    "monto": 0.0,
+    "monto": 6968371.0,
     "cantidad": null,
-    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 2366213.0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 2230545.0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 630800.0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 1375000.0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 15813.0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 120000.0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 230000.0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1250"
   },
   {
@@ -179,6 +179,17 @@
     "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
     "anno": 2026,
     "mes": 10,
+    "categoria": "gastos_operacionales",
+    "publicado": 1,
+    "monto": 0.0,
+    "cantidad": null,
+    "detalle": "[{\"concepto\": \"TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO\", \"monto\": 0}, {\"concepto\": \"TELEFONÍA\", \"monto\": 0}, {\"concepto\": \"TRASLACIÓN\", \"monto\": 0}, {\"concepto\": \"DIFUSIÓN\", \"monto\": 0}, {\"concepto\": \"ACTIVIDADES DESTINADAS A LA INTERACCIÓN CON LA COMUNIDAD\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE INMUEBLE\", \"monto\": 0}, {\"concepto\": \"CONSUMOS BÁSICOS\", \"monto\": 0}, {\"concepto\": \"EQUIPAMIENTO OFICINA PARLAMENTARIA\", \"monto\": 0}, {\"concepto\": \"MATERIALES DE OFICINA\", \"monto\": 0}, {\"concepto\": \"CORRESPONDENCIA\", \"monto\": 0}, {\"concepto\": \"GASTOS DE MANTENCIÓN OFICINA PARLAMENTARIA (INMUEBLE)\", \"monto\": 0}, {\"concepto\": \"REPARACIONES LOCATIVAS DEL INMUEBLE\", \"monto\": 0}, {\"concepto\": \"HABILITACIÓN DE SEDES PARLAMENTARIAS (CON AUTORIZACIÓN DE CRAP)\", \"monto\": 0}, {\"concepto\": \"SEGUROS DE BIENES\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINAS VIRTUALES\", \"monto\": 0}, {\"concepto\": \"SERVICIOS WEB\", \"monto\": 0}, {\"concepto\": \"CONTRATACIÓN SERVICIO DE ALMACENAMIENTO\", \"monto\": 0}, {\"concepto\": \"ARRIENDO DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"MANTENCION Y REPARACIÓN DE OFICINA MÓVIL\", \"monto\": 0}, {\"concepto\": \"SERVICIOS MENORES\", \"monto\": 0}, {\"concepto\": \"COVID-19 PERSONAL DE APOYO\", \"monto\": 0}]",
+    "fuente_url": "https://www.camara.cl/diputados/detalle/gastosoperacionales.aspx?prmId=1250"
+  },
+  {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "anno": 2026,
+    "mes": 11,
     "categoria": "gastos_operacionales",
     "publicado": 0,
     "monto": null,
@@ -367,10 +378,10 @@
     "anno": 2026,
     "mes": 10,
     "categoria": "personal_apoyo",
-    "publicado": 0,
-    "monto": null,
-    "cantidad": null,
-    "detalle": null,
+    "publicado": 1,
+    "monto": 10154667.0,
+    "cantidad": 9,
+    "detalle": "[{\"nombre\": \"BARRAZA CURTEN ANDREA MACARENA\", \"cargo\": \"Profesional\", \"renta\": 166667.0}, {\"nombre\": \"BARRIA BRITO TAMARA VALEZKA\", \"cargo\": \"Administrativo\", \"renta\": 1000000.0}, {\"nombre\": \"GALAZ MORALES DONY RICARDO\", \"cargo\": \"Profesional\", \"renta\": 2200000.0}, {\"nombre\": \"MUÑOZ ZAPATA BÁRBARA CAMILA\", \"cargo\": \"Asesor\", \"renta\": 1250000.0}, {\"nombre\": \"MURSELL SILVA ENRIQUE\", \"cargo\": \"Profesional\", \"renta\": 1250000.0}, {\"nombre\": \"OSSES CORREA MARCOS ALBERTO\", \"cargo\": \"Asesor\", \"renta\": 1250000.0}, {\"nombre\": \"PÉREZ VALENZUELA ALEJANDRO ALBERTO\", \"cargo\": \"Profesional\", \"renta\": 1250000.0}, {\"nombre\": \"VEGA YAÑEZ MAIRA AMAPOLA\", \"cargo\": \"Asesor\", \"renta\": 538000.0}, {\"nombre\": \"VERGARA MANDIOLA FERNANDO\", \"cargo\": \"Profesional\", \"renta\": 1250000.0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1250"
   },
   {
@@ -763,10 +774,10 @@
     "anno": 2026,
     "mes": 10,
     "categoria": "personal_apoyo",
-    "publicado": 0,
-    "monto": null,
-    "cantidad": null,
-    "detalle": null,
+    "publicado": 1,
+    "monto": 10280000.0,
+    "cantidad": 8,
+    "detalle": "[{\"nombre\": \"AGUIRRE FLORES ANIBAL MARCIAL\", \"cargo\": \"Profesional\", \"renta\": 1200000.0}, {\"nombre\": \"ASTORGA OLIVARES MACARENA FERNANDA\", \"cargo\": \"Asesor\", \"renta\": 1530000.0}, {\"nombre\": \"CALLEJAS LOZANO JUAN DIEGO\", \"cargo\": \"Profesional\", \"renta\": 1200000.0}, {\"nombre\": \"ELGUETA CASTILLO PAULINA PÍA\", \"cargo\": \"Profesional\", \"renta\": 1200000.0}, {\"nombre\": \"PÉREZ ROJAS NICOLE FERNANDA\", \"cargo\": \"Profesional\", \"renta\": 2500000.0}, {\"nombre\": \"RIVERA RAMÍREZ DIEGO JAVIER\", \"cargo\": \"Profesional\", \"renta\": 1100000.0}, {\"nombre\": \"RODRIGUEZ MENA JESSICA ANDREA\", \"cargo\": \"Profesional\", \"renta\": 1000000.0}, {\"nombre\": \"VILCHES ROJAS VERÓNICA CAROLINA\", \"cargo\": \"Profesional\", \"renta\": 550000.0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1177"
   },
   {
@@ -1159,10 +1170,10 @@
     "anno": 2026,
     "mes": 10,
     "categoria": "personal_apoyo",
-    "publicado": 0,
-    "monto": null,
-    "cantidad": null,
-    "detalle": null,
+    "publicado": 1,
+    "monto": 7880000.0,
+    "cantidad": 6,
+    "detalle": "[{\"nombre\": \"BENÍTEZ CARMONA MARÍA JOSÉ\", \"cargo\": \"Profesional\", \"renta\": 1100000.0}, {\"nombre\": \"GALLEGUILLOS CASTILLO PABLO ENRIQUE\", \"cargo\": \"Administrativo\", \"renta\": 700000.0}, {\"nombre\": \"GONZALEZ CHAPERON OSCAR IGNACIO\", \"cargo\": \"Profesional\", \"renta\": 2260000.0}, {\"nombre\": \"PALLAMAR URZUA JUAN PABLO\", \"cargo\": \"Profesional\", \"renta\": 1170000.0}, {\"nombre\": \"SILVA VILLANUEVA DANIEL LEOPOLDO\", \"cargo\": \"Profesional\", \"renta\": 1800000.0}, {\"nombre\": \"VALDES ANDRADES MARILUZ EMILIANA\", \"cargo\": \"Administrativo\", \"renta\": 850000.0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1142"
   },
   {
@@ -2336,10 +2347,10 @@
     "anno": 2026,
     "mes": 10,
     "categoria": "personal_apoyo",
-    "publicado": 0,
-    "monto": null,
-    "cantidad": null,
-    "detalle": null,
+    "publicado": 1,
+    "monto": 7603882.0,
+    "cantidad": 5,
+    "detalle": "[{\"nombre\": \"BOBADILLA  QUIROGA  ALEJANDRA PAOLA\", \"cargo\": \"Administrativo\", \"renta\": 750000.0}, {\"nombre\": \"ESPINOZA CANEPA FRANCISCA ISABEL\", \"cargo\": \"Profesional\", \"renta\": 1300000.0}, {\"nombre\": \"HENRÍQUEZ RIQUELME CLAUDIO ESTEBAN\", \"cargo\": \"Profesional\", \"renta\": 2519000.0}, {\"nombre\": \"TOLOSA PIÑONES ANDRÉS ANTONIO\", \"cargo\": \"Profesional\", \"renta\": 675000.0}, {\"nombre\": \"MARDONES POBLETE DANIELA IVON\", \"cargo\": \"Asesoria Legislativa\", \"renta\": 2359882.0}]",
     "fuente_url": "https://www.camara.cl/diputados/detalle/personaldepoyo.aspx?prmId=1174"
   },
   {

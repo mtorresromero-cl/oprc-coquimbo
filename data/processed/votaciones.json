@@ -1,5 +1,233 @@
 [
   {
+    "id": "senado-13872-79-374-2026-11-11",
+    "camara": "senado",
+    "fecha": "2026-11-11",
+    "numero_sesion": "79/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general y en particular, el proyecto de ley que rehabilita la nacionalidad chilena a doña Ana María Posada Montes.",
+    "resultado": "aprobado",
+    "votos_favor": 28,
+    "votos_contra": 1,
+    "abstenciones": 2,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=13872",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-16335-79-374-2026-11-11",
+    "camara": "senado",
+    "fecha": "2026-11-11",
+    "numero_sesion": "79/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación la propuesta formulada por la Comisión Mixta constituida para resolver las divergencias suscitadas entre ambas Cámaras durante la tramitación del proyecto de ley que regula la prevención y mitigación de incendios forestales, y otras materias que indica. El artículo 38, que pasa a ser 47, y el número 4 del artículo 39, que pasa a ser 48, tienen carácter de norma orgánica constitucional.",
+    "resultado": "aprobado",
+    "votos_favor": 34,
+    "votos_contra": 3,
+    "abstenciones": 3,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16335",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "favor"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-16743-79-374-2026-11-11",
+    "camara": "senado",
+    "fecha": "2026-11-11",
+    "numero_sesion": "79/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación la enmienda que elimina el inciso segundo del artículo segundo transitorio, cuya votación separada ha sido solicitada por los Honorables Senadores señora Provoste y señor Mirosevic, que consta en la página 93 del comparado.",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 9,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=16743",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "daniel-ignacio-nunez-arancibia-senador",
+        "voto": "contra"
+      },
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-17002-79-374-2026-11-11",
+    "camara": "senado",
+    "fecha": "2026-11-11",
+    "numero_sesion": "79/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general y en particular, el proyecto de ley que rehabilita la nacionalidad chilena a la señora María Inés Caorsi Saelzer",
+    "resultado": "aprobado",
+    "votos_favor": 24,
+    "votos_contra": 0,
+    "abstenciones": 4,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17002",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-17198-79-374-2026-11-11",
+    "camara": "senado",
+    "fecha": "2026-11-11",
+    "numero_sesion": "79/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general y en particular, el proyecto de ley que rehabilita la nacionalidad chilena al señor André Améstica Lopes",
+    "resultado": "aprobado",
+    "votos_favor": 27,
+    "votos_contra": 0,
+    "abstenciones": 2,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17198",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-17900-79-374-2026-11-11",
+    "camara": "senado",
+    "fecha": "2026-11-11",
+    "numero_sesion": "79/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general y en particular, el proyecto de ley que rehabilita la nacionalidad chilena al señor Alex Cristián De Kartzow Montt",
+    "resultado": "aprobado",
+    "votos_favor": 24,
+    "votos_contra": 1,
+    "abstenciones": 3,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=17900",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18081-79-374-2026-11-11",
+    "camara": "senado",
+    "fecha": "2026-11-11",
+    "numero_sesion": "79/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general y en particular, el proyecto de ley que rehabilita la nacionalidad chilena a la señora Cecilia del Carmen Salgado Alfaro",
+    "resultado": "aprobado",
+    "votos_favor": 27,
+    "votos_contra": 0,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18081",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18532-79-374-2026-11-11",
+    "camara": "senado",
+    "fecha": "2026-11-11",
+    "numero_sesion": "79/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general y en particular, el proyecto de ley que rehabilita la nacionalidad chilena a Adolfo José Ochagavía Hubner",
+    "resultado": "aprobado",
+    "votos_favor": 28,
+    "votos_contra": 0,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18532",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18709-79-374-2026-11-11",
+    "camara": "senado",
+    "fecha": "2026-11-11",
+    "numero_sesion": "79/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que modifica la ley N° 21.780, que crea el Servicio Nacional de Acceso a la Justicia y la Defensoría de Víctimas, con el objeto de otorgar mayor eficiencia al proceso de implementación del servicio. Por la sola aprobación en general del proyecto, se entenderán aprobadas en particular las disposiciones de la iniciativa que no han sido objeto de indicaciones ni solicitudes de votación separada.",
+    "resultado": "aprobado",
+    "votos_favor": 17,
+    "votos_contra": 0,
+    "abstenciones": 0,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18709",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
+    "id": "senado-18585-77-374-2026-11-10",
+    "camara": "senado",
+    "fecha": "2026-11-10",
+    "numero_sesion": "77/374",
+    "tipo": null,
+    "proyecto_ley_id": null,
+    "descripcion": "En votación, en general, el proyecto de ley que modifica el Código Procesal Penal y la ley N°19.970, que crea el sistema nacional de registros de ADN, para agilizar las investigaciones penales, con excepción del inciso cuarto del artículo 13 bis contenido en el número 5) del artículo 2, que reviste el carácter de norma de quorum calificado.",
+    "resultado": "aprobado",
+    "votos_favor": 30,
+    "votos_contra": 2,
+    "abstenciones": 1,
+    "fuente_url": "https://tramitacion.senado.cl/wspublico/votaciones.php?boletin=18585",
+    "etapa": null,
+    "articulo": null,
+    "votos": [
+      {
+        "autoridad_id": "matias-walker-prieto-senador",
+        "voto": "favor"
+      }
+    ]
+  },
+  {
     "id": "senado-18551-75-374-2026-10-28",
     "camara": "senado",
     "fecha": "2026-10-28",

@@ -881,12 +881,12 @@
   "coocurrencia": {
     "nodos": [
       {
-        "palabra": "seguridad",
-        "n": 60
+        "palabra": "proyecto",
+        "n": 234
       },
       {
-        "palabra": "ciento",
-        "n": 70
+        "palabra": "país",
+        "n": 68
       },
       {
         "palabra": "forma",
@@ -897,18 +897,6 @@
         "n": 56
       },
       {
-        "palabra": "gobierno",
-        "n": 114
-      },
-      {
-        "palabra": "chile",
-        "n": 105
-      },
-      {
-        "palabra": "ambiental",
-        "n": 57
-      },
-      {
         "palabra": "quiero",
         "n": 108
       },
@@ -917,31 +905,39 @@
         "n": 91
       },
       {
+        "palabra": "ciento",
+        "n": 70
+      },
+      {
+        "palabra": "ejecutivo",
+        "n": 66
+      },
+      {
         "palabra": "vamos",
         "n": 61
       },
       {
-        "palabra": "país",
-        "n": 68
-      },
-      {
-        "palabra": "proyecto",
-        "n": 234
-      },
-      {
-        "palabra": "entonces",
-        "n": 105
+        "palabra": "coquimbo",
+        "n": 79
       },
       {
         "palabra": "comisión",
         "n": 133
       },
       {
-        "palabra": "sistema",
-        "n": 75
+        "palabra": "importante",
+        "n": 57
       },
       {
         "palabra": "nacional",
+        "n": 56
+      },
+      {
+        "palabra": "seguridad",
+        "n": 60
+      },
+      {
+        "palabra": "ahora",
         "n": 56
       },
       {
@@ -953,32 +949,36 @@
         "n": 72
       },
       {
-        "palabra": "coquimbo",
-        "n": 79
+        "palabra": "puede",
+        "n": 87
       },
       {
-        "palabra": "ahora",
-        "n": 56
+        "palabra": "sino",
+        "n": 82
       },
       {
-        "palabra": "importante",
-        "n": 57
+        "palabra": "gobierno",
+        "n": 114
+      },
+      {
+        "palabra": "entonces",
+        "n": 105
+      },
+      {
+        "palabra": "sistema",
+        "n": 75
       },
       {
         "palabra": "acuerdo",
         "n": 64
       },
       {
-        "palabra": "puede",
-        "n": 87
+        "palabra": "ambiental",
+        "n": 57
       },
       {
-        "palabra": "ejecutivo",
-        "n": 66
-      },
-      {
-        "palabra": "sino",
-        "n": 82
+        "palabra": "chile",
+        "n": 105
       }
     ],
     "enlaces": [

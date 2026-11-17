@@ -141,6 +141,20 @@
   },
   {
     "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
+    "fecha_declaracion": "2026-10-20",
+    "tipo_declaracion": "Rectificación A Requerimiento De Órgano Fiscalizador",
+    "cargo_declarado": "DIPUTADO/DA",
+    "organismo": "Camara De Diputados",
+    "bienes_inmuebles_n": 1,
+    "vehiculos_n": 1,
+    "sociedades_n": 0,
+    "valores_monto": 0.0,
+    "pasivos_tiene": 0,
+    "pasivos_monto": 0.0,
+    "fuente_url": "https://www.infoprobidad.cl/Declaracion/Declaracion?ID=1906882"
+  },
+  {
+    "autoridad_id": "bernardo-antonio-salinas-maya-diputado",
     "fecha_declaracion": "2026-04-09",
     "tipo_declaracion": "Presentación A Requerimiento De Órgano Fiscalizador",
     "cargo_declarado": "DIPUTADO/DA",
@@ -533,6 +547,20 @@
   },
   {
     "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
+    "fecha_declaracion": "2026-11-02",
+    "tipo_declaracion": "Rectificación A Requerimiento De Órgano Fiscalizador",
+    "cargo_declarado": "GOBERNADOR REGIONAL",
+    "organismo": "Gobierno Regional De Coquimbo",
+    "bienes_inmuebles_n": 2,
+    "vehiculos_n": 1,
+    "sociedades_n": 2,
+    "valores_monto": 0.0,
+    "pasivos_tiene": 1,
+    "pasivos_monto": 110518165.0,
+    "fuente_url": "https://www.infoprobidad.cl/Declaracion/Declaracion?ID=1917920"
+  },
+  {
+    "autoridad_id": "cristobal-julia-de-la-vega-gobernador",
     "fecha_declaracion": "2026-09-24",
     "tipo_declaracion": "Actualizacion Periodica (Septiembre)",
     "cargo_declarado": "GOBERNADOR REGIONAL",
@@ -768,6 +796,20 @@
     "pasivos_tiene": 0,
     "pasivos_monto": 0.0,
     "fuente_url": "https://www.infoprobidad.cl/Declaracion/Declaracion?ID=1730144"
+  },
+  {
+    "autoridad_id": "felipe-ignacio-carrazana-leon-concejal",
+    "fecha_declaracion": "2026-11-02",
+    "tipo_declaracion": "Rectificación A Requerimiento De Órgano Fiscalizador",
+    "cargo_declarado": "CONCEJAL",
+    "organismo": "Municipalidad De Coquimbo",
+    "bienes_inmuebles_n": 0,
+    "vehiculos_n": 1,
+    "sociedades_n": 0,
+    "valores_monto": 0.0,
+    "pasivos_tiene": 1,
+    "pasivos_monto": 15000000.0,
+    "fuente_url": "https://www.infoprobidad.cl/Declaracion/Declaracion?ID=1921061"
   },
   {
     "autoridad_id": "felipe-ignacio-carrazana-leon-concejal",
